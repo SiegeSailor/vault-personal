@@ -3,22 +3,26 @@
 // 
 
 // Color System
-$accent: #559AC8;
-$purple: #8A82CC;
-$pink: #FFA782;
-$yellow: #F5D105;
-$white: #ffffff;
+// Accent
+$accent: #6c7992;
+// When accent is applied to the background color,
+// only the following colors can be used.
+$accent-white:#ffffff;
+$accent-blue:#abdaf5;
+$accent-gray:#e6e6e6;
+$accent-extra:#bac7c9;
+// Secondary
+$secondary: #dad9d8;
+// When secondary is applied to the background color,
+// only the following colors can be used.
+$secondary-black:#000000;
+$secondary-darkgray:#5a595c;
+$secondary-lightgray:#808083;
+$secondary-red:#8e1b47;
 
 // Font Size
-// .title
-$font-size-xxl: 40px;
-// .status
+$font-size-xxl: 48px;
 $font-size-xl: 36px;
-// .object-title
 $font-size-large: 24px;
-// .selector .shortcut
-$font-size-lm: 18px;
-// .object-area .info-time .info-address .info-phone .tag
 $font-size-medium: 16px;
-// .author .credit
 $font-size-small: 14px;
