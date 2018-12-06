@@ -40,8 +40,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-html, *, body {
-  font-family: Arial, Helvetica, sans-serif; }
+html,
+*,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 .clearfix {
   clear: both; }
@@ -50,6 +54,12 @@ html, *, body {
   width: 100%;
   height: 100%;
   background: rgba(108, 121, 146, 0.85);
+  position: absolute; }
+
+.filter-blue {
+  width: 100%;
+  height: 100%;
+  background: rgba(168, 218, 245, 0.85);
   position: absolute; }
 
 .filter-black {
@@ -108,7 +118,8 @@ i {
     left: 0;
     right: 0;
     margin: auto;
-    font-size: 16px; }
+    font-size: 16px;
+    z-index: 50; }
     .header .alert:hover {
       cursor: pointer; }
   .header h1 {
@@ -176,45 +187,116 @@ i {
   padding: 48px 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+  .secondary h2 {
+    font-size: 36px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    float: left; }
   .secondary .title-line {
     border-top: 1.25px solid #5a595c;
     width: 100%;
     padding-bottom: 18px; }
+  .secondary .headshot {
+    margin-left: 10%;
+    background-color: rgba(128, 128, 131, 0.1);
+    padding: 24px; }
+  .secondary .digital-marketing-headshot {
+    margin-left: 0%; }
   .secondary span {
     float: right;
     padding-top: 6px;
     line-height: 36px;
     font-size: 16px; }
+  .secondary h3 {
+    font-size: 24px;
+    padding-bottom: 24px; }
+  .secondary h4 {
+    padding-bottom: 8px;
+    font-size: 18px; }
   .secondary ul li {
     padding: 16px 0px;
     float: left;
     width: 50%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box; }
-    .secondary ul li h2 {
-      font-size: 36px;
-      padding-bottom: 24px;
-      font-weight: bold;
-      float: left; }
     .secondary ul li p {
       font-size: 16px;
       line-height: 21px;
       padding-bottom: 21px; }
+  .secondary ul a {
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+    border: 1.25px solid #000000;
+    border-radius: 2.5px;
+    background-color: #6c7992;
+    padding: 10px 14px;
+    margin: 16px 6px;
+    margin-left: 0px; }
+    .secondary ul a:hover {
+      border: 1.25px solid #abdaf5;
+      background-color: #abdaf5;
+      color: #6c7992; }
   .secondary p {
     font-size: 16px;
-    color: #808083; }
-  .secondary .list li {
-    padding-left: 16px;
-    padding-bottom: 12px;
-    line-height: 21px;
-    padding: 0px;
-    width: 100%;
-    font-size: 14px;
     color: #5a595c; }
-  .secondary .list ul {
-    padding-left: 32px; }
-  .secondary .list .list-title {
-    font-weight: bold; }
+  .secondary .education {
+    background-color: rgba(128, 128, 131, 0.1);
+    padding: 24px; }
+    .secondary .education table {
+      width: 100%; }
+      .secondary .education table td {
+        padding: 4px 0px;
+        line-height: 18px;
+        font-size: 16px;
+        color: #5a595c; }
+        .secondary .education table td a {
+          margin: 0px;
+          padding: 10px 14px; }
+      .secondary .education table .education-school {
+        font-size: 18px;
+        padding-top: 12px;
+        color: #000000; }
+      .secondary .education table .education-time {
+        color: #000000;
+        padding: 4px 0px;
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1.25px solid #808083; }
+  .secondary .digital-marketing-education {
+    margin-left: 10%; }
+  .secondary .progress-board {
+    padding-left: 10%; }
+    .secondary .progress-board .progress {
+      height: 21px;
+      overflow: hidden;
+      background-color: rgba(128, 128, 131, 0.1);
+      border-radius: 2.5px;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      position: relative;
+      margin-bottom: 8px; }
+    .secondary .progress-board .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      font-size: 14px;
+      line-height: 18px;
+      color: #ffffff;
+      text-align: center;
+      background-color: #6c7992;
+      -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+      -webkit-transition: width 3s ease;
+      -o-transition: width 3s ease;
+      transition: width 3s ease;
+      border: 1.25px solid #000000; }
+  .secondary .digital-marketing-progress-board {
+    padding-left: 0%; }
 
 .accent-white {
   background: #ffffff;
@@ -226,9 +308,14 @@ i {
     border-bottom: 1.25px solid #5a595c;
     margin-bottom: 18px;
     width: 100%; }
+  .accent-white p {
+    font-size: 16px;
+    color: #5a595c;
+    line-height: 21px;
+    padding-bottom: 21px; }
   .accent-white ul {
     margin: 0px -1%;
-    margin-bottom: 36px; }
+    margin-bottom: 0px; }
   .accent-white li {
     width: 31.33323%;
     float: left;
@@ -238,7 +325,8 @@ i {
       line-height: 21px;
       font-size: 16px;
       color: #5a595c;
-      height: 84px; }
+      height: 63px;
+      padding-bottom: 0px; }
   .accent-white .front-end-courses {
     width: 50%; }
   .accent-white .front-end-skills {
@@ -255,19 +343,19 @@ i {
         display: inline-block;
         font-size: 14px;
         padding: 10px 14px;
-        margin: 8px 6px 16px 6px;
+        margin: 16px 6px;
         margin-right: 0px;
         color: #6c7992;
-        border: 1.25px solid #5a595c;
+        border: 1.25px solid #6c7992;
         border-radius: 2.5px;
         text-decoration: none; }
         .accent-white .front-end-skills li a:hover {
-          background-color: #5a595c;
+          background-color: #6c7992;
           color: #ffffff;
           cursor: default; }
   .accent-white h2 {
     font-size: 36px;
-    padding-bottom: 24px;
+    padding-bottom: 2px;
     font-weight: bold;
     float: left; }
   .accent-white span {
@@ -281,7 +369,8 @@ i {
   .accent-white .thumbnail {
     border: 1.25px solid #808083;
     padding: 8px;
-    border-radius: 2.5px; }
+    border-radius: 2.5px;
+    background-color: #ffffff; }
     .accent-white .thumbnail img {
       max-width: 100%;
       height: 206px; }
@@ -294,3 +383,146 @@ i {
       font-weight: bold; }
     .accent-white a:hover {
       text-decoration: underline; }
+  .accent-white .front-end-sections {
+    background-color: rgba(128, 128, 131, 0.1);
+    padding: 24px; }
+  .accent-white .m-24 {
+    margin-bottom: 24px; }
+
+.accent {
+  margin-top: -12px;
+  background: #6c7992;
+  width: 100%;
+  padding: 48px 10%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #ffffff; }
+  .accent .title-line {
+    border-bottom: 1.25px solid #ffffff;
+    margin-bottom: 18px;
+    width: 100%; }
+  .accent ul {
+    margin: 0px -1%;
+    margin-bottom: 36px; }
+  .accent li {
+    width: 31.33323%;
+    float: left;
+    margin: 0px 1%;
+    font-size: 18px; }
+    .accent li p {
+      line-height: 21px;
+      font-size: 16px;
+      color: #e6e6e6;
+      height: 84px; }
+  .accent .graphic-design-skills {
+    width: 50%;
+    margin: 0px 0px;
+    margin-bottom: 36px;
+    float: left;
+    text-align: left; }
+    .accent .graphic-design-skills li {
+      width: 100%;
+      float: none;
+      margin: 0% 0%; }
+      .accent .graphic-design-skills li a {
+        display: inline-block;
+        font-size: 14px;
+        padding: 10px 14px;
+        margin: 16px 6px;
+        margin-right: 0px;
+        color: #ffffff;
+        border: 1.25px solid #ffffff;
+        border-radius: 2.5px;
+        text-decoration: none; }
+        .accent .graphic-design-skills li a:hover {
+          background-color: #abdaf5;
+          color: #6c7992;
+          border: 1.25px solid #abdaf5;
+          cursor: default; }
+  .accent h2 {
+    font-size: 36px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    float: left; }
+  .accent span {
+    float: right;
+    padding-top: 6px;
+    line-height: 36px;
+    font-size: 16px; }
+  .accent h3 {
+    font-size: 24px;
+    padding-bottom: 24px; }
+  .accent .thumbnail {
+    border: 1.25px solid #808083;
+    padding: 8px;
+    border-radius: 2.5px; }
+    .accent .thumbnail img {
+      max-width: 100%;
+      height: 206px; }
+  .accent a {
+    text-decoration: none; }
+    .accent a h4 {
+      padding: 8px 0px;
+      font-size: 18px;
+      color: #6c7992;
+      font-weight: bold; }
+    .accent a:hover {
+      text-decoration: underline; }
+  .accent .grid {
+    max-width: 100%; }
+    .accent .grid .projects-title {
+      width: 100%;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      color: #6c7992;
+      font-weight: bold;
+      border-top: 1.25px solid #ffffff;
+      border-bottom: 1.25px solid #ffffff;
+      background-color: #ffffff; }
+    .accent .grid .caption {
+      height: 76px;
+      line-height: 21px;
+      font-size: 16px;
+      color: #ffffff;
+      padding: 8px 12px; }
+    .accent .grid .filter-blue {
+      opacity: 0;
+      -webkit-transition: 0.25s;
+      -o-transition: 0.25s;
+      transition: 0.25s;
+      z-index: 50; }
+      .accent .grid .filter-blue:hover {
+        opacity: 1; }
+      .accent .grid .filter-blue:before {
+        position: absolute;
+        content: "Click To Link";
+        top: 50%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        margin: auto;
+        display: block;
+        font-size: 18px;
+        color: #000000;
+        font-weight: bold; }
+    .accent .grid img {
+      max-width: 100%;
+      margin-bottom: -3px; }
+  .accent .grid:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .accent .grid-sizer,
+  .accent .grid-item {
+    width: 33.3%;
+    position: relative; }
+  .accent .grid-item {
+    float: left;
+    border: 1.25px solid #ffffff;
+    border-radius: 2.5px; }
+  .accent .grid-item--width2 {
+    width: 66.6%; }
+  .accent .grid-item:hover {
+    cursor: pointer; }
