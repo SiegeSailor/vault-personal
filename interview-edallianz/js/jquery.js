@@ -17,6 +17,11 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
+    // Diesable buttons for Digital Marketing skills section.
+    $('.digital-marketing-skills li a').click(function (event) {
+        event.preventDefault(); 
+    });
+
     // Plugin / Masonry
     var $grid = $('.grid').masonry({
         itemSelector: '.grid-item',

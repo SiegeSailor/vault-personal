@@ -123,7 +123,7 @@ i {
     .header .alert:hover {
       cursor: pointer; }
   .header h1 {
-    font-size: 48px;
+    font-size: 74px;
     color: #ffffff;
     position: absolute;
     top: 30%;
@@ -170,7 +170,7 @@ i {
     text-decoration: none;
     width: 36px;
     height: 36px;
-    font-size: 24px;
+    font-size: 32px;
     position: absolute;
     top: 90%;
     left: 0;
@@ -184,11 +184,11 @@ i {
 .secondary {
   width: 100%;
   background-color: #dad9d8;
-  padding: 48px 10%;
+  padding: 108px 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
   .secondary h2 {
-    font-size: 36px;
+    font-size: 48px;
     padding-bottom: 2px;
     font-weight: bold;
     float: left; }
@@ -196,19 +196,13 @@ i {
     border-top: 1.25px solid #5a595c;
     width: 100%;
     padding-bottom: 18px; }
-  .secondary .headshot {
-    margin-left: 10%;
-    background-color: rgba(128, 128, 131, 0.1);
-    padding: 24px; }
-  .secondary .digital-marketing-headshot {
-    margin-left: 0%; }
   .secondary span {
     float: right;
-    padding-top: 6px;
-    line-height: 36px;
+    padding-top: 16px;
+    line-height: 48px;
     font-size: 16px; }
   .secondary h3 {
-    font-size: 24px;
+    font-size: 32px;
     padding-bottom: 24px; }
   .secondary h4 {
     padding-bottom: 8px;
@@ -224,7 +218,6 @@ i {
       line-height: 21px;
       padding-bottom: 21px; }
   .secondary ul a {
-    display: block;
     font-size: 14px;
     text-decoration: none;
     color: #ffffff;
@@ -239,6 +232,38 @@ i {
       border: 1.25px solid #abdaf5;
       background-color: #abdaf5;
       color: #6c7992; }
+  .secondary .achievement {
+    width: 100%; }
+    .secondary .achievement p {
+      background-color: rgba(128, 128, 131, 0.1);
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1.25px solid #000000; }
+      .secondary .achievement p:hover {
+        background-color: #808083;
+        color: #ffffff; }
+    .secondary .achievement .mb-0 {
+      margin-bottom: 0px; }
+  .secondary .headshot {
+    margin-left: 10%;
+    background-color: rgba(128, 128, 131, 0.1);
+    padding: 24px; }
+    .secondary .headshot img {
+      max-width: 100%; }
+    .secondary .headshot a {
+      display: block;
+      border: 1.25px solid #000000;
+      border-radius: 2.5px;
+      background-color: #6c7992;
+      padding: 0px 0px;
+      margin: 0px 0px;
+      margin-left: 0px; }
+      .secondary .headshot a:hover {
+        border: 1.25px solid #abdaf5;
+        background-color: #6c7992; }
+  .secondary .digital-marketing-headshot {
+    margin-right: 10%;
+    margin-left: 0%; }
   .secondary p {
     font-size: 16px;
     color: #5a595c; }
@@ -254,7 +279,11 @@ i {
         color: #5a595c; }
         .secondary .education table td a {
           margin: 0px;
-          padding: 10px 14px; }
+          padding: 10px 14px;
+          display: block;
+          margin-bottom: 28px; }
+        .secondary .education table td .mb-0 {
+          margin-bottom: 0px; }
       .secondary .education table .education-school {
         font-size: 18px;
         padding-top: 12px;
@@ -265,8 +294,34 @@ i {
         font-size: 14px;
         font-weight: bold;
         border-bottom: 1.25px solid #808083; }
-  .secondary .digital-marketing-education {
-    margin-left: 10%; }
+  .secondary .insight {
+    background-color: rgba(128, 128, 131, 0.1);
+    padding: 24px;
+    margin-left: 0px; }
+    .secondary .insight table {
+      width: 100%; }
+      .secondary .insight table .insight-caption {
+        padding-bottom: 28px; }
+      .secondary .insight table td {
+        padding: 4px 0px;
+        line-height: 18px;
+        font-size: 16px;
+        color: #5a595c; }
+        .secondary .insight table td a {
+          margin: 0px;
+          padding: 10px 14px;
+          display: block;
+          margin-bottom: 28px; }
+      .secondary .insight table .insight-number {
+        font-size: 32px;
+        padding-top: 12px;
+        color: #000000; }
+      .secondary .insight table .insight-title {
+        color: #000000;
+        padding: 4px 0px;
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1.25px solid #808083; }
   .secondary .progress-board {
     padding-left: 10%; }
     .secondary .progress-board .progress {
@@ -295,51 +350,102 @@ i {
       -o-transition: width 3s ease;
       transition: width 3s ease;
       border: 1.25px solid #000000; }
-  .secondary .digital-marketing-progress-board {
-    padding-left: 0%; }
+  .secondary .digital-marketing-skills {
+    width: 100%;
+    margin: 0px 0px;
+    margin-bottom: 36px;
+    float: left;
+    text-align: left; }
+    .secondary .digital-marketing-skills li {
+      width: 100%;
+      float: none;
+      margin: 0% 0%;
+      padding: 0px; }
+      .secondary .digital-marketing-skills li a {
+        display: inline-block;
+        font-size: 14px;
+        padding: 10px 14px;
+        margin: 16px 6px;
+        margin-left: 0px;
+        color: #000000;
+        border: 1.25px solid #6c7992;
+        background-color: #dad9d8;
+        border-radius: 2.5px;
+        text-decoration: none; }
+        .secondary .digital-marketing-skills li a:hover {
+          background-color: #6c7992;
+          color: #ffffff;
+          cursor: default; }
 
-.accent-white {
-  background: #ffffff;
+.aims {
+  margin: 0 auto;
+  background: #5a595c;
+  padding: 54px 5%;
+  position: relative;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  color: #ffffff; }
+  .aims h2 {
+    font-size: 48px;
+    text-align: center;
+    padding-bottom: 48px;
+    font-weight: bold; }
+  .aims ul li {
+    width: 27.3333%;
+    margin: 0px 3%;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    height: auto;
+    position: relative; }
+    .aims ul li ul li {
+      width: 100%; }
+  .aims .aims-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 32px; }
+  .aims .aims-comment {
+    margin-left: 56px; }
+    .aims .aims-comment h4 {
+      font-size: 24px;
+      padding-bottom: 24px; }
+    .aims .aims-comment p {
+      font-size: 16px;
+      text-align: left;
+      line-height: 21px;
+      color: #bac7c9; }
+
+.secondary-front-end {
+  background: #dad9d8;
   width: 100%;
-  padding: 48px 10%;
+  padding: 108px 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
-  .accent-white .title-line {
+  .secondary-front-end .title-line {
     border-bottom: 1.25px solid #5a595c;
     margin-bottom: 18px;
     width: 100%; }
-  .accent-white p {
+  .secondary-front-end p {
     font-size: 16px;
     color: #5a595c;
     line-height: 21px;
     padding-bottom: 21px; }
-  .accent-white ul {
-    margin: 0px -1%;
-    margin-bottom: 0px; }
-  .accent-white li {
-    width: 31.33323%;
-    float: left;
-    margin: 0px 1%;
-    font-size: 18px; }
-    .accent-white li p {
-      line-height: 21px;
-      font-size: 16px;
-      color: #5a595c;
-      height: 63px;
-      padding-bottom: 0px; }
-  .accent-white .front-end-courses {
+  .secondary-front-end .front-end-courses {
     width: 50%; }
-  .accent-white .front-end-skills {
+  .secondary-front-end .front-end-skills {
     width: 50%;
     margin: 0px 0px;
     margin-bottom: 36px;
     float: right;
     text-align: right; }
-    .accent-white .front-end-skills li {
+    .secondary-front-end .front-end-skills li {
       width: 100%;
       float: none;
       margin: 0% 0%; }
-      .accent-white .front-end-skills li a {
+      .secondary-front-end .front-end-skills li a {
         display: inline-block;
         font-size: 14px;
         padding: 10px 14px;
@@ -349,51 +455,66 @@ i {
         border: 1.25px solid #6c7992;
         border-radius: 2.5px;
         text-decoration: none; }
-        .accent-white .front-end-skills li a:hover {
+        .secondary-front-end .front-end-skills li a:hover {
           background-color: #6c7992;
           color: #ffffff;
           cursor: default; }
-  .accent-white h2 {
-    font-size: 36px;
+  .secondary-front-end h2 {
+    font-size: 48px;
     padding-bottom: 2px;
     font-weight: bold;
     float: left; }
-  .accent-white span {
+  .secondary-front-end span {
     float: right;
-    padding-top: 6px;
-    line-height: 36px;
+    padding-top: 16px;
+    line-height: 48px;
     font-size: 16px; }
-  .accent-white h3 {
-    font-size: 24px;
+  .secondary-front-end h3 {
+    font-size: 32px;
     padding-bottom: 24px; }
-  .accent-white .thumbnail {
+  .secondary-front-end .thumbnail {
     border: 1.25px solid #808083;
     padding: 8px;
     border-radius: 2.5px;
     background-color: #ffffff; }
-    .accent-white .thumbnail img {
+    .secondary-front-end .thumbnail img {
       max-width: 100%;
       height: 206px; }
-  .accent-white a {
+  .secondary-front-end a {
     text-decoration: none; }
-    .accent-white a h4 {
+    .secondary-front-end a h4 {
       padding: 8px 0px;
       font-size: 18px;
       color: #6c7992;
       font-weight: bold; }
-    .accent-white a:hover {
+    .secondary-front-end a:hover {
       text-decoration: underline; }
-  .accent-white .front-end-sections {
+  .secondary-front-end .front-end-sections {
     background-color: rgba(128, 128, 131, 0.1);
-    padding: 24px; }
-  .accent-white .m-24 {
+    padding: 24px;
+    margin: 0px -10%; }
+  .secondary-front-end .m-24 {
     margin-bottom: 24px; }
+  .secondary-front-end ul {
+    margin: 0px -1%;
+    margin-bottom: 0px; }
+  .secondary-front-end li {
+    width: 23%;
+    float: left;
+    margin: 0px 1%;
+    font-size: 18px; }
+    .secondary-front-end li p {
+      line-height: 21px;
+      font-size: 16px;
+      color: #5a595c;
+      height: 63px;
+      padding-bottom: 0px; }
 
 .accent {
   margin-top: -12px;
   background: #6c7992;
   width: 100%;
-  padding: 48px 10%;
+  padding: 108px 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: #ffffff; }
@@ -440,17 +561,17 @@ i {
           border: 1.25px solid #abdaf5;
           cursor: default; }
   .accent h2 {
-    font-size: 36px;
+    font-size: 48px;
     padding-bottom: 2px;
     font-weight: bold;
     float: left; }
   .accent span {
     float: right;
-    padding-top: 6px;
-    line-height: 36px;
+    padding-top: 16px;
+    line-height: 48px;
     font-size: 16px; }
   .accent h3 {
-    font-size: 24px;
+    font-size: 32px;
     padding-bottom: 24px; }
   .accent .thumbnail {
     border: 1.25px solid #808083;
@@ -469,30 +590,33 @@ i {
     .accent a:hover {
       text-decoration: underline; }
   .accent .grid {
-    max-width: 100%; }
+    max-width: 100%;
+    border: 1px solid #bac7c9; }
     .accent .grid .projects-title {
       width: 100%;
       text-align: center;
       height: 40px;
       line-height: 40px;
       font-size: 18px;
-      color: #6c7992;
+      color: #000000;
       font-weight: bold;
-      border-top: 1.25px solid #ffffff;
-      border-bottom: 1.25px solid #ffffff;
-      background-color: #ffffff; }
+      border: 1.25px solid #bac7c9;
+      background-color: #bac7c9; }
     .accent .grid .caption {
       height: 76px;
       line-height: 21px;
       font-size: 16px;
       color: #ffffff;
-      padding: 8px 12px; }
+      padding: 8px 12px;
+      border: 1.25px solid #bac7c9; }
     .accent .grid .filter-blue {
       opacity: 0;
       -webkit-transition: 0.25s;
       -o-transition: 0.25s;
       transition: 0.25s;
-      z-index: 50; }
+      z-index: 50;
+      top: 0;
+      left: 0; }
       .accent .grid .filter-blue:hover {
         opacity: 1; }
       .accent .grid .filter-blue:before {
@@ -509,19 +633,19 @@ i {
         font-weight: bold; }
     .accent .grid img {
       max-width: 100%;
-      margin-bottom: -3px; }
+      margin-bottom: -3px;
+      border: 1.25px solid #bac7c9; }
   .accent .grid:after {
     content: '';
     display: block;
     clear: both; }
   .accent .grid-sizer,
   .accent .grid-item {
-    width: 33.3%;
-    position: relative; }
+    width: 31.3%;
+    position: relative;
+    margin: 12px 1%; }
   .accent .grid-item {
-    float: left;
-    border: 1.25px solid #ffffff;
-    border-radius: 2.5px; }
+    float: left; }
   .accent .grid-item--width2 {
     width: 66.6%; }
   .accent .grid-item:hover {

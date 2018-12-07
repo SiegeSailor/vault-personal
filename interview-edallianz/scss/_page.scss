@@ -185,10 +185,11 @@ i {
 }
 
 // About Me
+// Digital Marketing
 .secondary {
     width: 100%;
     background-color: $secondary;
-    padding: 48px 10%;
+    padding: 108px 10%;
     box-sizing: border-box;
 
     h2 {
@@ -204,19 +205,10 @@ i {
         padding-bottom: 18px;
     }
 
-    .headshot {
-        margin-left: 10%;
-        background-color: rgba($secondary-lightgray, 0.1);
-        padding: 24px;
-    }
-    .digital-marketing-headshot {
-        margin-left:0%;
-    }
-
     span {
         float: right;
-        padding-top: 6px;
-        line-height: 36px;
+        padding-top: 16px;
+        line-height: $font-size-xl;
         font-size: $font-size-medium;
     }
 
@@ -245,7 +237,6 @@ i {
         }
 
         a {
-            display: block;
             font-size: $font-size-small;
             text-decoration: none;
             color: $accent-white;
@@ -265,10 +256,61 @@ i {
         }
     }
 
+    .achievement {
+        width: 100%;
+
+        p {
+            background-color: rgba($secondary-lightgray, 0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1.25px solid $secondary-black;
+
+            &:hover {
+                background-color: $secondary-lightgray;
+                color: $accent-white;
+            }
+        }
+
+        .mb-0 {
+            margin-bottom: 0px;
+        }
+    }
+
+    .headshot {
+        margin-left: 10%;
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            display: block;
+            border: 1.25px solid $secondary-black;
+            border-radius: 2.5px;
+            background-color: $accent;
+            padding: 0px 0px;
+            margin: 0px 0px;
+            margin-left: 0px;
+
+            &:hover {
+                border: 1.25px solid $accent-blue;
+                background-color: $accent;
+            }
+        }
+    }
+
+    .digital-marketing-headshot {
+        margin-right: 10%;
+        margin-left: 0%;
+    }
+
     p {
         font-size: $font-size-medium;
         color: $secondary-darkgray;
     }
+
 
     // Education Section
     .education {
@@ -287,6 +329,12 @@ i {
                 a {
                     margin: 0px;
                     padding: 10px 14px;
+                    display: block;
+                    margin-bottom: 28px;
+                }
+
+                .mb-0 {
+                    margin-bottom: 0px;
                 }
             }
 
@@ -306,9 +354,49 @@ i {
         }
     }
 
-    .digital-marketing-education {
-        margin-left:10%;
+    // Insight Section
+    .insight {
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+        margin-left: 0px;
+
+        table {
+            width: 100%;
+
+            .insight-caption {
+                padding-bottom: 28px;
+            }
+
+            td {
+                padding: 4px 0px;
+                line-height: 18px;
+                font-size: $font-size-medium;
+                color: $secondary-darkgray;
+
+                a {
+                    margin: 0px;
+                    padding: 10px 14px;
+                    display: block;
+                    margin-bottom: 28px;
+                }
+            }
+
+            .insight-number {
+                font-size: $font-size-large;
+                padding-top: 12px;
+                color: $secondary-black;
+            }
+
+            .insight-title {
+                color: $secondary-black;
+                padding: 4px 0px;
+                font-size: $font-size-small;
+                font-weight: bold;
+                border-bottom: 1.25px solid $secondary-lightgray;
+            }
+        }
     }
+
 
     // Experience Progress Bar
     .progress-board {
@@ -340,16 +428,105 @@ i {
             border: 1.25px solid $secondary-black;
         }
     }
-    .digital-marketing-progress-board {
-        padding-left:0%;
+
+    // Digital Marketing Skill Tages
+    .digital-marketing-skills {
+        width: 100%;
+        margin: 0px 0px;
+        margin-bottom: 36px;
+        float: left;
+        text-align: left;
+
+        li {
+            width: 100%;
+            float: none;
+            margin: 0% 0%;
+            padding: 0px;
+
+            a {
+                display: inline-block;
+                font-size: $font-size-small;
+                padding: 10px 14px;
+                margin: 16px 6px;
+                margin-left: 0px;
+                color: $secondary-black;
+                border: 1.25px solid $accent;
+                background-color: $secondary;
+                border-radius: 2.5px;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $accent;
+                    color: $accent-white;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+// Aims
+.aims {
+    margin: 0 auto;
+    background: $secondary-darkgray;;
+    padding: 54px 5%;
+    position: relative;
+    transition: 0.25s;
+    color:$accent-white;
+
+    h2 {
+        font-size: $font-size-xl;
+        text-align: center;
+        padding-bottom: 48px;
+        font-weight:bold;
+    }
+
+    ul {
+        li {
+            width: 27.3333%;
+            margin: 0px 3%;
+            padding: 0px;
+            box-sizing: border-box;
+            float: left;
+            height: auto;
+            position: relative;
+            ul {
+                li {
+                    width:100%;
+                }
+            }
+        }
+    }
+
+    .aims-avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size:$font-size-large;
+    }
+
+    .aims-comment {
+        margin-left: 56px;
+
+        h4 {
+            font-size: 24px;
+            padding-bottom: 24px;
+        }
+
+        p {
+            font-size: $font-size-medium;
+            text-align: left;
+            line-height: 21px;
+            color:$accent-extra;
+        }
     }
 }
 
 // Front-End
-.accent-white {
-    background: $accent-white;
+.secondary-front-end {
+    background: $secondary;
     width: 100%;
-    padding: 48px 10%;
+    padding: 108px 10%;
     box-sizing: border-box;
 
     .title-line {
@@ -363,26 +540,6 @@ i {
         color: $secondary-darkgray;
         line-height: 21px;
         padding-bottom: 21px;
-    }
-
-    ul {
-        margin: 0px -1%;
-        margin-bottom: 0px;
-    }
-
-    li {
-        width: 31.33323%;
-        float: left;
-        margin: 0px 1%;
-        font-size: $font-size-lm;
-
-        p {
-            line-height: 21px;
-            font-size: $font-size-medium;
-            color: $secondary-darkgray;
-            height: 63px;
-            padding-bottom: 0px;
-        }
     }
 
     .front-end-courses {
@@ -431,10 +588,11 @@ i {
 
     span {
         float: right;
-        padding-top: 6px;
-        line-height: 36px;
+        padding-top: 16px;
+        line-height: $font-size-xl;
         font-size: $font-size-medium;
     }
+    
 
     h3 {
         font-size: $font-size-large;
@@ -468,13 +626,35 @@ i {
         }
     }
 
+    // Projects and Practices
     .front-end-sections {
         background-color: rgba($secondary-lightgray, 0.1);
         padding: 24px;
+        margin:0px -10%;
     }
 
     .m-24 {
         margin-bottom: 24px;
+    }
+
+    ul {
+        margin: 0px -1%;
+        margin-bottom: 0px;
+    }
+
+    li {
+        width: 23%;
+        float: left;
+        margin: 0px 1%;
+        font-size: $font-size-lm;
+
+        p {
+            line-height: 21px;
+            font-size: $font-size-medium;
+            color: $secondary-darkgray;
+            height: 63px;
+            padding-bottom: 0px;
+        }
     }
 }
 
@@ -483,7 +663,7 @@ i {
     margin-top: -12px;
     background: $accent;
     width: 100%;
-    padding: 48px 10%;
+    padding: 108px 10%;
     box-sizing: border-box;
     color: $accent-white;
 
@@ -555,8 +735,8 @@ i {
 
     span {
         float: right;
-        padding-top: 6px;
-        line-height: 36px;
+        padding-top: 16px;
+        line-height: $font-size-xl;
         font-size: $font-size-medium;
     }
 
@@ -595,30 +775,36 @@ i {
     // Projects / Grid
     .grid {
         max-width: 100%;
+        border: 1px solid $accent-extra;
+
         // Project / Projects
         .projects-title {
-            width:100%;
+            width: 100%;
             text-align: center;
             height: 40px;
             line-height: 40px;
-            font-size:$font-size-lm;
-            color:$accent;
+            font-size: $font-size-lm;
+            color: $secondary-black;
             font-weight: bold;
-            border-top: 1.25px solid $accent-white;
-            border-bottom:1.25px solid $accent-white;
-            background-color:$accent-white;
+            border: 1.25px solid $accent-extra;
+            background-color: $accent-extra;
         }
+
         .caption {
-            height:76px;
+            height: 76px;
             line-height: 21px;
-            font-size:$font-size-medium;
-            color:$accent-white;
-            padding:8px 12px;
+            font-size: $font-size-medium;
+            color: $accent-white;
+            padding: 8px 12px;
+            border: 1.25px solid $accent-extra;
         }
+
         .filter-blue {
             opacity: 0;
             transition: 0.25s;
-            z-index:50;
+            z-index: 50;
+            top: 0;
+            left: 0;
 
             &:hover {
                 opacity: 1;
@@ -626,21 +812,23 @@ i {
 
             &:before {
                 position: absolute;
-                content:"Click To Link";
-                top:50%;
-                left:0;
-                right:0;
+                content: "Click To Link";
+                top: 50%;
+                left: 0;
+                right: 0;
                 text-align: center;
-                margin:auto;
-                display:block;
-                font-size:$font-size-lm;
-                color:$secondary-black;
+                margin: auto;
+                display: block;
+                font-size: $font-size-lm;
+                color: $secondary-black;
                 font-weight: bold;
             }
         }
+
         img {
             max-width: 100%;
-            margin-bottom:-3px;
+            margin-bottom: -3px;
+            border: 1.25px solid $accent-extra;
         }
     }
 
@@ -654,14 +842,13 @@ i {
     // Projects / Grid-Item
     .grid-sizer,
     .grid-item {
-        width: 33.3%;
+        width: 31.3%;
         position: relative;
+        margin: 12px 1%;
     }
 
     .grid-item {
         float: left;
-        border: 1.25px solid $accent-white;
-        border-radius: 2.5px;
     }
 
     .grid-item--width2 {
