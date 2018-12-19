@@ -227,6 +227,18 @@ body {
       font-size: 16px;
       line-height: 30px;
       font-family: "Baskerville Old Face", Arial, Tahoma, sans-serif; }
+  .wrap .instergram {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 48px; }
+    .wrap .instergram h2 {
+      font-size: 30px;
+      line-height: 34px;
+      padding-bottom: 15px;
+      letter-spacing: 10px;
+      font-family: "gillsans", Arial, Tahoma, sans-serif;
+      font-weight: 400;
+      margin-bottom: 24px; }
   .wrap .sociallink {
     margin: 0 auto;
     margin-top: 48px;
