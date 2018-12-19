@@ -27,9 +27,49 @@
 	}
 }
 
-// Quote
+// Parts
 @mixin quote {
+	font-family: "Baskerville Old Face", Arial, Tahoma, sans-serif;
 	line-height: 49px;
 	letter-spacing: 5px;
+	font-size: $font-size-quote;
+	text-align: center;
 	@content;
+}
+
+@mixin quote-symbol {
+	font-size: 8em;
+	text-align: center;
+	font-family: "Baskerville Old Face", Arial, Tahoma, sans-serif;
+	font-weight: 100;
+}
+
+@mixin title {
+	font-size: $font-size-title;
+	line-height: 34px;
+	padding-bottom: 15px;
+	letter-spacing: 10px;
+	font-family: "gillsans", Arial, Tahoma, sans-serif;
+	font-weight: 400;
+	@content;
+}
+
+@mixin text {
+	font-size: $font-size-content;
+	line-height: $font-size-title;
+	font-family: "Baskerville Old Face", Arial, Tahoma, sans-serif;
+	@content;
+}
+
+@mixin button {
+	padding: 13px 19px;
+	border: 1px solid $function;
+	background: #ffffff;
+	transition: 0.35s;
+
+	&:hover {
+		cursor: pointer;
+		background:#E8E8E8;
+		border:1px solid #E8E8E8;
+	}
 }
