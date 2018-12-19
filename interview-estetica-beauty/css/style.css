@@ -269,6 +269,10 @@ body {
           line-height: 54px;
           font-size: 30px;
           display: block; }
+          .wrap .sociallink ul li a:hover {
+            color: white; }
+        .wrap .sociallink ul li:hover {
+          background: black; }
     .wrap .sociallink .center-line {
       position: absolute;
       top: 34px;
@@ -301,7 +305,8 @@ body {
       float: left; }
       .wrap .footer .policy a,
       .wrap .footer .terms a {
-        text-decoration: none; }
+        text-decoration: none;
+        color: #626262; }
         .wrap .footer .policy a:hover,
         .wrap .footer .terms a:hover {
           text-decoration: underline;
