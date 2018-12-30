@@ -240,7 +240,7 @@ i {
         margin: auto;
         text-align: center;
         font-size: $font-size-medium;
-        z-index: 50;
+        z-index: 5000;
 
         @include iphone6 {
             padding:8px;
