@@ -5,7 +5,7 @@ window.onresize = function(){
 }
 
 // Print
-document.querySelector('#print').onclick = function (event) {
-   event.preventDefault();
-   window.print();
-}
+// document.querySelector('#print').onclick = function (event) {
+//    event.preventDefault();
+//    window.print();
+// }

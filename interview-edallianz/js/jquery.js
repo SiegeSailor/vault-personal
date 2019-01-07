@@ -31,17 +31,19 @@ $(document).ready(function () {
     });
 
     // Plugin / Masonry
-    var $grid = $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    });
-    $grid.on('click', '.grid-item', function () {
-        // change size of item via class
-        // $(this).toggleClass('grid-item--gigante');
-        // trigger layout
-        $grid.masonry();
-    });
+    $('.grid').imagesLoaded( function() {
+        var $grid = $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-sizer',
+            percentPosition: true
+        });
+        $grid.on('click', '.grid-item', function () {
+            // change size of item via class
+            // $(this).toggleClass('grid-item--gigante');
+            // trigger layout
+            $grid.masonry();
+        });
+      });
 
     // Plugin / Swiper
     // http://idangero.us/swiper/get-started/
