@@ -1,14 +1,4 @@
----
-description: Why I started this GitBook and How I plan to edit.
----
-
 # Introduction
-
-## Introduction
-
-```text
-START DATE: 2019/0/03
-```
 
 ### Origin
 
