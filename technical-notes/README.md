@@ -1,8 +1,6 @@
----
-description: fds
----
-
 # Introduction
+
+> This document is for Full Stack Development.
 
 ## Origin
 
@@ -16,9 +14,12 @@ That was why I changed my career path. I am working as a **UI/UX specialist and 
 
 The GitBook would probably be related to the following list.
 
-* UI/UX
+* UIUX
+* Visual Design
+* Visual Guideline
 * Front-End
 * Back-End
 * MIS
+* Extra Knowledge
 * Game Project
 

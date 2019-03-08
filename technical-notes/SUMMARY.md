@@ -8,8 +8,8 @@
 * [Tool](uiux/tool.md)
 * [Workflow](uiux/workflow.md)
 
-## Linux Server
+## MIS
 
-* [Ubuntu](server/ubuntu/README.md)
-  * [Activate Files on Server](server/ubuntu/activate-files-on-edallianz-server.md)
+* [Ubuntu](mis/ubuntu/README.md)
+  * [Activate Files on Server](mis/ubuntu/activate-files-on-server.md)
 
