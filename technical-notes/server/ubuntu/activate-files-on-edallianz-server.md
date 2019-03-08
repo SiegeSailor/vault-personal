@@ -1,0 +1,97 @@
+# Activate Files on Server
+
+## Precondition
+
+Here is the information for **Edallianz Global TPE Server**.
+
+* Server Name \| _ubuntu_
+* Server IP \| _52.77.174.67_
+* Key \| _edallianz-peter.pem_
+* Remember to put the Key into ~/.ssh
+
+## Upload Files
+
+```bash
+scp /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@:/var/www/release/WebBooking2/templates/footer.html
+```
+
+In case if meet permission denied or when need to assign a specific key, add `-i keypath/key` .
+
+This is what it looks like after adding the command.
+
+```bash
+scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
+```
+
+## Activate Files on Edallianz Server
+
+It is enough to activate a file by only overwriting the file on the server from local file, but once there are some specific packages running on the server, you have to go extra steps.
+
+For Edallianz Global TPE Server, the reason why you need to go the following steps is because these two.
+
+* Supervisor \| _Manage processes, such as assign them automatically run after starting the server._
+* Gunicorn \| _WSGI Server service, use cache to speed up the request from clients._
+
+Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it running, the file will never refresh even if you have overwritten it, so these are what you have done before displaying the newest file on the server,
+
+#### Log In the Server
+
+```bash
+ssh ubuntu@52.77.174.67
+```
+
+In case if meet permission denied or when need to assign a specific key, add `-i keypath/key` .
+
+This is what it looks like after adding the command.
+
+```bash
+ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
+```
+
+#### List Processes
+
+```bash
+ps -aux
+```
+
+Then you can check which process is stuck through the start date.
+
+#### Get into Supervisor Directory
+
+```bash
+cd /etc/supervisor/conf.d
+```
+
+{% hint style="info" %}
+Check this [Article](https://blog.techbridge.cc/2017/12/23/linux-commnd-line-tutorial/) to know the basic command and the file structure.
+{% endhint %}
+
+#### List the Files running under Supervisor
+
+```bash
+ls -al
+```
+
+Then you can double check whether the stuck process is under Supervisor.
+
+#### Get the Information for the Stuck Process
+
+```bash
+cat web-booking2-release.conf
+```
+
+You shall see these.
+
+> \[program:web-booking2-release\] command=/var/www/release/WebBooking2/venv/bin/gunicorn -b 127.0.0.1:8887 mysite.wsgi --reload --workers=2 directory=/var/www/release/WebBooking2 user=www-data autostart=true autorestart=true redirect\_stderr=true stdout\_logfile=/var/www/release/WebBooking2/storage/work.log
+
+Restart the Process
+
+```bash
+sudo supervisorctl restart web-booking2-release
+```
+
+Once you see these which means you have successfully refresh the file.
+
+> web-booking2-release: stopped  
+> web-booking2-release: started
+

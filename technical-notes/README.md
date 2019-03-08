@@ -1,6 +1,6 @@
 # Introduction
 
-### Origin
+## Origin
 
 Before stepping into the programming world, I was working as a **Graphic Designer** and **Marketing Person**, my job was to promote medical machines and educate new medical theories to patients and doctors. In the 17 months, I had to create a variety of media with my **Branding** and **Marketing** knowledge, establish the design guideline for the department.
 
@@ -8,7 +8,7 @@ In the process, I gradually found out that my design and promoting direction was
 
 That was why I changed my career path. I am working as a **UI/UX specialist and Associate Front-End Engineer** now, everything in this field is interesting but new for me, I want to write all of them down into this GitBook.
 
-### Content
+## Content
 
 The GitBook would probably be related to the following list.
 
