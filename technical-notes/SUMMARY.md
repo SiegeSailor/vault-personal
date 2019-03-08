@@ -4,9 +4,9 @@
 
 ## UIUX
 
-* [Responsibility](front-end/responsibility.md)
-* [Tool](front-end/tool.md)
-* [Workflow](front-end/workflow.md)
+* [Responsibility](uiux/responsibility.md)
+* [Tool](uiux/tool.md)
+* [Workflow](uiux/workflow.md)
 
 ## Linux Server
 
