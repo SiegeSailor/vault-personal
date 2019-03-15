@@ -15,11 +15,35 @@ That was why I changed my career path. I am working as a **UI/UX specialist and 
 The GitBook would probably be related to the following list.
 
 * UIUX
-* Visual Design
 * Visual Guideline
 * Front-End
 * Back-End
 * MIS
 * Extra Knowledge
 * Game Project
+
+## Projects in Edallianz
+
+#### UIUX
+
+* UIUX for Edallianz Taiwan Website
+* UIUX for LeJOURNEY Website
+* UIUX for LeJOURNEY iOS
+* UIUX for LeJOURNEY Android
+
+#### Visual Guideline
+
+* Basic Web Visual Guideline for Edallianz Global Website
+* Visual UIUX Guideline for LeJOURNEY Website
+* Visual UIUX Guideline for LeJOURNEY iOS
+* Visual UIUX Guideline for LeJOURNEY Android
+
+#### Front-End
+
+* Edallianz Taiwan Website Development
+* LeJOURNEY Website Development
+
+#### MIS
+
+* Edallianz Taiwan Website Server
 
