@@ -1,6 +1,6 @@
 # Introduction
 
-> This document is for Full Stack Development.
+> This document is for Full Stack Development. Including my work experience in Edallianz as a **UIUX Specialist and Associate Front-End Engineer** and my **Notes for Private Projects**.
 
 ## Origin
 
@@ -8,7 +8,7 @@ Before stepping into the programming world, I was working as a **Graphic Designe
 
 In the process, I gradually found out that my design and promoting direction was basic on the audience, we call **User Experience** in the other way, and the way I create layouts of media collateral was like how people think about **User Interface**. Also, I have been curious about the way how the user flow is in games, apps, websites, and anything people use in daily life.
 
-That was why I changed my career path. I am working as a **UI/UX specialist and Associate Front-End Engineer** now, everything in this field is interesting but new for me, I want to write all of them down into this GitBook.
+That was why I changed my career path. I am working as a **UI/UX Specialist and Associate Front-End Engineer** now, everything in this field is interesting but new for me, I want to write all of them down into this GitBook.
 
 ## Content
 
