@@ -11,4 +11,6 @@
 * [MIS](edallianz-taiwan-website/mis/README.md)
   * [Ubuntu](edallianz-taiwan-website/mis/ubuntu/README.md)
     * [Activate Files on Server](edallianz-taiwan-website/mis/ubuntu/activate-files-on-server.md)
+  * [MacOS](edallianz-taiwan-website/mis/macos/README.md)
+    * [Display All Files](edallianz-taiwan-website/mis/macos/display-all-files.md)
 

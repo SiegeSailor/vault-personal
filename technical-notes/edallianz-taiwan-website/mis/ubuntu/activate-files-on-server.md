@@ -7,7 +7,10 @@ Here is the information for **Edallianz Global TPE Server**.
 * Server Name \| _ubuntu_
 * Server IP \| _52.77.174.67_
 * Key \| _edallianz-peter.pem_
-* Remember to put the Key into ~/.ssh
+
+{% hint style="warning" %}
+The Key should be in _~/.ssh_ .
+{% endhint %}
 
 ## Upload Files
 
