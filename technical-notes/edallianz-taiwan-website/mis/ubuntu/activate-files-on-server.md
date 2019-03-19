@@ -32,8 +32,8 @@ It is enough to activate a file by only overwriting the file on the server from 
 
 For Edallianz Global TPE Server, the reason why you need to go the following steps is because these two.
 
-* Supervisor \| _Manage processes, such as assign them automatically run after starting the server._
-* Gunicorn \| _WSGI Server service, use cache to speed up the request from clients._
+* Supervisor \| _Manage processes, such as assign them automatically run after starting the server_
+* Gunicorn \| _WSGI Server service, use cache to speed up the request from clients_
 
 Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it running, the file will never refresh even if you have overwritten it, so these are what you have done before displaying the newest file on the server,
 

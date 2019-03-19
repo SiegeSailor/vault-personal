@@ -1,12 +1,12 @@
-# Display All Files
+# Display Hidden Files
 
 ## Possible Situation
 
 You better not do this, but sometimes you might find this way is faster to find files you want.
 
-* Setting \| _ssh key_
-* Checking hidden files \| _pip_ or _npm_
-* Modifying \| _.gitignore_
+* Setting \| _SSH KEY_
+* Checking Hidden Files \| _PIP_ and _NPM_
+* Modifying \| _.Gitignore_
 
 ## Hot Key
 

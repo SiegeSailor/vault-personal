@@ -1,8 +1,6 @@
-# Version Command
+# Version Control
 
 ## Command
-
-Know what your version is before changing it.
 
 #### Show the Current Version
 
