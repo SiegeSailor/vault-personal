@@ -2,6 +2,11 @@
 
 * [Introduction](README.md)
 
+## WordPress
+
+* [Description](wordpress-1/description.md)
+* [WordPress](wordpress-1/wordpress.md)
+
 ## Edallianz Taiwan Website
 
 * [Description](edallianz-taiwan-website/description.md)
@@ -9,6 +14,7 @@
   * [Tool](edallianz-taiwan-website/uiux/tool.md)
   * [Workflow](edallianz-taiwan-website/uiux/workflow.md)
 * [Front-End](edallianz-taiwan-website/front-end/README.md)
+  * [JS](edallianz-taiwan-website/front-end/js.md)
   * [HTML](edallianz-taiwan-website/front-end/html.md)
   * [SASS](edallianz-taiwan-website/front-end/sass.md)
   * [NodeJS](edallianz-taiwan-website/front-end/nodejs/README.md)
@@ -26,5 +32,6 @@
   * [MacOS](edallianz-taiwan-website/mis/macos/README.md)
     * [Display Hidden Files](edallianz-taiwan-website/mis/macos/display-all-files.md)
 * [Extra](edallianz-taiwan-website/extra/README.md)
-  * [Git](edallianz-taiwan-website/extra/git.md)
+  * [Git](edallianz-taiwan-website/extra/git/README.md)
+    * [Proxy and Account](edallianz-taiwan-website/extra/git/proxy-and-account.md)
 

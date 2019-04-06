@@ -26,6 +26,8 @@ This is what it looks like after adding the command.
 scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
 ```
 
+scp -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67:/var/www/website/EdallianzTW/EdallianzTWPrevious.zip /Users/eda-001/Desktop/EdallianzTWPrevious.zip
+
 ## Activate Files on Edallianz Server
 
 It is enough to activate a file by only overwriting the file on the server from local file, but once there are some specific packages running on the server, you have to go extra steps.
@@ -48,7 +50,7 @@ In case if meet permission denied or when need to assign a specific key, add `-i
 This is what it looks like after adding the command.
 
 ```bash
-ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
+52
 ```
 
 #### List Processes
