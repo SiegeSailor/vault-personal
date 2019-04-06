@@ -15,6 +15,7 @@
   * [Workflow](edallianz-taiwan-website/uiux/workflow.md)
 * [Front-End](edallianz-taiwan-website/front-end/README.md)
   * [JS](edallianz-taiwan-website/front-end/js.md)
+  * [CSS](edallianz-taiwan-website/front-end/css.md)
   * [HTML](edallianz-taiwan-website/front-end/html.md)
   * [SASS](edallianz-taiwan-website/front-end/sass.md)
   * [NodeJS](edallianz-taiwan-website/front-end/nodejs/README.md)
