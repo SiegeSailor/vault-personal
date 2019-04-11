@@ -27,10 +27,10 @@ npm init
 
 After it done, the command will help you to fill up the basic information for the **Package.json** file. It is fine to simply just enter to the end, NPM has its own default value.
 
-* Package Name :: The name for this project, **only URL-friendly character available**
-* Version :: Usually is 1.0.0, notice that **the formate must be x.x.x**
+* Package Name :: The name for this project, only URL-friendly character available
+* Version :: Usually is 1.0.0, notice that the formate must be x.x.x
 * Description :: The description for this project, can be filled with any character
-* Entry Point :: The compiled JS file for the whole project, it can support you to **combine JS files into one to modularize JS**. It is also the file **for others to invoke** if this project is a plugin or package. This field **can't be empty even there is nothing in the entry point JS file**
+* Entry Point :: The compiled JS file for the whole project, it can support you to combine JS files into one to modularize JS. It is also the file for others to invoke if this project is a plugin or package. This field can't be empty even there is nothing in the entry point JS file
 * Author :: Usually is author's email
 * License :: Default is ISC
 * Test Command :: Not important

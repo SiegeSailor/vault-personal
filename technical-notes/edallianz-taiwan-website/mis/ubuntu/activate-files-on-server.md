@@ -1,4 +1,4 @@
-# Activate Files on Server
+# Activate Files
 
 ## Precondition
 
@@ -29,10 +29,12 @@ Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it r
 ssh ubuntu@52.77.174.67
 ```
 
-In case if meet _permission denied \(publickey\)._ or when need to assign a specific key, please add `-i keypath/key` .
+{% hint style="warning" %}
+In case if meet _**permission denied \(publickey\).**_, please use the following command.
+{% endhint %}
 
 ```bash
-ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
+scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
 ```
 
 ### List Processes
