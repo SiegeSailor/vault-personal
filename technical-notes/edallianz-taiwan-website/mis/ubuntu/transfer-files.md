@@ -44,3 +44,28 @@ scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/f
 
 
 
+```text
+not a regular file
+-r
+```
+
+wget
+
+[https://blog.gtwang.org/linux/linux-wget-command-download-web-pages-and-files-tutorial-examples/](https://blog.gtwang.org/linux/linux-wget-command-download-web-pages-and-files-tutorial-examples/)
+
+```text
+# -t0: 設定重試次數。當連結中斷或超時，wget會重新連接。-t0代表把重試次數設為無窮多。
+# -c:  設定續傳功能。
+# -nH: 不建立該網站名稱的子目錄 /example.com/，而直接在當前目錄下建立鏡像的目錄結構。
+# -np: 不遍歷父目錄，如果有連結連到目標資料夾的parent或其他目錄，不下載。
+# -m:  鏡像，相當同時使用-r和-N。
+# -r:  遞迴下載，把文件中所有的連結都下載回來。
+# -N:  下載時檢查timestamp，只下載有更新的文件，如果檔案大小和最修改日期都一樣就不下載。
+# -P:  指定下載到本機的某個目錄下。
+```
+
+* `Ctrl-A`: go to the beginning of line
+* `Ctrl-E`: go to the end of line
+
+
+
