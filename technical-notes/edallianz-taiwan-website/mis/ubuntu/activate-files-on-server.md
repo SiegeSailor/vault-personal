@@ -15,7 +15,7 @@ The Key should be in _~/.ssh_ .
 ## Upload Files
 
 ```bash
-scp /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@:/var/www/release/WebBooking2/templates/footer.html
+scp /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/release/WebBooking2/templates/footer.html
 ```
 
 In case if meet permission denied or when need to assign a specific key, add `-i keypath/key` .
@@ -50,7 +50,7 @@ In case if meet permission denied or when need to assign a specific key, add `-i
 This is what it looks like after adding the command.
 
 ```bash
-52
+ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
 ```
 
 #### List Processes
