@@ -2,7 +2,7 @@
 
 ## Command
 
-#### Show the Current Version
+### Show the Current Version
 
 ```bash
 node --version
@@ -10,7 +10,7 @@ node --version
 
 You can simply use `node -v` as well.
 
-#### Show Installed Versions
+### Show Installed Versions
 
 ```bash
 nvm ls
@@ -18,7 +18,7 @@ nvm ls
 
 This command will show all the versions you have installed in the device.
 
-#### Show Available Versions
+### Show Available Versions
 
 ```bash
 nvm ls-remote
@@ -26,13 +26,13 @@ nvm ls-remote
 
 This command will show all the versions that you can install, notice that the list can be very long.
 
-#### Install the Specific Version
+### Install the Specific Version
 
 ```bash
 nvm install 8.1.2
 ```
 
-#### Switch between Versions
+### Switch between Versions
 
 ```bash
 nvm use 4.2.1

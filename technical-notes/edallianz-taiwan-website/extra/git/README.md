@@ -14,5 +14,5 @@
 
 {% embed url="https://stackoverflow.com/questions/11693074/git-credential-cache-is-not-a-git-command" %}
 
-
+rm -rf .git to remove git tracking
 

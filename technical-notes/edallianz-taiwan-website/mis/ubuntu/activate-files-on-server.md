@@ -4,29 +4,13 @@
 
 Here is the information for **Edallianz Global TPE Server**.
 
-* Server Name \| _ubuntu_
-* Server IP \| _52.77.174.67_
-* Key \| _edallianz-peter.pem_
+* Server Name :: ubuntu
+* Server IP :: 52.77.174.67
+* Key :: edallianz-peter.pem
 
-{% hint style="warning" %}
+{% hint style="info" %}
 The Key should be in _~/.ssh_ .
 {% endhint %}
-
-## Upload Files
-
-```bash
-scp /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/release/WebBooking2/templates/footer.html
-```
-
-In case if meet permission denied or when need to assign a specific key, add `-i keypath/key` .
-
-This is what it looks like after adding the command.
-
-```bash
-scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
-```
-
-scp -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67:/var/www/website/EdallianzTW/EdallianzTWPrevious.zip /Users/eda-001/Desktop/EdallianzTWPrevious.zip
 
 ## Activate Files on Edallianz Server
 
@@ -34,26 +18,24 @@ It is enough to activate a file by only overwriting the file on the server from 
 
 For Edallianz Global TPE Server, the reason why you need to go the following steps is because these two.
 
-* Supervisor \| _Manage processes, such as assign them automatically run after starting the server_
-* Gunicorn \| _WSGI Server service, use cache to speed up the request from clients_
+* Supervisor :: Manage processes, such as assign them automatically run after starting the server
+* Gunicorn :: WSGI Server service, use cache to speed up the request from clients
 
 Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it running, the file will never refresh even if you have overwritten it, so these are what you have done before displaying the newest file on the server,
 
-#### Log In the Server
+### Log In the Server
 
 ```bash
 ssh ubuntu@52.77.174.67
 ```
 
-In case if meet permission denied or when need to assign a specific key, add `-i keypath/key` .
-
-This is what it looks like after adding the command.
+In case if meet _permission denied \(publickey\)._ or when need to assign a specific key, please add `-i keypath/key` .
 
 ```bash
 ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
 ```
 
-#### List Processes
+### List Processes
 
 ```bash
 ps -aux
@@ -61,7 +43,7 @@ ps -aux
 
 Then you can check which process is stuck through the start date.
 
-#### Get into Supervisor Directory
+### Get into Supervisor Directory
 
 ```bash
 cd /etc/supervisor/conf.d
@@ -71,7 +53,7 @@ cd /etc/supervisor/conf.d
 Check this [Article](https://blog.techbridge.cc/2017/12/23/linux-commnd-line-tutorial/) to know the basic command and the file structure.
 {% endhint %}
 
-#### List the Files running under Supervisor
+### List the Files running under Supervisor
 
 ```bash
 ls -al
@@ -79,7 +61,7 @@ ls -al
 
 Then you can double check whether the stuck process is under Supervisor.
 
-#### Get the Information for the Stuck Process
+### Get the Information for the Stuck Process
 
 ```bash
 cat web-booking2-release.conf
