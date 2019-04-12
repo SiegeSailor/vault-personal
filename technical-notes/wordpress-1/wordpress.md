@@ -1,5 +1,7 @@
 # WordPress
 
+Unable to locate WordPress Content directory \(wp-content\)
+
 無法新建目錄
 
 &gt;更改wp-config.php
