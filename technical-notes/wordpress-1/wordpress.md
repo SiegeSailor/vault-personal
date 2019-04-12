@@ -54,6 +54,7 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 * FTP account: marketing 
 * FTP password: 123BSwxw 
 * FTP path: 35.237.42.42
+* * For SMTP username/password
 * ask@neuromath.com.sg
 * murena.websitewelcome.com
 * hfe\_SnhRIzq!
@@ -76,6 +77,8 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 webmaster@edallianz.com \| Edallianz$\#[  
 ](https://edallianz.bitrix24.com/desktop_app/?BXD_API_VERSION=42&user_lang=en&login=rd5@rd.edallianz.com#bx-im-go-Wed%20Mar%2006%202019%2009:56:07%20GMT+0800%20%28CST%29)[https://read.lejourneyapp.com/wp-admin/](https://read.lejourneyapp.com/wp-admin/)
 
+
+
 {% embed url="https://read.lejourneyapp.com/tw/wp-admin/" %}
 
 acccount wordpress
@@ -84,7 +87,11 @@ password 123456789JJJWWWiii!!!
 
 url 52.77.174.67
 
+### account for GA
 
+marketing.tw@edallianz.com
+
+Password: edA5123\#6578
 
 ## backup
 
@@ -99,4 +106,10 @@ upload Wordpress its self to new ftp path
 install
 
 import
+
+
+
+extra
+
+Google Account: twedallianzcom@gmail.com Password: twmarketingteam
 
