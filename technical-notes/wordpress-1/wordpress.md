@@ -45,8 +45,8 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 **Neuromath**  
 
 
-* URL: [http://35.237.42.42/wp-login.php?loggedout=true](http://35.237.42.42/wp-login.php?loggedout=true) 
-* Server tmp: [http://35.237.42.42/wp-login.php?loggedout=true](http://35.237.42.42/wp-login.php?loggedout=true) 
+* URL: [https://www.neuromath.com.sg/](https://www.neuromath.com.sg/) 
+* Server tmp: [https://www.neuromath.com.sg/wp-admin](https://www.neuromath.com.sg/wp-admin) 
 * WordPress account: Neuromath 
 * WordPress password: ZPico\#D@lI%j\#UKXca 
 * FTP account: marketing 
@@ -60,7 +60,7 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 
 
 * URL: [http://www.abrakadoodle.com.sg/](http://www.abrakadoodle.com.sg/) 
-* Server tmp: [http://103.104.196.82/~abrakado/wp-admin](http://103.104.196.82/~abrakado/wp-admin) 
+* Server tmp: [h](http://103.104.196.82/~abrakado/wp-admin)ttp://www.abrakadoodle.com.sg/wp-admin 
 * WordPress account: FAdmin 
 * WordPress password: fesfe3$ 
 * FTP account: [awios@abrakadoodle.com.sg](mailto:awios@abrakadoodle.com.sg) 
