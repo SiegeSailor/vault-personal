@@ -64,7 +64,7 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 * WordPress account: FAdmin 
 * WordPress password: fesfe3$ 
 * FTP account: [awios@abrakadoodle.com.sg](mailto:awios@abrakadoodle.com.sg) 
-* FTP password: Sorry I forgot 
+* FTP password: fesfe3$\#@! 
 * FTP path: 103.104.196.82 
 * CPenal account: [gracelow@abrakadoodle.com.sg](mailto:gracelow@abrakadoodle.com.sg) 
 * CPenal password: 93660260
@@ -76,9 +76,25 @@ webmaster@edallianz.com \| Edallianz$\#[
 
 {% embed url="https://read.lejourneyapp.com/tw/wp-admin/" %}
 
-wordpress
+acccount wordpress
 
-123456789JJJWWWiii!!!
+password 123456789JJJWWWiii!!!
 
-52.77.174.67
+url 52.77.174.67
+
+
+
+## backup
+
+download the whole files from ftp and use plugins to backup
+
+down Wordpress its self
+
+[https://wordpress.org/download/](https://wordpress.org/download/)
+
+upload Wordpress its self to new ftp path
+
+install
+
+import
 
