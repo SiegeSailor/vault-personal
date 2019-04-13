@@ -10,7 +10,7 @@ mask
 
 {% tabs %}
 {% tab title="Zeplin" %}
-Designed for designers to coordinate with engineers. Handoff designs and style guides with accurate specs, assets, code snippets automatically.
+Designed for designers to coordinate with engineers. Hand off designs and style guides with accurate specs, assets, code snippets automatically.
 
 * Provide code from draft immediately
 
@@ -49,7 +49,7 @@ Create Responsive and Interactive High-Fidelity Prototypes, All Inside Sketch.
 {% endtab %}
 {% endtabs %}
 
-#### Assist Softwares
+#### Assist Software
 
 {% tabs %}
 {% tab title="Flinto" %}
