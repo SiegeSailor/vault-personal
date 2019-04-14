@@ -2,80 +2,99 @@
 
 ## Sketch
 
-My main tool, with plugins it can satisfy almost all the need for UI/UX.
+### Tips
 
-mask
+#### Mask
 
-#### Sketch Plugins
+The layer of the shape must be under the objects.
 
-{% tabs %}
-{% tab title="Zeplin" %}
+## Sketch Plugins
+
+### Zeplin
+
 Designed for designers to coordinate with engineers. Hand off designs and style guides with accurate specs, assets, code snippets automatically.
 
 * Provide code from draft immediately
 
-> Website:  [https://zeplin.io/](https://zeplin.io/)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://zeplin.io/) to visit their website.
+{% endhint %}
 
-{% tab title="Craft" %}
+### Craft
+
 For Sketch and Photoshop to help you design better and faster from your design environment.
 
 * Speed Up the process on Sketch
 * Sync and Storage online
 * Interactive Prototype
 
-> Website: [https://www.invisionapp.com/craft](https://www.invisionapp.com/craft)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://www.invisionapp.com/craft) to visit their website.
+{% endhint %}
 
-{% tab title="Invision" %}
-The digital product design platform powering the world’s best user experiences
+### Invision
+
+The digital product design platform powering the world’s best user experiences.
 
 * Sync and Storage online
 * Interactive Prototype
 
-> Website: [https://www.invisionapp.com/](https://www.invisionapp.com/)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://www.invisionapp.com/) to visit their website.
+{% endhint %}
 
-{% tab title="Anima" %}
-Create Responsive and Interactive High-Fidelity Prototypes, All Inside Sketch.
+### Anima
+
+Create responsive and interactive High-Fidelity Prototypes, All inside Sketch.
 
 * Interactive Prototype
 
-> Website: [https://www.animaapp.com/](https://www.animaapp.com/)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://www.animaapp.com/) to visit their website.
+{% endhint %}
 
-{% tab title="Overflow" %}
+### Overflow
 
-{% endtab %}
-{% endtabs %}
+Turn your designs into playable user flow diagrams that tell a story.
 
-#### Assist Software
+* Diagram Maker
+* Interactive Prototype
 
-{% tabs %}
-{% tab title="Flinto" %}
+{% hint style="info" %}
+Check [Here](https://overflow.io/) to visit their website.
+{% endhint %}
+
+## Assist Software
+
+### Flinto
+
 a Mac app used by top designers around the world to create interactive and animated prototypes of their app designs.
 
 * Interactive Prototype
 
-> Website: [https://www.flinto.com/](https://www.flinto.com/)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://www.flinto.com/) to visit their website.
+{% endhint %}
 
-{% tab title="illustrator" %}
+### illustrator
+
 The industry-standard vector graphics software lets you create logos, icons, drawings, typography, and illustrations for print, web, video, and mobile.
 
 * Icon Drawing
 * Illustration
 
-> Website: [https://www.adobe.com/tw/products/illustrator.html](https://www.adobe.com/tw/products/illustrator.html)
-{% endtab %}
+{% hint style="info" %}
+Check [Here](https://www.adobe.com/tw/products/illustrator.html) to visit their website.
+{% endhint %}
 
-{% tab title="PhotoShop" %}
+### PhotoShop
+
 Create and enhance photographs, illustrations, and 3D artwork. Design websites and mobile apps. Edit videos, simulate real-life paintings, and more.
 
 * Image Adjustment
 * Slicing draft or image into material
 
-> Website: [https://www.adobe.com/sea/products/photoshop.html](https://www.adobe.com/sea/products/photoshop.html)
-{% endtab %}
-{% endtabs %}
+{% hint style="info" %}
+Check [Here](https://www.adobe.com/sea/products/photoshop.html) to visit their website.
+{% endhint %}
 
