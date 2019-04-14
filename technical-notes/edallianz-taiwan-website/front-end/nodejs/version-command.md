@@ -1,8 +1,8 @@
-# Version Control
+# Command
 
-## Command
+## Version Control
 
-### Show the Current Version
+### Display the Current Version
 
 ```bash
 node --version
@@ -10,7 +10,7 @@ node --version
 
 You can simply use `node -v` as well.
 
-### Show Installed Versions
+### Show All Installed Versions
 
 ```bash
 nvm ls
@@ -18,7 +18,7 @@ nvm ls
 
 This command will show all the versions you have installed in the device.
 
-### Show Available Versions
+### Show All Available Versions
 
 ```bash
 nvm ls-remote

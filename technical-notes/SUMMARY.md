@@ -19,7 +19,7 @@
   * [HTML](edallianz-taiwan-website/front-end/html.md)
   * [SASS](edallianz-taiwan-website/front-end/sass.md)
   * [NodeJS](edallianz-taiwan-website/front-end/nodejs/README.md)
-    * [Version Control](edallianz-taiwan-website/front-end/nodejs/version-command.md)
+    * [Command](edallianz-taiwan-website/front-end/nodejs/version-command.md)
     * [NPM](edallianz-taiwan-website/front-end/nodejs/npm/README.md)
       * [Get Started](edallianz-taiwan-website/front-end/nodejs/npm/download-specific-package-version.md)
       * [Entry Point](edallianz-taiwan-website/front-end/nodejs/npm/entry-point.md)
