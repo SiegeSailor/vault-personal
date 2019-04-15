@@ -44,7 +44,15 @@ Use this method to assign the SSH key you want to use, especially when meet perm
 scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
 ```
 
+mv
 
+rm
+
+vi
+
+ls -al
+
+sudo
 
 
 

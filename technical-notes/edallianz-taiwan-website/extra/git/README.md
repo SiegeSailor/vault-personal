@@ -16,3 +16,19 @@
 
 rm -rf .git to remove git tracking
 
+`git reset --hard HEAD` 回覆到最新提交版本 `git reset --hard HEAD~`
+
+\`\`
+
+\`\`
+
+```text
+!/application/language/gr/
+```
+
+```text
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```
+
