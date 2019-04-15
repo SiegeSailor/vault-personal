@@ -7,12 +7,12 @@ Here is what you should have installed before starting managing packages.
 * Node.js :: [Download](https://nodejs.org/en/download/)
 
 {% hint style="info" %}
-npm will be automatically installed along with Node.js.
+NPM will be automatically installed along with Node.js.
 {% endhint %}
 
 ## Initial
 
-NPM has a very unique file **Package.json** to keep our package setting, it allows us to record what packages we want to use while developing and producing, we can also keep the setting for transferring our project to different devices without moving the packages.
+NPM stands for Node Package Manager, it has a very unique file **Package.json** to keep our package setting, it allows us to record what packages we want to use while developing and producing, we can also keep the setting for transferring our project to different devices without moving the packages.
 
 With **Package.json**, we can reinstall the packages we need in other environment with only one simple command, and due to this feature, we actually have two ways to initial our projects.
 
@@ -28,9 +28,9 @@ npm init
 After it done, the command will help you to fill up the basic information for the **Package.json** file. It is fine to simply just enter to the end, NPM has its own default value.
 
 * Package Name :: The name for this project, only URL-friendly character available
-* Version :: The formate must be 1.0.0.
+* Version :: The format must be 1.0.0.
 * Description :: The description for this project, can be filled with any character
-* Entry Point :: Supports you to combine JS files into one in order to modularize JS. It is also the file for others to invoke the project as a plugin or package. This field can't be empty even there is nothing in the entry point JS file
+* Entry Point :: Supports you to combine JS files into one in order to modular JS. It is also the file for others to invoke the project as a plugin or package. This field can't be empty even there is nothing in the entry point JS file
 * Author :: Usually is author's email
 * License :: Default is ISC
 * Test Command :: Not important

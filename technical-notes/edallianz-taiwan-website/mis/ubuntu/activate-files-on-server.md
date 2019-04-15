@@ -31,9 +31,7 @@ Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it r
 ssh ubuntu@52.77.174.67
 ```
 
-{% hint style="warning" %}
 In case if meet _**permission denied \( publickey \) .**_, please use the following command.
-{% endhint %}
 
 ```bash
 ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67

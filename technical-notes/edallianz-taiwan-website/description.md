@@ -16,7 +16,9 @@ All the new content is from other team members.
 * Partners List :: [Google Drive](https://docs.google.com/spreadsheets/d...edit#gid=0)
 * Previous Prototype :: [Sketch Cloud](https://sketch.cloud/s/zqzly/KvYarQy/play)
 
+## Environment
 
-
-
+* Operating System :: macOS
+* Server :: Ubuntu
+* Framework :: Django
 

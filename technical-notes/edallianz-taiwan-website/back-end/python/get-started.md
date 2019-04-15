@@ -1,100 +1,55 @@
 # Get Started
 
+## Precondition
+
+The deployment environment for **Edallianz Taiwan Website** is **macOS**, in this case Python is already installed as default. However, you might need more steps to begin using Python if you are using Windows.
+
+* Python :: [Download](https://www.python.org/downloads/)
+* Operating System :: macOS
+
+{% hint style="info" %}
+You can find installed Python in _/System/Library/Frameworks/Python.framework/Versions/_
+{% endhint %}
+
+{% hint style="warning" %}
+The version for this project of Python is **3.6.5**
+{% endhint %}
+
+## Display Version
+
+Use the following command if you are going to use Python 2.
+
+```bash
 python --version
+```
 
+Use the following command if you are going to use Python 3.
+
+```bash
 python3 --version
+```
 
-Homebrew&gt;
+{% hint style="info" %}
+Check this [Article](https://www.zhihu.com/question/30941329) if you need to change the version of Python.
+{% endhint %}
 
+## Uninstall Python
+
+You can uninstall specific version of Python by the following method if you have installed **Homebrew**.
+
+{% hint style="info" %}
+Homebrew is a package management tool for macOS, Click [Here](https://brew.sh/index_zh-tw) to know more.
+{% endhint %}
+
+```bash
 brew list
-
-brew uninstalll 軟體名稱
-
-
-
-
-
-### download python
-
-[https://www.python.org/downloads/](https://www.python.org/downloads/)
-
-
-
-### install pip
-
-curl [https://bootstrap.pypa.io/get-pip.py](https://bootstrap.pypa.io/get-pip.py) -o get-pip.py
-
-sudo python3.6 get-pip.py
-
-pip3 -v
-
-
-
-### change pip version\(9 in this project\)
-
-```text
-pip install pip==1.2.1
 ```
 
-python -m pip install pip==9.0.3
+All the packages that you have installed with Homebrew will be listed out.
 
-if meat command not found: pip3
-
-python3 -m pip install
-
-
-
-{% embed url="https://www.zhihu.com/question/30941329" %}
-
-
-
-install virtualenv
-
-```text
-python3 -m pip install --user virtualenv
+```bash
+brew uninstall Python
 ```
-
-
-
-### warning
-
-The script virtualenv is installed in '/Users/eda-001/Library/Python/3.6/bin' which is not on PATH. Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-
-vi ~/.bashrc
-
-add
-
-```text
-export PATH="/Users/crifan/Library/Python/3.6/bin:$PATH"
-```
-
-then command 
-
-```text
-source ~/.bashrc
-```
-
-
-
-### establish venv
-
-python3.6 -m venv myenv
-
-cd myvenv
-
-source bin/activate
-
-```text
-deactivate
-```
-
-
-
-### install packages\(if there is a project\)
-
-pip3 install -r requirements.txt
-
-{% embed url="https://forum.catalystcrypto.io/t/fixed-cannot-uninstall-certifi/329" %}
 
 
 
