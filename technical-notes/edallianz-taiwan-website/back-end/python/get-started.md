@@ -1,4 +1,4 @@
-# Python
+# Get Started
 
 python --version
 

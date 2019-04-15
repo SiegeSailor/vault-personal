@@ -57,7 +57,7 @@ cd /etc/supervisor/conf.d
 Check this [Article](https://blog.techbridge.cc/2017/12/23/linux-commnd-line-tutorial/) to know the basic command and the file structure.
 {% endhint %}
 
-### List Running Files under Supervisor
+### Running Files under Supervisor
 
 ```bash
 ls -al
@@ -75,13 +75,13 @@ You shall see these.
 
 > \[program:web-booking2-release\] command=/var/www/release/WebBooking2/venv/bin/gunicorn -b 127.0.0.1:8887 mysite.wsgi --reload --workers=2 directory=/var/www/release/WebBooking2 user=www-data autostart=true autorestart=true redirect\_stderr=true stdout\_logfile=/var/www/release/WebBooking2/storage/work.log
 
-Restart the Process
+Then Restart the Process.
 
 ```bash
 sudo supervisorctl restart web-booking2-release
 ```
 
-Once you see these which means you have successfully refresh the file.
+Once you see these which means you have successfully refreshed the file.
 
 > web-booking2-release: stopped  
 > web-booking2-release: started

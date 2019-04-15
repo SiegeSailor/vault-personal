@@ -1,4 +1,4 @@
-# sass
+# SASS
 
 npm install @types/sass-webpack-plugin
 

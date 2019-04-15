@@ -25,11 +25,11 @@
       * [Entry Point](edallianz-taiwan-website/front-end/nodejs/npm/entry-point.md)
       * [Download Assigned Version](edallianz-taiwan-website/front-end/nodejs/npm/download-assigned-version.md)
       * [Webpack](edallianz-taiwan-website/front-end/nodejs/npm/webpack/README.md)
-        * [pug](edallianz-taiwan-website/front-end/nodejs/npm/webpack/pug.md)
-        * [sass](edallianz-taiwan-website/front-end/nodejs/npm/webpack/sass.md)
+        * [PUG](edallianz-taiwan-website/front-end/nodejs/npm/webpack/pug.md)
+        * [SASS](edallianz-taiwan-website/front-end/nodejs/npm/webpack/sass.md)
 * [MIS](edallianz-taiwan-website/mis/README.md)
   * [Ubuntu](edallianz-taiwan-website/mis/ubuntu/README.md)
-    * [Command](edallianz-taiwan-website/mis/ubuntu/transfer-files.md)
+    * [Command](edallianz-taiwan-website/mis/ubuntu/command.md)
     * [Activate Files](edallianz-taiwan-website/mis/ubuntu/activate-files-on-server.md)
   * [MacOS](edallianz-taiwan-website/mis/macos/README.md)
     * [Display Hidden Files](edallianz-taiwan-website/mis/macos/display-all-files.md)
@@ -38,8 +38,7 @@
   * [Git](edallianz-taiwan-website/extra/git/README.md)
     * [Proxy and Account](edallianz-taiwan-website/extra/git/proxy-and-account.md)
 * [Back-End](edallianz-taiwan-website/back-end/README.md)
-  * [Python](edallianz-taiwan-website/back-end/python.md)
+  * [Python](edallianz-taiwan-website/back-end/python/README.md)
+    * [Get Started](edallianz-taiwan-website/back-end/python/get-started.md)
   * [Django](edallianz-taiwan-website/back-end/django.md)
-
-## Back-End
 

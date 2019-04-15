@@ -79,5 +79,3 @@ wget
 * `Ctrl-A`: go to the beginning of line
 * `Ctrl-E`: go to the end of line
 
-
-
