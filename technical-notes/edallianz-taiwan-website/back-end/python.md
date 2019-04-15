@@ -96,21 +96,5 @@ pip3 install -r requirements.txt
 
 {% embed url="https://forum.catalystcrypto.io/t/fixed-cannot-uninstall-certifi/329" %}
 
-### 
-
-### runserver\(if there is a project\)
-
-python3.6 manage.py runserver
-
-
-
-### django
-
-若 static 和 assets 都有，會優先讀 static 內的
-
-
-
-python manage.py collectstatic
-
 
 

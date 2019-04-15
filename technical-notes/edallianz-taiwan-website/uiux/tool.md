@@ -4,9 +4,7 @@
 
 ### Tips
 
-#### Mask
-
-The layer of the shape must be under the objects.
+* Mask :: The layer of the shape must be under the objects.
 
 ## Sketch Plugins
 

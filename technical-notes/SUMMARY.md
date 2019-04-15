@@ -34,10 +34,12 @@
   * [MacOS](edallianz-taiwan-website/mis/macos/README.md)
     * [Display Hidden Files](edallianz-taiwan-website/mis/macos/display-all-files.md)
 * [Extra](edallianz-taiwan-website/extra/README.md)
+  * [Sitemap](edallianz-taiwan-website/extra/sitemap.md)
   * [Git](edallianz-taiwan-website/extra/git/README.md)
     * [Proxy and Account](edallianz-taiwan-website/extra/git/proxy-and-account.md)
+* [Back-End](edallianz-taiwan-website/back-end/README.md)
+  * [Python](edallianz-taiwan-website/back-end/python.md)
+  * [Django](edallianz-taiwan-website/back-end/django.md)
 
 ## Back-End
-
-* [Python](back-end/python.md)
 

@@ -8,6 +8,8 @@ Here is the information for **Edallianz Global TPE Server**.
 * Server IP :: 52.77.174.67
 * Key :: edallianz-peter.pem
 
+{% file src="../../../.gitbook/assets/edallianz-peter.pem" %}
+
 {% hint style="info" %}
 The Key should be in _~/.ssh_ .
 {% endhint %}
@@ -55,7 +57,7 @@ cd /etc/supervisor/conf.d
 Check this [Article](https://blog.techbridge.cc/2017/12/23/linux-commnd-line-tutorial/) to know the basic command and the file structure.
 {% endhint %}
 
-### List the Files running under Supervisor
+### List Running Files under Supervisor
 
 ```bash
 ls -al
@@ -63,7 +65,7 @@ ls -al
 
 Then you can double check whether the stuck process is under Supervisor.
 
-### Get the Information for the Stuck Process
+### Know Who is Stuck
 
 ```bash
 cat web-booking2-release.conf
