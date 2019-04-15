@@ -34,7 +34,7 @@ In case if meet _**permission denied \( publickey \) .**_, please use the follow
 {% endhint %}
 
 ```bash
-scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
+ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
 ```
 
 ### List Processes
