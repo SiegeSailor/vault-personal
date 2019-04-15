@@ -131,7 +131,3 @@ After pulling the project into myvenv folder, use the following command to insta
 pip3 install -r EdallianzTW/requirements.txt
 ```
 
-{% embed url="https://forum.catalystcrypto.io/t/fixed-cannot-uninstall-certifi/329" %}
-
-
-
