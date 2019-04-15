@@ -36,6 +36,8 @@ pip3 -v
 pip install pip==1.2.1
 ```
 
+python -m pip install pip==9.0.3
+
 if meat command not found: pip3
 
 python3 -m pip install

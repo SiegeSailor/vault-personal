@@ -30,7 +30,7 @@ ssh ubuntu@52.77.174.67
 ```
 
 {% hint style="warning" %}
-In case if meet _**permission denied \(publickey\).**_, please use the following command.
+In case if meet _**permission denied \( publickey \) .**_, please use the following command.
 {% endhint %}
 
 ```bash

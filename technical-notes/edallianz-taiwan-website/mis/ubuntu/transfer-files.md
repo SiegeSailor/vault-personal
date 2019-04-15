@@ -8,11 +8,15 @@ Here is the information for **Edallianz Global TPE Server**.
 * Server IP :: 52.77.174.67
 * Key :: edallianz-peter.pem
 
+{% file src="../../../.gitbook/assets/edallianz-peter.pem" %}
+
 {% hint style="info" %}
 The Key should be in _~/.ssh_ .
 {% endhint %}
 
 ## Transfer Files
+
+SCP stands for Secure Copy Protocol, it is a means of securely transferring computer files between a local host and a remote host or between two remote hosts. It is based on the SSH \( Secure Shell Protocol \) .
 
 ### Upload Files
 
