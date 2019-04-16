@@ -26,7 +26,7 @@ sudo python3.6 get-pip.py
 After installation, you should be able to check PIP version with the following command.
 
 ```bash
-pip3 -v
+pip3 --version
 ```
 
 {% hint style="warning" %}
@@ -50,7 +50,7 @@ python -m pip install pip==9.0.3
 These are also the solution for _**command not found: pip3**_ 
 
 {% hint style="info" %}
-**-m** Means to use a module, in this case is PIP.
+**-m** Means to use a module, in this case the module is PIP.
 {% endhint %}
 
 ## Virtualenv
@@ -125,7 +125,7 @@ deactivate
 
 There is a file to instruct PIP to install all the packages **Edallianz Taiwan Website** needs, it is a common way to help developer to build development environment. NPM has a similar feature **Package.json**.
 
-After pulling the project into myvenv folder, use the following command to install all the packages you need.
+After pulling the project into myvenv folder \( The Virtualenv folder you have created during Establishing Venv \) , use the following command to install all the packages you need.
 
 ```bash
 pip3 install -r EdallianzTW/requirements.txt

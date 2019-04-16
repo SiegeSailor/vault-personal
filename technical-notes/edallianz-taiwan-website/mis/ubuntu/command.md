@@ -48,11 +48,15 @@ mv
 
 rm
 
+cp -r home/ayu/xyz/. /tmp
+
 vi
 
 ls -al
 
 sudo
+
+df du
 
 
 
