@@ -79,13 +79,13 @@ In this case, You need to add a path for the package Virtualenv, first you shoul
 vi ~/.bashrc
 ```
 
-Then in vi screen, add.
+Then in vi screen, add these.
 
 ```text
 export PATH="/Users/crifan/Library/Python/3.6/bin:$PATH"
 ```
 
-After using `ESC` + `:wq` , use the following command to activate the file.
+After using `ESC` + `:wq` to exit vi screen, use the following command to activate the file.
 
 ```bash
 source ~/.bashrc
