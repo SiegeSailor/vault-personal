@@ -25,7 +25,8 @@ npm install
 python manage.py migrate \(same with python manage.py syncdb, but you will get Unknown command: 'syncdb' if you are using django 1.7 or later\)
 
 ```text
-npm run dev (npm run production)
+npm run dev 
+npm run production
 ```
 
 python manage.py collectstatic
