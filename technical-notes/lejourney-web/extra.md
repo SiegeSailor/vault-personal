@@ -39,6 +39,10 @@ Error: That port is already in use.
 
 sudo lsof -t -i tcp:8000 \| xargs kill -9
 
+```bash
+sudo supervisorctl restart web-booking2-release
+```
+
 
 
 database setting is in local\_settings.py
@@ -97,11 +101,27 @@ it is because this : mysite&gt;components&gt;base.py&gt;STATICFILES\_STORAGE = "
 `ManifestStaticFilesStorage`
 {% endhint %}
 
-css js unable to be read problem: django.contrib.staticfiles.storage.ManifestStaticFilesStorage doesn't work while DEBUG is true
+css js unable to be read problem: django.contrib.staticfiles.storage.ManifestStaticFilesStorage doesn't work while DEBUG is true, cos Django only read static on DEBUG:False False mode,
+
+so if the version for static files don't match the real one, the most reason is because of that the static/ folder's files haven't been deleted, and Django reads static/ folder first than assest/
+
+
 
 fastest way: modify css/js&gt; deploy locally &gt; push to git&gt; git pull &gt; venv &gt; deploy again&gt; use local setting
 
 
+
+warning: js in block is also following the rule of template
+
+recaptcha\_\_zh\_tw.js:520 Uncaught Error: Missing required parameters: sitekey is normal when you are not online
+
+
+
+test credit card on test server
+
+42424242424242
+
+1111 111
 
 
 

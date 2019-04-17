@@ -20,6 +20,10 @@ rm -rf .git to remove git tracking
 
 \`\`
 
+```text
+git reset 85e7e30
+```
+
 \`\`
 
 ```text
