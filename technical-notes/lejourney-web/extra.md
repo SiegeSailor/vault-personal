@@ -97,6 +97,10 @@ it is because this : mysite&gt;components&gt;base.py&gt;STATICFILES\_STORAGE = "
 `ManifestStaticFilesStorage`
 {% endhint %}
 
+css js unable to be read problem: django.contrib.staticfiles.storage.ManifestStaticFilesStorage doesn't work while DEBUG is true
+
+fastest way: modify css/js&gt; deploy locally &gt; push to git&gt; git pull &gt; venv &gt; deploy again&gt; use local setting
+
 
 
 
