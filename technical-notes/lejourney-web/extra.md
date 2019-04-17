@@ -29,7 +29,9 @@ npm run dev
 npm run production
 ```
 
-python manage.py collectstatic
+python manage.py collectstatic \(python manage.py collectstatic --noinput --clear\)
+
+Restart Django on prod????
 
 python3.6 manage.py runserver
 
@@ -81,6 +83,21 @@ mysite&gt;components&gt;base.py
 DEBUG &gt;&gt; from True to False
 
 ALLOWED\_HOSTS = \[\] &gt;&gt; from \[\] to \['\*'\]
+
+after connecting to the database &gt;&gt;&gt;&gt;
+
+\[17/Apr/2019 03:14:44\] "GET /static/plugins/sweet-alert2/sweetalert2.min.190ae6f99653.css HTTP/1.1" 404 134 \[17/Apr/2019 03:14:44\] "GET /static/css/base.min.379ae1fa008a.css HTTP/1.1" 404 110 \[17/Apr/2019 03:14:44\] "GET /static/css/landingPageStyle.min.709d1c9684af.css HTTP/1.1" 404 122 \[17/Apr/2019 03:14:44\] "GET /static/plugins/sweet-alert2/sweetalert2.min.c69b8288412e.js HTTP/1.1" 404 133 \[17/Apr/2019 03:14:44\] "GET /static/images/Logo\_Lejourney\_600px\_white.f4587df16aca.png HTTP/1.1" 404 131 \[17/Apr/2019 03:14:44\] "GET /static/js/jquery.min.2f6b11a7e914.js HTTP/1.1" 404 110 \[17/Apr/2019 03:14:44\] "GET /static/js/jquery.blockUI.dac9d26681c6.js HTTP/1.1" 404 114 \[17/Apr/2019 03:14:44\] "GET /static/js/popper.min.6383a57baa14.js HTTP/1.1" 404 110 \[17/Apr/2019 03:14:44\] "GET /static/js/bootstrap.min.f5273414c773.js HTTP/1.1" 404 113
+
+the _MD5_ Message-Digest Algorithm behind all the static files doesn't match
+
+it is because this : mysite&gt;components&gt;base.py&gt;STATICFILES\_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+{% hint style="info" %}
+[https://docs.djangoproject.com/en/2.2/ref/contrib/staticfiles/](https://docs.djangoproject.com/en/2.2/ref/contrib/staticfiles/)  
+`ManifestStaticFilesStorage`
+{% endhint %}
+
+
 
 
 
