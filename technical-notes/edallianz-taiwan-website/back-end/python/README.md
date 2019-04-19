@@ -2,3 +2,5 @@
 
 ## Initial
 
+magic function
+

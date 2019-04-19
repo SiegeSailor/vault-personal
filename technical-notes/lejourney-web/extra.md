@@ -135,3 +135,53 @@ core&gt;views.py
 
 templates&gt;core or ...&gt;page.html
 
+
+
+
+
+## adding a page
+
+\(create a vendor page\)
+
+mysite/urls.py &gt; add url
+
+url\(r'^booking/\(?P.+\)/\(?P.+\)/$', class\_views.VendorDetailFromSlug.as\_view\(\), name='class.detail.slug.vendor'\),
+
+classpage&gt;views.py
+
+classpage&gt;services.py
+
+core&gt;lejservice.py
+
+creat class-details-verdor.html in templates&gt;classpage
+
+
+
+## reverse
+
+core&gt;views/py
+
+from django.urls import reverse
+
+if user is not None and user.is\_active: auth.login\(request, user\) request.session\['token'\] = token request.session\['customer\_id'\] = customer\_id request.session\['class\_filter'\] = None request.session\['watchlist'\] = cs.get\_watchlist\(customer\_id, token\) device\_id = core\_service.generate\_device\_id\(request.META\) request.session\['device\_id'\] = device\_id return HttpResponseRedirect\(reverse\('index'\)\) else: return render\(request, 'core/login-signup.html',{'page':'login'}\)
+
+mysite&gt;urls.py
+
+url\(r'^$', class\_views.LandingPage.as\_view\(\), name='index'\),
+
+> use reverse\('fdsa'\) to direct the user to the url which the name matches
+
+## regular expression
+
+`(?P<category_slug>)` creates a match group named `category_slug`.
+
+The regex itself matches a string starting with `category/` and then a mix of alphanumeric characters, the dash `-` and the underscore `_`, followed by a trailing slash.
+
+Example URLs accepted by the regex:
+
+* category/foo/
+* category/foo\_bar-baz/
+* category/12345/
+
+
+

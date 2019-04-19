@@ -40,7 +40,8 @@
 * [Back-End](edallianz-taiwan-website/back-end/README.md)
   * [Python](edallianz-taiwan-website/back-end/python/README.md)
     * [Get Started](edallianz-taiwan-website/back-end/python/get-started.md)
-    * [PIP](edallianz-taiwan-website/back-end/python/pip.md)
+    * [PIP](edallianz-taiwan-website/back-end/python/pip/README.md)
+      * [Get Started](edallianz-taiwan-website/back-end/python/pip/get-started-1.md)
   * [Django](edallianz-taiwan-website/back-end/django.md)
 
 ## LeJourney Web
