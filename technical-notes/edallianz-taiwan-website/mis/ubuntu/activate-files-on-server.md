@@ -16,14 +16,14 @@ The Key should be in _~/.ssh_ .
 
 ## Activate Files on Edallianz Server
 
-It is enough to activate a file by only overwriting the file on the server from local file, but once there are some specific packages running on the server, you have to go extra steps.
+It is enough to activate a file by only overwriting the file on the server, however, if there are some specific packages running on the server, you have to go extra steps.
 
-For Edallianz Global TPE Server, the reason why you need to go the following steps is because these two.
+For Edallianz Global TPE Server, the reason why you need to go extra steps is because of the following reasons.
 
 * Supervisor :: Manage processes, such as assign them automatically run after starting the server
 * Gunicorn :: WSGI Server service, use cache to speed up the request from clients
 
-Due to **Gunicorn** uses cache to load the files while **Supervisor** keeps it running, the file will never refresh even if you have overwritten it, so these are what you have done before displaying the newest file on the server,
+Due to **Gunicorn** uses cache to load files while **Supervisor** keeps the files running, the files will never refresh even if you have overwritten it, so these are what you should do before displaying the newest file on the server,
 
 ### Log In the Server
 
