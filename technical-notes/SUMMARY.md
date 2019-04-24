@@ -51,3 +51,7 @@
 * [Back-End](lejourney-web/back-end.md)
 * [Extra](lejourney-web/extra.md)
 
+## EdPos
+
+* [UIUX](edpos/uiux.md)
+

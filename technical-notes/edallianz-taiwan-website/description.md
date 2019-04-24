@@ -19,6 +19,15 @@ All the new content is from other team members.
 ## Environment
 
 * Operating System :: macOS
-* Server :: Ubuntu
-* Framework :: Django
+* Server System :: Ubuntu
+* Apache ::
+* PHP ::
+* Composer ::
+* MySQL ::
+* Node ::
+* NPM ::
+* Webpack ::
+* Python ::
+* PIP ::
+* Django ::
 
