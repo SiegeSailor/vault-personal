@@ -12,6 +12,7 @@ All the new content is from other team members.
 * Text Content :: [Google Document](https://docs.google.com/document/d/1bgNMkz-AItqQqHHA7i4Hk_gSDcJpRUrJwKXtJukRhTY/edit?usp=sharing)
 * Pricing :: [Google Document](https://docs.google.com/document/d/1A9qkCnutg6vcAttezC60SPGTmSGs68z78_M1VYTQWuI/edit)
 * Material :: [Google Drive](https://drive.google.com/drive/folders/143dS15nCgOZiZjP32vHV2twCoYYKeUxt)
+* Articles :: [Google Drive](https://drive.google.com/drive/folders/1HRHvy4bK10AXh-f7MQLxX6FtKSoU3o60)
 * Partners Logo :: [Bitrix Drive](https://edallianz.bitrix24.com/docs/pub/dd9e84f033ae24ae7e703001c5d4d5c0/default/?&)
 * Partners List :: [Google Drive](https://docs.google.com/spreadsheets/d...edit#gid=0)
 * Previous Prototype :: [Sketch Cloud](https://sketch.cloud/s/zqzly/KvYarQy/play)
