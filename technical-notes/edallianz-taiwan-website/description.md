@@ -28,8 +28,8 @@ All the new content is from other team members.
 * Node ::
 * NPM ::
 * Webpack ::
-* Python ::
-* PIP ::
+* Python :: 3.6.5
+* PIP :: 9.0.3
 * Django ::
 
 ## Status

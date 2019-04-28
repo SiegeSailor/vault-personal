@@ -1,5 +1,7 @@
 # UIUX
 
+![UIUX](../../.gitbook/assets/image%20%284%29.png)
+
 ## User Experience
 
 Edallianz Taiwan Website is a B2B website, it helps the sales to introduce our services to our clients, and show our image to public as well, but there isn't more requirement for this website, so that my focus in UX field will only be **Following Marketing Need** and **Branding**.
