@@ -1,5 +1,9 @@
 # WordPress
 
+![WordPress](../.gitbook/assets/image.png)
+
+> WordPress is a free and open-source content management system \(CMS\) based on PHP & MySQL. Features include a plugin architecture and a template system. It is most associated with blogging but supports other types of web content including more traditional mailing lists and forums, media galleries, and online stores. Used by more than 60 million websites, including 33.6% of the top 10 million websites as of April 2019, WordPress is the most popular website management system in use.
+
 Unable to locate WordPress Content directory \(wp-content\)
 
 無法新建目錄
@@ -44,54 +48,7 @@ form problem &gt; smtp &gt; host problem\(when the sender's email doesn't math w
 
 
 
-**Neuromath**  
-
-
-* URL: [https://www.neuromath.com.sg/](https://www.neuromath.com.sg/) 
-* Server tmp: [https://www.neuromath.com.sg/wp-admin](https://www.neuromath.com.sg/wp-admin) 
-* WordPress account: Neuromath 
-* WordPress password: ZPico\#D@lI%j\#UKXca 
-* FTP account: marketing 
-* FTP password: 123BSwxw 
-* FTP path: 35.237.42.42
-* * For SMTP username/password
-* ask@neuromath.com.sg
-* murena.websitewelcome.com
-* hfe\_SnhRIzq!
-
-**Abrakadoodle**  
-
-
-* URL: [http://www.abrakadoodle.com.sg/](http://www.abrakadoodle.com.sg/) 
-* Server tmp: [h](http://103.104.196.82/~abrakado/wp-admin)ttp://www.abrakadoodle.com.sg/wp-admin 
-* WordPress account: FAdmin 
-* WordPress password: fesfe3$ 
-* FTP account: [awios@abrakadoodle.com.sg](mailto:awios@abrakadoodle.com.sg) 
-* FTP password: fesfe3$\#@! 
-* FTP path: 103.104.196.82 
-* CPenal account: [gracelow@abrakadoodle.com.sg](mailto:gracelow@abrakadoodle.com.sg) 
-* CPenal password: 93660260
-
-
-
-webmaster@edallianz.com \| Edallianz$\#[  
-](https://edallianz.bitrix24.com/desktop_app/?BXD_API_VERSION=42&user_lang=en&login=rd5@rd.edallianz.com#bx-im-go-Wed%20Mar%2006%202019%2009:56:07%20GMT+0800%20%28CST%29)[https://read.lejourneyapp.com/wp-admin/](https://read.lejourneyapp.com/wp-admin/)
-
-
-
-{% embed url="https://read.lejourneyapp.com/tw/wp-admin/" %}
-
-acccount wordpress
-
-password 123456789JJJWWWiii!!!
-
-url 52.77.174.67
-
-### account for GA
-
-marketing.tw@edallianz.com
-
-Password: edA5123\#6578
+\*\*\*\*
 
 ## backup
 
@@ -111,5 +68,5 @@ import
 
 extra
 
-Google Account: twedallianzcom@gmail.com Password: twmarketingteam
+
 

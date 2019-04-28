@@ -6,6 +6,7 @@
 
 * [Description](wordpress-1/description.md)
 * [WordPress](wordpress-1/wordpress.md)
+* [Admin](wordpress-1/admin.md)
 
 ## Edallianz Taiwan Website
 
