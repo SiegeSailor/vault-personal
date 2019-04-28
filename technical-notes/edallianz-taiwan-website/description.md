@@ -32,3 +32,10 @@ All the new content is from other team members.
 * PIP ::
 * Django ::
 
+## Status
+
+Summary for the website.
+
+* [x] Sitemap
+* [x] Google Analytics Code
+
