@@ -45,9 +45,9 @@ Summary for each website.
 #### LeJourney Read Taiwan
 
 * [x] Under Edallianz Server
-* [ ] SMTP
+* [x] SMTP
 * [x] Theme Setup
-* [ ] Marketing Team Assignment
-* [ ] Sitemap
+* [x] Marketing Team Assignment
+* [x] Sitemap
 * [x] Google Analytics Code
 

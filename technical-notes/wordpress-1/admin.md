@@ -20,7 +20,7 @@ One of our partner's official website.
 One of our partner's official website.
 
 * URL :: [http://www.abrakadoodle.com.sg/](http://www.abrakadoodle.com.sg/)
-* WordPress Admin :: [h](http://103.104.196.82/~abrakado/wp-admin)ttp://www.abrakadoodle.com.sg/wp-admin
+* WordPress Admin :: [http://www.abrakadoodle.com.sg/wp-admin](http://www.abrakadoodle.com.sg/wp-admin)
 * WordPress Account :: FAdmin
 * WordPress Password :: fesfe3$
 * FTP Path :: 103.104.196.82

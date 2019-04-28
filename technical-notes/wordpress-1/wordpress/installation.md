@@ -1,6 +1,6 @@
 # Installation
 
-## Theme Installation
+## Theme
 
 #### Via Backend
 
@@ -17,7 +17,7 @@ define('FS_METHOD', 'direct');
 ```
 
 {% hint style="info" %}
-You should be able to find the file in your site **root folder**.
+You should be able to find wp-config.php in your site **root folder**.
 {% endhint %}
 
 Then go back to backend interface, choose the theme you want to use.
@@ -37,10 +37,10 @@ If you are not able to overwrite any file or upload any theme to your WordPress 
 Then go back to backend interface, choose the theme you want to use.
 
 {% hint style="warning" %}
-If your themes have been successfully installed but not working, check your **PHP version** via your host.
+If your themes have been successfully installed but not working, check your **PHP version** via your host. You can use plugin **PHP Compatibility Checker** to check out needed PHP version for your theme in the other hand.
 {% endhint %}
 
-## Plugin Installation
+## Plugin
 
 Use backend interface to browse and install plugins.
 
@@ -49,6 +49,6 @@ wp-admin/Plugins/Add New
 ```
 
 {% hint style="warning" %}
-If your plugins have been successfully installed but not working, check your **PHP version** via your host.
+If your plugins have been successfully installed but not working, check your **PHP version** via your host. You can use plugin **PHP Compatibility Checker** to check out needed PHP version for your plugin in the other hand.
 {% endhint %}
 

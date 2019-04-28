@@ -1,16 +1,20 @@
 # Transfer Host
 
-## backup
+## Backup and Transfer
 
-download the whole files from ftp and use plugins to backup
+Before transferring host, we have to back up all the content, plugins, and theme, then move. There are two different ways to reach the goal.
 
-down Wordpress its self
+#### Via FTP
 
-[https://wordpress.org/download/](https://wordpress.org/download/)
+Simply use FTP to download the whole WordPress folder, and move the whole files to the server.
 
-upload Wordpress its self to new ftp path
+#### Via Plugins
 
-install
+First, use Plugins to backup to cloud or local. Then Deploy WordPress itself on server.
 
-import
+{% hint style="info" %}
+Check [Here](https://wordpress.org/download/) to download WordPress.
+{% endhint %}
+
+Once WordPress installation doen, import whatever you have exported.
 
