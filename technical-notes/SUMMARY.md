@@ -9,7 +9,7 @@
   * [Installation](wordpress-1/wordpress/installation.md)
   * [URL Modifying](wordpress-1/wordpress/url-modifying.md)
   * [Transfer Host](wordpress-1/wordpress/transfer-host.md)
-  * [Form Sender Issue](wordpress-1/wordpress/form-sender-issue.md)
+  * [SMTP](wordpress-1/wordpress/form-sender-issue.md)
 * [Admin](wordpress-1/admin.md)
 
 ## Edallianz Taiwan Website
