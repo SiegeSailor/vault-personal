@@ -50,7 +50,7 @@ The GitBook would probably be related to the following list.
 
 #### Back-End
 
-* Edallianz Taiwan Webiste Framework Structure
-* LeJourney Web Framework Structrue
+* Edallianz Taiwan Website Framework Structure
+* LeJourney Web Framework Structure
 * Facebook Chat Bot
 
