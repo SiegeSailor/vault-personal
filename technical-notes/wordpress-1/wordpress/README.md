@@ -8,5 +8,7 @@ WordPress is a free and open-source content management system \(CMS\) based on P
 
 ## Marketing Work Process
 
+A reference work flow based on my experience in the first month.
 
+![](../../.gitbook/assets/work-flow.png)
 
