@@ -14,11 +14,11 @@ install intel ac-9560 driver
 
 or
 
-git clone https://github.com/lwfinger/rtlwifi\_new.git
+[https://askubuntu.com/questions/1047245/wifi-adapter-not-found-in-ubuntu-18-04](https://askubuntu.com/questions/1047245/wifi-adapter-not-found-in-ubuntu-18-04)
 
-git checkout extended
 
-cd rtlwifi\_new
+
+
 
 
 
