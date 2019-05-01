@@ -60,3 +60,13 @@
 
 * [UIUX](edpos/uiux.md)
 
+## LEJOURNEY APP
+
+* [UIUX](lejourney-app/uiux.md)
+
+## HEX SCHOOL
+
+* [MIS](hex-school/mis/README.md)
+  * [Ubuntu](hex-school/mis/ubuntu/README.md)
+    * [Wifi Adapter Not Found](hex-school/mis/ubuntu/wifi-adapter-not-found.md)
+
