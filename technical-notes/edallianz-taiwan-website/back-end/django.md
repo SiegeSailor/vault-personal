@@ -59,3 +59,9 @@ python manage.py collectstatic
 
 
 
+```text
+python -c "import django; print(django.get_version())"
+```
+
+
+

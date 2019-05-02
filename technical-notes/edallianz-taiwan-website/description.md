@@ -19,18 +19,24 @@ All the new content is from other team members.
 
 ## Environment
 
-* Operating System :: macOS
-* Server System :: Ubuntu
-* Apache ::
-* PHP ::
-* Composer ::
+Server.
+
+* System :: Ubuntu 16.04.4
+* Apache :: 2.4.18
+* PHP :: 7.0.28
+* Composer :: 1.5.2
 * MySQL ::
-* Node ::
-* NPM ::
-* Webpack ::
+
+Local.
+
+* System :: macOS 10.14.1
+* Node :: 10.15.1
+* NPM :: 6.4.1
+* Laravel-Mix :: 2.1.14
+* Webpack :: 3.11.0
 * Python :: 3.6.5
 * PIP :: 9.0.3
-* Django ::
+* Django :: 1.11.14
 
 ## Status
 
