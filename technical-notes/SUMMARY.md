@@ -69,4 +69,6 @@
 * [MIS](hex-school/mis/README.md)
   * [Ubuntu](hex-school/mis/ubuntu/README.md)
     * [Wifi Adapter Not Found](hex-school/mis/ubuntu/wifi-adapter-not-found.md)
+* [Front-End](hex-school/front-end/README.md)
+  * [JavaScript](hex-school/front-end/javascript.md)
 
