@@ -2,7 +2,7 @@
 
 ## Neuromath
 
-One of our partner's official website.
+One of our Singapore partner's official website.
 
 * URL :: [https://www.neuromath.com.sg/](https://www.neuromath.com.sg/)
 * WordPress Admin :: [https://www.neuromath.com.sg/wp-admin](https://www.neuromath.com.sg/wp-admin)
@@ -17,7 +17,7 @@ One of our partner's official website.
 
 ## **Abrakadoodle**
 
-One of our partner's official website.
+One of our Singapore partner's official website.
 
 * URL :: [http://www.abrakadoodle.com.sg/](http://www.abrakadoodle.com.sg/)
 * WordPress Admin :: [http://www.abrakadoodle.com.sg/wp-admin](http://www.abrakadoodle.com.sg/wp-admin)
@@ -28,6 +28,18 @@ One of our partner's official website.
 * FTP Password :: fesfe3$\#@!
 * CPenal Account :: [gracelow@abrakadoodle.com.sg](mailto:gracelow@abrakadoodle.com.sg)
 * CPenal Password :: 93660260
+
+## ForumClass
+
+one of our Taiwan partner's official website.
+
+* URL :: [http://www.forumclasstw.com](http://www.forumclasstw.com)
+* WordPress Admin :: [http://www.forumclasstw.com/wp-admin/](http://www.forumclasstw.com/wp-admin/)
+* WordPress Account :: FAdmin
+* WordPress Password :: fesfe3$
+* FTP Path :: www.forumclasstw.com
+* FTP Account :: marketing
+* FTP Password :: 123BSwxw
 
 ## LeJourney Read Singapore
 
