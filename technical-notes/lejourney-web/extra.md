@@ -26,10 +26,10 @@ python manage.py migrate \(same with python manage.py syncdb, but you will get U
 
 ```text
 npm run dev 
-npm run production
+npm run production (only release)
 ```
 
-python manage.py collectstatic \(python manage.py collectstatic --noinput --clear\)
+python manage.py collectstatic \(python manage.py collectstatic --noinput --clear\) \(only release\)
 
 Restart Django on prod????
 
