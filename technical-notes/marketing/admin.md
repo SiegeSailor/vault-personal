@@ -4,8 +4,8 @@
 
 One of our Singapore partner's official website.
 
-* URL :: [https://www.neuromath.com.sg/](https://www.neuromath.com.sg/)
-* WordPress Admin :: [https://www.neuromath.com.sg/wp-admin](https://www.neuromath.com.sg/wp-admin)
+* URL :: [http://www.neuromath.com.sg/](http://www.neuromath.com.sg/)
+* WordPress Admin :: [http://www.neuromath.com.sg/wp-admin](http://www.neuromath.com.sg/wp-admin)
 * WordPress Account :: Neuromath
 * WordPress Password :: ZPico\#D@lI%j\#UKXca
 * FTP Path :: 35.237.42.42
