@@ -26,7 +26,7 @@ But we are not sending any email if we go this way, this is not recommended.
 
 ### Solution
 
-Usually if Contact Form 7 configure setting is set properly, it should work fine in WordPress. The major reason for _**Sender's message failed to send**_ is because of that WordPress is using mail\(\) method in server. Most Web Hosting Service is actually supporting this kind of method, however, if there is any circumstance that users are not able to send info by forms, we have to go SMTP setup.
+Usually if Contact Form 7 configure setting is set properly, it should work fine in WordPress. The major reason for _**Sender's message failed to send**_ is because of that WordPress is using **mail\(\)** method in server. Most Web Hosting Service is actually supporting this kind of method, however, if there is any circumstance that users are not able to send info by forms, we have to go SMTP setup.
 
 #### Install WP Mail SMTP by WPForms
 

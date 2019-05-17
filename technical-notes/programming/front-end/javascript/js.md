@@ -54,3 +54,9 @@ The default `.toString()` returns `"[object Object]"`, which is not valid JSON; 
 
 
 
+### django and jquery ajax api
+
+no need to use datatype:"json" if django already uses JSONreponse
+
+
+
