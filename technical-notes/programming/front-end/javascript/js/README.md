@@ -60,3 +60,19 @@ no need to use datatype:"json" if django already uses JSONreponse
 
 
 
+## Checked
+
+var accountCreate = $\('\#apply-account-id'\).prop\("checked"\); var accountCreateNumber = ''; if \(accountCreate == false\) { accountCreateNumber = 0; } else if \(accountCreate == true\) { accountCreateNumber = 1; };
+
+## get value of checkbox or radio
+
+{% embed url="https://blog.xuite.net/avatar56/balmywind/49132116-jQuery+-+%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E3%80%82select%E3%80%81radio%E3%80%81checkbox%E5%8F%96%E5%80%BC" %}
+
+
+
+## return mulit values in js
+
+[https://stackoverflow.com/questions/2917175/return-multiple-values-in-javascript](https://stackoverflow.com/questions/2917175/return-multiple-values-in-javascript)
+
+
+
