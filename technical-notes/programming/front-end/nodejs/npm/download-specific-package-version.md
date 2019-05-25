@@ -4,6 +4,8 @@
 
 Here is what you should have installed before starting managing packages.
 
+[https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)
+
 * Node.js :: [Download](https://nodejs.org/en/download/)
 
 {% hint style="info" %}

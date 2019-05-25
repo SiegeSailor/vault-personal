@@ -28,3 +28,7 @@ if you are using mariadb, the drop in replacement for mysql, then run
 sudo apt-get install libmariadbclient-dev
 ```
 
+## start virtualenv
+
+virtualenv venv \(most be in the project root folder\)
+
