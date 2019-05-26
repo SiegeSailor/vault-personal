@@ -32,6 +32,7 @@
       * [Entry Point](programming/front-end/nodejs/npm/entry-point.md)
       * [Download Assigned Version](programming/front-end/nodejs/npm/download-assigned-version.md)
       * [Webpack](programming/front-end/nodejs/npm/webpack/README.md)
+        * [Laravel Mix](programming/front-end/nodejs/npm/webpack/laravel-mix.md)
         * [PUG](programming/front-end/nodejs/npm/webpack/pug.md)
         * [SASS](programming/front-end/nodejs/npm/webpack/sass.md)
 * [MIS](programming/mis/README.md)
