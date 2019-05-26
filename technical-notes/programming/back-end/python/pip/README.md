@@ -32,3 +32,7 @@ sudo apt-get install libmariadbclient-dev
 
 virtualenv venv \(most be in the project root folder\)
 
+## Command "python setup.py egg\_info" failed with error code 1
+
+
+
