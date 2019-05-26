@@ -35,6 +35,13 @@ sudo apt-get install libmariadbclient-dev
 * You did `export PATH=$PATH:/usr/local/mysql/bin`
 * And finally, you did `pip install MySQL-Python` \(or `pip3 install mysqlclient` if using python 3\)
 
+## ERROR: Failed building wheel for mysqlclient
+
+```text
+brew install openssl
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/ 
+```
+
 ## start virtualenv
 
 virtualenv venv \(most be in the project root folder\)
@@ -80,7 +87,13 @@ virtualenv venv -p `which python`
 virtualenv venv -p `which python3`
 ```
 
-## Command "python setup.py egg\_info" failed with error code 1
+## ModuleNotFoundError: No module named 'pysqlite2'
+
+while python manage.py runserver
+
+on mac
+
+brew install sqlite
 
 
 
