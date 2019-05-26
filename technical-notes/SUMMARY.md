@@ -7,6 +7,7 @@
 * [Description](marketing/description.md)
 * [Admin](marketing/admin.md)
 * [WordPress](marketing/wordpress/README.md)
+  * [HTTP to HTTPS](marketing/wordpress/http-to-https.md)
   * [Installation](marketing/wordpress/installation.md)
   * [Relocate URL](marketing/wordpress/relocate-url.md)
   * [Transfer Host](marketing/wordpress/transfer-host.md)
