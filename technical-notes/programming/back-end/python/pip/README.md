@@ -28,6 +28,13 @@ if you are using mariadb, the drop in replacement for mysql, then run
 sudo apt-get install libmariadbclient-dev
 ```
 
+### on mac
+
+* You installed python
+* You did `brew install mysql`
+* You did `export PATH=$PATH:/usr/local/mysql/bin`
+* And finally, you did `pip install MySQL-Python` \(or `pip3 install mysqlclient` if using python 3\)
+
 ## start virtualenv
 
 virtualenv venv \(most be in the project root folder\)
