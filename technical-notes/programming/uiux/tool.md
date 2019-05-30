@@ -14,6 +14,12 @@ Designed for designers to coordinate with engineers. Hand off designs and style 
 
 * Provide code from draft immediately
 
+Due to the limit of projects for one account, I applied many accounts for different projects.
+
+* kenjinyu \| talimusd11 \| kenzhang@rd.edallianz.com
+* seigesailor \| talimusd11 \| siegesailor@gmail.com
+* lookswalidy \| talimusd11 \| lookswalidy@yahoo.com.tw
+* 
 {% hint style="info" %}
 Check [Here](https://zeplin.io/) to visit their website.
 {% endhint %}

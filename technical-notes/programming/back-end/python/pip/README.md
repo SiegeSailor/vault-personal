@@ -87,6 +87,10 @@ virtualenv venv -p `which python`
 virtualenv venv -p `which python3`
 ```
 
+### ERROR: Could not find a version that satisfies the requirement requirements.txt \(from versions: none\) ERROR: No matching distribution found for requirements.txt
+
+pip install --upgrade -r requirements.txt
+
 ## ModuleNotFoundError: No module named 'pysqlite2'
 
 while python manage.py runserver
