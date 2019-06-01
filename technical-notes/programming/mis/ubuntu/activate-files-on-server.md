@@ -37,6 +37,12 @@ In case if meet _**permission denied \( publickey \) .**_, please use the follow
 ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
 ```
 
+### Permissions 0644 for '/Users/apple/.ssh/edallianz-peter.pem' are too open.
+
+```text
+chmod 400 ~/.ssh/id_rsa
+```
+
 ### List Processes
 
 ```bash
