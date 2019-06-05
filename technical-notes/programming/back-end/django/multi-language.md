@@ -33,3 +33,17 @@ mkdir locale
 django-admin compilemessages
 ```
 
+## local name
+
+cos django is behind 1.7
+
+so use zh-tw instead of zh-hant
+
+You should use:
+
+LANGUAGE\_CODE = 'zh-hans'
+
+Also when you use django-admin makemessages -l zh\_hans
+
+Note: one is zh-hans, one is zh\_hans.
+
