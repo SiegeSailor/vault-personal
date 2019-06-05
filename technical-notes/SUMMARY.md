@@ -56,6 +56,7 @@
       * [Get Started](programming/back-end/python/pip/get-started-1.md)
   * [Extra](programming/back-end/extra.md)
   * [Django](programming/back-end/django/README.md)
+    * [Multi Language](programming/back-end/django/multi-language.md)
     * [CSRF](programming/back-end/django/csrf.md)
     * [HttpResponse and JsonResponse](programming/back-end/django/httpresponse-and-jsonresponse.md)
   * [Back-End](programming/back-end/back-end.md)
