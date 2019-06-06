@@ -94,7 +94,7 @@ The way Django translate is to collect the text you want to translate first, the
 
 ### In View
 
-Declare the following command first.
+Declare the following command first of the **View**.
 
 ```python
 from django.utils.translation import ugettext_lazy as _
@@ -125,7 +125,7 @@ Except for values sent from server, this way can also help to translate text in 
 
 ### In Template
 
-Declare the following code first of the HTML.
+Declare the following code first of the **HTML**.
 
 ```python
 {% load i18n %}
@@ -147,11 +147,45 @@ For complex text, such as a sentence, or text with punctuation marks
  <div>{% blocktrans %}This is a very, greatly, complex sentence!{% endblocktrans %}</div>
 ```
 
+### In JavaScript
+
+Declare this code first of the **URL**.
+
+```python
+from django.views.i18n import JavaScriptCatalog
+```
+
+{% hint style="warning" %}
+**javascript\_catalog** has been deprecated after Django 1.10, since we are using Django 1.11, we use JavaScriptCatalog instead.
+{% endhint %}
+
+Then add this to your urlpatterns.
+
+```python
+urlpatterns = [
+        url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
+]
+```
+
+Import the URL in the bottom of the HTML.
+
+```markup
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+```
+
+Use this way to get the text you want to translate in JS, it is similar with view.
+
+```javascript
+var districtText = gettext('District');
+```
+
 ## Language Translation
 
 ### Create .po
 
-Once you have at least one text you want to translate, enter this code in commander. Remember to get in **Venv** first. This code will generate a **django.po** file under `locale/zh_tw/LC_MESSAGES`.
+Once you have at least one text you want to translate, enter this code in commander. Remember to activate **Venv** first. This code will generate a **django.po** file under `locale/zh_tw/LC_MESSAGES`.
+
+#### Views, Templates, and Modals Usage
 
 ```bash
 django-admin makemessages -l zh_tw -i venv
@@ -169,9 +203,24 @@ If you are using Django which is above 1.7, use **zh-hant** instead of **zh-tw**
 
 -i venv means to ignore files in your **Virtualenv** folder, because of that if we makemessages including files in Virtualenv folder will occur _**Unknown encoding "utf8"**_ issue.
 
+#### JS files Usage
+
+```bash
+django-admin makemessages -d djangojs -i assets/plugins -i node_modules -i static
+```
+
+Use `-i` to ignore files you don't need to translate.
+
 #### Unknown Encoding UTF-8
 
 This happens due to you didn't declare your encoding method in the files you are going to makemessages. Usually we already declare encoding method on every HTML but not files in Virtualenv, so the fastest way is just ignore them.
+
+You can insert these code in `settings.py` to prevent it.
+
+```python
+DEFAULT_CHARSET = 'UTF-8'
+FILE_CHARSET = 'UTF-8'
+```
 
 ### Compile .po to .mo
 
