@@ -60,7 +60,22 @@ LOCALE_PATHS = (
 )
 ```
 
-You can also use `os.path.join(BASE_DIR, "locale")` to point the path.
+You can also use these codes to point to the path.
+
+```python
+os.path.join(BASE_DIR, "locale")
+```
+
+```python
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
+LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'), )
+```
+
+The following code can help you to know all real path pointing to in your setting.
+
+```bash
+python manage.py diffsettings --all
+```
 
 ### Language Menu
 
@@ -233,4 +248,8 @@ If you meet _**CommandError: Unable to find a locale path to store translations 
 ```bash
 mkdir locale
 ```
+
+## Switch
+
+
 
