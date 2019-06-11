@@ -112,7 +112,7 @@ The way Django translate is to collect the text you want to translate first, the
 Declare the following command first of the **View**.
 
 ```python
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 ```
 
 Then use this kind of way to collect text.
@@ -137,6 +137,16 @@ In the HTML you want to translate, you will be using the same way to set tags as
 {% hint style="info" %}
 Except for values sent from server, this way can also help to translate text in **attributes**, such as **href,** **placeholder**.
 {% endhint %}
+
+### In Modal
+
+Declare the following command first of the **Modal**.
+
+```text
+from django.utils.translation import ugettext_lazy as _
+```
+
+The method is as same as **Views**.
 
 ### In Template
 
@@ -174,7 +184,7 @@ from django.views.i18n import JavaScriptCatalog
 **javascript\_catalog** has been deprecated after Django 1.10, since we are using Django 1.11, we use JavaScriptCatalog instead.
 {% endhint %}
 
-Then add this to your urlpatterns.
+Then add this to your urlpatterns. Notice that this line **can not be modified**.
 
 ```python
 urlpatterns = [
@@ -188,11 +198,30 @@ Import the URL in the bottom of the HTML.
 <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
 ```
 
+After putting the URL into HTML, you might meet some issue such as _**500 INTERNAL SERVER ERROR**_ on console or _**invalid token in plural form:%s' % value i**n log_, this is because of that the plural form setting in .po file is too open, this solution is to remove `Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n` from all`.po` and `.mo` files in the project.
+
+If you already makemessages to all files in the project, just remove all `.po` and `.mo` at once and makemessages again.
+
 Use this way to get the text you want to translate in JS, it is similar with view.
 
 ```javascript
 var districtText = gettext('District');
 ```
+
+Here are other methods to get text in JavaScript files.
+
+* gettext
+* ngettext
+* interpolate
+* get\_format
+* gettext\_noop
+* pgettext
+* npgettext
+* pluralidx
+
+{% hint style="info" %}
+To know how to use the methods, read this [Article](https://docs.djangoproject.com/en/2.2/topics/i18n/translation/).
+{% endhint %}
 
 ## Language Translation
 
@@ -228,9 +257,9 @@ Use `-i` to ignore files you don't need to translate.
 
 #### Unknown Encoding UTF-8
 
-This happens due to you didn't declare your encoding method in the files you are going to makemessages. Usually we already declare encoding method on every HTML but not files in Virtualenv, so the fastest way is just ignore them.
+This happens due to you didn't declare your encoding method in the files you are going to makemessages. Usually we already declare encoding method on every HTML but not files in Virtualenv, so the fastest way is just ignore them with `-i`.
 
-You can insert these code in `settings.py` to prevent it.
+You can also insert these code in `settings.py` to prevent it.
 
 ```python
 DEFAULT_CHARSET = 'UTF-8'
@@ -251,5 +280,135 @@ mkdir locale
 
 ## Switch
 
+Ways to switch language on Website.
 
+### Activate
+
+The code `activate('language code')` can force a view turn to a specific language, so there is a way to achieve language switching.
+
+#### In Service
+
+First, declare this on the top of the service file.
+
+```python
+from django.utils.translation import activate
+```
+
+Code a service so that you can use this service in all views.
+
+```python
+def activate_language(request):
+    if 'language' in request.session:
+        if request.session['language'] == 'Chinese':
+            activate('zh-tw')
+            request.LANGUAGE_CODE = 'zh-tw'
+        else:
+            activate('en-us')
+            request.LANGUAGE_CODE = 'en-us'
+    return
+```
+
+As you can see, we use `session` to save the current language selection, and decide which language we are forcing to turn by the selection. We also set `LANGUAGE_CODE` to know which language is the current one.
+
+Use `if` in case the error caused by _**no default language code setting**_.
+
+#### In URL
+
+Assign an URL to make a simple API so that you can trigger the activate language service by JS.
+
+```python
+url(r'^translation/(?P<language>.+)/$', views.Translation.as_view(), name='translation'),
+```
+
+Then create a view for the URL.
+
+```python
+class Translation(View):
+    def get(self, request, language=''):
+        service.activate_language(request)
+        request.session['language'] = language
+        return HttpResponseRedirect('/')
+```
+
+#### In View
+
+Import the service to activate the language.
+
+```python
+service.activate_language(request)
+```
+
+Remember, If you are using such ways to get text in view, you must put the service upon them. **Activate line must be the first in the view**.
+
+```python
+class LandingPage(View):
+    def get(self, request):
+        service.activate_language(request)
+        response_first_purchase = ''
+        if request.user.is_authenticated():
+            result_first_purchase = lej.check_first_purchase(customer_id)
+            if result_first_purchase['data'] is True:
+                first_purchase_trans = _("10% Off For Your First Purchase")
+                response_first_purchase = first_purchase_trans
+            if result_first_purchase['data'] is False:
+                response_first_purchase = ''
+
+        translation = {
+            "read_url": _("https://read.lejourneyapp.com"),
+            "search_placeholder": _("Search"),
+        }
+
+        results = cs.get_landing_page(search_filter=search_filter)
+        for index in range(len(results['lower'])):
+            if results['lower'][index]['price_1'] == 'Reservation':
+                results['lower'][index]['price_1'] = _('Reservation')
+            if results['lower'][index]['price_1'] == 'Free':
+                results['lower'][index]['price_1'] = _('Free')
+        for index in range(len(results['upper'])):
+            if results['upper'][index]['price_1'] == 'Reservation':
+                results['upper'][index]['price_1'] = _('Reservation')
+            if results['upper'][index]['price_1'] == 'Free':
+                results['upper'][index]['price_1'] = _('Free')
+
+        return render(request, 'classpage/landing-index.html', {"classes": results, "response_first_purchase": response_first_purchase, "translation": translation})
+```
+
+{% hint style="warning" %}
+You must use **render** rather than **render\_to\_response** in this method.
+{% endhint %}
+
+#### In Static
+
+Assume you have the following code as your language function part.
+
+```markup
+<div class="languageSwitch-container">
+     <div class="languageSwitch">
+          <div class="languageSwitch-item"><a href="#">{% trans 'English' %}</a></div>
+          <div class="languageSwitch-item"><a href="#">{% trans 'Chinese' %}</a></div>
+     </div>
+</div>
+```
+
+And use this simple JS to trigger the service.
+
+```javascript
+var languageMenu = document.querySelectorAll('.languageSwitch-item a');
+  for (var i = 0; i < languageMenu.length; i = i + 1) {
+    languageMenu[i].addEventListener('click', function (event) {
+      event.preventDefault();
+      var languageCode = this.textContent;
+      var request = new XMLHttpRequest();
+      request.open('get', '/translation/' + languageCode + '/', true);
+      request.send(null);
+      request.onload = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          location.reload();
+        } else {
+          alert("{% trans 'Language did not switch for some reason.' %}")
+        }
+      }
+    })
+  }
+```
 
