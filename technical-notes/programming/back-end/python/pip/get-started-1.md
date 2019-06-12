@@ -94,7 +94,7 @@ source ~/.bashrc
 ### Establish Venv
 
 ```text
-python3.6 -m venv myenv
+python3.6 -m venv myvenv
 ```
 
 The command will create a folder in your current path, which should include several sub folder.
