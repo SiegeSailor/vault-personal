@@ -99,5 +99,11 @@ on mac
 
 brew install sqlite
 
+## If Install or package location is wrong
+
+pip show pip
+
+[https://www.itread01.com/content/1541720947.html](https://www.itread01.com/content/1541720947.html)
+
 
 

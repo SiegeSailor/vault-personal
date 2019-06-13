@@ -20,10 +20,16 @@ Then use this command to symlink.
 brew link --force gettext
 ```
 
-You can also use this command to locate the path by Python.
+Use this command to locate the path by Python.
 
 ```python
 export PATH="/usr/local/opt/gettext/bin:$PATH"
+```
+
+If you need to use other ways to use **Gettext** function, try this **PIP** package.
+
+```bash
+pip install python-gettext
 ```
 
 ## Settings
@@ -135,7 +141,7 @@ In the HTML you want to translate, you will be using the same way to set tags as
 ```
 
 {% hint style="info" %}
-Except for values sent from server, this way can also help to translate text in **attributes**, such as **href,** **placeholder**.
+Except for values sent from server, this way can also help to translate text in **attributes**, such as href, placeholder, etc.
 {% endhint %}
 
 ### In Modal
@@ -147,6 +153,19 @@ from django.utils.translation import ugettext_lazy as _
 ```
 
 The method is as same as **Views**.
+
+{% hint style="warning" %}
+If you translate text in modal, it might cause _**1366, "Incorrect string value: '\\xF0\\x9F\\x98\\x81**_**'** because of the MySQL table setting for encoding, the encode type for the value transmit between modal and table must be the same, the solutions can be these two.
+
+* Only translate text in Front-End
+* Change the encode setting for the table :: **utf8mb4**, **utf8mb4\_general\_ci**
+
+See this [Article](https://blog.csdn.net/HHTNAN/article/details/76769264) to know why.
+{% endhint %}
+
+{% hint style="warning" %}
+If you meet _**manager\_method\(\) keywords must be strings**_, which means there are some text which you translate must be a **string**, check the view if there is any, or modal.
+{% endhint %}
 
 ### In Template
 
@@ -223,6 +242,15 @@ Here are other methods to get text in JavaScript files.
 To know how to use the methods, read this [Article](https://docs.djangoproject.com/en/2.2/topics/i18n/translation/).
 {% endhint %}
 
+### In CSS
+
+There is no possible for Django i18N to directly translate content in CSS, but you can use JavaScript to append your style and translation content to your HTML head. The following example uses jQuery.
+
+```javascript
+var testTrans = gettext('This is a CSS content text.')
+$('<style>.test:before {content:" ' + testTrans + '" !important;}' +'</style>').appendTo('head');
+```
+
 ## Language Translation
 
 ### Create .po
@@ -247,17 +275,9 @@ If you are using Django which is above 1.7, use **zh-hant** instead of **zh-tw**
 
 -i venv means to ignore files in your **Virtualenv** folder, because of that if we makemessages including files in Virtualenv folder will occur _**Unknown encoding "utf8"**_ issue.
 
-#### JS files Usage
-
-```bash
-django-admin makemessages -d djangojs -i assets/plugins -i node_modules -i static
-```
-
-Use `-i` to ignore files you don't need to translate.
-
 #### Unknown Encoding UTF-8
 
-This happens due to you didn't declare your encoding method in the files you are going to makemessages. Usually we already declare encoding method on every HTML but not files in Virtualenv, so the fastest way is just ignore them with `-i`.
+This happens due to you didn't declare your encoding method in the files you are going to makemessages. Usually we already declare encoding method on every HTML but not files in Virtualenv, so the fastest way is just ignore them with `-i venv`.
 
 You can also insert these code in `settings.py` to prevent it.
 
@@ -266,10 +286,22 @@ DEFAULT_CHARSET = 'UTF-8'
 FILE_CHARSET = 'UTF-8'
 ```
 
+#### JS files Usage
+
+```bash
+django-admin makemessages -d djangojs -i assets/plugins -i node_modules -i static
+```
+
+Use `-i` to ignore files you don't need to translate.
+
+{% hint style="warning" %}
+You might meet _**warning: unterminated string**_, which probably means you misplace some **'** and **"** in your script sentence, check your JavaScript file if there is any.
+{% endhint %}
+
 ### Compile .po to .mo
 
 ```bash
-django-admin compilemessages -l zh_tw -i venv
+django-admin compilemessages -l zh_tw
 ```
 
 If you meet _**CommandError: Unable to find a locale path to store translations for file**_, which means you haven't create the folder for locale, just use the command to create the folder in your root.
@@ -410,5 +442,51 @@ var languageMenu = document.querySelectorAll('.languageSwitch-item a');
       }
     })
   }
+```
+
+## Unknown Issue
+
+There are some issues that i couldn't figure out.
+
+#### List Assigning
+
+This does work.
+
+```python
+for index in range(len(results['upper'])):
+    if results['upper'][index]['price_1'] == 'Reservation':
+        results['upper'][index]['price_1'] = _('Reservation')
+    if results['upper'][index]['price_1'] == 'Free':
+        results['upper'][index]['price_1'] = _('Free')
+```
+
+But this doesn't work.
+
+```python
+for index in range(len(results['upper'])):
+    upper_price = results['upper'][index]['price_1']
+    if upper_price == 'Reservation':
+        upper_price = _('Reservation')
+    if upper_price == 'Free':
+        upper_price = _('Free')
+```
+
+#### URL With Include
+
+This does work. This is in main `url.py`.
+
+```python
+urlpatterns = [
+    url(r'^account/', include('core.urls')),
+    url(r'^translation/switch/$', views.TranslationSwitch.as_view(), name='translation.switch'),
+]
+```
+
+This doesn't work. This is `core.urls`.`core_views` is a `views.py` file in another app filed.
+
+```python
+urlpatterns = [
+    url(r'^translation/switch/$', core_views.TranslationSwitch.as_view(), name='translation.switch'),
+]
 ```
 

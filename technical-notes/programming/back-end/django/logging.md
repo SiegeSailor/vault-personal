@@ -39,3 +39,5 @@ LOGGING = {
 }
 ```
 
+Then you can see a file called `mysite.log`, check the file for the log.
+
