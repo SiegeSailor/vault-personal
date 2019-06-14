@@ -266,7 +266,7 @@ django-admin makemessages -l zh_tw -i venv
 `zh_tw` is your language folder name, also it is according to your language code.
 
 {% hint style="info" %}
-In this project, we set one of our LANGUAGE\_CODE as **zh-tw** in **settings.py**, so we use zh\_tw as the folder name. Notice the difference between \_ and -.
+In this project, we set one of our LANGUAGE\_CODE as **zh-tw** in **settings.py**, but we use **zh\_TW** as the folder name. Notice the difference between \_ and -, and you must use uppercase for the country code.
 {% endhint %}
 
 {% hint style="info" %}
@@ -357,10 +357,27 @@ Then create a view for the URL.
 ```python
 class Translation(View):
     def get(self, request, language=''):
+        # This is for the current session page ======>>
         service.activate_language(request)
         request.session['language'] = language
+        # <<====== This is for the current session page
+        
+        # This is for the global session page, espacilly for JavaScript ======>>
+        if language == 'Chinese':
+            user_language = 'zh-tw'
+            translation.activate(user_language)
+            request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        else:
+            user_language = 'en-us'
+            translation.activate(user_language)
+            request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        # <<====== This is for the global session page, espacilly for JavaScript
         return HttpResponseRedirect('/')
 ```
+
+{% hint style="warning" %}
+JavaScript translation belongs to global session, so there is no way for current session to affect JavaScript language, you have to use the lower part to change the language for JavaScript.
+{% endhint %}
 
 #### In View
 
