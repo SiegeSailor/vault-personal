@@ -21,13 +21,19 @@ With **Package.json**, we can reinstall the packages we need in other environmen
 * Start in Local Fold :: Provide convenience for using different package setting to develop projects
 * Start Globally :: Provide convenience for using the same setting to develop similar projects or a huge project in a device
 
-Then here is the command, it generates **Package.json** file.
+Then here is the command, it generates **package.json** file.
 
 ```bash
 npm init
 ```
 
-After it done, the command will help you to fill up the basic information for the **Package.json** file. It is fine to simply just enter to the end, NPM has its own default value.
+But if you have a **package.json** already, just use the following code to install all saved packages in the list.
+
+```bash
+npm install
+```
+
+After it done, the command will help you to fill up the basic information for the **package.json** file. It is fine to simply just enter to the end, NPM has its own default value.
 
 * Package Name :: The name for this project, only URL-friendly character available
 * Version :: The format must be 1.0.0.
@@ -42,5 +48,77 @@ After done initialing, you will see two files in the folder.
 * Node\_modules :: Where your packages are installed
 * Package-lock :: Advanced record
 
+## Version Control
 
+The following command sometimes can be `npm` rather than `nvm` for unknown reason.
+
+#### Show All Installed Versions
+
+```bash
+nvm ls
+```
+
+This command will show all the versions you have installed in the device.
+
+#### Show All Available Versions
+
+```bash
+nvm ls-remote
+```
+
+This command will show all the versions that you can install, notice that the list can be very long.
+
+#### Install the Specific Version
+
+```bash
+nvm install 8.1.2
+```
+
+#### Switch between Versions
+
+```bash
+nvm use 4.2.1
+```
+
+## Installation
+
+First, you have to check out that you already have `package.json` in your root folder, if you don't, use `npm init` to create one.
+
+#### Install Packages
+
+```bash
+npm install gulp
+```
+
+You can add `-g` to make the package globally, in this case, you don't need a `package.json` first.
+
+```bash
+npm install gulp -g
+```
+
+#### Assign Package
+
+When you install a package, you are just installing a package in the folder, if you want to use your `package.json` as a very convenient install tool, you have to add these commands.
+
+Use this to save the package and its version to your `package.json`.
+
+```bash
+npm install gulp --save
+```
+
+Use this to save the package but only in development process.
+
+```bash
+npm install gulp --save-dev
+```
+
+#### Specify Version for Packages
+
+Use this command when you want to download a version you need for the package, this can work when you **already have a different version for the package**.
+
+```bash
+npm install --save-dev gulp@4.0.2
+```
+
+You can checkout the version in `package.json`.
 
