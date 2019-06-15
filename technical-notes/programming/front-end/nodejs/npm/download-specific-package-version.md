@@ -48,9 +48,9 @@ After done initialing, you will see two files in the folder.
 * Node\_modules :: Where your packages are installed
 * Package-lock :: Advanced record
 
-## Version Control
+## Node Version Manager
 
-The following command sometimes can be `npm` rather than `nvm` for unknown reason.
+**NVM** is a version manager for Node.js, you can download it from [Here](https://github.com/nvm-sh/nvm#install-script).
 
 #### Show All Installed Versions
 
@@ -117,8 +117,40 @@ npm install gulp --save-dev
 Use this command when you want to download a version you need for the package, this can work when you **already have a different version for the package**.
 
 ```bash
-npm install --save-dev gulp@4.0.2
+npm install --save-dev gulp@3.9.1
 ```
 
-You can checkout the version in `package.json`.
+If you meet _**Not compatible with your operating system or architecture: fsevents@1.2.9**_, you can simply add this code to solve it.
+
+```bash
+npm install --save-dev gulp@3.9.1 --no-optional
+```
+
+Then after installing, if you get errors such as _**Task “default” is not in your gulpfile**_ or _**Task never defined: default**_, that might be because of that you didn't install the right versions for the dependencies for Gulp. Check what you need to update after `npm install --save-dev gulp@3.9.1 --no-optional`. Here is an example, I updated **minimatch@3.0.2** and **graceful-fs@4.1.15** for **gulp@3.9.1**.
+
+```javascript
+"devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "graceful-fs": "^4.1.15",
+    "minimatch": "^3.0.2"
+  }
+```
+
+Then you can checkout the version in `package.json`.
+
+#### Check Package Version
+
+If the package is global.
+
+```bash
+gulp -v
+```
+
+If the package is under a folder.
+
+```bash
+npm list gulp
+```
 
