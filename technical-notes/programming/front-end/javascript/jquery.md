@@ -14,3 +14,9 @@ Use this instead:
 $('input#q').val(urlencode($('input#q').val()))
 ```
 
+
+
+
+
+https://www.jsdelivr.com/package/npm/jquery.animate-number
+

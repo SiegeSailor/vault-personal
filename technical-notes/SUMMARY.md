@@ -30,6 +30,7 @@
     * [Command](programming/front-end/nodejs/version-command.md)
     * [NPM](programming/front-end/nodejs/npm/README.md)
       * [Get Started](programming/front-end/nodejs/npm/download-specific-package-version.md)
+      * [Gulp](programming/front-end/nodejs/npm/gulp.md)
       * [Webpack](programming/front-end/nodejs/npm/webpack/README.md)
         * [Entry Point](programming/front-end/nodejs/npm/webpack/entry-point.md)
         * [Laravel Mix](programming/front-end/nodejs/npm/webpack/laravel-mix.md)

@@ -126,18 +126,6 @@ If you meet _**Not compatible with your operating system or architecture: fseven
 npm install --save-dev gulp@3.9.1 --no-optional
 ```
 
-Then after installing, if you get errors such as _**Task “default” is not in your gulpfile**_ or _**Task never defined: default**_, that might be because of that you didn't install the right versions for the dependencies for Gulp. Check what you need to update after `npm install --save-dev gulp@3.9.1 --no-optional`. Here is an example, I updated **minimatch@3.0.2** and **graceful-fs@4.1.15** for **gulp@3.9.1**.
-
-```javascript
-"devDependencies": {
-    "gulp": "^3.9.1"
-  },
-  "dependencies": {
-    "graceful-fs": "^4.1.15",
-    "minimatch": "^3.0.2"
-  }
-```
-
 Then you can checkout the version in `package.json`.
 
 #### Check Package Version
