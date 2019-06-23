@@ -35,6 +35,7 @@ Then you need to install other packages, use `npm install packageName --save-dev
 * gulp-uglify :: Minify JavaScript
 * minimist :: Import scripts into the process of Gulp
 * gulp-if :: Add logic in Gulp
+* gulp-watch :: Watch files even when deleting or adding
 
 This is how the packages look like in `package.json`.
 
@@ -56,6 +57,7 @@ This is how the packages look like in `package.json`.
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
     "main-bower-files": "^2.13.1",
     "minimist": "^1.2.0"
   },
