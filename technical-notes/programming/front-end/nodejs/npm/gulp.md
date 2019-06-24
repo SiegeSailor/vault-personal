@@ -36,6 +36,7 @@ Then you need to install other packages, use `npm install packageName --save-dev
 * minimist :: Import scripts into the process of Gulp
 * gulp-if :: Add logic in Gulp
 * gulp-watch :: Watch files even when deleting or adding
+* gulp-order :: give the order you want to the files you are handling
 
 This is how the packages look like in `package.json`.
 
@@ -52,6 +53,7 @@ This is how the packages look like in `package.json`.
     "gulp-if": "^2.0.2",
     "gulp-jade": "^1.1.0",
     "gulp-minify-css": "^1.2.4",
+    "gulp-order": "^1.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
