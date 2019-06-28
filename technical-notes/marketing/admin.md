@@ -60,6 +60,15 @@ The blog for LeJourney App Marketing in Taiwan.
 * WordPress Password :: 123456789JJJWWWiii!!!
 * Previous IP :: 52.77174.67
 
+## LeJourney
+
+Sync to LeJourney its self.
+
+* URL :: [https://class.lejourneyapp.com/](https://class.lejourneyapp.com/)
+* WordPress Admin :: [https://lejourneyapp.com/wp-login.php](https://lejourneyapp.com/wp-login.php)
+* WordPress Account :: webmaster@edallianz.com
+* WordPress Password :: SBUZCUGEqqLFkJdh7QUmQ9Du57WnjDW3
+
 ## Google Analytics
 
 Google account for Google Analytics Code usage.
