@@ -15,7 +15,7 @@ Use this code to install Gulp.
 npm install --save-dev gulp@3.9.1 --no-optional
 ```
 
-Then you need to install other packages, use `npm install packageName --save-dev -no-optional` to install them.
+Then you need to install other packages to enable the true power of Gulp, use `npm install packageName --save-dev -no-optional` to install them.
 
 * gulp-jade :: HTML template language
 * gulp-sass :: CSS preprocessor
@@ -36,7 +36,10 @@ Then you need to install other packages, use `npm install packageName --save-dev
 * minimist :: Import scripts into the process of Gulp
 * gulp-if :: Add logic in Gulp
 * gulp-watch :: Watch files even when deleting or adding
-* gulp-order :: give the order you want to the files you are handling
+* gulp-order :: Give the order you want to the files you are handling
+* gulp-clean :: Simply clean files
+* gulp-sequence :: Activate your tasks with order
+* gulp-imagemin :: Compress images
 
 This is how the packages look like in `package.json`.
 
@@ -49,19 +52,24 @@ This is how the packages look like in `package.json`.
     "browser-sync": "^2.26.7",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^6.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-order": "^1.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
+    "gulp-sequence": "^1.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
     "main-bower-files": "^2.13.1",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "yargs": "^13.2.4"
   },
 ```
 
@@ -93,5 +101,19 @@ Then you can use this command line to activate Gulp.
 npm run gulp taskName
 ```
 
+When your NPM version is above 5.2, you can use `npx` to run npm globally.
 
+```bash
+npx gulp taskName
+```
+
+## Load Module
+
+As a NodeJS package, Gulp follows the same way to call module functions.
+
+```javascript
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+var plumber = require('gulp-plumber');
+```
 
