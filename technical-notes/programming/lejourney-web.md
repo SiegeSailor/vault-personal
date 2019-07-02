@@ -45,6 +45,15 @@ python manage.py migrate
 
 You can also use `manage.py syncdb`, but this script doesn't work if you are using Django 1.7 or later, you will get _**Unknown command: 'syncdb'**_.
 
+## Git Flow
+
+Although this project is maintained by only one person, we still need to be prepared for unknown difficulty.
+
+* master :: Can always be pulled as a stable version
+* develop :: The branch that allows you to develop anything
+* hotfix :: Only use this for emergency fix
+* feature/featureName :: Specifically created for one feature 
+
 ## Local Script
 
 Due to this project is mixed with **Virtualenv** and **NPM**, the script might be a little bit complex.
