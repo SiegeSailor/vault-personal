@@ -159,18 +159,10 @@ Now you are totally back to the last commit. Then you can rename **zh\_tw** and 
 git pull
 ```
 
-### Start
-
-First enter venv mode.
-
-```bash
-source venv/bin/activate
-```
-
 ### Front End Compile
 
 ```bash
-npm run dev
+npm run production
 ```
 
 ### Activate
@@ -253,38 +245,4 @@ python manage.py collectstatic --noinput --clear
 ```bash
 sudo supervisorctl restart web-booking2-release
 ```
-
-## Adding a Page
-
-\(create a vendor page\)
-
-mysite/urls.py &gt; add url
-
-url\(r'^booking/\(?P.+\)/\(?P.+\)/$', class\_views.VendorDetailFromSlug.as\_view\(\), name='class.detail.slug.vendor'\),
-
-classpage&gt;views.py
-
-classpage&gt;services.py
-
-core&gt;lejservice.py
-
-creat class-details-verdor.html in templates&gt;classpage
-
-## Reverse
-
-core&gt;views/py
-
-from django.urls import reverse
-
-if user is not None and user.is\_active: auth.login\(request, user\) request.session\['token'\] = token request.session\['customer\_id'\] = customer\_id request.session\['class\_filter'\] = None request.session\['watchlist'\] = cs.get\_watchlist\(customer\_id, token\) device\_id = core\_service.generate\_device\_id\(request.META\) request.session\['device\_id'\] = device\_id return HttpResponseRedirect\(reverse\('index'\)\) else: return render\(request, 'core/login-signup.html',{'page':'login'}\)
-
-mysite&gt;urls.py
-
-url\(r'^$', class\_views.LandingPage.as\_view\(\), name='index'\),
-
-> use reverse\('fdsa'\) to direct the user to the url which the name matches
-
-## 
-
-
 

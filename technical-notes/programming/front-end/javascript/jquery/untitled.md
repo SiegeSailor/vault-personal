@@ -1,4 +1,4 @@
-# jQuery
+# Untitled
 
 ## [Uncaught ReferenceError: Invalid left-hand side in assignment](https://stackoverflow.com/questions/1945302/uncaught-referenceerror-invalid-left-hand-side-in-assignment)
 
