@@ -69,6 +69,13 @@ Sync to LeJourney its self.
 * WordPress Account :: webmaster@edallianz.com
 * WordPress Password :: SBUZCUGEqqLFkJdh7QUmQ9Du57WnjDW3
 
+## Edallianz Cloud Server
+
+The server handles all WordPress websites. 
+
+* Google Account :: edallianzhq@gmail.com
+* Google Password :: 6102eda@!
+
 ## Google Analytics
 
 Google account for Google Analytics Code usage.

@@ -1,4 +1,4 @@
-# Multi Language
+# Multi-Language
 
 ## Precondition
 

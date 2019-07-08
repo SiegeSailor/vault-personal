@@ -1,8 +1,10 @@
 # Return Multi Values
 
-No, but you could return an array containing your values:
+Return Multi Values
 
-```text
+There is no real ways to just simply return multi values by using return, but you could return an array containing your values.
+
+```javascript
 var newCodes = function() {
     var dCodes = fg.codecsCodes.rs;
     var dCodes2 = fg.codecsCodes2.rs;
@@ -10,17 +12,17 @@ var newCodes = function() {
 };
 ```
 
-Then you can access them like so:
+Then you can access them like so.
 
-```text
+```javascript
 var codes = newCodes();
 var dCodes = codes[0];
 var dCodes2 = codes[1];
 ```
 
-If you want to put "labels" on each of the returned values \(easier to maintain\), you can return an object:
+If you want to put **labels** on each of the returned values \( easier to maintain \), you can return an object.
 
-```text
+```javascript
 var newCodes = function() {
     var dCodes = fg.codecsCodes.rs;
     var dCodes2 = fg.codecsCodes2.rs;
@@ -31,9 +33,9 @@ var newCodes = function() {
 };
 ```
 
-And to access them:
+And to access them.
 
-```text
+```javascript
 var codes = newCodes();
 var dCodes = codes.dCodes;
 var dCodes2 = codes.dCodes2;

@@ -1,20 +1,21 @@
 # HTTP to HTTPS
 
-an issue when change the website from http to https, when all links are broken 
+## Issue
 
-0. if need, open auth for .htaccess, and force ftp view to see hiden files
+An issue happens when change the website from HTTP to HTTPS, It might cause all links **broken**. Please following these steps if you encounter this issue.
 
-1. edit the .htaccess file, change the whole code to:
+* Open authentication for `.htaccess,` then force to see hidden files through FTP **FileZilla**.
+* Edit `.htaccess`, change the whole code.
 
-`<IfModule mod_rewrite.c>RewriteEngine OnRewriteCond %{HTTPS} offRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</IfModule>`
+```php
+<IfModule mod_rewrite.c>RewriteEngine OnRewriteCond %{HTTPS} offRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</IfModule>
+```
 
-2. go to dashboard &gt; setting &gt; permalink setting, change to plain setting
+* Go to WordPress, Dashboard -&gt; Setting -&gt; Permalink Setting, set to **plain setting**.
+* Install **Really Simple SSH** plugin
+* Manually fix broken link from homepage due to permalink changed to plain
 
-3. install "really simple ssh" plugin
-
-4. manully fix broekn link from homepage due to permalink changed to plain
-
-
-
-[https://www.wpbeginner.com/wp-tutorials/how-to-fix-common-ssl-issues-in-wordpress-beginners-guide/](https://www.wpbeginner.com/wp-tutorials/how-to-fix-common-ssl-issues-in-wordpress-beginners-guide/)
+{% hint style="info" %}
+[Here](https://www.wpbeginner.com/wp-tutorials/how-to-fix-common-ssl-issues-in-wordpress-beginners-guide/) is a reference.
+{% endhint %}
 

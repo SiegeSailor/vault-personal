@@ -6,6 +6,78 @@ This code is combined with [jQuery BlockUI](http://malsup.com/jquery/block/) and
 
 ![Loading Example](../../../../.gitbook/assets/loading.png)
 
+## JavaScript
+
+```javascript
+blockBlackMask();
+function blockBlackMask() {
+  $.blockUI({
+    baseZ: 210000,
+    css: {
+      width: 'auto',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      position: 'fixed',
+      margin: 'auto',
+      border: 'none',
+      backgroundColor: 'transparent',
+      borderRadius: '0px',
+    },
+    message: $('.blockUI-loading'),
+  });
+
+  clearProgress();
+
+  function renderProgress(progress) {
+    progress = Math.floor(progress);
+
+    if (progress < 25) {
+      var angle = -90 + (progress / 100) * 360;
+      $(".animate-0-25-b").css("transform", "rotate(" + angle + "deg)");
+    } else if (progress >= 25 && progress < 50) {
+      var angle = -90 + ((progress - 25) / 100) * 360;
+      $(".animate-0-25-b").css("transform", "rotate(0deg)");
+      $(".animate-25-50-b").css("transform", "rotate(" + angle + "deg)");
+    } else if (progress >= 50 && progress < 75) {
+      var angle = -90 + ((progress - 50) / 100) * 360;
+      $(".animate-25-50-b, .animate-0-25-b").css("transform", "rotate(0deg)");
+      $(".animate-50-75-b").css("transform", "rotate(" + angle + "deg)");
+    } else if (progress >= 75 && progress <= 100) {
+      var angle = -90 + ((progress - 75) / 100) * 360;
+      $(".animate-50-75-b, .animate-25-50-b, .animate-0-25-b").css("transform", "rotate(0deg)");
+      $(".animate-75-100-b").css("transform", "rotate(" + angle + "deg)");
+    }
+    if (progress == 100) {}
+    $(".text").html(progress + "%");
+  }
+
+  function clearProgress() {
+    $(".animate-75-100-b, .animate-50-75-b, .animate-25-50-b, .animate-0-25-b").css("transform", "rotate(90deg)");
+  }
+
+  var i = 0;
+  var times = 0;
+
+  var interval = setInterval(function () {
+    i++;
+    times += 1;
+    if (times >= 100) {
+      width = '4px';
+      clearInterval(interval);
+      $('.text').animate({
+        opacity: 1
+      }, 'slow');
+      $('.loader-spiner').animate({
+        borderLeftWidth: width,
+        borderTopWidth: width,
+        borderRightWidth: width,
+        borderBottomWidth: width
+      }, 100);
+    }
+    renderProgress(i);
+  }, 60);
+```
+
 ## HTML
 
 ```markup
@@ -246,78 +318,4 @@ a {
   transform-origin: 100% 100%;
 }
 ```
-
-## JavaScript
-
-```javascript
-blockBlackMask();
-function blockBlackMask() {
-  $.blockUI({
-    baseZ: 210000,
-    css: {
-      width: 'auto',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      position: 'fixed',
-      margin: 'auto',
-      border: 'none',
-      backgroundColor: 'transparent',
-      borderRadius: '0px',
-    },
-    message: $('.blockUI-loading'),
-  });
-
-  clearProgress();
-
-  function renderProgress(progress) {
-    progress = Math.floor(progress);
-
-    if (progress < 25) {
-      var angle = -90 + (progress / 100) * 360;
-      $(".animate-0-25-b").css("transform", "rotate(" + angle + "deg)");
-    } else if (progress >= 25 && progress < 50) {
-      var angle = -90 + ((progress - 25) / 100) * 360;
-      $(".animate-0-25-b").css("transform", "rotate(0deg)");
-      $(".animate-25-50-b").css("transform", "rotate(" + angle + "deg)");
-    } else if (progress >= 50 && progress < 75) {
-      var angle = -90 + ((progress - 50) / 100) * 360;
-      $(".animate-25-50-b, .animate-0-25-b").css("transform", "rotate(0deg)");
-      $(".animate-50-75-b").css("transform", "rotate(" + angle + "deg)");
-    } else if (progress >= 75 && progress <= 100) {
-      var angle = -90 + ((progress - 75) / 100) * 360;
-      $(".animate-50-75-b, .animate-25-50-b, .animate-0-25-b").css("transform", "rotate(0deg)");
-      $(".animate-75-100-b").css("transform", "rotate(" + angle + "deg)");
-    }
-    if (progress == 100) {}
-    $(".text").html(progress + "%");
-  }
-
-  function clearProgress() {
-    $(".animate-75-100-b, .animate-50-75-b, .animate-25-50-b, .animate-0-25-b").css("transform", "rotate(90deg)");
-  }
-
-  var i = 0;
-  var times = 0;
-
-  var interval = setInterval(function () {
-    i++;
-    times += 1;
-    if (times >= 100) {
-      width = '4px';
-      clearInterval(interval);
-      $('.text').animate({
-        opacity: 1
-      }, 'slow');
-      $('.loader-spiner').animate({
-        borderLeftWidth: width,
-        borderTopWidth: width,
-        borderRightWidth: width,
-        borderBottomWidth: width
-      }, 100);
-    }
-    renderProgress(i);
-  }, 60);
-```
-
-
 
