@@ -82,6 +82,8 @@ Google account for Google Analytics Code usage.
 
 * Account :: marketing.tw@edallianz.com
 * Password :: edA5123\#6578
+* Account :: edallianzsg@gmail.com
+* Password :: aDellianz6%5
 
 ## Google
 

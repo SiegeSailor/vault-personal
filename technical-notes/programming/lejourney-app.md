@@ -1,2 +1,2 @@
-# LeJourney APP
+# LeJourney App
 

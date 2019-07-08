@@ -1,4 +1,4 @@
-# Edallianz WEB
+# Edallianz Web
 
 > The origin for renewing the website is because of that the company needs more information to get clients, and I found out that the original one is a way simple. Actually I need to build it from scratch, also come out with **Basic Web Visual Guideline** and **All Development Environment Document** in order to assist other branches.
 

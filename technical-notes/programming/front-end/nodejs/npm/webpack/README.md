@@ -1,10 +1,14 @@
 # Webpack
 
-Module not found: Error: Can't resolve 'jquery' in
+## Trouble Shooting
 
+#### Module not found: Error: Can't resolve jQuery in
+
+```bash
 npm install --save jquery
+```
 
+#### Execute Twice
 
-
-重複執行：模板外入口點又載入一次
+Check if you load your file outside **Entry Point** again.
 

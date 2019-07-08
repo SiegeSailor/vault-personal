@@ -1,6 +1,6 @@
 # WordPress
 
-![WordPress](../../.gitbook/assets/image%20%2810%29.png)
+![WordPress](../../.gitbook/assets/image%20%2814%29.png)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # CSS
 
-![CSS](../../../.gitbook/assets/image%20%2812%29.png)
+![CSS](../../../.gitbook/assets/image%20%2816%29.png)
 
 ## Overview
 

@@ -47,3 +47,15 @@ select.form-control {
 Original [Discussion](https://stackoverflow.com/questions/5780109/removing-rounded-corners-from-a-select-element-in-chrome-webkit/37462242).
 {% endhint %}
 
+### Number Input
+
+Style of the spinning arrow for a number input.
+
+```css
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+```
+

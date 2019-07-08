@@ -1,6 +1,6 @@
 # jQuery
 
-![jQuery](../../../../.gitbook/assets/image%20%282%29.png)
+![jQuery](../../../../.gitbook/assets/image%20%285%29.png)
 
 ## Overview
 

@@ -14,6 +14,11 @@ Here is the information for **Edallianz Global TPE Server**.
 The Key should be in _~/.ssh_ .
 {% endhint %}
 
+## Command Line
+
+* Ctrl-A :: go to the beginning of line
+* Ctrl-E :: go to the end of line
+
 ## Transfer Files
 
 SCP stands for Secure Copy Protocol, it is a means of securely transferring computer files between a local host and a remote host or between two remote hosts. It is based on the SSH \( Secure Shell Protocol \) .
@@ -32,56 +37,43 @@ scp ubuntu@52.77.174.67:/var/www/website/EdallianzTW/EdallianzTWPrevious.zip /Us
 
 ## Condition Setting
 
-### Identity SSH Key
+#### Identity SSH Key
 
 ```bash
 -i keypath/key
 ```
 
-Use this method to assign the SSH key you want to use, especially when meet permission denied \(publickey\).. The method
+Use this method to assign the SSH key you want to use, especially when meet _**permission denied \(publickey\).. The method**._
 
 ```bash
 scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/footer.html ubuntu@52.77.174.67:/var/www/test/WebBooking2/templates/footer.html
 ```
 
-mv
+## Major Command
 
-rm
+* mv :: **Move** or **rename** a file or a folder
+* rm :: **Remove** a file or a folder
+* cp :: **Copy** a file or a folder
+* vi :: **Edit** a file
+* vim :: **Edit** a file advance version
+* ls :: **List** all files in the current path
+* df :: reports the amount of available disk space being used by file systems
+* du :: can be used to track the files and directories which are consuming excessive amount of space on hard disk drive
+* sudo :: should be the first, super user is doing things
 
-cp -r home/ayu/xyz/. /tmp
+## Assistant Command
 
-vi
+* -r :: Add this If you are using `mv`, `rm`, or `cp` to a folder. This means to do the same thing to all files in the path
+* -al :: List detail
 
-ls -al
+## WGET
 
-sudo
-
-df du
-
-
-
-```text
-not a regular file
--r
-```
-
-wget
-
-[https://blog.gtwang.org/linux/linux-wget-command-download-web-pages-and-files-tutorial-examples/](https://blog.gtwang.org/linux/linux-wget-command-download-web-pages-and-files-tutorial-examples/)
-
-```text
-# -t0: 設定重試次數。當連結中斷或超時，wget會重新連接。-t0代表把重試次數設為無窮多。
-# -c:  設定續傳功能。
-# -nH: 不建立該網站名稱的子目錄 /example.com/，而直接在當前目錄下建立鏡像的目錄結構。
-# -np: 不遍歷父目錄，如果有連結連到目標資料夾的parent或其他目錄，不下載。
-# -m:  鏡像，相當同時使用-r和-N。
-# -r:  遞迴下載，把文件中所有的連結都下載回來。
-# -N:  下載時檢查timestamp，只下載有更新的文件，如果檔案大小和最修改日期都一樣就不下載。
-# -P:  指定下載到本機的某個目錄下。
-```
-
-* `Ctrl-A`: go to the beginning of line
-* `Ctrl-E`: go to the end of line
-
-[https://medium.com/@wifferlin0505/%E5%9C%A8-ubuntu-16-04-lts-%E4%B8%AD%E5%AE%89%E8%A3%9D%E4%BD%BF%E7%94%A8-oh-my-zsh-cf92203ca8a2](https://medium.com/@wifferlin0505/%E5%9C%A8-ubuntu-16-04-lts-%E4%B8%AD%E5%AE%89%E8%A3%9D%E4%BD%BF%E7%94%A8-oh-my-zsh-cf92203ca8a2)
+* -t0 :: **Try time**, -t0 means endless
+* -c :: Set **Continued** Transmission
+* -nH :: Build a **same structure** in the current path rather than build sub path for the target website
+* -np :: Don't go through parent path, no download action if there are links to other path or parent path
+* -m :: means to use **-r** and **-N** at the same time
+* -r :: Add this If you are using `mv`, `rm`, or `cp` to a folder. This means to do the same thing to all files in the path
+* -N :: Check timestamp while downloading, only download the newest files
+* -P :: Download to a pointed path
 

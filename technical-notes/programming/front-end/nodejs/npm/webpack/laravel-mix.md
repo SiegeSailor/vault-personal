@@ -1,14 +1,16 @@
 # Laravel Mix
 
-sh: cross-env: command not found
+## Trouble Shooting
 
-你要做的，只是将你的`package.json`文件中的`cross-env`删掉即可：
+#### sh: cross-env: command not found
 
-## npm run dev issue
+Just delete all `cross-env` in your `package.json`.
 
-rm -r node\_modules
+#### NPM failed to run script dev
 
-rm package-lock.json
+Follow the steps to solve.
 
-npm install
+1. rm -r node\_modules
+2. rm package.lock.json
+3. npm install
 

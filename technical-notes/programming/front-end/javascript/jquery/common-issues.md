@@ -22,7 +22,7 @@ You will get _**Uncaught ReferenceError: Invalid left-hand side in assignment**_
 
 #### Check Value
 
-Use `prop("check")` to get the checked status, use `prop("checked", true)` to set the status.
+Use `prop("check")` to get the checked status, use `prop("checked", true)` to set the status. You can use this method on **CheckBox** or **Radio**.
 
 ```javascript
 var accountCreate = $('#apply-account-id').prop("checked");

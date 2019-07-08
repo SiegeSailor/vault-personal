@@ -1,6 +1,6 @@
 # Ubuntu
 
-![Ubuntu](../../../.gitbook/assets/image%20%289%29.png)
+![Ubuntu](../../../.gitbook/assets/image%20%2813%29.png)
 
 ## Overview
 

@@ -7,28 +7,44 @@ The deployment environment for **Edallianz Taiwan Website** is **macOS**, in thi
 * Python :: [Download](https://www.python.org/downloads/)
 * Operating System :: macOS
 
+## Installation
 
+Since the operating system is macOS rather than Linux, we should use **Brew** instead of apt-get.
 
-### **使用brew代替apt-get** <a id="&#x89E3;&#x51B3;&#x65B9;&#x6848;1&#x4F7F;&#x7528;brew&#x4EE3;&#x66FF;apt-get"></a>
+#### What is Brew
 
-#### What is brew? <a id="what-is-brew"></a>
+Homebrew, is a package management tool on Mac OSX.
 
-**brew** 全称Homebrew，是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件。
+#### Install Brew
 
-#### 如何安装？ <a id="&#x5982;&#x4F55;&#x5B89;&#x88C5;"></a>
+Use ruby to install brew, Mac already has ruby, install **ruby** first if you are using other operating system.
 
-安装只需要在终端下输入下面一条命令（Mac自带ruby不需要安装）
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-ruby -e "$\(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install](https://raw.githubusercontent.com/Homebrew/install/master/install)\)"
+Go this step only if you have installed \( with brew \) another version of Python 3.
 
-```text
-brew unlink python # ONLY if you have installed (with brew) another version of python 3
+```bash
+brew unlink python
+```
+
+You can use this line to see what you have previously installed.
+
+```bash
+brew info python
+```
+
+Then download and install Python.
+
+```bash
 brew install --ignore-dependencies https://raw.githubusercontent.com/Homebrew/homebrew-core/f2a764ef944b1080be64bd88dca9a1d80130c558/Formula/python.rb
 ```
 
-```text
-brew info python           # To see what you have previously installed
-brew switch python 3.x.x_x # Ex. 3.6.5_1
+After all, you can switch your Python version by this. You can fill up the version such as **3.6.5\_1**
+
+```bash
+brew switch python 3.x.x_x
 ```
 
 {% hint style="info" %}

@@ -1,4 +1,4 @@
-# LeJourney WEB
+# LeJourney Web
 
 > LeJourney is a online booking web application, it has reached version 2.0, but still needs a lot of maintenance and improvement. That is a need to write down all steps to survey this system since I am a Front-End Developer and UIUX Designer rather than a Back-End or MIS Engineer. The project name on server is **WebBooking2**.
 
