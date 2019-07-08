@@ -26,13 +26,11 @@ Laravel 5.5 above automatically contain Laravel Mix, and the Webpack version sho
 
 Just delete all `cross-env` in your `package.json`.
 
-#### NPM failed to run script dev
+#### npm failed to run script dev
 
 Follow the steps to solve.
 
 1. rm -r node\_modules
 2. rm package.lock.json
 3. npm install
-
-node\_modules/laravel-mix/src/builder
 

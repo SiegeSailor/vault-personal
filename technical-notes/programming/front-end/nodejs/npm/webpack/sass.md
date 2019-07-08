@@ -1,6 +1,12 @@
 # SASS
 
-npm install @types/sass-webpack-plugin
+## Installation
 
-[https://www.npmjs.com/package/sass-webpack-plugin](https://www.npmjs.com/package/sass-webpack-plugin)
+```bash
+npm install @types/sass-webpack-plugin
+```
+
+{% hint style="info" %}
+See the [Official Page](https://www.npmjs.com/package/sass-webpack-plugin).
+{% endhint %}
 

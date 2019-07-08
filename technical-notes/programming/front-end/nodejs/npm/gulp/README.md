@@ -56,7 +56,7 @@ This is how the packages look like in `package.json`.
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^6.0.0",
+    "gulp-imagemin": "^5.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-order": "^1.2.0",
