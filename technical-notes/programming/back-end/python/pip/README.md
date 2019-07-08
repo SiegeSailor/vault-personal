@@ -1,6 +1,6 @@
 # PIP
 
-![PIP](../../../../.gitbook/assets/image.png)
+![PIP](../../../../.gitbook/assets/image%20%281%29.png)
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Methods
+# Common Issues
 
 ## Methods
 
@@ -17,4 +17,12 @@ This is in Django view.
 ```python
 data = json.loads(request.POST.get('data', ''))
 ```
+
+## Trouble Shooting
+
+Common issues.
+
+#### dict object has no attribute status\_code error in Django project
+
+Probably you are returning a dictionary or list from Django with HttpResponse rather than JsonResponse.
 

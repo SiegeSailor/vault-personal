@@ -76,6 +76,13 @@ The server handles all WordPress websites.
 * Google Account :: edallianzhq@gmail.com
 * Google Password :: 6102eda@!
 
+## Bot Bonny
+
+Facebook chat bot platform.
+
+* Account :: [marketing.tw@edallianz.com](mailto:marketing.tw@edallianz.com)
+* Password :: edA5123\#6578
+
 ## Google Analytics
 
 Google account for Google Analytics Code usage.
