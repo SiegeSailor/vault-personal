@@ -1,6 +1,6 @@
 # Git
 
-![Git](../../.gitbook/assets/image%20%287%29.png)
+![Git](../../.gitbook/assets/image%20%288%29.png)
 
 ## Overview
 

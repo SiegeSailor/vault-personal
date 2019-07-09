@@ -1,6 +1,6 @@
 # Python
 
-![Python](../../../.gitbook/assets/image%20%2811%29.png)
+![Python](../../../.gitbook/assets/image%20%2812%29.png)
 
 ## Overview
 

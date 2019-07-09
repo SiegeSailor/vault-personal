@@ -1,13 +1,8 @@
 # NPM
 
-## Reinstall
+![NPM](../../../../.gitbook/assets/image%20%286%29.png)
 
-Steps that you need to go through if you meet errors when reinstall NPM.
+## Overview
 
-```bash
-rm -rf node_modules
-rm package-lock.json yarn.lock
-npm cache clear --force
-npm install
-```
+npm is the world’s largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage private development as well.
 

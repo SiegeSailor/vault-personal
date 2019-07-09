@@ -1,6 +1,6 @@
 # Front-End
 
-![Front-End](../../.gitbook/assets/image%20%288%29.png)
+![Front-End](../../.gitbook/assets/image%20%289%29.png)
 
 ## Overview
 
