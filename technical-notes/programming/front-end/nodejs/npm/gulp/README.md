@@ -40,6 +40,7 @@ Then you need to install other packages to enable the true power of Gulp, use `n
 * gulp-clean :: Simply clean files
 * gulp-sequence :: Activate your tasks with order
 * gulp-imagemin :: Compress images
+* gulp-flatten :: Do not sync with the original folder structure
 
 This is how the packages look like in `package.json`.
 
@@ -55,6 +56,7 @@ This is how the packages look like in `package.json`.
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-flatten": "^0.4.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.0",
     "gulp-jade": "^1.1.0",
@@ -115,5 +117,18 @@ As a NodeJS package, Gulp follows the same way to call module functions.
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var plumber = require('gulp-plumber');
+```
+
+## Gulp 4
+
+In Gulp 4 above, you can't just call a task with `['taskName']`, you have to use `gulp.series` and `gulp.parallel` .
+
+* gulp.series :: The tasks will execute without async
+* gulp.parallel :: The tasks will execute at the same time
+
+Here is an example. If you are not following this way, you might get _**AssertionError: Task function must be specified**_.
+
+```javascript
+gulp.task('collect', gulp.series('bower', 'external', 'cleanTmp'))
 ```
 
