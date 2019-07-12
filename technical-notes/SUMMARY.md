@@ -38,6 +38,7 @@
     * [Common Issue](programming/front-end/css/untitled.md)
     * [Selector](programming/front-end/css/selector.md)
     * [SASS](programming/front-end/css/sass.md)
+    * [Semantic UI](programming/front-end/css/semantic-ui.md)
   * [HTML](programming/front-end/html.md)
   * [NodeJS](programming/front-end/nodejs/README.md)
     * [Command](programming/front-end/nodejs/version-command.md)

@@ -41,6 +41,8 @@ Then you need to install other packages to enable the true power of Gulp, use `n
 * gulp-sequence :: Activate your tasks with order
 * gulp-imagemin :: Compress images
 * gulp-flatten :: Do not sync with the original folder structure
+* gulp-clean-css :: Compress CSS, alternative gulp-minify-css
+* gulp-less :: Compile LESS
 
 This is how the packages look like in `package.json`.
 
@@ -60,6 +62,7 @@ This is how the packages look like in `package.json`.
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.0",
     "gulp-jade": "^1.1.0",
+    "gulp-less": "^4.0.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-order": "^1.2.0",
     "gulp-plumber": "^1.2.1",
@@ -126,7 +129,7 @@ In Gulp 4 above, you can't just call a task with `['taskName']`, you have to use
 * gulp.series :: The tasks will execute without async
 * gulp.parallel :: The tasks will execute at the same time
 
-Here is an example. If you are not following this way, you might get _**AssertionError: Task function must be specified**_.
+Here is an example. If you are not following this way, you might get _**AssertionError: Task function must be specified**_. Notice that this error would occur what ever tasks name you are defining is empty.
 
 ```javascript
 gulp.task('collect', gulp.series('bower', 'external', 'cleanTmp'))
