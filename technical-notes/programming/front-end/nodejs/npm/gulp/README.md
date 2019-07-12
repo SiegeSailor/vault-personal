@@ -43,6 +43,7 @@ Then you need to install other packages to enable the true power of Gulp, use `n
 * gulp-flatten :: Do not sync with the original folder structure
 * gulp-clean-css :: Compress CSS, alternative gulp-minify-css
 * gulp-less :: Compile LESS
+* gulp-exit :: Ensure the task ends after finishing
 
 This is how the packages look like in `package.json`.
 
@@ -58,6 +59,7 @@ This is how the packages look like in `package.json`.
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-exit": "0.0.2",
     "gulp-flatten": "^0.4.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.0",
