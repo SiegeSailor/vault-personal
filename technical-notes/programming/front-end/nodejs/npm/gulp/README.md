@@ -44,6 +44,7 @@ Then you need to install other packages to enable the true power of Gulp, use `n
 * gulp-clean-css :: Compress CSS, alternative gulp-minify-css
 * gulp-less :: Compile LESS
 * gulp-exit :: Ensure the task ends after finishing
+* bower :: A package management tool for frameworks and library.
 
 This is how the packages look like in `package.json`.
 
@@ -53,6 +54,7 @@ This is how the packages look like in `package.json`.
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.6.0",
     "babel-preset-es2015": "^6.24.1",
+    "bower": "^1.8.8",
     "browser-sync": "^2.26.7",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
