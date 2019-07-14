@@ -34,5 +34,9 @@ npm ERR! Failed at the semantic-ui@2.4.1 install script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 ```
 
-This is because of that your Gulp version is too high \( Usually is `4.0.2` \), you need to change the version to `3.9.1` in your **bower\_componentes/semantic/package.json**.
+This is because of that your Gulp version is too high \( Usually is `4.0.2` \), you need to change the version to `3.9.1` in your **bower\_componentes/semantic/package.json** and **package-lock.json**. Then you have to run this again.
+
+```bash
+npm install
+```
 
