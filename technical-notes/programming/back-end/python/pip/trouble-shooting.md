@@ -73,7 +73,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 #### Other Solution
 
-These two command might be a solution for you if you meet the following error message.
+These two command might be a solution for you if you meet the following error message. This usually happens when you fail executing `pip install mysqlclient==1.3.12` .
 
 ```bash
 pip install mysqlclient==1.3.12
@@ -156,7 +156,8 @@ Installing collected packages: mysqlclient
     running build_ext
     building '_mysql' extension
     creating build/temp.macosx-10.13-x86_64-3.6
-    clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -Dversion_info=(1,3,12,'final',0) -D__version__=1.3.12 -I/usr/local/Cellar/mysql/8.0.16/include/mysql -I/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/include/python3.6m -c _mysql.c -o build/temp.macosx-10.13-x86_64-3.6/_mysql.o
+    clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g
+    -fwrapv -O3 -Wall -Wstrict-prototypes -Dversion_info=(1,3,12,'final',0) -D__version__=1.3.12 -I/usr/local/Cellar/mysql/8.0.16/include/mysql -I/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/include/python3.6m -c _mysql.c -o build/temp.macosx-10.13-x86_64-3.6/_mysql.o
     _mysql.c:1894:3: error: use of undeclared identifier 'my_bool'
                     my_bool recon = reconnect;
                     ^
@@ -171,7 +172,12 @@ Installing collected packages: mysqlclient
    from /Users/apple/Desktop/Edallianz/venv/lib/python3.6/site-packages/~ySQLdb
   Moving to /Users/apple/Desktop/Edallianz/venv/lib/python3.6/site-packages/mysqlclient-1.4.2.post1.dist-info/
    from /Users/apple/Desktop/Edallianz/venv/lib/python3.6/site-packages/~ysqlclient-1.4.2.post1.dist-info
-ERROR: Command "/Users/apple/Desktop/Edallianz/venv/bin/python3.6 -u -c 'import setuptools, tokenize;__file__='"'"'/private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-install-1dzkbn03/mysqlclient/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-record-6f45vrhi/install-record.txt --single-version-externally-managed --compile --install-headers /Users/apple/Desktop/Edallianz/venv/bin/../include/site/python3.6/mysqlclient" failed with error code 1 in /private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-install-1dzkbn03/mysqlclient/
+ERROR: Command "/Users/apple/Desktop/Edallianz/venv/bin/python3.6 -u -c 'import setuptools,
+tokenize;__file__='"'"'/private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-install-1dzkbn03/mysqlclient/setup.py'"'"';
+f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');
+f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-record-6f45vrhi/install-record.txt
+--single-version-externally-managed --compile --install-headers /Users/apple/Desktop/Edallianz/venv/bin/../include/site/python3.6/mysqlclient"
+failed with error code 1 in /private/var/folders/hy/t8mf7yj150n5mx4jyc18l5j40000gn/T/pip-install-1dzkbn03/mysqlclient/
 ```
 
 ```bash

@@ -1,4 +1,4 @@
-# HTML Output with Variables
+# HTML Output with Variable
 
 ## Overall
 
