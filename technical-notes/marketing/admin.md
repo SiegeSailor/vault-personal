@@ -69,6 +69,15 @@ Sync to LeJourney its self.
 * WordPress Account :: webmaster@edallianz.com
 * WordPress Password :: SBUZCUGEqqLFkJdh7QUmQ9Du57WnjDW3
 
+## Teresa Blog
+
+A blog hosted by our marketing team.
+
+* URL :: [http://catslifestyle.com](http://catslifestyle.com/)
+* WordPress Admin :: [http://catslifestyle.com/wp-admin/](http://catslifestyle.com/wp-admin/)
+* WordPress Account :: CatAdmin
+* WordPress Password :: catas3$$
+
 ## Edallianz Cloud Server
 
 The server handles all WordPress websites. 

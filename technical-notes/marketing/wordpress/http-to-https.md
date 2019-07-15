@@ -19,3 +19,8 @@ An issue happens when change the website from HTTP to HTTPS, It might cause all 
 [Here](https://www.wpbeginner.com/wp-tutorials/how-to-fix-common-ssl-issues-in-wordpress-beginners-guide/) is a reference.
 {% endhint %}
 
+#### Notice
+
+* Change `http://` to `//` for all CSS and JS files.
+* Remove any file from non-SSL server or copy them to your SSL-active server
+
