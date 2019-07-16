@@ -122,6 +122,12 @@ git push
 
 ## Test Server Script
 
+Use the following command to get in the server.
+
+```bash
+ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
+```
+
 ### Git
 
 This step should follow your **Git Flow**.
@@ -176,6 +182,12 @@ SGD test credit card number is **4242 4242 4242 4242,** TWD test credit card num
 {% endhint %}
 
 ## Online Server Script
+
+Use the following command to get in the server.
+
+```bash
+ssh -i ~/.ssh/edallianz-peter.pem ubuntu@52.77.174.67
+```
 
 ### Git
 
