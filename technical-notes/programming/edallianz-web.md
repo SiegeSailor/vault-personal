@@ -67,3 +67,41 @@ In the same time, the UI design has to consider about **Componentization** and *
 * [x] Prototype
 * [ ] Slicing
 
+## Local Scripts
+
+git pull
+
+virtual venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+npm install
+
+npx bower install
+
+cd bower\_components/semantic
+
+npm install
+
+npx gulp build
+
+cd ../../
+
+cd react-semantic
+
+npm install
+
+npm start
+
+cd ../
+
+npm run reactInit
+
+cd react-semantic
+
+npm run gulp reactInit
+
+npm run gulp reactProduction
+
