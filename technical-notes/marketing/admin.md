@@ -108,3 +108,12 @@ Google account for marketing usage.
 * Account :: twedallianzcom@gmail.com
 * Password :: twmarketingteam
 
+## Edallianz Singapore
+
+Official website for Singapore branch.
+
+* URL :: [https://www.edallianz.com/](https://www.edallianz.com/)
+* WordPress Admin :: [https://www.edallianz.com/wp-admin](https://www.edallianz.com/wp-admin)
+* Account :: eRic
+* Password :: eric97630728
+
