@@ -67,41 +67,118 @@ In the same time, the UI design has to consider about **Componentization** and *
 * [x] Prototype
 * [ ] Slicing
 
-## Local Scripts
+## Start Local Project
 
+A long journey leads to build your project locally.
+
+### In Project Folder
+
+First, You should.
+
+```bash
 git pull
+```
 
-virtual venv
+Then get into your project folder, init a virtual environment.
 
+```bash
+Virtual venv
+```
+
+Activate it.
+
+```bash
 source venv/bin/activate
+```
 
+Install the packages you need.
+
+```bash
 pip install -r requirements.txt
+```
 
+You might need to use `pip3` instead of `pip`.
+
+```bash
 npm install
+```
 
+```bash
 npx bower install
+```
 
-cd bower\_components/semantic
+```bash
+python manage.py migrate
+```
 
+You can also use `manage.py syncdb`, but this script doesn't work if you are using Django 1.7 or later, you will get _**Unknown command: 'syncdb'**_.
+
+### In Semantic UI Folder
+
+After installing your project package, you have to install the package for what **Semantic UI** needs.
+
+First, get into its folder.
+
+```bash
+cd bower_components/semantic
+```
+
+Then install its NPM packages so that you can use Gulp to build Semantic UI files.
+
+```bash
 npm install
+```
 
+Use this Semantic command to build it up.
+
+```bash
 npx gulp build
+```
 
+{% hint style="info" %}
+[Here](https://semantic-ui.com/introduction/build-tools.html) is all commands for Semantic UI.
+{% endhint %}
+
+### In React Folder
+
+First, go back to the project folder then go to React folder.
+
+```bash
 cd ../../
-
 cd react-semantic
+```
 
+React also uses NPM as a package management tool, you should use the command to install the dependency it needs.
+
+```bash
 npm install
+```
 
+Use this React command to build it up.
+
+```bash
 npm start
+```
 
-cd ../
+### After All
 
-npm run reactInit
+We are using **Create-React-App** to build our React project, so that it can compile all scripts by its self, but if we want to build it with Semantic UI, there are more steps to do. Here we use Gulp to help us, they are basically moving files for us.
 
-cd react-semantic
+This helps us to move Semantic UI file to our React folder. This should be done at the beginning.
 
+```bash
 npm run gulp reactInit
+```
 
+Then once you reach some progress and ready to publish, you should use this React command to compile your React files.
+
+```bash
+npm run build
+```
+
+Then use Our Gulp script to move the files into Django project.
+
+```bash
 npm run gulp reactProduction
+```
 
