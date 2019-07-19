@@ -30,3 +30,16 @@ You can use a simple way to add a class to an DOM in an array.
 $(target[i]).addClass('navBar-hover');
 ```
 
+### Regex and Replace
+
+You might use this when you want to replace some text from a `string`.
+
+```javascript
+var regExp = new RegExp('Your Regular Expression without //, What you want to replace', 'g')
+var newValue = oldValue.replace(regExp, ('What you want to insert'));
+```
+
+{% hint style="info" %}
+See [This](http://jsnwork.kiiuo.com/archives/264/jquery-javascript-%E4%BD%BF%E7%94%A8replace%E8%88%87regexp%E5%8F%96%E4%BB%A3%E6%96%87%E5%AD%97/) to get more.
+{% endhint %}
+
