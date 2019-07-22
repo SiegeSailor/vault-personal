@@ -9,6 +9,9 @@ All the relevant links.
 * Release Web :: [LeJourney App Marketplace](https://class.lejourneyapp.com/)
 * Test Web :: [LeJourney App Marketplace](https://classtest.lejourneyapp.com/)
 * GitLab :: [LeJourneyWeb](http://35.197.146.136/ZhangJinYu/LeJourneyWeb)
+* Gateway Return Code :: [Google Excel](https://docs.google.com/spreadsheets/d/1Etkwz83BIcCMmqXNvaLksgfApkGo_3G_V8LN1dUqe1Q/edit#gid=0)
+* New Swagger :: [Swagger UI](http://54.254.192.10:9999/#/Rating/CommentCram)
+* Previous Swagger :: [Swagger UI](https://test.edallianz.net/swagger/#/)
 
 ## Environment
 
