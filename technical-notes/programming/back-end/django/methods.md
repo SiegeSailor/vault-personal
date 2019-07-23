@@ -4,7 +4,7 @@
 
 Common methods.
 
-#### Json Load
+### Json Load
 
 Use this method to parse JSON data from POST \( Usually is from AJAX \). Here is the data in JS, it uses `JSON.stringify()` to parse the data to json type.
 
@@ -22,7 +22,11 @@ data = json.loads(request.POST.get('data', ''))
 
 Common issues.
 
-#### dict object has no attribute status\_code error in Django project
+### Dict Object Has no Attribute
 
-Probably you are returning a dictionary or list from Django with HttpResponse rather than JsonResponse.
+_**dict object has no attribute status\_code error in Django project**_, Probably you are returning a dictionary or list from Django with HttpResponse rather than JsonResponse.
+
+### Failed to Establish New Connection
+
+This is usually the server side issue, but it might be caused if you send **None** value request, check if the value you are sending out is not **None**.
 
