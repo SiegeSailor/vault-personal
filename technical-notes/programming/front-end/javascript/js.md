@@ -4,7 +4,7 @@
 
 JS here means **JavaScript** and **jQuery,** here I compare them and list the differences of these two.
 
-### DOM and Class
+## DOM and Class
 
 #### JavaScript
 
@@ -30,16 +30,83 @@ You can use a simple way to add a class to an DOM in an array.
 $(target[i]).addClass('navBar-hover');
 ```
 
-### Regex and Replace
+## Regex and Replace
 
 You might use this when you want to replace some text from a `string`.
 
 ```javascript
-var regExp = new RegExp('Your Regular Expression without //, What you want to replace', 'g')
+var regExp = new RegExp('Your Regular Expression without //, and what you want to replace', 'g')
 var newValue = oldValue.replace(regExp, ('What you want to insert'));
 ```
 
 {% hint style="info" %}
 See [This](http://jsnwork.kiiuo.com/archives/264/jquery-javascript-%E4%BD%BF%E7%94%A8replace%E8%88%87regexp%E5%8F%96%E4%BB%A3%E6%96%87%E5%AD%97/) to get more.
 {% endhint %}
+
+## Email Validation
+
+The following code uses `jQuery`, but the logic should work with native JavaScript.
+
+#### Validate Callback Function
+
+First, announce a callback function to validate email with `Regex`, and return boolean with `test()` method.
+
+```javascript
+function validateEmail(email) {
+      var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regex.test(email);
+}
+```
+
+#### Operation Function
+
+Then create a function to suit to your situation.
+
+```javascript
+function validate() {
+  var result = $("#validation-result");
+  var email = $("#email").val();
+  result.text("");
+  if (validateEmail(email)) {
+    result.text('you are validated.');
+  } else {
+    result.html('<i class="fas fa-exclamation-circle"></i> ' + email + "is not valid.");
+    return;
+  }
+}
+```
+
+## Phone Number Input Limitation
+
+The following code uses `jQuery`, but the logic should work with native JavaScript.
+
+```javascript
+(function ($) {
+    $.fn.inputFilter = function (inputFilter) {
+      return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function () {
+        if (inputFilter(this.value)) {
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        }
+      });
+    };
+  }(jQuery));
+  $("#phone").inputFilter(function (value) {
+    return /^\d*$/.test(value);
+  });
+```
+
+## Input Prohibition
+
+Simply prohibit user from typing.
+
+```javascript
+  $('#input').keypress(function (e) {
+    e.preventDefault();
+  });
+```
 

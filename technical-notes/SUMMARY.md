@@ -79,6 +79,7 @@
     * [HTML Output with Variable](programming/back-end/django/html-output-with-variables.md)
     * [Logging](programming/back-end/django/logging.md)
     * [Multi-Language](programming/back-end/django/multi-language.md)
+    * [reCaptcha](programming/back-end/django/recaptcha.md)
     * [Regex](programming/back-end/django/regex.md)
     * [CSRF](programming/back-end/django/csrf.md)
     * [Static Files](programming/back-end/django/untitled.md)

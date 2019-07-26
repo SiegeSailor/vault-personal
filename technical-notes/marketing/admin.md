@@ -92,14 +92,21 @@ Facebook chat bot platform.
 * Account :: [marketing.tw@edallianz.com](mailto:marketing.tw@edallianz.com)
 * Password :: edA5123\#6578
 
-## Google Analytics
+## Google Services
 
-Google account for Google Analytics Code usage.
+Google account for Google services usage, including Google Analytics Code and Firebase.
 
 * Account :: marketing.tw@edallianz.com
 * Password :: edA5123\#6578
 * Account :: edallianzsg@gmail.com
 * Password :: aDellianz6%5
+
+## Facebook Services
+
+Facebook account for Facebook services usage.
+
+* Account :: marketing.tw@edallianz.com
+* Password :: Eda6578@/
 
 ## Google
 
