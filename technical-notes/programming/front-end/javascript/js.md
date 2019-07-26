@@ -110,3 +110,13 @@ Simply prohibit user from typing.
   });
 ```
 
+## Check If A Key Exists
+
+If you meet _**Uncaught TypeError: Cannot use 'in' operator to search for 'length'**_  which means you are not running this check with **Object**.
+
+```javascript
+if ('error' in response) {
+    console.log('Error!')
+}
+```
+
