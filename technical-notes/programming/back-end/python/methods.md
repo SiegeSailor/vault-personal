@@ -1,10 +1,10 @@
 # Methods
 
-## Methods
+## Overview
 
 Common methods.
 
-#### Check if a Key Exists
+## Check If A Key Exists
 
 Use this to check if there is the key.
 
@@ -25,13 +25,13 @@ if "key" not in request.session:
     return
 ```
 
-#### Appending a Value
+## Appending A Value
 
 ```python
 d['stupdid'].append(foo)
 ```
 
-#### Wipe Empty Character
+## Wipe Empty Character
 
 This method allows you to wipe empty character around a string.
 
@@ -42,4 +42,19 @@ len(a)
 len(a.strip())
 >>> 3
 ```
+
+## Round Alternative
+
+Usually we use round\(\) to get point numbers, but the method is not always rendering the right number we want, so here is another solution.
+
+```python
+real_time_score = int('0.555')
+real_time_score = '%.1f' % real_time_score
+```
+
+`%.1f` can be `%.2f` or `%.3f`, depends on how many point numbers you want to have.
+
+{% hint style="info" %}
+See [Here](https://blog.csdn.net/chenmozhe22/article/details/81666831).
+{% endhint %}
 
