@@ -131,3 +131,11 @@ ValueError: invalid literal for int() with base 10: '5.0'
 
 There is nothing you can do, checkout with your BackEnd Team or MIS.
 
+#### undefind name 'unicode'
+
+See the answer from StackOverFlow. This is caused by the difference between **Python2** and **Python3**.
+
+![](../../../.gitbook/assets/ying-mu-kuai-zhao-20190729-shang-wu-11.40.54.png)
+
+
+
