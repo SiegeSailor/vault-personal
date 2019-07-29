@@ -69,6 +69,7 @@
     * [Get Started](programming/back-end/python/get-started.md)
     * [Methods](programming/back-end/python/methods.md)
     * [Trouble Shooting](programming/back-end/python/trouble-shooting.md)
+    * [Profan Filter](programming/back-end/python/profan-filter.md)
     * [Magic Function](programming/back-end/python/magic-function.md)
     * [PIP](programming/back-end/python/pip/README.md)
       * [Get Started](programming/back-end/python/pip/get-started-1.md)
