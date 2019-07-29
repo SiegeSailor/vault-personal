@@ -28,7 +28,7 @@ The original [Discussion](https://stackoverflow.com/questions/6077675/why-am-i-s
 
 #### TypeError: Object of type Template is not JSON serializable
 
-`simplejson` and `json` don't work with django objects well.
+`simplejson` and `json` don't work with Django objects well.
 
 Django's built-in [serializers](https://docs.djangoproject.com/en/dev/topics/serialization/) can only serialize query-sets filled with Django objects:
 
@@ -131,11 +131,17 @@ ValueError: invalid literal for int() with base 10: '5.0'
 
 There is nothing you can do, checkout with your BackEnd Team or MIS.
 
-#### undefind name 'unicode'
+#### Undefind Name unicode
 
 See the answer from StackOverFlow. This is caused by the difference between **Python2** and **Python3**.
 
 ![](../../../.gitbook/assets/ying-mu-kuai-zhao-20190729-shang-wu-11.40.54.png)
+
+#### Str object has no attribute decode
+
+Which means you are trying to decode an object that is **already** _decoded_. You have a `str`, there is no need to decode from UTF-8 anymore.
+
+Simply drop the `.decode('utf-8')` part.
 
 
 
