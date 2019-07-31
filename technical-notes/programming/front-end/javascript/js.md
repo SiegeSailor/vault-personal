@@ -120,3 +120,25 @@ if ('error' in response) {
 }
 ```
 
+## Href With OnClick
+
+Function first then href.
+
+```markup
+<a target="_blank" onclick="document.location.href="https://www.edallianz.com/tw/";return false;" href="https://www.edallianz.com/tw/">Visit Us</a>
+```
+
+## Text Length Validation
+
+This is usually used when you want to check if your input text length is long enough and it contains Chinese and English **both**, this offers you a way to calculate them with **Byte**.
+
+```javascript
+var commentComment = $('.comment').val();
+var commentLength = encodeURIComponent(commentComment);
+commentLength = commentLength.replace(/%[A-Fd]{2}/g, 'U').length;
+    if (commentLength < 140) {
+        return;
+    } else {
+    }
+```
+
