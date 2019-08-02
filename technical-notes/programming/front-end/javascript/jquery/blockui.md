@@ -69,3 +69,19 @@ $('body').append('The element which previous BlockUI used as message.');
 [Here](https://stackoverflow.com/questions/19362542/blockui-exception-parentnode-of-undefined) is the discussion.
 {% endhint %}
 
+### Safari
+
+Safari doesn't stop BF cache so when users go history back the page doesn't refresh, if we use blockUI as the last action when leaving from the last page, users might see loading blockUI when go back. We have to force it to close.
+
+```javascript
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        $.unblockUI();
+    }
+};
+```
+
+{% hint style="info" %}
+[Here](https://blog.darkthread.net/blog/safari-bfcache-ignore-nocache/) is the solution.
+{% endhint %}
+

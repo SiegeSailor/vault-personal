@@ -142,3 +142,11 @@ commentLength = commentLength.replace(/%[A-Fd]{2}/g, 'U').length;
     }
 ```
 
+{% hint style="info" %}
+See [This](https://blog.caesarchi.com/2011/07/14/-e5-88-86-e4-ba-ab-javascript--e8-a8-88-e7-ae-97-e5-ad-97-e5-85-83-e9-95-b7-e5-ba-a6-count-string-length-by-javascript/).
+{% endhint %}
+
+## URL 404 Not Found
+
+It is probably caused by your URL context, you can not use `#` in your URL.
+

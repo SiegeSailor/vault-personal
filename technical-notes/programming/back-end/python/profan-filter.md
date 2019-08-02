@@ -166,3 +166,7 @@ profan_dfa_filter.parse('rating/profane')
 pprint(profan_dfa_filter.filter('hello sexy baby 幹雞掰 操'))
 ```
 
+{% hint style="info" %}
+[This](https://github.com/observerss/textfilter/blob/master/filter.py) is the original source.
+{% endhint %}
+
