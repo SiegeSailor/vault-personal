@@ -167,6 +167,6 @@ pprint(profan_dfa_filter.filter('hello sexy baby 幹雞掰 操'))
 ```
 
 {% hint style="info" %}
-[This](https://github.com/observerss/textfilter/blob/master/filter.py) is the original source.
+[This](https://github.com/observerss/textfilter/blob/master/filter.py) is the original source, and [Here](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/590955/) is another reference.
 {% endhint %}
 
