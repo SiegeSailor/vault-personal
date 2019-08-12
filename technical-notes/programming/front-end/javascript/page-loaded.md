@@ -30,7 +30,7 @@ function extendCommentsArea() {
 }
 ```
 
-#### jQuery
+### jQuery
 
 ```javascript
 $(document).ready(function () {
@@ -38,6 +38,8 @@ $(document).ready(function () {
     }
 }
 ```
+
+
 
 
 
