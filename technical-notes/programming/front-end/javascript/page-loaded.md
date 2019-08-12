@@ -18,6 +18,18 @@ The last one is the better way to go.
 window.onload = function () {}
 ```
 
+For some reason, `window.onload` might not fire anyway, in that case you should go this way.
+
+```javascript
+window.addEventListener('load', extendCommentsArea, false);
+
+function extendCommentsArea() {
+    if (window.innerHeight > schoolInfo.offsetHeight) {
+        commentsArea.style.height = (window.innerHeight - schoolInfo.offsetHeight) + "px";
+    }
+}
+```
+
 #### jQuery
 
 ```javascript
