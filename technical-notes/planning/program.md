@@ -25,6 +25,7 @@
   * Context API
   * React Native
   * Universal
+  * Flux
 * CSS
   * Sementic UI
   * LESS
