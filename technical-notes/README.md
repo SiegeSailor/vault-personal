@@ -1,6 +1,6 @@
 # Introduction
 
-> This document is for Full Stack Development. Including my work experience in Edallianz as a **UIUX Specialist and Associate Front-End Engineer** and my **Notes for Private Projects**.
+> This document is for Full Stack Development. Including my work experience in Edallianz as a **UIUX Specialist and Associate Front-End Engineer** and as a **Full Stack Engineer**.
 
 ## Origin
 
@@ -10,17 +10,17 @@ In the process, I gradually found out that my design and promoting direction was
 
 That was why I changed my career path. I am working as a **UI/UX Specialist and Associate Front-End Engineer** now, everything in this field is interesting but new for me, I want to write all of them down into this GitBook.
 
+Let's draw a line here, now is 20190813, all my coworkers has been disemployed except for me, and I am surviving as a **Full Stack Engineer**. I am leaving soon as there is no much reasonable decision have been made in this company, there is no reason for me to stay with such pay and direction, I will leave after learning all I want.
+
 ## Content
 
 The GitBook would probably be related to the following list.
 
 * UIUX
-* Visual Guideline
 * Front-End
 * Back-End
 * MIS
 * Extra Knowledge
-* Game Project
 
 ## Projects in Edallianz
 
@@ -30,27 +30,23 @@ The GitBook would probably be related to the following list.
 * UIUX for LeJourney Website
 * UIUX for LeJourney iOS
 * UIUX for LeJourney Android
-
-#### Visual Guideline
-
-* Basic Web Visual Guideline for Edallianz Global Website
-* Visual UIUX Guideline for LeJourney Website
-* Visual UIUX Guideline for LeJourney iOS
-* Visual UIUX Guideline for LeJourney Android
+* UIUX for Client Websites
 
 #### Front-End
 
 * Edallianz Taiwan Website Development
-* LeJOURNEY Website Development
+* LeJourney Website Development
 
 #### MIS
 
 * Edallianz Taiwan Website Server
 * LeJourney Server
+* Micro Service Server
+* WordPress Server
 
 #### Back-End
 
-* Edallianz Taiwan Website Framework Structure
-* LeJourney Web Framework Structure
+* Edallianz Taiwan Website
+* LeJourney Web
 * Facebook Chat Bot
 

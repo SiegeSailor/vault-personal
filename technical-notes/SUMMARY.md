@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Key Chain](key-chain.md)
 
 ## Marketing
 
