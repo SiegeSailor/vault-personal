@@ -18,6 +18,8 @@
   * There.JS
   * D3.JS
   * Canvas
+  * Web Worker
+  * Service Worker
 * React
   * React DOM
   * Redux
@@ -27,7 +29,7 @@
   * Universal
   * Flux
 * CSS
-  * Sementic UI
+  * Semantic UI
   * LESS
   * BEM
   * SASS
@@ -60,7 +62,9 @@
   * GraphQL
 * Docker
 * Nginx
+  * Http/2 Server Push
 * Apache
+  * Http/2 Server Push
 * Knowlege
   * Socket
   * Socket.io
@@ -72,6 +76,8 @@
     * VM
 
 ## WEB
+
+### Objective
 
 * Fabric
 * Sentry

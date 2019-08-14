@@ -42,3 +42,7 @@ And the reason why your request is sending None might be your AJAX, remove this.
 contentType: "json",
 ```
 
+### ModuleNotFoundError
+
+_**ModuleNotFoundError: No module named 'mysite'**_ might caused because you are returning a **HttpResponse** or **JsonResponse** with functions which is not from a **View**.
+

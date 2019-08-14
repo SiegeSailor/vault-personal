@@ -65,6 +65,8 @@ scp -i ~/.ssh/edallianz-peter.pem /Users/eda-001/Desktop/WebBooking2/templates/f
 
 * -r :: Add this If you are using `mv`, `rm`, or `cp` to a folder. This means to do the same thing to all files in the path
 * -al :: List detail
+* -f :: Force
+* -F :: in ls is used to mark directories with a trailing slash \(/\), doors with a trailing greater-than sign \(&gt;\), executable files with a trailing asterisk \(\*\), FIFOs with a trailing vertical bar \(\|\), symbolic links with a trailing at-sign \(@\), and AF\_UNIX address family sockets with a trailing equals sign \(=\).
 
 ## WGET
 
