@@ -58,3 +58,16 @@ real_time_score = '%.1f' % real_time_score
 See [Here](https://blog.csdn.net/chenmozhe22/article/details/81666831).
 {% endhint %}
 
+## Get Related Value with a Key
+
+To compare a key's value to a key's value from a dict with `next`, then get or replace the value from the dict under the key.
+
+```python
+for indexOuter in range(len(response['data'])):
+        for indexInner in range(len(response['data'][indexOuter]['replies'])):
+            response['data'][indexOuter]['replies'][indexInner]['question'] = (next(
+                item for item in request.session['questions']['data'] if item["id"] == response['data'][indexOuter]['replies'][indexInner]['question_id']))['question']
+            response['data'][indexOuter]['replies'][indexInner]['question_des'] = (next(
+                item for item in request.session['questions']['data'] if item["id"] == response['data'][indexOuter]['replies'][indexInner]['question_id']))['question_des']
+```
+
