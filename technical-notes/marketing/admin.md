@@ -83,7 +83,7 @@ A blog hosted by our marketing team.
 The server handles all WordPress websites. 
 
 * Google Account :: edallianzhq@gmail.com
-* Google Password :: 6102eda@!
+* Google Password :: edallIAn\(73\)z
 
 ## Bot Bonny
 
