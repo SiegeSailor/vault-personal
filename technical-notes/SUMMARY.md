@@ -78,6 +78,7 @@
       * [Trouble Shooting](programming/back-end/python/pip/trouble-shooting.md)
   * [Django](programming/back-end/django/README.md)
     * [Common Issues](programming/back-end/django/methods.md)
+    * [Render 內有 HTML 標籤的 String](programming/back-end/django/render-nei-you-html-biao-qian-de-string.md)
     * [HTML Output with Variable](programming/back-end/django/html-output-with-variables.md)
     * [Logging](programming/back-end/django/logging.md)
     * [Multi-Language](programming/back-end/django/multi-language.md)
