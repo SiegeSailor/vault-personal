@@ -27,6 +27,7 @@
     * [Return Multi Values](programming/front-end/javascript/return-multi-values.md)
     * [jQuery](programming/front-end/javascript/jquery/README.md)
       * [Common Issues](programming/front-end/javascript/jquery/common-issues.md)
+      * [通用 Focus 函式](programming/front-end/javascript/jquery/tong-yong-focus-han-shi.md)
       * [AJAX](programming/front-end/javascript/jquery/ajax.md)
       * [AJAX and SetInterval](programming/front-end/javascript/jquery/ajax-and-setinterval.md)
       * [BlockUI](programming/front-end/javascript/jquery/blockui.md)
