@@ -25,7 +25,7 @@ For MIS developing
 
 A server contains our own products on **AWS,** such as **LeJourney** and **EDA Website**.
 
-* AWS ID :: 54321657512
+* AWS ID :: 054321657512
 * AWS Name :: EdallianzTPE
 * AWS Password :: Eda8756321=5!\*&
 * Server IP :: 52.77.174.67
