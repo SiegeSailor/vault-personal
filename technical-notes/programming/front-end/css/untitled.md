@@ -8,9 +8,13 @@ Methods that not suit the logic but work.
 
 Use `position: relative` when z-index doesn't work.
 
-Border Radius
+### Border Radius
 
 Use `overflow: hidden` when `border-radius` doesn't work.
+
+### Select and Pseudo
+
+目前尚無瀏覽器支援 `<select></select>` 使用 `:before` 或 `:after`。因此若有想自訂樣式，應使用於外容器中。
 
 ## Methods
 
