@@ -72,6 +72,7 @@
     * [Methods](programming/back-end/python/methods.md)
     * [Trouble Shooting](programming/back-end/python/trouble-shooting.md)
     * [Profan Filter](programming/back-end/python/profan-filter.md)
+    * [Script 取得資料與儲存讀取](programming/back-end/python/script-qu-de-json-yu-chu-cun-du-qu.md)
     * [Magic Function](programming/back-end/python/magic-function.md)
     * [PIP](programming/back-end/python/pip/README.md)
       * [Get Started](programming/back-end/python/pip/get-started-1.md)

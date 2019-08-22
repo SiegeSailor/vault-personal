@@ -58,7 +58,7 @@ The blog for LeJourney App Marketing in Taiwan.
 * WordPress Admin :: [https://read.lejourneyapp.com/tw/wp-admin/](https://read.lejourneyapp.com/tw/wp-admin/)
 * WordPress Account :: wordpress
 * WordPress Password :: 123456789JJJWWWiii!!!
-* Previous IP :: 52.77174.67
+* Previous IP :: 52.77.174.67
 
 ## LeJourney
 
