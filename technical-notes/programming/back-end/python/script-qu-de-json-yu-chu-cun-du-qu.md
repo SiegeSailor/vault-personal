@@ -179,3 +179,46 @@ def get_data_from_local(request):
         return school_list
 ```
 
+## 關於中文
+
+{% hint style="info" %}
+關於編碼，可以參考 阮一峰，[字符編碼筆記：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)。
+{% endhint %}
+
+#### 資料寫入時
+
+在將 JSON 資料寫入時，我們使用了 `ensure_ascii=False` ，這是由於 `json.dump()` 默認將中文作為 ascii 字元儲存，如若資料內有中國，儲存的將會是 _\u4e2d\u56fd_ 而非 _中國_，因此設使用 ensure\_ascii=False 來確保儲存的資料為中文。
+
+```python
+json.dump(result, target, ensure_ascii=False)
+```
+
+#### 資料讀取時
+
+而在使用 with open 時，我們亦使用 `encoding='UTF-8'` 因為資料內含有中文，這能確保讀取出中文字。
+
+```python
+with open("rating/school_list.json", "r", encoding='UTF-8') as data_from_local:
+```
+
+### 錯誤排除
+
+然而，當有時在 Ubuntu 的伺服器上執行此 .sh 檔寫入中文資料時，會發生以下錯誤：
+
+```bash
+Traceback (most recent call last):
+  File "rating/auto_fetch_school_list.py", line 73, in <module>
+    auto_request(mode)
+  File "rating/auto_fetch_school_list.py", line 64, in auto_request
+    json.dump(result, target, ensure_ascii=False)
+  File "/usr/lib/python3.6/json/__init__.py", line 180, in dump
+    fp.write(chunk)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 1-12: ordinal not in range(128)
+```
+
+此時我們會發現，其實我們在寫入讀取時都有確保中文的可讀性，那麼最便捷的解決辦法便是取消 `ensure_ascii=False`。取消後，寫入時的程式碼會如下：
+
+```python
+json.dump(result, target)
+```
+
