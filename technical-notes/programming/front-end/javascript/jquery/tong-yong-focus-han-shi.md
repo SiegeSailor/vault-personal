@@ -24,6 +24,6 @@
 ```
 
 {% hint style="info" %}
-原文來自 利用 The Will Will Web，[jQuery 將 DOM 元素聚焦 focus\(\) 的六個版本](https://blog.miniasp.com/post/2009/10/29/The-six-versions-that-let-DOM-focus-using-jQuery)。
+原文來自 The Will Will Web，[利用 jQuery 將 DOM 元素聚焦 focus\(\) 的六個版本](https://blog.miniasp.com/post/2009/10/29/The-six-versions-that-let-DOM-focus-using-jQuery)。
 {% endhint %}
 
