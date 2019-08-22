@@ -19,13 +19,16 @@ service crond restart # 重啟服務，多用在 crontab -e 新增或編輯完�
 
 ### Ubuntu
 
-另外在 Ubuntu 中，`/etc/init.d/cron` 可以 `service cron` 替代。
+Crontab 在 Ubuntu 與 Linux 的指令相似，但 crond 需換為 cron，並且，`/etc/init.d/cron` 可以 `service cron` 替代。我們可以輸入以下指令來查詢 Crontab 在 Ubuntu 的相關指令：
 
 ```bash
-/etc/init.d/cron status # 檢查服務運行狀態
-/etc/init.d/cronn stop # 停止服務
-/etc/init.d/cron start # 開啟服務
-/etc/init.d/cron restart # 重啟服務，多用在 crontab -e 新增或編輯完任務後
+/etc/init.d/cron -l
+```
+
+輸入後即會出現以下提示：
+
+```bash
+* Usage: /etc/init.d/cron {start|stop|status|restart|reload|force-reload}
 ```
 
 ## 任務相關指令
