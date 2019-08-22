@@ -61,6 +61,7 @@
     * [Trouble Shooting](programming/mis/mysql/trouble-shooting.md)
   * [Ubuntu](programming/mis/ubuntu/README.md)
     * [Chmod](programming/mis/ubuntu/chmod.md)
+    * [Crontab 自動排程](programming/mis/ubuntu/crontab-zi-dong-pai-cheng.md)
     * [Command](programming/mis/ubuntu/command.md)
     * [Activate Files](programming/mis/ubuntu/activate-files-on-server.md)
   * [macOS](programming/mis/macos/README.md)
