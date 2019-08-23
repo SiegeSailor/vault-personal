@@ -184,6 +184,44 @@ sudo supervisorctl restart web-booking2-test
 SGD test credit card number is **4242 4242 4242 4242,** TWD test credit card number is **4000 2211 1111 1111**.
 {% endhint %}
 
+### All in One
+
+Execute this command in root path of the project.
+
+```bash
+sh auto_dispatch_on_server.sh test
+```
+
+Here is how `auto_dispatch_on_server.sh` is.
+
+```bash
+#!/bin/bash
+./pull.sh
+. venv/bin/activate
+python rating/auto_fetch_school_list.py $1
+npm run production
+python manage.py collectstatic --noinput --clear
+sudo supervisorctl restart web-booking2-$1
+```
+
+and this is how pull.sh is.
+
+```bash
+#!/usr/bin/expect -f
+spawn git pull
+expect {
+    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }
+    interact
+    expect {
+        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }
+        interact
+        EOF
+    }
+}
+```
+
+for `rating/auto_fetch_school_list.py`, please see [Script 取得資料與儲存讀取](back-end/python/script-qu-de-json-yu-chu-cun-du-qu.md).
+
 ## Online Server Script
 
 Use the following command to get in the server.
@@ -260,4 +298,42 @@ python manage.py collectstatic --noinput --clear
 ```bash
 sudo supervisorctl restart web-booking2-release
 ```
+
+### All in One
+
+Execute this command in root path of the project.
+
+```bash
+sh auto_dispatch_on_server.sh release
+```
+
+Here is how `auto_dispatch_on_server.sh` is.
+
+```bash
+#!/bin/bash
+./pull.sh
+. venv/bin/activate
+python rating/auto_fetch_school_list.py $1
+npm run production
+python manage.py collectstatic --noinput --clear
+sudo supervisorctl restart web-booking2-$1
+```
+
+and this is how pull.sh is.
+
+```bash
+#!/usr/bin/expect -f
+spawn git pull
+expect {
+    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }
+    interact
+    expect {
+        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }
+        interact
+        EOF
+    }
+}
+```
+
+for `rating/auto_fetch_school_list.py`, please see [Script 取得資料與儲存讀取](back-end/python/script-qu-de-json-yu-chu-cun-du-qu.md).
 
