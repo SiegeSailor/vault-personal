@@ -97,7 +97,7 @@
 * [LeJourney App](programming/lejourney-app.md)
 * [EdPos](programming/edpos.md)
 
-## Planning
+## 學習規劃 <a id="planning"></a>
 
-* [Program](planning/program.md)
+* [程式相關](planning/program.md)
 

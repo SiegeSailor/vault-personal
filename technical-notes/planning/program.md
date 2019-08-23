@@ -1,17 +1,17 @@
-# Program
+# 程式相關
 
-## Structure
+## 設計模式
 
-* MVC
-* Static Website Framework
-* Single Page Application
+* MVC，Model View Controller
+* SWF，Static Website Framework
+* SPA，Single Page Application
 
-## Front-End
+## 前端
 
 * [ ] 六角學院 Youtube：計算機概論
 * [ ] JavaScript 地下城
 
-### Objective
+### 總覽
 
 * Advanced JavaScript
   * ES6+
@@ -40,9 +40,9 @@
   * Gulp
   * Bower
 
-## Back-End
+## 後端
 
-### Objective
+### 總覽
 
 * Language
   * Python
@@ -51,9 +51,9 @@
   * Node.JS
   * Go
 
-## MIS
+## 伺服器
 
-### Objective
+### 總覽
 
 * Database
   * MangoDB
