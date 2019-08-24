@@ -1,12 +1,12 @@
 # 程式相關
 
-## 設計模式
+## Design Pattern
 
 * MVC，Model View Controller
 * SWF，Static Website Framework
 * SPA，Single Page Application
 
-## 前端
+## FrontEnd
 
 * [ ] 六角學院 Youtube：計算機概論
 * [ ] JavaScript 地下城
@@ -40,18 +40,21 @@
   * Gulp
   * Bower
 
-## 後端
+## BackEnd
 
 ### 總覽
 
 * Language
   * Python
-    * Swagger
     * Django
   * Node.JS
   * Go
+* API
+  * RESTful API
+    * Swagger
+  * GraphQL
 
-## 伺服器
+## MIS
 
 ### 總覽
 
@@ -59,7 +62,6 @@
   * MangoDB
   * SQL
   * MySQL
-  * GraphQL
 * Docker
 * Nginx
   * Http/2 Server Push
@@ -69,18 +71,18 @@
   * Socket
   * Socket.io
   * Web Socket
-  * AWS
+  * Amazon AWS
     * EC2
-  * GCP
+  * Google GCP
     * Firebase
     * VM
-
-## WEB
-
-### Objective
-
-* Fabric
-* Sentry
+* Task Manager
+  * Celery
+    * Redis
+    * RabbitMQ
+    * Cron
+* Debugger
+  * Sentry
 
 
 
