@@ -9,7 +9,7 @@
 Share Link 的標籤與 button。
 
 ```markup
-<button id="share-btn" class="btn_share">
+<button id="share-btn">
     <a href="" href="#">
         <i class="icon-share fa" aria-hidden="true"></i>
         <div class="button-text">{% trans 'Share' %}</div>
