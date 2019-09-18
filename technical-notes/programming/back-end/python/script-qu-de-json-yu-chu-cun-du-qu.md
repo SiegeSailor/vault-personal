@@ -88,7 +88,7 @@ sh rating/auto_fetch_sh.sh test
 
 ## 寫入用腳本
 
-以下程式碼皆在 `auto_fetch.py` 內。
+以下程式碼皆在 `auto_fetch.py` 內。
 
 ### 應用模組
 

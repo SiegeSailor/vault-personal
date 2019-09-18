@@ -45,7 +45,7 @@ len(a.strip())
 
 ## Round Alternative
 
-Usually we use round\(\) to get point numbers, but the method is not always rendering the right number we want, so here is another solution.
+Usually we use `round()` to get point numbers, but the method is not always rendering the right number we want, so here is another solution.
 
 ```python
 real_time_score = int('0.555')
@@ -119,4 +119,15 @@ types = ['goodclass', 'experience','participate','parent','classforchild','educa
 {% hint style="info" %}
 原文來自 CSDN，[Python switch/case 語句實現方法](https://blog.csdn.net/l460133921/article/details/74892476)。
 {% endhint %}
+
+## 單獨與引用的執行
+
+Python 直譯器執行時，有一些內建、隱含的變數，`__name__` 就是其中之一，其意義是**模組名稱**。如果該檔案是被引用，其值會是模組名稱；但若該檔案是 \( 透過命令列 \) 直接執行，其值會是 `__main__` 。
+
+在實務上之所以常看見這樣的寫法，是因為該程式可能有單獨執行、如單檔案的單元測試，或是被引用的情況，用以下的方法就能區分這兩種情況。
+
+```python
+if __name__ == '__main__':
+    main()  # 或是任何你想執行的函式
+```
 

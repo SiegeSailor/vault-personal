@@ -46,6 +46,10 @@ ssh -i ~/.ssh/edallianz-release-db.pem ubuntu@3.1.156.249
 The Key should be in _~/.ssh_ .
 {% endhint %}
 
+{% hint style="info" %}
+亦可使用 [PHPbyAdmin](http://52.77.174.67/mq/sql.php?server=1&db=edallianz2_release_bizadmin&table=core_bauser&pos=0&token=e778807584d201319c61c22013ab5832) 來進入資料庫。
+{% endhint %}
+
 ## EdallianzML
 
 A server contains **Teacher's App**, one of our own products on **AWS**.
@@ -61,13 +65,17 @@ A server contains **Teacher's App**, one of our own products on **AWS**.
 ssh -i ~/.ssh/edallianz-ml.pem ubuntu@13.228.191.215
 ```
 
+```bash
+ssh -i ~/.ssh/edallianz-ml.pem ubuntu@18.136.1.42
+```
+
 {% hint style="info" %}
 The Key should be in _~/.ssh_ .
 {% endhint %}
 
 ## EdallianzDL
 
-A server contains our **GitLab** and **Micro Services** on **AWS**.
+A server contains our **Line Chat Bot** and **Micro Services** on **AWS**.
 
 * AWS ID :: 559262095513
 * AWS Name :: EdallianzDL
@@ -86,6 +94,14 @@ ssh -i ~/.ssh/edallianz-dl.pem ubuntu@13.250.137.148
 ssh -i ~/.ssh/edallianz-microservice.pem ubuntu@54.254.192.10
 ```
 
+```bash
+ssh -i ~/.ssh/DL.julian.pem ubuntu@54.254.192.10
+```
+
+{% hint style="info" %}
+因 Docker 在 Ubuntu 上的 issue，Micro Services 存放於 /home/ubuntu/service
+{% endhint %}
+
 {% hint style="info" %}
 The Key should be in _~/.ssh_ .
 {% endhint %}
@@ -95,15 +111,16 @@ The Key should be in _~/.ssh_ .
 Google account for Google services usage, including Google Analytics Code and Firebase. Contains **WordPress** websites from our clients
 
 * IP :: 35.240.202.26
-* Account :: marketing.tw@edallianz.com
-* Password :: edA5123\#6578
 * Account :: edallianzsg@gmail.com
 * Password :: aDellianz6%5
+* Account :: edallianzhq@gmail.com
+* Password :: edallIAn\(73\)z
 
 Another GCP server contains our **GitLab**.
 
 * IP :: 35.197.146.136
 * Account :: serverml@rd.edallianz.com
+* Password :: Eda2223\)8286As
 
 ```sql
 -----BEGIN OPENSSH PRIVATE KEY-----

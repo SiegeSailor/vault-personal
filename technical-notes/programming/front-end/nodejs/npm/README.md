@@ -1,6 +1,6 @@
 # NPM
 
-![NPM](../../../../.gitbook/assets/image%20%286%29.png)
+![NPM](../../../../.gitbook/assets/image%20%287%29.png)
 
 ## Overview
 

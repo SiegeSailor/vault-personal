@@ -1,6 +1,6 @@
 # Semantic UI
 
-![Semantic UI](../../../../.gitbook/assets/image%20%2816%29.png)
+![Semantic UI](../../../../.gitbook/assets/image%20%2817%29.png)
 
 ## Overview
 

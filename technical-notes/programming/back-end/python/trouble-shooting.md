@@ -4,7 +4,7 @@
 
 Common issues.
 
-#### TypeError: string indices must be integers
+### TypeError: string indices must be integers
 
 The variable `item` is a string. An index looks like this. The example uses the `0` index of the string to refer to the first character.
 
@@ -26,7 +26,7 @@ TypeError: string indices must be integers
 The original [Discussion](https://stackoverflow.com/questions/6077675/why-am-i-seeing-typeerror-string-indices-must-be-integers).
 {% endhint %}
 
-#### TypeError: Object of type Template is not JSON serializable
+### TypeError: Object of type Template is not JSON serializable
 
 `simplejson` and `json` don't work with Django objects well.
 
@@ -64,7 +64,7 @@ return JsonResponse({"models_to_return": list(queryset)})
 The original [Discussion](https://stackoverflow.com/questions/16790375/django-object-is-not-json-serializable).
 {% endhint %}
 
-#### TypeError: unsupported operand type\(s\) for +: int and str
+### TypeError: unsupported operand type\(s\) for +: int and str
 
 In Python, `+` refers a **Math** calculation or a **String** combination, when is kind error happens, which means you are trying to `+` strings and numbers, which confuses Python, It doesn't know whether you are going to do a calculation or a combination.
 
@@ -86,7 +86,7 @@ pprint(str(1) + str(1))
 >>> 11
 ```
 
-#### ValueError: invalid literal for int\(\) with base 10
+### ValueError: invalid literal for int\(\) with base 10
 
 The following are totally acceptable in python.
 
@@ -127,17 +127,17 @@ ValueError: invalid literal for int() with base 10: '5.0'
 5
 ```
 
-#### Python http.client.RemoteDisconnected
+### Python http.client.RemoteDisconnected
 
 There is nothing you can do, checkout with your BackEnd Team or MIS.
 
-#### Undefind Name unicode
+### Undefind Name unicode
 
 See the answer from StackOverFlow. This is caused by the difference between **Python2** and **Python3**.
 
 ![](../../../.gitbook/assets/ying-mu-kuai-zhao-20190729-shang-wu-11.40.54.png)
 
-#### Str object has no attribute decode
+### Str object has no attribute decode
 
 Which means you are trying to decode an object that is **already** _decoded_. You have a `str`, there is no need to decode from UTF-8 anymore.
 

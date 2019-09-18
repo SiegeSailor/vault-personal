@@ -37,3 +37,7 @@ Here are the three methods related to JSON.
 
 Depending on the above methods, you don't need to use **toString** or **JSON.parse** on a receiving value which was sent as a JSON. Like Django **JsonResponse**. It might cause error if you use.
 
+### Return 回傳值
+
+無論是 **class** 或 **prototype**，只要有建構式內有 return，那個透過 `new` 方法出來所產生的值，就會是該 return 而出的值。也因此，在這情況下掛載的 function 是無法被指定到的。
+
