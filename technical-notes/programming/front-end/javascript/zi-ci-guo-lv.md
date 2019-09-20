@@ -15,10 +15,12 @@
         * Components.js
       * Source
         * Components.jsx
-        * GeneralFunction
+        * FoulLanguage
+          * ApplyToRatingExisting.jsx
+          * ChineseFoulFilter.jsx
           * ChineseFoulLanguage.jsx
+          * EnglishFoulFilter.jsx
           * EnglishFoulLanguage.jsx
-          * FoulFilter.jsx
           * TextSeperator.jsx
 * mysite
 * templates
@@ -33,7 +35,7 @@
 
 ## 字詞來源
 
-來自 `ChineseFoulLanguage.jsx`。由於 ES6 module 的 `import` 與 `export`，在這裡我們可以使用 export 一個 array 的方式來取得字詞。
+來自 `ChineseFoulLanguage.jsx`。由於 ES6 module 的 `import` 與 `export`，在這裡我們可以使用 export 一個 array 的方式來取得字詞。英文字詞結構相同。
 
 ```javascript
 const ChineseFoulLanguage = [
@@ -67,16 +69,16 @@ const ChineseFoulLanguage = [
 export default ChineseFoulLanguage;
 ```
 
-## 字詞過濾
+## 中文字詞過濾
 
-來自 `FoulFilter.jsx`。在一個 class 內的三步構建出字詞過濾功能，分別是字詞的 DFA Map 構建、內文檢索以及內文與字詞的比對。注意，當結尾是別的詞的開頭、而且沒有相同結尾時，因為 laster 不是 true 所以不會輸出。
+來自 `ChineseFoulFilter.jsx`。在一個 class 內的三步構建出字詞過濾功能，分別是字詞的 DFA Map 構建、內文檢索以及內文與字詞的比對。注意，當結尾是別的詞的開頭、而且沒有相同結尾時，因為 laster 不是 true 所以不會輸出。
 
 例如，當有 _人渣_ 與 _人渣公務員_ 時，只有 _人渣公務員_ 能夠達到過濾的作用。鑑於此功能是拋出有關係的詞，不一定要修補，但在新增過濾詞時需注意。
 
 ```javascript
-console.log(`FoulFilter Loaded`)
+console.log(`Chinese FoulFilter Loaded`)
 
-export class FoulConstructor {
+export default class FoulConstructor {
     constructor(FoulLanguage, Text) {
         this.FoulLanguage = FoulLanguage;
         this.Text = Text;
@@ -159,12 +161,40 @@ export class FoulConstructor {
 原始程式碼可參考 掘金，[JS 實現敏感詞過濾算法](https://juejin.im/post/5b5456ec6fb9a04fe91a7834)。
 {% endhint %}
 
+## 英文字詞過濾
+
+來自 `EnglishFoulFilter.jsx`。與中文 DFA Map 不同的是，英文是單純的字詞完全相等的取出。這裡不做英文字詞分開的處理。
+
+```javascript
+console.log("English FoulFilter Loaded")
+
+export default class EnglishFoulConstructor {
+    constructor(FoulLanguage, Text) {
+        this.FoulLanguage = FoulLanguage;
+        this.Text = Text;
+        return this.FoulSeeker();
+    }
+
+    FoulSeeker() {
+        let matchResult = { flag: false, foulWord: '', Index: Number };
+        const TextTrim = this.Text.replace(/[^\u4e00-\u9fa5\u0030-\u0039\u0061-\u007a\u0041-\u005a]+/g, '');
+        for (const word of this.FoulLanguage) {
+            if (word == TextTrim) {
+                matchResult = { flag: true, foulWord: word, Index: 0 }
+            }
+        }
+        return matchResult;
+    }
+}
+```
+
 ## 中英處理
 
 來自 `TextSeperator.jsx`。這裡就全中文、全英文以及中英混雜的方式進行辨識與處理，
 
 ```javascript
-import * as FoulFilterOrigin from "./FoulFilter.jsx"
+import ChineseFoulFilter from "./ChineseFoulFilter.jsx"
+import EnglishFoulFilter from "./EnglishFoulFilter.jsx"
 import ChineseFoulLanguage from "./ChineseFoulLanguage.jsx";
 import EnglishFoulLanguage from "./EnglishFoulLanguage.jsx";
 
@@ -179,14 +209,14 @@ export class TextSeperator {
     ResultPicker(matchResult, i) {
         if (matchResult.flag) {
             let content = {};
-            content = { commentIndex: i, result: matchResult.flag, foulWord: matchResult.foulWord, position: matchResult.position }
+            content = { commentIndex: i, result: matchResult.flag, foulWord: matchResult.foulWord, Index: matchResult.Index }
             this.FinalResult.push(content)
         }
     }
 
     ChineseLanguageChecker = (matchResult, string, i) => {
         let ChineseFoulWordPicker = (matchResult, string, i) => {
-            matchResult = new FoulFilterOrigin.FoulConstructor(ChineseFoulLanguage, string);
+            matchResult = new ChineseFoulFilter(ChineseFoulLanguage, string);
             this.ResultPicker(matchResult, i)
             if (matchResult.flag) {
                 // 將已抓取的中文敏感字詞取代
@@ -201,13 +231,14 @@ export class TextSeperator {
     EnglishLanguageChecker = (matchResult, string, i) => {
         string = string.split(/[^A-Za-z]/).filter(string => string)
         for (let x = 0; x < string.length; x = x + 1) {
-            matchResult = new FoulFilterOrigin.FoulConstructor(EnglishFoulLanguage, string[x]);
+            let stringLowercase = string[x].toLowerCase();
+            matchResult = new EnglishFoulFilter(EnglishFoulLanguage, stringLowercase);
             this.ResultPicker(matchResult, i)
         }
     }
 
     LanguageChecker() {
-        let matchResult = { flag: false, foulWord: '', position: Number };
+        let matchResult = { flag: false, foulWord: '', Index: Number };
         let LanguageCheckerFuntion = (string, i) => {
             if (/[\u4e00-\u9fa5]/ig.test(string)) {
                 // 評論中含有中文
@@ -282,10 +313,33 @@ export class TextSeperator {
 來自 `Components.jsx`。此檔同時為 entry point，因此在這針對不同來源的內容做 UI 處理。這裡的 comments 是一個 HTMLCollection 的陣列，結構皆是 `<div> 文字 </div>`。
 
 ```javascript
-console.log(`Components Loaded`)
-import { TextSeperator } from "./GeneralFunction/TextSeperator.jsx"
+console.log(`ApplyToRatingExisting Loaded`)
+import { TextSeperator } from "./TextSeperator.jsx"
 
-document.addEventListener('DOMContentLoaded', () => {
+export default document.addEventListener('DOMContentLoaded', () => {
+
+    let sectionClickToDisplay = (i) => {
+        nicknamesFoulLayer[i].classList.add(`active`);
+        titlesFoulLayer[i].classList.add(`active`);
+        comments[i].classList.add(`active`);
+        commentsFoulLayer[i].classList.add(`active`);
+        commentsFoulButton[i].classList.add(`active`);
+    }
+    let titleAndNicknamLoopToBlock = (target, targetFoulList, targetLayer) => {
+        for (let i = 0; i < target.length; i = i + 1) {
+            for (let x = 0; x < targetFoulList.length; x = x + 1) {
+                // 找出帶有敏感字詞的評論
+                if (i == targetFoulList[x].commentIndex) {
+                    // 以按鈕覆蓋評論
+                    targetLayer[i].style.display = `block`;
+                    targetLayer[i].addEventListener('click', (event) => {
+                        // 點擊按鈕後顯示評論
+                        sectionClickToDisplay(i);
+                    }, false)
+                }
+            }
+        }
+    }
     // rating-profile.html 頁面內，comment 的過濾和檢視功能
     let comments = document.getElementsByClassName(`comments-comments`);
     let commentsFoulLayer = document.getElementsByClassName(`foul-layer`);
@@ -301,50 +355,65 @@ document.addEventListener('DOMContentLoaded', () => {
                 commentsFoulButton[i].style.display = `block`;
                 commentsFoulButton[i].addEventListener('click', (event) => {
                     // 點擊按鈕後顯示評論
-                    comments[i].classList.add(`active`);
-                    commentsFoulLayer[i].classList.add(`active`);
-                    commentsFoulButton[i].classList.add(`active`);
+                    sectionClickToDisplay(i);
                 }, false)
             }
         }
     };
+    // rating-profile.html 頁面內，title 的過濾和檢視功能
+    let titles = document.getElementsByClassName('comments-info-text-title');
+    let titlesFoulLayer = document.getElementsByClassName(`foul-layer-title`);
+    const titleFoulList = new TextSeperator(titles);
+    titleAndNicknamLoopToBlock(titles, titleFoulList, titlesFoulLayer);
+    // rating-profile.html 頁面內，nickname 的過濾和檢視功能
+    let nicknames = document.getElementsByClassName('comments-info-text-nickname');
+    let nicknamesFoulLayer = document.getElementsByClassName(`foul-layer-nickname`);
+    const nicknameFoulList = new TextSeperator(nicknames);
+    titleAndNicknamLoopToBlock(nicknames, nicknameFoulList, nicknamesFoulLayer);
+
+
+    // rating-profile.html 與 rating-survey.html 的共用 function
+    let sectionLoadToFilter = (inputSection) => {
+        inputSection.addEventListener('input', (event) => {
+            const commentFoulResult = new TextSeperator(inputSection.value);
+            // 傳出敏感字詞
+            window.reviewFoulCheckResult.set(inputSection.id, commentFoulResult);
+        }, false)
+    }
 
     // rating-profile.html 頁面內，送出 comment 的檢查功能
     try {
         let commentWritingButton = document.getElementsByClassName(`writing`);
         for (let button of commentWritingButton) {
             button.addEventListener('click', (event) => {
-                window.reviewFoulCheckResult = []
+                window.reviewFoulCheckResult = new Map();
                 // 等待 rating.js 內的創建 review a comment 完成
                 if (window.reviewSubmitAreaDisplay == true) {
-                    let commentInputSection = document.getElementsByClassName(`comments-comments-input`);
-                    commentInputSection[0].addEventListener('input', (event) => {
-                        let commentToSubmit = document.getElementsByClassName(`comments-comments-input`);
-                        const commentFoulResult = new TextSeperator(commentToSubmit[0].value);
-                        // 傳出敏感字詞
-                        window.reviewFoulCheckResult = commentFoulResult;
-                    }, false)
+                    let commentInputSection = document.getElementsByClassName(`comments-comments-input`)[0];
+                    sectionLoadToFilter(commentInputSection);
+                    let titleInputSection = document.getElementsByClassName(`comments-info-input-text-input-title-input`)[0];
+                    sectionLoadToFilter(titleInputSection);
+                    let nameInputSection = document.getElementsByClassName(`comments-info-input-text-input-nickname-input`)[0];
+                    sectionLoadToFilter(nameInputSection);
                 }
             }, false)
         };
     } catch (exception) {
-        console.log(exception)
+        console.log(`This is not reating-profile.html`)
     } finally {
     }
 
     // rating-survey.html 頁面內，送出 comment 的檢查功能
-    window.reviewFoulCheckResult = []
-    // 等待 rating.js 內的創建 review a comment 完成
+    window.reviewFoulCheckResult = new Map();
     try {
-        let commentInputSection = document.getElementsByClassName(`comments-comments-input`);
-        commentInputSection[0].addEventListener('input', (event) => {
-            let commentToSubmit = document.getElementsByClassName(`comments-comments-input`);
-            const commentFoulResult = new TextSeperator(commentToSubmit[0].value);
-            // 傳出敏感字詞
-            window.reviewFoulCheckResult = commentFoulResult;
-        }, false)
+        let commentInputSection = document.getElementsByClassName(`comments-comments-input`)[0];
+        sectionLoadToFilter(commentInputSection);
+        let titleInputSection = document.getElementsByClassName(`comments-info-input-text-input-title-input`)[0];
+        sectionLoadToFilter(titleInputSection);
+        let nameInputSection = document.getElementsByClassName(`comments-info-input-text-input-nickname-input`)[0];
+        sectionLoadToFilter(nameInputSection);
     } catch (exception) {
-        console.log(exception)
+        console.log(`This is not rating-survey.html`)
     } finally {
     }
 })
