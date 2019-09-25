@@ -71,7 +71,7 @@ CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'my_password';
 顯示所有使用者帳號。
 
 ```sql
-SELECT USER FROM mysql.USER;
+SELECT USER FROM mysql.user;
 ```
 
 * USER :: 帳號欄
@@ -81,7 +81,7 @@ SELECT USER FROM mysql.USER;
 顯示使用者帳號權限。
 
 ```sql
-SHOW GRANT FOR service_social;
+SHOW GRANTS FOR 'rating_release_vernal'@'%';
 ```
 
 改變使用者密碼。
