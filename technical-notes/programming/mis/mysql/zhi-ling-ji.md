@@ -101,6 +101,12 @@ ALTER USER 'service_social'@'%' IDENTIFIED BY '86QPSV6dJawNNcBdgjdCjVPhwk47JfRwe
 GRANT ALL PRIVILEGES ON the_database.the_table TO 'service_social'@'%';
 ```
 
+給予使用者一資料庫的觀看權限。
+
+```sql
+GRANT SELECT ON `edallianz2_release_lejourney`.* TO 'rating_release_vernal'@'%'
+```
+
 使用者權限更改後的載入。
 
 ```sql
