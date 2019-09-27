@@ -4,13 +4,13 @@
 
 Common methods.
 
-#### Remove Git Tracking
+### Remove Git Tracking
 
 ```bash
 rm -rf .git
 ```
 
-#### Update GitIgnore
+### Update GitIgnore
 
 ```bash
 git rm -r --cached .
@@ -18,7 +18,7 @@ git add .
 git commit -m 'update .gitignore'
 ```
 
-#### Set Proxy and Account
+### Set Proxy and Account
 
 Command this on your project.
 
@@ -38,7 +38,7 @@ If you are running all projects on GitHub, you can use global setting.
 git config --global http.proxy http://proxy.server:port
 ```
 
-#### Reset Git Proxy to Default Configuration
+### Reset Git Proxy to Default Configuration
 
 If you had a configuration like this.
 
@@ -185,5 +185,11 @@ This usually happens in **Windows** system.
 git config --global credential.helper wincred
 ```
 
+#### remote: The project you were looking for could not be found.
 
+Add your account and password to your `git clone` command.
+
+```bash
+git clone http://root:Lianz6578=1235eda@35.197.146.136/Ed/EdToolBox2.git
+```
 
