@@ -78,7 +78,7 @@ python manage.py runserver
 ### Front End Compile
 
 ```bash
-npm run dev
+npm run webpack-release
 ```
 
 ### Language Compile
@@ -174,6 +174,12 @@ git pull
 npm run production
 ```
 
+### Data Fetch
+
+```bash
+sh rating/auto_fetch_sh.sh test
+```
+
 ### Activate
 
 ```bash
@@ -192,7 +198,7 @@ Execute this command in root path of the project.
 sh auto_dispatch_on_server.sh test
 ```
 
-Here is how `auto_dispatch_on_server.sh` is.
+Here is what `auto_dispatch_on_server.sh` is.
 
 ```bash
 #!/bin/bash
@@ -204,7 +210,7 @@ python manage.py collectstatic --noinput --clear
 sudo supervisorctl restart web-booking2-$1
 ```
 
-and this is how pull.sh is.
+and this is what pull.sh is.
 
 ```bash
 #!/usr/bin/expect -f
@@ -281,6 +287,12 @@ source venv/bin/activate
 npm run production
 ```
 
+### Data Fetch
+
+```bash
+sh rating/auto_fetch_sh.sh release
+```
+
 ### Static Compile
 
 ```bash
@@ -307,7 +319,7 @@ Execute this command in root path of the project.
 sh auto_dispatch_on_server.sh release
 ```
 
-Here is how `auto_dispatch_on_server.sh` is.
+Here is what `auto_dispatch_on_server.sh` is.
 
 ```bash
 #!/bin/bash
@@ -319,7 +331,7 @@ python manage.py collectstatic --noinput --clear
 sudo supervisorctl restart web-booking2-$1
 ```
 
-and this is how pull.sh is.
+and this is whaat pull.sh is.
 
 ```bash
 #!/usr/bin/expect -f
