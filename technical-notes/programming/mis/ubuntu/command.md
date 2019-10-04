@@ -225,6 +225,41 @@ du -abckms /var/www
 df -h
 ```
 
+## PS 進程狀態
+
+列出正在運行的進程和其狀態，此為一次性的展示，若要動態展示，則需使用 `top`。
+
+```bash
+ps aux | grep <aName>
+```
+
+當輸出時，由左而右的訊息會是如此。
+
+```text
+USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
+```
+
+* USER :: 進程擁有者
+* PID :: 進程的 ID
+* %CPU :: 佔用的 CPU 使用率
+* %MEM :: 佔用的記憶體使用率
+* VSZ :: 佔用的虛擬記憶體
+* RSS :: 佔用的記憶體
+* TTY :: 次要裝置號碼，Minor Device Number of TTY
+* STATE :: 該進程的狀態，共有 5 種
+  * D :: 不可中斷，Uninterruptible Sleep，通常為 IO
+  * R :: 運行中，Runnable 或 On Run Queue
+  * S :: 中斷中，Sleeping
+  * T :: 停止，Traced 或 Stopped
+  * Z :: 殭屍，a Defunct \( Zombie \) Process
+  * W :: 無駐留
+  * &lt; :: 高優先
+  * N :: 低優先
+  * L :: 內存鎖
+* START :: 進程開始時間
+* TIME :: 進程執行時間
+* COMMAND :: 進程執行的指令
+
 ## ZIP 壓縮
 
 將指定檔案壓縮，在之後會有兩次的指定與確認密碼。
