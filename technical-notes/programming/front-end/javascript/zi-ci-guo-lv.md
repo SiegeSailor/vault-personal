@@ -2,7 +2,7 @@
 
 ## 概述
 
-常見的內文字詞過濾功能，這邊使用 **DFA** 計算模型來比對字詞，並且針對中文、英文以及中英文混合做出不同的字詞帶入方式。這裡使用 ES6 撰寫，並用 WebPack 與 Babel 來編譯。
+常見的內文字詞過濾功能，這邊使用 **DFA** 計算模型來比對字詞，並且針對中文、英文以及中英文混合做出不同的字詞帶入方式。使用 ES6 撰寫，並用 WebPack 與 Babel 來編譯。
 
 ### 專案結構
 
@@ -16,12 +16,20 @@
       * Source
         * Components.jsx
         * FoulLanguage
-          * ApplyToRatingExisting.jsx
+          * ApplyToExisting
+            * Rating
+              * RatingProfile.jsx
+              * RatingSurvey.jsx
+              * RatingComponent
+                * SubmitCheck.jsx
+          * ApplyToExisting.jsx
           * ChineseFoulFilter.jsx
           * ChineseFoulLanguage.jsx
           * EnglishFoulFilter.jsx
           * EnglishFoulLanguage.jsx
           * TextSeperator.jsx
+    * pages
+      * rating-survey.js
 * mysite
 * templates
   * rating
@@ -38,25 +46,22 @@
 來自 `ChineseFoulLanguage.jsx`。由於 ES6 module 的 `import` 與 `export`，在這裡我們可以使用 export 一個 array 的方式來取得字詞。英文字詞結構相同。
 
 ```javascript
-const ChineseFoulLanguage = [
+const chineseFoulLanguage = [
     `雞掰`,
     `更年期到了`,
-    `賤貨`,
     `米蟲`,
     `王八蛋`,
+    `混帳`,
     `不要臉的髒東西`,
     `你去吃屎`,
     `敗類`,
     `智障`,
-    `賤人就是矯情`,
     `頭殼裝屎`,
     `白痴`,
+    `白癡`,
     `婊子`,
     `下流`,
-    `幹你娘`,
-    `幹妳娘`,
     `死番仔`,
-    `人渣公務員`,
     `神經病`,
     `特殊性關係`,
     `日本鬼子`,
@@ -64,9 +69,22 @@ const ChineseFoulLanguage = [
     `臭低能`,
     `低能`,
     `妓女`,
-    `沒卵蛋`
+    `沒卵蛋`,
+    `廢物`,
+    `人渣`,
+    `操你媽`,
+    `操妳媽`,
+    `操你爸`,
+    `操妳爸`,
+    `馬的`,
+    `腦殘`,
+    `幹`,
+    `賤`,
+    `看三小`,
+    `白目`,
+    `機掰`
 ];
-export default ChineseFoulLanguage;
+export default chineseFoulLanguage;
 ```
 
 ## 中文字詞過濾
@@ -79,15 +97,15 @@ export default ChineseFoulLanguage;
 console.log(`Chinese FoulFilter Loaded`)
 
 export default class FoulConstructor {
-    constructor(FoulLanguage, Text) {
-        this.FoulLanguage = FoulLanguage;
-        this.Text = Text;
-        return this.FoulSeeker();
+    constructor(foulLanguage, text) {
+        this.foulLanguage = foulLanguage;
+        this.text = text;
+        return this.foulSeeker();
     }
 
-    MapConstructor() {
+    mapConstructor() {
         const result = new Map();
-        for (const word of this.FoulLanguage) {
+        for (const word of this.foulLanguage) {
             let map = result;
             for (let i = 0; i < word.length; i++) {
                 // 依次獲取字
@@ -112,15 +130,15 @@ export default class FoulConstructor {
         return result;
     }
 
-    IsFoulExist(FoulMap, TextTrim, Index) {
+    isFoulExist(FoulMap, textTrim, index) {
         let currentMap = FoulMap;
         let flag = false;
         // 記錄過濾
         let wordNum = 0;
         // 紀錄過濾出來的敏感詞
         let foulWord = ``;
-        for (let i = Index; i < TextTrim.length; i = i + 1) {
-            const word = TextTrim.charAt(i);
+        for (let i = index; i < textTrim.length; i = i + 1) {
+            const word = textTrim.charAt(i);
             currentMap = currentMap.get(word);
             if (currentMap) {
                 wordNum++;
@@ -134,20 +152,31 @@ export default class FoulConstructor {
                 break;
             }
         }
-        // 兩字成詞
-        if (wordNum < 2) {
-            flag = false;
+        // 單字髒話
+        let singleWordChecker = (foulWord) => {
+            let singleWords = this.foulLanguage.filter((word) => word.length == 1)
+            return singleWords.map((singleWord) => {
+                if (singleWord == foulWord) {
+                    return true
+                } else {
+                    return false
+                }
+            })
         }
-        return { flag, foulWord, Index };
+        if (wordNum < 2 && !singleWordChecker(foulWord).includes(true)) {
+            flag = false;
+            foulWord = ``;
+        }
+        return { flag, foulWord, index };
     }
 
-    FoulSeeker() {
-        let FoulMap = this.MapConstructor();
-        let matchResult = { flag: false, foulWord: '', Index: Number };
+    foulSeeker() {
+        let FoulMap = this.mapConstructor();
+        let matchResult = { flag: false, foulWord: '', index: Number };
         // 過濾掉中文、英文、數字以外的
-        const TextTrim = this.Text.replace(/[^\u4e00-\u9fa5\u0030-\u0039\u0061-\u007a\u0041-\u005a]+/g, '');
-        for (let i = 0; i < TextTrim.length; i++) {
-            matchResult = this.IsFoulExist(FoulMap, TextTrim, i);
+        const textTrim = this.text.replace(/[^\u4e00-\u9fa5\u0030-\u0039\u0061-\u007a\u0041-\u005a]+/g, '');
+        for (let i = 0; i < textTrim.length; i++) {
+            matchResult = this.isFoulExist(FoulMap, textTrim, i);
             if (matchResult.flag) {
                 break;
             }
@@ -169,17 +198,17 @@ export default class FoulConstructor {
 console.log("English FoulFilter Loaded")
 
 export default class EnglishFoulConstructor {
-    constructor(FoulLanguage, Text) {
-        this.FoulLanguage = FoulLanguage;
-        this.Text = Text;
-        return this.FoulSeeker();
+    constructor(foulLanguage, text) {
+        this.foulLanguage = foulLanguage;
+        this.text = text;
+        return this.foulSeeker();
     }
 
-    FoulSeeker() {
+    foulSeeker() {
         let matchResult = { flag: false, foulWord: '', Index: Number };
-        const TextTrim = this.Text.replace(/[^\u4e00-\u9fa5\u0030-\u0039\u0061-\u007a\u0041-\u005a]+/g, '');
-        for (const word of this.FoulLanguage) {
-            if (word == TextTrim) {
+        const textTrim = this.text.replace(/[^\u4e00-\u9fa5\u0030-\u0039\u0061-\u007a\u0041-\u005a]+/g, '').toLowerCase();
+        for (const word of this.foulLanguage) {
+            if (word == textTrim) {
                 matchResult = { flag: true, foulWord: word, Index: 0 }
             }
         }
@@ -198,61 +227,88 @@ import EnglishFoulFilter from "./EnglishFoulFilter.jsx"
 import ChineseFoulLanguage from "./ChineseFoulLanguage.jsx";
 import EnglishFoulLanguage from "./EnglishFoulLanguage.jsx";
 
-export class TextSeperator {
+export default class TextSeperator {
     constructor(comments) {
-        this.Comments = comments;
-        this.FinalResult = []
-        this.LanguageChecker();
-        return this.FinalResult;
+        this.comments = comments;
+        this.finalResult = []
+        this.languageChecker();
+        return this.finalResult;
     }
 
-    ResultPicker(matchResult, i) {
-        if (matchResult.flag) {
-            let content = {};
-            content = { commentIndex: i, result: matchResult.flag, foulWord: matchResult.foulWord, Index: matchResult.Index }
-            this.FinalResult.push(content)
-        }
+    filterResultPicker = (matchResult, i) => {
+        // 原先 matchResult.flag 是用來判斷是否輸出的，true 即新增一結果至 FinalResult，
+        // 因為 finalString 的輸出需求，這項條件取消。
+        let content = {};
+        content = {
+            commentIndex: i,
+            result: matchResult.flag,
+            foulWord: matchResult.foulWord,
+            index: matchResult.index,
+            finalString: matchResult.finalString,
+            filter: matchResult.filter,
+            group: matchResult.group
+        };
+        this.finalResult.push(content);
     }
 
-    ChineseLanguageChecker = (matchResult, string, i) => {
-        let ChineseFoulWordPicker = (matchResult, string, i) => {
+    chineseLanguageFilter = (matchResult, string, i, group = 0) => {
+        let chineseFoulWordPicker = (matchResult, string, i) => {
             matchResult = new ChineseFoulFilter(ChineseFoulLanguage, string);
-            this.ResultPicker(matchResult, i)
+            // 將已抓取的中文敏感字詞取代
+            if (matchResult.foulWord !== ``) {
+                string = string.replace(matchResult.foulWord, `<span class="foul-words"></span>`)
+            }
+            matchResult.finalString = string;
+            matchResult.filter = `Chinese`
+            matchResult.group = group;
+            // 中文字詞因只要還有敏感字詞，就會再篩選、傳送一次，因此有幾個敏感字詞就會多幾個輸出
+            this.filterResultPicker(matchResult, i)
+            // 繼續抓取敏感字詞
             if (matchResult.flag) {
-                // 將已抓取的中文敏感字詞取代
-                string = string.replace(matchResult.foulWord, `無害`)
-                // 繼續抓取敏感字詞
-                ChineseFoulWordPicker(matchResult, string, i);
+                chineseFoulWordPicker(matchResult, string, i);
             }
         }
-        ChineseFoulWordPicker(matchResult, string, i)
+        chineseFoulWordPicker(matchResult, string, i)
     }
 
-    EnglishLanguageChecker = (matchResult, string, i) => {
-        string = string.split(/[^A-Za-z]/).filter(string => string)
+    englishLanguageFilter = (matchResult, string, i, group = 0) => {
+        let endOfLineRegex = new RegExp(`<br>`, `ig`)
+        string = string.replace(endOfLineRegex, ' <br> ')
+        string = string.split(/[^A-Za-z|\<br>]/).filter(string => string);
+        let stringCombine = ``;
         for (let x = 0; x < string.length; x = x + 1) {
-            let stringLowercase = string[x].toLowerCase();
-            matchResult = new EnglishFoulFilter(EnglishFoulLanguage, stringLowercase);
-            this.ResultPicker(matchResult, i)
+            matchResult = new EnglishFoulFilter(EnglishFoulLanguage, string[x]);
+            if (matchResult.foulWord !== ``) {
+                let foulWordRegex = new RegExp(`^${matchResult.foulWord}`, `ig`)
+                string[x] = string[x].replace(foulWordRegex, `<span class="foul-words"></span>`)
+            }
+            // TODO :: 這理應判斷英文字詞究竟以什麼來做分隔、再在字詞後加上符號
+            stringCombine += string[x] + ` `;
+            matchResult.finalString = stringCombine
+            matchResult.filter = `English`
+            matchResult.group = group;
+            // 英文字詞因為是以英文字母以外的字元做分隔，因此有幾個分隔就有幾個輸出
+            this.filterResultPicker(matchResult, i)
         }
     }
 
-    LanguageChecker() {
-        let matchResult = { flag: false, foulWord: '', Index: Number };
-        let LanguageCheckerFuntion = (string, i) => {
+    languageChecker = () => {
+        let matchResult = { flag: false, foulWord: ``, index: Number, finalString: `` };
+        let languageCheckerFuntion = (string, i) => {
             if (/[\u4e00-\u9fa5]/ig.test(string)) {
                 // 評論中含有中文
                 if (/[a-zA-Z]/ig.test(string)) {
                     // 評論為中文與英文交雜
+                    console.log(`評論為中文與英文交雜`)
                     let stringSingle = ``;
-                    let SplitStringByLanguage = (string) => {
+                    let splitStringByLanguage = (string) => {
                         let stringSplited = [];
                         for (var i = 0; stringSingle = string.charAt(i); i++) {
                             if (typeof (stringSingle) == "undefined" || typeof (string.charAt(i + 1)) == "undefined") {
                                 break;
                             }
                             stringSplited += stringSingle;
-                            if (GetStringLength(stringSingle) != GetStringLength(string.charAt(i + 1))) {
+                            if (getStringLength(stringSingle) != getStringLength(string.charAt(i + 1))) {
                                 stringSplited += ",";
                             }
                         }
@@ -261,43 +317,55 @@ export class TextSeperator {
                         return stringSplitedArray;
                     }
 
-                    let GetStringLength = (stringCharacter) => {
+                    let getStringLength = (stringCharacter) => {
                         var stringCharacterArray = stringCharacter.match(/[^\x00-\xff]/ig);
                         return stringCharacter.length + (stringCharacterArray == null ? 0 : stringCharacterArray.length);
                     }
-                    string = SplitStringByLanguage(string)
+                    string = splitStringByLanguage(string)
                     for (let z = 0; z < string.length; z = z + 1) {
-                        string[z] = string[z].trim();
+                        string[z] = string[z] + ` `
                         if (/[\u4e00-\u9fa5]/ig.test(string[z])) {
                             if (/[a-zA-Z]/ig.test(string[z])) {
                             }
                             else {
                                 // 分開的中文字詞
-                                this.ChineseLanguageChecker(matchResult, string[z], i);
+                                console.log(`分開的中文字詞`)
+                                this.chineseLanguageFilter(matchResult, string[z], i, z);
                             }
                         } else {
                             // 分開的英文字詞
-                            this.EnglishLanguageChecker(matchResult, string[z], i);
+                            console.log(`分開的英文字詞`)
+                            this.englishLanguageFilter(matchResult, string[z], i, z);
                         }
                     }
                 } else {
                     // 評論中只有中文
-                    this.ChineseLanguageChecker(matchResult, string, i);
+                    console.log(`評論中只有中文`)
+                    this.chineseLanguageFilter(matchResult, string, i);
                 }
             } else {
                 // 評論中只有英文
-                this.EnglishLanguageChecker(matchResult, string, i);
+                console.log(`評論中只有英文`)
+                this.englishLanguageFilter(matchResult, string, i);
             }
         }
-        if (typeof (this.Comments) == "string") {
+        if (typeof (this.comments) == "string") {
             // 如果輸入的是字串
-            let string = this.Comments
-            LanguageCheckerFuntion(string, 0);
+            let string = this.comments
+            languageCheckerFuntion(string, 0);
         } else {
             // 如果輸入的是多個內文的陣列
-            for (let i = 0; i < this.Comments.length; i = i + 1) {
-                let string = this.Comments[i].textContent.trim();
-                LanguageCheckerFuntion(string, i);
+            for (let i = 0; i < this.comments.length; i = i + 1) {
+                let string = ``
+                for (let x = 0; x < this.comments[i].childNodes.length; x = x + 1) {
+                    if (this.comments[i].childNodes[x].nodeType == 3) {
+                        string = string + this.comments[i].childNodes[x].textContent.trim();
+                    } else if (this.comments[i].childNodes[x].nodeName == `BR`) {
+                        // 針對換行符號的處理
+                        string = string + this.comments[i].childNodes[x].outerHTML;
+                    }
+                }
+                languageCheckerFuntion(string, i);
             }
         }
     }
@@ -310,112 +378,258 @@ export class TextSeperator {
 
 ## 應用
 
-來自 `Components.jsx`。此檔同時為 entry point，因此在這針對不同來源的內容做 UI 處理。這裡的 comments 是一個 HTMLCollection 的陣列，結構皆是 `<div> 文字 </div>`。
+來自 `ApplyToExisting.jsx`。此檔同時為 entry point，因此在這針對不同來源的內容做資料載入。
 
 ```javascript
-console.log(`ApplyToRatingExisting Loaded`)
-import { TextSeperator } from "./TextSeperator.jsx"
+console.log(`ApplyToExisting Loaded`);
+import * as RatingProfile from "./ApplyToExisting/Rating/RatingProfile.jsx";
+import * as RatingSurvey from "./ApplyToExisting/Rating/RatingSurvey.jsx";
 
 export default document.addEventListener('DOMContentLoaded', () => {
-
-    let sectionClickToDisplay = (i) => {
-        nicknamesFoulLayer[i].classList.add(`active`);
-        titlesFoulLayer[i].classList.add(`active`);
-        comments[i].classList.add(`active`);
-        commentsFoulLayer[i].classList.add(`active`);
-        commentsFoulButton[i].classList.add(`active`);
-    }
-    let titleAndNicknamLoopToBlock = (target, targetFoulList, targetLayer) => {
-        for (let i = 0; i < target.length; i = i + 1) {
-            for (let x = 0; x < targetFoulList.length; x = x + 1) {
-                // 找出帶有敏感字詞的評論
-                if (i == targetFoulList[x].commentIndex) {
-                    // 以按鈕覆蓋評論
-                    targetLayer[i].style.display = `block`;
-                    targetLayer[i].addEventListener('click', (event) => {
-                        // 點擊按鈕後顯示評論
-                        sectionClickToDisplay(i);
-                    }, false)
-                }
-            }
-        }
-    }
-    // rating-profile.html 頁面內，comment 的過濾和檢視功能
+    // rating-profile.html 的評論展示檢測
+    let titles = document.getElementsByClassName('comments-info-text-title');
+    let titlesFoulLayer = document.getElementsByClassName(`foul-layer-title`);
+    // new RatingProfile.DisplayFoulWordsBlock(titles, titlesFoulLayer);
+    let nicknames = document.getElementsByClassName('comments-info-text-nickname');
+    let nicknamesFoulLayer = document.getElementsByClassName(`foul-layer-nickname`);
+    // new RatingProfile.DisplayFoulWordsBlock(nicknames, nicknamesFoulLayer);
     let comments = document.getElementsByClassName(`comments-comments`);
     let commentsFoulLayer = document.getElementsByClassName(`foul-layer`);
     let commentsFoulButton = document.getElementsByClassName(`foul-notification-container`);
-    const foulList = new TextSeperator(comments);
-    for (let i = 0; i < comments.length; i = i + 1) {
-        for (let x = 0; x < foulList.length; x = x + 1) {
-            // 找出帶有敏感字詞的評論
-            if (i == foulList[x].commentIndex) {
-                // 以按鈕覆蓋評論
-                comments[i].classList.add(`foul-discovered`);
-                commentsFoulLayer[i].style.display = `block`;
-                commentsFoulButton[i].style.display = `block`;
-                commentsFoulButton[i].addEventListener('click', (event) => {
-                    // 點擊按鈕後顯示評論
-                    sectionClickToDisplay(i);
-                }, false)
-            }
-        }
-    };
-    // rating-profile.html 頁面內，title 的過濾和檢視功能
-    let titles = document.getElementsByClassName('comments-info-text-title');
-    let titlesFoulLayer = document.getElementsByClassName(`foul-layer-title`);
-    const titleFoulList = new TextSeperator(titles);
-    titleAndNicknamLoopToBlock(titles, titleFoulList, titlesFoulLayer);
-    // rating-profile.html 頁面內，nickname 的過濾和檢視功能
-    let nicknames = document.getElementsByClassName('comments-info-text-nickname');
-    let nicknamesFoulLayer = document.getElementsByClassName(`foul-layer-nickname`);
-    const nicknameFoulList = new TextSeperator(nicknames);
-    titleAndNicknamLoopToBlock(nicknames, nicknameFoulList, nicknamesFoulLayer);
+    // new RatingProfile.DisplayFoulWordsBlock(comments, commentsFoulLayer, commentsFoulButton);
 
+    // rating-profile.html 的評論展示替換
+    new RatingProfile.ReplaceFoulWords(titles)
+    new RatingProfile.ReplaceFoulWords(nicknames)
+    new RatingProfile.ReplaceFoulWords(comments)
 
-    // rating-profile.html 與 rating-survey.html 的共用 function
-    let sectionLoadToFilter = (inputSection) => {
-        inputSection.addEventListener('input', (event) => {
-            const commentFoulResult = new TextSeperator(inputSection.value);
-            // 傳出敏感字詞
-            window.reviewFoulCheckResult.set(inputSection.id, commentFoulResult);
-        }, false)
-    }
-
-    // rating-profile.html 頁面內，送出 comment 的檢查功能
-    try {
-        let commentWritingButton = document.getElementsByClassName(`writing`);
+    // rating-profile.html 與 rating-survey.html 的評論送出檢測
+    let commentWritingButton = document.getElementsByClassName(`writing`);
+    if (commentWritingButton.length > 0) {
+        console.log('In rating-profile.html')
         for (let button of commentWritingButton) {
             button.addEventListener('click', (event) => {
-                window.reviewFoulCheckResult = new Map();
                 // 等待 rating.js 內的創建 review a comment 完成
                 if (window.reviewSubmitAreaDisplay == true) {
                     let commentInputSection = document.getElementsByClassName(`comments-comments-input`)[0];
-                    sectionLoadToFilter(commentInputSection);
                     let titleInputSection = document.getElementsByClassName(`comments-info-input-text-input-title-input`)[0];
-                    sectionLoadToFilter(titleInputSection);
                     let nameInputSection = document.getElementsByClassName(`comments-info-input-text-input-nickname-input`)[0];
-                    sectionLoadToFilter(nameInputSection);
+                    new RatingProfile.CommentSubmitCheck(commentInputSection, titleInputSection, nameInputSection);
                 }
-            }, false)
-        };
-    } catch (exception) {
-        console.log(`This is not reating-profile.html`)
-    } finally {
+            })
+        }
+    } else {
+        console.log('In rating-survey.html')
+        let commentInputSection = document.getElementsByClassName(`comments-comments-input`)[0];
+        let titleInputSection = document.getElementsByClassName(`comments-info-input-text-input-title-input`)[0];
+        let nameInputSection = document.getElementsByClassName(`comments-info-input-text-input-nickname-input`)[0];
+        new RatingSurvey.CommentSubmitCheck(commentInputSection, titleInputSection, nameInputSection);
+    }
+})
+```
+
+來自 `RatingProfile.jsx`，由於敏感字詞的結果傳出是一個個的 `array`，而英文與中文又是分離的，因此，在做敏感字詞以特定符號替換的功能時，需注意替換以及組成字句的順序。
+
+```javascript
+console.log(`RatingProfile Loaded`)
+import SubmitCheck from "./RatingComponent/SubmitCheck.jsx"
+import TextSeperator from "../../TextSeperator.jsx"
+
+export class DisplayFoulWordsBlock {
+    constructor(content, foulLayer, foulButton = false) {
+        this.content = content;
+        this.foulLayer = foulLayer;
+        this.foulButton = foulButton;
+        this.foulList = new TextSeperator(content)
+        this.loopToBlock(this.content, this.foulList, this.foulLayer, this.foulButton)
     }
 
-    // rating-survey.html 頁面內，送出 comment 的檢查功能
-    window.reviewFoulCheckResult = new Map();
-    try {
-        let commentInputSection = document.getElementsByClassName(`comments-comments-input`)[0];
-        sectionLoadToFilter(commentInputSection);
-        let titleInputSection = document.getElementsByClassName(`comments-info-input-text-input-title-input`)[0];
-        sectionLoadToFilter(titleInputSection);
-        let nameInputSection = document.getElementsByClassName(`comments-info-input-text-input-nickname-input`)[0];
-        sectionLoadToFilter(nameInputSection);
-    } catch (exception) {
-        console.log(`This is not rating-survey.html`)
-    } finally {
+    sectionClickToDisplay = (i) => {
+        this.content[i].classList.add(`active`);
+        this.foulLayer[i].classList.add(`active`);
+        if (this.foulButton !== false) {
+            this.foulButton[i].classList.add(`active`);
+        }
     }
+
+    loopToBlock = (target, targetFoulList, targetFoulLayer, targetFoulButton) => {
+        for (let i = 0; i < target.length; i = i + 1) {
+            for (let x = 0; x < targetFoulList.length; x = x + 1) {
+                // 篩選出有敏感詞的評論，由於可能同時有多個字詞，同一評論可能被篩選出多次
+                if (i == targetFoulList[x].commentIndex) {
+                    // 以按鈕覆蓋評論
+                    if (this.foulButton !== false) {
+                        target[i].classList.add(`foul-discovered`);
+                        targetFoulLayer[i].style.display = `block`;
+                        targetFoulButton[i].style.display = `block`;
+                        // 避免重複綁定
+                        if (targetFoulButton[i].foulConfirem !== true) {
+                            targetFoulButton[i].addEventListener('click', (event) => {
+                                // 點擊按鈕後顯示評論
+                                this.sectionClickToDisplay(i);
+                            }, false);
+                            targetFoulButton[i].foulConfirem = true;
+                        }
+                    } else {
+                        targetFoulLayer[i].style.display = `block`;
+                        // 避免重複綁定
+                        if (targetFoulLayer[i].foulConfirem !== true) {
+                            targetFoulLayer[i].addEventListener('click', (event) => {
+                                // 點擊按鈕後顯示評論
+                                this.sectionClickToDisplay(i);
+                            }, false)
+                            targetFoulLayer[i].foulConfirem = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+export class CommentSubmitCheck {
+    constructor(contentInput, titleInput, nameInput) {
+        this.inputs = [];
+        this.inputs.push(contentInput, titleInput, nameInput)
+        for (let input of this.inputs) {
+            new SubmitCheck(input);
+        }
+    }
+}
+
+export class ReplaceFoulWords {
+    constructor(content) {
+        this.content = content;
+        this.contentFoulList = new TextSeperator(this.content);
+        for (let i = 0; i < this.content.length; i = i + 1) {
+            let stringCombine = ``;
+
+            let allStringCombine = ``;
+            let finalStringArray = [];
+            let finalResult = [];
+            for (let x = 0; x < this.contentFoulList.length; x = x + 1) {
+                let isRepeatResult = this.filterChecker(this.contentFoulList.filter(index => index.commentIndex == i))
+                if (i == this.contentFoulList[x].commentIndex) {
+                    // 取出該評論的字句
+                    if (isRepeatResult == true) {
+                        // 只有中文或英文的情況
+                        console.log(`只有中文或英文的情況`)
+                        stringCombine = this.contentFoulList[x].finalString
+                        allStringCombine = stringCombine;
+                    } else {
+                        // 中英文並存的情況
+                        console.log(`中英文並存的情況`)
+                        if (finalStringArray[this.contentFoulList[x].group] == undefined) {
+                            finalStringArray[this.contentFoulList[x].group] = []
+                        }
+                        finalStringArray[this.contentFoulList[x].group].push(this.contentFoulList[x])
+                        for (let z = 0; z < finalStringArray.length; z = z + 1) {
+                            if (finalStringArray[z] == undefined) {
+                                finalStringArray[z] = []
+                            }
+                            for (let y = 0; y < finalStringArray[z].length; y = y + 1) {
+                                finalResult[z] = finalStringArray[z][y].finalString;
+                            }
+                        }
+                        allStringCombine = finalResult.join(``)
+                    }
+                }
+            }
+            this.content[i].innerHTML = allStringCombine;
+        }
+    }
+
+    filterChecker = (foulList) => {
+        let filterArray = new Array;
+        filterArray = foulList.map((list) => {
+            return list.filter
+        })
+        return this.isArrayContainsSameValue(filterArray);
+    }
+
+    isArrayRepeat = (array) => {
+        // 檢查陣列內是否有重複的值
+        return (new Set(array)).size !== array.length;
+    }
+
+    isArrayContainsSameValue = (array) => {
+        // 檢查陣列內是否全數值相同
+        let firstValue = array[0]
+        let result = true;
+        for (let item of array) {
+            if (item !== firstValue) {
+                result = false;
+            }
+        }
+        return result
+    }
+}
+```
+
+來自 `SubmitCheck.jsx`。由於此功能會與專案內舊有對 UI 做控制的 jQuery 做接合，而在 UI 表現上又希望能即時顯示有使用到的敏感字詞，因此透過 `input` 事件抓取內容並做敏感字詞分析，再將結果存至 `window`，以便 jQuery 部分取用。
+
+```javascript
+console.log(`SubmitCheck Loaded`)
+import TextSeperator from "./../../../TextSeperator.jsx";
+
+export default class SubmitCheck {
+    constructor(input) {
+        window.reviewFoulCheckResult = new Map();
+        this.input = input;
+        this.sectionLoadToFilter(this.input);
+    }
+
+    sectionLoadToFilter = (inputSection) => {
+        inputSection.addEventListener('input', (event) => {
+            const foulList = new TextSeperator(inputSection.value);
+            // 傳出敏感字詞
+            window.reviewFoulCheckResult.set(inputSection.id, foulList);
+        }, false)
+    }
+}
+```
+
+### 舊有整合
+
+來自 `rating-survey.js`，這裏取用 window 內的資料檢測敏感字詞，並即時表現在 UI。
+
+```javascript
+function foulInputKeyupChecker() {
+    var foulListString = "";
+    var keyTotal = 0;
+    window.reviewFoulCheckResult.forEach(function (key) {
+        // 由於中文會重複比對直到全部髒話沒有，因此 reviewFoulCheckResult 至少會有 1
+        // 而英文沒有，因此對於英文首字髒話的部分做額外處理
+        var keyLength = key.length;
+        if (keyLength > 0) {
+            if (key[0].filter == "English" && key[0].foulWord !== "") {
+                keyLength = keyLength + 1
+            }
+        }
+        keyTotal = keyTotal + keyLength;
+        
+        if (keyTotal > 1) {
+            for (var i = 0; i < key.length; i = i + 1) {
+                if (key[i].foulWord !== ``) {
+                    foulListString = foulListString + "<em>" + key[i].foulWord + "</em>"
+                    renderCommentWarning(foulListString);
+                };
+            };
+        } else if (keyTotal < 2) {
+            commentResultArea.find('#comment-validation').html('');
+            window.reviewFoulResultSend = false;
+        }
+    })
+}
+
+$('.comments-comments-input').on('keyup click', function () {
+        foulInputKeyupChecker();
+})
+$('.comments-info-input-text-input-title-input').on('keyup click', function () {
+        foulInputKeyupChecker();
+})
+$('.comments-info-input-text-input-nickname-input').on('keyup click', function () {
+        foulInputKeyupChecker();
 })
 ```
 

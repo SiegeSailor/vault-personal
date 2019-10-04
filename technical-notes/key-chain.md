@@ -112,7 +112,7 @@ Google account for Google services usage, including Google Analytics Code and Fi
 
 * IP :: 35.240.202.26
 * Account :: edallianzsg@gmail.com
-* Password :: aDellianz6%5
+* Password :: edallIAn\(37\)z
 * Account :: edallianzhq@gmail.com
 * Password :: edallIAn\(73\)z
 
