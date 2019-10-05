@@ -80,6 +80,12 @@ nvm install 8.1.2
 nvm use 4.2.1
 ```
 
+上述指令僅限當前的 Shell Tab 有效，若要永久切換，需使用以下指令。
+
+```bash
+nvm alias default 10.15.3
+```
+
 ## Installation
 
 First, you have to check out that you already have `package.json` in your root folder, if you don't, use `npm init` to create one.
@@ -124,6 +130,12 @@ If you meet _**Not compatible with your operating system or architecture: fseven
 
 ```bash
 npm install --save-dev gulp@3.9.1 --no-optional
+```
+
+或是使用以下指令。
+
+```bash
+sudo npm install --unsafe-perm=true --allow-root
 ```
 
 Then you can checkout the version in `package.json`.
