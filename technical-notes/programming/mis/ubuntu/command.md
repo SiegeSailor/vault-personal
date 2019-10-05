@@ -225,7 +225,7 @@ du -abckms /var/www
 df -h
 ```
 
-## PS 進程狀態
+## PS 靜態進程狀態
 
 列出正在運行的進程和其狀態，此為一次性的展示，若要動態展示，則需使用 `top`。
 
@@ -259,6 +259,16 @@ USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
 * START :: 進程開始時間
 * TIME :: 進程執行時間
 * COMMAND :: 進程執行的指令
+
+## Top 動態進程展示
+
+```bash
+top
+```
+
+{% hint style="info" %}
+當在 Top 模式時，可以按下 o 開啟過濾器，輸入如 COMMAND=php 一類的條件來搜尋。
+{% endhint %}
 
 ## ZIP 壓縮
 
