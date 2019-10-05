@@ -274,3 +274,11 @@ zip -e SampleFile.zip SampleFile.txt
 zip -er SampleFolder.zip SampleFolder/
 ```
 
+## Sudo 最高權限
+
+進入 `root` 使用者模式。
+
+```bash
+sudo su
+```
+
