@@ -71,3 +71,11 @@ Supervisor 的錯誤紀錄位置。
 sudo systemctl restart supervisor.service
 ```
 
+## 錯誤處理
+
+當使用 `supervisorctl status` 後，若見到程序狀態為 _**FATAL Exited too quickly \(process log may have details\)**_，可以嘗試將該程序 Config 檔內的 `user` 設為 **root**。
+
+{% hint style="info" %}
+相關操作可見 李林克斯，[使用 Supervisor 管理進程](http://liyangliang.me/posts/2015/06/using-supervisor/)。
+{% endhint %}
+
