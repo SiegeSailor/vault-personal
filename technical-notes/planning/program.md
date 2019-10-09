@@ -55,6 +55,11 @@
   * RESTful API
     * Swagger
   * GraphQL
+* Apache vs Gunicorn vs Nginx
+* CGI
+* WSGI
+* uwsgi
+* uWSGI
 
 ## MIS
 
