@@ -188,3 +188,35 @@ pip install --only-binary :all: mysqlclient
 pip install mysqlclient‑1.3.13..your Python version.whl
 ```
 
+### 無法 Runserver
+
+當執行 `python manage.py runserver` 時，若有遇到 _**ImportError: No module named drf\_yasg**_，很有可能是因為 Python 版本的差異所導致。這時應使用 `python3` 指定版本來執行動作。
+
+```bash
+sudo pip3 install -r requirments.txt
+```
+
+```bash
+python3 manage.py runserver
+```
+
+若在使用 Python 3 後，仍然出現 _**ImportError: cannot import name 'SchemaGenerator'**_ 的訊息，則是因為 `SchemaGenerator` 已經更名為 `BaseSchemaGenerator`，必須在 SWAGGER\_SETTINGS 內新增以下資訊。
+
+```python
+SWAGGER_SETTINGS = {
+    "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator",
+}
+```
+
+### 套件相依失效
+
+當出現如 _**ERROR: Failed building wheel for mysqlclient**_ 的錯誤訊息，或在安裝 `drf_yasg` 時不斷出現相依套件無法安裝的問題時，很有可能是因為 Python 版本的差異所導致。這時應使用 `python3` 指定版本來執行動作。
+
+```bash
+sudo pip3 install -r requirments.txt
+```
+
+```bash
+python3 manage.py runserver
+```
+
