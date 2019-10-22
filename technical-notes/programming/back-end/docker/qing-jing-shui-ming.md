@@ -121,7 +121,7 @@ CMD uwsgi --ini /uwsgi/uwsgi.ini
 
 ### Docker Log
 
-Docker 本身每個 Container 的 Log 皆存放於 /var/lib/docker/containers，在該資料夾內可以看見由 Docker Container ID 命名的各個資料夾。在每個資料夾中的 JSON 檔即為 Log。JSON 為預設格式，可以變更。
+Docker 本身每個 Container 的 Log 皆存放於 `/var/lib/docker/containers`，在該資料夾內可以看見由 Docker Container ID 命名的各個資料夾。在每個資料夾中的 JSON 檔即為 Log。JSON 為預設格式，可以變更。
 
 {% hint style="info" %}
 完整使用過程請參考 史帝芬心得筆記，[Docker Logs](https://stevenitlife.blogspot.com/2018/02/docker-logs.html)。
