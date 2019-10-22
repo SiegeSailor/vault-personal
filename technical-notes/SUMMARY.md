@@ -52,7 +52,7 @@
       * [Get Started](programming/front-end/nodejs/npm/download-specific-package-version.md)
       * [Laravel Mix](programming/front-end/nodejs/npm/laravel-mix.md)
       * [Gulp](programming/front-end/nodejs/npm/gulp/README.md)
-        * [Main Compiler](programming/front-end/nodejs/npm/gulp/main-compiler.md)
+        * [套件標記](programming/front-end/nodejs/npm/gulp/main-compiler.md)
         * [Added Function](programming/front-end/nodejs/npm/gulp/added-function.md)
       * [Webpack](programming/front-end/nodejs/npm/webpack/README.md)
         * [Entry Point](programming/front-end/nodejs/npm/webpack/entry-point.md)
