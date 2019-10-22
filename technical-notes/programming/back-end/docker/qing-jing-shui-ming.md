@@ -99,7 +99,7 @@ services:
       - ./app:/app
 ```
 
-在 `docker-compose.yaml` 中，會對每個 service 中指定 image，即建立起該環境的檔案。在這當中，Nginx 直接指定，代表 Docker 環境建立後會自動在 Docker Hub 上尋找該 service 的 image 並下載。由於 Nginx 是相當知名的 service，Docker Hub 上通常會有該 image。雖然這裡沒有使用，但這是能夠指定版本的。
+在 `docker-compose.yaml` 中，會對每個 service 中指定 image，即建立起該環境的檔案。在這當中，Nginx 直接指定，代表 Docker 環境建立後會自動在 Docker Hub 上尋找該 service 的 image 並下載。由於 Nginx 是相當知名的 service，Docker Hub 上通常會有該 image。雖然這裡沒有使用，但這是能夠指定版本的。
 
 而 Docker Hub 上沒有的專案，通常是自己的專案，則會使用 dockerfile 來建立起 image，如這裡的 app 這個 Django 專案就是指定 `app.dockerfile` 來建立。
 
@@ -160,4 +160,88 @@ docker exec -it containerID bash
 {% hint style="info" %}
 當伺服器重啟時，若 Docker 內的 MySQL 正在寫入，則很有可能因為中斷而導致 Table 毀損。建議伺服器重啟前先將該 Docker 暫停。
 {% endhint %}
+
+## 錯誤處理
+
+常見問題。
+
+### App 建置失敗
+
+這不是一個能夠直接看見 Log 的錯誤。情境是，`docker-compose up` 一個專案後，利用 PostMan 使用 API 卻總是得到 500 Internal Server Error，而在閱讀 Docker 在 Terminal 上開始運行時跑出的 Log 時，發現有 _**No app loaded. going in full dynamic mode**_，這代表其中一個 App 並未建置成功。
+
+```bash
+Step 4/5 : RUN pip install -r /requirement/requirements.txt
+ ---> Using cache
+ ---> 41649b7b6efe
+Step 5/5 : CMD uwsgi --ini /uwsgi/uwsgi.ini
+ ---> Using cache
+ ---> cf7079bc5df7
+Successfully built cf7079bc5df7
+Successfully tagged developmicroservicerating_api:latest
+Starting developmicroservicerating_rabbitmq_1 ... 
+Starting developmicroservicerating_rabbitmq_1 ... done
+Starting developmicroservicerating_migration_and_run_worker_1 ... 
+Starting developmicroservicerating_migration_and_run_worker_1
+Starting developmicroservicerating_api_1 ... 
+Starting developmicroservicerating_api_1 ... done
+Starting developmicroservicerating_nginx_1 ... 
+Starting developmicroservicerating_nginx_1 ... done
+Attaching to developmicroservicerating_rabbitmq_1, developmicroservicerating_api_1, developmicroservicerating_migration_and_run_worker_1, developmicroservicerating_nginx_1
+api_1                       | [uWSGI] getting INI configuration from /uwsgi/uwsgi.ini
+api_1                       | *** Starting uWSGI 2.0.18 (64bit) on [Tue Oct 22 09:01:08 2019] ***
+api_1                       | compiled with version: 4.9.2 on 21 October 2019 15:25:27
+api_1                       | os: Linux-5.0.0-31-generic #33~18.04.1-Ubuntu SMP Tue Oct 1 10:20:39 UTC 2019
+api_1                       | nodename: 2998c1df761d
+api_1                       | machine: x86_64
+api_1                       | clock source: unix
+api_1                       | pcre jit disabled
+api_1                       | detected number of CPU cores: 12
+api_1                       | current working directory: /project
+api_1                       | detected binary path: /usr/local/bin/uwsgi
+api_1                       | uWSGI running as root, you can use --uid/--gid/--chroot options
+api_1                       | *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+api_1                       | your memory page size is 4096 bytes
+api_1                       | detected max file descriptor number: 1048576
+api_1                       | lock engine: pthread robust mutexes
+api_1                       | thunder lock: disabled (you can enable it with --thunder-lock)
+api_1                       | uwsgi socket 0 bound to UNIX address /project/rating.sock fd 3
+api_1                       | uWSGI running as root, you can use --uid/--gid/--chroot options
+api_1                       | *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+api_1                       | Python version: 3.6.0 (default, Feb 28 2017, 22:20:46)  [GCC 4.9.2]
+api_1                       | *** Python threads support is disabled. You can enable it with --enable-threads ***
+api_1                       | Python main interpreter initialized at 0x1d9b310
+api_1                       | uWSGI running as root, you can use --uid/--gid/--chroot options
+api_1                       | *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+api_1                       | your server socket listen backlog is limited to 100 connections
+api_1                       | your mercy for graceful operations on workers is 60 seconds
+api_1                       | mapped 802120 bytes (783 KB) for 10 cores
+api_1                       | *** Operational MODE: preforking ***
+api_1                       | Traceback (most recent call last):
+api_1                       |   File "./rating/__init__.py", line 5, in <module>
+api_1                       |     from .celery import app as celery_app
+api_1                       |   File "./rating/celery.py", line 3, in <module>
+api_1                       |     from celery import Celery
+api_1                       | ModuleNotFoundError: No module named 'celery'
+api_1                       | unable to load app 0 (mountpoint='') (callable not found or import error)
+api_1                       | *** no app loaded. going in full dynamic mode ***
+                            ## 注意以上此行。
+api_1                       | uWSGI running as root, you can use --uid/--gid/--chroot options
+api_1                       | *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+api_1                       | *** uWSGI is running in multiple interpreter mode ***
+api_1                       | spawned uWSGI master process (pid: 6)
+api_1                       | spawned uWSGI worker 1 (pid: 7, cores: 1)
+api_1                       | spawned uWSGI worker 2 (pid: 8, cores: 1)
+api_1                       | spawned uWSGI worker 3 (pid: 9, cores: 1)
+api_1                       | spawned uWSGI worker 4 (pid: 10, cores: 1)
+api_1                       | spawned uWSGI worker 5 (pid: 11, cores: 1)
+api_1                       | spawned uWSGI worker 6 (pid: 12, cores: 1)
+api_1                       | spawned uWSGI worker 7 (pid: 13, cores: 1)
+api_1                       | spawned uWSGI worker 8 (pid: 14, cores: 1)
+api_1                       | spawned uWSGI worker 9 (pid: 15, cores: 1)
+api_1                       | spawned uWSGI worker 10 (pid: 16, cores: 1)
+migration_and_run_worker_1  | 2019-10-22 09:01:09,322 DEBUG    django.db.backends (0.058) None; args=None
+
+```
+
+比對後該專案的 `docker-compose.yaml` 後，發現 `api_1` 為一 Python Django 專案，判斷為 **requirements.txt** 未完善，才導致依循此檔案建構的 Python Django 專案錯誤。若有 API 專案無法運行時，應由 Docker 是否完善建置開始檢查。
 
