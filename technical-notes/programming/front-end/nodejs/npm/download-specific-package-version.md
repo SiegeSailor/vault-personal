@@ -86,6 +86,10 @@ nvm use 4.2.1
 nvm alias default 10.15.3
 ```
 
+{% hint style="info" %}
+關於 NVM 的完整操作，參考 GitHub，[NVM Usage](https://github.com/nvm-sh/nvm#usage)。
+{% endhint %}
+
 ## Installation
 
 First, you have to check out that you already have `package.json` in your root folder, if you don't, use `npm init` to create one.
