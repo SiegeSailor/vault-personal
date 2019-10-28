@@ -143,5 +143,13 @@ Which means you are trying to decode an object that is **already** _decoded_. Yo
 
 Simply drop the `.decode('utf-8')` part.
 
+### No python application found
 
+在 Docker Terminal 中會出現以下訊息。
+
+```bash
+--- no python application found, check your startup logs for errors ---
+```
+
+這是由於用 `os.getenv()` 同時引入了兩個以上的 ENV 環境變數檔案的緣故，需要將所有 ENV 檔案合併為一個。
 
