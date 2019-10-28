@@ -143,7 +143,7 @@ Which means you are trying to decode an object that is **already** _decoded_. Yo
 
 Simply drop the `.decode('utf-8')` part.
 
-### No python application found
+### No Python Application Found
 
 在 Docker Terminal 中會出現以下訊息。
 
@@ -151,5 +151,8 @@ Simply drop the `.decode('utf-8')` part.
 --- no python application found, check your startup logs for errors ---
 ```
 
-這是由於用 `os.getenv()` 同時引入了兩個以上的 ENV 環境變數檔案的緣故，需要將所有 ENV 檔案合併為一個。
+這是由於用 `json.loads` 去解析一個使用了 `os.getenv()` 但未獲取到值的的 ENV 環境變數檔案的緣故，有可能是因為下列原因出現這種情況。
+
+* 使用了一個以上的 ENV 檔案
+* 使用了斷行。ENV 檔案內為 String 的 Key Value 類型，分行即代表不在同一個 Key 內
 

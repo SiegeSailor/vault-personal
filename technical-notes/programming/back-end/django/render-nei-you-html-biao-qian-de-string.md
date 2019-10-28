@@ -2,7 +2,7 @@
 
 ## 概述
 
-假設在一個 view 中，我們有這樣一個 dict：
+假設在一個 view 中，我們有這樣一個 dict：
 
 ```python
 label = {
