@@ -142,6 +142,12 @@ npm install --save-dev gulp@3.9.1 --no-optional
 sudo npm install --unsafe-perm=true --allow-root
 ```
 
+此指令在遇上 _**unable to save binary**_ 時同樣有效。
+
+```bash
+sudo npm install gulp-sass --unsafe-perm=ture
+```
+
 Then you can checkout the version in `package.json`.
 
 #### Check Package Version
