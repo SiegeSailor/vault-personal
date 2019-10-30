@@ -130,6 +130,22 @@ Use this command when you want to download a version you need for the package, t
 npm install --save-dev gulp@3.9.1
 ```
 
+#### Check Package Version
+
+If the package is global.
+
+```bash
+gulp -v
+```
+
+If the package is under a folder.
+
+```bash
+npm list gulp
+```
+
+### 錯誤處理
+
 If you meet _**Not compatible with your operating system or architecture: fsevents@1.2.9**_, you can simply add this code to solve it.
 
 ```bash
@@ -150,18 +166,18 @@ sudo npm install gulp-sass --unsafe-perm=ture
 
 Then you can checkout the version in `package.json`.
 
-#### Check Package Version
-
-If the package is global.
+若是遇上安裝的套件與現今版本不合，必須先切換 Node 版本，再重新安裝。
 
 ```bash
-gulp -v
+nvm install 8.1.2
 ```
 
-If the package is under a folder.
+```bash
+nvm use 4.2.1
+```
 
 ```bash
-npm list gulp
+npm rebuild node-sass
 ```
 
 ## Reinstall

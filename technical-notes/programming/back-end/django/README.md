@@ -1,6 +1,6 @@
 # Django
 
-![Django](../../../.gitbook/assets/image.png)
+![Django](../../../.gitbook/assets/image%20%281%29.png)
 
 ## Overview
 

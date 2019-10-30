@@ -1,6 +1,6 @@
 # UIUX
 
-![UIUX](../../.gitbook/assets/image%20%2812%29.png)
+![UIUX](../../.gitbook/assets/image%20%2813%29.png)
 
 ## User Experience
 
