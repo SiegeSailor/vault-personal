@@ -36,3 +36,5 @@ sudo npm -g install increase-memory-limit --unsafe-perm
 increase-memory-limit
 ```
 
+使用後可能導致 Webpack 編譯無反應，此時須重新安裝 NPM Packages。
+
