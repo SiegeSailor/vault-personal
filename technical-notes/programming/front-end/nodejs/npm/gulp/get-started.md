@@ -94,6 +94,19 @@ If you get errors such as _**Task “default” is not in your gulpfile**_ or _*
   }
 ```
 
+#### .gitignore
+
+常見列入 `.gitignore` 的檔案。
+
+```text
+node_modules/
+bower/
+bower_components/
+public
+.tmp
+package-lock.json
+```
+
 ## Activate Script
 
 After installation, you should insert a script in `package.json` to activate Gulp.
