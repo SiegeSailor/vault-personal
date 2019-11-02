@@ -208,6 +208,20 @@ SWAGGER_SETTINGS = {
 }
 ```
 
+若是遇到 _**ImportError: cannot import name 'JSONDecodeError'**_ 而且是匯入是 _**from json.decoder import JSONDecodeError**_，則很可能是因為 Virtual Environment 的 Python 版本導致。`json.decoder` 只有在 Python 3.5 以上的版本支援。這時需要重新指定 Python 版本來安裝 Virtual Environment。
+
+```bash
+rm -r venv/
+```
+
+```bash
+virtualenv venv --python=/usr/bin/python3 --no-site-packages
+```
+
+```bash
+pip install -r requirements.txt 
+```
+
 ### 套件相依失效
 
 當出現如 _**ERROR: Failed building wheel for mysqlclient**_ 的錯誤訊息，或在安裝 `drf_yasg` 時不斷出現相依套件無法安裝的問題時，很有可能是因為 Python 版本的差異所導致。這時應使用 `python3` 指定版本來執行動作。
