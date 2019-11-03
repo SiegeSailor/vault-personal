@@ -1,6 +1,6 @@
 # MIS
 
-![MIS](../../.gitbook/assets/image%20%2815%29.png)
+![MIS](../../.gitbook/assets/image%20%2816%29.png)
 
 ## Overview
 

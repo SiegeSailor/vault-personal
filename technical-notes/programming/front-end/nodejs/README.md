@@ -1,6 +1,6 @@
 # NodeJS
 
-![Node.js](../../../.gitbook/assets/image%20%2822%29.png)
+![Node.js](../../../.gitbook/assets/image%20%2823%29.png)
 
 ## Overview
 

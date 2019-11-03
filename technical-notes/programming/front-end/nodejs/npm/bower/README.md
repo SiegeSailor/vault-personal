@@ -1,6 +1,6 @@
 # Bower
 
-![Bower](../../../../../.gitbook/assets/image%20%2820%29.png)
+![Bower](../../../../../.gitbook/assets/image%20%2821%29.png)
 
 ## Overview
 

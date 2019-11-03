@@ -1,4 +1,4 @@
-# JS
+# jQuery 與 JavaScript
 
 ## Overview
 
