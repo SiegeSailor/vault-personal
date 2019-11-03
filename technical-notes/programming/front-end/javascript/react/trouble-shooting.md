@@ -10,7 +10,7 @@
 
 常見於使用 UI Framework 時對元素的不正確使用。
 
-### 直接使用 Function 輸出 Component
+### 直接使用 Function 輸出 Component
 
 由於 JSX 的特性，我們會直覺應用 Function 的 Return 值來將 Component 置入，然而，這與 JavaScript Native 一樣是不允許的，會出現 _**Functions are not valid as a React child. This may happen if you return a Component instead of from render**_。
 
@@ -116,5 +116,59 @@ let recipesCopy = JSON.parse(JSON.stringify(this.state.recipes))
    this.setState({
       recipes:recipesCopy 
  }) 
+```
+
+### OnClick 綁上由 State 代值的 Request
+
+在 React 中，State 是不斷變動的，盡管值並沒有改變。直接對 Component 的 OnClick 事件綁上如 `onClick={this.receiveData(this.state.key)}` 一類的作法會導致該 Function 內的 Request 不斷發送，從而產生諸如 r_**eact-dom.development.js?61bb:530 Warning: Cannot update during an existing state transition \(such as within render\). Render methods should be a pure function of props and state.**_ 或 _**Uncaught Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.**_ 或 _**backend.js:6 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.**_ 的錯誤。
+
+正確作法是在 `onClick` 綁上一代入 State 值並呼叫 Request 的 Function。
+
+```javascript
+searchButtonHandler = () => {
+    this.receiveSimilarSchoolList(this.state.relatedSchoolName)
+}
+
+receiveSimilarSchoolList = (name) => {
+    this.setState({
+        relatedSchoolName: this.state.relatedSchoolName,
+        data: this.state.data,
+        loading: true
+    })
+    Axios.get(`/edadviser/reviews/list/cram/controller/${name}/`, {
+        headers: {
+            "X-CSRFToken": cookies.get('csrftoken'),
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+    }).then(result => {
+        if (result.data.code == "S010000") {
+            let datas = new Array;
+            datas = result
+                .data
+                .data
+                .map(data => {
+                    return {id:data.id, school: data.name, reviewNumber: data.comment_num, averageRate: data.mean_rate}
+                })
+            this.setState({
+                relatedSchoolName: this.state.relatedSchoolName,
+                data: datas,
+                loading: false
+            }, () => {});
+        } else {
+            this.setState({
+                relatedSchoolName: this.state.relatedSchoolName,
+                data: [
+                    {
+                        id: "0",
+                        school: "None",
+                        reviewNumber: "0",
+                        AverageRate: "0"
+                    }
+                ],
+                loading: false
+            })
+        }
+    })
+}
 ```
 

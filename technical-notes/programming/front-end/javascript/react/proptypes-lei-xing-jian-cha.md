@@ -1,4 +1,4 @@
-# PropTypes 類型檢查
+# PropTypes 類型檢查
 
 ## 概述
 
