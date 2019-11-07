@@ -185,6 +185,9 @@ npm rebuild node-sass
 Steps that you need to go through if you meet errors when reinstall NPM.
 
 ```bash
-sudo rm -rf node_modulessudo rm package-lock.json yarn.locksudo npm cache clear --forcesudo npm install
+sudo rm -rf node_modules
+sudo rm package-lock.json yarn.lock
+sudo npm cache clear --force
+sudo npm install
 ```
 

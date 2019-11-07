@@ -17,13 +17,54 @@
 若我們有一個 Return 出 JSX 的 Function，如下。
 
 ```javascript
-function renderAbandonList(classes, datas){    let dataStructure = datas.map((data) => {      return (        <Typography        key={data.id}        className={classes.highlight}        component="span"        variant="body1">        {data.school}        </Typography>      )    });    return (        <span>            Other schools such as            {dataStructure}            Will all be deleted.        </span>    )}
+function renderAbandonList(classes, datas){
+    let dataStructure = datas.map((data) => {
+      return (
+        <Typography
+        key={data.id}
+        className={classes.highlight}
+        component="span"
+        variant="body1">
+        {data.school}
+        </Typography>
+      )
+    });
+    return (
+        <span>
+            Other schools such as
+            {dataStructure}
+            Will all be deleted.
+        </span>
+    )
+}
 ```
 
 則在 Export 前的 Return 或 Render，我們必須先宣告再以 ES6 的方式載入。
 
 ```javascript
-export default function Combine() {    // ## 此處宣告，取得 Function 的 Return 值    let abandonList = renderAbandonList(classes, fakeData);    return (        <React.Fragment>            <Typography                    color="textSecondary"                    component="p"                    variant="body1">                    You are going to merge all the reviews from the rest of the schools in the list to                    <Typography                        className={classes.highlight}                        component="span"                        variant="body1">                        Neuromath                    </Typography>                    .                     // ## 此處載入                    {abandonList}            </Typography>        </ React.Fragment>    )}
+export default function Combine() {
+    // ## 此處宣告，取得 Function 的 Return 值
+    let abandonList = renderAbandonList(classes, fakeData);
+    return (
+        <React.Fragment>
+            <Typography
+                    color="textSecondary"
+                    component="p"
+                    variant="body1">
+                    You are going to merge all the reviews from the rest of the schools in the list to
+                    <Typography
+                        className={classes.highlight}
+                        component="span"
+                        variant="body1">
+                        Neuromath
+                    </Typography>
+                    . 
+                    // ## 此處載入
+                    {abandonList}
+            </Typography>
+        </ React.Fragment>
+    )
+}
 ```
 
 目前已知若 Return 出的內容最外層為 Material UI 的非 React Element 的元件則可正常運作。
@@ -41,13 +82,40 @@ export default function Combine() {    // ## 此處宣告，取得 Function 的 
 `setState({})` 事實上是類似於 PUT 的方式，不可對單獨的 Key 作更改，每次更動都必須出現所有的值。如下圖。
 
 ```javascript
-constructor(props) {    super(props)    this.state = {        email: {            inputValue: "",            regexResult: false,            helpText: "Send all reviews CSV file to the target email."        }    }}handler = (event) => {    let { value } = event.target    this.setState({        email: {            inputValue: value,            regexResult: this.validateEmail(value),            helpText: "Send all reviews CSV file to the target email."        }    }, () => {        console.log("Email State", this.state)    })}
+constructor(props) {
+    super(props)
+    this.state = {
+        email: {
+            inputValue: "",
+            regexResult: false,
+            helpText: "Send all reviews CSV file to the target email."
+        }
+    }
+}
+
+handler = (event) => {
+    let { value } = event.target
+    this.setState({
+        email: {
+            inputValue: value,
+            regexResult: this.validateEmail(value),
+            helpText: "Send all reviews CSV file to the target email."
+        }
+    }, () => {
+        console.log("Email State", this.state)
+    })
+}
 ```
 
 可以使用將 Copy 存在 Array 中再依需求取出的方式，然而這或許違背了 React 的 Data Flows Down 原則。
 
 ```javascript
-let recipesCopy = JSON.parse(JSON.stringify(this.state.recipes))   // ## 存入新 Copy   recipesCopy[0].ingredients = // ## 新 Copy   this.setState({      recipes:recipesCopy  }) 
+let recipesCopy = JSON.parse(JSON.stringify(this.state.recipes))
+   // ## 存入新 Copy
+   recipesCopy[0].ingredients = // ## 新 Copy
+   this.setState({
+      recipes:recipesCopy 
+ }) 
 ```
 
 ### OnClick 綁上由 State 代值的 Request
@@ -57,6 +125,50 @@ let recipesCopy = JSON.parse(JSON.stringify(this.state.recipes))   // ## 存入�
 正確作法是在 `onClick` 綁上一代入 State 值並呼叫 Request 的 Function。
 
 ```javascript
-searchButtonHandler = () => {    this.receiveSimilarSchoolList(this.state.relatedSchoolName)}receiveSimilarSchoolList = (name) => {    this.setState({        relatedSchoolName: this.state.relatedSchoolName,        data: this.state.data,        loading: true    })    Axios.get(`/edadviser/reviews/list/cram/controller/${name}/`, {        headers: {            "X-CSRFToken": cookies.get('csrftoken'),            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"        }    }).then(result => {        if (result.data.code == "S010000") {            let datas = new Array;            datas = result                .data                .data                .map(data => {                    return {id:data.id, school: data.name, reviewNumber: data.comment_num, averageRate: data.mean_rate}                })            this.setState({                relatedSchoolName: this.state.relatedSchoolName,                data: datas,                loading: false            }, () => {});        } else {            this.setState({                relatedSchoolName: this.state.relatedSchoolName,                data: [                    {                        id: "0",                        school: "None",                        reviewNumber: "0",                        AverageRate: "0"                    }                ],                loading: false            })        }    })}
+searchButtonHandler = () => {
+    this.receiveSimilarSchoolList(this.state.relatedSchoolName)
+}
+
+receiveSimilarSchoolList = (name) => {
+    this.setState({
+        relatedSchoolName: this.state.relatedSchoolName,
+        data: this.state.data,
+        loading: true
+    })
+    Axios.get(`/edadviser/reviews/list/cram/controller/${name}/`, {
+        headers: {
+            "X-CSRFToken": cookies.get('csrftoken'),
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+    }).then(result => {
+        if (result.data.code == "S010000") {
+            let datas = new Array;
+            datas = result
+                .data
+                .data
+                .map(data => {
+                    return {id:data.id, school: data.name, reviewNumber: data.comment_num, averageRate: data.mean_rate}
+                })
+            this.setState({
+                relatedSchoolName: this.state.relatedSchoolName,
+                data: datas,
+                loading: false
+            }, () => {});
+        } else {
+            this.setState({
+                relatedSchoolName: this.state.relatedSchoolName,
+                data: [
+                    {
+                        id: "0",
+                        school: "None",
+                        reviewNumber: "0",
+                        AverageRate: "0"
+                    }
+                ],
+                loading: false
+            })
+        }
+    })
+}
 ```
 

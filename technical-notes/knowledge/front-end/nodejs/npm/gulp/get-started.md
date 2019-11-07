@@ -80,7 +80,7 @@ Then you can use this command line to activate Gulp.
 npm run gulp taskName
 ```
 
-When your NPM version is above 5.2, you can use `npx` to run npm globally.
+When your NPM version is 5.2 or above, you can use `npx` to run npm globally.
 
 ```bash
 npx gulp taskName

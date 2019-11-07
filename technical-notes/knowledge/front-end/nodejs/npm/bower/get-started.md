@@ -26,7 +26,33 @@ bower install
 常見的建置檔描述。
 
 ```javascript
-{  "name": "bower-practice",  "description": "A Practice Project for Bower.",  "main": "index.js",  "authors": [    "Zhang Jin Yu"  ],  "license": "ISC",  "keywords": [    "Bower"  ],  "homepage": "https://github.com/SiegeSailor/GulpPractice",  "private": true,  "ignore": [    "**/.*",    "node_modules",    "bower_components",    "test",    "tests"  ],  "dependencies": {    "jQuery": "^3.4.1",    "bootstrap": "^4.3.1",    "semantic": "semantic-ui#^2.4.1"  }}
+{
+  "name": "bower-practice",
+  "description": "A Practice Project for Bower.",
+  "main": "index.js",
+  "authors": [
+    "Zhang Jin Yu"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Bower"
+  ],
+  "homepage": "https://github.com/SiegeSailor/GulpPractice",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.4.1",
+    "bootstrap": "^4.3.1",
+    "semantic": "semantic-ui#^2.4.1"
+  }
+}
+
 ```
 
 #### .bowerrc
@@ -34,7 +60,9 @@ bower install
 與 `bower.json` 描述的與 `package.json` 類似的安裝套件及專案訊息不同，.bowerrc 主要描述 Bower 的路徑和參數等等。以下為最常見的對於 Bower 的安裝路徑的指定。
 
 ```javascript
-{    "directory": "bower/components"}
+{
+    "directory": "bower/components"
+}
 ```
 
 #### .gitignore
@@ -42,6 +70,11 @@ bower install
 常見列入 `.gitignore` 的檔案。
 
 ```text
-node_modules/bower/bower_components/public.tmppackage-lock.json
+node_modules/
+bower/
+bower_components/
+public
+.tmp
+package-lock.json
 ```
 

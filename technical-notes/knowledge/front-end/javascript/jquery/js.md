@@ -35,7 +35,8 @@ $(target[i]).addClass('navBar-hover');
 You might use this when you want to replace some text from a `string`.
 
 ```javascript
-var regExp = new RegExp('Your Regular Expression without //, and what you want to replace', 'g')var newValue = oldValue.replace(regExp, ('What you want to insert'));
+var regExp = new RegExp('Your Regular Expression without //, and what you want to replace', 'g')
+var newValue = oldValue.replace(regExp, ('What you want to insert'));
 ```
 
 {% hint style="info" %}
@@ -51,7 +52,10 @@ The following code uses `jQuery`, but the logic should work with native JavaScri
 First, announce a callback function to validate email with `Regex`, and return boolean with `test()` method.
 
 ```javascript
-function validateEmail(email) {      var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;      return regex.test(email);}
+function validateEmail(email) {
+      var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regex.test(email);
+}
 ```
 
 #### Operation Function
@@ -59,7 +63,17 @@ function validateEmail(email) {      var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^
 Then create a function to suit to your situation.
 
 ```javascript
-function validate() {  var result = $("#validation-result");  var email = $("#email").val();  result.text("");  if (validateEmail(email)) {    result.text('you are validated.');  } else {    result.html('<i class="fas fa-exclamation-circle"></i> ' + email + "is not valid.");    return;  }}
+function validate() {
+  var result = $("#validation-result");
+  var email = $("#email").val();
+  result.text("");
+  if (validateEmail(email)) {
+    result.text('you are validated.');
+  } else {
+    result.html('<i class="fas fa-exclamation-circle"></i> ' + email + "is not valid.");
+    return;
+  }
+}
 ```
 
 ## Phone Number Input Limitation
@@ -67,7 +81,23 @@ function validate() {  var result = $("#validation-result");  var email = $("#em
 The following code uses `jQuery`, but the logic should work with native JavaScript.
 
 ```javascript
-(function ($) {    $.fn.inputFilter = function (inputFilter) {      return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function () {        if (inputFilter(this.value)) {          this.oldValue = this.value;          this.oldSelectionStart = this.selectionStart;          this.oldSelectionEnd = this.selectionEnd;        } else if (this.hasOwnProperty("oldValue")) {          this.value = this.oldValue;          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);        }      });    };  }(jQuery));  $("#phone").inputFilter(function (value) {    return /^\d*$/.test(value);  });
+(function ($) {
+    $.fn.inputFilter = function (inputFilter) {
+      return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function () {
+        if (inputFilter(this.value)) {
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        }
+      });
+    };
+  }(jQuery));
+  $("#phone").inputFilter(function (value) {
+    return /^\d*$/.test(value);
+  });
 ```
 
 ## Input Prohibition
@@ -75,7 +105,9 @@ The following code uses `jQuery`, but the logic should work with native JavaScri
 Simply prohibit user from typing.
 
 ```javascript
-  $('#input').keypress(function (e) {    e.preventDefault();  });
+  $('#input').keypress(function (e) {
+    e.preventDefault();
+  });
 ```
 
 ## Check If A Key Exists
@@ -83,7 +115,9 @@ Simply prohibit user from typing.
 If you meet _**Uncaught TypeError: Cannot use 'in' operator to search for 'length'**_  which means you are not running this check with **Object**.
 
 ```javascript
-if ('error' in response) {    console.log('Error!')}
+if ('error' in response) {
+    console.log('Error!')
+}
 ```
 
 ## Href With OnClick
@@ -99,7 +133,13 @@ Function first then href.
 This is usually used when you want to check if your input text length is long enough and it contains Chinese and English **both**, this offers you a way to calculate them with **Byte**.
 
 ```javascript
-var commentComment = $('.comment').val();var commentLength = encodeURIComponent(commentComment);commentLength = commentLength.replace(/%[A-Fd]{2}/g, 'U').length;    if (commentLength < 140) {        return;    } else {    }
+var commentComment = $('.comment').val();
+var commentLength = encodeURIComponent(commentComment);
+commentLength = commentLength.replace(/%[A-Fd]{2}/g, 'U').length;
+    if (commentLength < 140) {
+        return;
+    } else {
+    }
 ```
 
 {% hint style="info" %}

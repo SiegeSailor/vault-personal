@@ -144,7 +144,8 @@ npx gulp build
 First, go back to the project folder then go to React folder.
 
 ```bash
-cd ../../cd react-semantic
+cd ../../
+cd react-semantic
 ```
 
 React also uses NPM as a package management tool, you should use the command to install the dependency it needs.

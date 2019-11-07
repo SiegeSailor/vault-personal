@@ -124,7 +124,9 @@ sudo yum install rsync
 取得清單、並統整到 `/home/ubuntu`。
 
 ```bash
-dpkg --get-selections > ~/Package.listsudo cp -R /etc/apt/sources.list* ~/sudo apt-key exportall > ~/Repo.keys
+dpkg --get-selections > ~/Package.list
+sudo cp -R /etc/apt/sources.list* ~/
+sudo apt-key exportall > ~/Repo.keys
 ```
 
 在 `sudo apt-key exportall > ~/Repo.keys` 的階段，若是出現 _**Warning: apt-key output should not be parsed \(stdout is not a terminal\)**_ 的問題，可使用 `–no-tty` 處理。
@@ -136,7 +138,12 @@ sudo apt-key -no-tty exportall > ~/Repo.keys
 在目的端還原。
 
 ```bash
-sudo apt-key add ~/Repo.keyssudo cp -R ~/sources.list* /etc/apt/sudo apt-get updatesudo apt-get install dselectsudo dpkg --set-selections < ~/Package.listsudo dselect
+sudo apt-key add ~/Repo.keys
+sudo cp -R ~/sources.list* /etc/apt/
+sudo apt-get update
+sudo apt-get install dselect
+sudo dpkg --set-selections < ~/Package.list
+sudo dselect
 ```
 
 {% hint style="info" %}

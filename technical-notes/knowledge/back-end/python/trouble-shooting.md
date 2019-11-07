@@ -9,13 +9,17 @@ Common issues.
 The variable `item` is a string. An index looks like this. The example uses the `0` index of the string to refer to the first character.
 
 ```python
->>> mystring = 'helloworld'>>> print mystring[0]'h'
+>>> mystring = 'helloworld'
+>>> print mystring[0]
+'h'
 ```
 
 Strings can't have string indices \( Like dictionaries can \). So this won't work.
 
 ```python
->>> mystring = 'helloworld'>>> print mystring['stringindex']TypeError: string indices must be integers
+>>> mystring = 'helloworld'
+>>> print mystring['stringindex']
+TypeError: string indices must be integers
 ```
 
 {% hint style="info" %}
@@ -29,7 +33,8 @@ The original [Discussion](https://stackoverflow.com/questions/6077675/why-am-i-s
 Django's built-in [serializers](https://docs.djangoproject.com/en/dev/topics/serialization/) can only serialize query-sets filled with Django objects:
 
 ```python
-data = serializers.serialize('json', self.get_queryset())return HttpResponse(data, content_type="application/json")
+data = serializers.serialize('json', self.get_queryset())
+return HttpResponse(data, content_type="application/json")
 ```
 
 In your case, `self.get_queryset()` contains a mix of django objects and dicts inside.
@@ -37,13 +42,22 @@ In your case, `self.get_queryset()` contains a mix of django objects and dicts i
 One option is to get rid of model instances in the `self.get_queryset()` and replace them with dicts using `model_to_dict`:
 
 ```python
-from django.forms.models import model_to_dictdata = self.get_queryset()for item in data:   item['product'] = model_to_dict(item['product'])return HttpResponse(json.simplejson.dumps(data), mimetype="application/json")
+from django.forms.models import model_to_dict
+
+data = self.get_queryset()
+
+for item in data:
+   item['product'] = model_to_dict(item['product'])
+
+return HttpResponse(json.simplejson.dumps(data), mimetype="application/json")
 ```
 
 But the easiest way is to use **JsonResponse**.
 
 ```python
-from django.http import JsonResponsequeryset = YourModel.objects.filter(some__filter="some value").values()return JsonResponse({"models_to_return": list(queryset)})
+from django.http import JsonResponse
+queryset = YourModel.objects.filter(some__filter="some value").values()
+return JsonResponse({"models_to_return": list(queryset)})
 ```
 
 {% hint style="info" %}
@@ -63,11 +77,13 @@ pprint(1 + "1")
 These two are right.
 
 ```python
-pprint(int(1) + int(1))>>> 2
+pprint(int(1) + int(1))
+>>> 2
 ```
 
 ```python
-pprint(str(1) + str(1))>>> 11
+pprint(str(1) + str(1))
+>>> 11
 ```
 
 ### ValueError: invalid literal for int\(\) with base 10
@@ -93,7 +109,22 @@ You can use **type\(\)** to know whether its type is.
 If you do want to pass a string representation of a float to an `int` ,you can convert to a float first, then to an integer.
 
 ```python
->>> int('5')5>>> float('5.0')5.0>>> float('5')5.0>>> int(5.0)5>>> float(5)5.0>>> int('5.0')Traceback (most recent call last):  File "<stdin>", line 1, in <module>ValueError: invalid literal for int() with base 10: '5.0'>>> int(float('5.0'))5
+>>> int('5')
+5
+>>> float('5.0')
+5.0
+>>> float('5')
+5.0
+>>> int(5.0)
+5
+>>> float(5)
+5.0
+>>> int('5.0')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '5.0'
+>>> int(float('5.0'))
+5
 ```
 
 ### Python http.client.RemoteDisconnected

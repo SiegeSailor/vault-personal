@@ -13,7 +13,9 @@ But this is not working at all, here are a few ways that you can apply !importan
 #### Adding Class
 
 ```javascript
-.importantRule { width: 100px !important; }$('#elem').addClass('importantRule');
+.importantRule { width: 100px !important; }
+
+$('#elem').addClass('importantRule');
 ```
 
 #### Modify Attribute

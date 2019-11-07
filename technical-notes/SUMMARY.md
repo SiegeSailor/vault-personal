@@ -48,7 +48,7 @@
       * [Gulp](knowledge/front-end/nodejs/npm/gulp/README.md)
         * [Get Started](knowledge/front-end/nodejs/npm/gulp/get-started.md)
         * [套件註記](knowledge/front-end/nodejs/npm/gulp/main-compiler.md)
-        * [參數](knowledge/front-end/nodejs/npm/gulp/added-function.md)
+        * [傳遞參數](knowledge/front-end/nodejs/npm/gulp/added-function.md)
       * [Webpack](knowledge/front-end/nodejs/npm/webpack/README.md)
         * [Trouble Shooting](knowledge/front-end/nodejs/npm/webpack/entry-point.md)
       * [ESLint](knowledge/front-end/nodejs/npm/eslint.md)

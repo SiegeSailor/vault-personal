@@ -13,11 +13,18 @@ var imageBoxLi = document.querySelector(".imageBox").querySelector('ul').querySe
 ```
 
 ```javascript
-for (var i = 0; i < imageBoxLi.length; i = i + 1) {  var imageBoxH3_textContent = [];  imageBoxH3_textContent = imageBoxLi[i].childNodes[1].textContent;};
+for (var i = 0; i < imageBoxLi.length; i = i + 1) {
+  var imageBoxH3_textContent = [];
+  imageBoxH3_textContent = imageBoxLi[i].childNodes[1].textContent;
+};
 ```
 
 ```javascript
-var listBoxTotal = document.querySelectorAll('.listBox_Content');for (var i = 0; i < ListBoxTotal.length; i = i + 1) {  var assignedListBox = listBoxTotal[i].id;  assignedListBox.style.display = "none";  };
+var listBoxTotal = document.querySelectorAll('.listBox_Content');
+for (var i = 0; i < ListBoxTotal.length; i = i + 1) {
+  var assignedListBox = listBoxTotal[i].id;
+  assignedListBox.style.display = "none";
+  };
 ```
 
 ### JSON

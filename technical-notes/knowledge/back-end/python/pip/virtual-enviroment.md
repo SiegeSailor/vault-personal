@@ -37,7 +37,9 @@ which python
 This will also work with Python 3.
 
 ```bash
-which python3>> /usr/local/bin/python3virtualenv venv --python=/usr/local/bin/python3
+which python3
+>> /usr/local/bin/python3
+virtualenv venv --python=/usr/local/bin/python3
 ```
 
 Ultimately condensing to these.

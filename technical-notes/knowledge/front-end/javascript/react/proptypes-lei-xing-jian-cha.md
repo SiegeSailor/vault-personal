@@ -15,7 +15,17 @@ import PropTypes from 'prop-types';
 要實行類型檢測，我們必須首先賦予 `propTypes` 屬性。
 
 ```javascript
-class Greeting extends React.Component {  render() {    return (      <h1>Hello, {this.props.name}</h1>    );  }}Greeting.propTypes = {  name: PropTypes.string};
+class Greeting extends React.Component {
+  render() {
+    return (
+      <h1>Hello, {this.props.name}</h1>
+    );
+  }
+}
+
+Greeting.propTypes = {
+  name: PropTypes.string
+};
 ```
 
 React 的 PropTypes 有幾點特性。

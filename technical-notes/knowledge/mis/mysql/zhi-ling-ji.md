@@ -19,7 +19,11 @@ MYSQL -h ec2-3-1-156-249.ap-southeast-1.compute.amazonaws.com -P 3307 -u test_se
 #### 常見 MySQL 資訊
 
 ```sql
-DATABASE_NAME=edallianz2_release_ratingMYSQL_ROOT_ACCOUNT=service_ratingMYSQL_ROOT_PASSWORD=bsF3McM6Rn8gwFENMYSQL_PORT=3306MYSQL_HOST=ec2-3-1-156-249.ap-southeast-1.compute.amazonaws.com
+DATABASE_NAME=edallianz2_release_rating
+MYSQL_ROOT_ACCOUNT=service_rating
+MYSQL_ROOT_PASSWORD=bsF3McM6Rn8gwFEN
+MYSQL_PORT=3306
+MYSQL_HOST=ec2-3-1-156-249.ap-southeast-1.compute.amazonaws.com
 ```
 
 ## 執行控制
@@ -273,13 +277,22 @@ SHOW TABLES;
 建立 table `product`。
 
 ```sql
-CREATE TABLE products (  # 新增產品資料表  id INT NOT NULL AUTO_INCREMENT, # 產品 ID  name varchar(50) NOT NULL,  # 名稱  descr varchar(200),  # 說明  price INT NOT NULL,  # 價格  PRIMARY KEY(id)      # 主要索引);
+CREATE TABLE products (  # 新增產品資料表
+  id INT NOT NULL AUTO_INCREMENT, # 產品 ID
+  name varchar(50) NOT NULL,  # 名稱
+  descr varchar(200),  # 說明
+  price INT NOT NULL,  # 價格
+  PRIMARY KEY(id)      # 主要索引
+);
 ```
 
 對該 table `product` insert 資料。
 
 ```sql
-INSERT INTO products (name, descr, price)  VALUES ("葵花寶典", "蓋世武功密集", 990);INSERT INTO products (name, descr, price)  VALUES ("獨孤九劍", "劍魔獨孤求敗所創劍法", 890);
+INSERT INTO products (name, descr, price)
+  VALUES ("葵花寶典", "蓋世武功密集", 990);
+INSERT INTO products (name, descr, price)
+  VALUES ("獨孤九劍", "劍魔獨孤求敗所創劍法", 890);
 ```
 
 查詢資料。

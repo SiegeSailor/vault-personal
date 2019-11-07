@@ -201,13 +201,29 @@ sh auto_dispatch_on_server.sh test
 Here is what `auto_dispatch_on_server.sh` is.
 
 ```bash
-#!/bin/bash./pull.sh. venv/bin/activatepython rating/auto_fetch_school_list.py $1npm run productionpython manage.py collectstatic --noinput --clearsudo supervisorctl restart web-booking2-$1
+#!/bin/bash
+./pull.sh
+. venv/bin/activate
+python rating/auto_fetch_school_list.py $1
+npm run production
+python manage.py collectstatic --noinput --clear
+sudo supervisorctl restart web-booking2-$1
 ```
 
 and this is what pull.sh is.
 
 ```bash
-#!/usr/bin/expect -fspawn git pullexpect {    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }    interact    expect {        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }        interact        EOF    }}
+#!/usr/bin/expect -f
+spawn git pull
+expect {
+    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }
+    interact
+    expect {
+        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }
+        interact
+        EOF
+    }
+}
 ```
 
 for `rating/auto_fetch_school_list.py`, please see [Script 取得資料與儲存讀取](knowledge/back-end/python/script-qu-de-json-yu-chu-cun-du-qu.md).
@@ -306,13 +322,29 @@ sh auto_dispatch_on_server.sh release
 Here is what `auto_dispatch_on_server.sh` is.
 
 ```bash
-#!/bin/bash./pull.sh. venv/bin/activatepython rating/auto_fetch_school_list.py $1npm run productionpython manage.py collectstatic --noinput --clearsudo supervisorctl restart web-booking2-$1
+#!/bin/bash
+./pull.sh
+. venv/bin/activate
+python rating/auto_fetch_school_list.py $1
+npm run production
+python manage.py collectstatic --noinput --clear
+sudo supervisorctl restart web-booking2-$1
 ```
 
 and this is whaat pull.sh is.
 
 ```bash
-#!/usr/bin/expect -fspawn git pullexpect {    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }    interact    expect {        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }        interact        EOF    }}
+#!/usr/bin/expect -f
+spawn git pull
+expect {
+    "Username for 'http://35.197.146.136': " { send "kenzhang@rd.edallianz.com\r\n" }
+    interact
+    expect {
+        "Password for 'http://kenzhang@rd.edallianz.com@35.197.146.136': " { sned "talimusd11\r\n" }
+        interact
+        EOF
+    }
+}
 ```
 
 for `rating/auto_fetch_school_list.py`, please see [Script 取得資料與儲存讀取](knowledge/back-end/python/script-qu-de-json-yu-chu-cun-du-qu.md).

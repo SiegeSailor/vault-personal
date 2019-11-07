@@ -21,13 +21,22 @@ window.onload = function () {}
 For some reason, `window.onload` might not fire anyway, in that case you should go this way.
 
 ```javascript
-window.addEventListener('load', extendCommentsArea, false);function extendCommentsArea() {    if (window.innerHeight > schoolInfo.offsetHeight) {        commentsArea.style.height = (window.innerHeight - schoolInfo.offsetHeight) + "px";    }}
+window.addEventListener('load', extendCommentsArea, false);
+
+function extendCommentsArea() {
+    if (window.innerHeight > schoolInfo.offsetHeight) {
+        commentsArea.style.height = (window.innerHeight - schoolInfo.offsetHeight) + "px";
+    }
+}
 ```
 
 ### jQuery
 
 ```javascript
-$(document).ready(function () {    window.onload = function () {    }}
+$(document).ready(function () {
+    window.onload = function () {
+    }
+}
 ```
 
 

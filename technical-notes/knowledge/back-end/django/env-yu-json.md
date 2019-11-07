@@ -30,13 +30,17 @@ MAIL_ACCOUNT_DEFAULT={"EMAIL_USE_SSL" : true,"EMAIL_USE_TLS" : false,"EMAIL_HOST
 #### settings.py
 
 ```python
-import osMAIL_ACCOUNT_DEFAULT= os.getenv('MAIL_ACCOUNT_DEFAULT', {})
+import os
+MAIL_ACCOUNT_DEFAULT= os.getenv('MAIL_ACCOUNT_DEFAULT', {})
 ```
 
 #### views.py
 
 ```python
-from django.conf import settingsimport jsonsender_email = settings.MAIL_ACCOUNT_DEFAULT
+from django.conf import settings
+import json
+
+sender_email = settings.MAIL_ACCOUNT_DEFAULT
 ```
 
 其中，要注意的是在匯入環境變量的過程中須注意幾點。

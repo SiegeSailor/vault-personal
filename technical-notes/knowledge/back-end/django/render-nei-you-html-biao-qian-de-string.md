@@ -5,7 +5,10 @@
 假設在一個 view 中，我們有這樣一個 dict：
 
 ```python
-label = {    "one": "One is <em>Good</em>",    "two": "Two<br>is Bad",}
+label = {
+    "one": "One is <em>Good</em>",
+    "two": "Two<br>is Bad",
+}
 ```
 
 我們預期要用 `render()` 的方式將這個 dict 渲染到 HTML 上：

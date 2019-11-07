@@ -25,7 +25,13 @@ You will get _**Uncaught ReferenceError: Invalid left-hand side in assignment**_
 Use `prop("check")` to get the checked status, use `prop("checked", true)` to set the status. You can use this method on **CheckBox** or **Radio**.
 
 ```javascript
-var accountCreate = $('#apply-account-id').prop("checked");var accountCreateNumber = '';if (accountCreate == false) {  accountCreateNumber = 0;} else if (accountCreate == true) {  accountCreateNumber = 1;};
+var accountCreate = $('#apply-account-id').prop("checked");
+var accountCreateNumber = '';
+if (accountCreate == false) {
+  accountCreateNumber = 0;
+} else if (accountCreate == true) {
+  accountCreateNumber = 1;
+};
 ```
 
 ## Trouble Shooting

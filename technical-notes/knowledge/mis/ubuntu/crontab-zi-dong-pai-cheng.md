@@ -11,7 +11,10 @@
 ### Linux
 
 ```bash
-service crond status # 檢查服務運行狀態service crond stop # 停止服務service crond start # 開啟服務service crond restart # 重啟服務，多用在 crontab -e 新增或編輯完任務後
+service crond status # 檢查服務運行狀態
+service crond stop # 停止服務
+service crond start # 開啟服務
+service crond restart # 重啟服務，多用在 crontab -e 新增或編輯完任務後
 ```
 
 ### Ubuntu
@@ -31,7 +34,11 @@ Crontab 在 Ubuntu 與 Linux 的指令相似，但 crond 需換為 cron，並且
 ## 任務相關指令
 
 ```bash
-crontab -l # 顯示該使用者的 crontab 指令crontab -e # 編輯該使用者的 crontab 指令crontab -r # 將該使用者的 crontab 指令全數清除，要注意只要去除一項，則應使用 crontab -ecrontab -u # 改變使用者執行身分crontab -u user filename # 改變某個排程的使用者執行身份
+crontab -l # 顯示該使用者的 crontab 指令
+crontab -e # 編輯該使用者的 crontab 指令
+crontab -r # 將該使用者的 crontab 指令全數清除，要注意只要去除一項，則應使用 crontab -e
+crontab -u # 改變使用者執行身分
+crontab -u user filename # 改變某個排程的使用者執行身份
 ```
 
 ### 任務

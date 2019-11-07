@@ -41,7 +41,11 @@ You can find `settings.py` under your project **Root** app folder.
 Insert Locale to your middleware like this. You must place **LocaleMiddleware** after **SessionMiddleware** and before **CommonMiddleware**.
 
 ```python
-MIDDLEWARE = [    'django.contrib.sessions.middleware.SessionMiddleware',    'django.middleware.locale.LocaleMiddleware',    'django.middleware.common.CommonMiddleware',]
+MIDDLEWARE = [
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
 ```
 
 ### I18N
@@ -49,13 +53,17 @@ MIDDLEWARE = [    'django.contrib.sessions.middleware.SessionMiddleware',    'dj
 Set these values as true, if there is no related values just create your own.
 
 ```python
-USE_I18N = TrueUSE_L10N = TrueUSE_TZ = True
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 ```
 
 ### Locale Path
 
 ```python
-LOCALE_PATHS = (    'locale',)
+LOCALE_PATHS = (
+    'locale',
+)
 ```
 
 You can also use these codes to point to the path.
@@ -65,7 +73,8 @@ os.path.join(BASE_DIR, "locale")
 ```
 
 ```python
-SITE_ROOT = os.path.dirname(os.path.realpath(__name__))LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'), )
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
+LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'), )
 ```
 
 The following code can help you to know all real path pointing to in your setting.
@@ -85,7 +94,10 @@ from django.utils.translation import ugettext_lazy as _
 Then add the following codes.
 
 ```python
-LANGUAGES = (    ('zh-tw', _('Tranditional Chinese')),    ('en-us', _('English')),)
+LANGUAGES = (
+    ('zh-tw', _('Tranditional Chinese')),
+    ('en-us', _('English')),
+)
 ```
 
 ### Language Code
@@ -93,7 +105,8 @@ LANGUAGES = (    ('zh-tw', _('Tranditional Chinese')),    ('en-us', _('English')
 Set up the current language for this website, this is only happening when the website only needs one kind of language or during developing. In this case, this website is developing `zh-tw` language.
 
 ```python
-# LANGUAGE_CODE = 'en-us'LANGUAGE_CODE = 'zh-tw'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-tw'
 ```
 
 ## Get Text
@@ -111,7 +124,8 @@ from django.utils.translation import ugettext as _
 Then use this kind of way to collect text.
 
 ```python
-text_trans = _("I am now English.")response_text = text_trans
+text_trans = _("I am now English.")
+response_text = text_trans
 ```
 
 Usually we want to render the HTML we want to show, so your return code might be this.
@@ -192,7 +206,9 @@ from django.views.i18n import JavaScriptCatalog
 Then add this to your urlpatterns. Notice that this line **can not be modified**.
 
 ```python
-urlpatterns = [        url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),]
+urlpatterns = [
+        url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
+]
 ```
 
 Import the URL in the bottom of the HTML.
@@ -231,7 +247,8 @@ To know how to use the methods, read this [Article](https://docs.djangoproject.c
 There is no possible for Django i18N to directly translate content in CSS, but you can use JavaScript to append your style and translation content to your HTML head. The following example uses jQuery.
 
 ```javascript
-var testTrans = gettext('This is a CSS content text.')$('<style>.test:before {content:" ' + testTrans + '" !important;}' +'</style>').appendTo('head');
+var testTrans = gettext('This is a CSS content text.')
+$('<style>.test:before {content:" ' + testTrans + '" !important;}' +'</style>').appendTo('head');
 ```
 
 ## Language Translation
@@ -265,7 +282,8 @@ This happens due to you didn't declare your encoding method in the files you are
 You can also insert these code in `settings.py` to prevent it.
 
 ```python
-DEFAULT_CHARSET = 'UTF-8'FILE_CHARSET = 'UTF-8'
+DEFAULT_CHARSET = 'UTF-8'
+FILE_CHARSET = 'UTF-8'
 ```
 
 #### JS files Usage
@@ -311,7 +329,15 @@ from django.utils.translation import activate
 Code a service so that you can use this service in all views.
 
 ```python
-def activate_language(request):    if 'language' in request.session:        if request.session['language'] == 'Chinese':            activate('zh-tw')            request.LANGUAGE_CODE = 'zh-tw'        else:            activate('en-us')            request.LANGUAGE_CODE = 'en-us'    return
+def activate_language(request):
+    if 'language' in request.session:
+        if request.session['language'] == 'Chinese':
+            activate('zh-tw')
+            request.LANGUAGE_CODE = 'zh-tw'
+        else:
+            activate('en-us')
+            request.LANGUAGE_CODE = 'en-us'
+    return
 ```
 
 As you can see, we use `session` to save the current language selection, and decide which language we are forcing to turn by the selection. We also set `LANGUAGE_CODE` to know which language is the current one.
@@ -329,7 +355,24 @@ url(r'^translation/(?P<language>.+)/$', views.Translation.as_view(), name='trans
 Then create a view for the URL.
 
 ```python
-class Translation(View):    def get(self, request, language=''):        # This is for the current session page ======>>        service.activate_language(request)        request.session['language'] = language        # <<====== This is for the current session page                # This is for the global session page, espacilly for JavaScript ======>>        if language == 'Chinese':            user_language = 'zh-tw'            translation.activate(user_language)            request.session[translation.LANGUAGE_SESSION_KEY] = user_language        else:            user_language = 'en-us'            translation.activate(user_language)            request.session[translation.LANGUAGE_SESSION_KEY] = user_language        # <<====== This is for the global session page, espacilly for JavaScript        return HttpResponseRedirect('/')
+class Translation(View):
+    def get(self, request, language=''):
+        # This is for the current session page ======>>
+        service.activate_language(request)
+        request.session['language'] = language
+        # <<====== This is for the current session page
+        
+        # This is for the global session page, espacilly for JavaScript ======>>
+        if language == 'Chinese':
+            user_language = 'zh-tw'
+            translation.activate(user_language)
+            request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        else:
+            user_language = 'en-us'
+            translation.activate(user_language)
+            request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        # <<====== This is for the global session page, espacilly for JavaScript
+        return HttpResponseRedirect('/')
 ```
 
 {% hint style="warning" %}
@@ -347,7 +390,36 @@ service.activate_language(request)
 Remember, If you are using such ways to get text in view, you must put the service upon them. **Activate line must be the first in the view**.
 
 ```python
-class LandingPage(View):    def get(self, request):        service.activate_language(request)        response_first_purchase = ''        if request.user.is_authenticated():            result_first_purchase = lej.check_first_purchase(customer_id)            if result_first_purchase['data'] is True:                first_purchase_trans = _("10% Off For Your First Purchase")                response_first_purchase = first_purchase_trans            if result_first_purchase['data'] is False:                response_first_purchase = ''        translation = {            "read_url": _("https://read.lejourneyapp.com"),            "search_placeholder": _("Search"),        }        results = cs.get_landing_page(search_filter=search_filter)        for index in range(len(results['lower'])):            if results['lower'][index]['price_1'] == 'Reservation':                results['lower'][index]['price_1'] = _('Reservation')            if results['lower'][index]['price_1'] == 'Free':                results['lower'][index]['price_1'] = _('Free')        for index in range(len(results['upper'])):            if results['upper'][index]['price_1'] == 'Reservation':                results['upper'][index]['price_1'] = _('Reservation')            if results['upper'][index]['price_1'] == 'Free':                results['upper'][index]['price_1'] = _('Free')        return render(request, 'classpage/landing-index.html', {"classes": results, "response_first_purchase": response_first_purchase, "translation": translation})
+class LandingPage(View):
+    def get(self, request):
+        service.activate_language(request)
+        response_first_purchase = ''
+        if request.user.is_authenticated():
+            result_first_purchase = lej.check_first_purchase(customer_id)
+            if result_first_purchase['data'] is True:
+                first_purchase_trans = _("10% Off For Your First Purchase")
+                response_first_purchase = first_purchase_trans
+            if result_first_purchase['data'] is False:
+                response_first_purchase = ''
+
+        translation = {
+            "read_url": _("https://read.lejourneyapp.com"),
+            "search_placeholder": _("Search"),
+        }
+
+        results = cs.get_landing_page(search_filter=search_filter)
+        for index in range(len(results['lower'])):
+            if results['lower'][index]['price_1'] == 'Reservation':
+                results['lower'][index]['price_1'] = _('Reservation')
+            if results['lower'][index]['price_1'] == 'Free':
+                results['lower'][index]['price_1'] = _('Free')
+        for index in range(len(results['upper'])):
+            if results['upper'][index]['price_1'] == 'Reservation':
+                results['upper'][index]['price_1'] = _('Reservation')
+            if results['upper'][index]['price_1'] == 'Free':
+                results['upper'][index]['price_1'] = _('Free')
+
+        return render(request, 'classpage/landing-index.html', {"classes": results, "response_first_purchase": response_first_purchase, "translation": translation})
 ```
 
 {% hint style="warning" %}
@@ -359,13 +431,34 @@ You must use **render** rather than **render\_to\_response** in this method.
 Assume you have the following code as your language function part.
 
 ```markup
-<div class="languageSwitch-container">     <div class="languageSwitch">          <div class="languageSwitch-item"><a href="#">{% trans 'English' %}</a></div>          <div class="languageSwitch-item"><a href="#">{% trans 'Chinese' %}</a></div>     </div></div>
+<div class="languageSwitch-container">
+     <div class="languageSwitch">
+          <div class="languageSwitch-item"><a href="#">{% trans 'English' %}</a></div>
+          <div class="languageSwitch-item"><a href="#">{% trans 'Chinese' %}</a></div>
+     </div>
+</div>
 ```
 
 And use this simple JS to trigger the service.
 
 ```javascript
-var languageMenu = document.querySelectorAll('.languageSwitch-item a');  for (var i = 0; i < languageMenu.length; i = i + 1) {    languageMenu[i].addEventListener('click', function (event) {      event.preventDefault();      var languageCode = this.textContent;      var request = new XMLHttpRequest();      request.open('get', '/translation/' + languageCode + '/', true);      request.send(null);      request.onload = function () {        if (request.readyState == 4 && request.status == 200) {          location.reload();        } else {          alert("{% trans 'Language did not switch for some reason.' %}")        }      }    })  }
+var languageMenu = document.querySelectorAll('.languageSwitch-item a');
+  for (var i = 0; i < languageMenu.length; i = i + 1) {
+    languageMenu[i].addEventListener('click', function (event) {
+      event.preventDefault();
+      var languageCode = this.textContent;
+      var request = new XMLHttpRequest();
+      request.open('get', '/translation/' + languageCode + '/', true);
+      request.send(null);
+      request.onload = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          location.reload();
+        } else {
+          alert("{% trans 'Language did not switch for some reason.' %}")
+        }
+      }
+    })
+  }
 ```
 
 ## Unknown Issue
@@ -377,13 +470,22 @@ There are some issues that i couldn't figure out.
 This does work.
 
 ```python
-for index in range(len(results['upper'])):    if results['upper'][index]['price_1'] == 'Reservation':        results['upper'][index]['price_1'] = _('Reservation')    if results['upper'][index]['price_1'] == 'Free':        results['upper'][index]['price_1'] = _('Free')
+for index in range(len(results['upper'])):
+    if results['upper'][index]['price_1'] == 'Reservation':
+        results['upper'][index]['price_1'] = _('Reservation')
+    if results['upper'][index]['price_1'] == 'Free':
+        results['upper'][index]['price_1'] = _('Free')
 ```
 
 But this doesn't work.
 
 ```python
-for index in range(len(results['upper'])):    upper_price = results['upper'][index]['price_1']    if upper_price == 'Reservation':        upper_price = _('Reservation')    if upper_price == 'Free':        upper_price = _('Free')
+for index in range(len(results['upper'])):
+    upper_price = results['upper'][index]['price_1']
+    if upper_price == 'Reservation':
+        upper_price = _('Reservation')
+    if upper_price == 'Free':
+        upper_price = _('Free')
 ```
 
 #### URL With Include
@@ -391,12 +493,17 @@ for index in range(len(results['upper'])):    upper_price = results['upper'][ind
 This does work. This is in main `url.py`.
 
 ```python
-urlpatterns = [    url(r'^account/', include('core.urls')),    url(r'^translation/switch/$', views.TranslationSwitch.as_view(), name='translation.switch'),]
+urlpatterns = [
+    url(r'^account/', include('core.urls')),
+    url(r'^translation/switch/$', views.TranslationSwitch.as_view(), name='translation.switch'),
+]
 ```
 
 This doesn't work. This is `core.urls`.`core_views` is a `views.py` file in another app filed.
 
 ```python
-urlpatterns = [    url(r'^translation/switch/$', core_views.TranslationSwitch.as_view(), name='translation.switch'),]
+urlpatterns = [
+    url(r'^translation/switch/$', core_views.TranslationSwitch.as_view(), name='translation.switch'),
+]
 ```
 

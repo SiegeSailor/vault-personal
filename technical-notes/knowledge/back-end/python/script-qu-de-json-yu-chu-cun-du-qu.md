@@ -74,7 +74,10 @@ cp rating/school_list.json assets/js/pages/school_list.json
 ### 完整指令碼
 
 ```bash
-#!/bin/bash. venv/bin/activatepython rating/auto_fetch_school_list.py $1cp rating/school_list.json assets/js/pages/school_list.json
+#!/bin/bash
+. venv/bin/activate
+python rating/auto_fetch_school_list.py $1
+cp rating/school_list.json assets/js/pages/school_list.json
 ```
 
 #### 執行指令
@@ -92,7 +95,10 @@ sh rating/auto_fetch_sh.sh test
 首先，我們匯入必須的模組：
 
 ```python
-import requests # 向 API 要求資料用import sys # 使 Shell Script 能在執行 auto_fetch.py 時帶入參數from json.decoder import JSONDecodeError # 資料要求錯誤時的 fallbackimport json # 資料解析
+import requests # 向 API 要求資料用
+import sys # 使 Shell Script 能在執行 auto_fetch.py 時帶入參數
+from json.decoder import JSONDecodeError # 資料要求錯誤時的 fallback
+import json # 資料解析
 ```
 
 ### 接取參數
@@ -100,7 +106,8 @@ import requests # 向 API 要求資料用import sys # 使 Shell Script 能在執
 接著，使用 `sys` 來接取 Shell Script 在執行 auto\_fetch.py 帶入的資數。這邊可以在與 auto\_fetch\_execute.sh 對照後了解如何運作：
 
 ```python
-file_name = sys.argv[0] # 第一個參數會是執行檔案的名稱，即 auto_fetch.pymode = sys.argv[1] # 接取第二個參數
+file_name = sys.argv[0] # 第一個參數會是執行檔案的名稱，即 auto_fetch.py
+mode = sys.argv[1] # 接取第二個參數
 ```
 
 ### 定義函式
@@ -108,7 +115,39 @@ file_name = sys.argv[0] # 第一個參數會是執行檔案的名稱，即 auto_
 再來定義用來接取與存取資料的函式：
 
 ```python
-def auto_fetch_request(mode):        # mode 會是 Shell Script 在執行時帶入的第二個參數，這邊以該值判斷 API 的主 URL，    # 接著與子 URL 組合成 API 字串    if mode == "test":        base_url = "https://apipro0.edallianz.net"    elif mode == "release":        base_url = 'https://apipro.edallianz.net'    api_url = base_url + "/rating/list/cram/?page=1&page_length=10&preload=true"        # 宣告參數，並使用 request 對 API 取得資料。這邊會因 API 而有所不同    params = {'name': None, 'country': "Taiwan"}    response = requests.request("GET", api_url, data=params)        result = {} # 宣告要存取資料的變數    # 這裡以 try 與 json() 來做資料取得錯誤的 Fallback    try:        result = response.json()    except JSONDecodeError:        return        # 在 with 內以 w 寫入、不存在時則建立的方式開啟要存放資料的 school_list.json，    # 當檔案使用結束，會自動關閉以節省效能    with open("rating/school_list.json", "w+") as target:        # 使用 json.dump() 將 JSON 儲存在指定檔案內，        # 而由於 json.dump() 默認將中文作為 ascii 字元儲存，如若資料內有中國，儲存的將        # 會是 "\u4e2d\u56fd" 而非 "中國"，因此設 ensure_ascii=False 確保儲存中文        json.dump(result, target, ensure_ascii=False)    return    auto_fetch_request(mode)
+def auto_fetch_request(mode):
+    
+    # mode 會是 Shell Script 在執行時帶入的第二個參數，這邊以該值判斷 API 的主 URL，
+    # 接著與子 URL 組合成 API 字串
+    if mode == "test":
+        base_url = "https://apipro0.edallianz.net"
+    elif mode == "release":
+        base_url = 'https://apipro.edallianz.net'
+    api_url = base_url + "/rating/list/cram/?page=1&page_length=10&preload=true"
+    
+    # 宣告參數，並使用 request 對 API 取得資料。這邊會因 API 而有所不同
+    params = {'name': None, 'country': "Taiwan"}
+    response = requests.request("GET", api_url, data=params)
+    
+    result = {} # 宣告要存取資料的變數
+
+    # 這裡以 try 與 json() 來做資料取得錯誤的 Fallback
+    try:
+        result = response.json()
+    except JSONDecodeError:
+        return
+    
+    # 在 with 內以 w 寫入、不存在時則建立的方式開啟要存放資料的 school_list.json，
+    # 當檔案使用結束，會自動關閉以節省效能
+    with open("rating/school_list.json", "w+") as target:
+        # 使用 json.dump() 將 JSON 儲存在指定檔案內，
+        # 而由於 json.dump() 默認將中文作為 ascii 字元儲存，如若資料內有中國，儲存的將
+        # 會是 "\u4e2d\u56fd" 而非 "中國"，因此設 ensure_ascii=False 確保儲存中文
+        json.dump(result, target, ensure_ascii=False)
+
+    return
+    
+auto_fetch_request(mode)
 ```
 
 ## 讀取用腳本
@@ -128,7 +167,16 @@ import json
 再來定義用來讀取資料的函式：
 
 ```python
-def get_data_from_local(request):    school_list = set({}) # 以 set() 建立空的 dict        # 使用 encoding='UTF-8' 因為資料內含有中文    with open("rating/school_list.json", "r", encoding='UTF-8') as data_from_local:        school_list = data_from_local                # 在 with 內以 read() 開啟資料，再以 json.load() 解析 JSON        school_list = json.loads(school_list.read())        return school_list
+def get_data_from_local(request):
+    school_list = set({}) # 以 set() 建立空的 dict
+    
+    # 使用 encoding='UTF-8' 因為資料內含有中文
+    with open("rating/school_list.json", "r", encoding='UTF-8') as data_from_local:
+        school_list = data_from_local
+        
+        # 在 with 內以 read() 開啟資料，再以 json.load() 解析 JSON
+        school_list = json.loads(school_list.read())
+        return school_list
 ```
 
 ## 關於中文
@@ -158,7 +206,14 @@ with open("rating/school_list.json", "r", encoding='UTF-8') as data_from_local:
 然而，當有時在 Ubuntu 的伺服器上執行此 .sh 檔寫入中文資料時，會發生以下錯誤：
 
 ```bash
-Traceback (most recent call last):  File "rating/auto_fetch_school_list.py", line 73, in <module>    auto_request(mode)  File "rating/auto_fetch_school_list.py", line 64, in auto_request    json.dump(result, target, ensure_ascii=False)  File "/usr/lib/python3.6/json/__init__.py", line 180, in dump    fp.write(chunk)UnicodeEncodeError: 'ascii' codec can't encode characters in position 1-12: ordinal not in range(128)
+Traceback (most recent call last):
+  File "rating/auto_fetch_school_list.py", line 73, in <module>
+    auto_request(mode)
+  File "rating/auto_fetch_school_list.py", line 64, in auto_request
+    json.dump(result, target, ensure_ascii=False)
+  File "/usr/lib/python3.6/json/__init__.py", line 180, in dump
+    fp.write(chunk)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 1-12: ordinal not in range(128)
 ```
 
 此時我們會發現，其實我們在寫入讀取時都有確保中文的可讀性，那麼最便捷的解決辦法便是取消 `ensure_ascii=False`。取消後，寫入時的程式碼會如下：

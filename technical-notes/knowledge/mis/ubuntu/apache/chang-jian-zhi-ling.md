@@ -83,7 +83,8 @@ grep CustomLog /etc/httpd/conf/httpd.conf
 這有可能是因為限制了 request 的請求資源，在 Apache 的 `httpd.conf` 或 `apache2.conf` 中新增以下程式碼解決。
 
 ```text
-LimitRequestLine 40940LimitRequestFieldSize 40940
+LimitRequestLine 40940
+LimitRequestFieldSize 40940
 ```
 
 {% hint style="info" %}
