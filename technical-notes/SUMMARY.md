@@ -16,6 +16,7 @@
     * [Return Multi Values](knowledge/front-end/javascript/return-multi-values.md)
     * [React](knowledge/front-end/javascript/react/README.md)
       * [PropTypes 類型檢查](knowledge/front-end/javascript/react/proptypes-lei-xing-jian-cha.md)
+      * [Methods](knowledge/front-end/javascript/react/methods.md)
       * [Trouble Shooting](knowledge/front-end/javascript/react/trouble-shooting.md)
     * [jQuery](knowledge/front-end/javascript/jquery/README.md)
       * [ShareLink 與 AddToAny](knowledge/front-end/javascript/jquery/share-link-yu-addtoany.md)

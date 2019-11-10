@@ -46,3 +46,7 @@ contentType: "json",
 
 _**ModuleNotFoundError: No module named 'mysite'**_ might caused because you are returning a **HttpResponse** or **JsonResponse** with functions which is not from a **View**.
 
+### In order to allow non-dict objects to be serialized
+
+將 `return JsonResponse(result)` 改為 `return JsonResponse(result, safe=False)` 。
+
