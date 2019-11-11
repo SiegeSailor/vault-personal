@@ -30,7 +30,7 @@ CSRF_COOKIE_NAME = "XSRF-TOKEN"
 
 ### 確保頁面有 CSRF
 
-`CsrfViewMiddleware` 設置後，Django 內建是對 POST 有預設 CSRF Cookie 功能，然而有一定機率失效，導致獲取 CSRF Token 時出現為 Null 的情形，此時需要手動設置 `ensure_csrf_cookie`。這種設置方法必須在 View Render 出頁面的位置，若有使用 Method，則必須使用 Method Decorator 來對 Method 進行設置。
+`CsrfViewMiddleware` 設置後，若為完全靜態、即若是完全沒有 Template Tag `{% csrf_token %}` 時，會導致 CSRF Token 為 Null，此時需要手動設置 `ensure_csrf_cookie`。這種設置方法必須在 View Render 出頁面的位置，若有使用 Method，則必須使用 Method Decorator 來對 Method 進行設置。
 
 ```python
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -46,9 +46,17 @@ def sandbox(request):
     return
 ```
 
+若有設置 `CSRF_COOKIE_SECURE`，則必須為 False，否則會導致前端讀取不到該 Token。
+
+```python
+CSRF_COOKIE_SECURE = False
+```
+
 {% hint style="warning" %}
 Method Decorator 的 Name 指的是 Method 的名稱，此為必要值。
 {% endhint %}
+
+使用此種方法時，邏輯是先以 GET 的 Request 向設置了 `ensure_csrf_cookie` 的 View 的 URL 發送請求、獲得 CSRF Token，再將獲得的 Token 以預設的 Key X-CSRFToken 放在 POST 或 DELETE 或 PUT 的 Header 中。
 
 ### 單獨啟用
 
