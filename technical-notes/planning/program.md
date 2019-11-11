@@ -1,17 +1,18 @@
 # Programming
 
-## Design Pattern
+## 筆記
+
+紀錄曾經接觸與使用過的技術。
+
+### Design Pattern
 
 * MVC，Model View Controller
 * SWF，Static Website Framework
 * SPA，Single Page Application
 
-## FrontEnd
+### Front End
 
-* [ ] 六角學院 Youtube：計算機概論
-* [ ] JavaScript 地下城
-
-### 總覽
+#### 總覽
 
 * Advanced JavaScript
   * ES6+
@@ -20,22 +21,30 @@
   * There.JS
   * D3.JS
   * Canvas
+  * Chart.JS
+  * Go.JS
+  * WebGL
   * Web Worker
   * Service Worker 概念是啟動並安裝後，在使用者發出特定請求時，會將該請求的資源 cache，並在離線時當使用者發出同樣請求，能用先前 cache 的資源，在啟用、接收 request、轉存 cache、判別 response 來源時都需要注意。只有 localhost 和 https 可用，只有同時間所有舊的 service worker 關閉時，新的才會運作。
 * React
   * React DOM
+  * React Router
   * Redux
-  * Route
   * React Hooks
   * Context API
   * React Native
   * Universal
   * Flux
+  * CORS
+  * React Axios
+  * Web API
 * CSS
   * Semantic UI
   * LESS
   * BEM
   * SASS
+  * ReCharts
+  * Functional CSS
 * Auto Tool
   * Webpack
     * Hot Module Replacement
@@ -43,13 +52,21 @@
   * Gulp
   * Bower
 
-## BackEnd
+### Back End
 
-### 總覽
+#### 總覽
 
 * Language
   * Python
     * Django
+      * SMTP
+      * CSRF
+      * CORS
+      * Login
+      * CGI
+      * WSGI
+      * uwsgi
+      * uWSGI
   * Node.JS
     * Express
 * API
@@ -57,31 +74,32 @@
     * Swagger
   * GraphQL
 * Apache vs Gunicorn vs Nginx
-* CGI
-* WSGI
-* uwsgi
-* uWSGI
 
-## MIS
+### MIS
 
-### 總覽
+#### 總覽
 
 * Database
   * MangoDB
   * SQL
   * MySQL
 * Docker
+* K8S
+* Elastic Search
 * Nginx
-  * Http/2 Server Push
+  * HTTP/2 Server Push
+    * One request multi responses
 * Apache
-  * Http/2 Server Push
+  * HTTP/2 Server Push
+    * One request multi responses
 * Gunicorn
-* Knowlege
+* Knowledge
   * Socket
   * Socket.io
+  * SOAP
   * Web Socket
   * Web Services
-  * Web API
+  * HTTP Keep Alive
   * Amazon AWS
     * EC2
   * Google GCP
@@ -94,6 +112,7 @@
     * Cron
 * Debugger
   * Sentry
+  * ELK
 
 
 
