@@ -16,6 +16,18 @@ MIDDLEWARE_CLASSES = (
 {% csrf_token %}
 ```
 
+CSRF Token 會以看似 Key Value 但為 String 的型式存在於 `document.cookie` 中，預設的 Key 為 **csrftoken**，諸多服務如 GA，Facebook Pixel 都會將 Cookie 以類似的方式儲存。可使用 Console 輸入 `document.cookie` 查看。
+
+```javascript
+"_ga=GA1.2.197490014.1558764515; _fbp=fb.1.1558764514899.1259154569; csrftoken=iLLOoXvFpZOQIBll1bcjn1IKGAjPI0xzeTdH5mIA3gBr6H9COLUw0q9J8iNuw7Eg; _gid=GA1.2.1910114080.1573457491"
+```
+
+而在前端進行 POST 或 DELETE 或 PUT 請求時，須在 Header 夾帶取得的 CSRF Token，在 Request 中 Header 的 Key 預設為 **X-CSRFToken**，但可以在 settings 中通過設置來改變。
+
+```python
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+```
+
 ### 確保頁面有 CSRF
 
 `CsrfViewMiddleware` 設置後，Django 內建是對 POST 有預設 CSRF Cookie 功能，然而有一定機率失效，導致獲取 CSRF Token 時出現為 Null 的情形，此時需要手動設置 `ensure_csrf_cookie`。這種設置方法必須在 View Render 出頁面的位置，若有使用 Method，則必須使用 Method Decorator 來對 Method 進行設置。
