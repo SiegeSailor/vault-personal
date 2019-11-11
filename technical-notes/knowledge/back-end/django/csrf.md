@@ -112,3 +112,18 @@ def my_view(request):
     return render(request, "example.html", context)
 ```
 
+## Request 接收值
+
+一些會有 Request 端發送值的取值方法。範例 Request 的 Header 如下。
+
+```javascript
+headers= {"Content-Type": "application/json","Authorization": "JWT " + token}
+```
+
+* request.META :: 獲得 Request Header 資訊，注意內有諸多默認值
+* request.body :: 獲得 Request 主體，為一 String
+* request.data :: 獲得 Request 夾送的資訊，為一 Dict
+* request.POST :: 獲得以 POST 方式發送的資訊
+* request.GET :: 獲得以 GET 方式發送的資訊
+* request.FILES :: 獲得文件
+

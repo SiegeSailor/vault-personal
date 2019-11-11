@@ -6,7 +6,7 @@
 
 ### 錯誤 DOM 編排
 
-當出現類似 _**validateDOMNesting（...）： &lt;a&gt; cannot appear as a descendant of &lt;a&gt;.**_ 的訊息時，是因為 Render 出的 HTML 元素中有諸如 `<a><a></a></a>` 或 `<p><p></p></p>` 等不合邏輯的排列。此錯誤不影響運行，但在 Develop 模式中可以見到並加以改正。
+當出現類似 _**validateDOMNesting（...）： &lt;a&gt; cannot appear as a descendant of &lt;a&gt;.**_ 的訊息時，是因為 Render 出的 HTML 元素中有諸如 `<a><a></a></a>` 或 `<p><p></p></p>` 等不合邏輯的排列。此錯誤不影響運行，但在 Develop 模式中可以見到並加以改正。
 
 常見於使用 UI Framework 時對元素的不正確使用。
 
@@ -120,7 +120,7 @@ let recipesCopy = JSON.parse(JSON.stringify(this.state.recipes))
 
 ### OnClick 綁上由 State 代值的 Request
 
-在 React 中，State 是不斷變動的，盡管值並沒有改變。直接對 Component 的 OnClick 事件綁上如 `onClick={this.receiveData(this.state.key)}` 一類的作法會導致該 Function 內的 Request 不斷發送，從而產生諸如 r_**eact-dom.development.js?61bb:530 Warning: Cannot update during an existing state transition \(such as within render\). Render methods should be a pure function of props and state.**_ 或 _**Uncaught Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.**_ 或 _**backend.js:6 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.**_ 的錯誤。
+在 React 中，State 是不斷變動的，盡管值並沒有改變。直接對 Component 的 OnClick 事件綁上如 `onClick={this.receiveData(this.state.key)}` 一類的作法會導致該 Function 內的 Request 不斷發送，從而產生諸如 _**react-dom.development.js?61bb:530 Warning: Cannot update during an existing state transition \(such as within render\). Render methods should be a pure function of props and state.**_ 或 _**Uncaught Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.**_ 或 _**backend.js:6 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.**_ 的錯誤。
 
 正確作法是在 `onClick` 綁上一代入 State 值並呼叫 Request 的 Function。
 
