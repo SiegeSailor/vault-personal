@@ -110,8 +110,8 @@ output = {
 
 ```python
 types = ['goodclass', 'experience','participate','parent','classforchild','educator']
-        if type not in types:
-            type = 'goodclass'
+if type not in types:
+    type = 'goodclass'
 ```
 
 這樣即使使用者輸入如 parant、classforadult 之類的值，仍會自動對應到 goodclass 這個值。
@@ -127,7 +127,30 @@ Python 直譯器執行時，有一些內建、隱含的變數，`__name__` 就�
 在實務上之所以常看見這樣的寫法，是因為該程式可能有單獨執行、如單檔案的單元測試，或是被引用的情況，用以下的方法就能區分這兩種情況。
 
 ```python
-if __name__ == '__main__':
+if __name__ == '__main__': # 表示為使用該檔案執行
     main()  # 或是任何你想執行的函式
 ```
+
+## 轉義 HTML
+
+```python
+cgi.escape(u'<a>bá</a>').encode('ascii', 'xmlcharrefreplace')
+```
+
+此列程式的意義為先使用 `cgi.escape` 將一 HTML 的字元作跳脫處理，再使用 `encode` 來對其編碼。xmlcharrefreplace 為 encode 的例外處理，其他可用的處理方式如下所示。
+
+* strict
+* ignore
+* replace
+* xmlcharrefreplace
+* backslashreplace
+* 以及通過 codecs.register\_error\(\) 註冊的任何值
+
+在 Python 3.2 後，應使用 `html.escape` 做處理。使用方式如下。
+
+```python
+html.escape("The string", quote=True)
+```
+
+`quote` 為 HTML 標籤內的括號，預設為顯示。
 

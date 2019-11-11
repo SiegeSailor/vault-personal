@@ -90,6 +90,7 @@
     * [Logging](knowledge/back-end/django/logging.md)
     * [Multi-Language](knowledge/back-end/django/multi-language.md)
     * [reCaptcha](knowledge/back-end/django/recaptcha.md)
+    * [PUT 接收值](knowledge/back-end/django/put-jie-shou-zhi.md)
     * [Regex](knowledge/back-end/django/regex.md)
     * [CSRF](knowledge/back-end/django/csrf.md)
     * [Static Files](knowledge/back-end/django/untitled.md)
