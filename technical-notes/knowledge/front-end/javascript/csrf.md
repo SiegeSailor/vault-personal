@@ -29,32 +29,19 @@ Axios.get(`/edadviser/reviews/list/reviews/${reviewNumber}/`, {
 }).then();
 ```
 
-若是使用 jQuery AJAX，則設置方法會如下。
-
-```javascript
-$.ajax({
-url: "/edadviser/reviews/list/cram/",
-type: "POST",
-header: {
-    "X-CSRFToken": getCookie('csrftoken')
-},
-data: {
-    "listInit": JSON.stringify(listInit),
-    "country": schoolCountry,
-    "name": schoolName,
-},
-dataType: "json",
-success: function (response) {}
-})
-```
-
 {% hint style="info" %}
 若是使用 React，則應使用 **react-cookie**。
+{% endhint %}
+
+{% hint style="info" %}
+亦可使用 **js-cookie**，使用方式雷同。
 {% endhint %}
 
 ### Document Cookie
 
 藉由解析 document.cookie 的方式來獲得 Cookie。
+
+#### ES6
 
 ```javascript
 const cookies = document.cookie
@@ -79,5 +66,43 @@ QueryString.stringify({code: this.state.loginInputValue}), {
         "Content-Type": "application/x-www-form-urlencoded"
     }
 }).then(
+```
+
+#### jQuery
+
+```javascript
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+```
+
+若是使用 jQuery AJAX，則設置方法會如下。
+
+```javascript
+$.ajax({
+url: "/edadviser/reviews/list/cram/",
+type: "POST",
+header: {
+    "X-CSRFToken": getCookie('csrftoken')
+},
+data: {
+    "listInit": JSON.stringify(listInit),
+    "country": schoolCountry,
+    "name": schoolName,
+},
+dataType: "json",
+success: function (response) {}
+})
 ```
 
