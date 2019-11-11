@@ -44,7 +44,6 @@
     * [NPM](knowledge/front-end/nodejs/npm/README.md)
       * [Get Started](knowledge/front-end/nodejs/npm/download-specific-package-version.md)
       * [Laravel Mix](knowledge/front-end/nodejs/npm/laravel-mix.md)
-      * [Axios](knowledge/front-end/nodejs/npm/axios.md)
       * [Bower](knowledge/front-end/nodejs/npm/bower/README.md)
         * [Get Started](knowledge/front-end/nodejs/npm/bower/get-started.md)
       * [Gulp](knowledge/front-end/nodejs/npm/gulp/README.md)
