@@ -10,7 +10,7 @@
 
 * CPU :: 處理單元，一個 CPU Core 同時只能執行一個 Process
 * Program :: 執行的程式檔，通常是 Compile 過的 EXE 檔、還未 Load 進記憶體的 Code。具有唯一性
-  * Process :: 即執行中的 Program，一個 Program 可以同時有很多 Process，Process 間不可互相存取 Memory。一個 Process 是指 Thread 們的容器，默認時，Java 是單一 Thread，而 Python 是 Multi-Thread
+  * Process :: 即執行中的 Program，一個 Program 可以同時有很多 Process，Process 間不可互相存取 Memory，但仍然有如 IPC 一類互相溝通資料的方法。一個 Process 是指 Thread 們的容器，默認時，Java 是單一 Thread，而 Python 是 Multi-Thread
     * Process 的構成 ::
       * Program Code \( Code Section \) :: 程式碼
       * Process Counter :: 下一個要執行的 Process 的位置
@@ -19,15 +19,15 @@
       * 變數 :: Dynamically Allocated Variables 和 Non-Thread-Local Global Variables
       * Data Section \( Thread 間的 Shared Data \) :: Program 和 Process 的相關資料
       * Memory Cache \( Heap \) :: 執行時產生的動態記憶體空間
-    * Thread :: 可以稱為輕量級的 Process，一樣有自己的 Stack Space 與 Memory Cache \( Heap \)、Program Counter、Processor Register \( Register Set \)，但同 Process 間的 Thread 能共享變數與 Shared Data \( Data Section \)、Program Code \( Code Section \)、OS Resources \( 如開啟檔案等 \)，一旦 Thread 讀取到 Shared Data \( Data Section \)，便會將其儲存在自己的 Memory Cache \( Heap \)
+        * Thread :: 可以稱為輕量級的 Process，一樣有自己的 Stack Space 與 Memory Cache \( Heap \)、Program Counter、Processor Register \( Register Set \)，但同 Process 間的 Thread 能共享變數與 Shared Data \( Data Section \)、Program Code \( Code Section \)、OS Resources \( 如開啟檔案等 \)，一旦 Thread 讀取到 Shared Data \( Data Section \)，便會將其儲存在自己的 Memory Cache \( Heap \)
   * Python :: 直譯式程式語言
     * Interpreter :: Python 直譯器，即時編譯 Python 程式碼讓其可以作為程式執行。CPython 是預設的 Interpreter。CPython 本身沒有多核心的指令並且使用 GIL，因此最終 Threading Library 只能使用單核。對 OS 而言，Python Interpreter 即是一個 Program
       * Green Thread :: 即在執行時，程式是由 Run-Time Library 或 VM 運算的概念。Python 是由 Python Interpreter 而非 OS 運算，屬於 Green Thread
         * Threading Library ::
-          * Multi-Threading :: 若不同 Thread 時存取或改變 Global Variable，可能發生 Synchronization。而若不同 Thread 互搶資源，則可能發生 Deadlock
+          * Multi-Threading :: 若不同 Thread 時存取或改變 Global Variable，可能發生 Synchronization。而若不同 Thread 互搶資源，則可能發生 Deadlock。GIL 可以確保 Thread 執行時不會因為變數的變動時機不同而產生錯誤，List 的使用方法也可以確保按照順序執行
             * Concurrency :: 在一個核心內給不同的 Thread 分配時間與資源，讓使用者感覺同時處理、而實際上是由於運算資源有做時間分配，讓真正有需要用到的 Thread 在需要時才佔用核心
               * GIL :: Global Interpreter Lock，Python 用於協調及分配運算資源給 Thread 的方式
-                * Thread Safe :: GIL 管理 Thread 的方式，是一個 Lock 而非 Mutex，一次只有一個 Thread 能拿傲 Lock，而只有拿到 Lock 的 Thread 能獲得運算資源並運作
+                * Thread Safe :: GIL 管理 Thread 的方式，是一個 Lock 而非 Mutex，一次只有一個 Thread 能拿到 Lock，而只有拿到 Lock 的 Thread 能獲得運算資源並運作
         * 其餘多核用 Library :: OpenMP、PThreads、GCD
           * Fork :: 可以視為 Multi-Processing 的原始版本，需要 Import OS 來使用
             * Parallelism :: Fork 應用的概念
