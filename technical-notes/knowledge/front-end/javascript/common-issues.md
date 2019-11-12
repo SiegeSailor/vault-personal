@@ -32,7 +32,7 @@ for (var i = 0; i < ListBoxTotal.length; i = i + 1) {
 Here are the three methods related to JSON.
 
 * toString :: convert a **number** to a **string**
-* JSON.parse :: is used to convert a **string** containing JSON notation into a Javascript **object**
+* JSON.parse :: is used to convert a **string** containing JSON notation into a JavaScript **object**
 * JSON.stringify :: is used to convert **JavaScript value** to a **JSON string**
 
 Depending on the above methods, you don't need to use **toString** or **JSON.parse** on a receiving value which was sent as a JSON. Like Django **JsonResponse**. It might cause error if you use.

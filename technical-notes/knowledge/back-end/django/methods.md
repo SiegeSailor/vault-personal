@@ -4,9 +4,9 @@
 
 Common methods.
 
-### Json Load
+### JSON Load
 
-Use this method to parse JSON data from POST \( Usually is from AJAX \). Here is the data in JS, it uses `JSON.stringify()` to parse the data to json type.
+Use this method to parse JSON data from POST \( Usually is from AJAX \). Here is the data in JS, it uses `JSON.stringify()` to parse the data to JSON type.
 
 ```javascript
 data: {'data': JSON.stringify({'fruit': selected})}
