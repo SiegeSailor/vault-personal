@@ -1,4 +1,4 @@
-# 常見結構
+# Common Structure
 
 ## 排程
 
