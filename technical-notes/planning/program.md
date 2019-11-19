@@ -51,6 +51,7 @@
   * Yarn
   * Gulp
   * Bower
+  * LavavelMix
 
 ### Back End
 
@@ -113,6 +114,18 @@
 * Debugger
   * Sentry
   * ELK
+
+### Develop
+
+#### 總覽
+
+* CI/CD
+  * Jenkins
+* Tool
+  * GitLab
+  * Postman
+  * Supervisor
+  * CronTab
 
 
 
