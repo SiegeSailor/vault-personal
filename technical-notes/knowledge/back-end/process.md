@@ -1,7 +1,5 @@
 # Process
 
-## 
-
 ## 概述
 
 解釋 Process 以及與其相關的名詞。
@@ -27,7 +25,7 @@
           * Multi-Threading :: 若不同 Thread 時存取或改變 Global Variable，可能發生 Synchronization。而若不同 Thread 互搶資源，則可能發生 Deadlock。GIL 可以確保 Thread 執行時不會因為變數的變動時機不同而產生錯誤，List 的使用方法也可以確保按照順序執行
             * Concurrency :: 在一個核心內給不同的 Thread 分配時間與資源，讓使用者感覺同時處理、而實際上是由於運算資源有做時間分配，讓真正有需要用到的 Thread 在需要時才佔用核心
               * GIL :: Global Interpreter Lock，Python 用於協調及分配運算資源給 Thread 的方式
-                * Thread Safe :: GIL 管理 Thread 的方式，是一個 Lock 而非 Mutex，一次只有一個 Thread 能拿到 Lock，而只有拿到 Lock 的 Thread 能獲得運算資源並運作
+                * Thread Safe :: GIL 管理 Thread 的方式，是一個 Lock 而非 Mutex，一次只有一個 Thread 能拿到 Lock，而只有拿到 Lock 的 Thread 能獲得運算資源並運作。
         * 其餘多核用 Library :: OpenMP、PThreads、GCD
           * Fork :: 可以視為 Multi-Processing 的原始版本，需要 Import OS 來使用
             * Parallelism :: Fork 應用的概念
