@@ -26,6 +26,7 @@
   * WebGL
   * Web Worker
   * Service Worker 概念是啟動並安裝後，在使用者發出特定請求時，會將該請求的資源 cache，並在離線時當使用者發出同樣請求，能用先前 cache 的資源，在啟用、接收 request、轉存 cache、判別 response 來源時都需要注意。只有 localhost 和 https 可用，只有同時間所有舊的 service worker 關閉時，新的才會運作。
+  * Assert\(\)
 * React
   * React DOM
   * React Router
