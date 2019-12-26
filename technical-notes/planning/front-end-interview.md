@@ -184,5 +184,15 @@ DOM 的事件傳遞機制，與其相關的有 `addEventListener` 與 `preventDe
 請參考 TechBridge，[DOM 的事件傳遞機制：捕獲與冒泡](https://blog.techbridge.cc/2017/07/15/javascript-event-propagation/)。
 {% endhint %}
 
+## 重點觀念
 
+* Higher Order Function :: 至少有一個函式輸入，並且輸出一個函式。forEach、Filter 等也都是 Higher Order Function。
+* Closure :: 能夠存取在不同 Scope 間被使用的變數。特別是 HOF 中回傳了一次函式、第一次輸入時被保留的變數。
+* Pure Function :: 給相同的輸入、會有相同的輸出。沒有 Side Effect。不依賴任何外部狀態與變數。
+* Side Effect :: 除了主要作用外，會產生其他作用。如 `splice()`、`setTimeout()`、I/O 相關、AJAX、資料庫相關等。
+* Shallow Clone :: 之所以 Shallow Clone 是指物件類型如 Object、Array、Map 等，是因為物件類型是 Mutable 可以變動的，因為他們只是 Reference，會更動到原本變數的方法如 Splice、Sort 也屬於 Mutable。
+* Deep Clone :: Deep Clone 是與 Number、String 等有關，因為他們是 Immutable，指向時是直接創造在新的記憶體內，直接創造新的陣列或不會影響舊的陣列的方法如 Map、Concat 則也屬於 Immutable。
+* JavaScript ::
+  * 單執行緒
+  * 有 Async，能夠實現 Concurrency
 
