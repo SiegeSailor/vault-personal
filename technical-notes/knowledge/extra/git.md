@@ -4,6 +4,12 @@
 
 Common methods.
 
+### List Config
+
+```bash
+git config --list
+```
+
 ### Remove Git Tracking
 
 ```bash
