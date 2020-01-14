@@ -207,13 +207,13 @@ SHOW DATABASES;
 建立 database。
 
 ```sql
-CREATE DATABASE 'the_database';
+CREATE DATABASE the_database;
 ```
 
 刪除 database。
 
 ```sql
-DROP DATABASE 'the_database';
+DROP DATABASE the_database;
 ```
 
 備份 database。
