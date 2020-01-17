@@ -125,9 +125,19 @@ MYSQLADMIN -u root password thepassword
 UPDATE SET USER="new_name" WHERE USER="old_name";
 ```
 
-## MySQL 外層
+## MySQL
 
-在尚未進入任何一個 database 的路徑時。
+登入到相關操作。
+
+#### 錯誤處理
+
+若遇到 _**zsh: command not found: mysql**_，執行以下指令並重啟 Shell。
+
+```bash
+export PATH=${PATH}:/usr/local/mysql/bin/
+source ~/.zshrc              #If you use Oh-My-Zsh
+source ~/.bashrc             #If you use Default Bash
+```
 
 ### 使用者操作
 
