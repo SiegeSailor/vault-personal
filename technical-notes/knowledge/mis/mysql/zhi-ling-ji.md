@@ -135,8 +135,8 @@ UPDATE SET USER="new_name" WHERE USER="old_name";
 
 ```bash
 export PATH=${PATH}:/usr/local/mysql/bin/
-source ~/.zshrc              #If you use Oh-My-Zsh
-source ~/.bashrc             #If you use Default Bash
+source ~/.zshrc  #If you use Oh-My-Zsh
+source ~/.bashrc #If you use Default Bash
 ```
 
 ### 使用者操作
