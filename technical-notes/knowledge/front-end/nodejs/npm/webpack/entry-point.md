@@ -20,6 +20,10 @@ Check if you load your file outside **Entry Point** again.
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
+#### Package exports for '.../@babel/helper-compilation-targets' do not define a '.' subpath
+
+此為 Babel 的錯誤，若發生請將 NodeJS 升級至 &gt;= **13.2.0**。
+
 #### 處理時超出預設內存
 
 在Node 中通過JavaScript 使用內存時只能使用部分內存（ 64 位系統：1.4 GB，32 位系統：0.7 GB ），這個時候，如果前端項目非常的龐大，Webpack 編譯時就會佔用很多的系統資源，如果超出了V8 引擎對Node 默認的內存限制大小時，就會產生內存洩露 _**FATAL ERROR: CALL\_AND\_RETRY\_LAST Allocation failed - JavaScript heap out of memory**_ 的錯誤。
