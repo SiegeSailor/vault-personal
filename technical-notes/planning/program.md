@@ -53,6 +53,8 @@
   * Gulp
   * Bower
   * LavavelMix
+  * Live Server
+    * Ngrok
 
 ### Back End
 
