@@ -292,3 +292,9 @@ zip -er SampleFolder.zip SampleFolder/
 sudo su
 ```
 
+### 顯示所有使用中的 Port
+
+```bash
+sudo lsof -PiTCP -sTCP:LISTEN
+```
+
