@@ -163,6 +163,22 @@ docker-compose down
 docker container kill $(docker ps -q)
 ```
 
+```bash
+docker container kill <my container>
+```
+
+```bash
+docker container rm $(docker ps -a -q)
+```
+
+```bash
+docker container rm <my container>
+```
+
+```bash
+docker system prune -a
+```
+
 進入指定的 Docker。
 
 ```bash
