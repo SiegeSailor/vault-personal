@@ -159,11 +159,19 @@ docker-compose -f docker-compose-release.yaml up
 docker-compose down
 ```
 
+```bash
+docker container kill $(docker ps -q)
+```
+
 進入指定的 Docker。
 
 ```bash
 docker exec -it containerID bash
 ```
+
+{% hint style="warning" %}
+若遇到 _**OCI runtime exec failed: exec failed: container\_linux.go:346: starting container process caused "exec: \"bash\": executable file not found in $PATH": unknown**_，應將 bash 換為 /bin/sh。
+{% endhint %}
 
 {% hint style="info" %}
 當伺服器重啟時，若 Docker 內的 MySQL 正在寫入，則很有可能因為中斷而導致 Table 毀損。建議伺服器重啟前先將該 Docker 暫停。
