@@ -115,6 +115,7 @@
 * [Programming](planning/program.md)
 * [Back-End Interview](planning/back-end-interview.md)
 * [Front-End Interview](planning/front-end-interview.md)
+* [Game Development](planning/game-development.md)
 
 ## Edallianz
 
