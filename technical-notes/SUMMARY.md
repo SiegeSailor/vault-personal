@@ -55,6 +55,8 @@
         * [Trouble Shooting](knowledge/front-end/nodejs/npm/webpack/entry-point.md)
       * [ESLint](knowledge/front-end/nodejs/npm/eslint.md)
 * [MIS](knowledge/mis/README.md)
+  * [PostgreSQL](knowledge/mis/postgresql/README.md)
+    * [指令集](knowledge/mis/postgresql/zhi-ling-ji.md)
   * [MySQL](knowledge/mis/mysql/README.md)
     * [Trouble Shooting](knowledge/mis/mysql/trouble-shooting.md)
     * [指令集](knowledge/mis/mysql/zhi-ling-ji.md)

@@ -150,7 +150,7 @@ MYSQL -u root -p
 登入使用者，並直接查看一 database。
 
 ```sql
-MYSQLSHOW -u root -p 'the_database';
+MYSQLSHOW -u root -p <the_database>;
 ```
 
 建立使用者。
@@ -191,13 +191,13 @@ ALTER USER 'service_social'@'%' IDENTIFIED BY '86QPSV6dJawNNcBdgjdCjVPhwk47JfRwe
 給予使用者一資料庫的表的全部權限。
 
 ```sql
-GRANT ALL PRIVILEGES ON the_database.the_table TO 'service_social'@'%';
+GRANT ALL PRIVILEGES ON <the_database>.<the_table> TO 'service_social'@'%';
 ```
 
 給予使用者一資料庫的觀看權限。
 
 ```sql
-GRANT SELECT ON `edallianz2_release_lejourney`.* TO 'rating_release_vernal'@'%'
+GRANT SELECT ON <edallianz2_release_lejourney>.* TO 'rating_release_vernal'@'%'
 ```
 
 使用者權限更改後的載入。
@@ -229,11 +229,11 @@ DROP DATABASE the_database;
 備份 database。
 
 ```sql
-MYSQLDUMP -u root -p 'the_database' > /db/the_database.sql
+MYSQLDUMP -u root -p <the_database> > /db/the_database.sql
 ```
 
 ```sql
-MYSQLDUMP -P 3306 -h 192.168.20.151 -u root -p 'the_database' > /db/the_database.sql
+MYSQLDUMP -P 3306 -h 192.168.20.151 -u root -p <the_database> > /db/the_database.sql
 ```
 
 ```bash
@@ -243,7 +243,7 @@ ssh -i ~/.ssh/edallianz-dl.pem ubuntu@13.250.137.148 'mysqldump -u root -p --all
 匯入 database。
 
 ```sql
-MYSQL -u root -p 'the_database' < /db/the_database.sql
+MYSQL -u root -p <the_database> < /db/the_database.sql
 ```
 
 進入指定的 database。

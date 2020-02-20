@@ -122,3 +122,21 @@ The first is do not use `background-size` to change the background size as anima
 See this detailed [Article](https://www.w3ctech.com/topic/1483) in Chinese, or check this simple [Article](https://www.w3schools.com/howto/howto_css_aspect_ratio.asp) in English.
 {% endhint %}
 
+### CSS Sprites
+
+具體而言，是將多張圖片合為單張圖片，在取用時指定範圍與 XY 軸來取用特定部分，從而減少下載圖片的 Request。
+
+```css
+#prev {
+  width: 46px;
+  height: 44px;
+  background: url(img_navsprites.gif) 0 0;
+}
+
+#next {
+  width: 43px;
+  height: 44px;
+  background: url(img_navsprites.gif) -91px 0;
+}
+```
+
