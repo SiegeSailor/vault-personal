@@ -67,6 +67,22 @@ Firebase Remote Config is a cloud service that lets you change the behavior and 
 
 當宣傳網站的一小段文字錯誤，或者一個選單連結錯誤時，照舊的方法，我們需要重新打包、部署、審核、釋出，而若使用 Firebase Remote Config，只需要事先針對要更改的內容註冊，在產品上線後可以透過 GUI 即時調整內容。
 
+根據原 API，所謂即時的差距可以透過此調整。
+
+```text
+firebaseRemoteConfig.fetch(<your_new_time_in_sec>)
+```
+
+{% hint style="info" %}
+參考 [Firebase Config](https://developers.google.com/android/reference/com/google/firebase/remoteconfig/FirebaseRemoteConfig)。
+{% endhint %}
+
+而若使用 Function，可以達到更改即更新。
+
+{% hint style="info" %}
+參考 Firebase Docs，[Propagate Remote Config Updates in Real Time](https://firebase.google.com/docs/remote-config/propagate-updates-realtime)。
+{% endhint %}
+
 #### 篩選
 
 根據國家、使用機型等等，可以對不同使用者套用不同的資料。
@@ -91,11 +107,23 @@ The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSO
 
 #### 離線 Cache
 
-透過 Firebase Realtime Database SDK，當用戶離線仍可讀取存取在 Disk 中的資料並進行互動。當連線恢復時，用戶收到所有這段期間沒收到的資料，並且與 Server 同步。
+透過 Firebase Realtime Database SDK，當用戶離線仍可讀取存取在 Disk 中的資料並進行互動。當連線恢復時，用戶收到所有這段期間沒收到的資料，並且與 Server 同步。僅限 iOS 與 Andriod。
 
 #### 存取權
 
 設定 Security 後，可以如權限設定一般限制用戶可接收到的資料。如部落格版面中，用戶只能觀看自己寫的文章。
+
+### Firebase Cloud Firestore
+
+is Firebase's newest database for mobile app development. It builds on the successes of the Realtime Database with a new, more intuitive data model. Cloud Firestore also features richer, faster queries and scales further than the Realtime Database.
+
+#### 離線 Cache
+
+透過 Firebase Realtime Database SDK，當用戶離線仍可讀取存取在 Disk 中的資料並進行互動。當連線恢復時，用戶收到所有這段期間沒收到的資料，並且與 Server 同步。iOS、Andriod 與 Web 皆可。
+
+#### Firebase Realtime Database
+
+Firebase Cloud Firestore 與 Firebase Realtime Database 在其餘地方皆有所異同，整體而言 Firebase Cloud Firestore 更像是一個版本躍進。
 
 ### 比較
 
@@ -103,7 +131,7 @@ The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSO
 
 #### Performance Latency
 
-`Websocket`、`Firebase Realtime Database`、`Firebase Firestore` 三者間的差異。由數據可以看出，在相似條件下 Websocket 優於 Firebase Realtime Database，而 Firebase Firestore 最後。
+`Websocket`、`Firebase Realtime Database`、`Firebase Cloud Firestore` 三者間的差異。由數據可以看出，在相似條件下 Websocket 優於 Firebase Realtime Database，而 Firebase Cloud Firestore 最後。
 
 {% hint style="info" %}
 參考此 Medium 上的文章，[Firebase Performance](https://medium.com/@d8schreiber/firebase-performance-firestore-and-realtime-database-latency-13effcade26d)。
