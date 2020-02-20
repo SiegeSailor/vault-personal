@@ -55,7 +55,27 @@ Phaser 主要開發者有基於 Phaser 3 的 Scaffold，[Phaser 3 Webpack Projec
 
 ## 資料監聽
 
-因應活動圖片、各國語言文字的即時 / 不定變更，採取的資料取得方式。
+因應活動圖片、各國語言文字的即時 / 不定變更，採取的資料取得 / 存儲方式。
 
+### Firebase Remote Config
 
+Change the behavior and appearance of your app without publishing an app update, at no cost, for unlimited daily active users.
+
+Firebase Remote Config is a cloud service that lets you change the behavior and appearance of your app without requiring users to download an app update. When using Remote Config, you create in-app default values that control the behavior and appearance of your app. Then, you can later use the Firebase console or the Remote Config REST API to override in-app default values for all app users or for segments of your user base. Your app controls when updates are applied, and it can frequently check for updates and apply them with a negligible impact on performance.
+
+#### 即時資料更新
+
+當宣傳網站的一小段文字錯誤，或者一個選單連結錯誤時，照舊的方法，我們需要重新打包、部署、審核、釋出，而若使用 Firebase Remote Config，只需要事先針對要更改的內容註冊，在產品上線後可以透過 GUI 即時調整內容。
+
+#### 篩選
+
+根據國家、使用機型等等，可以對不同使用者套用不同的資料。
+
+#### AB 測試
+
+當一個資料更新，可以選擇將其先測試於三分之一、二分之一或任何比率的使用者，例如遊戲關卡太難時，我們可以先將調簡單的難度給二分之一的玩家使用，當收到回饋後再決定是否套用到全部使用者中。
+
+#### Google Analytics
+
+以上功能都能透過 GA 了解實際差異。
 
