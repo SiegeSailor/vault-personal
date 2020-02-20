@@ -4,7 +4,7 @@
 
 實際遊戲選用的引擎，在遊戲外的選單操作應由處理數據專用的庫完成，如 Vue。
 
-#### Phaser
+### Phaser
 
 分為 Phaser 2、又稱 Phaser CE，以及 Phaser 3，以下段落詳細說明了兩者間的差距以及為何應選用 Phaser 3。
 
@@ -29,15 +29,15 @@
 Phaser 主要開發者有基於 Phaser 3 的 Scaffold，[Phaser 3 Webpack Project Template](https://github.com/photonstorm/phaser3-project-template)。
 {% endhint %}
 
-#### Three
+### Three
 
 並非專門的 Game Library，但能處理 3D，常被用來製作 3D 遊戲。
 
-#### Egret
+### Egret
 
 中國的開發引擎，GUI 操作，核心為 JavaScript 寫成。由於 GUI 介面，設計師能在初期就參與製作，但對於工程師是一段學習成本。
 
-#### Cocos2d
+### Cocos2d
 
 與 Egret 大致相同。
 
@@ -78,4 +78,34 @@ Firebase Remote Config is a cloud service that lets you change the behavior and 
 #### Google Analytics
 
 以上功能都能透過 GA 了解實際差異。
+
+### Firebase Realtime Databaser
+
+Store and sync data with our NoSQL cloud database. Data is synced across all clients in realtime, and remains available when your app goes offline.
+
+The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with our iOS, Android, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data.
+
+#### 同步資料
+
+確保所有 Client 端的資料是一致的。
+
+#### 離線 Cache
+
+透過 Firebase Realtime Database SDK，當用戶離線仍可讀取存取在 Disk 中的資料並進行互動。當連線恢復時，用戶收到所有這段期間沒收到的資料，並且與 Server 同步。
+
+#### 存取權
+
+設定 Security 後，可以如權限設定一般限制用戶可接收到的資料。如部落格版面中，用戶只能觀看自己寫的文章。
+
+### 比較
+
+各類監聽 / 取與存儲資料的差距。
+
+#### Performance Latency
+
+`Websocket`、`Firebase Realtime Database`、`Firebase Firestore` 三者間的差異。由數據可以看出，在相似條件下 Websocket 優於 Firebase Realtime Database，而 Firebase Firestore 最後。
+
+{% hint style="info" %}
+參考此 Medium 上的文章，[Firebase Performance](https://medium.com/@d8schreiber/firebase-performance-firestore-and-realtime-database-latency-13effcade26d)。
+{% endhint %}
 
