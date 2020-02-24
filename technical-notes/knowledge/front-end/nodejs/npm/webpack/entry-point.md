@@ -42,3 +42,15 @@ increase-memory-limit
 
 使用後可能導致 Webpack 編譯無反應，此時須重新安裝 NPM Packages。
 
+#### Webpack Dev Server Invalid Host Header
+
+Most development-oriented application servers, such as `ng`, **webpack-dev-server**, or `WAMPP` default to only binding to localhost, or in some cases blocking traffic directly. Essentially, only traffic directed to your machine from itself is allowed to pass through, meaning that traffic passing through the tunnel will not work the same as traffic coming from your machine directly. Even though it works on your machine, the way the server is set up makes it so that even other local machines cannot connect to it.
+
+In most cases, the fix is to tell the server to restart and allow connections from outside localhost. Kill the server and restart it, adding `--host 0.0.0.0` to the command. `--disable-host-check` is sometimes needed here as well. Your **package.json** configuration script might be the following.
+
+```javascript
+"scripts": {
+    "start": "webpack-dev-server --config webpack/base.js --open --host 0.0.0.0 --disable-host-check",
+},
+```
+
