@@ -9,3 +9,10 @@ let x = some.expr.thing; // 錯誤
 let y = some.expr!.thing; // 正確
 ```
 
+#### Argument of type 'void' is not assignable to parameter of type 'Function'. ts\(2345\)
+
+```typescript
+someFunction('key', someCallback(variable)) // 錯誤
+someFunction('key', () => someCallback(variable)) // 正確
+```
+
