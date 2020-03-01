@@ -304,3 +304,11 @@ sudo lsof -PiTCP -sTCP:LISTEN
 kill -9 <UID>
 ```
 
+## 暫時取消 CORS 開啟 Chrome
+
+必須先刪除所有 Chrome 的進程。
+
+```bash
+google-chrome --disable-web-security --user-data-dir
+```
+
