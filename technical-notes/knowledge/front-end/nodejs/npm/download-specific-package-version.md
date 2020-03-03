@@ -191,3 +191,11 @@ sudo npm cache clear --force
 sudo npm install
 ```
 
+## Uninstall
+
+`global` is an option.
+
+```bash
+sudo npm uninstall --global firebase
+```
+
