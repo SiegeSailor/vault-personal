@@ -180,6 +180,12 @@ nvm use 4.2.1
 npm rebuild node-sass
 ```
 
+當需要知道目前套件問題時，可以使用以下指令。
+
+```bash
+npm list
+```
+
 ## Reinstall
 
 Steps that you need to go through if you meet errors when reinstall NPM.
