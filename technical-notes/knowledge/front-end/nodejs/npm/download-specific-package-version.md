@@ -206,7 +206,7 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 * **firebase**
   * 須使用 npm-check 套件，在 `npm-check --update` 檢查後再進行安裝。
   * 或在使用 `su` 進入後安裝。
-  * `tslib` 需要 1.10.0 版本。
+  * `tslib` 需要 1.10.0 版本。firebase 須在 tslib 後安裝。
 * **eslint-plugin-flowtype**
   * `eslint-config-react-app` 需要 3.x 版本。
 
