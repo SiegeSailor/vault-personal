@@ -195,6 +195,19 @@ npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.2 (node_modules/fse
 npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
 ```
 
+### 問題套件
+
+主要發生於 Linux 下，在安裝過程中遇到問題的套件。
+
+* **react-scripts**
+  * 有相容套件須先安裝，另在 Linux 上可使用 `npm install --no-optional`。
+* **node-sass**
+  * 須注意 NodeJS 版本。
+* **firebase**
+  * 須使用 npm-check 套件，在 `npm-check --update` 檢查後再進行安裝。
+* **eslint-plugin-flowtype**
+  * `eslint-config-react-app` 需要 3.x 版本。
+
 ## Reinstall
 
 Steps that you need to go through if you meet errors when reinstall NPM.
