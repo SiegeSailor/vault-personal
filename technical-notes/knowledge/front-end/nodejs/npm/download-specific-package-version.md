@@ -186,6 +186,15 @@ npm rebuild node-sass
 npm list
 ```
 
+#### macOS 外 OS
+
+在 macOS 外使用 NPM 安裝套件時，有些情況會出現以下訊息。由於 fsevents 事實上是專為 macOS 設計的相依性套件，在沒有它的情況在正常 OS 中如 Linux、Windows NPM 仍然能正常使用，我們可以在安裝時用 `npm install --save package --no-optional` 來忽略。
+
+```bash
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.2 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+```
+
 ## Reinstall
 
 Steps that you need to go through if you meet errors when reinstall NPM.
