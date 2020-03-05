@@ -204,6 +204,10 @@ sudo lsof -i -P -n | grep LISTEN
 * -N :: Check timestamp while downloading, only download the newest files
 * -P :: Download to a pointed path
 
+{% hint style="info" %}
+CURL is another option。 See [TechBridge](https://blog.techbridge.cc/2019/02/01/linux-curl-command-tutorial/)。
+{% endhint %}
+
 ## Du 磁碟空間
 
 ```bash
