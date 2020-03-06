@@ -1,6 +1,6 @@
 # React
 
-![React](../../../../.gitbook/assets/image%20%284%29.png)
+![React](../../../.gitbook/assets/image%20%284%29.png)
 
 ## Overview
 
