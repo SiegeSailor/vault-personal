@@ -181,6 +181,20 @@ this.PALM.setScale(1.5).setSize(0.5); // 在這之後，this.PALM 會無法觸�
 this.physics.add.overlap(this.PALM, this.RED_ENVS, this.collectRedEnvs, undefined, this);
 ```
 
+### Text
+
+一但使用 CSS 的方式設定 Font，`font` 屬性就不會生效。`font` 屬性不接受 Multi-Font-Family-Fallback。
+
+```typescript
+this.add
+    .text(CANVAS.WIDTH / 10 - fontSize, CANVAS.HEIGHT, '隱私權政策', {
+      font: `normal ${fontSize}pt ${FONT_FAMILY_DEFAULT}`,
+      fill: FONT_COLOR.WHITE,
+      fontFamily: FONT_FAMILY.DEFAULT,
+      fontSize: `${fontSize}pt`,
+    })
+```
+
 ### Tweens
 
 注意此 Function 中的 `completeDelay`，此意在提供完成後的停頓，然而事實上在 Delay 時該 Tween 已經是完成狀態了。
