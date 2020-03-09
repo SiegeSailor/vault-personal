@@ -105,6 +105,29 @@ this.START_ANIMATION?.play('startFrame_0', true).once(
 );
 ```
 
+### Game Config
+
+`scale` 中的 `mode` 與 `autoCenter` 在 Chrome 的使用者工具上看 RWD 顯示有誤，但實際用 Mobile 測試正常。
+
+```typescript
+const gameConfig: Phaser.Types.Core.GameConfig = {
+  type: Phaser.CANVAS,
+  backgroundColor: '#404040',
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    autoRound: true,
+    width: CANVAS.WIDTH,
+    height: CANVAS.HEIGHT,
+    parent: 'game',
+  },
+  scene: [StartScene, IntroScene, StageScene, FightScene],
+  title: 'Hand Chopping',
+};
+
+export default new Phaser.Game(gameConfig);
+```
+
 ### Graphic
 
 Phaser 中 Graphic 並非一個物件，沒有 width 與 height，一但 setScale 座標會異常。
