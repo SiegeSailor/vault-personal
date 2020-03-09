@@ -174,7 +174,7 @@ preload = () => {
 this.physics.add.overlap(this.PALM, this.RED_ENVS, this.collectRedEnvs, undefined, this);
 ```
 
-collider 和 overlap 在 setScale 後接著 setSize 會失去作用
+Collider 和 Overlap 在 `setScale` 後接著 `setSize` 會失去作用
 
 ```typescript
 this.PALM.setScale(1.5).setSize(0.5); // 在這之後，this.PALM 會無法觸發以下 overlap 
