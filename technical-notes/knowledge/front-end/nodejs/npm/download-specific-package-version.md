@@ -186,6 +186,46 @@ npm rebuild node-sass
 npm list
 ```
 
+#### Gyp Stack Error
+
+在 Mac 上，若安裝套件時出現以下情況，與 Xcode 版本有關，此時可以採取兩種行動。
+
+```bash
+No receipt for 'com.apple.pkg.CLTools_Executables' found at '/'.
+
+No receipt for 'com.apple.pkg.DeveloperToolsCLILeo' found at '/'.
+
+No receipt for 'com.apple.pkg.DeveloperToolsCLI' found at '/'.
+
+gyp: No Xcode or CLT version detected!
+gyp ERR! configure error
+gyp ERR! stack Error: `gyp` failed with exit code: 1
+gyp ERR! stack     at ChildProcess.onCpExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:351:16)
+gyp ERR! stack     at ChildProcess.emit (events.js:223:5)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:272:12)
+gyp ERR! System Darwin 19.3.0
+gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Users/ken.zhang/Desktop/Shopee/hand-chopping-web/node_modules/fsevents
+gyp ERR! node -v v12.14.1
+gyp ERR! node-gyp -v v5.1.0
+gyp ERR! not ok
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11 (node_modules/fsevents):
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11 install: `node-gyp rebuild`
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: Exit status 1
+```
+
+移除 Xcode。
+
+```bash
+sudo rm -rf $(xcode-select -p)
+```
+
+或安裝 Xcode，安裝後需點擊執行並更新條款。
+
+```bash
+sudo xcode-select --install
+```
+
 #### macOS 外 OS
 
 在 macOS 外使用 NPM 安裝套件時，有些情況會出現以下訊息。由於 fsevents 事實上是專為 macOS 設計的相依性套件，在沒有它的情況在正常 OS 中如 Linux、Windows NPM 仍然能正常使用，我們可以在安裝時用 `npm install --save package --no-optional` 來忽略。
