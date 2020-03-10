@@ -57,11 +57,14 @@ In most cases, the fix is to tell the server to restart and allow connections fr
 You need to set `disableHostCheck` as `true` while using **Vue**.
 
 ```javascript
+const port = process.env.PORT !== undefined ? { port: process.env.PORT } : {};
+const hot = process.env.DEV_HOT && process.env.DEV_HOT.match(/^false$/i) ? { hot: false } : {};
+
 module.exports = {
   devServer: {
     ...port,
     ...hot,
-    disableHostCheck: isDisableHostCheck,
+    disableHostCheck: true,
   },
 };
 ```
