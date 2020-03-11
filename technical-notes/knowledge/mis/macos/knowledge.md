@@ -8,8 +8,8 @@
 
 | 按鍵 | 用途 |
 | :--- | :--- |
-| `command` `0` | Normalize screen size |
-| `shift` `space` | Calculate space  |
+| `command`  + `0` | Normalize screen size |
+| `shift`  + `space` | Calculate space  |
 
 
 
