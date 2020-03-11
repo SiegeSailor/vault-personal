@@ -69,3 +69,32 @@ module.exports = {
 };
 ```
 
+#### Error: TypeScript emitted no output for '...tsx'
+
+將 `noEmit` 設為 `false`。
+
+```javascript
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "sourceMap": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react",
+    "baseUrl": "./"
+  },
+  "include": ["src", "__tests__"]
+}
+```
+
