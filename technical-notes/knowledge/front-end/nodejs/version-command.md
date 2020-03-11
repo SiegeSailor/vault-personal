@@ -1,12 +1,16 @@
 # Command
 
-## Version Control
+### Version Control
 
-#### Display the Current Version
+Display the Current Version. You can simply use `node -v` as well.
 
 ```bash
 node --version
 ```
 
-You can simply use `node -v` as well.
+Execute file.
+
+```bash
+node file.js
+```
 
