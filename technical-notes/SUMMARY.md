@@ -69,6 +69,7 @@
     * [Chmod](knowledge/mis/ubuntu/chmod.md)
     * [Shell Script](knowledge/mis/ubuntu/shell-script/README.md)
       * [Concept](knowledge/mis/ubuntu/shell-script/concept.md)
+      * [Functions](knowledge/mis/ubuntu/shell-script/functions.md)
     * [Crontab 自動排程](knowledge/mis/ubuntu/crontab-zi-dong-pai-cheng.md)
     * [Command](knowledge/mis/ubuntu/command.md)
     * [Activate Files](knowledge/mis/ubuntu/activate-files-on-server.md)
