@@ -1,6 +1,6 @@
 # Shell Script
 
-![Shell Script](../../../.gitbook/assets/shellscript-128x128-circle.png)
+![Shell Script](../../../../.gitbook/assets/shellscript-128x128-circle.png)
 
 ## Overview
 
