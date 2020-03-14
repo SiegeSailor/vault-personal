@@ -156,3 +156,17 @@ Simply drop the `.decode('utf-8')` part.
 * 使用了一個以上的 ENV 檔案
 * 使用了斷行。ENV 檔案內為 String 的 Key Value 類型，分行即代表不在同一個 Key 內
 
+### VS Code 相關
+
+Python 在 VS Code 上運行遇見的問題。
+
+#### There is no Pip installer available in the selected environment
+
+先使用 `Ctrl` + `Shift` + `P`，進到 Python: Select Interpreter，選擇 `Python3` 或 `Python2` 之間正在選擇的 OS Default Python Version。
+
+再來依 Python 版本安裝 PIP。
+
+```bash
+apt-get install python3-pip
+```
+
