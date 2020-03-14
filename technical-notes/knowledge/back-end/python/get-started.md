@@ -119,3 +119,7 @@ source ~/.bashrc
 source ~/.zshrc
 ```
 
+## VS Code
+
+若要在 VS Code 中執行 Python 檔案，須安裝 [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) Extension。安裝後，在選定檔案點擊右鍵選擇 `Run Python File in Terminal` 來執行。
+
