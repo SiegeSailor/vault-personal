@@ -67,6 +67,7 @@
     * [指令集](knowledge/mis/mysql/zhi-ling-ji.md)
   * [Ubuntu](knowledge/mis/ubuntu/README.md)
     * [Chmod](knowledge/mis/ubuntu/chmod.md)
+    * [Shell Script](knowledge/mis/ubuntu/shell-script.md)
     * [Crontab 自動排程](knowledge/mis/ubuntu/crontab-zi-dong-pai-cheng.md)
     * [Command](knowledge/mis/ubuntu/command.md)
     * [Activate Files](knowledge/mis/ubuntu/activate-files-on-server.md)
