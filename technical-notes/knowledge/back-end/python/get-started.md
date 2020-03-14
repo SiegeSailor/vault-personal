@@ -91,5 +91,31 @@ All the packages that you have installed with Homebrew will be listed out.
 brew uninstall Python
 ```
 
+## Default Python Version
 
+根據使用的 Shell，進入指定文件。
+
+```bash
+sudo vim ~/.bashrc
+```
+
+```bash
+sudo vim ~/.zshrc
+```
+
+在最上面一行加入以下程式碼。
+
+```bash
+alias python=python3
+```
+
+`:wq` 儲存後，執行。
+
+```bash
+source ~/.bashrc
+```
+
+```bash
+source ~/.zshrc
+```
 
