@@ -10,6 +10,7 @@
 * [Front-End](knowledge/front-end/README.md)
   * [TypeScript](knowledge/front-end/typescript/README.md)
     * [Common Issues](knowledge/front-end/typescript/common-issues.md)
+    * [Config](knowledge/front-end/typescript/config.md)
   * [JavaScript](knowledge/front-end/javascript/README.md)
     * [Common Issues](knowledge/front-end/javascript/common-issues.md)
     * [Page Loaded](knowledge/front-end/javascript/page-loaded.md)
