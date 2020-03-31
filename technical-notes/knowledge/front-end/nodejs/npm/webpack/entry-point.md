@@ -100,7 +100,7 @@ module.exports = {
 }
 ```
 
-套件衝突
+### 套件衝突
 
 在同一個 `module` 的區塊內，`mini-css-extract-plugin` 不可與 `style-loader` 共用。
 
@@ -126,4 +126,8 @@ const config: webpack.Configuration = {
   },
 };
 ```
+
+### Import
+
+若想在 Webpack Config 內使用 Import，必須安裝 `ts-node`。這是因為 `ts-node` 能夠 Cache 住 TS 檔案並熱編譯成 JS，而 Import 在特地版本的 Node 版本之前並不存在，這能達成一種 Poly-fill。
 
