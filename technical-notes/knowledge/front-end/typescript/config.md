@@ -16,7 +16,8 @@
 
 ```javascript
 "scripts" : {
-    "mergeTsconfig": "cross-env TS_NODE_PROJECT=\"tsconfig.extended.json\" npm run $1"
+    "mergeTsconfig": "cross-env TS_NODE_PROJECT=\"tsconfig.extended.json\" npm run $1",
+    "devBuild": "webpack --config config/webpack.dev.ts --colors --profile --progress",
 }
 ```
 
@@ -32,7 +33,7 @@
 }
 ```
 
-$1 為第二個參數的意思，因此，實際執行時指令應為如下。
+`$1` 是第二個參數的意思，因此，實際執行時指令應如下。
 
 ```bash
 npm run mergeTsconfig devBuild
