@@ -60,6 +60,7 @@
         * [Trouble Shooting](knowledge/front-end/nodejs/npm/webpack/entry-point.md)
 * [Firebase](knowledge/firebase/README.md)
   * [Storage](knowledge/firebase/storage.md)
+  * [Cloud Function](knowledge/firebase/cloud-function.md)
 * [MIS](knowledge/mis/README.md)
   * [PostgreSQL](knowledge/mis/postgresql/README.md)
     * [指令集](knowledge/mis/postgresql/zhi-ling-ji.md)
