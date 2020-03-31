@@ -2,17 +2,19 @@
 
 ## Trouble Shooting
 
-#### Module not found: Error: Can't resolve jQuery in
+一些已知問題。
+
+### Module not found: Error: Can't resolve jQuery in
 
 ```bash
 npm install --save jquery
 ```
 
-#### Execute Twice
+### Execute Twice
 
 Check if you load your file outside **Entry Point** again.
 
-#### Watch 無效
+### Watch 無效
 
 當在 Ubuntu 使用 Watch 指令監聽，卻在改動後毫無反應時，可以嘗試以下指令來增加 Watch 數量。
 
@@ -20,11 +22,11 @@ Check if you load your file outside **Entry Point** again.
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-#### Package exports for '.../@babel/helper-compilation-targets' do not define a '.' subpath
+### Package exports for '.../@babel/helper-compilation-targets' do not define a '.' subpath
 
 此為 Babel 的錯誤，若發生請將 NodeJS 升級至 &gt;= **13.2.0**。
 
-#### 處理時超出預設內存
+### 處理時超出預設內存
 
 在Node 中通過JavaScript 使用內存時只能使用部分內存（ 64 位系統：1.4 GB，32 位系統：0.7 GB ），這個時候，如果前端項目非常的龐大，Webpack 編譯時就會佔用很多的系統資源，如果超出了V8 引擎對Node 默認的內存限制大小時，就會產生內存洩露 _**FATAL ERROR: CALL\_AND\_RETRY\_LAST Allocation failed - JavaScript heap out of memory**_ 的錯誤。
 
@@ -42,7 +44,7 @@ increase-memory-limit
 
 使用後可能導致 Webpack 編譯無反應，此時須重新安裝 NPM Packages。
 
-#### Webpack Dev Server Invalid Host Header
+### Webpack Dev Server Invalid Host Header
 
 Most development-oriented application servers, such as `ng`, **webpack-dev-server**, or `WAMPP` default to only binding to localhost, or in some cases blocking traffic directly. Essentially, only traffic directed to your machine from itself is allowed to pass through, meaning that traffic passing through the tunnel will not work the same as traffic coming from your machine directly. Even though it works on your machine, the way the server is set up makes it so that even other local machines cannot connect to it.
 
@@ -69,7 +71,7 @@ module.exports = {
 };
 ```
 
-#### Error: TypeScript emitted no output for '...tsx'
+### Error: TypeScript emitted no output for '...tsx'
 
 將 `noEmit` 設為 `false`。
 
@@ -96,5 +98,32 @@ module.exports = {
   },
   "include": ["src", "__tests__"]
 }
+```
+
+套件衝突
+
+在同一個 `module` 的區塊內，`mini-css-extract-plugin` 不可與 `style-loader` 共用。
+
+```javascript
+const config: webpack.Configuration = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+              reloadAll: true,
+            },
+          },
+          'css-loader',
+          'style-loader' // 這段應拿掉
+        ],
+      },
+    ],
+  },
+};
 ```
 
