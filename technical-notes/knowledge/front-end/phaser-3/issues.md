@@ -47,20 +47,29 @@ export const buttonClick = (button: Phaser.GameObjects.Sprite, buttonImageName: 
 };
 ```
 
+anims.create\( { frames: \[key: "", frame: "" \] } \)，裡面的 frame 在 Phaser 內無文件說明，而且除了 0 以外的值都會有 Missing Warning。
+
+```typescript
+this.anims.create({
+  key: 'grabing',
+  frames: [
+    // frame 必須為 0
+    { key: itemKeyGenerator('General Objects__Hand__Palm_Image'), frame: 0 },
+    { key: itemKeyGenerator('General Objects__Hand__Fist_Image'), frame: 0 },
+  ],
+  defaultTextureKey: itemKeyGenerator('General Objects__Hand__Palm_Image'),
+  frameRate: 4,
+  repeat: 0,
+  yoyo: true,
+});
+```
+
 ### Audio
 
 Phaser 的 Aduio Manager 事實上會把所有直接播放的音訊儲存，而非如文件所說播放後即移除。以下 Audio 在播放後仍可在 Audio Manager 中找到。
 
 ```javascript
 this.sound.play('loaded_audio_key');
-```
-
-Phaser 並未提供一次對所有當前音訊的操作方法，以下雖非原生 API 但實測有效。
-
-```javascript
-this.sound.sounds.forEach((sound: Phaser.Sound.BaseSound) => {
-      sound.stop();
-});
 ```
 
 ### Create Method
@@ -158,11 +167,22 @@ temporaryWhiteBlock.destroy();
 
 Preload 的資源會以 Key 為基準唯一存在，可以在之後的 Scene 中使用。在 Production 前應將重複 load 的資源刪除。開發時維持，因會直接從指定 scene 繼續開發。
 
+或者，將所有或相關連的 load 動作放在單一 Scene 中做 Loading。
+
 ```typescript
 preload = () => {
     this.load.audio('BGM', '/audios/start.mp3');
     this.load.image('BG', '/images/bg_game.jpg');
     // BGM 和 BG 在之後 Add 或 Start 的 Scene 都可以不經 Preload 直接使用
+};
+```
+
+當 Preload 使用 `async` 時會導致整個 Preload Function 無法運作。
+
+```javascript
+preload = async () => {
+    await this.fetchData();
+    this.load.image(ASSET_KEY.START_BG, this.registry.get('source')[KEY_IMAGE_1]);
 };
 ```
 
@@ -248,7 +268,32 @@ this.PALM_ANIMATION.remove();
 
 ### Types
 
-GameObject 與 Arcade 都能使用 `iterate`，但 `iterate` 只有 Arcade type。
+Phaser 並未提供一次對所有當前音訊的操作方法，以下雖非原生 API 但實測有效。然而此方法並不存在原先 Type 中，需另外宣告，在此用 `patch-package` 直接更改原 Module 內的 Type File。
+
+```javascript
+this.sound.sounds.forEach((sound: Phaser.Sound.BaseSound) => {
+      sound.stop();
+});
+```
+
+```typescript
+--- a/node_modules/phaser/types/phaser.d.ts
++++ b/node_modules/phaser/types/phaser.d.ts
+@@ -77730,6 +77737,11 @@ declare namespace Phaser {
+              */
+             constructor(game: Phaser.Game);
+ 
++            /**
++             * All existing sounds.
++             */
++            readonly sounds:Phaser.Sound.BaseSound[]
++
+             /**
+              * Local reference to game.
+              */
+```
+
+GameObject 與 Arcade 都能使用 `iterate`，但 `iterate` 只有 Arcade Type。要使用，需另外宣告，在此用 `patch-package` 直接更改原 Module 內的 Type File。
 
 ```typescript
 this.RED_ENVS?.children.iterate(child => {
@@ -256,7 +301,26 @@ this.RED_ENVS?.children.iterate(child => {
 });
 ```
 
-Animation 有 false type，應只有 animation。
+```typescript
+--- a/node_modules/phaser/types/phaser.d.ts
++++ b/node_modules/phaser/types/phaser.d.ts
+@@ -14765,6 +14765,13 @@ declare namespace Phaser {
+              */
+             type: string;
+ 
++            /**
++             * Stops and disables this Game Object's Body.
++             * @param disableGameObject Also deactivate this Game Object. Default false.
++             * @param hideGameObject Also hide this Game Object. Default false.
++             */
++            disableBody(disableGameObject?: boolean, hideGameObject?: boolean): this;
++
+             /**
+              * The current state of this Game Object.
+              * 
+```
+
+Animation 有 `false` type，應只有 animation。
 
 ```typescript
 const countDownAnimation = scene.anims.create({
@@ -271,9 +335,43 @@ COUNT_DOWN.anims.playReverse('countDown').once('animationcomplete', () => {
   COUNT_DOWN.destroy();
   resolve({
     switch: true,
-    duration: countDownAnimation.duration, // 這裡的 duration 會報 Type 錯誤
+    // duration: countDownAnimation.duration, // 這裡的 duration 會報 Type 錯誤
+    duration: titleAnimation.duration + (countDownAnimation ? countDownAnimation.duration : null)!,
   });
 });
+```
+
+不知道為何 setInterval 回傳的值 Type 是 `Timeout` 而非 `number`。
+
+```typescript
+const timeIntervals:any[] = []; // 若使用 number[] 會報錯 not assignable
+
+const redEnvCreateInterval = setInterval(() => {
+      if (this.COUNT_DOWN.switch) {
+        this.redEnvCreate();
+      }
+    }, 2000);
+
+timeIntervals:any.push(redEnvCreateInterval);
+```
+
+只有 GameObject 可以用來載入 `physics.add.overlap`，但實務上不可能如此，而且實作 Sprite 和 Group 可以運作。
+
+```typescript
+// 若 Parameters 設 palm: Phaser.Physics.Arcade.Sprite, redEnv: Phaser.Physics.Arcade.Sprite 會報錯
+collectRedEnvs = (palm: any, redEnv: any) => {
+  if (this.GAME_FLAG === 'conducting') {
+    this.sound.play(LOCAL_ASSET_KEY.ITEMIZE_AUDIO);
+    redEnv.destroy();
+    this.SCORE += 1;
+    if (this.SCORE >= retriveSource(this, 'Stage Setting__General Setting__Clear Condition_Text', 5)) {
+      this.loseAndWinCallback('win');
+    }
+    this.RED_ENV_VALUE?.anims.setCurrentFrame(this.RED_ENV_VALUE.anims.currentAnim.frames[this.SCORE]);
+    this.PALM?.anims.stop();
+    this.PALM?.setTexture(itemKeyGenerator('General Objects__Hand__Grabing_Image'));
+  }
+};
 ```
 
 ### Update Method
@@ -301,5 +399,42 @@ pdate = (time:number) => {
 this.scene.remove(data.currentScene);
 ```
 
+若將指向 this 下的 Function 放在 async function 的 `then` 內，該 Function 會不存在。
 
+```typescript
+preload = () => {
+    this.fetchData().then(() => {
+          this.load.image(ASSET_KEY.START_BG, this.registry.get('source')[KEY_IMAGE_1]);
+    })
+ };
+```
+
+在 start 或 add Scene 時，若一直連按，會報錯 `Cannot read property 'getScene' of null` 或 `Cannot read property 'add' of null`。
+
+```typescript
+this.scene.start(nextScene, config{ ...startConfig, currentScene, origin });
+this.scene.add(nextScene, mapScene(nextScene), true, config);
+```
+
+add Scene 後、下一個 Scene 開始時，總會報錯 `Cannot read property 'sys' of null`。
+
+```typescript
+this.scene.add(nextScene, mapScene(nextScene), true, config);
+```
+
+### Phaser 3 Rex Plugins
+
+本身 Module 並沒有宣告檔，也沒有 `@types/package`，所以如果用以下方式使用。
+
+```typescript
+import AwaitLoaderPlugin from 'phaser3-rex-plugins/plugins/awaitloader-plugin.js';
+import WebfontLoaderPlugin from 'phaser3-rex-plugins/plugins/webfontloader-plugin.js';
+```
+
+必須自行建立宣告檔，以下位於 `src/types/phaser3-rex-plugins/index.d.ts`。
+
+```typescript
+declare module 'phaser3-rex-plugins/plugins/awaitloader-plugin.js';
+declare module 'phaser3-rex-plugins/plugins/webfontloader-plugin.js';
+```
 
