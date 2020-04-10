@@ -293,3 +293,13 @@ pdate = (time:number) => {
 }
 ```
 
+### Scene
+
+不算問題，但在 scene.remove 時若指定的是當下 Scene 的 Key 會報錯 `Cannot read property 'sys' of null`。
+
+```typescript
+this.scene.remove(data.currentScene);
+```
+
+
+
