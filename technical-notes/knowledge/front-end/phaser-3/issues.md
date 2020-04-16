@@ -359,7 +359,7 @@ timeIntervals:any.push(redEnvCreateInterval);
 
 ```typescript
 // 若 Parameters 設 palm: Phaser.Physics.Arcade.Sprite, redEnv: Phaser.Physics.Arcade.Sprite 會報錯
-collectRedEnvs = (palm: Phaser.GameObjects.TileSprite, redEnv: Phaser.GameObjects.TileSprite) => {
+collectRedEnvs = (palm: Phaser.GameObjects.GameObject, redEnv: Phaser.GameObjects.GameObject) => {
   if (this.GAME_FLAG === 'conducting') {
     this.sound.play(LOCAL_ASSET_KEY.ITEMIZE_AUDIO);
     redEnv.destroy();
