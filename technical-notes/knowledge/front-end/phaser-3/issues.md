@@ -341,10 +341,10 @@ COUNT_DOWN.anims.playReverse('countDown').once('animationcomplete', () => {
 });
 ```
 
-不知道為何 setInterval 回傳的值 Type 是 `Timeout` 而非 `number`。
+setInterval 回傳的值 Type 是 `Timeout` 而非 `number`。也可以使用 `window.setTimeout()`，該函式回傳為 `number`。
 
 ```typescript
-const timeIntervals:any[] = []; // 若使用 number[] 會報錯 not assignable
+const timeIntervals:ReturnType<typeof setTimeout>[] = []; // 若使用 number[] 會報錯 not assignable
 
 const redEnvCreateInterval = setInterval(() => {
       if (this.COUNT_DOWN.switch) {
