@@ -103,6 +103,18 @@ container.destroy();
 console.log(container.active) // 此時為 false
 ```
 
+### DOM
+
+DOM GameObject 不可和一般 GameObject 一起控制或放在同一個 Container 中。
+
+```typescript
+const domContainer = this.add.container(0, 0);
+domContainer.add([LINK_COPY_BUTTON, LINK_COPY_TEXT, QR_CODE]);
+domContainer.setAlpha(0).setDepth(INDEX_Z.MASK_ON);
+
+this.INVITE_CONTAINER.add([MASK, DESCRIPTION_BOARD, DESCRIPTION, LABEL_LINK, LINK_BOARD, LINK, LABEL_QR_CDOE]).setDepth(INDEX_Z.MASK_ON);
+```
+
 ### Event
 
 `on` 在第一個 Frame 就會觸發，`once` 會等全部 Frame 都播放後才觸動。
@@ -135,6 +147,37 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
 };
 
 export default new Phaser.Game(gameConfig);
+```
+
+### Game Objects
+
+用原生 JS 實作點擊複製文字的的功能時在 iOS 遇到困難，不得已使用 ClipboardJS，但又遇到 iOS 10 以上不認定不具有點擊效果的元素的觸發行為，遂將觸發的物件由 Phaser.GameObjects.Sprite 改為 HTMLDOM。
+
+```typescript
+import * as Phaser from 'phaser';
+import ClipboardJS from 'clipboard';
+
+const userCopy = (content: string, element: HTMLInputElement | HTMLButtonElement) => {
+  const clipBoard = new ClipboardJS(element, {
+    text(trigger: Element) {
+      return content;
+    },
+  });
+
+  clipBoard.on('success', () => {
+    console.log('Clip Board Success');
+    clipBoard.destroy();
+  });
+  clipBoard.on('error', () => {
+    console.log('Clip Board Error');
+    clipBoard.destroy();
+  });
+};
+
+const GENERATED_URL_LINK = 'https://localhost/';
+const elementCopyLinkButton = document.createElement('button');
+elementCopyLinkButton.id = 'copy-link-button';
+userCopy(GENERATED_URL_LINK, elementCopyLinkButton);
 ```
 
 ### Graphic
