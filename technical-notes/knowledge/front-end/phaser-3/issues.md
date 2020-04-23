@@ -206,6 +206,35 @@ temporaryWhiteBlock.generateTexture(ASSET_KEY.WHITE_BLOCK, CANVAS.WIDTH / 1.65, 
 temporaryWhiteBlock.destroy();
 ```
 
+### Input
+
+若沒有在載入時 Focus 在視窗內，或是滑鼠正好有點擊事件，有機率 `setInteractive()` 失效。
+
+```typescript
+this.CONFIRM_BUTTON.setInteractive().on('pointerdown', () => {
+  this.confirm();
+});
+
+// 以上可以改為以下做法，避免失效。
+
+this.input.on(
+  'gameobjectdown',
+  (
+    pointer: Phaser.Input.InputManager,
+    gameObject: Phaser.GameObjects.Sprite,
+  ) => {
+    switch (gameObject) {
+      case this.CONFIRM_BUTTON:
+        this.confirm();
+        break;
+      default:
+        this.confirm();
+        break;
+    }
+  },
+);
+```
+
 ### Preload Method
 
 Preload 的資源會以 Key 為基準唯一存在，可以在之後的 Scene 中使用。在 Production 前應將重複 load 的資源刪除。開發時維持，因會直接從指定 scene 繼續開發。
