@@ -463,6 +463,14 @@ pdate = (time:number) => {
 }
 ```
 
+### Scale
+
+移動視窗大小有可能導致 Phaser 無法感應到 Input。可在 create\(\) 內使用以下方式解決。但若使用者在開始遊戲後仍變動尺寸則無法。
+
+```typescript
+this.scale.setGameSize(CANVAS.WIDTH, CANVAS.HEIGHT);
+```
+
 ### Scene
 
 不算問題，但在 scene.remove 時若指定的是當下 Scene 的 Key 會報錯 `Cannot read property 'sys' of null`。
