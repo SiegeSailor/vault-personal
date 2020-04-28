@@ -31,6 +31,7 @@
       * [Number Input](knowledge/front-end/javascript/jquery/number-input.md)
       * [Progress Loading](knowledge/front-end/javascript/jquery/progress-loading.md)
       * [jQuery 與 JavaScript](knowledge/front-end/javascript/jquery/js.md)
+  * [Utility](knowledge/front-end/utility.md)
   * [React](knowledge/front-end/react/README.md)
     * [Methods](knowledge/front-end/react/methods.md)
     * [PropTypes 類型檢查](knowledge/front-end/react/proptypes-lei-xing-jian-cha.md)
