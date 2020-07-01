@@ -73,7 +73,6 @@ export const EventNames: { [key in WebSocket.EventNames]: WebSocket.EventNames }
 
 ```typescript
 // export.ts
-
 const exportedObject = {
     a: 1,
     b: 2,
@@ -93,6 +92,73 @@ import { exportedObject, exportedLet} from 'export'
 
 exportedLet = 2; // 錯誤
 exportedObject.a = 2; // 正確
+```
+
+#### Module Path
+
+若是使用 TypeScript，無論是使用 `tsc` 編譯後使用或直接用 `ts-node`，都必須使用 **絕對路徑**。
+
+```typescript
+import { Change, Event } from './constants/index'; 
+import { Names } from './constants/common'; 
+```
+
+但若是使用 `module-alias`，則可以使用 `tsconfig` 的 Path 設定。
+
+```bash
+npm install --save module-alias
+npm install --save-dev @types/module-alias
+```
+
+在任意地方創建 alias.ts \( 通常與 index.ts 同層 \)。以下 Path 需與 `tsconfig` 內的 Path 同步。並在 index.ts 的最上層匯入。
+
+```typescript
+// alias.ts
+import ModuleAlias from 'module-alias';
+
+ModuleAlias.addAliases({
+  '@routes': __dirname + '/routes',
+  '@constants': __dirname + '/constants',
+  '@types': __dirname + '/types',
+  '@utils': __dirname + '/utils',
+  '@triggers': __dirname + '/triggers',
+});
+
+// tsconfig.ts
+{
+  "compilerOptions": {
+    "paths": {
+      "@routes/*": ["./routes/*"],
+      "@constants/*": ["./constants/*"],
+      "@types/*": ["./types/*"],
+      "@utils/*": ["./utils/*"],
+      "@triggers/*": ["./triggers/*"]
+    },
+  }
+}
+
+// index.ts
+import './alias';
+import common from '@routes/common/index';
+import handchopping from '@routes/handchopping/index';
+
+module.exports = {
+  common,
+  handchopping,
+  handchoppingProd: handchopping,
+};
+```
+
+注意，若是裡面有使用到不需匯入即可使用的、全域宣告的 `*.d.ts` 檔，在先 `tsc` 編譯後再使用的情況下不會有錯，但若是使用 `ts-node`，則必須在使用到的檔案最上方使用 **類型宣告引用**。
+
+```typescript
+/// <reference path="./../../types/webSocket.d.ts" />
+
+export const EventNames: { [key in WebSocket.EventNames]: WebSocket.EventNames } = {
+  Join: 'Join',
+  Sys: 'Sys',
+  Leave: 'Leave',
+};
 ```
 
 ### 關於宣告檔
