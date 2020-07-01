@@ -133,6 +133,8 @@
 
 ## Edallianz
 
+---
+
 * [Introduction](introduction.md)
 * [WordPress Admin](admin/README.md)
   * [Description](admin/description.md)
