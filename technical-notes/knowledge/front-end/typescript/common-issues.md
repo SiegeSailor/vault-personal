@@ -163,7 +163,7 @@ export const EventNames: { [key in WebSocket.EventNames]: WebSocket.EventNames }
 
 ### 關於宣告檔
 
-當使用 `*.d.ts` 檔做全域類型宣告檔時，不可用 ES6 Modules 的方法去匯入，必須在 `ts.config.json` 內做宣告檔的路徑管理，或者用以下方法在 Entry Point TS File 匯入。
+當使用 `*.d.ts` 檔做全域類型宣告檔時，不可用 ES6 Modules 的方法去匯入，必須在 `ts.config.json` 內做宣告檔的 **include** 路徑管理，或者用以下方法在 Entry Point TS File 匯入。
 
 ```typescript
 /// <reference path="" />
