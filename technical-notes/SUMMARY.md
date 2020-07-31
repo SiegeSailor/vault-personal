@@ -144,5 +144,6 @@
 
 ## Diary
 
+* [Funnel Chest Facebook Edition](diary/funnel-chest-facebook-edition.md)
 * [Funnel Chest](diary/funnel-chest.md)
 
