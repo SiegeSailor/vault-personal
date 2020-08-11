@@ -153,6 +153,12 @@ docker-compose up --build
 docker-compose -f docker-compose-release.yaml up
 ```
 
+瀏覽指定 container 的 log 檔。
+
+```bash
+docker logs -f <my container>
+```
+
 關閉 Docker。
 
 ```bash
