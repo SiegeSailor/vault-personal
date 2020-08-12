@@ -72,6 +72,12 @@ git config --global -l
 
 to get _**the list of all proxy defined**_, and then use `--unset` to disable them
 
+### Use default Merge Message After Resolving Conflicts
+
+```bash
+git commit --no-edit
+```
+
 ## Trouble Shootings
 
 Common issues.
