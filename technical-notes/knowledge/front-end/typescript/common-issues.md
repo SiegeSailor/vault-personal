@@ -96,7 +96,7 @@ exportedObject.a = 2; // 正確
 
 #### Module Path
 
-若是使用 TypeScript，無論是使用 `tsc` 編譯後使用或直接用 `ts-node`，都必須使用 **絕對路徑**。
+遇到這情況是在建 Firebase Cloud Function 時，因為 @ 開頭的路徑都會被認為是 Node Module，因此無論是使用 `tsc` 編譯後使用或直接用 `ts-node`，都必須使用 **絕對路徑**。
 
 ```typescript
 import { Change, Event } from './constants/index'; 
