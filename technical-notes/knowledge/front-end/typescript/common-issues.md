@@ -161,6 +161,80 @@ export const EventNames: { [key in WebSocket.EventNames]: WebSocket.EventNames }
 };
 ```
 
+#### Spread Operator
+
+在 TS `3.8.3` 中，Function 沒辦法直接取得由 `...[arg1, arg2]` 的方式傳入的值、並照順序當 Parameter 用。如下將會報錯。
+
+```typescript
+function producer(){
+    return ['1', '2']
+};
+
+function generator(p1: string, p2: string){
+    return [s1, s2]
+};
+
+generator(...producer()); // Expected 2 arguments, but got 0 or more.
+```
+
+合理推測是，TS 無法識別藉由 Spread Operator 傳入的陣列內的長度，因此出現沒得到期望參數的錯誤。首先，可以用幾種 Type Assertion 的方式。
+
+```typescript
+(generator as any)(...producer()); // 成功
+```
+
+```typescript
+generator(...producer() as [string, string]); // 成功
+```
+
+或該 Function 直接期望 Spread Operator。
+
+```typescript
+function generator(...ps: string[]){
+    return ps
+};
+
+generator(...producer()); // 成功
+```
+
+也可以使用各種 Optinal Parameter。
+
+```typescript
+function generator(...ps: string[]){
+    return ps
+};
+
+generator(...producer()); // 成功
+```
+
+```typescript
+function generator<T>(ps?: T): T[]{
+    return [ps[0], ps[1]]
+};
+
+generator(...producer()); // 成功
+```
+
+或指定 Type 的方式。
+
+```typescript
+type TypePS = [string, string];
+
+function producer(): TypePS {
+    return ['1', '2']
+};
+
+function generator(p1: string, p2: string): TypePS {
+    return [p1, p2]
+};
+
+generator(...producer()); // 成功
+```
+
+{% hint style="info" %}
+關於 Spread Operator 在 TS 中的使用，請參考 [此 Issue](https://github.com/microsoft/TypeScript/issues/5296)。此 Issue 應在 2.4.2 就修正了，但在 3.8.3 中仍有問題。
+{% endhint %}
+
 ### 關於宣告檔
 
 當使用 `*.d.ts` 檔做全域類型宣告檔時，不可用 ES6 Modules 的方法去匯入，必須在 `ts.config.json` 內做宣告檔的 **include** 路徑管理，或者用以下方法在 Entry Point TS File 匯入。
