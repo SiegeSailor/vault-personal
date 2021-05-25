@@ -19,7 +19,7 @@ Due to the limit of projects for one account, I applied many accounts for differ
 * kenjinyu \| talimusd11 \| kenzhang@rd.edallianz.com
 * seigesailor \| talimusd11 \| siegesailor@gmail.com
 * lookswalidy \| talimusd11 \| lookswalidy@yahoo.com.tw
-* 
+
 {% hint style="info" %}
 Check [Here](https://zeplin.io/) to visit their website.
 {% endhint %}
