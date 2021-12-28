@@ -44,23 +44,11 @@ const config = {
     ({
       navbar: {
         title: 'SiegeSailor',
-        logo: {
-          alt: 'SiegeSailor Logo',
-          src: 'img/logo.svg',
-        },
+        logo: { alt: 'SiegeSailor Logo', src: 'img/logo.svg' },
         items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Notes',
-          },
+          { type: 'doc', docId: 'intro', position: 'left', label: 'Notes' },
           { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: 'https://github.com/SiegeSailor',
-            label: 'GitHub',
-            position: 'right',
-          },
+          { href: 'https://github.com/SiegeSailor', label: 'GitHub', position: 'right' },
         ],
       },
       footer: {
@@ -76,37 +64,20 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Links',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+              { label: 'StackOverflow', href: 'https://stackoverflow.com/users/13564651/siegesailor' },
+              { label: 'GitHub', href: 'https://github.com/SiegeSailor' },
+              { label: 'Facebook', href: 'https://www.facebook.com/lookswalidy' },
+              { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jin-yu-zhang-812181155/' },
             ],
           },
           {
             title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
+            items: [{ label: 'Blog', to: '/blog' }],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `© SiegeSailor ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
