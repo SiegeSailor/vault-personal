@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'SiegeSailor', // Usually your GitHub org/user name.
-  projectName: 'SiegeSailor-Monorepo', // Usually your repo name.
+  organizationName: 'SiegeSailor',
+  projectName: 'SiegeSailor-Monorepo',
   deploymentBranch: 'master',
 
   presets: [
@@ -24,13 +24,11 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/SiegeSailor/Servicetech-Monorepo',
+          editUrl: 'https://github.com/SiegeSailor/SiegeSailor-Monorepo/tree/master/NOTE',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/SiegeSailor/Servicetech-Monorepo',
+          editUrl: 'https://github.com/SiegeSailor/SiegeSailor-Monorepo/tree/master/NOTE',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -54,15 +52,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
+          { title: 'Docs', items: [{ label: 'Tutorial', to: '/docs/intro' }] },
           {
             title: 'Links',
             items: [
@@ -72,10 +62,7 @@ const config = {
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jin-yu-zhang-812181155/' },
             ],
           },
-          {
-            title: 'More',
-            items: [{ label: 'Blog', to: '/blog' }],
-          },
+          { title: 'More', items: [{ label: 'Blog', to: '/blog' }] },
         ],
         copyright: `© SiegeSailor ${new Date().getFullYear()}`,
       },
