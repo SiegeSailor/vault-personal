@@ -52,7 +52,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          { title: 'Docs', items: [{ label: 'Tutorial', to: '/docs/intro' }] },
+          { title: 'Notes', items: [{ label: 'Intro', to: '/docs/intro' }] },
           {
             title: 'Links',
             items: [
