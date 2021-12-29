@@ -25,6 +25,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/SiegeSailor/SiegeSailor-Monorepo/tree/master/NOTE',
+          remarkPlugins: [require('remark-mermaid-dataurl')],
         },
         blog: {
           showReadingTime: true,
