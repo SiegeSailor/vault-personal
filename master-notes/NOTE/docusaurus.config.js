@@ -43,7 +43,6 @@ const config = {
     ({
       navbar: {
         title: 'SiegeSailor',
-        logo: { alt: 'SiegeSailor Logo', src: 'img/logo.svg' },
         items: [
           { type: 'doc', docId: 'intro', position: 'left', label: 'Notes' },
           { to: '/blog', label: 'Blog', position: 'left' },

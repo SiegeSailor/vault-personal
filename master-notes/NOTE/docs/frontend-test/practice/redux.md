@@ -7,7 +7,7 @@ sidebar_position: 7
 Redux 實作了 Context 功能，能夠不藉由一層層的 Props 傳遞資料，然而仍然要求父層需有 Provider 供取用。這也代表使用了 Redux Selector Hook 或 Redux Connect 的 Component 不能直接運作。若我們撰寫如以下 Component 的測試：
 
 ```typescript title="index.tsx"
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 export default function TestComponent() {
   const title = useSelector((store) => store.meta.title);
@@ -21,11 +21,11 @@ export default function TestComponent() {
 ```
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(renderer.create(<TestComponent />).toJSON()).toMatchSnapshot();
 });
 ```
@@ -43,19 +43,20 @@ it("Does the component render correctly", () => {
 使用 Provider 並利用 `redux-mock-store` Mock Store：
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
-import configureStore from "redux-mock-store";
-import { Provider } from "react-redux";
+import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
+/** 若有使用 Middleware，則需作為 Parameter 傳入 `configureStore` */
 const mockStore = configureStore();
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(
     renderer
       .create(
-        <Provider store={mockStore({ meta: { title: "" } })}>
+        <Provider store={mockStore({ meta: { title: '' } })}>
           <TestComponent />
         </Provider>
       )
@@ -69,18 +70,18 @@ it("Does the component render correctly", () => {
 使用既有的 Store 並抽取出來：
 
 ```typescript title="index.test.tsx"
-import { ReactNode } from "react";
-import { Provider } from "react-redux";
-import { AnyAction, Store } from "@reduxjs/toolkit";
+import { ReactNode } from 'react';
+import { Provider } from 'react-redux';
+import { AnyAction, Store } from '@reduxjs/toolkit';
 
-import { store } from "state";
-import TestComponent from "./index";
+import { store } from 'state';
+import TestComponent from './index';
 
 function WrapComponentWithProvider(children: ReactNode) {
   return <Provider store={store}>{children}</Provider>;
 }
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(
     renderer
       .create(
@@ -98,10 +99,10 @@ it("Does the component render correctly", () => {
 使用到 `@testing-library/react` 的測試會需要用 `render` 來渲染，可以將其與 Provider 包裝：
 
 ```typescript title="index.test.tsx"
-import { ReactNode } from "react";
-import { render } from "@testing-library/react";
+import { ReactNode } from 'react';
+import { render } from '@testing-library/react';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
 function renderWithProvider(
   Component: ReactElement<any, string | JSXElementConstructor<any>>,
@@ -116,13 +117,11 @@ function renderWithProvider(
   });
 }
 
-it("Does the component render successfully", () => {
+it('Does the component render successfully', () => {
   const { baseElement } = renderWithProvider(<TestComponent />, {
-    preloadedState: { meta: { title: "Title" } },
+    preloadedState: { meta: { title: 'Title' } },
   });
-  expect(
-    baseElement.getElementsByTagName("h1")[0].childNodes[0].textContent
-  ).toBe("Title");
+  expect(baseElement.getElementsByTagName('h1')[0].childNodes[0].textContent).toBe('Title');
 });
 ```
 
@@ -131,15 +130,15 @@ it("Does the component render successfully", () => {
 將 `useSelector` Mock 起來。可以在 `spyUseSelector` 的 `mock` 下找到 Mock Function 呼叫與回傳的資料：
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
-import * as redux from "react-redux";
+import renderer from 'react-test-renderer';
+import * as redux from 'react-redux';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
-const spyUseSelector = jest.spyOn(redux, "useSelector");
-spyUseSelector.mockReturnValue("");
+const spyUseSelector = jest.spyOn(redux, 'useSelector');
+spyUseSelector.mockReturnValue('');
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(renderer.create(<TestComponent />).toJSON()).toMatchSnapshot();
 });
 ```
@@ -149,16 +148,16 @@ it("Does the component render correctly", () => {
 使用 `jest.mock` 將整個 `react-redux` Mock：
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
-jest.mock("react-redux", () => ({
-  ...jest.requireActual<{}>("react-redux"),
-  useSelector: () => "",
+jest.mock('react-redux', () => ({
+  ...jest.requireActual<{}>('react-redux'),
+  useSelector: () => '',
 }));
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(renderer.create(<TestComponent />).toJSON()).toMatchSnapshot();
 });
 ```
@@ -168,7 +167,7 @@ it("Does the component render correctly", () => {
 或者將 UI 部分抽出、以 Props 傳入：
 
 ```typescript title="index.tsx"
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 interface ITestComponent {
   title: string;
@@ -190,13 +189,11 @@ export default function TestComponentWithState() {
 ```
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 
-import { TestComponent } from "./index";
+import { TestComponent } from './index';
 
-it("Does the component render correctly", () => {
-  expect(
-    renderer.create(<TestComponent title="" />).toJSON()
-  ).toMatchSnapshot();
+it('Does the component render correctly', () => {
+  expect(renderer.create(<TestComponent title="" />).toJSON()).toMatchSnapshot();
 });
 ```
