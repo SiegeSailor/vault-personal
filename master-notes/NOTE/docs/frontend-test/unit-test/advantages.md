@@ -147,22 +147,16 @@ interface ILevelSettingFused {
 }
 
 function transform(listOfLevelSetting: ILevelSetting[]) {
-  return listOfLevelSetting.reduce<ILevelSettingFused[]>(
-    (accumulator, currentValue, currentIndex, array) => {
-      currentLevelRequiredExperience =
-        currentIndex === 0
-          ? 0
-          : currentLevelRequiredExperience +
-            array[currentIndex - 1].nextLevelRequiredExperience;
-      accumulator.push({
-        ...currentValue,
-        currentLevelRequiredExperience,
-        level: currentIndex + 1,
-      });
-      return accumulator;
-    },
-    []
-  );
+  return listOfLevelSetting.reduce<ILevelSettingFused[]>((accumulator, currentValue, currentIndex, array) => {
+    currentLevelRequiredExperience =
+      currentIndex === 0 ? 0 : currentLevelRequiredExperience + array[currentIndex - 1].nextLevelRequiredExperience;
+    accumulator.push({
+      ...currentValue,
+      currentLevelRequiredExperience,
+      level: currentIndex + 1,
+    });
+    return accumulator;
+  }, []);
 }
 ```
 
@@ -171,21 +165,17 @@ function transform(listOfLevelSetting: ILevelSetting[]) {
 3 個 Component 都必須對應當下級距來顯示對應資料，這邊傳入 `experience` 與 `listOfLevelSetting` 來取得：
 
 ```typescript
-function obtainSetting(
-  experience: number,
-  listOfLevelSetting: ILevelSettingFused[]
-) {
+function obtainSetting(experience: number, listOfLevelSetting: ILevelSettingFused[]) {
   let currentLevelSetting: ILevelSettingFused = {
-    labelCurrent: "",
-    labelNext: "",
+    labelCurrent: '',
+    labelNext: '',
     nextLevelRequiredExperience: 0,
     currentLevelRequiredExperience: 0,
     level: 0,
   };
   listOfLevelSetting.some((item, index, array) => {
     if (
-      (experience >= item.currentLevelRequiredExperience &&
-        experience < array[index + 1]?.currentLevelRequiredExperience) ||
+      (experience >= item.currentLevelRequiredExperience && experience < array[index + 1]?.currentLevelRequiredExperience) ||
       !array[index + 1]
     ) {
       currentLevelSetting = item;
@@ -203,16 +193,9 @@ function obtainSetting(
 **ProgressBar** 中需要顯示 `experienceCurrent` 與 `experienceFull` 作為分母與分子，如 `50/125`。這邊傳入當下級距來取出需要的值：
 
 ```typescript
-function handleFraction(
-  experience: number,
-  currentLevelSetting: ILevelSettingFused
-) {
-  const { currentLevelRequiredExperience, nextLevelRequiredExperience } =
-    currentLevelSetting;
-  const numerator = Math.min(
-      experience - currentLevelRequiredExperience,
-      nextLevelRequiredExperience
-    ),
+function handleFraction(experience: number, currentLevelSetting: ILevelSettingFused) {
+  const { currentLevelRequiredExperience, nextLevelRequiredExperience } = currentLevelSetting;
+  const numerator = Math.min(experience - currentLevelRequiredExperience, nextLevelRequiredExperience),
     denominator = nextLevelRequiredExperience;
 
   return { numerator, denominator };

@@ -23,7 +23,7 @@ flowchart LR
 在很多場合與文件會用 **Mock** 來稱呼 Test Double，或者像 Jest 一樣直接使用 `jest.mock` 命名。
 :::
 
-### Others
+## Others
 
 一些其他常見的名詞：
 
@@ -114,6 +114,10 @@ describe('setLocalProfile', () => {
   });
 });
 ```
+
+:::info 提醒
+若要取用 `jest.fn().mock` 內的 Mock 相關呼叫紀錄，需注意只有在 Test File 內的動作才會被紀錄，在原始檔案本身的行為並不會作數。
+:::
 
 ### Mock Object
 
