@@ -4,13 +4,13 @@ sidebar_position: 3
 
 # Test Double
 
-當測試一 SUT 時，通常會有許多 DOC。例如我們有個驗證使用者資訊的 SUT，可以預期會有 DOC 如加密帳號密碼、介面 UI、輸入的基本驗證等。而我們需要專注在單一功能，否則會導致必須設想的情況過多、無法做出有價值的測試，這時就得排除其他 DOC 產生的變數，也就是使用 Test Double 來代替 DOC 們：
+當測試一 SUT 時，通常會有許多 DOC。例如我們有個驗證使用者資訊的 SUT，可以預期會有 DOC 如加密帳號密碼、介面 UI、輸入的基本驗證等。而我們需要專注在單一功能 (隔離相依性)，否則會導致必須設想的情況過多、無法做出有價值的測試，這時就得排除其他 DOC 產生的變數，也就是使用 Test Double 來代替 DOC 們：
 
 - **Test Stub**: 一個 **樁**，回傳固定內容。建立一個 Control Point 來對 SUT 進行 Indirect Input
 - **Test Spy**: 與 **Test Stub** 相似，但能紀錄、驗證呼叫該 Spy 的次數與對象等資料。通常跟著模擬對象 (DOC) 的介面與邏輯
 - **Mock Object**: 具有斷言 Assertions 的 **Test Stub**。作為一個 Observation Point 使用，能夠在 **測試中** 驗證 SUT 的 Indirect Output
 - **Fake Object**: 一個假的、簡單許多的 DOC。不能用作 Control Point 或 Observation Point。會使用的理由通常是真實 DOC 尚未準備好或在測試環境使用會導致測試時間過長
-- **Dummy Object**: 填充 SUT 測試中需要的物件 (有些 SUT 要求物件作為 Parameter)，單純只為了讓程式可以運行
+- **Dummy Object**: 填充 SUT 測試中需要的物件，單純只為了讓程式可以運行。發生在 SUT 要求物件作為 Parameter、或者只關注 DOC 數量與存在與否的情況
 
 ```mermaid
 flowchart LR
@@ -49,9 +49,7 @@ interface IUser {
   score: number;
 }
 
-export function obtainBestUser(
-  obtainListOfUser: () => Promise<IUser[]>
-): IUser {
+export function obtainBestUser(obtainListOfUser: () => Promise<IUser[]>): IUser {
   const listOfUser = await obtainListOfUser();
   return listOfUser.sort((previous, next) => previous.score - next.score)[0];
 }
@@ -60,23 +58,23 @@ export function obtainBestUser(
 我們使用 `jest.fn` 建立一個 Test Stub、輸出二組 User，藉此固定除了 `obtainBestUser` 外的變數：
 
 ```typescript title="index.test.ts"
-import { obtainBestUser } from "./index";
+import { obtainBestUser } from './index';
 
 const mockedObtainListOfUser = jest.fn();
 
-describe("obtainBestUser", () => {
-  it("Does the output user have the highest score", () => {
+describe('obtainBestUser', () => {
+  it('Does the output user have the highest score', () => {
     mockedObtainListOfUser.mockReturnValueOnce(
       new Promise<IUser[]>((resolve) =>
         resolve([
-          { name: "ken.zhang", identity: 101, score: 5 },
-          { name: "bill.chen", identity: 102, score: 10 },
+          { name: 'ken.zhang', identity: 101, score: 5 },
+          { name: 'bill.chen', identity: 102, score: 10 },
         ])
       )
     );
     expect.assertions(1);
     return expect(obtainBestUser(mockedObtainListOfUser)).resolves.toEqual({
-      name: "bill.chen",
+      name: 'bill.chen',
       identity: 102,
       score: 10,
     });
@@ -89,32 +87,30 @@ describe("obtainBestUser", () => {
 可參考 [Redux](/docs/practice/redux) 和 [Scope](/docs/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
 
 ```typescript title="index.ts"
-import { store } from "state";
+import { store } from 'state';
 
 export function setLocalProfile() {
   const profile = store.getState().status.profile;
-  localStorage.setItem("profile", JSON.stringify(profile));
+  localStorage.setItem('profile', JSON.stringify(profile));
 }
 ```
 
 接著使用 `jest.spyOn` 模擬 `store` 的介面與邏輯，並以 `toHaveBeenCalled` 驗證 `store.getState` 的使用：
 
 ```typescript title="index.test.ts"
-import { store } from "state";
-import { setLocalProfile } from "./index";
-import { handleUser } from "source";
+import { store } from 'state';
+import { setLocalProfile } from './index';
+import { handleUser } from 'source';
 
-describe("setLocalProfile", () => {
-  it("Does the function store profile correctly", () => {
-    jest.spyOn(store, "getState");
+describe('setLocalProfile', () => {
+  it('Does the function store profile correctly', () => {
+    jest.spyOn(store, 'getState');
     store.getState = jest.fn().mockReturnValue({
       status: { profile: handleUser.default },
     });
     setLocalProfile();
     expect(store.getState).toHaveBeenCalled();
-    expect(localStorage.getItem("profile")).toBe(
-      JSON.stringify(handleUser.default)
-    );
+    expect(localStorage.getItem('profile')).toBe(JSON.stringify(handleUser.default));
   });
 });
 ```
@@ -124,7 +120,7 @@ describe("setLocalProfile", () => {
 我們有個依賴 `lodash` 的 Function：
 
 ```typescript title="index.ts"
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 export function handleChunk(listOfInput: any[]) {
   return _.chunk(listOfInput);
@@ -138,21 +134,21 @@ export function handleCompact(listOfInput: any[]) {
 而在測試時，我們利用 `mock` 將 Lodash 的 `chunk` 表現固定，並在同時 **保持** 其他 Lodash 的邏輯與功能：
 
 ```typescript title="index.test.ts"
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
-import { handleChunk, handleCompact } from "./index";
+import { handleChunk, handleCompact } from './index';
 
-jest.mock("lodash", () => {
+jest.mock('lodash', () => {
   return {
-    ...jest.requireActual<{}>("lodash"),
+    ...jest.requireActual<{}>('lodash'),
     chunk: (listOfInput: any[], size: number) => {
       return [[listOfInput.slice(0, 2), listOfInput.slice(2, 4)]];
     },
   };
 });
 
-describe("handleCompact", () => {
-  it("Does the function work correctly", () => {
+describe('handleCompact', () => {
+  it('Does the function work correctly', () => {
     const listOfInput = [0, 1, 2, 3];
     const listOfChunk = handleChunk(listOfInput, 2);
     /** 以下已被 Jest 固定，必為 2 組 Array */
@@ -170,9 +166,9 @@ describe("handleCompact", () => {
 假設我們撰寫了一個使用者相關的 Function：
 
 ```typescript title="index.ts"
-import handleUser from "./handleUser";
+import handleUser from './handleUser';
 export async function obtainMale() {
-  const listOfUser = await handleUser.fetchWithGender("male");
+  const listOfUser = await handleUser.fetchWithGender('male');
   return listOfUser;
 }
 ```
@@ -182,7 +178,7 @@ export async function obtainMale() {
 ```typescript title="handleUser.ts"
 export default function handleUser() {
   return {
-    fetchWithGender: async function (gender: "male" | "female") {
+    fetchWithGender: async function (gender: 'male' | 'female') {
       return;
     },
   };
@@ -192,55 +188,75 @@ export default function handleUser() {
 那麼可以用 `mock` 將整個 `handleUser` 替換為一個 Fake Object：
 
 ```typescript title="index.test.ts"
-import handleUser from "./handleUser";
-import { obtainMale } from "./index";
+import handleUser from './handleUser';
+import { obtainMale } from './index';
 
-jest.mock("./handleUser", () => {
+jest.mock('./handleUser', () => {
   return {
-    fetchWithGender: async function (gender: "male" | "female") {
+    fetchWithGender: async function (gender: 'male' | 'female') {
       return [
-        { identity: "001", gender: "male" },
-        { identity: "002", gender: "male" },
+        { identity: '001', gender: 'male' },
+        { identity: '002', gender: 'male' },
       ];
     },
   };
 });
 
-it("Does the function work correctly", () => {
+it('Does the function work correctly', () => {
   expect(obtainMale()).resolves.toEqual([
-    { identity: "001", gender: "male" },
-    { identity: "002", gender: "male" },
+    { identity: '001', gender: 'male' },
+    { identity: '002', gender: 'male' },
   ]);
 });
 ```
 
 ### Dummy Object
 
-若我們在購物車有個驗證功能如下：
+以下一驗證 Array 長度的 Function：
 
 ```typescript title="index.ts"
-function validateProductWithUser(product: Product, user: User) {
-  /** 進行驗證，回傳 Boolean */
+export class Commodity {
+  constructor(name: string, price: number, identity: string, factory: string, area: string) {
+    /** 建構 Commodity */
+  }
 }
 
-export function validation(product: Product, user: User) {
-  const isValid = validateProductWithUser(product, user);
-  return isValid;
+export function indicateCommodityLengthLessThanMax(listOfCommodity: Commodity[], max: number) {
+  return listOfCommodity.length < max;
 }
 ```
 
-那麼在實際測試中，可以為 Product 和 User 實作一個 Dummy Object，以排除依賴：
+若我們不使用 Dummy Object，則會需要為每個 Commodity 輸入建構所需 Parameter：
 
 ```typescript title="index.test.ts"
-import { validation } from "./index";
-import Product from "./Product";
-import User from "./User";
+import { Commodity, indicateCommodityLengthLessThanMax } from './index';
 
-const dummyProduct = class DummyProduct extends Product {};
-const dummyUser = class DummyUser extends User {};
+it('Does the function work correctly', () => {
+  const listOfCommodity: Commodity[] = [];
+  listOfCommodity.push(new Commodity('iPhone 11', 18000, '202201151125', 'APPLE', 'Taiwan'));
+  listOfCommodity.push(new Commodity('iPhone 12', 28000, '202201155521', 'APPLE', 'Taiwan'));
+  listOfCommodity.push(new Commodity('iPhone 13', 26000, '202201150011', 'APPLE', 'Taiwan'));
+  expect(indicateCommodityLengthLessThanMax(listOfCommodity, 10)).toBe(true);
+});
+```
 
-it("Does the function work correctly", () => {
-  expect(validation(dummyProduct, dummyUser)).toBe(true);
+然而，在此測試中，我們並不在乎 Commodity 的內容。而且若在重構中改動了 `Commodity` 則會連此測試都必須大幅調整。因此，我們應在此使用 Dummy Object：
+
+```typescript title="index.test.ts"
+import { Commodity, indicateCommodityLengthLessThanMax } from './index';
+
+class DummyCommodity extends Commodity {
+  constructor() {
+    super('iPhone 11', 18000, '202201159812', 'APPLE', 'Taiwan');
+  }
+}
+
+it('Does the function work correctly', () => {
+  const listOfCommodity: Commodity[] = [];
+  listOfCommodity.push(new DummyCommodity());
+  listOfCommodity.push(new DummyCommodity());
+  listOfCommodity.push(new DummyCommodity());
+  expect(indicateCommodityLengthLessThanMax(listOfCommodity, 10)).toBe(true);
 });
 ```
 

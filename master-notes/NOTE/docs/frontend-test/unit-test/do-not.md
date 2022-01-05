@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Do Not
 
-在進入 Unit Test 之前，有幾件事是不該做的。
+在進入 Unit Test 之前，有幾件事是不該做的：
 
 #### 測試 Library
 
