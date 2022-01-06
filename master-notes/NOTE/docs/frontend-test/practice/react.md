@@ -75,3 +75,15 @@ describe('render', () => {
 :::info 提醒
 `fireEvent` 與 `userEvent` 的不同點在於，`userEvent` 能夠模擬使用者行為，而 `fireEvent` 是直接觸發。例如 `userEvent.click` 點擊 Button 時會變為 Focused 而 `fireEvent.click()` 不會。`fireEvent` 是 `userEvent` 的底層 API，參考 [Testing Library/User Event](https://github.com/testing-library/user-event/blob/5feaa942f46bb37d96c2f2fbeb4b33e8beff75ad/src/click.js#L87-L103)。
 :::
+
+:::info 提醒
+許多文章都要求使用 `cleanup` 來避免 Render 的 Component 互相影響，但目前的 `@testing-library/react` 已經將這點自動化並實作在各測試框架中 (Jest、AVA)，沒有必要在每個測試檔案中手寫。
+
+```typescript
+import { cleanup } from '@testing-library/react';
+afterEach(() => {
+  cleanup();
+});
+```
+
+:::

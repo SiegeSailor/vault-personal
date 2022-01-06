@@ -16,7 +16,7 @@ flowchart LR
 ```
 
 - **CPU**: 全部的計算
-- **Mother Board**: Information Bus。在 I/O Devices 與 CPU、Main Storage 中來回運送資料，I/O Devices 的優先權較低
+- **System Bus**: Information Bus。在 I/O Devices 與 CPU、Main Storage 中來回運送資料，I/O Devices 的優先權較低
 - **Main Storage**: DDR (SDRAM、RAM)。當下 Data 與 Code 存在的地方，關機即消失
 - **Secondary Storage**: 硬碟。唯一電腦中可永久儲存的地方
 - **Tertiary Storage**: Offline 硬碟，像是 USB、Flash Drive、Tape Drive，通常不需馬上存取
@@ -126,7 +126,7 @@ Internet 是一種 Network。
 - **Fiber**: 光纖。取代 Copper Cable 用，因為材質是玻璃更貴，但效率更高
 - **Wireless**: 如 WIFI 跟 MicroWave
 
-而在連結時，我們有 Protocol，來知道：
+而在連結時，我們有 **Protocol**，來知道：
 
 - 何時送出
 - 誰送出的

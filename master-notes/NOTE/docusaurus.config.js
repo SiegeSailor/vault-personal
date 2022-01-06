@@ -16,6 +16,13 @@ const config = {
   organizationName: 'SiegeSailor',
   projectName: 'SiegeSailor-Monorepo',
   deploymentBranch: 'master',
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
+      integrity: 'sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   presets: [
     [
@@ -25,7 +32,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/SiegeSailor/SiegeSailor-Monorepo/tree/master/NOTE',
-          remarkPlugins: [require('remark-mermaid-dataurl')],
+          remarkPlugins: [require('remark-mermaid-dataurl'), require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
         },
         blog: {
           showReadingTime: true,

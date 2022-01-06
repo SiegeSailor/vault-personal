@@ -7,9 +7,11 @@ sidebar_position: 10
 以字母順序排列。
 
 - [An Overview of JavaScript Testing in 2018](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)
+- [Common mistakes with React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 - [Java Test #1: 單元測試概念篇](https://medium.com/bucketing/java-test-1-%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E6%A6%82%E5%BF%B5%E7%AF%87-unit-test-c9c398c27d39)
 - [Jest Docs - Manual Mocks](https://jestjs.io/docs/manual-mocks)
 - [Jest: Manual Mocks](https://titangene.github.io/article/jest-manual-mocks.html)
+- [Jest.Mock vs Jest.SpyOn - What to use for Mocking](https://www.developright.co.uk/posts/jest-mock-vs-jest-spyon-what-to-use-for-mocking.html)
 - [React 單元測試](https://linyencheng.github.io/2017/06/21/test-react-unit-test/)
 - [React JS Day - Jest Life Cycle](https://noriste.github.io/reactjsday-2019-testing-course/book/jest-101/jest-lifecycle.html)
 - [The Testing Pyramid](https://automationpanda.com/2018/08/01/the-testing-pyramid/)

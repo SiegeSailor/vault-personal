@@ -147,3 +147,41 @@ describe("handleLocalStorage", () => {
 ```
 
 加上的是 `beforeEach`，也就是 `localStorage.clear` 這件事會在 `handleLocalStorage` 這組測試的每個 `test` 前執行，讓每個 `test` 間不會相互污染。而若此測試檔案內有其他組 `describe`，由於限制在 `handleLocalStorage` 這個 Scope，也不會執行多餘的清除、浪費效能。
+
+### Skip and Only
+
+我們可以在 `describe` 和 `it` 使用 `skip` 和 `only`。如語意所示，使用 `skip` 的 Test Case 會在該 Scope 中不測試，使用 `only` 的 Test Case 會使該 Scope 除自己外的都不執行：
+
+```typescript
+describe.skip('describe-1', () => {
+  /** 不執行 */
+});
+
+describe('describe-2', () => {
+  /** 執行 */
+});
+
+describe('describe-3', () => {
+  /** 執行 */
+});
+```
+
+```typescript
+describe.skip('describe-1', () => {
+  /** 不執行 */
+});
+
+describe('describe-2', () => {
+  it.only('it-1', () => {
+    /** 執行 */
+  });
+
+  it('it-2', () => {
+    /** 不執行 */
+  });
+
+  it('it-3', () => {
+    /** 不執行 */
+  });
+});
+```
