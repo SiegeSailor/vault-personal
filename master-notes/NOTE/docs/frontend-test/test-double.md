@@ -104,8 +104,8 @@ import { handleUser } from 'source';
 
 describe('setLocalProfile', () => {
   it('Does the function store profile correctly', () => {
-    jest.spyOn(store, 'getState');
-    store.getState = jest.fn().mockReturnValue({
+    const spyGetState = jest.spyOn(store, 'getState');
+    spyGetState.mockReturnValue({
       status: { profile: handleUser.default },
     });
     setLocalProfile();

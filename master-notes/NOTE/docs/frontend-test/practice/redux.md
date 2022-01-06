@@ -135,10 +135,9 @@ import * as redux from 'react-redux';
 
 import TestComponent from './index';
 
-const spyUseSelector = jest.spyOn(redux, 'useSelector');
-spyUseSelector.mockReturnValue('');
-
 it('Does the component render correctly', () => {
+  const spyUseSelector = jest.spyOn(redux, 'useSelector');
+  spyUseSelector.mockReturnValue('');
   expect(renderer.create(<TestComponent />).toJSON()).toMatchSnapshot();
 });
 ```
@@ -195,5 +194,93 @@ import { TestComponent } from './index';
 
 it('Does the component render correctly', () => {
   expect(renderer.create(<TestComponent title="" />).toJSON()).toMatchSnapshot();
+});
+```
+
+## In Components
+
+另外一個常見問題是不使用 Hook 而是使用已經實體化的 `store` 來 `getState` 跟 `dispatch`：
+
+```typescript title="state.ts"
+import { configureStore } from '@reduxjs/toolkit';
+
+import { rootReducer } from 'state/slice';
+
+export const store = configureStore({
+  reducer: rootReducer,
+});
+```
+
+```typescript title="index.ts"
+import { store } from 'state';
+
+export const handleLocalStorage = {
+  _verify: function () {
+    const uid = store.getState().status.uid;
+    if (!uid) throw Error('網路異常，請稍候再試');
+    return uid;
+  },
+  set: function (key: string, value: TNonArrayObject) {
+    const prefix = this._verify();
+    localStorage.setItem(`${prefix}_${key}`, JSON.stringify(value));
+  },
+  update: function (key: string, value: { [key: string]: any }) {
+    const data = this.get(key) || {};
+    this.set(key, { ...data, ...value });
+  },
+  get: function <T = TNonArrayObject>(key: string): T | null {
+    const prefix = this._verify();
+    const dataStringified = localStorage.getItem(`${prefix}_${key}`);
+    return dataStringified ? JSON.parse(dataStringified) : null;
+  },
+};
+```
+
+則在測試中，可以用 `jest.spyOn` 來取代原本檔案使用的 `store.getState`：
+
+```typescript title="index.test.ts"
+import { handleLocalStorage } from './device';
+import { store } from 'state';
+
+const spyGetState = jest.spyOn(store, 'getState');
+
+beforeEach(() => {
+  spyGetState.mockReturnValue({
+    status: { uid: '001' },
+  });
+});
+
+afterEach(() => {
+  localStorage.clear();
+});
+
+describe('handleLocalStorage', () => {
+  describe('exception', () => {
+    beforeEach(() => {
+      spyGetState.mockReturnValue({ status: { uid: null } });
+    });
+
+    afterEach(() => {
+      spyGetState.mockReturnValue({ status: { uid: '001' } });
+    });
+
+    it('Does set throw error when there is no uid', () => {
+      expect(() => {
+        handleLocalStorage.set('emptyObject', {});
+      }).toThrowError();
+    });
+
+    it('Does update throw error when there is no uid', () => {
+      expect(() => {
+        handleLocalStorage.update('emptyObject', {});
+      }).toThrowError();
+    });
+
+    it('Does get throw error when there is no uid', () => {
+      expect(() => {
+        handleLocalStorage.get('emptyObject');
+      }).toThrowError();
+    });
+  });
 });
 ```
