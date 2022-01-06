@@ -171,19 +171,19 @@ Logical Level (Network)：
 - **UDP**: Connection less deals with the ordering and guarantee of delivery of packets
 - **IP**: Internet Protocol。每台機器在網路上的唯一一組識別碼
 
-| 比較項目   | TCP                                                      | UDP                                            |
-| ---------- | -------------------------------------------------------- | ---------------------------------------------- |
-| 可靠性     | 可靠                                                     | 不可靠                                         |
-| 速度       | 慢                                                       | 快                                             |
-| 傳輸方式   | 封包按順序傳輸                                           | 封包以串流方式傳輸                             |
-| 檢查與修正 | 有                                                       | 無                                             |
-| 壅塞控制   | 有                                                       | 無                                             |
-| 確認       | 有                                                       | 只有檢查碼                                     |
-| 適用服務   | 要求可靠傳輸的服務，例如電子郵件、網頁瀏覽、檔案傳輸等等 | 即時服務，例如串流媒體、網路電話、網路遊戲等等 |
+| Field    | TCP                                                      | UDP                                            |
+| -------- | -------------------------------------------------------- | ---------------------------------------------- |
+| 可靠性   | 可靠                                                     | 不可靠                                         |
+| 速度     | 慢                                                       | 快                                             |
+| 傳輸方式 | 封包按順序傳輸                                           | 封包以串流方式傳輸                             |
+| 檢查修正 | 有                                                       | 無                                             |
+| 壅塞控制 | 有                                                       | 無                                             |
+| 確認     | 有                                                       | 只有檢查碼                                     |
+| 適用服務 | 要求可靠傳輸的服務，例如電子郵件、網頁瀏覽、檔案傳輸等等 | 即時服務，例如串流媒體、網路電話、網路遊戲等等 |
 
 Physical Level：
 
-- Often adds a header and footer (to indicate the end)
+- Often adds a header and footer (To indicate the end)
 - Mostly concerned with local addressing and how to deal with eccentricities of the physical medium
 - Ethernet
 - 802.11
