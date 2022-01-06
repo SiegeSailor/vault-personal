@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 9
 ---
 
 # Snapshot
@@ -29,11 +29,11 @@ export default function TestComponent() {
 接著我們在旁撰寫測試檔案：
 
 ```typescript title="index.test.tsx"
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 
-import TestComponent from "./index";
+import TestComponent from './index';
 
-it("Does the component render correctly", () => {
+it('Does the component render correctly', () => {
   expect(renderer.create(<TestComponent />).toJSON()).toMatchSnapshot();
 });
 ```
