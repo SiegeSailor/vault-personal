@@ -20,7 +20,7 @@ flowchart LR
 - **Main Storage**: DDR (SDRAM、RAM)。當下 Data 與 Code 存在的地方，關機即消失
 - **Secondary Storage**: 硬碟。唯一電腦中可永久儲存的地方
 - **Tertiary Storage**: Offline 硬碟，像是 USB、Flash Drive、Tape Drive，通常不需馬上存取
-- **GPU/Video Card**: 圖形計算
+- **GPU**: Video Card，圖形計算
 
 :::info 提醒
 Main Storage 等同 Main Memory。
@@ -187,3 +187,7 @@ Physical Level：
 - Mostly concerned with local addressing and how to deal with eccentricities of the physical medium
 - Ethernet
 - 802.11
+
+:::info 提醒
+關於 OSI 7 層與 TCP/IP 4 層的對應關係、TCP 3 次握手、以及 Socket 等等，見 [一篇文章明白 TCP/IP、TCP、IP、UDP、Socket 之間的關係](https://blog.csdn.net/freekiteyu/article/details/72236734)。
+:::
