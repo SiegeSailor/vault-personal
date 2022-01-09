@@ -32,7 +32,7 @@ it('Does the component render correctly', () => {
 
 會因為該 Component 上層沒有 Context 而報錯：
 
-```bash
+```cli
 ● Does the component render correctly
 
   could not find react-redux context value; please ensure the component is wrapped in a <Provider>

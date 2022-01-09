@@ -70,7 +70,7 @@ describe('handleTime', () => {
 
 只要有 Matcher 和 Test Cases 即可設置基本的測試。我們在此執行 `npm run test` (如何設置請見 [Config](/docs/test/practice/config)) 來檢驗結果：
 
-```bash
+```cli
 PASS  src/helper/index.test.tsx
   now
   handleTime
@@ -102,7 +102,7 @@ Watch Usage
 - **Lines**: 以一行為單位，基本上執行時 Lines >= Statement
 - **Uncovered Lines**: 與 Lines 相反，表示未被測試到的行數
 
-```bash
+```cli
 PASS  src/helper/index.test.tsx
   now
   handleTime
@@ -176,7 +176,7 @@ describe('handleTime', () => {
 
 由於 `format.ts ` 中只有 `handleTime`，可以看見在加上所有 Function 的測試後覆蓋率達到了 100%：
 
-```bash
+```cli
 PASS  src/helper/index.test.tsx
  handleTime
   now

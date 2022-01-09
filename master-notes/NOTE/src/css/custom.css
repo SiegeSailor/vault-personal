@@ -48,3 +48,11 @@ img[title="Diagram generated via mermaid"] {
   text-transform: none !important;
   font-weight: 500 !important;
 }
+
+.language-cli {
+  background: rgb(24, 23, 29) !important;
+}
+
+.language-cli code span {
+  color: rgba(255, 255, 255, 0.76) !important;
+}

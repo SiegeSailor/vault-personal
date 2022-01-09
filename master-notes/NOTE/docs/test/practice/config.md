@@ -91,7 +91,7 @@ export default config;
 
 注意 `transformIgnorePatterns` 的設置，未被編譯的 Library 若直接在測試使用會出現以下錯誤：
 
-```bash
+```cli
 FAIL  src/component/InputPagination/index.test.tsx
 ● Test suite failed to run
 
@@ -204,7 +204,7 @@ window.matchMedia =
 
 注意 `compilerOption.lib` 的設置，特別是發現來自原生函式的 Type Error 時：
 
-```bash
+```cli
 src/component/ButtonSubmit/index.test.tsx:16:29 - error TS2812: Property 'parentElement' does not exist on type 'HTMLElement'. Try changing the 'lib' compiler option to include 'dom'.
 
 16     expect(listOfButton[0]?.parentElement).not.toBeNull();

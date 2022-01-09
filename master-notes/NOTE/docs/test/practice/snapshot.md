@@ -71,7 +71,7 @@ export default function TestComponent() {
 
 Jest 便會報錯，因為前後的 Component HTML 並不一致：
 
-```bash
+```cli
 ● Does the component render correctly
 
   expect(received).toMatchSnapshot();
@@ -91,7 +91,7 @@ Jest 便會報錯，因為前後的 Component HTML 並不一致：
 
 若要更新 Snapshots，可以在 CLI 中使用 `u`：
 
-```bash
+```cli
 Watch Usage
 › Press a to run all tests.
 › Press f to run only failed tests.
