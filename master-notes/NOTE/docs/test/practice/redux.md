@@ -6,7 +6,7 @@ sidebar_position: 8
 
 Redux 實作了 Context 功能，能夠不藉由一層層的 Props 傳遞資料，然而仍然要求父層需有 Provider 供取用。這也代表使用了 Redux Selector Hook 或 Redux Connect 的 Component 不能直接運作。若我們撰寫如以下 Component 的測試：
 
-```typescript title="index.tsx"
+```tsx title="index.tsx"
 import { useSelector } from 'react-redux';
 
 export default function TestComponent() {
@@ -20,7 +20,7 @@ export default function TestComponent() {
 }
 ```
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import renderer from 'react-test-renderer';
 
 import TestComponent from './index';
@@ -32,7 +32,15 @@ it('Does the component render correctly', () => {
 
 會因為該 Component 上層沒有 Context 而報錯：
 
-![Jest Error Redux](/img/docs/jest-error-redux.png)
+```bash
+● Does the component render correctly
+
+  could not find react-redux context value; please ensure the component is wrapped in a <Provider>
+
+    29 |
+    30 | export default function TestComponent() {
+  > 31 |   const title = useSelector((store) => store.meta.title);
+```
 
 ## Solutions
 
@@ -42,7 +50,7 @@ it('Does the component render correctly', () => {
 
 使用 Provider 並利用 `redux-mock-store` Mock Store：
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -69,7 +77,7 @@ it('Does the component render correctly', () => {
 
 使用既有的 Store 並抽取出來：
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { AnyAction, Store } from '@reduxjs/toolkit';
@@ -98,7 +106,7 @@ it('Does the component render correctly', () => {
 
 使用到 `@testing-library/react` 的測試會需要用 `render` 來渲染，可以將其與 Provider 包裝：
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 
@@ -129,7 +137,7 @@ it('Does the component render successfully', () => {
 
 將 `useSelector` Mock 起來。可以在 `spyUseSelector` 的 `mock` 下找到 Mock Function 呼叫與回傳的資料：
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import renderer from 'react-test-renderer';
 import * as redux from 'react-redux';
 
@@ -146,7 +154,7 @@ it('Does the component render correctly', () => {
 
 使用 `jest.mock` 將整個 `react-redux` Mock：
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import renderer from 'react-test-renderer';
 
 import TestComponent from './index';
@@ -165,7 +173,7 @@ it('Does the component render correctly', () => {
 
 或者將 UI 部分抽出、以 Props 傳入：
 
-```typescript title="index.tsx"
+```tsx title="index.tsx"
 import { useSelector } from 'react-redux';
 
 interface ITestComponent {
@@ -187,7 +195,7 @@ export default function TestComponentWithState() {
 }
 ```
 
-```typescript title="index.test.tsx"
+```tsx title="index.test.tsx"
 import renderer from 'react-test-renderer';
 
 import { TestComponent } from './index';
@@ -201,7 +209,7 @@ it('Does the component render correctly', () => {
 
 另外一個常見問題是不使用 Hook 而是使用已經實體化的 `store` 來 `getState` 跟 `dispatch`：
 
-```typescript title="state.ts"
+```tsx title="state.ts"
 import { configureStore } from '@reduxjs/toolkit';
 
 import { rootReducer } from 'state/slice';
@@ -211,7 +219,7 @@ export const store = configureStore({
 });
 ```
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import { store } from 'state';
 
 export const handleLocalStorage = {
@@ -238,7 +246,7 @@ export const handleLocalStorage = {
 
 則在測試中，可以用 `jest.spyOn` 來取代原本檔案使用的 `store.getState`：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import { handleLocalStorage } from './device';
 import { store } from 'state';
 

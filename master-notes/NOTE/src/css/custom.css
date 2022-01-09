@@ -30,3 +30,21 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 img[title="Diagram generated via mermaid"] {
   margin: 4px 0 8px 0;
 }
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module:first-of-type {
+  background: var(--ifm-color-emphasis-200) !important;
+  color: var(--ifm-color-content) !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  font-size: 15.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module {
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  font-size: 15.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}

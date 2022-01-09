@@ -6,10 +6,10 @@ sidebar_position: 2
 
 實務上，Unit Test 可以帶來的具體效益有：
 
-- [符合需求](/docs/unit-test/advantages#符合需求): 以通過測試為優先進行設計，保證符合最低可用性
-- [核心檢查](/docs/unit-test/advantages#核心檢查): 自動化檢查核心功能，特別是頁面之間資料有覆用、前端需做各類計算時
-- [保證良率](/docs/unit-test/advantages#保證良率): 無法對整個流程或體驗做出保證，但可以通過提高單一元件的良率優化整體品質
-- [重構指標](/docs/unit-test/advantages#重構指標): 高覆用性與低耦合是 Unit Test 與物件導向優劣的指標
+- [符合需求](/docs/test/unit-test/advantages#符合需求): 以通過測試為優先進行設計，保證符合最低可用性
+- [核心檢查](/docs/test/unit-test/advantages#核心檢查): 自動化檢查核心功能，特別是頁面之間資料有覆用、前端需做各類計算時
+- [保證良率](/docs/test/unit-test/advantages#保證良率): 無法對整個流程或體驗做出保證，但可以通過提高單一元件的良率優化整體品質
+- [重構指標](/docs/test/unit-test/advantages#重構指標): 高覆用性與低耦合是 Unit Test 與物件導向優劣的指標
 
 :::caution 注意
 測試的品質與程式碼品值沒有絕對正比關係。一個專案良好設計了 Test Cases 並且覆蓋率達 100%，只代表良好地實踐了物件導向設計。
@@ -19,7 +19,7 @@ sidebar_position: 2
 
 以下以實際情境舉例。假設我們有個 RPG，玩家有以下基本資料：
 
-```typescript
+```tsx
 interface IUser {
   identity: number;
   name: string;
@@ -53,7 +53,7 @@ class BlockPanel {
 
 並且有以下級距表。每個等級有當前 Label 以及下個 Label，`nextLevelRequiredExperience` 是要達到下個級距的需求 `experience`：
 
-```typescript
+```tsx
 interface ILevelSetting {
     labelCurrent: string;
     labelNext: string;
@@ -125,19 +125,19 @@ class BlockPanel {
 - **handleFraction**: 透過 `experience` 取得當下經驗比例
 
 ```mermaid
-sequenceDiagram
-  transform->>obtainSetting: 提供資料
-  obtainSetting->>BlockProfile: 輸入 UI
-  obtainSetting->>BlockPanel: 輸入 UI
-  obtainSetting->>handleFraction: 注入級距
-  handleFraction->>ProgressBar: 輸入 UI
+flowchart LR
+  transform --> |提供資料| A[obtainSetting];
+  A --> |輸入 UI| BlockProfile
+  A --> |輸入 UI| BlockPanel
+  A --> |注入級距| handleFraction
+  handleFraction --> |輸入 UI| ProgressBar
 ```
 
-#### 處理級距表
+### 處理級距表
 
 為了方便取用每個級距的資料，首先計算出每個級距的需要經驗 `currentLevelRequiredExperience` 與等級 `level`：
 
-```typescript
+```tsx
 interface ILevelSettingFused {
   labelCurrent: string;
   labelNext: string;
@@ -160,11 +160,11 @@ function transform(listOfLevelSetting: ILevelSetting[]) {
 }
 ```
 
-#### 取得當前級距
+### 取得當前級距
 
 3 個 Component 都必須對應當下級距來顯示對應資料，這邊傳入 `experience` 與 `listOfLevelSetting` 來取得：
 
-```typescript
+```tsx
 function obtainSetting(experience: number, listOfLevelSetting: ILevelSettingFused[]) {
   let currentLevelSetting: ILevelSettingFused = {
     labelCurrent: '',
@@ -188,11 +188,11 @@ function obtainSetting(experience: number, listOfLevelSetting: ILevelSettingFuse
 }
 ```
 
-#### 取得經驗比例
+### 取得經驗比例
 
-**ProgressBar** 中需要顯示 `experienceCurrent` 與 `experienceFull` 作為分母與分子，如 `50/125`。這邊傳入當下級距來取出需要的值：
+`ProgressBar` 中需要顯示 `experienceCurrent` 與 `experienceFull` 作為分母與分子，如 `50/125`。這邊傳入當下級距來取出需要的值：
 
-```typescript
+```tsx
 function handleFraction(experience: number, currentLevelSetting: ILevelSettingFused) {
   const { currentLevelRequiredExperience, nextLevelRequiredExperience } = currentLevelSetting;
   const numerator = Math.min(experience - currentLevelRequiredExperience, nextLevelRequiredExperience),
@@ -241,6 +241,8 @@ function handleFraction(experience: number, currentLevelSetting: ILevelSettingFu
 無論是否需要重構，已完成並通過驗證的測試都不會再變動。
 :::
 
+### 前端困境
+
 前端開發中，常見檔案四散分類，已是一個明顯的模組化傾向 (雖然不能放入瀏覽器中單獨執行)。若是在引入 Unit Test 遇到困難或重構比例極高，通常是開發時的架構設計不良，常見於：
 
 1. 設計架構時預期的專案規模與後期差異過大
@@ -248,5 +250,3 @@ function handleFraction(experience: number, currentLevelSetting: ILevelSettingFu
 3. 通常起因於前 2 點。修復時需要同時開發新 Feature，導致不良的架構越長越大
 
 在以上情況，可以先針對獨立於主功能外的元件撰寫 Unit Test，主功能則利用其他測試覆蓋。但非主功能即代表引入 Unit Test 的效益低落，又此已是肇因於不良的架構，在遇到難以引入 Unit Test 時，通常就代表該專案進到了需要專注重構的階段。
-
-#### 勇敢喊出我要重構吧！

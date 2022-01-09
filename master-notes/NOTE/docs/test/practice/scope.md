@@ -6,7 +6,7 @@ sidebar_position: 5
 
 介紹一些 Jest 關於 Scope 的相關函式，詳情見 [Jest](https://jestjs.io/docs/getting-started)。這邊以 `handleStorage`，一個對操作 LocalStorage 進行封裝的 Function 進行說明：
 
-```typescript title="react-app-env.d.ts"
+```tsx title="react-app-env.d.ts"
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly REACT_APP_VERSION: string;
@@ -14,7 +14,7 @@ declare namespace NodeJS {
 }
 ```
 
-```typescript title="device.ts"
+```tsx title="device.ts"
 export const handleLocalStorage = {
   _verify: function () {
     if (!process.env.REACT_APP_VERSION) throw Error('出現異常，請回報');
@@ -36,7 +36,7 @@ export const handleLocalStorage = {
 };
 ```
 
-## Setup and Tear Down
+## ## Setup and Teardown
 
 - `beforeEach`: 另有 `afterEach`。會在該 Scope 的每個測試前執行
 - `beforeAll`: 另有 `afterAll`。會在該 Scope 的開頭執行
@@ -47,7 +47,7 @@ export const handleLocalStorage = {
 
 首先，我們注意到 `process.env.REACT_APP_VERSION` 是作為 LocalStorage Key 的組成之一來使用的，那麼為了維持測試的一致性，我們應該要使用一樣的值，然而我們不可能開個 Parameter 每次執行把 `process.env.REACT_APP_VERSION` 傳入或在執行前設置 `process.env` (雖然可以，但很麻煩)。這時候可以使用到 `beforeAll`：
 
-```typescript title="device.test.ts"
+```tsx title="device.test.ts"
 import { handleLocalStorage } from './device';
 
 beforeAll(() => {
@@ -63,7 +63,7 @@ beforeAll(() => {
 
 環境變數是不會變的，因此我們可以考慮將指派變數這件事指定在一個在所有測試執行之前、且只執行一次的地方：
 
-```typescript title="setupTests.ts"
+```tsx title="setupTests.ts"
 import 'jest-extended';
 import 'fake-indexeddb/auto';
 import '@testing-library/jest-dom/extend-expect';
@@ -74,7 +74,7 @@ process.env = { REACT_APP_VERSION: 'v1.0.0' };
 
 或者也可以寫在 `jest.config.ts` 內：
 
-```typescript title="jest.config.ts"
+```tsx title="jest.config.ts"
 process.env = { REACT_APP_VERSION: 'v1.0.0' };
 
 const config: Config.InitialOptions = {};
@@ -87,7 +87,7 @@ Jest 同樣支援來自 `.env` 的值。
 
 然而若是需要測試例外情況，還是需要手動設置與清除：
 
-```typescript title="device.test.ts"
+```tsx title="device.test.ts"
 import { handleLocalStorage } from './device';
 
 describe('handleLocalStorage', () => {
@@ -109,7 +109,7 @@ describe('handleLocalStorage', () => {
 
 回到 `handleLocalStorage`，在已經設好 `process.env` 的情況下，假設我們有以下測試：
 
-```typescript title="device.test.ts"
+```tsx title="device.test.ts"
 import { handleLocalStorage } from './device';
 
 describe('handleLocalStorage', () => {
@@ -135,7 +135,7 @@ describe('handleLocalStorage', () => {
 
 那麼在進行 `Check stored values` 測試時就會失敗，原因是在 `Set animal numbers` 時已經在 LocalStorage 存了一個值，導致 `Check stored values` 測試存入的值這件事不合預期 (多了 1 個在該 Test Case 沒有出現的值)。這時，我們應該在每個測試前對 LocalStorage 進行清除：
 
-```typescript title="device.test.ts"
+```tsx title="device.test.ts"
 import { handleLocalStorage } from "./device";
 
 describe("handleLocalStorage", () => {
@@ -152,7 +152,7 @@ describe("handleLocalStorage", () => {
 
 我們可以在 `describe` 和 `it` 使用 `skip` 和 `only`。如語意所示，使用 `skip` 的 Test Case 會在該 Scope 中不測試，使用 `only` 的 Test Case 會使該 Scope 除自己外的都不執行：
 
-```typescript
+```tsx
 describe.skip('describe-1', () => {
   /** 不執行 */
 });
@@ -166,7 +166,7 @@ describe('describe-3', () => {
 });
 ```
 
-```typescript
+```tsx
 describe.skip('describe-1', () => {
   /** 不執行 */
 });

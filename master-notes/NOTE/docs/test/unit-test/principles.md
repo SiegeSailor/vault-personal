@@ -39,7 +39,7 @@ sidebar_position: 4
 - 根據傳入的密碼，進行 Hash
 - 比對資料來源回傳的密碼與輸入密碼經過 Hash 的結果
 
-```typescript title="accounts.ts"
+```tsx title="accounts.ts"
 const Accounts = class Accounts {
   public getPassword(identity: string) {
     /** 比對 `identity` 由資料來源取出 Hash 過的 `password` */
@@ -48,7 +48,7 @@ const Accounts = class Accounts {
 export default Accounts;
 ```
 
-```typescript title="hash.ts"
+```tsx title="hash.ts"
 const Hash = class Hash {
   public getHashResult(password: string) {
     /** Hash 輸入的 `password` 並回傳 */
@@ -57,7 +57,7 @@ const Hash = class Hash {
 export default Hash;
 ```
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import Accounts from './accounts';
 import Hash from './hash';
 
@@ -104,7 +104,7 @@ classDiagram
 
 為了隔離相依性，我們應該將物件僅相依於介面上：
 
-```typescript title="accounts.ts"
+```tsx title="accounts.ts"
 export interface IAccounts {
   getPassword: (identity: string) => string;
 }
@@ -117,7 +117,7 @@ const Accounts = class Accounts implements IAccounts {
 export default Accounts;
 ```
 
-```typescript title="hash.ts"
+```tsx title="hash.ts"
 export interface IHash {
   getHashResult: (password: string) => string;
 }
@@ -130,7 +130,7 @@ const Hash = class Hash implements IHash {
 export default Hash;
 ```
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import { IAccounts } from './accounts';
 import { IHash } from './hash';
 
@@ -207,7 +207,7 @@ classDiagram
 
 由以上範例，我們可以實現以下測試：
 
-```typescript title="__mocks__/accounts.ts"
+```tsx title="__mocks__/accounts.ts"
 export const stubGetPassword = jest.fn();
 const fakeObjectAccounts = jest.fn().mockImplementation(() => {
   return {
@@ -217,7 +217,7 @@ const fakeObjectAccounts = jest.fn().mockImplementation(() => {
 export default fakeObjectAccounts;
 ```
 
-```typescript title="__mocks__/hash.ts"
+```tsx title="__mocks__/hash.ts"
 export const stubGetHashResult = jest.fn();
 const fakeObjectHash = jest.fn().mockImplementation(() => {
   return {
@@ -227,7 +227,7 @@ const fakeObjectHash = jest.fn().mockImplementation(() => {
 export default fakeObjectHash;
 ```
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import Validation from './index';
 import Accounts, { stubGetPassword } from './accounts';
 import Hash, { stubGetHashResult } from './hash';
@@ -254,41 +254,29 @@ classDiagram
       <<interface>>
       ...
   }
-  IValidation : +execute() boolean
-  IValidation : +getPassword(identity ~number~) string
-  IValidation : +getHashResult(password ~string~) string
   class Validation {
       ...
   }
-  Validation : +execute() boolean
-  Validation : +getPassword(identity ~number~) string
-  Validation : +getHashResult(password ~string~) string
   class IAccounts {
       <<interface>>
       ...
   }
-  IAccounts : +getPassword(identity ~number~) string
   class IHash {
       <<interface>>
       ...
   }
-  IHash : +getHashResult(password ~string~) string
   class Accounts {
       ...
   }
-  Accounts : +getPassword(identity ~number~) string
   class Hash {
       ...
   }
-  Hash : +getHashResult(password ~string~) string
   class FakeObjectAccounts {
       ...
   }
-  FakeObjectAccounts : +getPassword(identity ~number~) string
   class FakeObjectHash {
       ...
   }
-  FakeObjectHash : +getHashResult(password ~string~) string
   IValidation <-- Validation
   Validation --> IAccounts
   Validation --> IHash

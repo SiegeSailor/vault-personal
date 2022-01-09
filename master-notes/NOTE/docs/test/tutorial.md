@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Tutorial
 
-前端測試可以分成單元測試 (Unit Test)、整合測試 (Integration Test) 和 端對端測試 (End-to-End Test)。這三個的區隔壁壘分明，但無論是哪一種，目的都是透過 **預期結果** 去和 **真實結果** 做比對。因此，在著手撰寫測試之前，要先能預期自己的程式是如何運作的。
+測試可以分成單元測試 (Unit Test)、整合測試 (Integration Test) 和 端對端測試 (End-to-End Test)。這三個的區隔壁壘分明，但無論是哪一種，目的都是透過 **預期結果** 去和 **真實結果** 做比對。因此，在著手撰寫測試之前，要先能預期自己的程式是如何運作的。
 
 這三類測試的關係可以參考由 Testing Pyramid 來說明：
 
-![Testing Pyramid](/img/docs/testing-pyramid.png)
+![Testing Pyramid](/img/testing-pyramid.png)
 
 > 圖片來源：[Method Poet](https://methodpoet.com/testing-pyramid/)
 

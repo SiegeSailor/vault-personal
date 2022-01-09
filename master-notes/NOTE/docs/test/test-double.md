@@ -42,7 +42,7 @@ flowchart LR
 
 假設有個 `obtainBestUser`、用作取目前 `score` 最高的使用者，我們想要測試是否每次都會取出正確的使用者：
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 interface IUser {
   name: string;
   identity: number;
@@ -57,7 +57,7 @@ export function obtainBestUser(obtainListOfUser: () => Promise<IUser[]>): IUser 
 
 我們使用 `jest.fn` 建立一個 Test Stub、輸出二組 User，藉此固定除了 `obtainBestUser` 外的變數：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import { obtainBestUser } from './index';
 
 const mockedObtainListOfUser = jest.fn();
@@ -84,9 +84,9 @@ describe('obtainBestUser', () => {
 
 ### Test Spy
 
-可參考 [Redux](/docs/practice/redux) 和 [Scope](/docs/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
+可參考 [Redux](/docs/test/practice/redux) 和 [Scope](/docs/test/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import { store } from 'state';
 
 export function setLocalProfile() {
@@ -97,7 +97,7 @@ export function setLocalProfile() {
 
 接著使用 `jest.spyOn` 模擬 `store` 的介面與邏輯，並以 `toHaveBeenCalled` 驗證 `store.getState` 的使用：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import { store } from 'state';
 import { setLocalProfile } from './index';
 import { handleUser } from 'source';
@@ -123,7 +123,7 @@ describe('setLocalProfile', () => {
 
 我們有個依賴 `lodash` 的 Function：
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import * as _ from 'lodash';
 
 export function handleChunk(listOfInput: any[]) {
@@ -137,7 +137,7 @@ export function handleCompact(listOfInput: any[]) {
 
 而在測試時，我們利用 `mock` 將 Lodash 的 `chunk` 表現固定，並在同時 **保持** 其他 Lodash 的邏輯與功能：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import * as _ from 'lodash';
 
 import { handleChunk, handleCompact } from './index';
@@ -169,7 +169,7 @@ describe('handleCompact', () => {
 
 假設我們撰寫了一個使用者相關的 Function：
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 import handleUser from './handleUser';
 export async function obtainMale() {
   const listOfUser = await handleUser.fetchWithGender('male');
@@ -179,7 +179,7 @@ export async function obtainMale() {
 
 而實際上這邊的 `handleUser` 還尚未開工、只有大概定義的介面：
 
-```typescript title="handleUser.ts"
+```tsx title="handleUser.ts"
 export default function handleUser() {
   return {
     fetchWithGender: async function (gender: 'male' | 'female') {
@@ -191,7 +191,7 @@ export default function handleUser() {
 
 那麼可以用 `mock` 將整個 `handleUser` 替換為一個 Fake Object：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import handleUser from './handleUser';
 import { obtainMale } from './index';
 
@@ -207,7 +207,7 @@ jest.mock('./handleUser', () => {
 });
 
 it('Does the function work correctly', () => {
-  expect(obtainMale()).resolves.toEqual([
+  return expect(obtainMale()).resolves.toEqual([
     { identity: '001', gender: 'male' },
     { identity: '002', gender: 'male' },
   ]);
@@ -218,7 +218,7 @@ it('Does the function work correctly', () => {
 
 以下一驗證 Array 長度的 Function：
 
-```typescript title="index.ts"
+```tsx title="index.ts"
 export class Commodity {
   constructor(name: string, price: number, identity: string, factory: string, area: string) {
     /** 建構 Commodity */
@@ -232,7 +232,7 @@ export function indicateCommodityLengthLessThanMax(listOfCommodity: Commodity[],
 
 若我們不使用 Dummy Object，則會需要為每個 Commodity 輸入建構所需 Parameter：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import { Commodity, indicateCommodityLengthLessThanMax } from './index';
 
 it('Does the function work correctly', () => {
@@ -246,7 +246,7 @@ it('Does the function work correctly', () => {
 
 然而，在此測試中，我們並不在乎 Commodity 的內容。而且若在重構中改動了 `Commodity` 則會連此測試都必須大幅調整。因此，我們應在此使用 Dummy Object：
 
-```typescript title="index.test.ts"
+```tsx title="index.test.ts"
 import { Commodity, indicateCommodityLengthLessThanMax } from './index';
 
 class DummyCommodity extends Commodity {
