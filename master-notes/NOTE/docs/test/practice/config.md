@@ -175,8 +175,6 @@ window.matchMedia =
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "charset": "UTF-8",
-    /** 略過引入 Packages 的型別檢查 */
-    "skipDefaultLibCheck": true,
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": false,
@@ -189,7 +187,7 @@ window.matchMedia =
     "noEmit": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    /** 建議開啟，略過檢查 Libraries */
+    /** 建議開啟，略過檢查引入的 Libraries */
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "strict": true,
@@ -202,7 +200,7 @@ window.matchMedia =
 }
 ```
 
-注意 `compilerOption.lib` 的設置，特別是發現來自原生函式的 Type Error 時：
+注意 `compilerOption.lib` 的設置，特別是發現來自原生函式或 DOM 相關的 Type Error 時：
 
 ```cli
 src/component/ButtonSubmit/index.test.tsx:16:29 - error TS2812: Property 'parentElement' does not exist on type 'HTMLElement'. Try changing the 'lib' compiler option to include 'dom'.
