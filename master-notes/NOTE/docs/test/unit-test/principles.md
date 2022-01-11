@@ -249,7 +249,7 @@ it('Does validation work correctly', () => {
 
 ```mermaid
 classDiagram
-  direction TB
+  direction LR
   class IValidation {
       <<interface>>
       ...

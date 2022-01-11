@@ -49,6 +49,14 @@ img[title="Diagram generated via mermaid"] {
   font-weight: 500 !important;
 }
 
+.playgroundPreview_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module div pre {
+  margin: 0 !important;
+}
+
+.tabs .markdown li + li {
+  margin-top:0;
+}
+
 .language-cli {
   background: rgb(24, 23, 29) !important;
 }

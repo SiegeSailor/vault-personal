@@ -29,7 +29,7 @@ function flatten(object: object, parent?: string, result: { [key in string | num
 以 Live Editor 實際運作：
 
 ```javascript live
-function WrapFlatten() {
+function _() {
   function flatten(object, parent, result = {}) {
     for (const key in object) {
       const parentName = parent ? parent + '.' + key : key;
@@ -41,7 +41,9 @@ function WrapFlatten() {
     }
     return result;
   }
-  return <pre>{JSON.stringify(flatten({ first: { second: { third: { value: [{ inner: [1, 2, 3] }] } } } }), null, 4)}</pre>;
+
+  const input = { first: { second: { third: { value: [{ inner: [1, 2] }] } } }, day: { night: false }, fruit: { apple: null } };
+  return <pre>{JSON.stringify(flatten(input), null, 4)}</pre>;
 }
 ```
 
