@@ -127,6 +127,44 @@ describe('setLocalProfile', () => {
 若要取用 `jest.fn().mock` 內的 Mock 相關呼叫紀錄，需注意只有在 Test File 內的動作才會被紀錄，原始檔案的行為並不作數。
 :::
 
+:::info 提醒
+若是要使用 `jest.spyOn` 的 Function 與 SUT 來自同一個 Module，可以用以下方法 Mock：
+
+```tsx title="index.ts"
+// highlight-next-line
+import * as sameModule from './index';
+import { store } from 'state';
+
+export function obtainProfile() {
+  return store.getState().status.profile;
+}
+
+export function setLocalProfile() {
+  // highlight-next-line
+  const profile = sameModule.obtainProfile();
+  localStorage.setItem('profile', JSON.stringify(profile));
+}
+```
+
+```tsx title="index.test.ts"
+// highlight-next-line
+import * as main from './index';
+import { handleUser } from 'source';
+
+describe('setLocalProfile', () => {
+  it('Does the function store profile correctly', () => {
+    // highlight-start
+    const spyObtainProfile = jest.spyOn(main, 'obtainProfile').mockReturnValue(handleUser.default);
+    main.setLocalProfile();
+    // highlight-end
+    expect(spyObtainProfile).toHaveBeenCalled();
+    expect(localStorage.getItem('profile')).toBe(JSON.stringify(handleUser.default));
+  });
+});
+```
+
+:::
+
 ### Mock Object
 
 我們有個依賴 `lodash` 的 Function：

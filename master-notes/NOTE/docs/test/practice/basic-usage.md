@@ -205,3 +205,7 @@ Snapshots:   0 total
 Time:        1.277 s
 Ran all test suites.
 ```
+
+:::info 提醒
+關於 Mock，可以參考 [/Test/Test Double](/docs/test/test-double)。
+:::
