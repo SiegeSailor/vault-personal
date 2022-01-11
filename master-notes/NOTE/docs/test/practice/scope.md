@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Scope
 
-介紹一些 Jest 關於 Scope 的相關函式，詳情見 [Jest](https://jestjs.io/docs/getting-started)。這邊以 `handleStorage`，一個對操作 LocalStorage 進行封裝的 Function 進行說明：
+介紹一些 Jest 關於 Scope 的相關函式，詳情見 [Jest/Getting Started](https://jestjs.io/docs/getting-started)。這邊以 `handleStorage`，一個對操作 LocalStorage 進行封裝的 Function 進行說明：
 
 ```tsx title="react-app-env.d.ts"
 declare namespace NodeJS {

@@ -21,7 +21,7 @@ sidebar_position: 3
 ```
 
 :::info 提醒
-目前大多 Framework 或 Scaffold 都有將測試納入配置、不需手寫，如 [Ionic](https://ionicframework.com/docs/react/testing) 和 [CRA](https://create-react-app.dev/docs/running-tests/) 都使用了 Jest。
+目前大多 Framework 或 Scaffold 都有將測試納入配置、不需手寫，如 [Ionic/React/Testing](https://ionicframework.com/docs/react/testing) 和 [CRA/Running Tests](https://create-react-app.dev/docs/running-tests/)。
 :::
 
 ### 如何執行

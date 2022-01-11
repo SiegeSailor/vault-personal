@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Basic Usage
 
-測試時主要使用 Jest，詳情見 [Jest](https://jestjs.io/docs/getting-started)。這邊以 `handleTime`，一個對時間格式化的 Function 進行說明：
+測試時主要使用 Jest，詳情見 [Jest/Getting Started](https://jestjs.io/docs/getting-started)。這邊以 `handleTime`，一個對時間格式化的 Function 進行說明：
 
 ```tsx title="format.ts"
 export const handleTime = {
@@ -68,7 +68,7 @@ describe('handleTime', () => {
 
 ## Command Line
 
-只要有 Matcher 和 Test Cases 即可設置基本的測試。我們在此執行 `npm run test` (如何設置請見 [Config](/docs/test/practice/config)) 來檢驗結果：
+只要有 Matcher 和 Test Cases 即可設置基本的測試。我們在此執行 `npm run test` (如何設置請見 [/Test/Practice/Config](/docs/test/practice/config)) 來檢驗結果：
 
 ```cli
 PASS  src/helper/index.test.tsx

@@ -40,7 +40,7 @@ sidebar_position: 2
 └──...
 ```
 
-`setupTest.ts` 可以設想為每次測試時會預先執行、載入的 Module，而 `jest.config.ts` 則是對於 Jest 本身如何執行的設置。`.ts` 在非 TypeScript 專案時應換為 `.js`。詳細設置參考 [Configuring Jest](https://jestjs.io/docs/configuration)。
+`setupTest.ts` 可以設想為每次測試時會預先執行、載入的 Module，而 `jest.config.ts` 則是對於 Jest 本身如何執行的設置。`.ts` 在非 TypeScript 專案時應換為 `.js`。詳細設置參考 [Jest/Configuration](https://jestjs.io/docs/configuration)。
 
 ### 繼承
 
@@ -62,5 +62,5 @@ sidebar_position: 2
 ```
 
 ```javascript title="Admin/jest.config.ts"
-module.exports = require("./../.jest.config.ts");
+module.exports = require('./../.jest.config.ts');
 ```

@@ -208,7 +208,7 @@ classDiagram
 由以上範例，我們可以實現以下測試：
 
 ```tsx title="__mocks__/accounts.ts"
-export const stubGetPassword = jest.fn();
+const stubGetPassword = jest.fn();
 const fakeObjectAccounts = jest.fn().mockImplementation(() => {
   return {
     getPassword: stubGetPassword,
@@ -218,7 +218,7 @@ export default fakeObjectAccounts;
 ```
 
 ```tsx title="__mocks__/hash.ts"
-export const stubGetHashResult = jest.fn();
+const stubGetHashResult = jest.fn();
 const fakeObjectHash = jest.fn().mockImplementation(() => {
   return {
     getHashResult: stubGetHashResult,
@@ -229,15 +229,15 @@ export default fakeObjectHash;
 
 ```tsx title="index.test.ts"
 import Validation from './index';
-import Accounts, { stubGetPassword } from './accounts';
-import Hash, { stubGetHashResult } from './hash';
+import Accounts from './accounts';
+import Hash from './hash';
 
 jest.mock('./accounts');
 jest.mock('./hash');
 
 it('Does validation work correctly', () => {
-  stubGetPassword.mockReturnValue('1001');
-  stubGetHashResult.mockReturnValue('1001');
+  Accounts.stubGetPassword.mockReturnValue('1001');
+  Hash.stubGetHashResult.mockReturnValue('1001');
   const accounts = new Accounts();
   const hash = new Hash();
   const validation = new Validation(accounts.getPassword, hash.getHashResult);
@@ -245,11 +245,15 @@ it('Does validation work correctly', () => {
 });
 ```
 
+:::info 提醒
+關於 `__mocks__` 與 `jest.mock(path)` 的使用方法，見 [Jest/Manual Mocks](https://jestjs.io/docs/manual-mocks)。
+:::
+
 上方測試的概念如圖所示：
 
 ```mermaid
 classDiagram
-  direction LR
+  direction TB
   class IValidation {
       <<interface>>
       ...

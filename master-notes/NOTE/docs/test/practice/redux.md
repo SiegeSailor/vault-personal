@@ -205,7 +205,7 @@ it('Does the component render correctly', () => {
 });
 ```
 
-## In Components
+## Store Object
 
 另外一個常見問題是不使用 Hook 而是使用已經實體化的 `store` 來 `getState` 跟 `dispatch`：
 
@@ -243,6 +243,8 @@ export const handleLocalStorage = {
   },
 };
 ```
+
+### Mock Function
 
 則在測試中，可以用 `jest.spyOn` 來取代原本檔案使用的 `store.getState`：
 
@@ -292,3 +294,37 @@ describe('handleLocalStorage', () => {
   });
 });
 ```
+
+### Real Store
+
+或者，可以直接使用 Redux Store 的 `dispatch` 與 `getState` 來進行測試：
+
+```tsx title="index.test.ts"
+import { handleLocalStorage } from './device';
+import { store, actions } from 'state';
+import { handleUser } from 'source';
+
+beforeEach(() => {
+  store.dispatch(actions.status.logIn({ uid: '001', profile: {} }));
+});
+```
+
+可以在每個使用到 `dispatch` 的 Test File 內 Reset：
+
+```tsx title="index.test.ts"
+import { handleLocalStorage } from './device';
+import { store, actions } from 'state';
+import { handleUser } from 'source';
+
+beforeEach(() => {
+  store.dispatch(actions.status.logIn({ uid: '001', profile: {} }));
+});
+
+afterAll(() => {
+  store.dispatch(actions.status.reset());
+});
+```
+
+:::info 提醒
+由於 Jest 測試時是 Parallel (同時在不同 Thread 執行測試)，不必擔心不同 Test Files 的 Store State 會互相污染。見 [QuickAdviser#Do Jest Tests Run In Parallel?](https://quick-adviser.com/do-jest-tests-run-in-parallel/#Do_jest_tests_run_in_parallel)。
+:::

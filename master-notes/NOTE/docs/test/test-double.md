@@ -82,9 +82,13 @@ describe('obtainBestUser', () => {
 });
 ```
 
+:::info 提醒
+可以用 `mockResolvedValueOnce` 替換 `mockReturnValueOnce(new Promise((resolve)=> resolve()))`。
+:::
+
 ### Test Spy
 
-可參考 [Redux](/docs/test/practice/redux) 和 [Scope](/docs/test/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
+可參考 [/Test/Practice/Redux](/docs/test/practice/redux) 和 [/Test/Practice/Scope](/docs/test/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
 
 ```tsx title="index.ts"
 import { store } from 'state';
@@ -116,7 +120,11 @@ describe('setLocalProfile', () => {
 ```
 
 :::info 提醒
-若要取用 `jest.fn().mock` 內的 Mock 相關呼叫紀錄，需注意只有在 Test File 內的動作才會被紀錄，在原始檔案本身的行為並不會作數。
+`mockReturnValue` 可以用 `mockImplementation` 代替，差別在於前者輸入的只有回傳值、後者會執行整個輸入的 Function。
+:::
+
+:::info 提醒
+若要取用 `jest.fn().mock` 內的 Mock 相關呼叫紀錄，需注意只有在 Test File 內的動作才會被紀錄，原始檔案的行為並不作數。
 :::
 
 ### Mock Object

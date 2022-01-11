@@ -98,5 +98,5 @@ React Component 最為著名的是其 Life Cycle，實務上經常與資料狀�
 若是該 UI 使用的 Hooks 不只有單純的狀態更新，涉及到了如 Web API 如 Geolocation，則可以將 Hooks 拆出並用 [React Hooks Testing Library](https://github.com/testing-library/react-hooks-testing-library) 單獨測試。
 
 :::info 提醒
-面對 End-to-End Test，應該會使用到 Cypress、Playwright，或是像是 Puppeteer 的函式庫，因為可能需要在不同 Route 中切換、Assert Side Effect，場景也可能在後端。見 [React#End-to-end Test](https://zh-hant.reactjs.org/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests)。
+面對 End-to-End Test，應該會使用到 Cypress、Playwright，或是像是 Puppeteer 的函式庫，因為可能需要在不同 Route 中切換、Assert Side Effect，場景也可能在後端。見 [React/Testing Environments#End-to-end Test](https://zh-hant.reactjs.org/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests)。
 :::

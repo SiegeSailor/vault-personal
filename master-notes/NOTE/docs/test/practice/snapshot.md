@@ -104,7 +104,7 @@ Watch Usage
 :::
 
 :::info 提醒
-使用了 Redux React Connect 或 Hook 的元件在進行 Snapshot Test 時會出現 _Could not find react-redux context value_ 的錯誤，解決方法參考 [Redux](/docs/test/practice/redux)。
+使用了 Redux React Connect 或 Hook 的元件在進行 Snapshot Test 時會出現 _Could not find react-redux context value_ 的錯誤，解決方法參考 [/Test/Practice/Redux](/docs/test/practice/redux)。
 :::
 
 ### Update
@@ -144,7 +144,7 @@ exports[`Does the component render correctly 1`] = `
 ```
 
 :::info 提醒
-更詳細的使用說明，見 [React#Test-Rerender](https://zh-hant.reactjs.org/docs/test-renderer.html#testrenderercreate)。
+更詳細的使用說明，見 [React/Test-Rerender](https://zh-hant.reactjs.org/docs/test-renderer.html#testrenderercreate)。
 :::
 
 ## 價值
