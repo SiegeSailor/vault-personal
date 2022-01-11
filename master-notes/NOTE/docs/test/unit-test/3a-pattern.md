@@ -1,14 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # 3A Pattern
 
 Unit Test 中，無論對何種 Unit 做哪個 Test Case，都有必須遵循的三個步驟，分別是：
 
-1. **Arrange**: 設置測試所需，諸如初始化物件、準備預期輸入與輸出等
-2. **Act**: 執行與運作 Unit
-3. **Assert**: 驗證是否實際輸出符合預期輸出
+1. **Arrange**: Given。設置測試所需，諸如初始化物件、準備預期輸入與輸出等
+2. **Act**: When。執行與運作 Unit
+3. **Assert**: Then。驗證是否實際輸出符合預期輸出
 
 我們以下列的 `flatten` 做示範。此 Function 將輸入的 Object 變為只有一層的結構 (無論原本有多少層)：
 

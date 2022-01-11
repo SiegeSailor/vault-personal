@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Principles
@@ -30,6 +30,25 @@ sidebar_position: 4
 - **預期情境**: Unit Test 無法對無可預期的情境做測試，只有設想了輸入與輸出的情況才可實作
 - **不依賴外部**: 不會動用到受測單元外的資源，諸如網路、資料庫、其他 DOC 等
 - **無耦合**: 又稱 **隔離相依性**。遇到不同功能在同一單元時，應果斷拆分、讓單元只接受介面，而不是直接放入其他單元
+
+```mermaid
+flowchart LR
+   A[System/Interface];
+   A --> B[Component/Situation];
+   A <-.-> |No| C[External]
+   B --> E[Function];
+   subgraph Unit 2
+   direction RL
+   E --- G[Input];
+   E --- H[Output];
+   end
+   B --> F[Function];
+   subgraph Unit 1
+   direction RL
+   F --- I[Input];
+   F --- J[Output];
+   end
+```
 
 ### 直接相依
 
@@ -258,6 +277,9 @@ classDiagram
       <<interface>>
       ...
   }
+  IValidation : +execute() boolean
+  IValidation : +getPassword(identity ~number~) string
+  IValidation : +getHashResult(password ~string~) string
   class Validation {
       ...
   }
@@ -265,10 +287,12 @@ classDiagram
       <<interface>>
       ...
   }
+  IAccounts : +getPassword(identity ~number~) string
   class IHash {
       <<interface>>
       ...
   }
+  IHash : +getHashResult(password ~string~) string
   class Accounts {
       ...
   }

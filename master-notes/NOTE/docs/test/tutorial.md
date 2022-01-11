@@ -20,7 +20,7 @@ sidebar_position: 1
 :::info 提醒
 **SUT**，System Under Test/Software Under Test，待測程式。**DOC**，Depended-on-Component，相依元件。SUT 執行時會使用到的元件，即在功能上兩個元件有因果關係。但仍是分隔成不同 Unit 測試。
 
-**Test Double**，Dummy, Fake, Stub, Mock, Spy 等。可以理解為假的 DOC。
+**Test Double**，Dummy、Fake、Stub、Mock、Spy 等。可以理解為假的 DOC。
 :::
 
 #### 層級
