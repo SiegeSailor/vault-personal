@@ -123,8 +123,12 @@ describe('setLocalProfile', () => {
 `mockReturnValue` 可以用 `mockImplementation` 代替，差別在於前者輸入的只有回傳值、後者會執行整個輸入的 Function。
 :::
 
-:::info 提醒
+:::caution 注意
 若要取用 `jest.fn().mock` 內的 Mock 相關呼叫紀錄，需注意只有在 Test File 內的動作才會被紀錄，原始檔案的行為並不作數。
+:::
+
+:::caution 注意
+`jest.fn` 與 `jest.spyOn` 的回傳物件進行的 `mockReturnValue`、`mockImplementation` 或任何相關 Mock，只存在 **同一個 Scope** 內。舉例來說，`describe` 內有 `it`，但在 `describe` 內 Mock 的回傳值在 `it` 內不會有作用。
 :::
 
 :::info 提醒
