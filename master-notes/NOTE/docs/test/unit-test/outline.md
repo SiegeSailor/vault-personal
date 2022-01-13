@@ -20,8 +20,8 @@ flowchart LR
    A --> C[Component/Situation];
    A --> D[Component/Situation];
    end
-   subgraph 原子化
    B --> E[Function];
+   subgraph 原子化
    B --> F[Function];
    F --- G[Input];
    F --- H[Output];
