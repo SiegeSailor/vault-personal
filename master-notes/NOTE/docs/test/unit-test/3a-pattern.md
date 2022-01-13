@@ -53,11 +53,15 @@ function _() {
 describe('flatten', () => {
   it('Flatting a single value object to a key-value with commas', () => {
     /** Arrange: 準備預期輸入 `input` 與預期輸出 `output` */
+    // highlight-start
     const input = { first: { second: { third: { value: 1 } } } };
     const output = { 'first.second.third.value': 1 };
+    // highlight-end
     /** Act: 執行 Function */
+    // highlight-next-line
     const result = handleCalculate.flatten(input);
     /** Assert: 驗證 `result` 符合預期輸出 `output` */
+    // highlight-next-line
     expect(result).toEqual(output);
   });
 });
