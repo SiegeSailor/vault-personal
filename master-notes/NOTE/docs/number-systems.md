@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Positional Number Systems
+# Number Systems
 
-全部在電腦中的資料都只有 0 與 1 兩個狀態、以 Binary Numbers 型態表示，無論是以電子或磁的方式儲存。
+Positional Number System。全部在電腦中的資料都只有 0 與 1 兩個狀態、以 Binary Numbers 型態表示，無論是以電子或磁的方式儲存。
 
 - **Number**: Represented in binary
 - **Image**: Matrix of pixels’ colors. Each color is represented as levels such as RGB
