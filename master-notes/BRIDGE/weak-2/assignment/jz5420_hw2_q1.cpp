@@ -18,7 +18,7 @@ const float DOLLAR_PER_QUARTER = 0.25;
 const float DOLLAR_PER_DIME = 0.1;
 const float DOLLAR_PER_NICKEL = 0.05;
 const float DOLLAR_PER_PENNIE = 0.01;
-const int CENT_PER_DOLLAR = 100;
+const short int CENT_PER_DOLLAR = 100;
 int main()
 {
     int quarters, dimes, nickels, pennies;

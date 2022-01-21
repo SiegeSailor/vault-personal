@@ -15,11 +15,7 @@
 #include <iostream>
 using namespace std;
 
-const int CENT_TO_QUARTER = 25;
-const int CENT_TO_DIME = 10;
-const int CENT_TO_NICKEL = 5;
-const int CENT_TO_PENNIE = 1;
-const int DOLLAR_TO_CENT = 1e2;
+const short int CENT_TO_QUARTER = 25, CENT_TO_DIME = 10, CENT_TO_NICKEL = 5, CENT_TO_PENNIE = 1, DOLLAR_TO_CENT = 1e2;
 int main()
 {
     int dollars, cents;

@@ -17,8 +17,8 @@
 #include <iostream>
 using namespace std;
 
-const int HOUR_TO_MINUTE = 60;
-const int DAY_TO_MINUTE = 24 * HOUR_TO_MINUTE;
+const short int HOUR_TO_MINUTE = 60;
+const short int DAY_TO_MINUTE = 24 * HOUR_TO_MINUTE;
 int main()
 {
     int john_days, john_hours, john_minutes;
