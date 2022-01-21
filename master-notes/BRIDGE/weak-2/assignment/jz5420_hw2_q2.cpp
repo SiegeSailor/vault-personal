@@ -19,6 +19,7 @@ const int CENT_TO_QUARTER = 25;
 const int CENT_TO_DIME = 10;
 const int CENT_TO_NICKEL = 5;
 const int CENT_TO_PENNIE = 1;
+const int DOLLAR_TO_CENT = 1e2;
 int main()
 {
     int dollars, cents;
@@ -26,7 +27,7 @@ int main()
     cin >> dollars >> cents;
     cout << dollars << " dollars and " << cents << " cents are:\n";
 
-    int total_cents = (dollars*100) + cents;
+    int total_cents = (dollars * DOLLAR_TO_CENT) + cents;
     int quarters = total_cents / CENT_TO_QUARTER,
         offset_quarters = quarters * CENT_TO_QUARTER;
     int dimes = (total_cents - offset_quarters) / CENT_TO_DIME,

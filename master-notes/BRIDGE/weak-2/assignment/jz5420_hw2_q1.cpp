@@ -18,6 +18,7 @@ const float DOLLAR_PER_QUARTER = 0.25;
 const float DOLLAR_PER_DIME = 0.1;
 const float DOLLAR_PER_NICKEL = 0.05;
 const float DOLLAR_PER_PENNIE = 0.01;
+const int CENT_PER_DOLLAR = 100;
 int main()
 {
     int quarters, dimes, nickels, pennies;
@@ -33,7 +34,7 @@ int main()
 
     float total = (quarters * DOLLAR_PER_QUARTER) + (dimes * DOLLAR_PER_DIME) + (nickels * DOLLAR_PER_NICKEL) + (pennies * DOLLAR_PER_PENNIE);
     int total_dollars = total;
-    float total_cents = (total - total_dollars) * 100;
+    float total_cents = (total - total_dollars) * CENT_PER_DOLLAR;
     cout << "The total is " << total_dollars << " and " << total_cents << " cents\n";
     return 0;
 }
