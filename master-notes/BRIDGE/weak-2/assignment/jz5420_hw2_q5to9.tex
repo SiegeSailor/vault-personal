@@ -1,0 +1,568 @@
+\documentclass[11pt, oneside]{article}
+\usepackage[top=4ex, right=8ex, bottom=4ex, left=8ex]{geometry}
+\geometry{a4paper}
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\setlength{\droptitle}{-9.5ex}
+\renewcommand{\maketitlehooka}{\vfill\bfseries}
+\renewcommand{\maketitlehookb}{\normalfont}
+\renewcommand{\maketitlehookd}{\vfill\clearpage}
+
+\titlespacing*{\section}
+{0pt}{1\baselineskip}{1.5\baselineskip}
+\titlespacing*{\subsection}
+{0pt}{5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+\usetikzlibrary{arrows}
+
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+\def\secondcircle{(210:1.75cm) circle (2.5cm)}
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+
+
+\title{Homework \#2}
+\author{Zhang, Jin-Yu - \texttt{jz5420@nyu.edu}}
+\date{\today}
+
+\renewcommand{\labelitemi}{-}
+
+\begin{document}
+
+\maketitle
+
+%=================
+%| Question 5    |
+%=================
+\pagebreak
+
+\section*{Question 5}
+
+\subsection*{a. Solve the following questions from the Discrete Math zyBook:}
+
+\subsubsection*{1. Exercise 1.12.2, sections b, e}
+
+\subsubsection*{Use the rules of inference and the laws of propositional logic to prove that each argument is valid. Number each line of your argument and label each line of your proof "Hypothesis" or with the name of the rule of inference used at that line. If a rule of inference is used, then include the numbers of the previous lines to which the rule is applied.}
+
+\begin{quote}
+    \textbf{b. }
+    \(
+    \begin{array}{rl}
+      & p\implies (q \land r) \\
+      & \neg q \\
+      \cline{2-2}
+    \therefore & \neg p  
+    \end{array}
+    \)  
+    
+    \begin{tabular}{|p{0.5cm}|p{5cm}|p{5cm}|}
+        \hline
+        1 & $\neg q$ & Hypothesis \\
+        \hline
+        2 & $\neg q \lor \neg r$ & Addition, 1 \\
+        \hline
+        3 & $\neg (q \land r)$ & De Morgan's law 2 \\
+        \hline
+        4 & $p\implies (q \land r)$ & Hypothesis \\
+        \hline
+        5 & $\neg p$ & Modus tollens 3,4 \\
+        \hline
+    \end{tabular}
+\end{quote}
+
+\begin{quote}
+    \textbf{e. }
+    \(
+    \begin{array}{rl}
+      & p\lor q \\
+      & \neg p \lor r \\
+      & \neg q \\
+      \cline{2-2}
+    \therefore & r  
+    \end{array}
+    \)  
+    
+    \begin{tabular}{|p{0.5cm}|p{5cm}|p{5cm}|}
+        \hline
+        1 & $p \lor q$ & Hypothesis \\
+        \hline
+        2 & $\neg p \lor r$ & Hypothesis \\
+        \hline
+        3 & $\neg q$ & Hypothesis \\
+        \hline
+        4 & $q \lor r$ & Resolution 1,2 \\
+        \hline
+        5 & r & Disjunctive syllogism 3,4 \\
+        \hline
+    \end{tabular}
+\end{quote}
+
+\subsubsection*{2. Exercise 1.12.3, sections c}
+
+\subsubsection*{Some of the rules of inference can be proven using the other rules of inference and the laws of propositional logic.}
+
+\begin{quote}
+    \textbf{c. }One of the rules of inference is Disjunctive syllogism :
+    \[
+    \begin{array}{rl}
+      & p \lor q \\
+      & \neg p \\
+      \cline{2-2}
+    \therefore & q 
+    \end{array}
+    \]  
+    Prove that Disjunctive syllogism is valid using the laws of propositional logic and any of the other rules of inference besides Disjunctive syllogism. (Hint: you will need one of the conditional identities from the laws of propositional logic).
+    
+    \begin{tabular}{|p{1cm}|p{5cm}|p{5cm}|}
+        \hline
+        1 & $p \lor q$ & Hypothesis \\
+        \hline
+        2 & $\neg p$ & Hypothesis \\
+        \hline
+        3 & $\neg \neg p \lor q$ & Double negation 1 \\
+        \hline
+        4 & $\neg p \implies q$ & Conditional identity 3 \\
+        \hline
+        5 & $q$ & Modus ponens 2,4 \\
+        \hline
+    \end{tabular}
+\end{quote}
+
+\pagebreak
+
+\subsubsection*{3. Exercise 1.12.5, sections c, d}
+
+\subsubsection*{Give the form of each argument. Then prove whether the argument is valid or invalid. For valid arguments, use the rules of inference to prove validity.}
+
+\begin{quote}
+    \textbf{c. }
+    \(
+    \begin{array}{rl}
+      & \textnormal{I will buy a new car and a new house only if I get a job.} \\
+      & \textnormal{I am not going to get a job.} \\
+      \cline{2-2}
+    \therefore & \textnormal{I will not buy a new car.} 
+    \end{array}
+    \)  
+    
+    \begin{enumerate}
+        \item[c:] I will buy a new car
+        \item[h:] I will buy a new house
+        \item[j:] I will get a job
+    \end{enumerate}
+    
+    Argument:
+    \(
+    \begin{array}{rl}
+      & (c \land h) \implies j \\
+      & \neg j \\
+      \cline{2-2}
+    \therefore & \neg c  
+    \end{array}
+    \)  
+    
+    The argument is \textbf{invalid} when c = T, and h = j = F.
+\end{quote}
+
+\begin{quote}
+    \textbf{d. }
+    \(
+    \begin{array}{rl}
+      & \textnormal{I will buy a new car and a new house only if I get a job.} \\
+      & \textnormal{I am not going to get a job.} \\
+      & \textnormal{I will buy a new house.} \\
+      \cline{2-2}
+    \therefore & \textnormal{I will not buy a new car.} 
+    \end{array}
+    \)  
+    
+    \begin{enumerate}
+        \item[c:] I will buy a new car
+        \item[h:] I will buy a new house
+        \item[j:] I will get a job
+    \end{enumerate}
+    
+    Argument:
+    \(
+    \begin{array}{rl}
+      & (c \land h) \implies j \\
+      & \neg j \\
+      & h \\
+      \cline{2-2}
+    \therefore & \neg c  
+    \end{array}
+    \)  
+    
+    The argument is \textbf{valid} when c = j = F, and h = T.
+    
+    \begin{tabular}{|p{0.5cm}|p{5cm}|p{5cm}|}
+        \hline
+        1 & $(c \land h) \implies j$ & Hypothesis \\
+        \hline
+        2 & $\neg j$ & Hypothesis \\
+        \hline
+        3 & $h$ & Hypothesis \\
+        \hline
+        4 & $\neg (c \land h)$ & Modus tollens 1,2 \\
+        \hline
+        5 & $\neg c \lor \neg h$ & De Morgan's law 4 \\
+        \hline
+        6 & $\neg c$ & Disjunctive syllogism 3,5 \\
+        \hline
+    \end{tabular}
+\end{quote}
+
+\subsection*{b. Solve the following questions from the Discrete Math zyBook:}
+
+\subsubsection*{1. Exercise 1.13.3, sections b}
+
+\subsubsection*{Show that the given argument is invalid by giving values for the predicates P and Q over the domain {a, b}.}
+
+\begin{quote}
+    \textbf{b. }
+    \(
+    \begin{array}{rl}
+      & \exists x (P(x) \lor Q(x)) \\
+      & \exists x \neg Q(x) \\
+      \cline{2-2}
+    \therefore & \exists x P(x)  
+    \end{array}
+    \)  
+    
+    \begin{itemize}
+        \item a and b for P(x) must all be F due to $\exists$
+        \item Either a or b must be F for hypothesis $\exists x \neg Q(x)$ to be true
+        \item Either a or b must be T for hypothesis $\exists x (P(x) \lor Q(x))$ to be true
+        \item Truth table:
+            \begin{tabular}{ |p{0.5cm}|p{1cm}|p{1cm}|  }
+                \hline
+                \enspace & P(x) & Q(x) \\
+                \hline
+                a & F & F \\
+                b & F & T \\
+                \hline
+            \end{tabular}
+    \end{itemize}
+\end{quote}
+
+\pagebreak
+
+\subsubsection*{1. Exercise 1.13.5, sections d, e}
+
+\subsubsection*{Prove whether each argument is valid or invalid. First find the form of the argument by defining predicates and expressing the hypotheses and the conclusion using the predicates. If the argument is valid, then use the rules of inference to prove that the form is valid. If the argument is invalid, give values for the predicates you defined for a small domain that demonstrate the argument is invalid. The domain for each problem is the set of students in a class.}
+
+\begin{quote}
+    \textbf{d. }
+    \(
+    \begin{array}{rl}
+      & \textnormal{Every student who missed class got a detention.} \\
+      & \textnormal{Penelope is a student in the class.} \\
+      & \textnormal{Penelope did not miss class.} \\
+      \cline{2-2}
+    \therefore & \textnormal{Penelope did not get a detention.} 
+    \end{array}
+    \)  
+    
+    \begin{enumerate}
+        \item[M(x):] Student x missed a class
+        \item[D(x):] Student x got a detention
+    \end{enumerate}
+    
+    Argument:
+    \(
+    \begin{array}{rl}
+      & \forall x (M(x) \implies D(x)) \\
+      & \textnormal{Penelope is a student in the class} \\
+      & \neg M(Penelope) \\
+      \cline{2-2}
+    \therefore & \neg D(Penelope) 
+    \end{array}
+    \)
+    
+    The argument is \textbf{invalid} when M(Penelope) = F, D(Penelope) = T.
+\end{quote}
+
+\begin{quote}
+    \textbf{e. }
+    \(
+    \begin{array}{rl}
+      & \textnormal{Every student who missed class or got a detention did not get an A.} \\
+      & \textnormal{Penelope is a student in the class.} \\
+      & \textnormal{Penelope got an A.} \\
+      \cline{2-2}
+    \therefore & \textnormal{Penelope did not get a detention.} 
+    \end{array}
+    \)  
+    
+    \begin{enumerate}
+        \item[M(x):] Student x missed a class
+        \item[A(x):] Student x got an A
+        \item[D(x):] Student x got a detention
+    \end{enumerate}
+    
+    Argument:
+    \(
+    \begin{array}{rl}
+      & \forall x ((M(x) \lor D(x)) \implies \neg A(x)) \\
+      & \textnormal{Penelope is a student in the class} \\
+      & A(Penelope) \\
+      \cline{2-2}
+    \therefore & \neg D(Penelope) 
+    \end{array}
+    \)
+    
+    The argument is \textbf{valid} when A(Penelope) = T, D(Penelope) = M(Penelope) = F.
+    
+    \begin{tabular}{|p{0.5cm}|p{10cm}|p{4.5cm}|}
+        \hline
+        1 & $\forall x ((M(x) \lor D(x)) \implies \neg A(x))$ & Hypothesis \\
+        \hline
+        2 & Penelope is a student in the class & Hypothesis \\
+        \hline
+        3 & $A(Penelope)$ & Hypothesis \\
+        \hline
+        4 & $(M(Penelope) \lor D(Penelope)) \implies \neg A(Penelope)$ & Universal instantiation 1,2 \\
+        \hline
+        5 & $\neg (M(Penelope) \lor D(Penelope))$ & Modus tollens 3,4 \\
+        \hline
+        6 & $\neg M(Penelope) \land \neg D(Penelope)$ & De Morgan's law 5 \\
+        \hline
+        7 & $\neg D(Penelope)$ & Simplification 6 \\
+        \hline
+    \end{tabular}
+\end{quote}
+
+%=================
+%| Question 6    |
+%=================
+\pagebreak
+
+\section*{Question 6}
+
+\subsection*{Solve Exercise 2.4.1, section d; Exercise 2.4.3, section b, from the Discrete Math zyBook:}
+
+\subsubsection*{Exercise 2.4.1, section d}
+
+\subsubsection*{Each statement below involves odd and even integers. An odd integer is an integer that can be expressed as , where  is an integer. An even integer is an integer that can be expressed as , where  is an integer. Prove each of the following statements using a direct proof.}
+
+\begin{quote}
+    \textbf{d. The product of two odd integers is an odd integer.}
+    
+    \textbf{Proof:}
+    
+    Let a and b be odd integers. We shall prove that a $\times$ b is odd.
+    
+    Since a is odd, a = 2x + 1, for some integer x. Since b is odd, b = 2y + 1, for some integer y.
+    
+    \[a \times b = (2x + 1) \times (2y + 1) = 4xy + 2x + 2y + 1 = 2(2xy + x + y) + 1.\]
+    
+    Since a $\times$ b is 2m + 1 where m is 2xy + x + y, a $\times$ b is odd. $\blacksquare$
+\end{quote}
+
+\subsubsection*{Exercise 2.4.3, section b}
+
+\subsubsection*{Prove each of the following statements using a direct proof.}
+
+\begin{quote}
+    \textbf{d. If x is a real number and x $\leq$ 3, then 12 - 7x + x$^2$ $\geq$ 0}
+    
+    \textbf{Proof:}
+    
+    Let a be a real number and x $\leq$ 3. We shall prove that 12 - 7x + x$^2$ $\geq$ 0.
+    
+    \[12 - 7x + x^2 \geq 0 = x^2 - 7x + 12 \geq 0 = (x - 3)(x - 4) \geq 0\]
+    
+    Add -3 to both side of x $\leq$ 0, x - 3 $\leq$ 0
+    
+    Since x - 3 is less or equal to 0, x - 4 is less or equal to 0 because 4 is larger than 3
+    
+    x - 3 and x - 4 are either negative or 0. Therefore, 12 - 7x + x$^2 \geq$ 0. $\blacksquare$
+\end{quote}
+
+%=================
+%| Question 7    |
+%=================
+\pagebreak
+
+\section*{Question 7}
+
+\subsection*{Solve Exercise 2.5.1, section d; Exercise 2.5.4, section a, b; Exercise 2.5.5, section c, from the Discrete Math zyBook:}
+
+\subsubsection*{Exercise 2.5.1, section d}
+
+\subsubsection*{Prove each statement by contrapositive}
+
+\begin{quote}
+    \textbf{d. For every integer n, if n$^2$ - 2n + 7 is even, then n is odd.}
+    
+    \textbf{Proof:}
+    
+    Contrapostive proof. Assume that n is an even integer. We shall prove that n$^2$ - 2n + 7 is odd.
+    
+    n = 2k, for some integer k.
+    
+    Plug 2k into n$^2$ - 2n + 7:
+    
+    \[(2k)^2 - 2(2k) + 7 = 4k^2 - 4k + 7 = 4k^2 - 4k + 6 + 1 = 2(2k^2 - 2k + 3) + 1\]
+    
+    n$^2$ - 2n + 7 is 2m + 1 where m is (2k$^2$ - 2k + 3). Therefore, n$^2$ - 2n + 7 is odd. $\blacksquare$
+\end{quote}
+
+\subsubsection*{Exercise 2.5.4, section a, b}
+
+\subsubsection*{Prove each statement by contrapositive}
+
+\begin{quote}
+    \textbf{a. For every pair of real numbers x and y, if x$^3$ + xy$^2$ $\leq$ x$^2$y + y$^3$, then x $\leq$ y.}
+    
+    \textbf{Proof:}
+    
+    Contrapostive proof. Let x and y be real numbers. Assume that x \textgreater\enspace y. We shall prove that x$^3$ + xy$^2$ \textgreater\enspace x$^2$y + y$^3$.
+    
+    Since x and y are real numbers, x = y $\ne$ 0.
+    
+    Multiply (x$^2$ + y$^2$) to both side of x \textgreater\enspace y:
+    
+    \[x \times (x^2 + y ^ 2) > y \times (x^2 + y ^ 2) = x^3 + xy^2 > yx^2 + y^3 \]
+    
+    Therefore, x$^3$ + xy$^2$ \textgreater\enspace x$^2$y + y$^3$. $\blacksquare$
+\end{quote}
+
+\begin{quote}
+    \textbf{b. For every pair of real numbers x and y, if x + y $>$ 20, then x $>$ 10 or y $>$ 10.}
+    
+    \textbf{Proof:}
+    
+    Contrapostive proof. Let x and y be real numbers. Assume x $\leq$ 10 and y $\leq$ 10 by De Morgan's law. We shall prove that x + y $\leq$ 20.
+    
+    Add x and y:
+    
+    \[x + y \leq 10 + 10 = x + y \leq 20\]
+    
+    Therefore, x + y $\leq$ 20. $\blacksquare$
+\end{quote}
+
+\pagebreak
+
+\subsubsection*{Exercise 2.5.5, section c}
+
+\subsubsection*{Prove each statement by contrapositive}
+
+\begin{quote}
+    \textbf{a. For every non-zero real number x, if x is irrational, then 1/x is also irrational.}
+    
+    \textbf{Proof:}
+    
+    Contrapostive proof. Let x be an non-zero real number. Assume that 1/x is rational. We shall prove that x is rational.
+    
+    Since 1/x is rational, x is an integer and x $\ne$ 0. Therefore, x is rational. $\blacksquare$
+\end{quote}
+
+%=================
+%| Question 8    |
+%=================
+\pagebreak
+
+\section*{Question 8}
+
+\subsection*{Solve Exercise 2.6.6, section c, d, from the Discrete Math zyBook:}
+
+\subsubsection*{Exercise 2.6.6, section c}
+
+\subsubsection*{Give a proof for each statement.}
+
+\begin{quote}
+    \textbf{c. The average of three real numbers is greater than or equal to at least one of the numbers.}
+    
+    \textbf{Proof:}
+    
+    Contradiction proof. Let x, y, and z be real numbers. Assume that (x + y + z)/3 $<$ x, (x + y + z)/3 $<$ y, and (x + y + z)/3 $<$ z.
+    
+    \[((x + y + z)/3 < x) \land ((x + y + z)/3 < y) \land ((x + y + z)/3 < z)\]
+    
+    Add the three equations together:
+    
+    \[3((x + y + z)/3) < x + y + z\]
+    
+    Simplify the equation:
+    
+    \[x + y + z < x + y + z\]
+    
+    Since the sum of x, y, and z can not be less than its self, this contradicts the assumption that the average of three real numbers is less than the total of the three numbers.
+    
+    Therefore, the average of three real numbers is greater than or equal to at least one of the numbers. $\blacksquare$
+\end{quote}
+
+\subsubsection*{Exercise 2.6.6, section d}
+
+\subsubsection*{Give a proof for each statement.}
+
+\begin{quote}
+    \textbf{d. There is no smallest integer.}
+    
+    \textbf{Proof:}
+    
+    Contradiction proof. Let x be an integer. Assume that There is a smallest integer.
+    
+    Since x is an integer, x - 1 is also an integer. An integer is bigger than its value minus 1:
+    
+    \[x > x - 1\]
+    
+    x can be any integer and is bigger than its value minus 1. This contradicts the assumption that there is a smallest integer.
+    
+    Therefore, there is no smallest integer. $\blacksquare$
+\end{quote}
+
+%=================
+%| Question 9    |
+%=================
+\pagebreak
+
+\section*{Question 9}
+
+\subsection*{Solve Exercise 2.7.2, section b, from the Discrete Math zyBook:}
+
+\subsubsection*{Exercise 2.7.2, section b}
+
+\subsubsection*{Prove each statement.}
+
+\begin{quote}
+    \textbf{b. If integers x and y have the same parity, then x + y is even. The parity of a number tells whether the number is odd or even. If x and y have the same parity, they are either both even or both odd.}
+    
+    \textbf{Proof:}
+    
+    Cases proof.
+    
+    Case 1: x and y are odd integers.
+    
+    \begin{quote}
+        x = 2m + 1, for some integers m. \\
+        y = 2n + 1, for some integers n.
+    
+        x + y = 2m + 1 + 2n + 1 = 2m + 2n + 2 = 2(m + n + 1)
+        
+        x + y = 2w where w is m + n + 1. Therefore, x + y is even when they are both odd.
+    \end{quote}
+    
+    Case 2: x and y are even integers.
+    
+    \begin{quote}
+        x = 2m, for some integers m. \\
+        y = 2n, for some integers n.
+    
+        x + y = 2m + 2n = 2m + 2n = 2(m + n)
+        
+        x + y = 2w where w is m + n. Therefore, x + y is even when they are both even.
+    \end{quote}
+    
+    $\blacksquare$
+\end{quote}
+
+\end{document}
