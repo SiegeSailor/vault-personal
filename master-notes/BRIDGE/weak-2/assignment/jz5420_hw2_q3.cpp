@@ -39,12 +39,12 @@ int main()
     cin >> bill_minutes;
     bill_minutes = bill_minutes + (bill_days * DAY_TO_MINUTE) + (bill_hours * HOUR_TO_MINUTE);
 
-    int total_minutes = john_minutes + bill_minutes;
-    int days = total_minutes / DAY_TO_MINUTE,
-        offset_days = days * DAY_TO_MINUTE;
-    int hours = (total_minutes - offset_days) / HOUR_TO_MINUTE,
-        offset_hours = hours * HOUR_TO_MINUTE;
-    int minutes = total_minutes - offset_days - offset_hours;
+    int total_minutes, minutes;
+    total_minutes = minutes = john_minutes + bill_minutes;
+    int days = total_minutes / DAY_TO_MINUTE;
+    minutes = total_minutes % DAY_TO_MINUTE;
+    int hours = minutes / HOUR_TO_MINUTE;
+    minutes = minutes % HOUR_TO_MINUTE;
     cout << "The total time both of them worked together is: " << days << " days, " << hours << " hours and " << minutes << " minutes.\n";
     return 0;
 }
