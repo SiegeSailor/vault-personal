@@ -15,7 +15,8 @@
 #include <iostream>
 using namespace std;
 
-const short int CENT_TO_QUARTER = 25, CENT_TO_DIME = 10, CENT_TO_NICKEL = 5, CENT_TO_PENNIE = 1, DOLLAR_TO_CENT = 1e2;
+const int8_t CENT_TO_QUARTER = 25, CENT_TO_DIME = 10, CENT_TO_NICKEL = 5,
+             CENT_TO_PENNIE = 1, DOLLAR_TO_CENT = 1e2;
 int main()
 {
     int dollars, cents;
@@ -23,14 +24,14 @@ int main()
     cin >> dollars >> cents;
     cout << dollars << " dollars and " << cents << " cents are:\n";
 
-    int total_cents = (dollars * DOLLAR_TO_CENT) + cents;
-    int quarters = total_cents / CENT_TO_QUARTER,
-        offset_quarters = quarters * CENT_TO_QUARTER;
-    int dimes = (total_cents - offset_quarters) / CENT_TO_DIME,
-        offset_dimes = dimes * CENT_TO_DIME;
-    int nickels = (total_cents - offset_quarters - offset_dimes) / CENT_TO_NICKEL,
-        offset_nickel = nickels * CENT_TO_NICKEL;
-    int pennies = (total_cents - offset_quarters - offset_dimes - offset_nickel) * CENT_TO_PENNIE;
+    auto total_cents = (dollars * DOLLAR_TO_CENT) + cents;
+    auto quarters = total_cents / CENT_TO_QUARTER,
+         offset_quarters = quarters * CENT_TO_QUARTER;
+    auto dimes = (total_cents - offset_quarters) / CENT_TO_DIME,
+         offset_dimes = dimes * CENT_TO_DIME;
+    auto nickels = (total_cents - offset_quarters - offset_dimes) / CENT_TO_NICKEL,
+         offset_nickel = nickels * CENT_TO_NICKEL;
+    auto pennies = (total_cents - offset_quarters - offset_dimes - offset_nickel) * CENT_TO_PENNIE;
     cout << quarters << " quarters, " << dimes << " dimes, " << nickels << " nickels and " << pennies << " pennies\n";
     return 0;
 }

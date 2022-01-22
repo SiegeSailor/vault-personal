@@ -32,7 +32,8 @@ int main()
     cout << "# of pennies: ";
     cin >> pennies;
 
-    float total = (quarters * DOLLAR_PER_QUARTER) + (dimes * DOLLAR_PER_DIME) + (nickels * DOLLAR_PER_NICKEL) + (pennies * DOLLAR_PER_PENNIE);
+    float total = (quarters * DOLLAR_PER_QUARTER) + (dimes * DOLLAR_PER_DIME) +
+                  (nickels * DOLLAR_PER_NICKEL) + (pennies * DOLLAR_PER_PENNIE);
     int total_dollars = total;
     float total_cents = (total - total_dollars) * CENT_PER_DOLLAR;
     cout << "The total is " << total_dollars << " and " << total_cents << " cents\n";

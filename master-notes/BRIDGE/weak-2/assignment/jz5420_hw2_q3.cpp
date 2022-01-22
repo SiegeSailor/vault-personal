@@ -15,36 +15,42 @@
     The total time both of them worked together is: 6 days, 3 hours and 35 minutes.
  */
 #include <iostream>
+#include <string>
 using namespace std;
 
-const short int HOUR_TO_MINUTE = 60;
-const short int DAY_TO_MINUTE = 24 * HOUR_TO_MINUTE;
+enum EMinuteConversion
+{
+    HOUR = 60,
+    DAY = 24 * EMinuteConversion::HOUR
+};
+const string unit_days = "days", unit_hours = "hours", unit_minutes = "minutes";
 int main()
 {
     int john_days, john_hours, john_minutes;
-    cout << "Please enter the number of days John has worked: ";
+    cout << "Please enter the number of " << unit_days << " John has worked: ";
     cin >> john_days;
-    cout << "Please enter the number of hours John has worked: ";
+    cout << "Please enter the number of " << unit_hours << " John has worked: ";
     cin >> john_hours;
-    cout << "Please enter the number of minutes John has worked: ";
+    cout << "Please enter the number of " << unit_minutes << " John has worked: ";
     cin >> john_minutes;
-    john_minutes = john_minutes + (john_days * DAY_TO_MINUTE) + (john_hours * HOUR_TO_MINUTE);
+    john_minutes = john_minutes + (john_days * EMinuteConversion::DAY) + (john_hours * EMinuteConversion::HOUR);
 
     int bill_days, bill_hours, bill_minutes;
-    cout << "Please enter the number of days John has worked: ";
+    cout << "Please enter the number of " << unit_days << " John has worked: ";
     cin >> bill_days;
-    cout << "Please enter the number of hours John has worked: ";
+    cout << "Please enter the number of " << unit_hours << " John has worked: ";
     cin >> bill_hours;
-    cout << "Please enter the number of minutes John has worked: ";
+    cout << "Please enter the number of " << unit_minutes << " John has worked: ";
     cin >> bill_minutes;
-    bill_minutes = bill_minutes + (bill_days * DAY_TO_MINUTE) + (bill_hours * HOUR_TO_MINUTE);
+    bill_minutes = bill_minutes + (bill_days * EMinuteConversion::DAY) + (bill_hours * EMinuteConversion::HOUR);
 
     int total_minutes, minutes;
     total_minutes = minutes = john_minutes + bill_minutes;
-    int days = total_minutes / DAY_TO_MINUTE;
-    minutes = total_minutes % DAY_TO_MINUTE;
-    int hours = minutes / HOUR_TO_MINUTE;
-    minutes = minutes % HOUR_TO_MINUTE;
-    cout << "The total time both of them worked together is: " << days << " days, " << hours << " hours and " << minutes << " minutes.\n";
+    int days = total_minutes / EMinuteConversion::DAY;
+    minutes = total_minutes % EMinuteConversion::DAY;
+    int hours = minutes / EMinuteConversion::HOUR;
+    minutes = minutes % EMinuteConversion::HOUR;
+    cout << "The total time both of them worked together is: " << days << " " << unit_days << ", "
+         << hours << " " << unit_hours << " and " << minutes << " " << unit_minutes << ".\n";
     return 0;
 }
