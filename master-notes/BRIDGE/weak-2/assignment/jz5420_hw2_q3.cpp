@@ -23,24 +23,25 @@ enum EMinuteConversion
     HOUR = 60,
     DAY = 24 * EMinuteConversion::HOUR
 };
-const string unit_days = "days", unit_hours = "hours", unit_minutes = "minutes";
+const string UNIT_DAYS = "days", UNIT_HOURS = "hours", UNIT_MINUTES = "minutes",
+             NAME_JOHN = "John", NAME_BILL = "Bill";
 int main()
 {
     int john_days, john_hours, john_minutes;
-    cout << "Please enter the number of " << unit_days << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_DAYS << " " << NAME_JOHN << " has worked: ";
     cin >> john_days;
-    cout << "Please enter the number of " << unit_hours << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_HOURS << " " << NAME_JOHN << " has worked: ";
     cin >> john_hours;
-    cout << "Please enter the number of " << unit_minutes << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_MINUTES << " " << NAME_JOHN << " has worked: ";
     cin >> john_minutes;
     john_minutes = john_minutes + (john_days * EMinuteConversion::DAY) + (john_hours * EMinuteConversion::HOUR);
 
     int bill_days, bill_hours, bill_minutes;
-    cout << "Please enter the number of " << unit_days << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_DAYS << " " << NAME_BILL << " has worked: ";
     cin >> bill_days;
-    cout << "Please enter the number of " << unit_hours << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_HOURS << " " << NAME_BILL << " has worked: ";
     cin >> bill_hours;
-    cout << "Please enter the number of " << unit_minutes << " John has worked: ";
+    cout << "Please enter the number of " << UNIT_MINUTES << " " << NAME_BILL << " has worked: ";
     cin >> bill_minutes;
     bill_minutes = bill_minutes + (bill_days * EMinuteConversion::DAY) + (bill_hours * EMinuteConversion::HOUR);
 
@@ -50,7 +51,7 @@ int main()
     minutes = total_minutes % EMinuteConversion::DAY;
     int hours = minutes / EMinuteConversion::HOUR;
     minutes = minutes % EMinuteConversion::HOUR;
-    cout << "The total time both of them worked together is: " << days << " " << unit_days << ", "
-         << hours << " " << unit_hours << " and " << minutes << " " << unit_minutes << ".\n";
+    cout << "The total time both of them worked together is: " << days << " " << UNIT_DAYS << ", "
+         << hours << " " << UNIT_HOURS << " and " << minutes << " " << UNIT_MINUTES << ".\n";
     return 0;
 }
