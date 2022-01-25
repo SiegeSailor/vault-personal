@@ -24,6 +24,7 @@ const float COST_RATE_WORKTIME = 0.40, COST_RATE_BEFORE_AFTER_WORK = 0.25, COST_
 const int CALL_WORKTIME_HOUR_START = 8, CALL_WORKTIME_HOUR_END = 18;
 const string MONDAY = "Mo", THUSDAY = "Tu", WENSDAY = "We",
              THURSDAY = "Th", FRIDAY = "Fr", SATURDAY = "Sa", SUNDAY = "Su";
+const int HOUR_MIN = 0, HOUR_MAX = 24, MINUTE_MIN = 0, MINUTE_MAX = 60;
 int main()
 {
    cout.setf(ios::fixed);
@@ -37,7 +38,9 @@ int main()
 
    cout << "Enter the time the call started in 24-hour format such as 13:30: ";
    cin >> input_hour >> input_notation_time >> input_minute;
-   if (input_hour < 0 || input_hour > 24 || input_minute < 0 || input_minute > 60)
+   bool is_hour_invalid = input_hour < HOUR_MIN || input_hour > HOUR_MAX,
+        is_minute_invalid = input_minute < MINUTE_MIN || input_minute > MINUTE_MAX;
+   if (is_hour_invalid || is_minute_invalid)
    {
       cout << "Invalid 24-hour format time input. Please try again." << endl;
       main();
@@ -66,9 +69,9 @@ int main()
    }
 
    float output_cost;
-   bool is_before_after_worktime = input_hour < CALL_WORKTIME_HOUR_START || input_hour >= CALL_WORKTIME_HOUR_END;
    if (is_weakday)
    {
+      bool is_before_after_worktime = input_hour < CALL_WORKTIME_HOUR_START || input_hour >= CALL_WORKTIME_HOUR_END;
       if (is_before_after_worktime)
       {
          cout << "Your cost per minute is $" << COST_RATE_BEFORE_AFTER_WORK
