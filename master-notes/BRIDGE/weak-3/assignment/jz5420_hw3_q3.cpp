@@ -15,28 +15,38 @@ int main()
 
     if (a == 0 && b == 0 && c == 0)
     {
-        cout << "This equation has infinite solutions." << endl;
+        cout << "This equation has infinite number of solutions." << endl;
     }
     else if (a == 0 && b == 0)
     {
-        cout << "This equation has no soultions." << endl;
+        cout << "This equation has no soultion." << endl;
     }
-    else
+    else if (a != 0)
     {
+        cout.setf(ios::fixed);
+        cout.setf(ios::showpoint);
+        cout.precision(1);
+
         double result_quadratic_equation = (b * b) - (4 * a * c);
         if (result_quadratic_equation > 0)
         {
-            cout << "This equation has two soultions: " << endl;
+            double solution_1 = (-b + sqrt(result_quadratic_equation)) / (2 * a);
+            double solution_2 = (-b - sqrt(result_quadratic_equation)) / (2 * a);
+            cout << "This equation has two real soultions: " << solution_1 << " and " << solution_2 << endl;
         }
         else if (result_quadratic_equation == 0)
         {
-
-            cout << "This equation has one soultion: " << endl;
+            double solution = -b / (2 * a);
+            cout << "This equation has one real soultion: " << solution << endl;
         }
         else
         {
-            cout << "This equation has no real soultions." << endl;
+            cout << "This equation has no real soultion." << endl;
         }
+    }
+    else
+    {
+        cout << "The input combo is not in the question scope. However, since a is 0 the solution should be linear: " << (-c) / b << endl;
     }
 
     return 0;
