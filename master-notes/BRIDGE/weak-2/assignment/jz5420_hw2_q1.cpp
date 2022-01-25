@@ -1,7 +1,7 @@
-/** 
+/**
  * Write a program that asks the user to enter a number of quarters,
  * dimes, nickels and pennies and then outputs the monetary value of the coins in the format of dollars andremaining cents.
- * 
+ *
  * Your program should interact with the user exactly as it shows in the following example:
     Please enter number of coins:
     # of quarters: 13

@@ -1,10 +1,10 @@
-/** 
+/**
  * Suppose John and Bill worked for some time and we want to calculate the total time both of them worked.
  * Write a program that reads number of days, hours, minutes each of them worked,
  * and prints the total time both of them worked together as days, hours, minutes.
- * 
+ *
  * Hint: Try to adapt the elementary method for addition of numbers to this use.
- * 
+ *
  * Your program should interact with the user exactly as it shows in the following example:
     Please enter the number of days John has worked: 2
     Please enter the number of hours John has worked: 12
