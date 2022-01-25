@@ -26,11 +26,12 @@ int main()
         double result_quadratic_equation = (b * b) - (4 * a * c);
         if (result_quadratic_equation > 0)
         {
-            cout << "This equation has two soultions." << endl;
+            cout << "This equation has two soultions: " << endl;
         }
         else if (result_quadratic_equation == 0)
         {
-            cout << "This equation has one soultion." << endl;
+
+            cout << "This equation has one soultion: " << endl;
         }
         else
         {
