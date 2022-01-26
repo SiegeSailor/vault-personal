@@ -71,7 +71,8 @@ int main()
    float output_cost;
    if (is_weakday)
    {
-      bool is_before_after_worktime = input_hour < CALL_WORKTIME_HOUR_START || input_hour >= CALL_WORKTIME_HOUR_END;
+      bool is_before_after_worktime = (input_hour < CALL_WORKTIME_HOUR_START) || (input_hour > CALL_WORKTIME_HOUR_END) ||
+                                      (input_hour == CALL_WORKTIME_HOUR_END && input_minute > MINUTE_MIN);
       if (is_before_after_worktime)
       {
          cout << "Your cost per minute is $" << COST_RATE_BEFORE_AFTER_WORK
