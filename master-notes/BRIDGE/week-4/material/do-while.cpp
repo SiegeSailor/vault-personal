@@ -15,5 +15,14 @@ int main()
     {
         cout << " while: " << count << endl;
     };
+
+    char input;
+    while (true)
+    {
+        cout << "Enter a character: \n";
+        cin >> input;
+        if (input == 'a')
+            break;
+    }
     return 0;
 }
