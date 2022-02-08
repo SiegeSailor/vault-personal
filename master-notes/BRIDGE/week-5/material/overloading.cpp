@@ -1,7 +1,7 @@
 #include <iostream>
 
-float average(int a, int b);
-float average(int a, int b, int c);
+float average(float a, float b);
+float average(float a, float b, float c);
 
 int main()
 {
@@ -12,12 +12,12 @@ int main()
     cout << average(a, b, c) << endl;
 }
 
-float average(int a, int b)
+float average(float a, float b)
 {
-    return (static_cast<float>(a) + static_cast<float>(b)) / 2;
+    return (a + b) / 2;
 }
 
-float average(int a, int b, int c)
+float average(float a, float b, float c)
 {
-    return (static_cast<float>(a) + static_cast<float>(b) + static_cast<float>(c)) / 3;
+    return (a + b + c) / 3;
 }
