@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Outline
+# Portal
 
 參考 AppSheet、Data Studio，整合不同來源的資料、透過可複用的 Logic (Controller) 與 Component，展示可執行寫入與讀取的 UI (View)。操作者只需了解 Controller 與 View 的對應關係即可針對需求組合頁面。
 

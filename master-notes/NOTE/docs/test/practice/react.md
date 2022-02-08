@@ -77,10 +77,11 @@ describe('render', () => {
 :::
 
 :::info 提醒
-許多文章都要求使用 `cleanup` 來避免 Render 的 Component 互相影響，但目前的 `@testing-library/react` 已經將這點自動化並 [實作在各測試框架中](https://testing-library.com/docs/react-testing-library/api/#cleanup) (Jest、AVA)，沒有必要在每個測試檔案中手寫。
+許多文章都要求使用 `cleanup` 來避免 Render 的 Component 互相影響，但目前的 `@testing-library/react` 已經將這點自動化並 [實作在各測試框架中](https://testing-library.com/docs/react-testing-library/api/#cleanup) (Jest、AVA)，沒有必要在每個測試檔案中手寫：
 
 ```tsx
 import { cleanup } from '@testing-library/react';
+
 afterEach(() => {
   cleanup();
 });
