@@ -18,7 +18,12 @@ void wrap_abort();
 
 int main()
 {
-    double input_a, input_b, input_c, output_x_1, output_x_2;
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(1);
+
+    double input_a,
+        input_b, input_c, output_x_1, output_x_2;
     cout << "Enter the value of a, b, c for ax^2 + bx + c = 0 equation" << endl;
     cin >> input_a >> input_b >> input_c;
     cout << "Your quadratic equation is " << input_a << "x^2 + " << input_b << "x + " << input_c << " = 0" << endl;
