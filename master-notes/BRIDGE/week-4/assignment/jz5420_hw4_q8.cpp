@@ -34,13 +34,19 @@ int main()
         {
             cout << "Wrong! My number is bigger." << endl;
             cout << endl;
-            range_lower = guess;
+            if (guess > range_lower)
+            {
+                range_lower = guess;
+            }
         }
         else if (guess > target)
         {
             cout << "Wrong! My number is smaller." << endl;
             cout << endl;
-            range_upper = guess;
+            if (guess < range_upper)
+            {
+                range_upper = guess;
+            }
         }
     }
 

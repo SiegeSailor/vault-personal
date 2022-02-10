@@ -4,7 +4,7 @@
     const int CEILING_ROUND = 2;
     const int ROUND = 3;
  * Write a program that asks the user to enter a Real number,
- * then it asks the user to enter the method by which they want to round that number (floor, ceiling or to the nearest integer). 
+ * then it asks the user to enter the method by which they want to round that number (floor, ceiling or to the nearest integer).
  * The program will then print the rounded result.
  *
  * Your program should interact with the user exactly as it shows in the following example:
@@ -16,7 +16,7 @@
     3. Round to the nearest whole number
     2
     5
- * Implementation requirements: 
+ * Implementation requirements:
     1. Use a switch statement.
     2. You are not allowed to include and use the math library.
  */
@@ -43,6 +43,10 @@ int main()
     switch (input_option)
     {
     case FLOOR_ROUND:
+        if (input_number < 0)
+        {
+            input_number_integer -= 1;
+        }
         cout << input_number_integer << endl;
         break;
     case CEILING_ROUND:
@@ -53,9 +57,13 @@ int main()
         cout << input_number_integer << endl;
         break;
     case ROUND:
-        if (input_number >= (input_number_integer + 0.5))
+        if (input_number > 0 && input_number >= (input_number_integer + 0.5))
         {
             input_number_integer += 1;
+        }
+        else if (input_number < 0 && input_number <= (input_number_integer - 0.5))
+        {
+            input_number_integer -= 1;
         }
         cout << input_number_integer << endl;
         break;
