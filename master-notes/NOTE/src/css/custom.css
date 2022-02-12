@@ -27,7 +27,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-img[title="Diagram generated via mermaid"] {
+img[title='Diagram generated via mermaid'] {
   margin: 4px 0 8px 0;
 }
 
@@ -54,7 +54,7 @@ img[title="Diagram generated via mermaid"] {
 }
 
 .tabs .markdown li + li {
-  margin-top:0;
+  margin-top: 0;
 }
 
 .language-cli {
