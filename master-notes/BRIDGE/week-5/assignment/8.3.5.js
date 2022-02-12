@@ -23,7 +23,7 @@ function mysteryAlgorithm() {
           start++;
         }
 
-        let i = 1;
+        let i = 0;
         let j = length - 1;
         while (i < j) {
           while (i < j && listOfNumber[i] < border) {
@@ -34,8 +34,8 @@ function mysteryAlgorithm() {
             j -= 1;
           }
 
-          console.log(i, listOfNumber[i], j, listOfNumber[j]);
           if (i < j) {
+            console.log(`i: ${i}`, listOfNumber[i], `j: ${j}`, listOfNumber[j]);
             const temporaryNumber = listOfNumber[i];
             listOfNumber[i] = listOfNumber[j];
             listOfNumber[j] = temporaryNumber;
