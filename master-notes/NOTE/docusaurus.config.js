@@ -53,7 +53,7 @@ const config = {
       navbar: {
         title: 'SiegeSailor',
         items: [
-          { type: 'doc', docId: 'intro', position: 'left', label: 'Notes' },
+          { type: 'doc', docId: '1@intro', position: 'left', label: 'Notes' },
           { to: '/blog', label: 'Blog', position: 'left' },
           { href: 'https://github.com/SiegeSailor', label: 'GitHub', position: 'right' },
         ],
@@ -61,7 +61,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          { title: 'Notes', items: [{ label: 'Intro', to: '/docs/intro' }] },
+          { title: 'Notes', items: [{ label: 'Intro', to: '/docs/1@intro' }] },
           {
             title: 'Links',
             items: [

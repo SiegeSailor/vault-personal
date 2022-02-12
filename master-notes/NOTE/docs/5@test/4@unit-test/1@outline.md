@@ -33,7 +33,7 @@ flowchart LR
 而以 Unit 為單位，我們在 Test 中以 Control Point (通常是 GUI 操作) 控制 SUT，接著用 Test Fixture/Test Context 替代 DOC，再來藉由 SUT 與 Test Double 間的互動作觀察 Indirect Input：
 
 ```mermaid
-flowchart TB
+flowchart LR
     A[Test];
     A --> |Control Point| B[SUT];
     F(Fixture Setup) <--> |Indirect Input| C;
