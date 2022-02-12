@@ -9,4 +9,6 @@ sidebar_position: 2
 | Notation      | Command       | -   | Notation | Command  |
 | ------------- | ------------- | --- | -------- | -------- |
 | $\mathcal{O}$ | `\mathcal{O}` |     | $\Theta$ | `\Theta` |
-| $\Omega$      | `\Omega`      |     |
+| $\Omega$      | `\Omega`      |     | $\log$   | `\log`   |
+| $\geq$        | `\geq`        |     | $\leq$   | `\leq`   |
+| $\therefore$  | `\therefore   | -   |          |          |
