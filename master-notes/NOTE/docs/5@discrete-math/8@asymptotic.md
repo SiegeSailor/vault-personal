@@ -70,7 +70,7 @@ bool isPrime(int input)
 }
 ```
 
-### 時間複雜度
+### Complexity
 
 只關注 `isPrime` 內的時間複雜度，那麼：
 
@@ -115,19 +115,23 @@ bool isPrime(int input)
 
 `isPrime` 的 $f$ 為 $a + (n - 1) \times b + c$，其中 $b$ 部分的之所以乘上 $n-1$ 是因為在 Loop 內、是由 Input Size 決定執行時間，而 $n-1$ 是因為由 2 開始計算，即：
 
-$$
-(1 + 1) + ((n - 1) \times (1 + 1 + 2 + 1 + 1 +1)) + 1 = 2 + 7n - 7 + 1 = 7n - 4
-$$
+$(1 + 1) + ((n - 1) \times (1 + 1 + 2 + 1 + 1 +1)) + 1$
+
+$= 2 + 7n - 7 + 1$
+
+$= 7n - 4$
 
 在當中的 Degree 為 1，因此 $7n - 4 = \Theta(n)$。由於 $-4$ 為負數，可以推斷出：
 
-$$
-7n - 4 \leq 7n \\
-6n + (n - 4) \leq 7n - 4 \\
-n - 4 \geq 0 \\
-6n \leq 7n - 4 \\
-\therefore c_{1} = 7, c_{2} = 6, n_{0} = 4
-$$
+$7n - 4 \leq 7n$
+
+$6n + (n - 4) \leq 7n - 4$
+
+$n - 4 \geq 0$
+
+$6n \leq 7n - 4$
+
+$\therefore c_{1} = 7, c_{2} = 6, n_{0} = 4$
 
 ## Big O
 
