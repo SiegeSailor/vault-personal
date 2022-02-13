@@ -11,4 +11,4 @@ sidebar_position: 2
 | $\mathcal{O}$ | `\mathcal{O}` |     | $\Theta$ | `\Theta` |
 | $\Omega$      | `\Omega`      |     | $\log$   | `\log`   |
 | $\geq$        | `\geq`        |     | $\leq$   | `\leq`   |
-| $\therefore$  | `\therefore   | -   |          |          |
+| $\therefore$  | `\therefore`  |     |          |          |
