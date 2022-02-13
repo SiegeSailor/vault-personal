@@ -6,9 +6,38 @@ sidebar_position: 2
 
 列出經常使用的 Latex 指令與符號：
 
-| Notation      | Command       | -   | Notation | Command  |
-| ------------- | ------------- | --- | -------- | -------- |
-| $\mathcal{O}$ | `\mathcal{O}` |     | $\Theta$ | `\Theta` |
-| $\Omega$      | `\Omega`      |     | $\log$   | `\log`   |
-| $\geq$        | `\geq`        |     | $\leq$   | `\leq`   |
-| $\therefore$  | `\therefore`  |     |          |          |
+### Symbol
+
+符號一覽。
+
+| Notation              | Command               | -   | Notation | Command  |
+| --------------------- | --------------------- | --- | -------- | -------- |
+| $\mathcal{O}$         | `\mathcal{O}`         |     | $\Theta$ | `\Theta` |
+| $\Omega$              | `\Omega`              |     | $\log$   | `\log`   |
+| $\geq$                | `\geq`                |     | $\leq$   | `\leq`   |
+| $\therefore$          | `\therefore`          |     |          |          |
+| $\longleftrightarrow$ | `\longleftrightarrow` |     |          |          |
+| $\frac{n}{d}$         | `\frac{n}{d}`         |     |          |          |
+| $\lceil$              | `\lceil`              |     | $\rceil$ | `\rceil` |
+
+#### Simultaneous Equation
+
+$
+f(x)=
+\left\{
+\begin{matrix}
+    x^{2} + 1, x \geq 0 \\
+    x^{2} + 2, x < 0
+\end{matrix}
+\right.
+$
+
+```latex
+f(x)=
+\left\{
+\begin{matrix}
+    x^{2} + 1, x \geq 0 \\
+    x^{2} + 2, x < 0
+\end{matrix}
+\right.
+```
