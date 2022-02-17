@@ -16,7 +16,7 @@ sidebar_position: 2
 | $\Omega$              | `\Omega`              |     | $\log$   | `\log`   |
 | $\geq$                | `\geq`                |     | $\leq$   | `\leq`   |
 | $\therefore$          | `\therefore`          |     |          |          |
-| $\longleftrightarrow$ | `\longleftrightarrow` |     |          |          |
+| $\longleftrightarrow$ | `\longleftrightarrow` |     | $\neg$   | `\neg`   |
 | $\frac{n}{d}$         | `\frac{n}{d}`         |     |          |          |
 | $\lceil$              | `\lceil`              |     | $\rceil$ | `\rceil` |
 
