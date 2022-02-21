@@ -19,6 +19,7 @@ sidebar_position: 2
 | $\longleftrightarrow$ | `\longleftrightarrow` |     | $\neg$   | `\neg`   |
 | $\frac{n}{d}$         | `\frac{n}{d}`         |     |          |          |
 | $\lceil$              | `\lceil`              |     | $\rceil$ | `\rceil` |
+| $\\overline{w}        | `\overline{w}`        |     |          |          |
 
 #### Simultaneous Equation
 
