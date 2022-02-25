@@ -15,6 +15,8 @@ auto main()
     double d = 1.1;
     long double e = 1.11;
     string day = "Monday";
+    // day.find("M", 1); return -1
+    // day.substr(0,3); 從 0 開始取 3
     decltype(a * 20) y;
     return 0;
 }
