@@ -17,9 +17,9 @@ sidebar_position: 2
 | $\geq$                | `\geq`                |     | $\leq$   | `\leq`   |
 | $\therefore$          | `\therefore`          |     |          |          |
 | $\longleftrightarrow$ | `\longleftrightarrow` |     | $\neg$   | `\neg`   |
-| $\frac{n}{d}$         | `\frac{n}{d}`         |     |          |          |
+| $\frac{n}{d}$         | `\frac{n}{d}`         |     | $\ne$    | `\ne`    |
 | $\lceil$              | `\lceil`              |     | $\rceil$ | `\rceil` |
-| $\\overline{w}        | `\overline{w}`        |     |          |          |
+| $\overline{w}$        | `\overline{w}`        |     |          |          |
 
 #### Simultaneous Equation
 
