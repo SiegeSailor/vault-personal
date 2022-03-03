@@ -29,12 +29,12 @@
  * ===========
  * Question  3
  * ===========
- * Answer: a, c
+ * Answer: b, c (原 a, c. a 不行因為 real number 包含 0)
  *
  * ===========
  * Question  4
  * ===========
- * Answer: b
+ * Answer: b (應該是 a. 但解答只有說 b 錯)
  *
  * ===========
  * Question  5
@@ -57,7 +57,7 @@
  * ===========
  * Answer:
  * a. true
- * b. true
+ * b. false (原 true，不確定原因，難道是因為該符號只能用於 set 嗎)
  * c. false
  * d. true
  * e. true
@@ -72,7 +72,9 @@
  * ===========
  * Question  9
  * ===========
- * Answer: b
+ * {no}, {1}, {2}, {3}, {4}, {1,2},{1,3},{1,4},.., {1,2,3}, ..,{1,2,3,4}
+ * {1,2,3,4}
+ * Answer: b (應該是 a，等解答)
  *
  * ===========
  * Question 10
