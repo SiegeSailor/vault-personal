@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int minInArray(int arr[], int arrSize);
+int minInArray(const int arr[], int arrSize);
 
 const int SIZE_INTEGER = 20;
 
