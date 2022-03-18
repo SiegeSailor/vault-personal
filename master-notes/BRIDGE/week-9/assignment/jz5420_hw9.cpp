@@ -55,3 +55,459 @@
  *
  * @copyright Copyright (c) 2022
  */
+
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+using namespace std;
+
+const char SYMBOL_ANT = 'o', SYMBOL_DOODLEBUG = 'X', SYMBOL_EMPTY_SPACE = '-', SYMBOL_UNSIGNED = 'N';
+const string NAME_ANT = "Ant", NAME_DOODLEBUG = "Doodlebug";
+const int GRID_MIN = 1, GRID_MAX = 20;
+const int LIFE_PREY_MAX = 3, LIFE_PREDATOR_MAX = 8, HEALTH_MAX = 3;
+
+struct Coordinate
+{
+    int x = 0;
+    int y = 0;
+    char symbol = SYMBOL_UNSIGNED;
+    bool operator==(const Coordinate &that)
+    {
+        return x == that.x && y == that.y;
+    }
+    bool operator!=(const Coordinate &that)
+    {
+        return x != that.x && y != that.y;
+    }
+};
+
+class Organism
+{
+protected:
+    string name = "Unknown Specie";
+    char body = SYMBOL_UNSIGNED;
+    int x = 0;
+    int y = 0;
+    int life = 0;
+
+public:
+    Organism(char inputBody, string inputName) : body(inputBody), name(inputName) {}
+    Organism(char inputBody, string inputName, int inputX, int inputY, string message = "")
+        : body(inputBody), name(inputName), x(inputX), y(inputY)
+    {
+        call("spawned");
+        if (message.length() > 0)
+            cout << "(" << message << ")" << endl;
+    }
+
+    void call(string verb)
+    {
+        cout << "A " << name
+             << " has been " << verb << " at {" << x << ", " << y << "}." << endl;
+    }
+
+    virtual void move(Coordinate inputCoordinate)
+    {
+        x = inputCoordinate.x;
+        y = inputCoordinate.y;
+    };
+
+    virtual void survive()
+    {
+        life++;
+    };
+
+    int obtainLife() const { return life; }
+
+    char obtainBody() const { return body; }
+
+    Coordinate obtainCoordinate() const
+    {
+        Coordinate coordinate;
+        coordinate.x = x;
+        coordinate.y = y;
+        coordinate.symbol = body;
+        return coordinate;
+    }
+
+    void restore()
+    {
+        life = 0;
+    }
+};
+
+class Predator : public Organism
+{
+private:
+    int health = HEALTH_MAX;
+
+public:
+    Predator(char inputBody, string inputName) : Organism(inputBody, inputName){};
+    Predator(char inputBody, string inputName, int inputX, int inputY)
+        : Organism(inputBody, inputName, inputX, inputY){};
+
+    void hunt()
+    {
+        if (health < HEALTH_MAX)
+            health++;
+    };
+
+    virtual void survive()
+    {
+        if (life < LIFE_PREDATOR_MAX)
+            life++;
+    };
+
+    void starve()
+    {
+        if (health > 0)
+            health--;
+    }
+
+    int obtainHealth() const
+    {
+        return health;
+    }
+};
+
+class Prey : public Organism
+{
+public:
+    Prey(char inputBody, string inputName) : Organism(inputBody, inputName){};
+    Prey(char inputBody, string inputName, int inputX, int inputY)
+        : Organism(inputBody, inputName, inputX, inputY) {}
+
+    virtual void survive()
+    {
+        if (life < LIFE_PREY_MAX)
+            life++;
+    };
+};
+
+class World
+{
+private:
+    int boundMaxX = GRID_MAX;
+    int boundMaxY = GRID_MAX;
+    int timeStep = 0;
+    vector<Coordinate> listOfCoordinateOccupied;
+    vector<Predator> listOfPredator;
+    vector<Prey> listOfPrey;
+
+public:
+    World() {}
+    World(int inputBoundMaxX, int inputBoundMaxY)
+        : boundMaxX(inputBoundMaxX), boundMaxY(inputBoundMaxY) {}
+
+    int obtainIndexOfOccupied(Coordinate coordinateCompare, vector<Coordinate> listOfCoordinateCompare) const
+    {
+        int indexOfOccupied = -1;
+        for (int i = 0; i < listOfCoordinateCompare.size(); i++)
+        {
+            if (listOfCoordinateCompare[i] == coordinateCompare)
+            {
+                indexOfOccupied = i;
+                break;
+            }
+        };
+        return indexOfOccupied;
+    }
+
+    Coordinate obtainCoordinateAdjacentRandom(Coordinate coordinateOriginal, vector<Coordinate> listOfCoordinateCompare) const
+    {
+        vector<Coordinate> listOfCoordinatePossible;
+        Coordinate coordinateUpdated;
+        coordinateUpdated.x = coordinateOriginal.x;
+        coordinateUpdated.y = coordinateOriginal.y;
+        coordinateUpdated.symbol = coordinateOriginal.symbol;
+
+        if (coordinateOriginal.x + 1 <= boundMaxX)
+        {
+            coordinateUpdated.x = coordinateOriginal.x + 1;
+            coordinateUpdated.y = coordinateOriginal.y;
+            if (obtainIndexOfOccupied(coordinateUpdated, listOfCoordinateCompare) == -1)
+                listOfCoordinatePossible.push_back(coordinateUpdated);
+        };
+        if (coordinateOriginal.x - 1 >= GRID_MIN)
+        {
+            coordinateUpdated.x = coordinateOriginal.x - 1;
+            coordinateUpdated.y = coordinateOriginal.y;
+            if (obtainIndexOfOccupied(coordinateUpdated, listOfCoordinateCompare) == -1)
+                listOfCoordinatePossible.push_back(coordinateUpdated);
+        };
+        if (coordinateOriginal.y + 1 <= boundMaxY)
+        {
+            coordinateUpdated.x = coordinateOriginal.x;
+            coordinateUpdated.y = coordinateOriginal.y + 1;
+            if (obtainIndexOfOccupied(coordinateUpdated, listOfCoordinateCompare) == -1)
+                listOfCoordinatePossible.push_back(coordinateUpdated);
+        };
+        if (coordinateOriginal.y - 1 >= GRID_MIN)
+        {
+            coordinateUpdated.x = coordinateOriginal.x;
+            coordinateUpdated.y = coordinateOriginal.y - 1;
+            if (obtainIndexOfOccupied(coordinateUpdated, listOfCoordinateCompare) == -1)
+                listOfCoordinatePossible.push_back(coordinateUpdated);
+        };
+
+        int sizeOfListOfCoordinatePossible = listOfCoordinatePossible.size();
+        if (sizeOfListOfCoordinatePossible < 1)
+            return coordinateOriginal;
+
+        return listOfCoordinatePossible[rand() % sizeOfListOfCoordinatePossible];
+    };
+
+    Coordinate obtainCoordinateUnoccupiedRandom() const
+    {
+        Coordinate coordinateRandom;
+        while (true)
+        {
+            coordinateRandom.x = rand() % boundMaxX + 1;
+            coordinateRandom.y = rand() % boundMaxY + 1;
+            bool isOccupied = obtainIndexOfOccupied(coordinateRandom, listOfCoordinateOccupied) != -1;
+            if (!isOccupied)
+                break;
+        }
+
+        return coordinateRandom;
+    };
+
+    void eraseInAllList(Organism &input)
+    {
+        Coordinate coordinateOriginal = input.obtainCoordinate();
+        for (int i = 0; i < listOfCoordinateOccupied.size(); i++)
+        {
+            if (coordinateOriginal == listOfCoordinateOccupied[i])
+                listOfCoordinateOccupied.erase(listOfCoordinateOccupied.begin() + i);
+            if (i < listOfPredator.size() && coordinateOriginal == listOfPredator[i].obtainCoordinate())
+                listOfPredator.erase(listOfPredator.begin() + i);
+            if (i < listOfPrey.size() && coordinateOriginal == listOfPrey[i].obtainCoordinate())
+                listOfPrey.erase(listOfPrey.begin() + i);
+        }
+    }
+
+    void wrapMove(Organism &input, Coordinate coordinateNext)
+    {
+        Coordinate coordinateOriginal = input.obtainCoordinate();
+        for (int i = 0; i < listOfCoordinateOccupied.size(); i++)
+        {
+            Coordinate coordinateOccupied = listOfCoordinateOccupied[i];
+            if (coordinateOriginal == coordinateOccupied)
+            {
+                listOfCoordinateOccupied.erase(listOfCoordinateOccupied.begin() + i);
+            }
+        }
+        input.move(coordinateNext);
+        listOfCoordinateOccupied.push_back(input.obtainCoordinate());
+    }
+
+    void placePredator(Predator inputPredator)
+    {
+        Coordinate coordinateUnoccupied = obtainCoordinateUnoccupiedRandom();
+        wrapMove(inputPredator, coordinateUnoccupied);
+        listOfPredator.push_back(inputPredator);
+    };
+
+    void placePrey(Prey inputPrey)
+    {
+        Coordinate coordinateUnoccupied = obtainCoordinateUnoccupiedRandom();
+        wrapMove(inputPrey, coordinateUnoccupied);
+        listOfPrey.push_back(inputPrey);
+    };
+
+    bool indicateSimulationOver() const
+    {
+        if (listOfPredator.size() == 0 && listOfPrey.size() == 0)
+        {
+            cout << "All specie has been elminated" << endl;
+            return true;
+        }
+        else if (listOfPredator.size() == 0)
+        {
+            cout << "All predator has been elminated." << endl;
+            return true;
+        }
+        else if (listOfPrey.size() == 0)
+        {
+            cout << "All prey has been elminated." << endl;
+            return true;
+        };
+
+        return false;
+    };
+
+    void restore()
+    {
+        timeStep = 0;
+        listOfCoordinateOccupied.clear();
+        listOfPredator.clear();
+        listOfPrey.clear();
+    };
+
+    vector<Coordinate> obtainListOfCoordinatePredator() const
+    {
+        vector<Coordinate> listOfCoordinatePredator;
+        for (int i = 0; i < listOfPredator.size(); i++)
+            listOfCoordinatePredator.push_back(listOfPredator[i].obtainCoordinate());
+        return listOfCoordinatePredator;
+    }
+
+    vector<Coordinate> obtainListOfCoordinatePrey() const
+    {
+        vector<Coordinate> listOfCoordinatePrey;
+        for (int i = 0; i < listOfPrey.size(); i++)
+            listOfCoordinatePrey.push_back(listOfPrey[i].obtainCoordinate());
+        return listOfCoordinatePrey;
+    }
+
+    void interact()
+    {
+        string input;
+        while (true)
+        {
+            timeStep++;
+            getline(cin, input);
+            cout << "Time Step: " << timeStep << endl;
+
+            for (int i = 0; i < listOfPredator.size(); i++)
+            {
+                Coordinate coordinateAdjacentRandom = obtainCoordinateAdjacentRandom(listOfPredator[i].obtainCoordinate(), listOfCoordinateOccupied);
+                wrapMove(listOfPredator[i], coordinateAdjacentRandom);
+                listOfPredator[i].survive();
+                listOfPredator[i].starve();
+            }
+
+            vector<Coordinate> listOfCoordinatePredator = obtainListOfCoordinatePredator();
+            vector<Coordinate> listOfCoordinatePrey = obtainListOfCoordinatePrey();
+            for (int i = 0; i < listOfPrey.size(); i++)
+            {
+                Coordinate coordinateAdjacentRandom = obtainCoordinateAdjacentRandom(listOfPrey[i].obtainCoordinate(), listOfCoordinatePrey);
+                int indexOfOccupied = obtainIndexOfOccupied(coordinateAdjacentRandom, listOfCoordinatePredator);
+                if (indexOfOccupied != -1)
+                {
+                    listOfPrey[i].call("eaten");
+                    listOfPredator[indexOfOccupied].hunt();
+                    eraseInAllList(listOfPrey[i]);
+                }
+                else
+                {
+                    wrapMove(listOfPrey[i], coordinateAdjacentRandom);
+                    listOfPrey[i].survive();
+                }
+            }
+
+            for (int i = 0; i < listOfPredator.size(); i++)
+            {
+                if (listOfPredator[i].obtainHealth() <= 0)
+                {
+                    listOfPredator[i].call("starved and died");
+                    eraseInAllList(listOfPredator[i]);
+                }
+                else if (listOfPredator[i].obtainLife() >= LIFE_PREDATOR_MAX)
+                {
+                    Coordinate coordinateAdjacentRandom = obtainCoordinateAdjacentRandom(listOfPredator[i].obtainCoordinate(), listOfCoordinateOccupied);
+                    if (coordinateAdjacentRandom != listOfPredator[i].obtainCoordinate())
+                    {
+                        Predator predatorSpawend(SYMBOL_DOODLEBUG, NAME_DOODLEBUG, coordinateAdjacentRandom.x, coordinateAdjacentRandom.y);
+                        listOfPredator.push_back(predatorSpawend);
+                        listOfCoordinateOccupied.push_back(predatorSpawend.obtainCoordinate());
+                    }
+                    else
+                    {
+                        listOfPredator[i].restore();
+                    }
+                }
+            }
+
+            for (int i = 0; i < listOfPrey.size(); i++)
+            {
+                if (listOfPrey[i].obtainLife() >= LIFE_PREY_MAX)
+                {
+                    Coordinate coordinateAdjacentRandom = obtainCoordinateAdjacentRandom(listOfPrey[i].obtainCoordinate(), listOfCoordinateOccupied);
+                    if (coordinateAdjacentRandom != listOfPrey[i].obtainCoordinate())
+                    {
+                        Prey preySpawend(SYMBOL_ANT, NAME_ANT, coordinateAdjacentRandom.x, coordinateAdjacentRandom.y);
+                        listOfPrey.push_back(preySpawend);
+                        listOfCoordinateOccupied.push_back(preySpawend.obtainCoordinate());
+                    }
+                    else
+                    {
+                        listOfPrey[i].restore();
+                    }
+                }
+            }
+
+            output();
+            bool isSimulationOver = indicateSimulationOver();
+            if (isSimulationOver)
+                break;
+        }
+    }
+
+    void output() const
+    {
+        cout << "Number of Predator: " << listOfPredator.size() << endl;
+        cout << "Number of Prey: " << listOfPrey.size() << endl;
+        for (int indexOfX = 1; indexOfX <= boundMaxX; indexOfX++)
+        {
+            for (int indexOfY = 1; indexOfY <= boundMaxY; indexOfY++)
+            {
+                bool isCalled = false;
+
+                for (int i = 0; i < listOfCoordinateOccupied.size(); i++)
+                {
+                    Coordinate coordinateOccupied = listOfCoordinateOccupied[i];
+                    Coordinate coordinateCurrent;
+                    coordinateCurrent.x = indexOfX;
+                    coordinateCurrent.y = indexOfY;
+
+                    if (coordinateOccupied == coordinateCurrent)
+                    {
+                        cout << coordinateOccupied.symbol;
+                        isCalled = true;
+                        break;
+                    }
+                };
+
+                if (!isCalled)
+                    cout << SYMBOL_EMPTY_SPACE;
+
+                cout << " ";
+            };
+            cout << endl;
+        };
+    }
+
+    void create(int numberOfPredator, int numberOfPrey)
+    {
+        srand(time(0));
+        restore();
+        for (int i = 0; i < numberOfPredator; i++)
+        {
+            Predator inputPredtor(SYMBOL_DOODLEBUG, NAME_DOODLEBUG);
+            placePredator(inputPredtor);
+        };
+        for (int i = 0; i < numberOfPrey; i++)
+        {
+            Prey inputPrey(SYMBOL_ANT, NAME_ANT);
+            placePrey(inputPrey);
+        };
+        cout << "A simple two-dimensional predator-prey simulation has begun with grid "
+             << boundMaxX << "x" << boundMaxY
+             << ". All the stale data has been cleared." << endl;
+        cout << "Time Step: 0 (Initial Simulation)" << endl;
+        output();
+        cout << endl
+             << "Please press Enter to move to the next time step:" << endl;
+        interact();
+    }
+};
+
+int main()
+{
+    World world;
+    world.create(5, 100);
+    return 0;
+}
