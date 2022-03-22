@@ -2,6 +2,9 @@
 #include <string>
 using namespace std;
 
+// 用 & call by reference 會比較有效率 (因為不用複製)，加上 const 避免手誤更改到值。特別是在 class 內！
+// friend Money add(const Money& amount1, const Money& amount2);
+
 class Odd
 {
     // 加上 friend，那麼 Date 的 member 內可以使用到 Odd 的 private
