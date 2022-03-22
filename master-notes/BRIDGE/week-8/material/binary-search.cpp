@@ -43,29 +43,29 @@ void search(const int listOfNumber[], int indexOfStart,
     }
 }
 
-// void search(const int listOfNumber[], int indexOfStart,
-//             int indexOfEnd, int value,
-//             bool &isFound, int &indexOfValue)
-// {
-//     if (indexOfStart > indexOfEnd)
-//     {
-//         isFound = false;
-//     }
-//     else
-//     {
-//         int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
-//         if (value == listOfNumber[indexOfMiddle])
-//         {
-//             isFound = true;
-//             indexOfValue = indexOfMiddle;
-//         }
-//         else if (value < listOfNumber[indexOfMiddle])
-//             search(listOfNumber, indexOfStart,
-//                    indexOfMiddle - 1, value,
-//                    isFound, indexOfValue);
-//         else if (value > listOfNumber[indexOfMiddle])
-//             search(listOfNumber, indexOfMiddle + 1,
-//                    indexOfEnd, value,
-//                    isFound, indexOfValue);
-//     }
-// }
+void search(const int listOfNumber[], int indexOfStart,
+            int indexOfEnd, int value,
+            bool &isFound, int &indexOfValue)
+{
+    if (indexOfStart > indexOfEnd)
+    {
+        isFound = false;
+    }
+    else
+    {
+        int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
+        if (value == listOfNumber[indexOfMiddle])
+        {
+            isFound = true;
+            indexOfValue = indexOfMiddle;
+        }
+        else if (value < listOfNumber[indexOfMiddle])
+            search(listOfNumber, indexOfStart,
+                   indexOfMiddle - 1, value,
+                   isFound, indexOfValue);
+        else if (value > listOfNumber[indexOfMiddle])
+            search(listOfNumber, indexOfMiddle + 1,
+                   indexOfEnd, value,
+                   isFound, indexOfValue);
+    }
+}
