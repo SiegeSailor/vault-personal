@@ -36,7 +36,7 @@ export const handleLocalStorage = {
 };
 ```
 
-## ## Setup and Teardown
+## Setup and Teardown
 
 - `beforeEach`: 另有 `afterEach`。會在該 Scope 的每個測試前執行
 - `beforeAll`: 另有 `afterAll`。會在該 Scope 的開頭執行

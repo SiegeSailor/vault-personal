@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SiegeSailor',
-  tagline: 'Articles and documents place',
+  tagline: `Articles and documents place © SiegeSailor ${new Date().getFullYear()}`,
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -56,24 +56,8 @@ const config = {
           { type: 'doc', docId: '1@intro', position: 'left', label: 'Notes' },
           { to: '/blog', label: 'Blog', position: 'left' },
           { href: 'https://github.com/SiegeSailor', label: 'GitHub', position: 'right' },
+          { href: 'https://www.linkedin.com/in/jin-yu-zhang-812181155/', label: 'LinkedIn', position: 'right' },
         ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          { title: 'Notes', items: [{ label: 'Intro', to: '/docs/1@intro' }] },
-          {
-            title: 'Links',
-            items: [
-              { label: 'StackOverflow', href: 'https://stackoverflow.com/users/13564651/siegesailor' },
-              { label: 'GitHub', href: 'https://github.com/SiegeSailor' },
-              { label: 'Facebook', href: 'https://www.facebook.com/lookswalidy' },
-              { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jin-yu-zhang-812181155/' },
-            ],
-          },
-          { title: 'More', items: [{ label: 'Blog', to: '/blog' }] },
-        ],
-        copyright: `© SiegeSailor ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
