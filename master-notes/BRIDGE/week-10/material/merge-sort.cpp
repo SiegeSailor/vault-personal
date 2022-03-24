@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd);
+void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int indexOfHighEnd);
+
+int main()
+{
+    const int sizeOfList = 8;
+    int listOfInteger[sizeOfList] = {4, 12, 7, 1, 3, 2, 1, 10};
+    mergeSort(listOfInteger, 0, sizeOfList - 1);
+    for (int i = 0; i < sizeOfList; i++)
+    {
+        cout << listOfInteger[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
+{
+    if (indexOfStart == indexOfEnd)
+    {
+        return;
+    }
+    else
+    {
+        int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
+        mergeSort(listOfInteger, indexOfStart, indexOfMiddle);
+        mergeSort(listOfInteger, indexOfMiddle + 1, indexOfEnd);
+        merge(listOfInteger, indexOfStart, indexOfMiddle, indexOfEnd);
+    }
+}
+
+void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int indexOfHighEnd)
+{
+    int indexOfLowEnd = indexOfHighStart + 1; // 檢查為什麼不是 - 1
+    int sizeOfList = indexOfHighEnd - indexOfLowStart + 1;
+    int *listOfMerged = new int[sizeOfList];
+
+    int indexOfLow = indexOfLowStart;
+    int indexOfHigh = indexOfLowEnd; // 檢查為什麼不是 indexOfHighStart
+    int indexOfMerged = 0;
+
+    while (indexOfLow <= indexOfHighStart && indexOfHigh <= indexOfHighEnd) // 檢查為什麼 indexOfLow <= indexOfHighStart 而不是 indexOfLowEnd
+    {
+        if (listOfInteger[indexOfLow] < listOfInteger[indexOfHigh])
+        {
+            listOfMerged[indexOfMerged] = listOfInteger[indexOfLow];
+            indexOfLow++;
+            indexOfMerged++;
+        }
+        else // 相等時，以 high 為主
+        {
+            listOfMerged[indexOfMerged] = listOfInteger[indexOfHigh];
+            indexOfHigh++;
+            indexOfMerged++;
+        }
+    }
+
+    // 在前半段 5,5,6 而後半段 5,5,5 的情況下，前半段不會跑完，反之亦然，所以需要直接放入
+    // 以下只有一個 while 會執行，因為只有當一個半段執行完的情況下，前面的 while 才會停止
+    while (indexOfLow <= indexOfHighStart) // 檢查為什麼不是 indexOfLowEnd
+    {
+        listOfMerged[indexOfMerged] = listOfInteger[indexOfLow];
+        indexOfLow++;
+        indexOfMerged++;
+    }
+
+    while (indexOfHigh <= indexOfHighEnd)
+    {
+        listOfMerged[indexOfMerged] = listOfInteger[indexOfHigh];
+        indexOfHigh++;
+        indexOfMerged++;
+    }
+
+    // listOfInteger 由 indexOfLowStart 開始，因此額外設 j
+    for (int i = 0, j = indexOfLowStart; i < sizeOfList; i++, j++)
+    {
+        listOfInteger[j] = listOfMerged[i];
+    }
+}
