@@ -2,7 +2,7 @@
 using namespace std;
 
 void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd);
-void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int indexOfHighEnd);
+void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOfEnd);
 
 int main()
 {
@@ -23,6 +23,7 @@ void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
     {
         return;
     }
+    // 也可以用 if (indexOfStart < indexOfEnd)
     else
     {
         int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
@@ -32,18 +33,16 @@ void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
     }
 }
 
-void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int indexOfHighEnd)
+void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOfEnd)
 {
-    int indexOfLowEnd = indexOfHighStart + 1; // 檢查為什麼不是 - 1
-    cout << indexOfLowStart << "," << indexOfLowEnd << "/" << indexOfHighStart << "," << indexOfHighEnd << endl;
-    int sizeOfList = indexOfHighEnd - indexOfLowStart + 1;
+    int sizeOfList = indexOfEnd - indexOfStart + 1;
     int *listOfMerged = new int[sizeOfList];
 
-    int indexOfLow = indexOfLowStart;
-    int indexOfHigh = indexOfLowEnd; // 檢查為什麼不是 indexOfHighStart
+    int indexOfLow = indexOfStart;
+    int indexOfHigh = indexOfMiddle + 1;
     int indexOfMerged = 0;
 
-    while (indexOfLow <= indexOfHighStart && indexOfHigh <= indexOfHighEnd) // 檢查為什麼 indexOfLow <= indexOfHighStart 而不是 indexOfLowEnd
+    while (indexOfLow <= indexOfMiddle && indexOfHigh <= indexOfEnd)
     {
         if (listOfInteger[indexOfLow] < listOfInteger[indexOfHigh])
         {
@@ -61,22 +60,22 @@ void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int i
 
     // 在前半段 5,5,6 而後半段 5,5,5 的情況下，前半段不會跑完，反之亦然，所以需要直接放入
     // 以下只有一個 while 會執行，因為只有當一個半段執行完的情況下，前面的 while 才會停止
-    while (indexOfLow <= indexOfHighStart) // 檢查為什麼不是 indexOfLowEnd
+    while (indexOfLow <= indexOfMiddle)
     {
         listOfMerged[indexOfMerged] = listOfInteger[indexOfLow];
         indexOfLow++;
         indexOfMerged++;
     }
 
-    while (indexOfHigh <= indexOfHighEnd)
+    while (indexOfHigh <= indexOfEnd)
     {
         listOfMerged[indexOfMerged] = listOfInteger[indexOfHigh];
         indexOfHigh++;
         indexOfMerged++;
     }
 
-    // listOfInteger 由 indexOfLowStart 開始，因此額外設 j
-    for (int i = 0, j = indexOfLowStart; i < sizeOfList; i++, j++)
+    // listOfInteger 由 indexOfStart 開始，因此額外設 j
+    for (int i = 0, j = indexOfStart; i < sizeOfList; i++, j++)
     {
         listOfInteger[j] = listOfMerged[i];
     }
