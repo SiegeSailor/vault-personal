@@ -119,6 +119,7 @@ public:
     {
         return year;
     }
+
     // dynamic binding
     virtual void printDate() const
     {
@@ -138,11 +139,15 @@ class NewDate : public Date
 {
 private:
     int extraDay = 100;
+    // ASK: 重複定義？
+    int day = 999;
 
 public:
     // 只有這個方法可以使用原本的父 class constructor
     NewDate(int y) : Date(y){};
     NewDate(int y, int m, int d) : Date(y, m, d){};
+
+    void setYear(int input){};
 
     void setDay(int input)
     {

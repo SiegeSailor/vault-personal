@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Recursive Function
+# Recursion
 
 Stack 有 LIFO (Last-In/First-Out) 原則，就像是一疊疊的紙，當有新的出現時、疊在最上面，而當要讀時，從最上面的開始。Recursive Function 以此為基礎，在定義 Base Case (Stopping Case) 後以不同的參數呼叫自己、並在呼叫前後做計算或 I/O，最終在輸入參數達到 Stopping Case 條件後停止呼叫自己。
 

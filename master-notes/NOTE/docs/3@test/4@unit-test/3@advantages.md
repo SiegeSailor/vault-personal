@@ -6,10 +6,10 @@ sidebar_position: 3
 
 實務上，Unit Test 可以帶來的具體效益有：
 
-- [符合需求](/docs/test/unit-test/advantages#符合需求): 以通過測試為優先進行設計，保證符合最低可用性
-- [核心檢查](/docs/test/unit-test/advantages#核心檢查): 自動化檢查核心功能，特別是頁面之間資料有覆用、前端需做各類計算時
-- [保證良率](/docs/test/unit-test/advantages#保證良率): 無法對整個流程或體驗做出保證，但可以通過提高單一元件的良率優化整體品質
-- [重構指標](/docs/test/unit-test/advantages#重構指標): 高覆用性與低耦合是 Unit Test 與物件導向優劣的指標
+- [符合需求](/docs/3@test/4@unit-test/3@advantages#符合需求): 以通過測試為優先進行設計，保證符合最低可用性
+- [核心檢查](/docs/3@test/4@unit-test/3@advantages#核心檢查): 自動化檢查核心功能，特別是頁面之間資料有覆用、前端需做各類計算時
+- [保證良率](/docs/3@test/4@unit-test/3@advantages#保證良率): 無法對整個流程或體驗做出保證，但可以通過提高單一元件的良率優化整體品質
+- [重構指標](/docs/3@test/4@unit-test/3@advantages#重構指標): 高覆用性與低耦合是 Unit Test 與物件導向優劣的指標
 
 :::caution 注意
 測試的品質與程式碼品值沒有絕對正比關係。一個專案良好設計了 Test Cases 並且覆蓋率達 100%，只代表良好地實踐了物件導向設計。

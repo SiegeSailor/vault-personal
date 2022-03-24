@@ -35,6 +35,7 @@ void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
 void merge(int listOfInteger[], int indexOfLowStart, int indexOfHighStart, int indexOfHighEnd)
 {
     int indexOfLowEnd = indexOfHighStart + 1; // 檢查為什麼不是 - 1
+    cout << indexOfLowStart << "," << indexOfLowEnd << "/" << indexOfHighStart << "," << indexOfHighEnd << endl;
     int sizeOfList = indexOfHighEnd - indexOfLowStart + 1;
     int *listOfMerged = new int[sizeOfList];
 

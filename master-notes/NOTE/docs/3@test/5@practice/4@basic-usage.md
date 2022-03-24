@@ -68,7 +68,7 @@ describe('handleTime', () => {
 
 ## Command Line
 
-只要有 Matcher 和 Test Cases 即可設置基本的測試。我們在此執行 `npm run test` (如何設置請見 [/Test/Practice/Config](/docs/test/practice/config)) 來檢驗結果：
+只要有 Matcher 和 Test Cases 即可設置基本的測試。我們在此執行 `npm run test` (如何設置請見 [/Test/Practice/Config](/docs/3@test/5@practice/3@config)) 來檢驗結果：
 
 ```cli
 PASS  src/helper/index.test.tsx
@@ -207,5 +207,5 @@ Ran all test suites.
 ```
 
 :::info 提醒
-關於 Mock，可以參考 [/Test/Test Double](/docs/test/test-double)。
+關於 Mock，可以參考 [/Test/Test Double](/docs/3@test/3@test-double)。
 :::

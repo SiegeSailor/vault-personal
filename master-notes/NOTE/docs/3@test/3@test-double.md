@@ -88,7 +88,7 @@ describe('obtainBestUser', () => {
 
 ### Test Spy
 
-可參考 [/Test/Practice/Redux](/docs/test/practice/redux) 和 [/Test/Practice/Scope](/docs/test/practice/scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
+可參考 [/Test/Practice/Redux](/docs/3@test/5@practice/7@redux) 和 [/Test/Practice/Scope](/docs/3@test/5@practice/5@scope)。以下我們有個 `storeHighestScore`，能將 Redux Store 內的當前 User Profile 存入 LocalStorage：
 
 ```tsx title="index.ts"
 import { store } from 'state';
