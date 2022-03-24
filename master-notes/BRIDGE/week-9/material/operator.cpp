@@ -75,5 +75,9 @@ int main()
     input >> first;
     output << first;
 
+    cout << "===" << endl;
+
+    cout << first;
+
     return 0;
 }

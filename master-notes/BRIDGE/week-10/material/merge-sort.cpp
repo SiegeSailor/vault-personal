@@ -65,7 +65,7 @@ void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOf
     }
 }
 
-// T(n) = O(n) * O(log n)，總共需要花費的回合為 O(log n)，而每回合的合併需要花費的為 O(n)
+// T(n) = O(n) * O(log n)，總共需要花費的回合為 O(log n) (因為一直分為 n/2, n/4, ...)，而每回合的合併需要花費的為 O(n) (如第一次分為 2 個 n/2，總共執行就是 n)
 void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
 {
     if (indexOfStart == indexOfEnd)
