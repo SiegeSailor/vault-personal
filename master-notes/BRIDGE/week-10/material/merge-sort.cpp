@@ -17,22 +17,6 @@ int main()
     return 0;
 }
 
-void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
-{
-    if (indexOfStart == indexOfEnd)
-    {
-        return;
-    }
-    // 也可以用 if (indexOfStart < indexOfEnd)
-    else
-    {
-        int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
-        mergeSort(listOfInteger, indexOfStart, indexOfMiddle);
-        mergeSort(listOfInteger, indexOfMiddle + 1, indexOfEnd);
-        merge(listOfInteger, indexOfStart, indexOfMiddle, indexOfEnd);
-    }
-}
-
 void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOfEnd)
 {
     int sizeOfList = indexOfEnd - indexOfStart + 1;
@@ -78,5 +62,22 @@ void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOf
     for (int i = 0, j = indexOfStart; i < sizeOfList; i++, j++)
     {
         listOfInteger[j] = listOfMerged[i];
+    }
+}
+
+// T(n) = O(n) * O(log n)，總共需要花費的回合為 O(log n)，而每回合的合併需要花費的為 O(n)
+void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
+{
+    if (indexOfStart == indexOfEnd)
+    {
+        return;
+    }
+    // 也可以用 if (indexOfStart < indexOfEnd)
+    else
+    {
+        int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
+        mergeSort(listOfInteger, indexOfStart, indexOfMiddle);
+        mergeSort(listOfInteger, indexOfMiddle + 1, indexOfEnd);
+        merge(listOfInteger, indexOfStart, indexOfMiddle, indexOfEnd);
     }
 }
