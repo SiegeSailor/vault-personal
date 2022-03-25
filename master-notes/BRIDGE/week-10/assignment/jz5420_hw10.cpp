@@ -388,9 +388,9 @@ int main()
     cout << endl;
 
     char answer;
-    cout << "Do you want to export the result to output.txt? (Y/N)" << endl;
+    cout << "Do you want to export the result to output.txt? The result will be appended. (Y/N)" << endl;
     cin >> answer;
-    ofstream output("output.txt");
+    ofstream output("output.txt", ios::app);
     switch (answer)
     {
     case 'Y':
