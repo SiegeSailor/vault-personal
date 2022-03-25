@@ -29,7 +29,8 @@ private:
 public:
     LList() : head(nullptr){};
     // Big 3
-    LList(const LList &rightHandSide) : head(nullptr){ *this = rightHandSide};
+    LList(const LList &rightHandSide)
+        : head(nullptr){ *this = rightHandSide};
     LList<T> &operator=(const LList<T> &rightHandSide);
     ~LList() { clear(); }
 

@@ -1,0 +1,4 @@
+********* Payroll Information *********
+John F. Jones, $270
+Daniel Katz, $210
+************* End payroll *************
