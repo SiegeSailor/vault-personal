@@ -11,7 +11,6 @@ sidebar_position: 9
 - [多型](/docs/4@problem-solving/9@class#多型): **Polymorphism**。透過 Interface 實現。在 Method 名稱與 Base Class 皆相同的情況下，使物件做出預期但有差異的行為
 
 (overloading)
-(final, friend)
 
 ## 封裝
 
@@ -174,8 +173,8 @@ class SwissBankAccount : public Account {
 
 ## 抽象化
 
-ADT:
+Abstract Data Type。將 Class 外顯的 Function 以 Interface 的概念實作，使用者不需關心背後的邏輯與值如何運作。由於隱藏了細節、只公開介面，在未來更改 (特別牽涉到多型時) 能以更低的成本進行。要符合 ADT，有以下須遵循：
 
-1. Make all the member variables private members of the class.
-2. Make each of the basic operations that the programmer needs a public member function of the class, and fully specify how to use each such public member function.
-3. Make any helping functions private member functions.
+1. 所有 Member Variable 皆為 Private
+2. 外顯的 Public Method 為簡單邏輯操作，並且無論在語意或文件上皆能完整指引
+3. 背後的細節與邏輯操作 (Helper) 以 Private Method 完成
