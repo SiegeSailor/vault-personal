@@ -44,6 +44,7 @@ private:
     BSTNode<T> *root;
 
 public:
+    // 在輸入的值是 5, 10, 15, ... 的情況下，新的值只會在右邊，那麼 BST 會是 O(N) 而不是 O(logN)，因為這樣就只是 linked list
     void insert(T item)
     {
         if (root == nullptr)
@@ -131,6 +132,7 @@ public:
             while (minOfRight->left != nullptr)
                 minOfRight = minOfRight->left;
             target->data = minOfRight->data;
+            // 雖然這邊是 recursion，但只會再發生一次。也就是將要刪除的 node 用 right 下方左邊最小的值替換掉 (第一次)，然後再帶入、用只有單一 node 的情況的 remove 刪除最小值的 node (第二次)
             remove(minOfRight);
         }
     }
