@@ -1,0 +1,154 @@
+
+Name: Zhang, Jin Yu (Ken)
+ 
+Email: jz5420@nyu.edu
+
+
+
+
+
+Solutions to midterm exam
+
+
+Question 1 (Multiple choice answer): c
+Question 2 (Multiple choice answer): a, c
+Question 3 (Multiple choice answer): c
+Question 4 (Multiple choice answer): a
+Question 5 (Multiple choice answer): a, d
+
+Question 6 (Code):
+
+// Assume input is iterated from the sorted vector of integers.
+void insert(BST *tree, int input)
+{
+    BSTNode *node = BSTNode(input);
+    if (tree.root == nullptr)
+    {
+        tree.addRoot(input);
+        return;
+    };
+
+    BSTNode *cache = tree.root;
+    if (node->data <= cache->data)
+    {
+        while(node->data <= cache->data && cache != nullptr)
+            cache = cache->left;
+        cache->left = node;
+    }
+    else
+    {
+        while(node->data > cache->data && cache != nullptr)
+            cache = cache->right;
+        cache->right = node;
+    }
+
+    cache = tree.root;
+    int heightLeft, heightRight;
+    while(cache != nullptr)
+        cache = cache->left;
+    heightLeft = cache->getHeight();
+    cache = tree.root;
+    while(cache != nullptr)
+        cache = cache->right;
+    heightRight = cache->getHeight();
+    if (abs(heightRight - heightLeft) > 1)
+        tree.rotate();
+};  
+
+
+Question 7(Paragraph):
+
+We can first pick the last line of value by using ignore(SUPPER_LARGE_NUMBER, '\n'),
+then pick the first line of value,
+finally add them together and divide them with 2 to get the median value.
+
+Question 8 (code):
+
+#include <string>
+#include <ifstream> // This object should be created in main and pass to findMedian
+#include <iostream>
+using namespace std;
+
+int finMedian(iostream& read)
+{
+    do {
+        cout << "Opening file.txt." << endl;
+        read.open("file.txt");
+        if (read.fail())
+        {
+            cout << "READ FILE FAILED!" << endl;
+        } else {
+            break;
+        };
+    } while{!read};
+
+    int max, min, current;
+    bool isInitial = true;
+    while(read >> current)
+    {
+        if (isInitial)
+        {
+            max = current;
+            min = current;
+            isInitial = false;
+        };
+
+        if (current < min)
+            min = current;
+        if (current > max)
+            max = current;
+    };
+    read.close();
+};
+
+Question 9(code):
+
+template<class T>
+class LList
+{
+    ...
+    public:
+        void push_back(T item)
+        {
+            LListNode<T> *cache = head;
+            while(cache->next != head)
+                cache = cache->next;
+            
+            LListNode<T> *node= LListNode<T>(item);
+            cache->next = node;
+            node->next = head;
+        };
+};
+
+
+Question 10(code):
+
+class Package
+{
+    protected:
+        double weight = 0.0;
+        double cubicArea = 0.0;
+
+    public:
+        Package(double weight): weight(weight){};
+        Package(double weight, double cubicArea): weight(weight), cubicArea(cubicArea){};
+
+        virtual double obtainEffectiveWeight() const = 0;
+}
+
+class Envelope : public Package
+{
+    double obtainEffectiveWeight() const override {
+        return weight;
+    };
+};
+
+class Box : public Package
+{
+    double obtainEffectiveWeight() const override {
+        if (weight >= cubicArea)
+            return weight;
+        else
+            return cubicArea;
+    };
+};
