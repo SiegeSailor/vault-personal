@@ -49,6 +49,7 @@ int main()
     int y;
     cin >> y;
     int *pointer_4 = new int[y];
+    pointer_4[0] = 1;
     cout << pointer_4 << ": " << *pointer_4 << endl;
     delete[] pointer_4; // delete array 時一定要加[]、以告訴編譯器要刪除的是 array，其中之一的原因是我們不能單獨刪除 array 中的值
     int static_array[2] = {1, 2};

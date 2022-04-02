@@ -6,9 +6,9 @@ sidebar_position: 9
 
 中文翻譯類別。一種藍圖、範本，而不是實體化的 Object。不能直接執行，但藉由 Class 出來的 Object 能夠保證規範運作。作為 OOP 中的要角，可以認為是一種由使用者自行定義的 Type 如 `int`、`string` 等。使用上，Class 可以提供：
 
-- [封裝](/docs/4@problem-solving/9@class#封裝): **Encapsulation**。將不需要在 Class 運作以外的資訊透過直觀的 Method (Member Function) 供實體物件使用，並對除了該 Class 外的對象 (即使是子類別) 隱藏，藉此實現 **Information Hiding**
-- [繼承](/docs/4@problem-solving/9@class#繼承): **Inheritance**。Class 間可以繼承或參考，藉此堆切出有差異但有統一原則的物件
-- [多型](/docs/4@problem-solving/9@class#多型): **Polymorphism**。透過 Interface 實現。在 Method 名稱與 Base Class 皆相同的情況下，使物件做出預期但有差異的行為
+- [封裝](/docs/4@problem-solving/9@class#封裝): Encapsulation。將不需要在 Class 運作以外的資訊透過直觀的 Method (Member Function) 供實體物件使用，並對除了該 Class 外的對象 (即使是子類別) 隱藏，藉此實現 **Information Hiding**
+- [繼承](/docs/4@problem-solving/9@class#繼承): Inheritance。Class 間可以繼承或參考，藉此堆切出有差異但有統一原則的物件
+- [多型](/docs/4@problem-solving/9@class#多型): Polymorphism。透過 Interface 實現。在 Method 名稱與 Base Class 皆相同的情況下，使物件做出預期但有差異的行為
 
 ## 封裝
 
