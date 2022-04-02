@@ -46,11 +46,12 @@ public:
     // Constructor Overloading，自動選擇符合輸入 parameter 的執行，只有一次
     Date(int y) : year(y), month(0), day(0), p(new int(10)) {}
     // 可以 list 在後面給，或是寫在 {} 內
-    Date(int y, int m, int d) : year(y), month(m), day(d), p(new int(10)){
-                                                               // 也可以在裡面做計算或指定
-                                                               // year = 1994;
-                                                               // month = 9;
-                                                           };
+    Date(int y, int m, int d)
+        : year(y), month(m), day(d), p(new int(10)){
+                                         // 也可以在裡面做計算或指定
+                                         // year = 1994;
+                                         // month = 9;
+                                     };
     string example = "example";
 
     // 如果 a = b，兩個都是裡面的值有存在 heap (如 new int(1)) 內，

@@ -10,13 +10,9 @@ sidebar_position: 9
 - [繼承](/docs/4@problem-solving/9@class#繼承): **Inheritance**。Class 間可以繼承或參考，藉此堆切出有差異但有統一原則的物件
 - [多型](/docs/4@problem-solving/9@class#多型): **Polymorphism**。透過 Interface 實現。在 Method 名稱與 Base Class 皆相同的情況下，使物件做出預期但有差異的行為
 
-(overloading)
-
 ## 封裝
 
-使用 Class 物件時，我們只要知道外顯的 Method 如何使用以及如何實體化。輸入輸出確定的情況下，就算在重構時也不須過多注意內容。可以想成為了實現一個抽象概念，像是一個帳戶，會需要如電力、土地、商標等等基礎設施，最後才到我們平常使用的提領、存款。使用者不需要知道基礎設施的運作、也不應該干涉。
-
-C++ 中，實現封裝一個重要的媒介是 Overloading，主要有 Constructor、Operator、Method：
+使用 Class 物件時，我們只要知道外顯的 Method 如何使用以及如何實體化。輸入輸出確定的情況下，就算在重構時也不須過多注意內容。可以想成為了實現一個抽象概念，像是一個帳戶，會需要如電力、土地、商標等等基礎設施，最後才到我們平常使用的提領、存款。使用者不需要知道基礎設施的運作、也不應該干涉：
 
 ```cpp
 class Account {
@@ -31,7 +27,6 @@ class Account {
         }
 
     public:
-        /** Constructor Overloading */
         Account() : {
             day = 1;
             interest = 1.0;
@@ -80,6 +75,7 @@ int main()
 
 ```cpp
 #include <string>
+
 using namespace std;
 
 /** 若宣告 Account 為 class Account final {}，則不可被繼承 */
@@ -167,14 +163,197 @@ class SwissBankAccount : public Account {
 
 ## 多型
 
+最主要的概念是，被用作 Parameter 的 Class 維持外顯的 Method 不變的情況下，可以直接替換內容：
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Base
+{
+    public:
+        Base() {}
+        virtual void call() {
+            cout << "BASE ";
+        }
+};
+
+    class Derived: public Base {
+    public:
+        Derived(): Base() {}
+        virtual void call {
+            cout << "DERIVED ";
+        }
+};
+
+int main() {
+    vector<Base> listOfObject;
+    Base first = Derived();
+    Derived second = Derived();
+    Base third = Base();
+    listOfObject.push_back(first);
+    listOfObject.push_back(second);
+    listOfObject.push_back(third);
+
+    /**
+     * 以下輸出會是： BASE BASE BASE BASE DERIVED BASE，
+     * 注意當下呼叫 call 的物件的型別。像是放入 listOfObject 中、
+     * 由於 vector 為 Base，因此所有被放入的 Derived 都被強制轉為 Base。
+     // highlight-next-line
+     * 被強制轉換時，所有 Base 沒有而 Derived 有的都會遺失
+     */
+    for (Base object : listOfObject) {
+        object.call();
+    }
+    first.call();
+    second.call();
+    third.call();
+    return 0;
+}
+```
+
 :::info 提醒
 相關概念可以參考 [/Test/Unit-Test/Principles/介面相依](/docs/3@test/4@unit-test/5@principles#介面相依)。測試中強調了 **隔離相依性** 的重要，這點可以透過 Polymorphism 的實踐達成。
 :::
 
-## 抽象化
+## Other
 
-Abstract Data Type。將 Class 外顯的 Function 以 Interface 的概念實作，使用者不需關心背後的邏輯與值如何運作。由於隱藏了細節、只公開介面，在未來更改 (特別牽涉到多型時) 能以更低的成本進行。要符合 ADT，有以下須遵循：
+除了以上共通的三大要點**封裝**、**繼承**和**多型**外，C++ Class 還有幾項需要特別注意的點。
+
+### Abstract Data Type
+
+抽象化，簡稱 ADT。將 Class 外顯的 Function 以 Interface 的概念實作，使用者不需關心背後的邏輯與值如何運作。由於隱藏了細節、只公開介面，在未來更改 (特別牽涉到多型時) 能以更低的成本進行。要符合 ADT，有以下須遵循：
 
 1. 所有 Member Variable 皆為 Private
 2. 外顯的 Public Method 為簡單邏輯操作，並且無論在語意或文件上皆能完整指引
 3. 背後的細節與邏輯操作 (Helper) 以 Private Method 完成
+
+### Overloading
+
+一個大部分語言未實踐、C++ 卻有的功能是 Overloading，能夠對物件的 Operator 做更動，主要用在 Constructor、Operator、Method：
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Account {
+    private:
+        int day;
+        double interest;
+        int saving;
+        int balance;
+
+    public:
+        /** Constructor Overloading */
+        Account() {
+            day = 1;
+            interest = 1.0;
+            saving = 0;
+        };
+        Account(const int &saving)
+            : day(1), interest(1.0) ,saving(saving) {};
+        Account(const int &day, const int &saving)
+            : day(day) {
+            interest = 2.0;
+        };
+
+        /** Operator Overloading */
+        Account operator-(const Account &that);
+        Account operator*(const Account &that);
+        Account operator/(const Account &that);
+        /** Pre-Increment (先加再給) */
+        Account &operator++();
+        Account &operator--();
+        /** 傳入 int 表示為 Post-Increment (先給再加)，事實上 int 只會傳入一個 0，並沒有作用 */
+        Account operator++(int);
+        Account operator--(int);
+
+        /** Method Overloading */
+        void message()
+        {
+            cout << "無 Parameter。" << endl;
+        };
+
+        void message(int input)
+        {
+            cout << "有 Parameter。" << endl;
+        };
+};
+```
+
+:::info 提醒
+Struct 內也能使用 Overloading：
+
+```cpp
+struct Coordinate
+{
+    int x = 0;
+    int y = 0;
+    bool operator!=(const Coordinate &that)
+    {
+        return x != that.x || y != that.y;
+    }
+    Coordinate operator=(const Coordinate &that)
+    {
+        x = that.x;
+        y = that.y;
+        return *this;
+    }
+};
+```
+
+:::
+
+### Rule of Three
+
+又稱 Big 3。是在 Class 內有 Pointer Member Variable 時必須三項同時應用的規則，主要是避免在 Assign、Copy、Destruct 三個動作中、遺失對 Pointer 的控制，進而導致 Memory Leak 的情況：
+
+```cpp
+class Book
+{
+    private:
+        int *page;
+
+    public:
+        /** 注意此 Class 有 Member Variable 存放在 Heap 中 */
+        Book(int page) : page(new int(page)){}
+
+        /**
+         * Copy Constructor，在以下情況中執行：
+         * Book bookFirst(10);
+         * Book bookSecond = bookFirst;
+         * 主要避免已有的 Pointer 遺失指向
+         */
+        Book(const Book &rightHandSide)
+        {
+            page = new int(*rightHandSide.page);
+            /** 也可用以下寫法 */
+            page = rightHandSide.page;
+        }
+
+        /**
+         * Assignment Constructor，在以下情況中執行：
+         * Book bookFirst, bookSecond;
+         * bookSecond = bookFirst;
+         * 注意與 Copy Constructor 的不同之處
+         */
+        Book &operator=(const Book &rightHandSide)
+        {
+            *page = *rightHandSide.page;
+            return *this;
+        };
+
+        /**
+         * Destructor，在此 Class 被釋放時執行。
+         * 注意若沒有 delete，則 page 在 Book 被釋放仍存在 Heap 中，
+         * 但沒有任何對應的方法去操控
+         */
+        ~Book()
+        {
+            delete page;
+        }
+}
+```
