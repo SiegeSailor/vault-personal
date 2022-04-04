@@ -16,8 +16,8 @@
     "prettify": "prettier --write . --ignore-path ./.prettierignore"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "^2.0.0-beta.15",
+    "@docusaurus/preset-classic": "^2.0.0-beta.15",
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.15",
     "@mdx-js/react": "^1.6.21",
     "@types/prettier": "^2.4.2",
