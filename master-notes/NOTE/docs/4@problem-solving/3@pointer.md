@@ -68,7 +68,7 @@ int main()
 
 :::
 
-### Parameter and Return
+### In Function
 
 在 Function Parameter 和 Return Value 中，Pointer `*` 和 `&` 也會有影響：
 
@@ -97,6 +97,10 @@ void acceptPointer(int *pointer)
     pointer = new int(50);
 };
 
+/**
+ * 表示將 Integer Pointer 作為 Parameter Type，
+ * Call by Reference，所做改變將影響傳入的 Pointer
+ */
 void acceptPointerReference(int *&pointer)
 {
     /** 將印出 "0x55bfccc22eb0" */
@@ -104,6 +108,10 @@ void acceptPointerReference(int *&pointer)
     pointer = new int(50);
 };
 
+/**
+ * 接受 Pointer of Pointer，
+ * 意即指向 Pointer 的 Pointer
+ */
 void acceptPointerOfPointer(int **pointer)
 {
     /** 將印出 "0x55bfccc22eb0" */
