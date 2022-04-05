@@ -9,6 +9,9 @@ sidebar_position: 5
 ```mermaid
 stateDiagram-v2
     direction LR
+    ViewConfig: View Config
+    ViewScopeState: View Scope State
+
     [*] --> Backstage
     state Forestage {
       direction LR

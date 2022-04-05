@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # File Structure
 
-以下示例引入 Jest 的 React 專案結構。
+以下示例引入 Jest 的 React 專案結構：
 
 ```bash
 ├── build/
@@ -44,7 +44,7 @@ sidebar_position: 2
 
 ### 繼承
 
-若引入測試的專案採用 Monorepo 架構，可以使用 `module.exports` 繼承。
+若引入測試的專案採用 Monorepo 架構，可以使用 `module.exports` 繼承：
 
 ```bash
 ├── Admin/

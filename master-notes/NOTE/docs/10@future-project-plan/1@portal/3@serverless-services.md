@@ -9,6 +9,13 @@ sidebar_position: 3
 ```mermaid
 stateDiagram-v2
     direction LR
+    ServerSideWorkspace: Server Side Workspace
+    ClientSideWorkspace: Client Side Workspace
+    APIEndpoints: API Endpoints
+    ServerlessServices: Serverless Services
+    ViewConfig: View Config
+    ViewConfigVersioning: View Config Versioning
+
     [*] --> Develop
     Develop --> ServerSideWorkspace
     Develop --> ClientSideWorkspace

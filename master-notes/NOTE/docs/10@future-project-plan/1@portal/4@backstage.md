@@ -4,61 +4,68 @@ sidebar_position: 4
 
 # Backstage
 
-操作者在 Backstage 中使用 3 種 Component (OnePurposeComponent、ConfigurableComponent、ViewStateComponent) 來設置 View Config。通常來說，一個 Component 的組成有：
+操作者在 Backstage 中使用 3 種 Unit (One-purpose Unit、Configurable Unit、View State Unit) 來設置 View Config。通常來說，一個 Unit 的組成有：
 
-1. 1 個 UI Component，可能是單一 Button 或 Tabs 與 Table 的組合
-2. 針對該 UI Component 的設置，如 Button 文字、數量、Unit ID 等
-3. 1 個或多個 Controller Component
+1. 1 個 UI Unit，可能是單一 Button 或 Tabs 與 Table 的組合
+2. 針對該 UI Unit 的設置，如 Button 文字、數量、Unit ID 等
+3. 1 個或多個 Controller Unit
 4. 針對以上 Controller、互相之間的呼叫順序、Controller 資料、對應 Unit 的資料、類型等設置 (壓平資料並排序)
-5. 將第 4 點間或最後的資料指定至 UI Component 上
-6. 對能產生使用者行為的 UI Component，能夠綁上建立、更新、刪除類的 Controller，並將第 4 點的資料作為 Parameter 使用
-7. Component 再往上的層級是 View。第 4 點產生的資料 可以拉到 View 供其他 Component 取用 (View Scope State)
+5. 將第 4 點間或最後的資料指定至 UI Unit 上
+6. 對能產生使用者行為的 UI Unit，能夠綁上建立、更新、刪除類的 Controller，並將第 4 點的資料作為 Parameter 使用
+7. Unit 再往上的層級是 View。第 4 點產生的資料 可以拉到 View 供其他 Unit 取用 (View Scope State)
 8. View 再往上的層級是整個 Forestage。在這層，可以取用使用者的資料與驗證、權限
-9. UI Component 內要呈現的資料 (第 5 點)、操作綁定使用行為時 (第 6 點)，可以取用 View Scope State
+9. UI Unit 內要呈現的資料 (第 5 點)、操作綁定使用行為時 (第 6 點)，可以取用 View Scope State
 
-3 種 Component 分別為：
+3 種 Unit 分別為：
 
-- **OnePurposeComponent**: 或有少數邏輯無法泛化到 Controller 與 Component 上，此時因應的是為特定邏輯開發的 Component，使用上不需設置、拉取即使用。然而應是特例
-- **ConfigurableComponent**: 主要組成。透過編輯 Controller 與 UI 的相互關係作成
-- **ViewStateComponent**: 與 ConfigurableComponent 大致相同，然而只取用 View Scope State 的資料並顯示
+- **One-purpose Unit**: 或有少數邏輯無法泛化到 Controller 與 Unit 上，此時因應的是為特定邏輯開發的 Unit，使用上不需設置、拉取即使用。然而應是特例
+- **Configurable Unit**: 主要組成。透過編輯 Controller 與 UI 的相互關係作成
+- **View State Unit**: 與 Configurable Unit 大致相同，然而只取用 View Scope State 的資料並顯示
 
 ```mermaid
 stateDiagram-v2
     direction TB
-    [*] --> Backstage
-    state Backstage {
-      direction TB
-      [*] --> View
-      state View {
-        direction LR
-        [*] --> UIComponent
-        [*] --> ControllerComponent
-        [*] --> ViewScopeState
-        UIComponent --> AssembleInterface
-        state UIComponent {
-          state if_state <<choice>>
-          [*] --> IsInteractive
-          IsInteractive --> if_state : If the component is interactive
-          if_state --> DisplayUnit : No
-          if_state --> UserBehaviorUnit : Yes
-        }
-        state ControllerComponent {
-          direction TB
-          [*] --> Add
-          Add --> AssignParameter
-          AssignParameter --> Response
-          Response --> Add
-        }
+    UIUnit: UI Unit
+    ControllerUnit: Controller Unit
+    ViewScopeState: View Scope State
+    AssembleInterface: Assemble Interface
+    IsInteractive: Is Interactive?
+    DisplayUnit: Display Unit
+    UserBehaviorUnit: User-behavior Unit
+    AssignParameter: Assign Parameter
+    UnitConfig: Unit Config
+    ViewConfig: View Config
 
-        ViewScopeState --> AssembleInterface
-        ControllerComponent --> AssembleInterface
+    [*] --> View
+    state View {
+      direction LR
+      [*] --> UIUnit
+      [*] --> ControllerUnit
+      UIUnit --> AssembleInterface
+      state UIUnit {
+        state if_state <<choice>>
+        [*] --> IsInteractive
+        IsInteractive --> if_state : If the component is interactive
+        if_state --> DisplayUnit : No
+        if_state --> UserBehaviorUnit : Yes
+      }
+      state ControllerUnit {
+        direction TB
+        [*] --> Add
+        Add --> AssignParameter
+        AssignParameter --> Response
+        Response --> Add
       }
 
-      AssembleInterface --> ComponentConfig
-      ComponentConfig --> ViewConfig
-      ViewConfig --> Forestage
-      Forestage --> [*]
+
+      ControllerUnit --> AssembleInterface
+      AssembleInterface --> UnitConfig
     }
+
+    UnitConfig --> ViewScopeState : Multi Unit Configs
+    ViewScopeState --> ViewConfig
+    ViewConfig --> Forestage
+    Forestage --> [*]
 ```
 
 ## Controller
@@ -211,7 +218,7 @@ export default class ParseOAI {
 }
 ```
 
-接著建立分別以 Path、Pattern、Method 為單位的 UI Component：
+接著建立分別以 Path、Pattern、Method 為單位的 UI Unit：
 
 ```tsx title="component/PathAll.tsx"
 import React from 'react';
@@ -360,5 +367,5 @@ describe('Static method', () => {
 :::
 
 :::caution 注意
-API 更新後的規格差異導致的錯誤，應會優先被 Forestage 執行時各 Component 的 `onError` 與 `ErrorBoundary` 捕捉。操作者應與後端同步規格更新，並在 Backstage 編輯以相容。Backstage 日後可新增比對既有 View Config 與當前 Controller Interface (最主要是 Key 與資料類型)，在進入 Backstage 時即自動偵錯，操作者能不透過 Forestage 反應排錯。
+API 更新後的規格差異導致的錯誤，應會優先被 Forestage 執行時各 Unit 的 `onError` 與 `ErrorBoundary` 捕捉。操作者應與後端同步規格更新，並在 Backstage 編輯以相容。Backstage 日後可新增比對既有 View Config 與當前 Controller Interface (最主要是 Key 與資料類型)，在進入 Backstage 時即自動偵錯，操作者能不透過 Forestage 反應排錯。
 :::

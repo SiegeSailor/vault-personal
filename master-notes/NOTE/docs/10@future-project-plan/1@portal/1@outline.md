@@ -11,6 +11,22 @@ sidebar_position: 1
 ```mermaid
 stateDiagram-v2
     direction TB
+    ConfigurableController: Configurable Controller
+    CustomizedController: Customized Controller
+    Component1...ComponentN: Component 1...Component N
+    ModuleConfiguration: Module Configuration
+    ModelList: Model List
+    API1...APIN: API 1...API N
+    OAI1...OAIN: OAI 1...OAI N
+    Model1...ModelN: Model 1...Model N
+    LogicA...LogicN: Logic 1...Logic N
+    APIList: API List
+    View1...ViewN: View 1...View N
+    API0...APIN: API 1...API N
+    ModuleRuntime: Module Runtime
+    Logic0...LogicN: Logic 1...Logic N
+    UI0...UIN: UI 1...UI N
+
     [*] --> Server
     state Server {
       direction TB
