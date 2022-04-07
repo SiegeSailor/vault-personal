@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd);
@@ -6,8 +7,8 @@ void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOf
 
 int main()
 {
-    const int sizeOfList = 8;
-    int listOfInteger[sizeOfList] = {4, 12, 7, 1, 3, 2, 1, 10};
+    const int sizeOfList = 7;
+    int listOfInteger[sizeOfList] = {4, 7, 1, 1, 3, 2, 12};
     mergeSort(listOfInteger, 0, sizeOfList - 1);
     for (int i = 0; i < sizeOfList; i++)
     {
@@ -25,6 +26,8 @@ void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOf
     int indexOfLow = indexOfStart;
     int indexOfHigh = indexOfMiddle + 1;
     int indexOfMerged = 0;
+
+    cout << "Range: " << listOfInteger[indexOfStart] << "/" << listOfInteger[indexOfMiddle] << "/" << listOfInteger[indexOfEnd] << endl;
 
     while (indexOfLow <= indexOfMiddle && indexOfHigh <= indexOfEnd)
     {
@@ -59,10 +62,14 @@ void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOf
     }
 
     // listOfInteger 由 indexOfStart 開始，因此額外設 j
-    for (int i = 0, j = indexOfStart; i < sizeOfList; i++, j++)
+    for (int i = 0, j = indexOfStart;
+         i < sizeOfList;
+         i++, j++)
     {
+        cout << listOfMerged[i] << " ";
         listOfInteger[j] = listOfMerged[i];
     }
+    cout << endl;
 }
 
 // T(n) = O(n) * O(log n)，總共需要花費的回合為 O(log n) (因為一直分為 n/2, n/4, ...)，而每回合的合併需要花費的為 O(n) (如第一次分為 2 個 n/2，總共執行就是 n)
@@ -75,6 +82,7 @@ void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd)
     // 也可以用 if (indexOfStart < indexOfEnd)
     else
     {
+        cout << "Recursion: " << listOfInteger[indexOfStart] << "-" << listOfInteger[indexOfEnd] << endl;
         int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
         mergeSort(listOfInteger, indexOfStart, indexOfMiddle);
         mergeSort(listOfInteger, indexOfMiddle + 1, indexOfEnd);

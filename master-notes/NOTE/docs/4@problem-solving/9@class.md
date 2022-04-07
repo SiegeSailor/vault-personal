@@ -60,7 +60,7 @@ int main()
 ```
 
 :::info 提醒
-相關概念可以參考 [/Test/Tutorial](/docs/3@test/1@tutorial) 的 Black Box。顧名思義，若一個箱子是黑的，代表內容物不重要、我們只需要知道他是一個箱子，這點與 Encapsulation 的哲學一致。
+相關概念可以參考 [/Test/Tutorial](/docs/8@test/1@tutorial) 的 Black Box。顧名思義，若一個箱子是黑的，代表內容物不重要、我們只需要知道他是一個箱子，這點與 Encapsulation 的哲學一致。
 :::
 
 ## 繼承
@@ -215,7 +215,7 @@ int main() {
 ```
 
 :::info 提醒
-相關概念可以參考 [/Test/Unit-Test/Principles/介面相依](/docs/3@test/4@unit-test/5@principles#介面相依)。測試中強調了 **隔離相依性** 的重要，這點可以透過 Polymorphism 的實踐達成。
+相關概念可以參考 [/Test/Unit-Test/Principles/介面相依](/docs/8@test/4@unit-test/5@principles#介面相依)。測試中強調了 **隔離相依性** 的重要，這點可以透過 Polymorphism 的實踐達成。
 :::
 
 ## Other

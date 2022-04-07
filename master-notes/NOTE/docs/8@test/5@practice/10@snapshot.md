@@ -104,7 +104,7 @@ Watch Usage
 :::
 
 :::info 提醒
-使用了 Redux React Connect 或 Hook 的元件在進行 Snapshot Test 時會出現 _Could not find react-redux context value_ 的錯誤，解決方法參考 [/Test/Practice/Redux](/docs/3@test/5@practice/8@redux)。
+使用了 Redux React Connect 或 Hook 的元件在進行 Snapshot Test 時會出現 _Could not find react-redux context value_ 的錯誤，解決方法參考 [/Test/Practice/Redux](/docs/8@test/5@practice/8@redux)。
 :::
 
 ### Update

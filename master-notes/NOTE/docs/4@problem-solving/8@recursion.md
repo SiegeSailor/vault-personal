@@ -16,6 +16,7 @@ Stack 有 LIFO (Last-In/First-Out) 原則，就像是一疊疊的紙，當有新
 
 ```cpp title="countdown.cpp"
 #include <iostream>
+
 using namespace std;
 
 void countdown(int input);
@@ -83,6 +84,7 @@ Stack Overflow 錯誤源自堆疊超出 Stack Size Limit。而最常見的原因
 
 ```cpp
 #include <iostream>
+
 using namespace std;
 
 void search(const int listOfNumber[], int indexOfStart,

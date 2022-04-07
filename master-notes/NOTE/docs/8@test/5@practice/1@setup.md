@@ -49,7 +49,7 @@ sidebar_position: 1
 
 ### Jest
 
-JavaScript 測試框架，不限於 React、Vue、Angular，也可用於後端。是 [React 官方推薦工具](https://zh-hant.reactjs.org/docs/testing.html#tools)，在 Jest 官方網站上也有 [針對 React 的文件](https://jestjs.io/docs/tutorial-react)。實務上，Jest 會需要一些針對專案的設置，詳見 [/Test/Practice/Config](/docs/3@test/5@practice/3@config)：
+JavaScript 測試框架，不限於 React、Vue、Angular，也可用於後端。是 [React 官方推薦工具](https://zh-hant.reactjs.org/docs/testing.html#tools)，在 Jest 官方網站上也有 [針對 React 的文件](https://jestjs.io/docs/tutorial-react)。實務上，Jest 會需要一些針對專案的設置，詳見 [/Test/Practice/Config](/docs/8@test/5@practice/3@config)：
 
 ```json
 {
