@@ -155,7 +155,8 @@ class SwissBankAccount : public Account {
          * 除了該 Method 在 Base Class 須為 Virtual Function 外，
          * Return Type、Exception Specification 必須相容，
          * 且名稱、Parameter 的規格都必須一致，
-         * 若有不同，就只是寫了一個類似的 Method。為了避免這種狀況，
+         * 即同樣的 Signature (除了 const 與 & 外的部分)，
+         * 若有不同，就只是寫了一個類似的 Method (Redefinition)。為了避免這種狀況，
          * Sub Class 可以在欲 Override 的 Method 加上 override，
          * 讓 Compiler 檢查是否一致
          */
@@ -338,14 +339,20 @@ struct Coordinate
 又稱 Big 3。是在 Class 內有 Pointer Member Variable 時必須三項同時應用的規則，主要是避免在 Assign、Copy、Destruct 三個動作中、遺失對 Pointer 的控制，進而導致 Memory Leak 的情況：
 
 ```cpp
+#include <string>
+
+using namespace std;
+
 class Book
 {
     private:
-        int *page;
+        int *currentPage;
+        int maxSizeOfTitle = 0;
+        char *title = "\0";
 
     public:
         /** 注意此 Class 有 Member Variable 存放在 Heap 中 */
-        Book(int page) : page(new int(page)){}
+        Book(int currentPage) : currentPage(new int(currentPage)) {}
 
         /**
          * Copy Constructor，在以下情況中執行：
@@ -355,9 +362,13 @@ class Book
          */
         Book(const Book &rightHandSide)
         {
-            page = new int(*rightHandSide.page);
-            /** 也可用以下寫法 */
-            page = rightHandSide.page;
+            currentPage = new int(*rightHandSide.currentPage);
+            /** 注意不可使用以下，會導致雙方指向的變數相同，一改兩者皆動 */
+            currentPage = rightHandSide.currentPage;
+
+            maxSizeOfTitle = rightHandSide.maxSizeOfTitle;
+
+            title = new char(*rightHandSide.title);
         }
 
         /**
@@ -368,18 +379,31 @@ class Book
          */
         Book &operator=(const Book &rightHandSide)
         {
-            *page = *rightHandSide.page;
+            *currentPage = *rightHandSide.currentPage;
+
+            int lengthOncoming = strlen(rightHandSide.title);
+            if (lengthOncoming > maxSizeOfTitle)
+            {
+                delete [] title;
+                maxSizeOfTitle = lengthOncoming;
+                title = new char[maxSizeOfTitle + 1];
+            };
+            for (int i = 0; i < lengthOncoming; i++)
+                title[i] = rightHandSide.title[i];
+            title[lengthOncoming] = '\0';
+
             return *this;
         };
 
         /**
          * Destructor，在此 Class 被釋放時執行。
-         * 注意若沒有 delete，則 page 在 Book 被釋放仍存在 Heap 中，
+         * 注意若沒有 delete，則 currentPage 在 Book 被釋放仍存在 Heap 中，
          * 但沒有任何對應的方法去操控
          */
         ~Book()
         {
-            delete page;
+            delete currentPage;
+            delete title;
         }
-}
+};
 ```
