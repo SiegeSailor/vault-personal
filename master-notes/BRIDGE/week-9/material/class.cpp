@@ -147,6 +147,11 @@ public:
     // 只有這個方法可以使用原本的父 class constructor
     NewDate(int y) : Date(y){};
     NewDate(int y, int m, int d) : Date(y, m, d){};
+    NewDate &operator=(const Date &rightHandSide)
+    {
+        year = rightHandSide.year;
+        return *this;
+    }
 
     void setYear(int input){};
 
@@ -163,7 +168,7 @@ public:
         p_day = 100;
     }
 
-    NewDate &operator=(const Date);
+    // NewDate &operator=(const Date);
 };
 
 // member 也可以先定義好後寫在 Class 外

@@ -83,7 +83,7 @@ class Account {
     /** 定義為 Private 的 Variable 除了不能在 Class Scope 外使用，即使是 Sub Class 也不可取用 */
     private:
         ...
-        int total;
+        int total = 0;
 
     /** Protected Variable 與 Private Variable 類似，差別在於 Sub Class 可以直接取用 */
     protected:
@@ -145,6 +145,10 @@ class Account {
         public >> private
  */
 class SwissBankAccount : public Account {
+    private:
+        /** 此行不會有影響，SwissBankAccount 建立的物件的 total 仍然會是 0 */
+        int total = 100;
+
     public:
         /**
          * 要 Override Base Class 的 Implementation 時，
@@ -201,15 +205,37 @@ int main() {
      * 以下輸出會是： BASE BASE BASE BASE DERIVED BASE，
      * 注意當下呼叫 call 的物件的型別。像是放入 listOfObject 中、
      * 由於 vector 為 Base，因此所有被放入的 Derived 都被強制轉為 Base。
-     // highlight-next-line
      * 被強制轉換時，所有 Base 沒有而 Derived 有的都會遺失
      */
+    // highlight-start
     for (Base object : listOfObject) {
         object.call();
     }
     first.call();
     second.call();
     third.call();
+    // highlight-end
+
+    Base baseNormal;
+    *Base basePointer;
+    Derived derivedNormal;
+    *Derived derivedPointer;
+
+    /**成立，因為 Base 有的 Derived 一定有，然而 Derived 有但 Base 沒有的都會遺失 */
+    baseNormal = derivedNormal;
+    /**
+     * 成立，但須先建立 Overload Operator Assignment Constructor
+     * Derived &operator=(const Base&rightHandSide){ return *this; }
+     */
+    derivedNormal = baseNormal;
+    /**
+     * 成立，但要注意所使用 Method 都是 Base 版本，
+     * 除非使用 Dynamic Binding
+     */
+    basePointer = &derivedNormal;
+    /** 失敗，因為 Derived 有的 Base 不一定有，還有 C++ 不允許 Pointer 指向不同的值 */
+    derivedPointer = &baseNormal;
+
     return 0;
 }
 ```
@@ -324,7 +350,7 @@ class Book
         /**
          * Copy Constructor，在以下情況中執行：
          * Book bookFirst(10);
-         * Book bookSecond = bookFirst;
+         * Book bookSecond(bookFirst);
          * 主要避免已有的 Pointer 遺失指向
          */
         Book(const Book &rightHandSide)

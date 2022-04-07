@@ -95,6 +95,13 @@ void acceptPointer(int *pointer)
     /** 將印出 "0x55bfccc22eb0" */
     cout << pointer << endl;
     pointer = new int(50);
+    /**
+     * 特別注意，若是使用 Dereference，則傳入的 Pointer 會改變，
+     * 這因為傳入後，傳入的 Pointer 與 Function 內的 Pointer (Local) 都指向同一個值
+     * 改變 Local Pointer 指向的變數的值，等同改變傳入的 Pointer 指向的變數的值。
+     * 在 Class 中，可以透過 Copy Constructor 避免
+     */
+    *pointer = 50;
 };
 
 /**
