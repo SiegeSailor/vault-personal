@@ -67,7 +67,7 @@ public:
     {
         p = new int(*rightHandSide.p);
     };
-    // Big 3 assignment constructor (但要避免 a = a，可用記憶體位置 if (this == &rightHandSide) 比對)
+    // Big 3 assignment operator (但要避免 a = a，可用記憶體位置 if (this == &rightHandSide) 比對)
     Date &operator=(const Date &rightHandSide)
     {
         *p = *rightHandSide.p;

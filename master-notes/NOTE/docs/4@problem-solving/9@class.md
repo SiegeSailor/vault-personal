@@ -156,12 +156,22 @@ class SwissBankAccount : public Account {
          * Return Type、Exception Specification 必須相容，
          * 且名稱、Parameter 的規格都必須一致，
          * 即同樣的 Signature (除了 const 與 & 外的部分)，
-         * 若有不同，就只是寫了一個類似的 Method (Redefinition)。為了避免這種狀況，
+         * 才是 Redefinition。
+         * 若有不同，就只是寫了一個類似的 Method。為了避免這種狀況，
          * Sub Class 可以在欲 Override 的 Method 加上 override，
          * 讓 Compiler 檢查是否一致
          */
         virtual string obtainInterest() const override {
             return "CHF$ " + to_string(interest);
+        }
+
+        /**
+         * Redefinition，但仍然能透過以下使用 Base Class 的版本：
+         * SwissBankAccount swiss;
+         * swiss.Account::announce("Called from Account.");
+         */
+        void announce(string message) const {
+            cout << "Message: " << message << endl;
         }
 }
 ```
@@ -225,7 +235,7 @@ int main() {
     /**成立，因為 Base 有的 Derived 一定有，然而 Derived 有但 Base 沒有的都會遺失 */
     baseNormal = derivedNormal;
     /**
-     * 成立，但須先建立 Overload Operator Assignment Constructor
+     * 成立，但須先建立 Overload Operator Assignment Operator
      * Derived &operator=(const Base&rightHandSide){ return *this; }
      */
     derivedNormal = baseNormal;
@@ -286,6 +296,8 @@ class Account {
             : day(day) {
             interest = 2.0;
         };
+        /** 可以透過此方法直接使用 Base Class 的 Constructor */
+        Account(const int &saving) : BaseAccount(saving){};
 
         /** Operator Overloading */
         Account operator-(const Account &that);
@@ -372,7 +384,7 @@ class Book
         }
 
         /**
-         * Assignment Constructor，在以下情況中執行：
+         * Assignment Operator，在以下情況中執行：
          * Book bookFirst, bookSecond;
          * bookSecond = bookFirst;
          * 注意與 Copy Constructor 的不同之處
@@ -407,3 +419,7 @@ class Book
         }
 };
 ```
+
+:::caution 注意
+Constructors (Overloading Constructors 含 Copy Constructor、Destructor) 與 Assignment Operator **不會** 被自動繼承，Sub Class 必須自己自行重新定義。這是因為 Sub Class 可能有新定義的 Member Variable，而要正確運作這些 Function 需要明確知道新的資訊。
+:::
