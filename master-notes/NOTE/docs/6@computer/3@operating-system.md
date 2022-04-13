@@ -227,17 +227,7 @@ User Mode 切為 Kernel Mode 需以下步驟。若為 Multiprocessing，則會�
 
 ### Concurrency
 
-使用 Thread，最大的好處是 Concurrency，然而，這也是缺點。Concurrency 有以下問題：
-
-- Lost Updates
-- Uncommitted Data
-- Inconsistent Retrievals
-
-這是因為，Concurrency 是多個 Thread Queue 對上單一 Resource，像是多個人分工合作完成一件事。而 Parallelism 是多個 Thread Queue 對上多個 Resource，像是多個人完成多個相同的事。
-
-:::info 提醒
-JavaScript 透過 Event Loop 實現 Concurrency Model，然而 JavaScript 本身並不是一個 Concurrent Programming Language，而是 Single Thread。
-:::
+使用 Thread，最大的好處是 Concurrency，然而，這也是缺點。在 [/Computer/Concurrency](/docs/6@computer/4@concurrency) 中對 Concurrency 有更詳盡的說明。
 
 ### Level
 

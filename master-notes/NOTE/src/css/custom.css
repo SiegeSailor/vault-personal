@@ -28,6 +28,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+img:not([title='Diagram generated via mermaid']) {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2.5px;
+  padding: 16px;
+}
+
 img[title='Diagram generated via mermaid'] {
   margin-top: 4px;
   margin-bottom: 8px;
@@ -54,6 +60,10 @@ img[title='Diagram generated via mermaid'] {
 
 .playgroundPreview_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module div pre {
   margin: 0 !important;
+}
+
+.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-CodeBlock-styles-module {
+  border-bottom: none !important;
 }
 
 .tabs .markdown li + li {
