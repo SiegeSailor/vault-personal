@@ -48,20 +48,24 @@ Thread 的 State 分為 **Ready**、**Running** 和 **Blocked**，可參考 [Com
 
 ## Critical Section
 
-Concurrency 會導致資料被污染、不同步的一大原因，是來自於執行與回傳分為 2 個以上的步，也就是 **Double Update Problem** (或 **Missing Update Problem**)，若到執行後 Processor 移到另一 Thread 執行、又跳回，那麼原先的 Thread 會在並未收到第二個 Thread 的更新的情況下、使用舊的資料去回傳。要解決這一問題，其中一個辦法就是確保執行的動作是 **Atomic**，也就是將檢查與更新放在同一個 Instruction 內。
+Concurrency 會導致資料被污染、不同步的一大原因，是來自於執行與回傳分為 2 個以上的步，也就是 **Double Update Problem** (或 **Missing Update Problem**)，若到執行後 Processor 移到另一 Unit 執行、又跳回，那麼原先的 Unit 會在並未收到第二個 Unit 的更新的情況下、使用舊的資料去回傳。要解決這一問題，其中一個辦法就是確保執行的動作是 **Atomic**，也就是將檢查與更新放在同一個 Instruction 內。
 
 而需要確保 Atomic 的 Code，就是所謂的 Critical Section。
 
-### Mutual Exclusion Rule
+## Mutual Exclusion Rule
 
 解決 Double Update Problem 的方法，主要有：
 
-- 同時只允許 1 個 Thread 在 Critical Section 內
-- 當下沒有 Thread 在 Critical Section 內時，應當無 Delay 直接進入
-- Thread 佔用 Critical Section 的時間越短越好
+- 同時只允許 1 個 Unit 在 Critical Section 內
+- 當下沒有 Unit 在 Critical Section 內時，應當無 Delay 直接進入
+- Unit 佔用 Critical Section 的時間越短越好
 
 :::info 提醒
 **System Bus** (見 [/Computer/System Hardware#Definition](/docs/6@computer/1@system-hardware#definition)) 也在底層使用了 Mutual Exclusion Rule。同一個時間點，只能有 1 個 Processor 進入 Memory 並訪問 System Bus，其他 Processor 必須等待直到 Next Cycle。
+:::
+
+:::info 提醒
+Mutual Exclusion 又可稱 **Mutex**。
 :::
 
 ### Software Solution
@@ -99,10 +103,30 @@ P1_gate: turn = 0;
 
 > 程式碼來源：[Wikipedia](https://en.wikipedia.org/wiki/Peterson%27s_algorithm)
 
+:::info 提醒
+Software Solution 還有 Dekker's Algorithm、Lamport's Bakery Algorithm 等。大部分皆應用了 Busy Waiting 的概念，並且不支援 Out of Order Execution。
+:::
+
 ### Hardware Solution
 
 在硬體層面上，針對 CPU 有以下解決 Concurrency Double Update Problem 的方法：
 
 - **Disable Interrupt**: 直接禁止 Interrupt，進而避免 Asynchronous。然而，當目前 Process Crash 時，只能全部重來 (因為無法 Interrupt 掉)
 - **Test and Set**: Atomic Instruction。以 1 個 Boolean Flag 確認 Memory Location 並設為 1 (啟用中)。結果會返回 Success or Failure
-- **Exchange**: 將 1 個 Boolean Flag 設置在 Register 中，並將其與 Main Memory **Swap**。其中一個益處是，即使 Interrupt 立即發生在 Exchange 後，也能回過頭去檢查設置好的 Boolean
+- **Exchange**: 將 1 個 Boolean Flag 設置在 Register 中，並將其與 Main Memory **Swap**。其中一個益處是，即使 Interrupt 立即發生在 Exchange 後，也能回過頭去檢查設置好的 Boolean。目前最常見的做法
+
+### Semaphore
+
+一種類似 Mutual Exclusion 的實踐。用於控制在一段時間內，可併發訪問執行特定資源 (Critical Section) 的 Unit 數量。像是發放有數量限制的許可證，在 Semaphore 中並不注重出入順序如 FIFO 或 FILO，但看重 **當前總量**。在當中，有以下操作：
+
+- **Initial**: 初始化，給予一個不為負數的值，像是設置許可證上限
+- **Wait**: 每當使用，總許可證數量 -1，且使用的 Unit 獲得訪問權
+- **Signal**: 每當使用，總許可證數量 +1，該 Unit 釋放資源
+- **Non-Signaled**: 許可證小於或等於 0 的狀態。此時使用 `wait` 會需要等待 (Unit 放入 Queue，並且被 OS Block)
+- **Signaled**: 許可證大於 0 的狀態。此時使用 `wait` 可直接獲准
+
+當 Initial 的值大於 1 時，為 **Counting Semaphore**。而當值為 1 時，則為 **Binary Semaphore**，並且符合 Mutex 的概念：同時只允許 1 個 Unit 在 Critical Section 內。
+
+:::caution 注意
+Semaphore 也會有自己的 Critical Section，即在內部增減許可數量的 Counter。通常使用 Hardware Solution 的 Disable Interrupt 來避免 Asynchronous 來達成
+:::
