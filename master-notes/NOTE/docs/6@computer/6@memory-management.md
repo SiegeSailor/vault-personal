@@ -204,11 +204,11 @@ Here is the priority:
 
 Fork is a command to create a exact copy (in **NEW** state) a current process (in **RUNNING** state), which returns two values:
 
-1. 0 if the process is a child process (new process), vice versa
+1. `0` if the process is a child process (new process), vice versa
 2. The process identifier of the child process if it is a parent process.
 
 The command is useful when we want a new different process with the same code. (example: Chrome new tab).
 
-After calling fork, OS will create a new PCB (Reference: [/Computer/Operating System#Process Control Block](/docs/6@computer/3@operating-system#process-control-block)) for the new process, which means the new process will have its own Program Counter, File descriptors, CPU registers, and the program text of the parent process. The OS will also create a new PMT, [Page Map Table](/docs/6@computer/6@memory-management#page-map-table), for the child process (new process) with the copied data from the original program. However, there is no need to really copy the data until something changed (Modified), and only the changed page will be copied, this can be called [Copy-on-Write](/docs/6@computer/6@memory-management#virtual-memory).
+After calling fork, OS will create a new PCB, [Process Control Block](/docs/6@computer/3@operating-system#process-control-block), for the new process, which means the new process will have its own Program Counter, File descriptors, CPU registers, and the program text of the parent process. The OS will also create a new PMT, [Page Map Table](/docs/6@computer/6@memory-management#page-map-table), for the child process (New process) with the copied data from the original program. However, there is no need to really copy the data until something changed (Modified), and only the changed page will be copied, this can be called [Copy-on-Write](/docs/6@computer/6@memory-management#virtual-memory).
 
 After the creation, the parent and child process both will be in **READY** state, and the child process will have higher priority than the parent child.

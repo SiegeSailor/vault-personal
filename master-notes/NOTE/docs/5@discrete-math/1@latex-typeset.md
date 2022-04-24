@@ -19,7 +19,7 @@ sidebar_position: 1
 | $\longleftrightarrow$ | `\longleftrightarrow` |     | $\neg$   | `\neg`   |
 | $\frac{n}{d}$         | `\frac{n}{d}`         |     | $\ne$    | `\ne`    |
 | $\lceil$              | `\lceil`              |     | $\rceil$ | `\rceil` |
-| $\overline{w}$        | `\overline{w}`        |     |          |          |
+| $\overline{w}$        | `\overline{w}`        |     | $\sim$   | `\sim`   |
 
 #### Simultaneous Equation
 
