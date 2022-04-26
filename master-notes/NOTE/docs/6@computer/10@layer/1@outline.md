@@ -16,13 +16,13 @@ Presentation 原指 Encryption、Compression 等，而 Session 原指 Synchroniz
 stateDiagram-v2
 direction TB
     RoutingProtocols : Routing Protocols
-    Application : 7 >> Application
-    Presentation : 6 >> Presentation
-    Session : 5 >> Session
-    Transport : 4 >> Transport
-    Network : 3 >> Network
-    Link : 2 >> Link
-    Physical : 1 >> Physical
+    Application : 7.  Application
+    Presentation : 6.  Presentation
+    Session : 5.  Session
+    Transport : 4.  Transport
+    Network : 3.  Network
+    Link : 2.  Link
+    Physical : 1.  Physical
 
     Presentation --> Application
     Session --> Application
