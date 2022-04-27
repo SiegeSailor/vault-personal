@@ -217,7 +217,7 @@ DNS 由以下組成：
 - **Local DNS Server**: 每個 ISP 都有一個，也被稱為 **Default Name Server**，When host makes DNS query, query is sent to its local DNS server
 
 :::info 提醒
-Name Server (任意) 與 Proxy Server 運作雷同，會在 Server 上 Cache Mapping，以及轉發 Query。例如，由於 TLD 的 Mapping 會存在 Local Name Server，因此 Root Name Server 事實上並不常被訪問。DNS Cache 會根據 **TTL**，Time To Live 來消失，若 Name Host 改變 IP，那麼需要等候 TTL 過期才可更新。Update/Notify Mechanism 有 IETF 標準，RFC 2136。
+Name Server (任意) 與 Proxy Server 運作雷同，會在 Server 上 Cache Mapping，以及轉發 Query。例如，由於 TLD 的 Mapping 會存在 Local Name Server，因此 Root Name Server 事實上並不常被訪問。DNS Cache 會根據 **TTL**，Time To Live (計數器，發出即 -1) 來消失，若 Name Host 改變 IP，那麼需要等候 TTL 過期才可更新。Update/Notify Mechanism 有 IETF 標準，RFC 2136。
 :::
 
 ### Distributed Hierarchy Database
