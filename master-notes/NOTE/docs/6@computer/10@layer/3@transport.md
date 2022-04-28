@@ -18,7 +18,7 @@ Segment (IP Datagram) 由以下組成：
 ```
 
 :::info 提醒
-Socket 指的是對外的接口，由 IP Address 和 Port 組成。而 Transport 層中各種實現 Connection 的方法則稱為 Socket API。
+**Socket** 指的是對外的接口，由 IP Address 和 Port 組成。而 Transport 層中各種實現 Connection 的方法則稱為 Socket API。**Port**，Process 在該 Host (該 IP) 上佔用的 Identifier，如 HTTP 默認 80 (默認，所以通常不用特別寫出來，除非指定在別的 Port)，而 Mail Server 通常在 25。**IP**，Internet Protocol，則定義在 [Network Layer](/docs/6@computer/10@layer/4@network)。
 :::
 
 有些服務需要 Low-Delay 來讓該服務有效，如網路電話，也有些服務需要維持一定量的 Throughput，如多媒體。常見的有：
