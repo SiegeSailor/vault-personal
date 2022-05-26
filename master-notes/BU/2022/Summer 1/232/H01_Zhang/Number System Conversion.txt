@@ -1,0 +1,61 @@
+Author: Jin Yu, Zhang
+University ID: U02902106
+
+%=======================================================================
+| Question 1: Convert binary 100101111010 to octal and hexadecimal     |
+%=======================================================================
+
+# Octal
+
+First of all, write 100101111010 in the following format:
+100 101 111 010
+
+Then calculate every 3 digits as octal, so we will get:
+4 5 7 2
+
+Answer: 4572
+
+# Hexadecimal
+
+Write 100101111010 in the following format:
+1001 0111 1010
+
+Then calculate every 4 digits as hexadecimal, so we will get:
+9 7 A
+
+Answer: 97A
+
+
+%=======================================================================
+| Question 2: Convert hexadecimal FACE to binary                       |
+%=======================================================================
+
+Convert FACE to decimal separately:
+15 10 12 14
+
+Then convert each of decimal number into binary form:
+1111 1010 1100 1110
+
+Answer: 1111101011001110
+
+%=======================================================================
+| Question 3: Convert binary 1011110 to decimal                        |
+%=======================================================================
+
+1011110 is:
+1 \times 2^6 + 0 \times 2^5 + 1 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0
+64 + 0 + 16 + 8 + 4 + 2 + 0
+= 94
+
+Answer: 94
+
+%=======================================================================
+| Question 4: Convert hexadecimal FFFF to decimal                      |
+%=======================================================================
+
+FFFF is:
+15 \times 16^3 + 15 \times 16^2 + 15 \times 16^1 + 15 \times 16^0
+61440 + 3840 + 240 + 15
+= 65535
+
+Answer: 65535

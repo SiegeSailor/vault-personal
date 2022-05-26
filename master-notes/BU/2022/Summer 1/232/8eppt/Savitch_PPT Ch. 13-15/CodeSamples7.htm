@@ -1,0 +1,2103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>JAVA</title>
+</head>
+
+<body bgcolor="#CCFFFF">
+
+<div v:shape="_x0000_s1026" class="O" style="mso-char-wrap:1;mso-kinsoku-overflow:
+1">
+  <p align="center"><span style="font-size:12pt"><i>JAVA: An Introduction to
+  Problem Solving &amp; Programming, 8</i></span><span style="font-size:8pt;position:relative;
+top:-.45em;mso-text-raise:30%">th</span><span style="font-size:12pt"><span style="mso-spacerun:yes">&nbsp;</span>Ed.
+  By Walter Savitch.<br>
+      ISBN 01334462033 </span><span style="mso-bidi-font-family:
+Arial;font-size:12pt">© 2018 Pearson Education, Inc., Hoboken, NJ.
+  All Rights Reserved</span>
+</div>
+
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="54%">
+    <tr>
+      <td width="33%">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 13.1">Listing 13.1</a>
+            </font></li>
+          <li><font face="Arial"><a href="#Listing 13.2">Listing 13.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.3">Listing 13.3</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.4">Listing 13.4</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.5">Listing 13.5</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.6">Listing 13.6</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.7">Listing 13.7</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.8">Listing 13.8</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.9">Listing 13.9</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.10">Listing 13.10</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.11">Listing 13.11</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.12">Listing 13.12</a></font></li>
+          <li><font face="Arial"><a href="#Listing 13.13">Listing 13.13</a></font></li>
+        </ul>
+      </td>
+      <td width="30%" valign="top">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 14.1">Listing 14.1</a></font></li>
+          <li><font face="Arial"><a href="#Listing 14.2">Listing 14.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 14.3">Listing 14.3</a></font></li>
+        </ul>
+      </td>
+      <td width="35%" valign="top">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 15.1">Listing 15.1</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.2">Listing 15.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.3">Listing 15.3</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.4">Listing 15.4</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.5">Listing 15.5</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.5">Listing 15.6</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.7">Listing 15.7</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.8">Listing 15.8</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.9">Listing 15.9</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.11">Listing 15.10</a></font></li>
+          <li><font face="Arial"><a href="#Listing 15.11">Listing 15.11</a></font></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.1">Listing
+        13.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JLabel;
+/**
+A simple demonstration of a window constructed using Swing.
+*/
+public class FirstSwingDemo
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public static void main (String [] args)
+    {
+        JFrame myWindow = new JFrame ();
+        myWindow.setSize (WIDTH, HEIGHT);
+        JLabel myLabel =
+            new JLabel (&quot;Please dont click that button!&quot;);
+        myWindow.getContentPane ().add (myLabel);
+        WindowDestroyer myListener = new WindowDestroyer ();
+        myWindow.addWindowListener (myListener);
+        myWindow.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.2">Listing
+        13.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+/**
+If you register an object of this class as a listener to any
+object of the class JFrame, the object will end the program
+and close the JFrame if the user clicks the JFrame's
+close-window button.
+*/
+
+public class WindowDestroyer extends WindowAdapter
+{
+    public void windowClosing (WindowEvent e)
+    {
+        System.exit (0);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.3">Listing
+        13.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JLabel;
+/**
+A simple window class.
+*/
+public class FirstWindow extends JFrame
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public FirstWindow ()
+    {
+        super ();
+        setSize (WIDTH, HEIGHT);
+        JLabel myLabel = new JLabel (&quot;Please dont click that button!&quot;);
+        getContentPane ().add (myLabel);
+        WindowDestroyer listener = new WindowDestroyer ();
+        addWindowListener (listener);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.4">Listing
+        13.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">/**
+A simple demonstration of using a window class. To see
+both windows, you will probably have to move the top window.
+*/
+public class FirstWindowDemo
+
+    public static void main (String [] args)
+    {
+        FirstWindow window1 = new FirstWindow ();
+        window1.setVisible (true);
+        FirstWindow window2 = new FirstWindow ();
+        window2.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.5">Listing
+        13.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Container;
+public class SecondWindow extends JFrame
+{
+    public static final int WIDTH = 200;
+    public static final int HEIGHT = 200;
+    public SecondWindow ()
+    {
+        super ();
+        setSize (WIDTH, HEIGHT);
+        Container contentPane = getContentPane ();
+        JLabel label = new JLabel (&quot;Now available in color!&quot;);
+        contentPane.add (label);
+        <span style="background-color: #FFFF00">setTitle (&quot;Second Window&quot;);                </span>
+        <span style="background-color: #FFFF00">contentPane.setBackground (Color.BLUE);    </span>
+        <span style="background-color: #FFFF00">addWindowListener (new WindowDestroyer ());</span>
+    }
+
+
+    <span style="background-color: #FFFF00">public SecondWindow (Color customColor)</span>
+    {
+        super ();
+        setSize (WIDTH, HEIGHT);
+        Container contentPane = getContentPane ();
+        JLabel label = new JLabel (&quot;Now available in color!&quot;);
+        contentPane.add (label);
+        setTitle (&quot;Second Window&quot;);
+        <span style="background-color: #FFFF00">contentPane.setBackground (customColor);</span>
+        addWindowListener (new WindowDestroyer ());
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.6">Listing
+        13.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import java.awt.Color;
+public class SecondWindowDemo
+{
+    /**
+    Creates and displays two windows of the class SecondWindow.
+    */
+    public static void main (String [] args)
+    {
+        SecondWindow window1 = new SecondWindow ();
+        window1.setVisible (true);
+        SecondWindow window2 = new SecondWindow (Color.PINK);
+        window2.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.7">Listing
+        13.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Container;
+/**
+Simple demonstration of the use of a layout manager
+to arrange labels.
+*/
+public class BorderLayoutDemo extends JFrame
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public BorderLayoutDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Layout Demonstration&quot;);
+        Container content = getContentPane ();
+        content.setLayout (new BorderLayout ());
+        JLabel label1 = new JLabel (&quot;First label here.&quot;);
+        content.add (label1, BorderLayout.NORTH);
+        JLabel label2 = new JLabel (&quot;Second label there.&quot;);
+        content.add (label2, BorderLayout.SOUTH);
+        JLabel label3 = new JLabel (&quot;Third label anywhere.&quot;);
+        content.add (label3, BorderLayout.CENTER);
+    }
+
+
+    /*
+    Creates and displays a window of the class BorderLayoutDemo.
+    */
+    public static void main (String [] args)
+    {
+        BorderLayoutDemo gui = new BorderLayoutDemo ();
+        gui.setVisible (true);
+    }
+}
+</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.8">Listing
+        13.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Simple demonstration of putting buttons in a JFrame.
+*/
+public class ButtonDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public ButtonDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Button Demo&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setBackground (Color.BLUE);
+        contentPane.setLayout (new FlowLayout ());
+        <span style="background-color: #FFFF00">JButton stopButton = new JButton (&quot;Red&quot;);</span>
+        <span style="background-color: #FFFF00">stopButton.addActionListener (this);     </span>
+        <span style="background-color: #FFFF00">contentPane.add (stopButton);            </span>
+        <span style="background-color: #FFFF00">JButton goButton = new JButton (&quot;Green&quot;);</span>
+        <span style="background-color: #FFFF00">goButton.addActionListener (this);       </span>
+        <span style="background-color: #FFFF00">contentPane.add (goButton);              </span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        Container contentPane = getContentPane ();
+        <span style="background-color: #FFFF00">if (e.getActionCommand ().equals (&quot;Red&quot;))</span>
+            contentPane.setBackground (Color.RED);
+        <span style="background-color: #FFFF00">else if (e.getActionCommand ().equals (&quot;Green&quot;))</span>
+            contentPane.setBackground (Color.GREEN);
+        else
+            System.out.println (&quot;Error in button interface.&quot;);
+    }
+
+
+    /**
+    Creates and displays a window of the class ButtonDemo.
+    */
+    public static void main (String [] args)
+    {
+        ButtonDemo buttonGui = new ButtonDemo ();
+        buttonGui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.9">Listing
+        13.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Simple demonstration of putting buttons in a panel.
+*/
+public class PanelDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public static void main (String [] args)
+    {
+        PanelDemo guiWithPanel = new PanelDemo ();
+        guiWithPanel.setVisible (true);
+    }
+
+
+    public PanelDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Panel Demonstration&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setBackground (Color.BLUE);
+        contentPane.setLayout (new BorderLayout ());
+        <span style="background-color: #FFFF00">JPanel buttonPanel = new JPanel ();</span>
+        buttonPanel.setBackground (Color.WHITE);
+        <span style="background-color: #FFFF00">buttonPanel.setLayout (new FlowLayout ());</span>
+        JButton stopButton = new JButton (&quot;Red&quot;);
+        stopButton.setBackground (Color.RED);
+        stopButton.addActionListener (this);
+        <span style="background-color: #FFFF00">buttonPanel.add (stopButton);</span>
+        JButton goButton = new JButton (&quot;Green&quot;);
+        goButton.setBackground (Color.GREEN);
+        goButton.addActionListener (this);
+        <span style="background-color: #FFFF00">buttonPanel.add (goButton);</span>
+        <span style="background-color: #FFFF00">contentPane.add (buttonPanel, BorderLayout.SOUTH);</span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        Container contentPane = getContentPane ();
+        if (e.getActionCommand ().equals (&quot;Red&quot;))
+            contentPane.setBackground (Color.RED);
+        else if (e.getActionCommand ().equals (&quot;Green&quot;))
+            contentPane.setBackground (Color.GREEN);
+        else
+            System.out.println (&quot;Error in button interface.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.10">Listing
+        13.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class MemoSaver extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 300;
+    public static final int LINES = 10;
+    public static final int CHAR_PER_LINE = 40;
+    <span style="background-color: #FFFF00">private JTextArea theText;</span>
+    private String memo1 = &quot;No Memo 1.&quot;;
+    private String memo2 = &quot;No Memo 2.&quot;;
+    public MemoSaver ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Memo Saver&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.WHITE);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton memo1Button = new JButton (&quot;Save Memo 1&quot;);
+        memo1Button.addActionListener (this);
+        buttonPanel.add (memo1Button);
+        JButton memo2Button = new JButton (&quot;Save Memo 2&quot;);
+        memo2Button.addActionListener (this);
+        buttonPanel.add (memo2Button);
+        JButton clearButton = new JButton (&quot;Clear&quot;);
+        clearButton.addActionListener (this);
+        buttonPanel.add (clearButton);
+        JButton get1Button = new JButton (&quot;Get Memo 1&quot;);
+        get1Button.addActionListener (this);
+        buttonPanel.add (get1Button);
+        JButton get2Button = new JButton (&quot;Get Memo 2&quot;);
+        get2Button.addActionListener (this);
+        buttonPanel.add (get2Button);
+        contentPane.add (buttonPanel, BorderLayout.SOUTH);
+        <span style="background-color: #FFFF00">JPanel textPanel = new JPanel ();
+</span>        <span style="background-color: #FFFF00">textPanel.setBackground (Color.BLUE);            </span>
+        <span style="background-color: #FFFF00">theText = new JTextArea (LINES, CHAR_PER_LINE);  </span>
+        <span style="background-color: #FFFF00">theText.setBackground (Color.WHITE);             </span>
+        <span style="background-color: #FFFF00">textPanel.add (theText);                         </span>
+        <span style="background-color: #FFFF00">contentPane.add (textPanel, BorderLayout.CENTER);</span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        String actionCommand = e.getActionCommand ();
+        if (actionCommand.equals (&quot;Save Memo 1&quot;))
+            <span style="background-color: #FFFF00">memo1 = theText.getText ();</span>
+        else if (actionCommand.equals (&quot;Save Memo 2&quot;))
+            <span style="background-color: #FFFF00">memo2 = theText.getText ();</span>
+        else if (actionCommand.equals (&quot;Clear&quot;))
+            t<span style="background-color: #FFFF00">heText.setText (&quot;&quot;);</span>
+        else if (actionCommand.equals (&quot;Get Memo 1&quot;))
+            t<span style="background-color: #FFFF00">heText.setText (memo1);</span>
+        else if (actionCommand.equals (&quot;Get Memo 2&quot;))
+            <span style="background-color: #FFFF00">theText.setText (memo2)</span>;
+        else
+            theText.setText (&quot;Error in memo interface&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        MemoSaver guiMemo = new MemoSaver ();
+        guiMemo.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.11">Listing
+        13.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Class to demonstrate placing a label on a text field.
+*/
+public class LabelDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    private JTextField name;
+    <span style="background-color: #FFFF00">public LabelDemo ()</span>
+    {
+        setTitle (&quot;Name Tester&quot;);
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        Container content = getContentPane ();
+        content.setLayout (new GridLayout (2, 1));
+        JPanel namePanel = new JPanel ();
+        namePanel.setLayout (new BorderLayout ());
+        namePanel.setBackground (Color.LIGHT_GRAY);
+        <span style="background-color: #FFFF00">name = new JTextField (20);                             </span>
+        <span style="background-color: #FFFF00">namePanel.add (name, BorderLayout.SOUTH);               </span>
+        <span style="background-color: #FFFF00">JLabel nameLabel = new JLabel (&quot;Enter your name here:&quot;);</span>
+        <span style="background-color: #FFFF00">namePanel.add (nameLabel, BorderLayout.CENTER);         </span>
+        <span style="background-color: #FFFF00">content.add (namePanel);                                </span>
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton b = new JButton (&quot;Test&quot;);
+        b.addActionListener (this);
+        buttonPanel.add (b);
+        b = new JButton (&quot;Clear&quot;);
+        b.addActionListener (this);
+        buttonPanel.add (b);
+        content.add (buttonPanel);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Test&quot;))
+            name.setText (&quot;A very good name!&quot;);
+        else if (e.getActionCommand ().equals (&quot;Clear&quot;))
+            name.setText (&quot;&quot;);
+        else
+            name.setText (&quot;Error in window interface.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        LabelDemo w = new LabelDemo ();
+        w.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.12">Listing
+        13.12</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+GUI for totaling a series of numbers.
+*/
+public class Adder extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 400;
+    public static final int HEIGHT = 200;
+    private JTextField inOutField;
+    private double sum = 0;
+    public Adder ()
+    {
+        setTitle (&quot;Adding Machine&quot;);
+        addWindowListener (new WindowDestroyer ());
+        setSize (WIDTH, HEIGHT);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.GRAY);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton addButton = new JButton (&quot;Add&quot;);
+        addButton.addActionListener (this);
+        buttonPanel.add (addButton);
+        JButton resetButton = new JButton (&quot;Reset&quot;);
+        resetButton.addActionListener (this);
+        buttonPanel.add (resetButton);
+        contentPane.add (buttonPanel, BorderLayout.SOUTH);
+        JPanel textPanel = new JPanel ();
+        textPanel.setBackground (Color.BLUE);
+        textPanel.setLayout (new FlowLayout ());
+        inOutField = new JTextField (&quot;Numbers go here.&quot;, 30);
+        inOutField.setBackground (Color.WHITE);
+        textPanel.add (inOutField);
+        contentPane.add (textPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+    <span style="background-color: #FFFF00">    if (e.getActionCommand ().equals (&quot;Add&quot;))              </span>
+    <span style="background-color: #FFFF00">    {                                                      </span>
+    <span style="background-color: #FFFF00">        sum = sum + stringToDouble (inOutField.getText ());</span>
+    <span style="background-color: #FFFF00">        inOutField.setText (Double.toString (sum));        </span>
+    <span style="background-color: #FFFF00">    }                                                      </span>
+    <span style="background-color: #FFFF00">    else if (e.getActionCommand ().equals (&quot;Reset&quot;))       </span>
+    <span style="background-color: #FFFF00">    {                                                      </span>
+    <span style="background-color: #FFFF00">        sum = 0;                                           </span>
+    <span style="background-color: #FFFF00">        inOutField.setText (&quot;0.0&quot;);                        </span>
+    <span style="background-color: #FFFF00">    }                                                      </span>
+    <span style="background-color: #FFFF00">    else                                                   </span>
+    <span style="background-color: #FFFF00">        inOutField.setText (&quot;Error in adder code.&quot;);       </span>
+    }
+
+
+    <span style="background-color: #FFFF00">private static double stringToDouble (String stringObject)</span>
+    <span style="background-color: #FFFF00">{                                                         </span>
+    <span style="background-color: #FFFF00">    return Double.parseDouble (stringObject.trim ());     </span>
+    <span style="background-color: #FFFF00">}                                                         </span>
+
+
+    public static void main (String [] args)
+    {
+        Adder guiAdder = new Adder ();
+        guiAdder.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 13.13">Listing
+        13.13</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+GUI for adding a series of numbers. If the user
+enters a number in an incorrect format, such as
+2,000 with a comma, an error message is generated
+and the user can restart the computation.
+*/
+public class ImprovedAdder extends JFrame
+    implements ActionListener
+{
+    public static final int WIDTH = 400;
+    public static final int HEIGHT = 200;
+    private JTextField inOutField;
+    private double sum = 0;
+    public ImprovedAdder ()
+    {
+        setTitle (&quot;Adding Machine&quot;);
+        addWindowListener (new WindowDestroyer ());
+        setSize (WIDTH, HEIGHT);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.GRAY);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton addButton = new JButton (&quot;Add&quot;);
+        addButton.addActionListener (this);
+        buttonPanel.add (addButton);
+        JButton resetButton = new JButton (&quot;Reset&quot;);
+        resetButton.addActionListener (this);
+        buttonPanel.add (resetButton);
+        contentPane.add (buttonPanel, BorderLayout.SOUTH);
+        JPanel textPanel = new JPanel ();
+        textPanel.setBackground (Color.BLUE);
+        textPanel.setLayout (new FlowLayout ());
+        inOutField = new JTextField (&quot;Numbers go here.&quot;, 30);
+        inOutField.setBackground (Color.WHITE);
+        textPanel.add (inOutField);
+        contentPane.add (textPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        <span style="background-color: #FFFF00">try                                               </span>
+        <span style="background-color: #FFFF00">{                                                 </span>
+        <span style="background-color: #FFFF00">    tryingCorrectNumberFormats (e);               </span>
+        <span style="background-color: #FFFF00">}                                                 </span>
+        <span style="background-color: #FFFF00">catch (NumberFormatException e2)                  </span>
+        <span style="background-color: #FFFF00">{                                                 </span>
+        <span style="background-color: #FFFF00">    inOutField.setText (&quot;Error: Reenter Number.&quot;);</span>
+        <span style="background-color: #FFFF00">}                                                 </span>
+    }
+
+
+    //This method can throw a NumberFormatException.
+    public void tryingCorrectNumberFormats (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Add&quot;))
+        {
+            sum = sum + <span style="background-color: #FFFF00">stringToDouble (inOutField.getText ());</span>
+            inOutField.setText (Double.toString (sum));
+        }
+        else if (e.getActionCommand ().equals (&quot;Reset&quot;))
+        {
+            sum = 0;
+            inOutField.setText (&quot;0.0&quot;);
+        }
+        else
+            inOutField.setText (&quot;Error in adder code.&quot;);
+    }
+
+
+    //This method can throw a NumberFormatException.
+    private static double stringToDouble (String stringObject)
+    {
+        return <span style="background-color: #FFFF00">Double.parseDouble (stringObject.trim ());</span>
+    }
+
+
+    public static void main (String [] args)
+    {
+        ImprovedAdder guiAdder = new ImprovedAdder ();
+        guiAdder.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 14.1">Listing
+        14.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF"><span style="background-color: #FFFF00">import javax.swing.JApplet;
+import javax.swing.JLabel; </span>
+import java.awt.Container;
+import java.awt.FlowLayout;
+public class HelloApplet <span style="background-color: #FFFF00">extends JApplet</span>
+{
+    <span style="background-color: #FFFF00">public void init ()</span>
+    {
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new FlowLayout ());
+        JLabel friendlyLabel = new JLabel (&quot;Hello out there!&quot;);
+        contentPane.add (friendlyLabel);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 14.2">Listing
+        14.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF"><span style="background-color: #FFFF00">import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;</span>
+</font></b></pre>
+        <pre><b><font size="3" color="#0000FF">public class AdderApplet <span style="background-color: #FFFF00">extends JApplet</span>
+    implements ActionListener
+{
+    private JTextField inputOutputField;
+    private double sum = 0;
+    <span style="background-color: #FFFF00">public void init ()</span>
+    {
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.GRAY);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton addButton = new JButton (&quot;Add&quot;);
+        addButton.addActionListener (this);
+        buttonPanel.add (addButton);
+        JButton resetButton = new JButton (&quot;Reset&quot;);
+        resetButton.addActionListener (this);
+        buttonPanel.add (resetButton);
+        contentPane.add (buttonPanel, BorderLayout.SOUTH);
+        JPanel textPanel = new JPanel ();
+        textPanel.setBackground (Color.BLUE);
+        textPanel.setLayout (new FlowLayout ());
+        inputOutputField =
+            new JTextField (&quot;Numbers go here.&quot;, 30);
+        inputOutputField.setBackground (Color.WHITE);
+        textPanel.add (inputOutputField);
+        contentPane.add (textPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Add&quot;))
+        {
+            sum = sum +
+                stringToDouble (inputOutputField.getText ());
+            inputOutputField.setText (Double.toString (sum));
+        }
+        else if (e.getActionCommand ().equals (&quot;Reset&quot;))
+        {
+            sum = 0;
+            inputOutputField.setText (&quot;0.0&quot;);
+        }
+        else
+            inputOutputField.setText (&quot;Error in adder code.&quot;);
+    }
+
+
+    private static double stringToDouble (String stringObject)
+    {
+        return Double.parseDouble (stringObject.trim ());
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 14.3">Listing
+        14.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JApplet;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.BorderLayout;
+import java.awt.Container;
+public class DukeApplet extends JApplet
+{
+    public void init ()
+    {
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JLabel spacer = new JLabel (&quot; &quot;);
+        contentPane.add (spacer, &quot;West&quot;);
+        <span style="background-color: #FFFF00">JLabel friendlyLabel = new JLabel (&quot;Hello out there!&quot;);</span>
+        <span style="background-color: #FFFF00">ImageIcon dukeIcon = new ImageIcon (&quot;duke_waving.gif&quot;);</span>
+        friendlyLabel.setIcon (dukeIcon);
+        contentPane.add (friendlyLabel, BorderLayout.CENTER);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.1">Listing
+        15.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class MemoGUI extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 300;
+    public static final int LINES = 10;
+    public static final int CHAR_PER_LINE = 40;
+    private JTextArea theText;
+    private String memo1 = &quot;No Memo 1.&quot;;
+    private String memo2 = &quot;No Memo 2.&quot;;
+    public MemoGUI ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Memo Saver&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        <span style="background-color: #FFFF00">JMenu memoMenu = new JMenu (&quot;Memos&quot;);</span>
+        <span style="background-color: #FFFF00">JMenuItem m;                         </span>
+        <span style="background-color: #FFFF00">m = new JMenuItem (&quot;Save Memo 1&quot;);   </span>
+        <span style="background-color: #FFFF00">m.addActionListener (this);          </span>
+        <span style="background-color: #FFFF00">memoMenu.add (m);                    </span>
+        m = new JMenuItem (&quot;Save Memo 2&quot;);
+        m.addActionListener (this);
+        memoMenu.add (m);
+        m = new JMenuItem (&quot;Get Memo 1&quot;);
+        m.addActionListener (this);
+        memoMenu.add (m);
+        m = new JMenuItem (&quot;Get Memo 2&quot;);
+        m.addActionListener (this);
+        memoMenu.add (m);
+        m = new JMenuItem (&quot;Clear&quot;);
+        m.addActionListener (this);
+        memoMenu.add (m);
+        m = new JMenuItem (&quot;Exit&quot;);
+        m.addActionListener (this);
+        memoMenu.add (m);
+        <span style="background-color: #FFFF00">JMenuBar mBar = new JMenuBar ();</span>
+        <span style="background-color: #FFFF00">mBar.add (memoMenu);            </span>
+        <span style="background-color: #FFFF00">setJMenuBar (mBar);             </span>
+        JPanel textPanel = new JPanel ();
+        textPanel.setBackground (Color.BLUE);
+        theText = new JTextArea (LINES, CHAR_PER_LINE);
+        theText.setBackground (Color.WHITE);
+        textPanel.add (theText);
+        contentPane.add (textPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        String actionCommand = e.getActionCommand ();
+        if (actionCommand.equals (&quot;Save Memo 1&quot;))
+            memo1 = theText.getText ();
+        else if (actionCommand.equals (&quot;Save Memo 2&quot;))
+            memo2 = theText.getText ();
+        else if (actionCommand.equals (&quot;Clear&quot;))
+            theText.setText (&quot;&quot;);
+        else if (actionCommand.equals (&quot;Get Memo 1&quot;))
+            theText.setText (memo1);
+        else if (actionCommand.equals (&quot;Get Memo 2&quot;))
+            theText.setText (memo2);
+        else if (actionCommand.equals (&quot;Exit&quot;))
+            System.exit (0);
+        else
+            theText.setText (&quot;Error in memo interface&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        MemoGUI gui = new MemoGUI ();
+        gui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.2">Listing
+        15.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Simple demonstration of putting icons in buttons and labels.
+*/
+public class IconDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 400;
+    public static final int HEIGHT = 200;
+    private JTextField message;
+    public IconDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Icon Demonstration&quot;);
+        Container content = getContentPane ();
+        content.setBackground (Color.WHITE);
+        content.setLayout (new BorderLayout ());
+        <span style="background-color: #FFFF00">JLabel niceLabel = new JLabel (&quot;Nice day!&quot;);        </span>
+        <span style="background-color: #FFFF00">ImageIcon smileyIcon = new ImageIcon (&quot;smiley.gif&quot;);</span>
+        <span style="background-color: #FFFF00">niceLabel.setIcon (smileyIcon);                     </span>
+        content.add (niceLabel, BorderLayout.NORTH);
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setLayout (new FlowLayout ());
+        <span style="background-color: #FFFF00">JButton helloButton = new JButton (&quot;Hello&quot;);                 </span>
+        <span style="background-color: #FFFF00">ImageIcon dukeWavingIcon = new ImageIcon (&quot;duke_waving.gif&quot;);</span>
+        <span style="background-color: #FFFF00">helloButton.setIcon (dukeWavingIcon);                        </span>
+        helloButton.addActionListener (this);
+        buttonPanel.add (helloButton);
+        <span style="background-color: #FFFF00">JButton byeButton = new JButton (&quot;Good bye&quot;);</span>
+        <span style="background-color: #FFFF00">ImageIcon dukeStandingIcon =                 </span>
+        <span style="background-color: #FFFF00">    new ImageIcon (&quot;duke_standing.gif&quot;);     </span>
+        <span style="background-color: #FFFF00">byeButton.setIcon (dukeStandingIcon);        </span>
+        byeButton.addActionListener (this);
+        buttonPanel.add (byeButton);
+        content.add (buttonPanel, BorderLayout.SOUTH);
+        message = new JTextField (30);
+        content.add (message, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Hello&quot;))
+            message.setText (&quot;Glad to meet you!&quot;);
+        else if (e.getActionCommand ().equals (&quot;Good bye&quot;))
+            message.setText (
+                    &quot;OK, click the upper right button. Ill miss you.&quot;);
+        else
+            System.out.println (&quot;Error in button interface.&quot;);
+    }
+
+
+    /**
+    Creates and displays a window of the class IconDemo.
+    */
+    public static void main (String [] args)
+    {
+        IconDemo iconGui = new IconDemo ();
+        iconGui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.3">Listing
+        15.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JScrollPane;
+
+//Other import statements are identical to the ones in Listing 15.1
+
+public class ScrollBarDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 600;
+    //Definitions of the constants HEIGHT, LINES, and CHAR_PER_LINE are identical
+    // to those in Listing 15.1
+    private JTextArea theText;
+    &lt; Definitions of instance variables memo1 and memo2 are identical to those in Listing 15.1 . &gt;
+        public ScrollBarDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Scrolling Memo Saver&quot;);
+        Container contentPane = getContentPane ();
+
+        //. . .
+
+
+        JPanel textPanel = new JPanel ();
+        textPanel.setBackground (Color.BLUE);
+        theText = new JTextArea (LINES, CHAR_PER_LINE);
+        theText.setBackground (Color.WHITE);
+        <span style="background-color: #FFFF00">JScrollPane scrolledText = new JScrollPane (theText);</span>
+        <span style="background-color: #FFFF00">scrolledText.setHorizontalScrollBarPolicy (          </span>
+        <span style="background-color: #FFFF00">        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);    </span>
+        <span style="background-color: #FFFF00">scrolledText.setVerticalScrollBarPolicy (            </span>
+        <span style="background-color: #FFFF00">        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);      </span>
+        <span style="background-color: #FFFF00">textPanel.add (scrolledText);                        </span>
+        contentPane.add (textPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        // This method is identical to the one in Listing 15.1
+    }
+
+
+    public static void main (String [] args)
+    {
+        ScrollBarDemo guiMemo = new ScrollBarDemo ();
+        guiMemo.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.4">Listing
+        15.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Class to demonstrate adding borders to components.
+*/
+public class BorderDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 400;
+    public static final int HEIGHT = 300;
+    private JTextField name;
+    public BorderDemo ()
+    {
+        setTitle (&quot;Name Tester with Borders&quot;);
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        Container content = getContentPane ();
+        content.setLayout (new GridLayout (2, 1));
+        JPanel namePanel = new JPanel ();
+        namePanel.setLayout (new BorderLayout ());
+        namePanel.setBackground (Color.WHITE);
+        name = new JTextField (20);
+        //The following border is not as dramatic as others,
+        //but look closely and you will see it.
+        <span style="background-color: #FFFF00">name.setBorder (new EtchedBorder (Color.GREEN, Color.BLUE));</span>
+        namePanel.add (name, BorderLayout.SOUTH);
+        JLabel nameLabel = new JLabel (&quot;Enter your name here:&quot;);
+        //The following border inserts space around the label.
+        //To see the difference, comment out the following line:
+        <span style="background-color: #FFFF00">nameLabel.setBorder (new EmptyBorder (20, 10, 0, 0));</span>
+        namePanel.add (nameLabel, BorderLayout.CENTER);
+        <span style="background-color: #FFFF00">namePanel.setBorder (new LineBorder (Color.BLACK, 10));</span>
+        content.add (namePanel);
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton testButton = new JButton (&quot;Test&quot;);
+        testButton.addActionListener (this);
+        <span style="background-color: #FFFF00">testButton.setBorder (new BevelBorder (BevelBorder.LOWERED));</span>
+        buttonPanel.add (testButton);
+        JButton clearButton = new JButton (&quot;Clear&quot;);
+        clearButton.addActionListener (this);
+        <span style="background-color: #FFFF00">clearButton.setBorder (new BevelBorder (BevelBorder.RAISED));</span>
+        buttonPanel.add (clearButton);
+        <span style="background-color: #FFFF00">buttonPanel.setBorder (                               </span>
+        <span style="background-color: #FFFF00">        new MatteBorder (60, 40, 30, 20, Color.PINK));</span>
+        content.add (buttonPanel);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Test&quot;))
+            name.setText (&quot;A very good name!&quot;);
+        else if (e.getActionCommand ().equals (&quot;Clear&quot;))
+            name.setText (&quot;&quot;);
+        else
+            name.setText (&quot;Error in window interface.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        BorderDemo w = new BorderDemo ();
+        w.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.5">Listing
+        15.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Simple demonstration of BoxLayout manager class and the use of
+struts to separate components (in this case, buttons). (For an
+alternative implementation, see BoxClassDemo in Listing 15.6.)
+*/
+public class BoxLayoutDemo extends JFrame
+    implements ActionListener
+{
+    <a name="public static final int WIDTH = 300;">public static final int WIDTH = 300;</a>
+    public static final int HEIGHT = 200;
+   <span style="background-color: #FFFF00"> public static final int HORIZONTAL_STRUT_SIZE = 15;</span>
+   <span style="background-color: #FFFF00"> public static final int VERTICAL_STRUT_SIZE = 10;  </span>
+    private JPanel colorPanel;
+    public BoxLayoutDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Box Demonstration&quot;);
+        Container content = getContentPane ();
+        content.setLayout (new BorderLayout ());
+        colorPanel = new JPanel ();
+        colorPanel.setBackground (Color.BLUE);
+        content.add (colorPanel, BorderLayout.CENTER);
+        //Horizontal buttons at bottom of frame:
+        JPanel horizontalPanel = new JPanel ();
+        <span style="background-color: #FFFF00">horizontalPanel.setLayout (                                </span>
+        <span style="background-color: #FFFF00">        new BoxLayout (horizontalPanel, BoxLayout.X_AXIS));</span>
+        <span style="background-color: #FFFF00">Component horizontalStrut =                                </span>
+        <span style="background-color: #FFFF00">    Box.createHorizontalStrut (HORIZONTAL_STRUT_SIZE);     </span>
+        <span style="background-color: #FFFF00">horizontalPanel.add (horizontalStrut);                     </span>
+        JButton hStopButton = new JButton (&quot;Red&quot;);
+        hStopButton.addActionListener (this);
+        horizontalPanel.add (hStopButton);
+        <span style="background-color: #FFFF00">Component horizontalStrut2 =                          </span>
+        <span style="background-color: #FFFF00">    Box.createHorizontalStrut (HORIZONTAL_STRUT_SIZE);</span>
+        <span style="background-color: #FFFF00">horizontalPanel.add (horizontalStrut2);               </span>
+        JButton hGoButton = new JButton (&quot;Green&quot;);
+        hGoButton.addActionListener (this);
+        horizontalPanel.add (hGoButton);
+        content.add (horizontalPanel, BorderLayout.SOUTH);
+        //Vertical buttons on right side of frame:
+        JPanel verticalPanel = new JPanel ();
+        <span style="background-color: #FFFF00">verticalPanel.setLayout (                                </span>
+        <span style="background-color: #FFFF00">        new BoxLayout (verticalPanel, BoxLayout.Y_AXIS));</span>
+        <span style="background-color: #FFFF00">Component verticalStrut =                                </span>
+        <span style="background-color: #FFFF00">    Box.createVerticalStrut (VERTICAL_STRUT_SIZE);       </span>
+        <span style="background-color: #FFFF00">verticalPanel.add (verticalStrut);                       </span>
+        JButton vStopButton = new JButton (&quot;Red&quot;);
+        vStopButton.addActionListener (this);
+        verticalPanel.add (vStopButton);
+        Component verticalStrut2 =
+            Box.createVerticalStrut (VERTICAL_STRUT_SIZE);
+        verticalPanel.add (verticalStrut2);
+        JButton vGoButton = new JButton (&quot;Green&quot;);
+        vGoButton.addActionListener (this);
+        verticalPanel.add (vGoButton);
+        <span style="background-color: #FFFF00">content.add (verticalPanel, BorderLayout.EAST);</span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Red&quot;))
+            colorPanel.setBackground (Color.RED);
+        else if (e.getActionCommand ().equals (&quot;Green&quot;))
+            colorPanel.setBackground (Color.GREEN);
+        else
+            System.out.println (&quot;Error in button interface.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        BoxLayoutDemo gui = new BoxLayoutDemo ();
+        gui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.6">Listing
+        15.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+Simple demonstration of the Box container class and the use of
+struts to separate components (in this case, buttons). For an
+alternative implementation, see BoxLayoutDemo in Listing 15.5.
+*/
+public class BoxClassDemo extends JFrame implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    <span style="background-color: #FFFF00">public static final int HORIZONTAL_STRUT_SIZE = 15;</span>
+    <span style="background-color: #FFFF00">public static final int VERTICAL_STRUT_SIZE = 10;</span>
+    private JPanel colorPanel;
+    public BoxClassDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;Box Demonstration&quot;);
+        Container content = getContentPane ();
+        content.setLayout (new BorderLayout ());
+        colorPanel = new JPanel ();
+        colorPanel.setBackground (Color.BLUE);
+        content.add (colorPanel, BorderLayout.CENTER);
+        //Horizontal buttons at bottom of frame:
+        <span style="background-color: #FFFF00">Box horizontalBox = Box.createHorizontalBox ();</span>
+        <span style="background-color: #FFFF00">Component horizontalStrut =</span>
+        <span style="background-color: #FFFF00">    Box.createHorizontalStrut (HORIZONTAL_STRUT_SIZE);</span>
+        <span style="background-color: #FFFF00">horizontalBox.add (horizontalStrut);</span>
+        JButton hStopButton = new JButton (&quot;Red&quot;);
+        hStopButton.addActionListener (this);
+        <span style="background-color: #FFFF00">horizontalBox.add (hStopButton);</span>
+        <span style="background-color: #FFFF00">Component horizontalStrut2 =</span>
+        <span style="background-color: #FFFF00">    Box.createHorizontalStrut (HORIZONTAL_STRUT_SIZE);</span>
+        <span style="background-color: #FFFF00">horizontalBox.add (horizontalStrut2);</span>
+        JButton hGoButton = new JButton (&quot;Green&quot;);
+        hGoButton.addActionListener (this);
+        <span style="background-color: #FFFF00">horizontalBox.add (hGoButton);</span>
+        <span style="background-color: #FFFF00">content.add (horizontalBox, BorderLayout.SOUTH);</span>
+        //Vertical buttons on right side of frame:
+        <span style="background-color: #FFFF00">Box verticalBox = Box.createVerticalBox ();</span>
+        <span style="background-color: #FFFF00">Component verticalStrut =</span>
+        <span style="background-color: #FFFF00">    Box.createVerticalStrut (VERTICAL_STRUT_SIZE);</span>
+        <span style="background-color: #FFFF00">verticalBox.add (verticalStrut);</span>
+        JButton vStopButton = new JButton (&quot;Red&quot;);
+        vStopButton.addActionListener (this);
+        <span style="background-color: #FFFF00">verticalBox.add (vStopButton);</span>
+        <span style="background-color: #FFFF00">Component verticalStrut2 =</span>
+        <span style="background-color: #FFFF00">    Box.createVerticalStrut (VERTICAL_STRUT_SIZE);</span>
+        <span style="background-color: #FFFF00">verticalBox.add (verticalStrut2);</span>
+        JButton vGoButton = new JButton (&quot;Green&quot;);
+        vGoButton.addActionListener (this);
+        <span style="background-color: #FFFF00">verticalBox.add (vGoButton);</span>
+        <span style="background-color: #FFFF00">content.add (verticalBox, BorderLayout.EAST);</span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand ().equals (&quot;Red&quot;))
+            colorPanel.setBackground (Color.RED);
+        else if (e.getActionCommand ().equals (&quot;Green&quot;))
+            colorPanel.setBackground (Color.GREEN);
+        else
+            System.out.println (&quot;Error in button interface.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        BoxClassDemo gui = new BoxClassDemo ();
+        gui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.7">Listing
+        15.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class CardLayoutDemo extends JFrame
+    implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    <span style="background-color: #FFFF00">private CardLayout dealer;</span>
+    private JPanel deckPanel;
+    public CardLayoutDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (new WindowDestroyer ());
+        setTitle (&quot;CardLayout Demonstration&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        <span style="background-color: #FFFF00">deckPanel = new JPanel ();   </span>
+        <span style="background-color: #FFFF00">dealer = new CardLayout ();  </span>
+        <span style="background-color: #FFFF00">deckPanel.setLayout (dealer);</span>
+        JPanel startCardPanel = new JPanel ();
+        startCardPanel.setLayout (new FlowLayout ());
+        startCardPanel.setBackground (Color.LIGHT_GRAY);
+        JLabel startLabel = new JLabel (&quot;Hello&quot;);
+        startCardPanel.add (startLabel);
+        <span style="background-color: #FFFF00">deckPanel.add (&quot;start&quot;, startCardPanel);</span>
+        JPanel greenCardPanel = new JPanel ();
+        greenCardPanel.setLayout (new FlowLayout ());
+        greenCardPanel.setBackground (Color.GREEN);
+        JLabel goLabel = new JLabel (&quot;Go&quot;);
+        greenCardPanel.add (goLabel);
+        <span style="background-color: #FFFF00">deckPanel.add (&quot;green&quot;, greenCardPanel);</span>
+        JPanel redCardPanel = new JPanel ();
+        redCardPanel.setLayout (new FlowLayout ());
+        redCardPanel.setBackground (Color.RED);
+        JLabel stopLabel = new JLabel (&quot;Stop&quot;);
+        redCardPanel.add (stopLabel);
+        <span style="background-color: #FFFF00">deckPanel.add (&quot;red&quot;, redCardPanel);</span>
+        contentPane.add (deckPanel, BorderLayout.CENTER);
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.WHITE);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton stopButton = new JButton (&quot;Red&quot;);
+        stopButton.addActionListener (this);
+        buttonPanel.add (stopButton);
+        JButton goButton = new JButton (&quot;Green&quot;);
+        goButton.addActionListener (this);
+        buttonPanel.add (goButton);
+        JButton resetButton = new JButton (&quot;Reset&quot;);
+        resetButton.addActionListener (this);
+        buttonPanel.add (resetButton);
+        contentPane.add (buttonPanel, BorderLayout.SOUTH);
+        <span style="background-color: #FFFF00">dealer.first (deckPanel); //Optional</span>
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        String actionCommand = e.getActionCommand ();
+        if (actionCommand.equals (&quot;Red&quot;))
+            <span style="background-color: #FFFF00">dealer.show (deckPanel, &quot;red&quot;);</span>
+        else if (actionCommand.equals (&quot;Green&quot;))
+            <span style="background-color: #FFFF00">dealer.show (deckPanel, &quot;green&quot;);</span>
+        else if (actionCommand.equals (&quot;Reset&quot;))
+            <span style="background-color: #FFFF00">dealer.show (deckPanel, &quot;start&quot;);</span>
+        else
+            System.out.println (&quot;Error in CardLayout Demo.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        CardLayoutDemo demoGui = new CardLayoutDemo ();
+        demoGui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.8">Listing
+        15.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class InnerClassDemo extends JFrame
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    /**
+    Creates and displays a window of the class InnerClassDemo.
+    */
+    public static void main (String [] args)
+    {
+        InnerClassDemo sampleGUI = new InnerClassDemo ();
+        sampleGUI.setVisible (true);
+    }
+
+
+    public InnerClassDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        setTitle (&quot;Inner Class Demo&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JLabel label = new JLabel (
+                &quot;Please dont click that button!&quot;);
+        contentPane.add (label, BorderLayout.CENTER);
+        <span style="background-color: #FFFF00">addWindowListener (new InnerDestroyer ());</span>
+    }
+
+
+<span style="background-color: #FF99CC">    //An inner class with the same functionality
+    //as the class WindowDestroyer.
+    private class InnerDestroyer extends WindowAdapter
+    {
+        public void windowClosing (WindowEvent e)
+        {
+            System.exit (0);
+        }
+    }                                                 </span>
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.9">Listing
+        15.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+public class WindowListenerDemo extends JFrame
+    implements ActionListener, WindowListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public WindowListenerDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        addWindowListener (this);
+        setTitle (&quot;Window Listener Demonstration&quot;);
+        Container content = getContentPane ();
+        content.setBackground (Color.BLUE);
+        content.setLayout (new FlowLayout ());
+        JButton stopButton = new JButton (&quot;Red&quot;);
+        stopButton.addActionListener (this);
+        content.add (stopButton);
+        JButton goButton = new JButton (&quot;Green&quot;);
+        goButton.addActionListener (this);
+        content.add (goButton);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        Container content = getContentPane ();
+        if (e.getActionCommand ().equals (&quot;Red&quot;))
+            content.setBackground (Color.RED);
+        else if (e.getActionCommand ().equals (&quot;Green&quot;))
+            content.setBackground (Color.GREEN);
+        else
+            System.out.println (&quot;Error in WindowListenerDemo.&quot;);
+    }
+
+
+    <span style="background-color: #FFFF00">public void windowClosing (WindowEvent e)</span>
+    <span style="background-color: #FFFF00">{                                        </span>
+    <span style="background-color: #FFFF00">    this.dispose ();                     </span>
+    <span style="background-color: #FFFF00">    System.exit (0);                     </span>
+    <span style="background-color: #FFFF00">}                                        </span>
+
+
+<span style="background-color: #FF99CC">    public void windowOpened (WindowEvent e)
+    {  }
+
+    public void windowClosed (WindowEvent e)
+    {  }
+
+    public void windowIconified (WindowEvent e)
+    {  }
+
+    public void windowDeiconified (WindowEvent e)
+    {  }
+
+    public void windowActivated (WindowEvent e)
+    {  }
+
+    public void windowDeactivated (WindowEvent e)
+    {  }                                         </span>
+
+    public static void main (String [] args)
+    {
+        WindowListenerDemo demoWindow = new WindowListenerDemo ();
+        demoWindow.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.10">Listing
+        15.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+<span style="background-color: #FFFF00">import javax.swing.WindowConstants;</span>
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+/**
+Demonstration of programming the close-window button.
+*/
+public class CloseWindowDemo extends JFrame
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    public CloseWindowDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        <span style="background-color: #FFFF00">setDefaultCloseOperation (                   </span>
+        <span style="background-color: #FFFF00">        WindowConstants.DO_NOTHING_ON_CLOSE);</span>
+        <span style="background-color: #FFFF00">addWindowListener (new InnerDestroyer ());   </span>
+        setTitle (&quot;Close Window Demo&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        JLabel message = new JLabel (
+                &quot;Please don't click that button.&quot;);
+        contentPane.add (message, BorderLayout.CENTER);
+    }
+
+
+    <span style="background-color: #FFFF00">//An inner class that is the window listener.     </span>
+    <span style="background-color: #FFFF00">private class InnerDestroyer extends WindowAdapter</span>
+    {
+        //Displays a window that checks if the user wants to exit.
+        public void windowClosing (WindowEvent e)
+        {
+            ConfirmWindow askWindow = new ConfirmWindow ();
+            askWindow.setVisible (true);
+        }
+    }
+
+
+    <span style="background-color: #FFFF00">//An inner class to be used with the inner class   </span>
+    <span style="background-color: #FFFF00">//InnerDestroyer. Checks if the user wants to exit.</span>
+    <span style="background-color: #FFFF00">private class ConfirmWindow extends JFrame         </span>
+    <span style="background-color: #FFFF00">    implements ActionListener                      </span>
+    {
+        public static final int WIDTH = 200;
+        public static final int HEIGHT = 100;
+        public ConfirmWindow ()
+        {
+            setSize (WIDTH, HEIGHT);
+            Container confirmContent = getContentPane ();
+            confirmContent.setBackground (Color.WHITE);
+            confirmContent.setLayout (new BorderLayout ());
+            JLabel msgLabel = new JLabel (
+                    &quot;Are you sure you want to exit?&quot;);
+            confirmContent.add (msgLabel, BorderLayout.CENTER);
+            JPanel buttonPanel = new JPanel ();
+            buttonPanel.setLayout (new FlowLayout ());
+            JButton exitButton = new JButton (&quot;Yes&quot;);
+            exitButton.addActionListener (this);
+            buttonPanel.add (exitButton);
+            JButton cancelButton = new JButton (&quot;No&quot;);
+            cancelButton.addActionListener (this);
+            buttonPanel.add (cancelButton);
+            confirmContent.add (buttonPanel, BorderLayout.SOUTH);
+        }
+        public void actionPerformed (ActionEvent e)
+        {
+            if (e.getActionCommand ().equals (&quot;Yes&quot;))
+                System.exit (0);
+            else if (e.getActionCommand ().equals (&quot;No&quot;))
+               <span style="background-color: #FFFF00"> dispose (); //Destroys only the ConfirmWindow.</span>
+            else
+                System.out.println (&quot;Error in Confirm Window.&quot;);
+        }
+    }
+
+
+    public static void main (String [] args)
+    {
+        CloseWindowDemo gui = new CloseWindowDemo ();
+        gui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 15.11">Listing
+        15.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font size="3" color="#0000FF">import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class VisibilityDemo extends JFrame
+    implements ActionListener
+{
+    public static final int WIDTH = 300;
+    public static final int HEIGHT = 200;
+    private JLabel upLabel;
+    private JLabel downLabel;
+    public VisibilityDemo ()
+    {
+        setSize (WIDTH, HEIGHT);
+        <span style="background-color: #FFFF00">setDefaultCloseOperation (</span>
+        <span style="background-color: #FFFF00">        WindowConstants.EXIT_ON_CLOSE);</span>
+        setTitle (&quot;Visibility Demonstration&quot;);
+        Container contentPane = getContentPane ();
+        contentPane.setLayout (new BorderLayout ());
+        contentPane.setBackground (Color.WHITE);
+        upLabel = new JLabel (&quot;Here I am up here!&quot;);
+        contentPane.add (upLabel, BorderLayout.NORTH);
+        <span style="background-color: #FFFF00">upLabel.setVisible (false);</span>
+        downLabel = new JLabel (&quot;Here I am down here!&quot;);
+        contentPane.add (downLabel, BorderLayout.SOUTH);
+        <span style="background-color: #FFFF00">downLabel.setVisible (false);</span>
+        JPanel buttonPanel = new JPanel ();
+        buttonPanel.setBackground (Color.WHITE);
+        buttonPanel.setLayout (new FlowLayout ());
+        JButton upButton = new JButton (&quot;Up&quot;);
+        upButton.addActionListener (this);
+        buttonPanel.add (upButton);
+        JButton downButton = new JButton (&quot;Down&quot;);
+        downButton.addActionListener (this);
+        buttonPanel.add (downButton);
+        contentPane.add (buttonPanel, BorderLayout.CENTER);
+    }
+
+
+    public void actionPerformed (ActionEvent e)
+    {
+        <span style="background-color: #FFFF00">if (e.getActionCommand ().equals (&quot;Up&quot;))       </span>
+        <span style="background-color: #FFFF00">{                                              </span>
+        <span style="background-color: #FFFF00">    upLabel.setVisible (true);                 </span>
+        <span style="background-color: #FFFF00">    downLabel.setVisible (false);              </span>
+        <span style="background-color: #FFFF00">    validate (); //Update graphics             </span>
+        <span style="background-color: #FFFF00">}                                              </span>
+        <span style="background-color: #FFFF00">else if (e.getActionCommand ().equals (&quot;Down&quot;))</span>
+        <span style="background-color: #FFFF00">{                                              </span>
+        <span style="background-color: #FFFF00">    downLabel.setVisible (true);               </span>
+        <span style="background-color: #FFFF00">    upLabel.setVisible (false);                </span>
+        <span style="background-color: #FFFF00">    validate (); //Update graphics             </span>
+        <span style="background-color: #FFFF00">}                                              </span>
+        else
+            System.out.println (&quot;Error in VisibilityDemo interface.&quot;);
+    }
+
+
+    public static void main (String [] args)
+    {
+        VisibilityDemo demoGui = new VisibilityDemo ();
+        demoGui.setVisible (true);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
