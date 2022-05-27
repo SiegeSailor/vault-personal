@@ -12,21 +12,18 @@
 
 public class Simple
 {
-  public class Simple
+  public static void main(String[] args)
   {
-      public static void main(String[] args)
-      {
-          System.out.println("Hi There!");
-          
-          int  a  =  2;
-          int  b  =  3;
-          int  c;
-          
-          c  =  a  *  b;
-          
-          System.out.println("The result of the computation is "  +  c);
-          
-          System.out.println("Good bye!");
-      }
+      System.out.println("Hi There!");
+      
+      int a  =  2;
+      int b  =  3;
+      int c;
+      
+      c = a * b;
+      
+      System.out.println("a is " + a + ", and b is " + b + ". The result of the computation a times b is "  +  c);
+      
+      System.out.println("Good bye!");
   }
-};
+}
