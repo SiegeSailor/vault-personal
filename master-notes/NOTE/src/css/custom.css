@@ -42,6 +42,7 @@ img[title='Diagram generated via mermaid'] {
   margin-top: 4px;
   margin-bottom: 8px;
   display: block;
+  margin: auto;
 }
 
 .playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module:first-of-type {
