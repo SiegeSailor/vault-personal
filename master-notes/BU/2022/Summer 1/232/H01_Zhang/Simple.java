@@ -12,8 +12,21 @@
 
 public class Simple
 {
-    public static void main(String args[])
-    {
-      System.out.println("Hello World!");
-    };
+  public class Simple
+  {
+      public static void main(String[] args)
+      {
+          System.out.println("Hi There!");
+          
+          int  a  =  2;
+          int  b  =  3;
+          int  c;
+          
+          c  =  a  *  b;
+          
+          System.out.println("The result of the computation is "  +  c);
+          
+          System.out.println("Good bye!");
+      }
+  }
 };
