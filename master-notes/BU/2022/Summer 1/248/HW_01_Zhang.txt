@@ -1,0 +1,39 @@
+MET CS248 - HW #1
+1) Decide which of the following are propositions (Y/N) and give the truth value:
+a) 127 is an even integer
+Answer: Y, false
+b) All triangles have 4 sides or more
+Answer: Y, false
+
+2) Negate the following statements, using full sentences:
+a) John is smart or Fred is not tall
+Answer: John is not smart and Fred is tall.
+b) Some animals are intelligent
+Answer: All animals are not intelligent.
+
+3) Is (P̅ → Q) ↔ to(P → Q̅) ? (Q̅ means not Q,↔ stands for equivalent). Justify your answer.
+No, \neg P -> Q doesn't equal to P -> \net Q.
+Both of them must be a valid conditional identifier to each other. 
+
+4) Given the proposition P(n) " If n
+3
+is odd then n is odd "
+ a) Prove P(n) by contraposition:
+b) Prove P(n) contradiction: 
+5) Prove by induction: 1
+2 + 2
+2 + 3
+2 + ⋯ + n
+2 =
+n(n+1)(2n+1)
+6
+, n ≥ 1
+6) Using the predicate symbols shown and appropriate quantifiers, write each English Language
+statement in symbolic form (The domain is the whole world).
+J(x) is “x is a judge” C(x) is “x is a chemist”
+L(x) is “x is a lawyer” A(x, y) is “x admires y” W(x) is “x is a woman”
+a) There are some women lawyers who are chemists.
+b) No woman is both a lawyer and chemist.
+c) Some lawyers admire only judges.
+d) All women lawyers admire some judges.
+e) Some women admire no lawyer.

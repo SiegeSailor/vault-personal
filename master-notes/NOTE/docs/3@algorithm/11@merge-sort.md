@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # Merge Sort
 
-為 Divide and Conquer 的 Out of Place Recursion Algorithm。
+為 Divide and Conquer 的 Out of Place Recursion Algorithm。核心是將元素對半切分、直到 $\leq 2$，再兩兩成組合併排序。會 **直接** 更改輸入的陣列：
 
 - **Worst Case Time Complexity**: $\mathcal{O}(n \times \log n)$
 - **Best Case Time Complexity**: $\Omega(n \times \log n)$
@@ -18,8 +18,8 @@ sidebar_position: 11
 
 using namespace std;
 
-void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd);
 void merge(int listOfInteger[], int indexOfStart, int indexOfMiddle, int indexOfEnd);
+void mergeSort(int listOfInteger[], int indexOfStart, int indexOfEnd);
 
 int main()
 {

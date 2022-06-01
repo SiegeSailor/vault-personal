@@ -45,6 +45,10 @@ img[title='Diagram generated via mermaid'] {
   margin: auto;
 }
 
+img.image_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostAuthor-styles-module {
+  padding: 0;
+}
+
 .playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module:first-of-type {
   background: var(--ifm-color-emphasis-200) !important;
   color: var(--ifm-color-content) !important;

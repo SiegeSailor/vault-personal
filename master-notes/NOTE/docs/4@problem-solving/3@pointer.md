@@ -44,8 +44,6 @@ int main()
     /** 將印出 "0x556cf929c300" */
     cout << pointer << endl;
 
-    /** 特別注意的是， */
-
     return 0;
 };
 ```
