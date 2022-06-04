@@ -94,7 +94,7 @@ void search(const int listOfNumber[], int indexOfStart,
 int main()
 {
     const int size = 10;
-    // 搜尋對象必須為 Ordered Ascending
+    /** 搜尋對象必須為 Ordered Ascending */
     int listOfNumber[size] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int value, indexOfValue;
     bool isFound;
@@ -115,7 +115,7 @@ void search(const int listOfNumber[], int indexOfStart,
             bool &isFound, int &indexOfValue)
 {
     // highlight-next-line
-    // Stopping Case
+    /** Stopping Case */
     if (indexOfStart > indexOfEnd)
     {
         isFound = false;
@@ -124,14 +124,14 @@ void search(const int listOfNumber[], int indexOfStart,
     {
         int indexOfMiddle = (indexOfStart + indexOfEnd) / 2;
         // highlight-next-line
-        // Base Case
+        /** Base Case */
         if (value == listOfNumber[indexOfMiddle])
         {
             isFound = true;
             indexOfValue = indexOfMiddle;
         }
         // highlight-next-line
-        // 根據兩種不同情況，以不同參數再次呼叫自己
+        /** 根據兩種不同情況，以不同參數再次呼叫自己 */
         else if (value < listOfNumber[indexOfMiddle])
             search(listOfNumber, indexOfStart,
                    indexOfMiddle - 1, value,
