@@ -12,6 +12,7 @@
  * 06/09/2022 Jin Yu, Zhang Call other constructor within default constructor.
  * 06/14/2022 Jin Yu, Zhang Enhance equal method with class guarding and null validation.
  *                          Throw MyException in add and sub.
+ * 06/16/2022 Jin Yu, Zhang Modify equal.
  */
 
 /**
@@ -165,15 +166,16 @@ public class JarType {
     /**
      * See if two jars are equal.
      * 
-     * @param that {@code JarType} Another jar.
-     * @return {@code boolean} True if the two are equal.
+     * @param that {@code Object} Another jar or any object.
+     * @return {@code boolean} True if the two jars are equal.
      */
-    public boolean equal(JarType that) {
+    public boolean equal(Object that) {
         if (that == null)
             return false;
-        if (this.getClass() != that.getClass())
+        if (!(that instanceof JarType))
             return false;
-        return this.view() == that.view();
+        JarType thatJarType = (JarType) that;
+        return this.view() == thatJarType.view();
     }
 
     /**
