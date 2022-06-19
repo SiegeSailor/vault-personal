@@ -1,4 +1,4 @@
-package exception;
+package source.exception;
 /* File: ValidationException.java */
 
 /**
