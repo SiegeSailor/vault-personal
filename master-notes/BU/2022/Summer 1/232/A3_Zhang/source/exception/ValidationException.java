@@ -48,6 +48,18 @@ public class ValidationException {
         }
     }
 
+    public static class NegativeInteger extends Exception {
+        /**
+         * Exception with customized message that indicates where the validation has
+         * failed.
+         * 
+         * @param message {@code String} Desired message.
+         */
+        public NegativeInteger(String message) {
+            super(message);
+        }
+    }
+
     public static class InvalidDate extends Exception {
         /**
          * Exception with customized message that indicates where the validation has

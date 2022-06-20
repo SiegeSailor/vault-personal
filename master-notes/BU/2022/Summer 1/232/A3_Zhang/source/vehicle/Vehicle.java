@@ -1,4 +1,4 @@
-package source;
+package source.vehicle;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,7 +7,7 @@ import source.exception.*;
 import source.service.*;
 
 interface Drivable {
-    public enum Status {
+    public enum MotionStatus {
         RUNNING,
         STOPPED
     }
@@ -38,6 +38,8 @@ interface Drivable {
     void resignDriver() throws ValidationException.NotExist;
 
     boolean isRunning();
+
+    MotionStatus getStatus();
 }
 
 interface Overridden {
@@ -47,13 +49,15 @@ interface Overridden {
 }
 
 public abstract class Vehicle implements Drivable, Overridden, Serializable {
-    public enum Make {
+    public enum MakeName {
         AC, BAIC, BMW, DAF, DS, GAZ, GMC, JAC, JMC, MG, NIO, RUF, SEAT, TVR
     }
 
     final static int FIRST_VEHICLE_PATENT_YEAR = 1886;
 
-    private Make make;
+    final static int LIMIT_DISPLAY_NUMBER_NAME = 24;
+
+    private MakeName make;
 
     private String model;
 
@@ -65,9 +69,9 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
 
     private String driver;
 
-    private Status status;
+    private MotionStatus status;
 
-    public Vehicle(Make initialMake, String initialModel, double initialPrice, int initialProductionYear,
+    public Vehicle(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
             ValidationException.NegativeDouble, ValidationException.InvalidDate, ValidationException.FullArray,
             ValidationException.NotEnough {
@@ -76,39 +80,47 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         setPrice(initialPrice);
         setProductionYear(initialProductionYear);
         setArrayOfPassengers(numberOfPassengers);
-        this.status = Status.STOPPED;
+        this.status = MotionStatus.STOPPED;
     };
 
-    public Make getMake() {
-        return make;
+    public MakeName getMake() {
+        return this.make;
     };
 
     public String getModel() {
-        return model;
+        return this.model;
     };
 
     public double getPrice() {
-        return price;
+        return this.price;
     };
 
     public int getProductionYear() {
-        return productionYear;
+        return this.productionYear;
     };
 
+    @Override
     public String[] getArrayOfPassengers() {
-        return arrayOfPassengers.clone();
+        return this.arrayOfPassengers.clone();
     };
 
+    @Override
     public String getDriver() {
-        return driver;
+        return this.driver;
     }
 
+    @Override
     public boolean isRunning() {
-        return status == Status.RUNNING;
+        return this.status == MotionStatus.RUNNING;
     }
 
-    public void setMake(Make input) throws ValidationException.NullObject {
-        Validation.objectMeaningful("Make", input);
+    @Override
+    public MotionStatus getStatus() {
+        return this.status;
+    };
+
+    public void setMake(MakeName input) throws ValidationException.NullObject {
+        Validation.objectMeaningful("MakeName", input);
         this.make = input;
     };
 
@@ -133,6 +145,7 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         this.productionYear = input;
     };
 
+    @Override
     public void setDriver(int indexOfPassenger) throws ValidationException.OutScope, ValidationException.NotExist {
         if (indexOfPassenger > arrayOfPassengers.length - 1)
             throw new ValidationException.OutScope("The index is out of scope");
@@ -142,46 +155,55 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         this.driver = passenger;
     }
 
+    @Override
     public void resignDriver() throws ValidationException.NotExist {
         if (this.driver == null)
             throw new ValidationException.NotExist("There is no driver to resign.");
         this.driver = null;
     }
 
+    @Override
     public void setArrayOfPassengers(int numberOfPassengers)
             throws ValidationException.FullArray, ValidationException.NotEnough {
-        if (this.arrayOfPassengers.length > 0)
+        if (this.arrayOfPassengers != null && this.arrayOfPassengers.length > 0)
             throw new ValidationException.FullArray(
                     "There are passengers inside the vehicle. Please drop them somewhere first.");
-        if (numberOfPassengers == 0)
+        if (numberOfPassengers <= 0)
             throw new ValidationException.NotEnough(
                     "The number of passengers should be at least one. You need a driver.");
         this.arrayOfPassengers = new String[numberOfPassengers];
+    }
+
+    public int getLengthOfArrayOfPassengers() {
+        return this.arrayOfPassengers.length;
     }
 
     public void summarize() {
         System.out.println(this);
     };
 
+    @Override
     public void displayWindowSticker() {
         summarize();
     };
 
+    @Override
     public void start() throws ValidationException.NotExist {
         if (getDriver() == null)
             throw new ValidationException.NotExist("There is no driver.");
         if (!isRunning())
-            this.status = Status.STOPPED;
-
+            this.status = MotionStatus.RUNNING;
     };
 
+    @Override
     public void stop() throws ValidationException.NotExist {
         if (getDriver() == null)
             throw new ValidationException.NotExist("There is no driver.");
         if (isRunning())
-            this.status = Status.RUNNING;
+            this.status = MotionStatus.STOPPED;
     };
 
+    @Override
     public void hop(String incomingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.FullArray,
             ValidationException.IllegalStatus {
@@ -201,6 +223,7 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
             throw new ValidationException.FullArray("There is no empty slot.");
     };
 
+    @Override
     public void drop(String leavingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.NoMatched,
             ValidationException.IllegalStatus {
@@ -219,11 +242,26 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
             throw new ValidationException.NoMatched("There is no passenger matched.");
     };
 
+    @Override
     public String toString() {
-        return "VEHICLE SUMMARY\nMake: " + getMake() + "\nModel: " + getModel() + "\nPrice: " + getPrice()
-                + "\nProduction Year: " + getProductionYear();
+        String passengers = "";
+        int lengthOfArrayOfPassengers = getLengthOfArrayOfPassengers();
+        boolean isManyPassenger = lengthOfArrayOfPassengers > LIMIT_DISPLAY_NUMBER_NAME;
+        int gap = lengthOfArrayOfPassengers - LIMIT_DISPLAY_NUMBER_NAME;
+        for (int index = 0; index < (isManyPassenger ? LIMIT_DISPLAY_NUMBER_NAME
+                : lengthOfArrayOfPassengers); index++) {
+            String passenger = arrayOfPassengers[index];
+            passengers += (index == 0 ? "" : ", ") + passenger;
+        }
+        if (isManyPassenger)
+            passengers += " ,..." + gap + " more (total: " + lengthOfArrayOfPassengers + ")";
+
+        return "VEHICLE SUMMARY\nMake: " + getMake().toString() + "\nModel: " + getModel() + "\nPrice: " + getPrice()
+                + "\nProduction Year: " + getProductionYear() + "\nPassengers: " + passengers + "\nDriver: "
+                + getDriver() + "\nMotion Status: " + getStatus().toString();
     }
 
+    @Override
     public int compareTo(Object that) {
         if (that == null || !(that instanceof Vehicle))
             return 1;
