@@ -1,7 +1,6 @@
 #!/bin/bash
-cd source
-javac -d ../class Playground.java
+javac -d class Playground.java
 cd class
 java Playground
-cd ../
-javadoc -d docs source/**/*.java
+cd ..
+javadoc -d docs *.java
