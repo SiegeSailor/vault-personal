@@ -33,14 +33,14 @@ interface Drivable {
     /**
      * Start a vehicle. Change motion status to RUNNING.
      * 
-     * @throws ValidationException.NotExist
+     * @throws ValidationException.NotExist When there is no driver.
      */
     void start() throws ValidationException.NotExist;
 
     /**
      * Stop a vehicle. Change motion status to STOPPED.
      * 
-     * @throws ValidationException.NotExist
+     * @throws ValidationException.NotExist When there is no driver.
      */
     void stop() throws ValidationException.NotExist;
 
@@ -49,10 +49,12 @@ interface Drivable {
      * RUNNING.
      * 
      * @param incomingPassenger {@code String} Passenger name.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.IllegalStatus
+     * @throws ValidationException.InvalidString When incomingPassenger's length is
+     *                                           0.
+     * @throws ValidationException.NullObject    When incomingPassenger is null.
+     * @throws ValidationException.FullArray     When arrayOfPassenger is already
+     *                                           full.
+     * @throws ValidationException.IllegalStatus When the vehicle is at RUNNING.
      */
     void hop(String incomingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.FullArray,
@@ -63,11 +65,13 @@ interface Drivable {
      * motion status is RUNNING.
      * 
      * @param leavingPassenger {@code String} Passenger name.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.NoMatched
-     * @throws ValidationException.IllegalStatus
-     * @throws ValidationException.NotExist
+     * @throws ValidationException.InvalidString When incomingPassenger's length is
+     *                                           0.
+     * @throws ValidationException.NullObject    When incomingPassenger is null.
+     * @throws ValidationException.FullArray     When arrayOfPassenger is already
+     *                                           full.
+     * @throws ValidationException.IllegalStatus When the vehicle is at RUNNING.
+     * @throws ValidationException.NotExist      When there is no such passenger.
      */
     void drop(String leavingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.NoMatched,
@@ -84,8 +88,10 @@ interface Drivable {
      * Setter for arrayOfPassengers.
      * 
      * @param numberOfPassengers {@code int} Size of arrayOfPassengers.
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.NotEnough
+     * @throws ValidationException.FullArray When there is already an
+     *                                       arrayOfPassengers.
+     * @throws ValidationException.NotEnough The number of passengers should be at
+     *                                       least one.
      */
     void setArrayOfPassengers(int numberOfPassengers)
             throws ValidationException.FullArray, ValidationException.NotEnough;
@@ -102,15 +108,17 @@ interface Drivable {
      * there is no passengers or matched passenger.
      * 
      * @param indexOfPassenger {@code} Index for the passenger.
-     * @throws ValidationException.OutScope
-     * @throws ValidationException.NotExist
+     * @throws ValidationException.OutScope When the index is larger than the length
+     *                                      of arrayOfPassenger.
+     * @throws ValidationException.NotExist Where there is no such passenger to
+     *                                      assign.
      */
     void setDriver(int indexOfPassenger) throws ValidationException.OutScope, ValidationException.NotExist;
 
     /**
      * Set driver to null. Failed when there is no driver.
      * 
-     * @throws ValidationException.NotExist
+     * @throws ValidationException.NotExist Where there is no driver.
      */
     void resignDriver() throws ValidationException.NotExist;
 
@@ -144,8 +152,38 @@ interface Overridden extends Comparable<Vehicle> {
  * @author Jin Yu, Zhang
  */
 public abstract class Vehicle implements Drivable, Overridden {
+    /**
+     * Make names.
+     */
     public enum MakeName {
-        AC, BAIC, BMW, DAF, DS, GAZ, GMC, JAC, JMC, MG, NIO, RUF, SEAT, TVR
+        /** A make. */
+        AC,
+        /** A make. */
+        BAIC,
+        /** A make. */
+        BMW,
+        /** A make. */
+        DAF,
+        /** A make. */
+        DS,
+        /** A make. */
+        GAZ,
+        /** A make. */
+        GMC,
+        /** A make. */
+        JAC,
+        /** A make. */
+        JMC,
+        /** A make. */
+        MG,
+        /** A make. */
+        NIO,
+        /** A make. */
+        RUF,
+        /** A make. */
+        SEAT,
+        /** A make. */
+        TVR
     }
 
     final static int FIRST_VEHICLE_PATENT_YEAR = 1886;
@@ -175,13 +213,17 @@ public abstract class Vehicle implements Drivable, Overridden {
      * @param initialProductionYear {@code int} Production year. Should be positive.
      * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
      *                              Should be positive.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.NegativeDouble
-     * @throws ValidationException.InvalidDate
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.NotEnough
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.InvalidString  When initialModel's length is 0.
+     * @throws ValidationException.NullObject     When make is null.
+     * @throws ValidationException.NegativeDouble When price is negative.
+     * @throws ValidationException.InvalidDate    When production year is in the
+     *                                            future or earlier that
+     *                                            FIRST_VEHICLE_PATENT_YEAR due to
+     *                                            obvious reason.
+     * @throws ValidationException.FullArray      When there is already an
+     *                                            arrayOfPassenger.
+     * @throws ValidationException.NotEnough      When there are passengers inside
+     *                                            the vehicle.
      */
     public Vehicle(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
@@ -255,7 +297,7 @@ public abstract class Vehicle implements Drivable, Overridden {
      * Setter for make. Can't set null.
      * 
      * @param input {@code MakeName} Make.
-     * @throws ValidationException.NullObject
+     * @throws ValidationException.NullObject When input is null.
      */
     public void setMake(MakeName input) throws ValidationException.NullObject {
         Validation.objectMeaningful("MakeName", input);
@@ -266,8 +308,8 @@ public abstract class Vehicle implements Drivable, Overridden {
      * Setter for model. The input should not be empty or null.
      * 
      * @param input {@code String} Model.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
+     * @throws ValidationException.InvalidString When input's length is 0.
+     * @throws ValidationException.NullObject    When input is null.
      */
     public void setModel(String input) throws ValidationException.InvalidString, ValidationException.NullObject {
         Validation.stringMeaningful("Input", input);
@@ -278,7 +320,7 @@ public abstract class Vehicle implements Drivable, Overridden {
      * Setter for price. Can't be negative.
      * 
      * @param input {@code double} Price.
-     * @throws ValidationException.NegativeDouble
+     * @throws ValidationException.NegativeDouble When input is negative.
      */
     public void setPrice(double input) throws ValidationException.NegativeDouble {
         Validation.doubleNonNegative("Price", input);
@@ -290,7 +332,7 @@ public abstract class Vehicle implements Drivable, Overridden {
      * FIRST_VEHICLE_PATENT_YEAR due to obvious reason.
      * 
      * @param input {@code int} Production year.
-     * @throws ValidationException.InvalidDate
+     * @throws ValidationException.InvalidDate When input is a invalid date.
      */
     public void setProductionYear(int input) throws ValidationException.InvalidDate {
         int currentYear = LocalDate.now().getYear();

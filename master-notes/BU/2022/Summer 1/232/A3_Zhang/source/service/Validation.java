@@ -15,12 +15,16 @@ import source.exception.*;
  * @author Jin Yu, Zhang
  */
 public class Validation {
+    /** Default constructor. */
+    public Validation() {
+    };
+
     /**
      * Only non-null object is allowed.
      * 
      * @param field {@code String} Hint for exception.
      * @param input {@code Object} Object to validate.
-     * @throws ValidationException.NullObject
+     * @throws ValidationException.NullObject When input is null.
      */
     public static void objectMeaningful(String field, Object input) throws ValidationException.NullObject {
         if (input == null)
@@ -32,8 +36,8 @@ public class Validation {
      * 
      * @param field {@code String} Hint for exception.
      * @param input {@code String} String to validate
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
+     * @throws ValidationException.InvalidString When input's length is 0.
+     * @throws ValidationException.NullObject    When input is null.
      */
     public static void stringMeaningful(String field, String input)
             throws ValidationException.InvalidString, ValidationException.NullObject {
@@ -47,7 +51,7 @@ public class Validation {
      * 
      * @param field {@code String} Hint for exception.
      * @param input {@code double} Double ot validate.
-     * @throws ValidationException.NegativeDouble
+     * @throws ValidationException.NegativeDouble When input is negative.
      */
     public static void doubleNonNegative(String field, double input) throws ValidationException.NegativeDouble {
         if (input < 0.0)
@@ -59,7 +63,7 @@ public class Validation {
      * 
      * @param field {@code String} Hint for exception.
      * @param input {@code int} Integer to validate.
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.NegativeInteger When input is negative.
      */
     public static void integerNonNegative(String field, int input) throws ValidationException.NegativeInteger {
         if (input < 0)

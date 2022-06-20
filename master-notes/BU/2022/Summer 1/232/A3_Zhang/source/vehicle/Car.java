@@ -17,8 +17,14 @@ import source.service.*;
  * @author Jin Yu, Zhang
  */
 public class Car extends Vehicle {
+    /** Drive mode. */
     public enum DriveMode {
-        Manual, Automatic, Initial
+        /** Manual */
+        Manual,
+        /** Automatic */
+        Automatic,
+        /** Initial */
+        Initial
     }
 
     private DriveMode mode;
@@ -29,7 +35,7 @@ public class Car extends Vehicle {
      * Setter for numberOfDoors. The input should be positive.
      * 
      * @param input {@code int} Number of doors.
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.NegativeInteger When input is negative.
      */
     private void setNumberOfDoors(int input) throws ValidationException.NegativeInteger {
         Validation.integerNonNegative("Number of Doors", input);
@@ -46,13 +52,19 @@ public class Car extends Vehicle {
      * @param initialProductionYear {@code int} Production year. Should be positive.
      * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
      *                              Should be positive.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.NegativeDouble
-     * @throws ValidationException.InvalidDate
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.NotEnough
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.InvalidString   When initialModel's length is 0.
+     * @throws ValidationException.NullObject      When make is null.
+     * @throws ValidationException.NegativeDouble  When price is negative.
+     * @throws ValidationException.InvalidDate     When production year is in the
+     *                                             future or earlier that
+     *                                             FIRST_VEHICLE_PATENT_YEAR due to
+     *                                             obvious reason.
+     * @throws ValidationException.FullArray       When there is already an
+     *                                             arrayOfPassenger.
+     * @throws ValidationException.NotEnough       When there are passengers inside
+     *                                             the vehicle.
+     * @throws ValidationException.NegativeInteger When numberOfPassengers are
+     *                                             negative.
      */
     public Car(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
@@ -87,7 +99,7 @@ public class Car extends Vehicle {
      * Setter for mode.
      * 
      * @param input {@code DriveMode} Mode. Can't be null.
-     * @throws ValidationException.NullObject
+     * @throws ValidationException.NullObject When input is null.
      */
     public void setMode(DriveMode input) throws ValidationException.NullObject {
         Validation.objectMeaningful("Mode", input);

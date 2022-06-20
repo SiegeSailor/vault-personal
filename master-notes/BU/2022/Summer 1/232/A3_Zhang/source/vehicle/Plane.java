@@ -17,8 +17,12 @@ import source.service.*;
  * @author Jin Yu, Zhang
  */
 public class Plane extends Vehicle {
+    /** Engine status */
     public enum EngineStatus {
-        ON, OFF
+        /** On */
+        ON,
+        /** Off */
+        OFF
     }
 
     final static int ENGINE_CAPACITY = 40;
@@ -33,7 +37,7 @@ public class Plane extends Vehicle {
      * Setter for number of windows. Should be positive.
      * 
      * @param input {@code} Number of windows.
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.NegativeInteger When input is negative.
      */
     private void setNumberOfWindows(int input) throws ValidationException.NegativeInteger {
         Validation.integerNonNegative("Number of Windows", input);
@@ -51,13 +55,19 @@ public class Plane extends Vehicle {
      * @param initialProductionYear {@code int} Production year. Should be positive.
      * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
      *                              Should be positive.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.NegativeDouble
-     * @throws ValidationException.InvalidDate
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.NotEnough
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.InvalidString   When initialModel's length is 0.
+     * @throws ValidationException.NullObject      When make is null.
+     * @throws ValidationException.NegativeDouble  When price is negative.
+     * @throws ValidationException.InvalidDate     When production year is in the
+     *                                             future or earlier that
+     *                                             FIRST_VEHICLE_PATENT_YEAR due to
+     *                                             obvious reason.
+     * @throws ValidationException.FullArray       When there is already an
+     *                                             arrayOfPassenger.
+     * @throws ValidationException.NotEnough       When there are passengers inside
+     *                                             the vehicle.
+     * @throws ValidationException.NegativeInteger When numberOfPassengers are
+     *                                             negative.
      */
     public Plane(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
@@ -106,8 +116,8 @@ public class Plane extends Vehicle {
      * Turn off an engine with index.
      * 
      * @param indexOfEngine {@code int} The engine's index.
-     * @throws ValidationException.IllegalStatus
-     * @throws ValidationException.OutScope
+     * @throws ValidationException.IllegalStatus When the car is at RUNNING.
+     * @throws ValidationException.OutScope      When the index is out of scope.
      */
     public void engineOff(int indexOfEngine) throws ValidationException.IllegalStatus, ValidationException.OutScope {
         if (isRunning() && getNumberOfStatusEngine(EngineStatus.ON) <= 1)
@@ -121,8 +131,7 @@ public class Plane extends Vehicle {
      * Turn on an engine with index.
      * 
      * @param indexOfEngine {@code int} The engine's index.
-     * @throws ValidationException.IllegalStatus
-     * @throws ValidationException.OutScope
+     * @throws ValidationException.OutScope When the index is out of scope.
      */
     public void engineOn(int indexOfEngine) throws ValidationException.OutScope {
         if (indexOfEngine > this.getNumberOfEngines() - 1)

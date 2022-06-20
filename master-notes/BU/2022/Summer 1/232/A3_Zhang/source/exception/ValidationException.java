@@ -14,6 +14,10 @@ package source.exception;
  * @author Jin Yu, Zhang
  */
 public class ValidationException {
+    /** Default constructor. */
+    public ValidationException() {
+    }
+
     /** Exception for non-existing prerequisite. */
     public static class NotExist extends Exception {
         /**

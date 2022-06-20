@@ -42,13 +42,19 @@ public class Truck extends Vehicle {
      * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
      *                              Should be positive.
      * @param initialCapacity       {@code int} Capacity. Should be positive.
-     * @throws ValidationException.InvalidString
-     * @throws ValidationException.NullObject
-     * @throws ValidationException.NegativeDouble
-     * @throws ValidationException.InvalidDate
-     * @throws ValidationException.FullArray
-     * @throws ValidationException.NotEnough
-     * @throws ValidationException.NegativeInteger
+     * @throws ValidationException.InvalidString   When initialModel's length is 0.
+     * @throws ValidationException.NullObject      When make is null.
+     * @throws ValidationException.NegativeDouble  When price is negative.
+     * @throws ValidationException.InvalidDate     When production year is in the
+     *                                             future or earlier that
+     *                                             FIRST_VEHICLE_PATENT_YEAR due to
+     *                                             obvious reason.
+     * @throws ValidationException.FullArray       When there is already an
+     *                                             arrayOfPassenger.
+     * @throws ValidationException.NotEnough       When there are passengers inside
+     *                                             the vehicle.
+     * @throws ValidationException.NegativeInteger When numberOfPassengers are
+     *                                             negative.
      */
     public Truck(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers, int initialCapacity)
@@ -91,7 +97,7 @@ public class Truck extends Vehicle {
      * Add stuff. The total for input and load can't be more that capacity.
      * 
      * @param input {@code} Desired adding number to load.
-     * @throws ValidationException.OutScope
+     * @throws ValidationException.OutScope When total load is more than capacity.
      */
     public void add(int input) throws ValidationException.OutScope {
         if ((input + this.load) > capacity)
@@ -103,11 +109,12 @@ public class Truck extends Vehicle {
      * Remove stuff. The total for load after deducting input can't be negative.
      * 
      * @param input {@code} Desired removing number to load.
-     * @throws ValidationException.OutScope
+     * @throws ValidationException.OutScope When load is negative after deducting
+     *                                      input.
      */
     public void remove(int input) throws ValidationException.OutScope {
         if ((this.load - input) < 0)
-            throw new ValidationException.OutScope("Total load can't be negative.");
+            throw new ValidationException.OutScope("Total load can't be negative after deducting input.");
         this.load -= input;
     }
 }

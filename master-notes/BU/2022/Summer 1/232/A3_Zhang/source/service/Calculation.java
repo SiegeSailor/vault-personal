@@ -15,6 +15,10 @@ import java.util.*;
  * @author Jin Yu, Zhang
  */
 public class Calculation {
+    /** Default constructor. */
+    public Calculation() {
+    }
+
     /**
      * Get all factors for an integer.
      * 
