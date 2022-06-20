@@ -2,7 +2,25 @@ package source.service;
 
 import java.util.*;
 
+/* File: Calculation.java */
+
+/**
+ * Edit History:
+ * 06/20/2022 Jin Yu, Zhang Initial version.
+ */
+
+/**
+ * The collection of math helpers.
+ * 
+ * @author Jin Yu, Zhang
+ */
 public class Calculation {
+    /**
+     * Get all factors for an integer.
+     * 
+     * @param input {@code int} Desired integer.
+     * @return The array list of factors.
+     */
     public static ArrayList<Integer> findMaxFactor(int input) {
         ArrayList<Integer> arrayListOfFactors = new ArrayList<Integer>();
 

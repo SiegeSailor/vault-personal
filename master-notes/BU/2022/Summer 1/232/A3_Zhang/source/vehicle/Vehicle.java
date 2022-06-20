@@ -1,54 +1,149 @@
 package source.vehicle;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import source.exception.*;
 import source.service.*;
 
+/* File: Vehicle.java */
+
+/**
+ * Edit History:
+ * 06/19/2022 Jin Yu, Zhang Initial version.
+ * 06/20/2022 Jin Yu, Zhang Add public methods and documentations.
+ */
+
+/**
+ * Interface for a drivable stuff. The basic requirement for a vehicle is
+ * defined here.
+ * 
+ * @author Jin Yu, Zhang
+ */
 interface Drivable {
     public enum MotionStatus {
         RUNNING,
         STOPPED
     }
 
+    /**
+     * Print all the data essential data.
+     */
     void displayWindowSticker();
 
+    /**
+     * Start a vehicle. Change motion status to RUNNING.
+     * 
+     * @throws ValidationException.NotExist
+     */
     void start() throws ValidationException.NotExist;
 
+    /**
+     * Stop a vehicle. Change motion status to STOPPED.
+     * 
+     * @throws ValidationException.NotExist
+     */
     void stop() throws ValidationException.NotExist;
 
+    /**
+     * Add a passenger. Failed when there is no empty slot or when motion status is
+     * RUNNING.
+     * 
+     * @param incomingPassenger {@code String} Passenger name.
+     * @throws ValidationException.InvalidString
+     * @throws ValidationException.NullObject
+     * @throws ValidationException.FullArray
+     * @throws ValidationException.IllegalStatus
+     */
     void hop(String incomingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.FullArray,
             ValidationException.IllegalStatus;
 
+    /**
+     * Drop off a passenger. Failed when there is no passenger matched or when
+     * motion status is RUNNING.
+     * 
+     * @param leavingPassenger {@code String} Passenger name.
+     * @throws ValidationException.InvalidString
+     * @throws ValidationException.NullObject
+     * @throws ValidationException.NoMatched
+     * @throws ValidationException.IllegalStatus
+     * @throws ValidationException.NotExist
+     */
     void drop(String leavingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.NoMatched,
             ValidationException.IllegalStatus, ValidationException.NotExist;
 
+    /**
+     * Getter for arrayOfPassengers.
+     * 
+     * @return ArrayOfPassengers.
+     */
     String[] getArrayOfPassengers();
 
+    /**
+     * Setter for arrayOfPassengers.
+     * 
+     * @param numberOfPassengers {@code int} Size of arrayOfPassengers.
+     * @throws ValidationException.FullArray
+     * @throws ValidationException.NotEnough
+     */
     void setArrayOfPassengers(int numberOfPassengers)
             throws ValidationException.FullArray, ValidationException.NotEnough;
 
+    /**
+     * Getter for driver. Could be null.
+     * 
+     * @return Driver.
+     */
     String getDriver();
 
+    /**
+     * Setter for driver. Use index to assign a existing passenger. Failed when
+     * there is no passengers or matched passenger.
+     * 
+     * @param indexOfPassenger {@code} Index for the passenger.
+     * @throws ValidationException.OutScope
+     * @throws ValidationException.NotExist
+     */
     void setDriver(int indexOfPassenger) throws ValidationException.OutScope, ValidationException.NotExist;
 
+    /**
+     * Set driver to null. Failed when there is no driver.
+     * 
+     * @throws ValidationException.NotExist
+     */
     void resignDriver() throws ValidationException.NotExist;
 
+    /**
+     * Getter for motion status with boolean value for RUNNING.
+     * 
+     * @return True if the vehicle is at RUNNING motion status.
+     */
     boolean isRunning();
 
+    /**
+     * Getter for status.
+     * 
+     * @return status.
+     */
     MotionStatus getStatus();
 }
 
-interface Overridden {
+/**
+ * Interface for methods to override.
+ * 
+ * @author Jin Yu, Zhang
+ */
+interface Overridden extends Comparable<Vehicle> {
     String toString();
-
-    int compareTo(Object that);
 }
 
-public abstract class Vehicle implements Drivable, Overridden, Serializable {
+/**
+ * The class for vehicle.
+ * 
+ * @author Jin Yu, Zhang
+ */
+public abstract class Vehicle implements Drivable, Overridden {
     public enum MakeName {
         AC, BAIC, BMW, DAF, DS, GAZ, GMC, JAC, JMC, MG, NIO, RUF, SEAT, TVR
     }
@@ -71,6 +166,23 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
 
     private MotionStatus status;
 
+    /**
+     * Construct a vehicle with necessary data.
+     * 
+     * @param initialMake           {@code MakeName} Make.
+     * @param initialModel          {@code String} Model.
+     * @param initialPrice          {@code double} Price. Should be positive.
+     * @param initialProductionYear {@code int} Production year. Should be positive.
+     * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
+     *                              Should be positive.
+     * @throws ValidationException.InvalidString
+     * @throws ValidationException.NullObject
+     * @throws ValidationException.NegativeDouble
+     * @throws ValidationException.InvalidDate
+     * @throws ValidationException.FullArray
+     * @throws ValidationException.NotEnough
+     * @throws ValidationException.NegativeInteger
+     */
     public Vehicle(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
             ValidationException.NegativeDouble, ValidationException.InvalidDate, ValidationException.FullArray,
@@ -83,18 +195,38 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         this.status = MotionStatus.STOPPED;
     };
 
+    /**
+     * Getter for make.
+     * 
+     * @return Make. Could be null.
+     */
     public MakeName getMake() {
         return this.make;
     };
 
+    /**
+     * Getter for model.
+     * 
+     * @return Model. Could be null.
+     */
     public String getModel() {
         return this.model;
     };
 
+    /**
+     * Getter for price.
+     * 
+     * @return Price.
+     */
     public double getPrice() {
         return this.price;
     };
 
+    /**
+     * Getter for production year.
+     * 
+     * @return Production year.
+     */
     public int getProductionYear() {
         return this.productionYear;
     };
@@ -119,21 +251,47 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         return this.status;
     };
 
+    /**
+     * Setter for make. Can't set null.
+     * 
+     * @param input {@code MakeName} Make.
+     * @throws ValidationException.NullObject
+     */
     public void setMake(MakeName input) throws ValidationException.NullObject {
         Validation.objectMeaningful("MakeName", input);
         this.make = input;
     };
 
+    /**
+     * Setter for model. The input should not be empty or null.
+     * 
+     * @param input {@code String} Model.
+     * @throws ValidationException.InvalidString
+     * @throws ValidationException.NullObject
+     */
     public void setModel(String input) throws ValidationException.InvalidString, ValidationException.NullObject {
         Validation.stringMeaningful("Input", input);
         this.model = input;
     };
 
+    /**
+     * Setter for price. Can't be negative.
+     * 
+     * @param input {@code double} Price.
+     * @throws ValidationException.NegativeDouble
+     */
     public void setPrice(double input) throws ValidationException.NegativeDouble {
         Validation.doubleNonNegative("Price", input);
         this.price = input;
     };
 
+    /**
+     * Setter for production year. Can't be in the future or earlier that
+     * FIRST_VEHICLE_PATENT_YEAR due to obvious reason.
+     * 
+     * @param input {@code int} Production year.
+     * @throws ValidationException.InvalidDate
+     */
     public void setProductionYear(int input) throws ValidationException.InvalidDate {
         int currentYear = LocalDate.now().getYear();
         if (input > currentYear)
@@ -174,10 +332,18 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         this.arrayOfPassengers = new String[numberOfPassengers];
     }
 
+    /**
+     * Get length of arrayOfPassengers.
+     * 
+     * @return Length of arrayOfPassengers.
+     */
     public int getLengthOfArrayOfPassengers() {
         return this.arrayOfPassengers.length;
     }
 
+    /**
+     * Print data with toString method.
+     */
     public void summarize() {
         System.out.println(this);
     };
@@ -248,6 +414,7 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
     @Override
     public String toString() {
         String passengers = "";
+        String[] arrayOfPassengers = getArrayOfPassengers();
         int lengthOfArrayOfPassengers = getLengthOfArrayOfPassengers();
         boolean isManyPassenger = lengthOfArrayOfPassengers > LIMIT_DISPLAY_NUMBER_NAME;
         int gap = lengthOfArrayOfPassengers - LIMIT_DISPLAY_NUMBER_NAME;
@@ -264,25 +431,36 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
                 + getDriver() + "\nMotion Status: " + getStatus().toString();
     }
 
+    /**
+     * Overridden method for compareTo. Return 1 if that is null. The comparing
+     * process follows the following order:
+     * 1. Make
+     * 2. Model
+     * 3. Price
+     * 4. Production Year
+     * Return 0 only if the above 4 are 0.
+     * 
+     * @param that {@code Vehicle} Compared object.
+     * @return 0 if equal. 1 if higher. -1 if lower.
+     */
     @Override
-    public int compareTo(Object that) {
-        if (that == null || !(that instanceof Vehicle))
+    public int compareTo(Vehicle that) {
+        if (that == null)
             return 1;
-        Vehicle thatVehicle = (Vehicle) that;
 
-        int resultMake = this.getMake().compareTo(thatVehicle.getMake());
+        int resultMake = this.getMake().compareTo(that.getMake());
         if (resultMake != 0)
             return resultMake;
 
-        int resultModel = this.getModel().compareTo(thatVehicle.getModel());
+        int resultModel = this.getModel().compareTo(that.getModel());
         if (resultModel != 0)
             return resultModel;
 
-        int resultPrice = Double.compare(this.getPrice(), thatVehicle.getPrice());
+        int resultPrice = Double.compare(this.getPrice(), that.getPrice());
         if (resultPrice != 0)
             return resultPrice;
 
-        int resultProductionYear = Integer.compare(this.getProductionYear(), thatVehicle.getProductionYear());
+        int resultProductionYear = Integer.compare(this.getProductionYear(), that.getProductionYear());
         return resultProductionYear;
     }
 }

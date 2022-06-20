@@ -3,6 +3,19 @@ package source.vehicle;
 import source.exception.*;
 import source.service.*;
 
+/* File: Car.java */
+
+/**
+ * Edit History:
+ * 06/19/2022 Jin Yu, Zhang Initial version.
+ * 06/20/2022 Jin Yu, Zhang Add public methods.
+ */
+
+/**
+ * The class for Car. A sub class from Vehicle.
+ * 
+ * @author Jin Yu, Zhang
+ */
 public class Car extends Vehicle {
     public enum DriveMode {
         Manual, Automatic, Initial
@@ -12,6 +25,35 @@ public class Car extends Vehicle {
 
     private int numberOfDoors;
 
+    /**
+     * Setter for numberOfDoors. The input should be positive.
+     * 
+     * @param input {@code int} Number of doors.
+     * @throws ValidationException.NegativeInteger
+     */
+    private void setNumberOfDoors(int input) throws ValidationException.NegativeInteger {
+        Validation.integerNonNegative("Number of Doors", input);
+        this.numberOfDoors = input;
+    }
+
+    /**
+     * Construct a car with necessary data. Drive mode will be set to
+     * Initial and numberOfDoors will be as same as numberOfPassengers.
+     * 
+     * @param initialMake           {@code MakeName} Make.
+     * @param initialModel          {@code String} Model.
+     * @param initialPrice          {@code double} Price. Should be positive.
+     * @param initialProductionYear {@code int} Production year. Should be positive.
+     * @param numberOfPassengers    {@code int} Array size for arrayOfPassengers.
+     *                              Should be positive.
+     * @throws ValidationException.InvalidString
+     * @throws ValidationException.NullObject
+     * @throws ValidationException.NegativeDouble
+     * @throws ValidationException.InvalidDate
+     * @throws ValidationException.FullArray
+     * @throws ValidationException.NotEnough
+     * @throws ValidationException.NegativeInteger
+     */
     public Car(MakeName initialMake, String initialModel, double initialPrice, int initialProductionYear,
             int numberOfPassengers) throws ValidationException.InvalidString, ValidationException.NullObject,
             ValidationException.NegativeDouble, ValidationException.InvalidDate, ValidationException.FullArray,
@@ -21,28 +63,43 @@ public class Car extends Vehicle {
         setNumberOfDoors(numberOfPassengers);
     }
 
+    /**
+     * Print all the data inherited from Vehicle and from the car self.
+     */
     @Override
     public void displayWindowSticker() {
         super.displayWindowSticker();
         System.out.println(
-                "Class: Car\nMode: " + getMode().toString() + "\nNumber of Doors: " + getNumberOfDoors());
+                "Class: " + this.getClass().getSimpleName() + "\nMode: " + getMode().toString()
+                        + "\nNumber of Doors: " + getNumberOfDoors());
     };
 
+    /**
+     * Getter for mode.
+     * 
+     * @return The car's current drive mode.
+     */
     public DriveMode getMode() {
         return this.mode;
     }
 
+    /**
+     * Setter for mode.
+     * 
+     * @param input {@code DriveMode} Mode. Can't be null.
+     * @throws ValidationException.NullObject
+     */
     public void setMode(DriveMode input) throws ValidationException.NullObject {
         Validation.objectMeaningful("Mode", input);
         this.mode = input;
     }
 
+    /**
+     * Getter for numberOfDoors.
+     * 
+     * @return Number of doors.
+     */
     public int getNumberOfDoors() {
         return this.numberOfDoors;
-    }
-
-    public void setNumberOfDoors(int input) throws ValidationException.NegativeInteger {
-        Validation.integerNonNegative("Number of Doors", input);
-        this.numberOfDoors = input;
     }
 }
