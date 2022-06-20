@@ -20,7 +20,7 @@ public class Truck extends Vehicle {
     @Override
     public void displayWindowSticker() {
         super.displayWindowSticker();
-        System.out.println("TRUCK DETAIL\nCapacity: " + getCapacity() + "\nLoad: " + getLoad() + "\n");
+        System.out.println("Class: Truck\nCapacity: " + getCapacity() + "\nLoad: " + getLoad());
     };
 
     public int getCapacity() {

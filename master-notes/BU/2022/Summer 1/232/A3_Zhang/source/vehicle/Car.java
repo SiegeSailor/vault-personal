@@ -25,7 +25,7 @@ public class Car extends Vehicle {
     public void displayWindowSticker() {
         super.displayWindowSticker();
         System.out.println(
-                "CAR DETAIL\nMode: " + getMode().toString() + "\nNumber of Doors: " + getNumberOfDoors() + "\n");
+                "Class: Car\nMode: " + getMode().toString() + "\nNumber of Doors: " + getNumberOfDoors());
     };
 
     public DriveMode getMode() {

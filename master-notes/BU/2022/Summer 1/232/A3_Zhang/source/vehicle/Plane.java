@@ -37,7 +37,7 @@ public class Plane extends Vehicle {
             engines += "[" + index + "] " + engine + (index == this.arrayOfEngines.length - 1 ? "" : ", ");
         }
         System.out
-                .println("PLANE DETAIL\nEngines: " + engines + "\nNumber of Windows: " + getNumberOfWindows() + "\n");
+                .println("Class: Plane\nEngines: " + engines + "\nNumber of Windows: " + getNumberOfWindows());
     };
 
     @Override

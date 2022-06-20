@@ -24,7 +24,7 @@ interface Drivable {
 
     void drop(String leavingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.NoMatched,
-            ValidationException.IllegalStatus;
+            ValidationException.IllegalStatus, ValidationException.NotExist;
 
     String[] getArrayOfPassengers();
 
@@ -226,15 +226,18 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
     @Override
     public void drop(String leavingPassenger)
             throws ValidationException.InvalidString, ValidationException.NullObject, ValidationException.NoMatched,
-            ValidationException.IllegalStatus {
+            ValidationException.IllegalStatus, ValidationException.NotExist {
         if (isRunning())
             throw new ValidationException.IllegalStatus("The vehicle is running.");
         Validation.stringMeaningful("Leaving Passenger", leavingPassenger);
         boolean isPassengerFound = false;
-        for (int index = 0; index < this.arrayOfPassengers.length; index++) {
-            if (this.arrayOfPassengers[index] == leavingPassenger && leavingPassenger != getDriver()) {
+        for (int index = 0; index < getLengthOfArrayOfPassengers(); index++) {
+            if (this.arrayOfPassengers[index].equals(leavingPassenger)) {
                 this.arrayOfPassengers[index] = null;
                 isPassengerFound = true;
+                if (leavingPassenger.equals(getDriver()))
+                    resignDriver();
+
                 break;
             }
         }
@@ -256,7 +259,7 @@ public abstract class Vehicle implements Drivable, Overridden, Serializable {
         if (isManyPassenger)
             passengers += " ,..." + gap + " more (total: " + lengthOfArrayOfPassengers + ")";
 
-        return "VEHICLE SUMMARY\nMake: " + getMake().toString() + "\nModel: " + getModel() + "\nPrice: " + getPrice()
+        return "# VEHICLE SUMMARY\nMake: " + getMake().toString() + "\nModel: " + getModel() + "\nPrice: " + getPrice()
                 + "\nProduction Year: " + getProductionYear() + "\nPassengers: " + passengers + "\nDriver: "
                 + getDriver() + "\nMotion Status: " + getStatus().toString();
     }
