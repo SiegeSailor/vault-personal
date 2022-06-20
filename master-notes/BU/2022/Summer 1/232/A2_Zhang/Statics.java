@@ -77,7 +77,7 @@ public class Statics {
         for (double member : arrayOfDouble) {
             sum += Math.pow(member - average, 2);
         }
-        return Math.sqrt(sum / (arrayOfDouble.length));
+        return Math.sqrt(sum / ((arrayOfDouble.length) - 1));
     }
 
     /** Print all member of arrayOfDouble. (Solution for d) */
