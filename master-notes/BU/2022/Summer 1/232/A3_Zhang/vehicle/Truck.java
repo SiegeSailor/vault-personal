@@ -22,17 +22,6 @@ public class Truck extends Vehicle {
     private int load;
 
     /**
-     * Setter for capacity. Should be positive.
-     * 
-     * @param input {@code int} Desired capacity.
-     * @throws ValidationException.NegativeInteger
-     */
-    private void setCapacity(int input) throws ValidationException.NegativeInteger {
-        Validation.integerNonNegative("Capacity", input);
-        this.capacity = input;
-    }
-
-    /**
      * Construct a truck with necessary data.
      * 
      * @param initialMake           {@code MakeName} Make.
@@ -116,5 +105,16 @@ public class Truck extends Vehicle {
         if ((this.load - input) < 0)
             throw new ValidationException.OutScope("Total load can't be negative after deducting input.");
         this.load -= input;
+    }
+
+    /**
+     * Setter for capacity. Should be positive.
+     * 
+     * @param input {@code int} Desired capacity.
+     * @throws ValidationException.NegativeInteger
+     */
+    public void setCapacity(int input) throws ValidationException.NegativeInteger {
+        Validation.integerNonNegative("Capacity", input);
+        this.capacity = input;
     }
 }

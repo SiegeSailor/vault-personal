@@ -34,17 +34,6 @@ public class Plane extends Vehicle {
     private int numberOfWindows;
 
     /**
-     * Setter for number of windows. Should be positive.
-     * 
-     * @param input {@code} Number of windows.
-     * @throws ValidationException.NegativeInteger When input is negative.
-     */
-    private void setNumberOfWindows(int input) throws ValidationException.NegativeInteger {
-        Validation.integerNonNegative("Number of Windows", input);
-        this.numberOfWindows = input;
-    }
-
-    /**
      * Construct a plane with necessary data. Number of engines will be
      * numberOfPassengers divided by ENGINE_CAPACITY, and all engines will be set to
      * OFF. Number of windows will be numberOfPassengers divided by WINDOW_GAP.
@@ -146,6 +135,17 @@ public class Plane extends Vehicle {
      */
     public int getNumberOfEngines() {
         return this.arrayOfEngines.length;
+    }
+
+    /**
+     * Setter for number of windows. Should be positive.
+     * 
+     * @param input {@code} Number of windows.
+     * @throws ValidationException.NegativeInteger When input is negative.
+     */
+    public void setNumberOfWindows(int input) throws ValidationException.NegativeInteger {
+        Validation.integerNonNegative("Number of Windows", input);
+        this.numberOfWindows = input;
     }
 
     /**

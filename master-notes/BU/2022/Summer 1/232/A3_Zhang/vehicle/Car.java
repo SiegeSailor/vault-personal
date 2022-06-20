@@ -32,17 +32,6 @@ public class Car extends Vehicle {
     private int numberOfDoors;
 
     /**
-     * Setter for numberOfDoors. The input should be positive.
-     * 
-     * @param input {@code int} Number of doors.
-     * @throws ValidationException.NegativeInteger When input is negative.
-     */
-    private void setNumberOfDoors(int input) throws ValidationException.NegativeInteger {
-        Validation.integerNonNegative("Number of Doors", input);
-        this.numberOfDoors = input;
-    }
-
-    /**
      * Construct a car with necessary data. Drive mode will be set to
      * Initial and numberOfDoors will be as same as numberOfPassengers.
      * 
@@ -113,5 +102,16 @@ public class Car extends Vehicle {
      */
     public int getNumberOfDoors() {
         return this.numberOfDoors;
+    }
+
+    /**
+     * Setter for numberOfDoors. The input should be positive.
+     * 
+     * @param input {@code int} Number of doors.
+     * @throws ValidationException.NegativeInteger When input is negative.
+     */
+    public void setNumberOfDoors(int input) throws ValidationException.NegativeInteger {
+        Validation.integerNonNegative("Number of Doors", input);
+        this.numberOfDoors = input;
     }
 }
