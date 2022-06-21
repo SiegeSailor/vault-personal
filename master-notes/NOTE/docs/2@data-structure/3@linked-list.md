@@ -4,14 +4,7 @@ sidebar_position: 3
 
 # Linked List
 
-:::info 提醒
-C++ 中有現成 Doubly-Linked List 可使用：
-
-```cpp
-#include <list>
-```
-
-:::
+分為 Singly-Linked List 與 Doubly-Linked List。前者每個 Node 中只有紀錄 `next` 而沒有 `previous`，雖然使用的空間較少，但由於 Access 或 Search 時只能由單一方向進行，在某些場合的效率會較低。當有記憶體限制且 Search 並非需求時，偏好使用 Singly-Linked List 而非 Doubly-Linked List。
 
 ```cpp
 #include <iostream>
@@ -27,6 +20,11 @@ class Node
 private:
     T data;
     Node<T> *next;
+    /**
+     * Singly-Linked List 與 Doubly-Linked List 的主要差異，
+     * 此程式碼中未實作。
+     */
+    Node<T> *previous;
 
 public:
     Node(T data) : data(data), next(nullptr){};
@@ -166,3 +164,21 @@ public:
     }
 };
 ```
+
+:::info 提醒
+C++ 中有現成 Doubly-Linked List 可使用：
+
+```cpp
+#include <list>
+```
+
+:::
+
+:::info 提醒
+Linked List 與 Java 中的 ArrayList 並不一樣：
+
+```java
+import java.util.ArrayList;
+```
+
+:::
