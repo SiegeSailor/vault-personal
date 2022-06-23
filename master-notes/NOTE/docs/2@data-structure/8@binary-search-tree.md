@@ -4,21 +4,21 @@ sidebar_position: 8
 
 # Binary Search Tree
 
-又簡稱 Tree。有以下特性：
+首先 Binary Search Tree 由 Binary Tree 而來 (而 Binary Tree 由 Tree 而來)，在 Binary Tree 的特性上，又有以下：
 
-- Node 可以是 Parent-Children (Array) 或 Parent-Child-Sibling (Linked List)
-- Sub Node 的值不可相等
+- Left Sub Node 與 Right Sub Node 的值不可相等
 - Left Sub Node 的值小於 This Node，而 Right Sub Node 大於 This Node
 - `insert`, `delete`, `search` 的時間複雜度皆為 $\Theta(\log n)$
 - 對於 In-Order Storage 非常有效，只要裡面的值可以用 `<` 來比較
 
+Binary Search Tree 可以用 Array (Parent-Children) 或 Linked List (Parent-Child-Sibling) 實作，以下使用自造的 Linked List：
+
 :::caution 注意
-若插入的值永遠更大，新的值只會存在右邊，這樣 `insert`, `delete`, `search` 會是 $\Theta(n)$ 而不是 $\Theta(\log n)$，因為只往單一邊插入的情況下、形成的會是 Linked List。
+若插入的值永遠更大，新的值只會存在右邊，`insert`, `delete`, `search` 會是 $\Theta(n)$ 而不是 $\Theta(\log n)$，因為只往單一邊 Insert 的情況下、形成的只會是一般的 Array 或 Linked List。
 :::
 
 ```cpp
 #include <iostream>
-#include <list>
 #include <queue>
 
 using namespace std;

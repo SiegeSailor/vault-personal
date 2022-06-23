@@ -6,6 +6,14 @@ sidebar_position: 5
 
 FILO、First In Last Out，由 Linked List 構成，主要使用在注重順序的場合，如 Compiler 解析 Syntax、Math Infix to Post-Fix Conversion、Math Post-Fix to Value Evaluation 等。
 
+:::info 提醒
+Compiler 解析 Parentheses, Curly Braces, Square Brackets 等，就是一但兩個對上了，就從 Stack 中移除，所以最後被移除的會是最外面的符號。
+:::
+
+:::info 提醒
+Infix 是為人類閱讀用，因為數學教育，我們能夠輕易辨認計算的順序 (Operator Precedence)，然而電腦無法、進而需要用 Post-Fix 來解析。
+:::
+
 ```cpp
 #include <iostream>
 /** Doubly-Linked List */
@@ -57,11 +65,3 @@ public:
     };
 };
 ```
-
-:::info 提醒
-Compiler 解析 Parentheses, Curly Braces, Square Brackets 等，就是一但兩個對上了，就從 Stack 中移除，所以最後被移除的會是最外面的符號。
-:::
-
-:::info 提醒
-Infix 是為人類閱讀用，因為數學教育，我們能夠輕易辨認計算的順序 (Operator Precedence)，然而電腦無法、進而需要用 Post-Fix 來解析。
-:::

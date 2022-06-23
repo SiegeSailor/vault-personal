@@ -11,7 +11,7 @@ sidebar_position: 10
 - **Average Time Complexity**: $\Theta(n^2)$
 - **Space Complexity**: $\Theta(1)$
 
-之所以 Time Complexity 為 $\Theta(n^2)$，是因為雖然在每次 `selectionSort` 的 For Loop 中 `findIndexOfMin` 的總數都會遞減、為 $\Theta(n)$、$\Theta(n - 1)$、$\Theta(n - 2)$、...、$\Theta(2)$、$\Theta(1)$，是為 $\Theta(\frac{n \times (n-1)}{2})$。然而在看整體時，只考慮 $n$ 的最高項次方，因此為 $\Theta(n^2)$。
+之所以 Time Complexity 為 $\Theta(n^2)$，是因為雖然在每次 `selectionSort` 的 For Loop 中 `findIndexOfMin` 的總數都會遞減、為 $\Theta(n)$、$\Theta(n - 1)$、$\Theta(n - 2)$、...、$\Theta(2)$、$\Theta(1)$，是為 $\Theta(\frac{n \times (n-1)}{2})$。然而在看整體時，只考慮 $n$ 的最高項次方，因此為 $\Theta(n^2)$：
 
 ```cpp
 #include <iostream>

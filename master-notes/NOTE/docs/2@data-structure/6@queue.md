@@ -6,6 +6,10 @@ sidebar_position: 6
 
 FIFO、First In First Out，主要使用在 Buffering Information，如 `iostream`。`iostream` 會先將檔案資料存在記憶體中，再一步步餵給使用者，這時順序就必須是精準的 FIFO。
 
+:::caution 注意
+Queue 中用的 Linked List 必須有 `head` 和 `tail` 2 個 Pointer (Doubly-Linked List)。
+:::
+
 ```cpp
 #include <iostream>
 /** Doubly-Linked List */
@@ -56,7 +60,3 @@ public:
     };
 };
 ```
-
-:::caution 注意
-Queue 中用的 Linked List 必須有 `head` 和 `tail` 2 個 Pointer (Doubly-Linked List)。
-:::
