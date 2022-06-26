@@ -4,10 +4,9 @@ sidebar_position: 8
 
 # Binary Search Tree
 
-首先 Binary Search Tree 由 Binary Tree 而來 (而 Binary Tree 由 Tree 而來)，在 Binary Tree 的特性上，又有以下：
+首先 Binary Search Tree 由 Binary Tree 而來 (而 Binary Tree 由 Tree 而來)，在 Binary Tree 與 Tree 的特性上，又有以下：
 
-- Left Sub Node 與 Right Sub Node 的值不可相等
-- Left Sub Node 的值小於 This Node，而 Right Sub Node 大於 This Node
+- Left Sub Node 的值 < Right Sub Node。注意不可相等
 - `insert`, `delete`, `search` 的時間複雜度皆為 $\Theta(\log n)$
 - 對於 In-Order Storage 非常有效，只要裡面的值可以用 `<` 來比較
 
