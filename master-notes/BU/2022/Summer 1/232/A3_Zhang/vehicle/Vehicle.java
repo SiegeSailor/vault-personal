@@ -1,5 +1,6 @@
 package vehicle;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import exception.*;
@@ -151,7 +152,7 @@ interface Overridden extends Comparable<Vehicle> {
  * 
  * @author Jin Yu, Zhang
  */
-public abstract class Vehicle implements Drivable, Overridden {
+public abstract class Vehicle implements Drivable, Overridden, Serializable {
     /**
      * Make names.
      */

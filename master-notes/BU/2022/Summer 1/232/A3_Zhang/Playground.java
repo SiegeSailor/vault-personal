@@ -63,10 +63,13 @@ public class Playground {
         return input.getMake().toString() + " " + input.getModel();
     }
 
-    /** Demonstrate file streaming. */
-    public static void fileStreaming() {
+    /**
+     * Demonstrate file streaming.
+     * 
+     * @param keyboard {@code Scanner} Input stream.
+     */
+    public static void writeFile(Scanner keyboard) {
         PrintWriter outStream = null;
-        Scanner keyboard = new Scanner(System.in);
         while (outStream == null) {
             try {
                 System.out.println("Please enter the filename:");
@@ -88,11 +91,41 @@ public class Playground {
                 }
             } catch (FileNotFoundException event) {
                 System.out.println("Incorrect filename. Please try again.");
+            } catch (Exception event) {
+                event.printStackTrace();
             }
         }
 
-        keyboard.close();
         outStream.close();
+    }
+
+    /**
+     * Demonstrate object output.
+     * 
+     * @param keyboard {@code Scanner} Input stream.
+     * @param input    {@code Object} Any object that has implemented Serializable.
+     */
+    public static void outputObject(Scanner keyboard, Object input) {
+        File file = null;
+        while (true) {
+            System.out.println("Please enter the filename:");
+            String filename = keyboard.nextLine();
+            file = new File(filename);
+            if (file.exists()) {
+                System.out.println("The file already exists.");
+                continue;
+            }
+            break;
+        }
+
+        try {
+            ObjectOutputStream outObject = new ObjectOutputStream(new FileOutputStream(file));
+            outObject.writeObject(input);
+            outObject.close();
+        } catch (Exception event) {
+            event.printStackTrace();
+            System.exit(0);
+        }
     }
 
     /**
@@ -267,7 +300,13 @@ public class Playground {
             }
         }
 
-        fileStreaming();
+        Scanner keyboard = new Scanner(System.in);
+
+        writeFile(keyboard);
+
+        outputObject(keyboard, arrayListOfVehicles.get(1));
+
+        keyboard.close();
 
         System.exit(1);
     }
