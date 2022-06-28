@@ -1,5 +1,6 @@
 
 import java.util.*;
+import java.io.*;
 
 import exception.ValidationException;
 import vehicle.Car;
@@ -60,6 +61,38 @@ public class Playground {
      */
     public static String createVehicleName(Vehicle input) {
         return input.getMake().toString() + " " + input.getModel();
+    }
+
+    /** Demonstrate file streaming. */
+    public static void fileStreaming() {
+        PrintWriter outStream = null;
+        Scanner keyboard = new Scanner(System.in);
+        while (outStream == null) {
+            try {
+                System.out.println("Please enter the filename:");
+                String filename = keyboard.nextLine();
+                File file = new File(filename);
+                if (file.exists()) {
+                    System.out.println("The file already exists.");
+                    continue;
+                }
+
+                outStream = new PrintWriter(file);
+                System.out.println("Please enter the content: (N for terminating)");
+                while (true) {
+                    String content = keyboard.nextLine();
+                    if (content.equals("N"))
+                        break;
+                    System.out.println("You entered " + content + ".");
+                    outStream.println(content);
+                }
+            } catch (FileNotFoundException event) {
+                System.out.println("Incorrect filename. Please try again.");
+            }
+        }
+
+        keyboard.close();
+        outStream.close();
     }
 
     /**
@@ -233,6 +266,8 @@ public class Playground {
                     break;
             }
         }
+
+        fileStreaming();
 
         System.exit(1);
     }
