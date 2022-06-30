@@ -4,6 +4,17 @@ sidebar_position: 23
 
 # Binary Search
 
+經典搜尋法。每次取最中間的值，若當下的值小於則往左、大於則往右，以此反覆：
+
+- **Worst Case Time Complexity**: $\mathcal{O}(\log n)$
+- **Best Case Time Complexity**: $\Omega(1)$
+- **Average Time Complexity**: $\Theta(\log n)$
+- **Space Complexity**: $\Theta(1)$
+
+:::info 提醒
+Space Complexity 在此 Iteration 中為 $\Theta(1)$，但在 Recursion 中為 $\Theta(\log n)$。Recursive Binary Search 可參考 [/Problem Solving/Recursion#Iteration](/docs/4@problem-solving/8@recursion#iteration)。
+:::
+
 ```cpp
 #include <iostream>
 using namespace std;

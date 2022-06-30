@@ -252,7 +252,7 @@ int main() {
 ```
 
 :::info 提醒
-相關概念可以參考 [/Test/Unit-Test/Principles/介面相依](/docs/8@test/4@unit-test/5@principles#介面相依)。測試中強調了 **隔離相依性** 的重要，這點可以透過 Polymorphism 的實踐達成。
+相關概念可以參考 [/Test/Unit-Test/Principles#介面相依](/docs/8@test/4@unit-test/5@principles#介面相依)。測試中強調了 **隔離相依性** 的重要，這點可以透過 Polymorphism 的實踐達成。
 :::
 
 ## Other
