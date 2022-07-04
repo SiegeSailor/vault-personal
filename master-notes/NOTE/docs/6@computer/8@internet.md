@@ -73,19 +73,27 @@ Nodal Processing Delay，發生在檢查 Router 內的 Bit Error 時、Queueing 
 
 ### Transmission
 
-Transmission Delay，傳送封包時，採用 **Store-and-Forward** 政策。當封包開始從 Source 傳送到 Router 時，會是以 Bit 為單位，只有當 Router 端有 Source 來的 Packet 的全部 Bit 時，才會將 Packet 再次以 Bit 為單位傳送到下個目的地。舉例而言，要傳送的封包 L 有 7.5Mbits，而傳送速率 R 為 1.5Mbps，那麼此封包需要 5 秒來到達 Router。而通常而言，我們假設 End-to-End Delay (Transmission Delay) 為 2L/R (假設沒有 Propagation Delay)。
+Transmission Delay，傳送封包時，採用 **Store-and-Forward** 政策。當封包開始從 Source 傳送到 Router 時，會是以 Bit 為單位，只有當 Router 端有 Source 來的 Packet 的全部 Bit 時，才會將 Packet 再次以 Bit 為單位傳送到下個目的地 (**Fragmentation and Reassembly**)。舉例而言，要傳送的封包 L 有 7.5Mbits，而傳送速率 R 為 1.5Mbps，那麼此封包需要 5 秒來到達 Router。而通常而言，我們假設 End-to-End Delay (Transmission Delay) 為 2L/R (假設沒有 Propagation Delay)。
 
 :::info 提醒
 Each packet transmitted at full link capacity.
 :::
 
+:::info 提醒
+**Fragmentation and Reassembly** 是由於 Packet/Datagram 過大而採取的一種切斷傳送方法，並在 Packet 當中透過 `fragflag` 的 0 或 1 指明是否有下一個 Fragment、並用 `offset` 表示要到下一個 Fragment 要經過多少個 Bits。
+:::
+
 ### Queueing
 
-Queueing Delay，當等待被傳送的 Packet Bit 超過傳送速度，則會發生 Queueing，而若 Queue 內的 Bit 超過 Router 的 Memory Buffer，就會發生 **Queueing Loss**，導致在 Queue 後端已達到的封包在還未被傳送時即消失。設 L 為欲傳送的封包、R 為傳送速度 Bandwidth、A 為 Average Packet Arrival Rate，他們與 Average Queueing Delay 間的關係為：
+Queueing Delay，當等待被傳送的 Packet Bit 超過傳送速度，則會發生 Queueing，而若 Queue 內的 Bit 超過 Router 的 **Memory Buffer**，就會發生 **Queueing Loss**，導致在 Queue 後端已達到的封包在還未被傳送時即消失。設 L 為欲傳送的封包、R 為傳送速度 Bandwidth、A 為 Average Packet Arrival Rate，他們與 Average Queueing Delay 間的關係為：
 
 - $LA/R \sim 0$: Small
 - $LA/R \sim 1$: Large
 - $LR/R >1$: More work arriving than serving, the delay is **infinite**
+
+:::info 提醒
+**Queueing Loss**，又稱 Head-Of-Line Blocking。當 Queueing Loss 發生時，TCP 會透過重新傳送的方式進行修正，可參考 [Computer/Layer/Transport#Protocol](/docs/6@computer/10@layer/3@transport#protocol)。
+:::
 
 ### Propagation
 
@@ -159,3 +167,7 @@ Internet 被設計之初，並沒有 Security 的概念，它的原意是讓一�
 ### DDoS Attack
 
 Distributed Denial-of-Service Attack. The attackers make resources such as servers or bandwidth unavailable for legitimate traffic by overwhelming our hosts with bogus traffic, number of different requests. Imagine if a group of people is asking you questions all the time before you get a chance to answer, you get overwhelmed with information. That's exactly what the distributed denial of service attack is.
+
+:::info 提醒
+可以使用 [Kali Linux](https://www.kali.org/) 來進行攻擊測試。
+:::

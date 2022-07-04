@@ -6,16 +6,11 @@ sidebar_position: 3
 
 Logical communication between application processes running on different hosts, formatting transmission flow。首先，當 Transport Layer 要從 Multiple Socket 送出資料時，Sender 會為每個 Data 增加 Transport Header (**Multiplexing**)，而 Receiver 則在收到後、用這些 Header Information 將 Data 傳入正確的 Socket (**De-Multiplexing**)。
 
-Segment (IP Datagram) 由以下組成：
+Segment (IP Datagram) 有 32 Bits，由以下組成。其中，32 Bit Source IP Address 即是 Source Socket，而 32 Bit Destination IP Address 則是 Destination Socket：
 
-```cli
-| -------------------------------------------------------- |
-| Header                                                   |
-| Source Socket | Destination Socket | Other Header Fields |
-| -------------------------------------------------------- |
-| Payload                                                  |
-| -------------------------------------------------------- |
-```
+![IP Datagram](/img/ip-datagram.png)
+
+> 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
 
 :::info 提醒
 **Socket** 指的是對外的接口，由 IP Address 和 Port 組成。而 Transport 層中各種實現 Connection 的方法則稱為 Socket API。**Port**，Process 在該 Host (該 IP) 上佔用的 Identifier，如 HTTP 默認 80 (默認，所以通常不用特別寫出來，除非指定在別的 Port)，而 Mail Server 通常在 25。**IP**，Internet Protocol，則定義在 [Network Layer](/docs/6@computer/10@layer/4@network)。
@@ -180,7 +175,7 @@ $\alpha$ 通常為 `0.125`。
 
 TCP 保證 Sender 的資料不會超過 Receiver 的 Buffer 的方法，是在 Receiver-Sender Segment 中，指名 **rwnd**，Receive Window (比 RcvBuffer，TCP Receive Buffer 小，該值通常由 OS 自動調整)，而 Sender 在傳送時，會限制 Data 不超過 Receive Window。
 
-### Congestion COntrol
+### Congestion Control
 
 主要會發生，是因為在有多個 Sender 對單一 Receiver 時，若其中一個 Sender 不停的送、佔滿所有通道，那麽其他 Sender 會在沒收到的 ACK 的情況下、重新傳送，造成更多 Congestion。另一個問題是，萬一 Packet Dropped，當中所有 Upstream Transmission Capacity 都是浪費的。TCP 使用以下方法控制 Congestion：
 
