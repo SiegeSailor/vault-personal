@@ -119,3 +119,67 @@ Subnet 可以是巢狀：
 ![Subnet](/img/subnet.png)
 
 > 圖片來源：[AVI Networks](https://avinetworks.com/glossary/subnet-mask/)
+
+Subnet 的 IP Address 是由 ISP (參考 [Computer/Internet#ISP](/docs/6@computer/8@internet#isp)) 分配的，而 ISP 又是由 [ICANN](https://www.icann.org/)，International Corporation for Assigned Names and Numbers 中取得 IP Address，具體有：
+
+- Allocates addresses
+- Manages DNS
+- Assigns domain names, resolves disputes
+
+ISP 利用 **Route Summarization** (Route Aggregation) 減少大量 Route Table 的耗費，與 CIDR 相同，比起傳送以下：
+
+```terminal
+ip route-static 192.168.1.0 24 10.1.12.2
+ip route-static 192.168.2.0 24 10.1.12.2
+...
+ip route-static 192.168.255.0 24 10.1.12.2
+```
+
+改由以下取代。這樣一來，單一行即可將 192.168.1.0/24 , 192.168.2.0/24...192.168.255.0/24 全都涵蓋在內：
+
+```terminal
+ip route-static 192.168.0.0 16 10.1.12.2
+```
+
+### DHCP
+
+通常在 OS 中我們可以手動設置 IP Address，但通常現代裝置使用的是 DHCP，Dynamic Host Configuration Protocol，也就是動態的從 Server 端取得 IP Address、無需任何設定。具體而言，每個 Subnet 中都會有個 DHCP Server，像是家中的 Wireless Router，當一個新的裝置加入時，它會透過 Broadcast 來請求一個 IP Address，而 DHCP Server 在收到後會 Unicast 一個檔案到該裝置上。收到後，裝置會自動設置檔案內的資訊如 IP Address。檔案中，還有：
+
+- Address of first-hop router for client's packet to go outside of the subnet that they are part of
+- Name and IP Address of DHS server
+- Network mask indicating network versus host portion of address
+
+### NAT
+
+首先，有些 IP Address 基於用途，是 Private、不可作為交換用途的：
+
+| Class | Block          |
+| ----- | -------------- |
+| A     | 10.0.0/8       |
+| B     | 172.16.0.0/12  |
+| C     | 192.168.0.0/16 |
+
+但因為 IP Address 日益缺乏的關係，基於 RFC 1918，我們使用 **NAT**，Network Address Translation 來將以下 IP Address 透過 Mapping 來同樣用於網路中 (Transform into publicly rotatable address)。可以注意到，由 `10.0.0/24` 進出的 Packet 的 Source/Destination 都被視為 `138.72.76.9`：
+
+```mermaid
+flowchart LR
+Internet <-->|138.72.76.9|A
+subgraph A[Local Network 10.0.0/24]
+direction LR
+    B[10.0.0.4]
+    B <-->C[10.0.0.1]
+    B <-->D[10.0.0.2]
+    B <-->E[10.0.0.3]
+end
+```
+
+使用 NAT 有以下具體益處：
+
+- Just one IP Address for all devices. No need for a range of address from ISP
+- Can change local network addresses without notifying outside world (ISP)
+- Can change ISP without modifying local network addresses
+- Local devices are not visible and addressable by outside world, which is a security plus
+
+![Net](/img/net.png)
+
+> 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
