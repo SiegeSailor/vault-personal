@@ -47,6 +47,10 @@ Local Forwarding Table，又稱 Datagram Forwarding Table。值得注意的是�
 - **ICMP**: Error reporting. Router signaling
 - **Routing**: Related to Forwarding Table. RIP, OSPF, and BGP
 
+### Internet
+
+Subnet
+
 :::info 提醒
 IP Datagram 的傳輸可以參考 [Computer/Internet#Transmission](/docs/6@computer/8@internet#transmission)。
 :::
