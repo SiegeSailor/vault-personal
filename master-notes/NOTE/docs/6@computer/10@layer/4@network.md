@@ -39,22 +39,6 @@ Local Forwarding Table，又稱 Datagram Forwarding Table。值得注意的是�
 
 > 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
 
-## Protocol
-
-如 [Computer/Layer/Transport#Protocol](/docs/6@computer/10@layer/3@transport#protocol) 有針對不同需求的協議，Network Layer 有：
-
-- **Internet**: **IP** stands for Internet Protocol. Address conventions. Datagram/Packet format
-- **ICMP**: Error reporting. Router signaling
-- **Routing**: Related to Forwarding Table. RIP, OSPF, and BGP
-
-### Internet
-
-Subnet
-
-:::info 提醒
-IP Datagram 的傳輸可以參考 [Computer/Internet#Transmission](/docs/6@computer/8@internet#transmission)。
-:::
-
 ## Service Model
 
 由 Sender 到 Receiver，透過不同的 Service Model 來確保不同的需求，如針對單一 Datagram 的保證送達，或是對整個傳送的順序保證：
@@ -94,3 +78,38 @@ Very expansive to maintain。由 Telephone Circuit 演變而來，作用於 Sour
 - Need for guaranteed service
 - Dumb end systems
 - Complicity inside network
+
+## Protocol
+
+如 [Computer/Layer/Transport#Protocol](/docs/6@computer/10@layer/3@transport#protocol) 有針對不同需求的協議，Network Layer 有：
+
+- **Internet**: **IP** stands for Internet Protocol. Address conventions. Datagram/Packet format
+- **ICMP**: Error reporting. Router signaling
+- **Routing**: Related to Forwarding Table. RIP, OSPF, and BGP
+
+### Internet
+
+常見的有 32 Bits 的 IPV4，以及 128 Bits 的 IPV6。
+
+:::info 提醒
+IP Datagram 的傳輸可以參考 [Computer/Internet#Transmission](/docs/6@computer/8@internet#transmission)。
+:::
+
+#### Subnet
+
+假設有個 `223.1.1.0/24` 的 IP Address，`/24` 表示在 32 Bits (IPV4) 中，我們將前面的 24 Bits 用來作 Network 的識別，而其餘 8 Bits 用來表示有多少台裝置在該裝置中。2 進制中共有 256 個數字，表示 `223.1.1.0/24` 內有最多 256 台裝置。
+
+其中，`223.1.1.0` 指 Network 本身，而 `223.1.1.255` 則是 Broadcast Address，也就是說我們還有 254 個 IP Address 在 `223.1.1.0/24` 內能被分配給不同裝置：
+
+```mermaid
+flowchart LR
+A[223.1.1.0/24] --> B[Network IP Address 223.1.1.0]
+A --> C[Devices 223.1.1.1...223.1.1.254]
+A --> D[Broadcast IP Address 223.1.1.225]
+```
+
+Subnet 可以是巢狀：
+
+![Subnet](/img/subnet.png)
+
+> 圖片來源：[AVI Networks](https://avinetworks.com/glossary/subnet-mask/)
