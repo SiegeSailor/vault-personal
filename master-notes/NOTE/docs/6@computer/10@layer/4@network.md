@@ -87,7 +87,7 @@ Very expansive to maintain。由 Telephone Circuit 演變而來，作用於 Sour
 - **ICMP**: Error reporting. Router signaling
 - **Routing**: Related to Forwarding Table. RIP, OSPF, and BGP
 
-### Internet
+## Internet
 
 常見的有 32 Bits 的 IPV4，以及 128 Bits 的 IPV6。
 
@@ -95,18 +95,24 @@ Very expansive to maintain。由 Telephone Circuit 演變而來，作用於 Sour
 IP Datagram 的傳輸可以參考 [Computer/Internet#Transmission](/docs/6@computer/8@internet#transmission)。
 :::
 
-#### Subnet
+### Subnet
 
 假設有個 `223.1.1.0/24` 的 IP Address，`/24` 表示在 32 Bits (IPV4) 中，我們將前面的 24 Bits 用來作 Network 的識別，而其餘 8 Bits 用來表示有多少台裝置在該裝置中。2 進制中共有 256 個數字，表示 `223.1.1.0/24` 內有最多 256 台裝置。
 
-其中，`223.1.1.0` 指 Network 本身，而 `223.1.1.255` 則是 Broadcast Address，也就是說我們還有 254 個 IP Address 在 `223.1.1.0/24` 內能被分配給不同裝置：
+其中，`223.1.1.0` 指 Network 本身，而 `223.1.1.255` 則是 Broadcast Address，也就是說我們還有 254 ($2^8 - 2$) 個 IP Address 在 `223.1.1.0/24` 內能被分配給不同裝置：
 
 ```mermaid
-flowchart LR
-A[223.1.1.0/24] --> B[Network IP Address 223.1.1.0]
-A --> C[Devices 223.1.1.1...223.1.1.254]
-A --> D[Broadcast IP Address 223.1.1.225]
+flowchart TB
+A[223.1.1.0/24] --> B[Network/223.1.1.0]
+A --> C[Devices/223.1.1.1...254]
+A --> D[Broadcast/223.1.1.225]
 ```
+
+:::info 提醒
+一開始，IP Address 是固定每 8 Bits 作為一單位的。也就是 Subnet 的數量由 256 ($2^8$) 開始、下一級就有 65536 ($2^{16}$)，這樣對一般公司的需求都不符合，因此出現了 **CIDR**，Classless Inter Domain Routing，RFC 1918。主旨在於指定 Host IP Address 的長度、從而讓 Subnet 數量能更靈活的擴充，如 `/24` 表示從頭算起、有 24 Bits 被用作 Host IP Address、8 Bits 用作 Subnet。
+
+若是 `135.1.1.0/20`，則表示有 20 Bits 被用作 Host IP Address、12 Bits 用作 Subnet。CIDR 同樣被運用在 IPV6 中，也就是 `135.1.1.0/20` 在 IPV6 中有 108 Bits ($2^{108} - 2$) 可被 Subnet 內個別裝置使用。
+:::
 
 Subnet 可以是巢狀：
 
