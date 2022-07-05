@@ -128,7 +128,7 @@ Subnet 的 IP Address 是由 ISP (參考 [Computer/Internet#ISP](/docs/6@compute
 
 ISP 利用 **Route Summarization** (Route Aggregation) 減少大量 Route Table 的耗費，與 CIDR 相同，比起傳送以下：
 
-```terminal
+```cli
 ip route-static 192.168.1.0 24 10.1.12.2
 ip route-static 192.168.2.0 24 10.1.12.2
 ...
@@ -137,7 +137,7 @@ ip route-static 192.168.255.0 24 10.1.12.2
 
 改由以下取代。這樣一來，單一行即可將 192.168.1.0/24 , 192.168.2.0/24...192.168.255.0/24 全都涵蓋在內：
 
-```terminal
+```cli
 ip route-static 192.168.0.0 16 10.1.12.2
 ```
 
@@ -245,12 +245,34 @@ AS1 <--> AS2
 AS2 <--> B[Other Networks]
 ```
 
-雖有 Admin、但沒有 Policy 與任何規範的，稱作 **Infra-AS**：
+雖有 Admin、但沒有 Policy 與任何規範，專注於提升 Routing Performance 的稱作 **Infra-AS**：
 
 - **RIP**: Routing Information Protocol，1982 年發明、當時還無 Router 的存在，為 Distance Vector algorithm，每 30 秒更新、180 秒無回應則為錯誤，不允許相同 Cost 的 Link 存在。現今只有少數小型網路仍在使用
 - **OSRF**: Open Shortest Path First，為 Link State algorithm、使用 Dijkstra's Algorithm。允許多個相同 Cost 的 Link 存在，並且對每個 Message 進行驗證以避免入侵。將 Network 分為二層、Backbone 與多個 Area，縮減一次需要的資訊量、並在 Backbone 中進行跨 Area 溝通。適合用於大型網路
 
-而另有 **Inter-AS**，又稱 **IGP**，Interior Gateway Protocol，與 Infra-AS 的主要差別在於 Admin 會希望限制來往資料的量與類型、以及如何傳送。分有：
+而另有 **Inter-AS**，又稱 **IGP**，Interior Gateway Protocol，與 Infra-AS 的主要差別在於 Admin 會希望限制來往資料的量與類型、以及如何傳送，這些 Policy 可能會導致 Low Performance。分有：
 
 - **IGRP**: 由 Cisco 開發、用於私人 Network。類似的有 **EIGRP**、**IS-IS**
 - **BGP**: Border Gateway Protocol。分為從周遭 Subnet 取得資訊的 **eBGP** 以及將資訊推廣到全部 subnet 的 **iBGP**。可以在當中實作 **Routing Policy**，限制或阻擋 Source/Destination，或者甚至是內容類型如影片、圖片等
+
+### Broadcast Routing
+
+當需要從 Source 對所有 Network 內的 Node 送出相同資料時使用，有以下做法：
+
+- **Source Duplication**: 從 Source 端即送出等同 Node 數量的資料並指向不同的 Node，即 **Flooding**。Flooding 本身會造成 Cycles 和 Broadcast Storm，但可以透過 **Controlled Forwarding** (持續追蹤已收到 Packet 的 Node) 或 **RPF**、Reverse Path Forwarding (只傳送到 Source-Node 間最近距離的 Node) 來優化
+- **In-Network Duplication**: Source 到第一個 Node 後再進行 Flooding
+- **Spanning Tree**: 首先建立 Spanning Tree，只有到 Node 後、其再對下方的 Children 作複製與傳送，這樣就不用像 Flooding 一樣收取到該 Node 不需要的 Packet。目前最常用的方法，如下：
+
+```mermaid
+flowchart TB
+A[Broadcast Initialed Node A] -->|Copied/Forwarded from A|B
+A -->|Copied/Forwarded from A|C
+B -->|Copied/Forwarded from B|D
+B -->|...|E
+C -->|Copied/Forwarded from C|F
+F -->|Copied/Forwarded from F|G
+```
+
+:::info 提醒
+**Multicast** 是 Broadcast 的副產物，即只針對特定的複數 Network Participant 進行資料傳送。**Unicast** 則是指對單一對象。
+:::
