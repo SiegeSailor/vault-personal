@@ -186,7 +186,7 @@ NAT 的實際運用：
 
 > 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
 
-### Routing
+## Routing
 
 Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destination 間最低成本的路徑。根據不同情境選擇最適當的方法，如在本地建構網路，那麼會選用 Decentralized 和 Static，快速且節省成本，但不利於長期發展。若是跨區域，則會選用 Global 和 Dynamic，雖然昂貴但能適應龐大的架構：
 
@@ -195,7 +195,7 @@ Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destinat
 - **Static**: Routes change slowly over time
 - **Dynamic**: Routes periodically update in response to link cost changes
 
-#### Dijkstra's Algorithm
+### Dijkstra's Algorithm
 
 為 **Link State** algorithm，通常用於規模較大的 Network。追蹤當下 Node 到鄰近 Node 間的 Cost，在選擇最低成本同時、釐清整體的最佳路徑。要注意的是，由於一開始時只知道鄰近 Node 的 Cost、也因為 Node 有可能隨機消失與形成，因此與有所有 Cost 資訊後找出的最佳解並不一定一致：
 
@@ -203,7 +203,7 @@ Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destinat
 
 > 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
 
-#### Bellman Ford Algorithm
+### Bellman Ford Algorithm
 
 為 **Distance Vector** algorithm，通常用於小規模 Network。與 Dijkstra's Algorithm 的不同之處在於，可以解決有負數的路徑 (Dijkstra's Algorithm 中若出現負數路徑，由於其貪婪選擇最短的特性，會無限繞回)。另外，主要做法是、每次取所有 Node 的 Distance Vector，再從中選擇最低成本的路徑：
 
@@ -217,7 +217,7 @@ $$
 D_{x}(y) \impliedby min_{v}\{c(x,y) + D_{v}(y)\} \textrm{for each node} y \in \N
 $$
 
-#### Algorithm Comparison
+### Algorithm Comparison
 
 比較 Link State 與 Distance Vector：
 
@@ -231,6 +231,26 @@ $$
 Incorrect Link Cost 可能導致 Packet Delivery Delay，但 Incorrect Path 有可能令 Packet 無法送達。
 :::
 
-#### Hierarchy Routing
+### Hierarchy Routing
 
-將 Routers 併在同個區域中，並賦予自治與管理權，稱為 **AS**，Autonomous System，且在同一 AS 中的 Router 使用同一種 Routing Protocol，稱為 Intra-AS Routing Protocol。AS 間有 Link Router 相連結。這是源於不可能有單一 Router 能夠存儲一張涵蓋所有 Routing 的 Table，因此，只在 **需要** 時 Collapse Intra-As Routing Algorithm，平時我們只取該 AS 的 Router、極大增加一次能溝通的量。
+將 Routers 併在同個區域中，並賦予自治與管理權，稱為 **AS**，Autonomous System，且在同一 AS 中的 Router 使用同一種 Routing Protocol，稱為 Intra-AS Routing Protocol。AS 間有 Link Router 相連結。
+
+這是源於不可能有單一 Router 能夠存儲一張涵蓋所有 Routing 的 Table，因此，只在 **需要** 時 Collapse Intra-As Routing Algorithm，平時我們只取該 AS 的 Router、極大增加一次能溝通的量。假設，AS1 收到一個 Destination 在 AS1 外的 Packet，AS1 必須知道最靠近該 Destination 的 **Boundary Router** 為何，並在學習後、將其加入所有 AS1 的 Router 的 Forwarding Table 中：
+
+```mermaid
+flowchart LR
+A[Other Networks] <--> AS3
+AS3 <--> AS1
+AS1 <--> AS2
+AS2 <--> B[Other Networks]
+```
+
+雖有 Admin、但沒有 Policy 與任何規範的，稱作 **Infra-AS**：
+
+- **RIP**: Routing Information Protocol，1982 年發明、當時還無 Router 的存在，為 Distance Vector algorithm，每 30 秒更新、180 秒無回應則為錯誤，不允許相同 Cost 的 Link 存在。現今只有少數小型網路仍在使用
+- **OSRF**: Open Shortest Path First，為 Link State algorithm、使用 Dijkstra's Algorithm。允許多個相同 Cost 的 Link 存在，並且對每個 Message 進行驗證以避免入侵。將 Network 分為二層、Backbone 與多個 Area，縮減一次需要的資訊量、並在 Backbone 中進行跨 Area 溝通。適合用於大型網路
+
+而另有 **Inter-AS**，又稱 **IGP**，Interior Gateway Protocol，與 Infra-AS 的主要差別在於 Admin 會希望限制來往資料的量與類型、以及如何傳送。分有：
+
+- **IGRP**: 由 Cisco 開發、用於私人 Network。類似的有 **EIGRP**、**IS-IS**
+- **BGP**: Border Gateway Protocol。分為從周遭 Subnet 取得資訊的 **eBGP** 以及將資訊推廣到全部 subnet 的 **iBGP**。可以在當中實作 **Routing Policy**，限制或阻擋 Source/Destination，或者甚至是內容類型如影片、圖片等
