@@ -6,20 +6,25 @@ sidebar_position: 3
 
 Logical communication between application processes running on different hosts, formatting transmission flow。首先，當 Transport Layer 要從 Multiple Socket 送出資料時，Sender 會為每個 Data 增加 Transport Header (**Multiplexing**)，而 Receiver 則在收到後、用這些 Header Information 將 Data 傳入正確的 Socket (**De-Multiplexing**)。
 
-Segment (IP Datagram) 有 32 Bits，由以下組成。其中，32 Bit Source IP Address 即是 Source Socket，而 32 Bit Destination IP Address 則是 Destination Socket：
-
-![IP Datagram](/img/ip-datagram.png)
-
-> 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
+Segment (IP Datagram) 有 32 Bits，由以下組成。其中，32-Bit Source IP Address 即是 Source Socket，而 32-Bit Destination IP Address 則是 Destination Socket：
 
 ```cli
-| -------------------------------------------------------- |
-| Header                                                   |
-| Source Socket | Destination Socket | Other Header Fields |
-| -------------------------------------------------------- |
-| Payload                                                  |
-| -------------------------------------------------------- |
+| -------------------------------------------------------------|
+| Header                                                       |
+| Ver. | Header Length | Type of Service | Length              |
+| 16-Bit Identifier |  Flags | Length                          |
+| Time to Live | Upper Layer | Header CheckSum                 |
+| 32-Bit IP Source Address                                     |
+| 32-Bit IP Destination Address                                |
+| Options                                                      |
+| ------------------------------------------------------------ |
+| Payload (Data. Typically a TCP or UDP segment )              |
+| ------------------------------------------------------------ |
 ```
+
+:::info 提醒
+Overhead 的資料有 20 Bytes of TCP、20 Bytes of IP，以及其他 Application Layer Overhead。
+:::
 
 :::info 提醒
 **Socket** 指的是對外的接口，由 IP Address 和 Port 組成。而 Transport 層中各種實現 Connection 的方法則稱為 Socket API。**Port**，Process 在該 Host (該 IP) 上佔用的 Identifier，如 HTTP 默認 80 (默認，所以通常不用特別寫出來，除非指定在別的 Port)，而 Mail Server 通常在 25。**IP**，Internet Protocol，則定義在 [Network Layer](/docs/6@computer/10@layer/4@network)。
