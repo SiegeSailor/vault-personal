@@ -197,7 +197,7 @@ Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destinat
 
 #### Dijkstra's Algorithm
 
-為 **Link State** algorithm。追蹤當下 Node 到鄰近 Node 間的 Cost，在選擇最低成本同時、釐清整體的最佳路徑。要注意的是，由於一開始時只知道鄰近 Node 的 Cost、也因為 Node 有可能隨機消失與形成，因此與有所有 Cost 資訊後找出的最佳解並不一定一致：
+為 **Link State** algorithm，通常用於規模較大的 Network。追蹤當下 Node 到鄰近 Node 間的 Cost，在選擇最低成本同時、釐清整體的最佳路徑。要注意的是，由於一開始時只知道鄰近 Node 的 Cost、也因為 Node 有可能隨機消失與形成，因此與有所有 Cost 資訊後找出的最佳解並不一定一致：
 
 ![Dijkstra's Algorithm](/img/dijkstra.png)
 
@@ -205,7 +205,7 @@ Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destinat
 
 #### Bellman Ford Algorithm
 
-為 **Distance Vector** algorithm。與 Dijkstra's Algorithm 的不同之處在於，可以解決有負數的路徑 (Dijkstra's Algorithm 中若出現負數路徑，由於其貪婪選擇最短的特性，會無限繞回)。另外，主要做法是、每次取所有 Node 的 Distance Vector，再從中選擇最低成本的路徑：
+為 **Distance Vector** algorithm，通常用於小規模 Network。與 Dijkstra's Algorithm 的不同之處在於，可以解決有負數的路徑 (Dijkstra's Algorithm 中若出現負數路徑，由於其貪婪選擇最短的特性，會無限繞回)。另外，主要做法是、每次取所有 Node 的 Distance Vector，再從中選擇最低成本的路徑：
 
 ![Bellman Ford Algorithm](/img/bellman-ford.png)
 
@@ -216,3 +216,21 @@ Node `x` 獲得對於周遭 Node 的距離後，會用以下公式 B-F Equation 
 $$
 D_{x}(y) \impliedby min_{v}\{c(x,y) + D_{v}(y)\} \textrm{for each node} y \in \N
 $$
+
+#### Algorithm Comparison
+
+比較 Link State 與 Distance Vector：
+
+|                      | Link State                                                                           | Distance Vector                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Message Complexity   | With $N$ nodes, $E$ lniks, $\Theta(N \times E)$ messages sent                        | Exchange between neighbors only (Convergence time varies)                                                 |
+| Robustness           | Nodes can advertise incorrect **Link Cost**. Each node computes only its own table   | Nodes can advertise incorrect **Path**. Each node's table used by others. Error propagate through network |
+| Speed Of Convergence | $\Theta(N \times 2)$ requires $\Theta(N \times E)$ messages. Maybe have oscillations | Convergence time varies. May be routing loops. Count-to-infinity problem                                  |
+
+:::info 提醒
+Incorrect Link Cost 可能導致 Packet Delivery Delay，但 Incorrect Path 有可能令 Packet 無法送達。
+:::
+
+#### Hierarchy Routing
+
+將 Routers 併在同個區域中，並賦予自治與管理權，稱為 **AS**，Autonomous System，且在同一 AS 中的 Router 使用同一種 Routing Protocol，稱為 Intra-AS Routing Protocol。AS 間有 Link Router 相連結。這是源於不可能有單一 Router 能夠存儲一張涵蓋所有 Routing 的 Table，因此，只在 **需要** 時 Collapse Intra-As Routing Algorithm，平時我們只取該 AS 的 Router、極大增加一次能溝通的量。
