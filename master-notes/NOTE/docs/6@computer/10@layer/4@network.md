@@ -180,6 +180,39 @@ end
 - Can change ISP without modifying local network addresses
 - Local devices are not visible and addressable by outside world, which is a security plus
 
+NAT 的實際運用：
+
 ![Net](/img/net.png)
 
 > 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
+
+### Routing
+
+Routing Protocol，又稱 Routing Algorithm，主要用來找出 Source-Destination 間最低成本的路徑。根據不同情境選擇最適當的方法，如在本地建構網路，那麼會選用 Decentralized 和 Static，快速且節省成本，但不利於長期發展。若是跨區域，則會選用 Global 和 Dynamic，雖然昂貴但能適應龐大的架構：
+
+- **Global**: All routers have complete topology and link cost information. **Link State** algorithm
+- **Decentralized**: Router knows physically-connected neighbors and link costs to neighbors. Iterative process of computation exchange of info with neighbors. **Distance Vector** algorithm
+- **Static**: Routes change slowly over time
+- **Dynamic**: Routes periodically update in response to link cost changes
+
+#### Dijkstra's Algorithm
+
+為 **Link State** algorithm。追蹤當下 Node 到鄰近 Node 間的 Cost，在選擇最低成本同時、釐清整體的最佳路徑。要注意的是，由於一開始時只知道鄰近 Node 的 Cost、也因為 Node 有可能隨機消失與形成，因此與有所有 Cost 資訊後找出的最佳解並不一定一致：
+
+![Dijkstra's Algorithm](/img/dijkstra.png)
+
+> 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
+
+#### Bellman Ford Algorithm
+
+為 **Distance Vector** algorithm。與 Dijkstra's Algorithm 的不同之處在於，可以解決有負數的路徑 (Dijkstra's Algorithm 中若出現負數路徑，由於其貪婪選擇最短的特性，會無限繞回)。另外，主要做法是、每次取所有 Node 的 Distance Vector，再從中選擇最低成本的路徑：
+
+![Bellman Ford Algorithm](/img/bellman-ford.png)
+
+> 圖片來源：[NYU CS Bridge](https://engineering.nyu.edu/academics/programs/nyu-tandon-bridge)
+
+Node `x` 獲得對於周遭 Node 的距離後，會用以下公式 B-F Equation 更新自身的 DV，Distance Vector：
+
+$$
+D_{x}(y) \impliedby min_{v}\{c(x,y) + D_{v}(y)\} \textrm{for each node} y \in \N
+$$
