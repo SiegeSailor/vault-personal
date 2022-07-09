@@ -190,7 +190,6 @@ public class LinkedListBag implements Bag {
     boolean deleteOne(int input) {
         Node current = this.head;
         Node previous = null;
-        // ? deleteOne、BinarySearchTree、leetCode、homework、program assignment
 
         while(current != null) {
             if (current.getData() == input) {
