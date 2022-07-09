@@ -4,13 +4,13 @@ sidebar_position: 8
 
 # Binary Search Tree
 
-首先 Binary Search Tree 由 Binary Tree 而來 (而 Binary Tree 由 Tree 而來)，在 Binary Tree 與 Tree 的特性上，又有以下：
+首先 Binary Search Tree 由 **Binary Tree** 而來、而 Binary Tree 又由 **Tree** 而來。在 Binary Tree 與 Tree 的特性上，又有以下：
 
-- Left Sub Node 的值 < Right Sub Node。注意不可相等
-- `insert`, `delete`, `search` 的時間複雜度皆為 $\Theta(\log n)$
-- 對於 In-Order Storage 非常有效，只要裡面的值可以用 `<` 來比較
+- Left Sub Node 的值 `<` Right Sub Node 且不可相等
+- `insert`、`delete` 和 `search` 的 Time Complexity 皆為 $\Theta(\log n)$
+- 對於 In-Order Storage 非常有效 (裡面的值必須可以用 `<` 來比較)
 
-Binary Search Tree 可以用 Array (Parent-Children) 或 Linked List (Parent-Child-Sibling) 實作，以下使用自造的 Linked List：
+Binary Search Tree 可以用 **Array** (Parent-Children) 或 **Linked List** (Parent-Child-Sibling) 實作，以下使用自造的 Linked List：
 
 :::caution 注意
 若插入的值永遠更大，新的值只會存在右邊，`insert`, `delete`, `search` 會是 $\Theta(n)$ 而不是 $\Theta(\log n)$，因為只往單一邊 Insert 的情況下、形成的只會是一般的 Array 或 Linked List。
@@ -40,7 +40,7 @@ public:
     int size() const
     {
         int count = 1;
-        // 以下為 recursion。讓所有 sub node、從 left 和 right 開始，自行算出自己的 size 再加總
+        /** Recursion。讓所有 Sub Node 由 Left 和 Right 開始，自行算出 Size 再加總 */
         if (left != nullptr)
             count += left->size();
         if (right != nullptr)
@@ -65,8 +65,12 @@ public:
             return;
         };
 
+         /**
+          * 結束條件為 cache == nullptr，
+          * 會一直向下找到最底的 Leaf。
+          * 當到達最底時，previous 會是 Leaf 的 Parent
+          */
         BSTNode<T> *cache = root;
-        // cache 會跑到 nullptr，而 previous 就是在找到的 nullptr 前的最後一個 Node
         BSTNode<T> *previous = root;
         while (cache != nullptr)
         {
@@ -86,9 +90,10 @@ public:
     void remove(BSTNode<T> *&target)
     {
         // 當要移除的是 Leaf (無 sub node) 時，只需直接移除、然後更新他的 parent 指向到 nullptr
+        /**  */
         if (target->left == nullptr && target->right == nullptr)
         {
-            // BST 中最後一個 node
+            /** */
             if (target->parent == nullptr)
             {
                 root = nullptr;
