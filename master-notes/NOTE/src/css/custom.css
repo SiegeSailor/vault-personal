@@ -37,6 +37,9 @@ img:not([title='Diagram generated via mermaid']) {
   border-radius: 2.5px;
   padding: 16px;
 }
+img:not([title='Diagram generated via mermaid']).avatar__photo {
+  padding: 0px;
+}
 
 img[title='Diagram generated via mermaid'] {
   display: block;
