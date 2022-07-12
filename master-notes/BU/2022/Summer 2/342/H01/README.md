@@ -10,15 +10,12 @@ A homework assignment for class **MET CS342** at Boston University, instructed b
 Files within the submitted folder.
 
 ```
-├── build/
-├── public/
-│   ├──index.html
-│   └── ...
-├── src/
-│   ├── component/
-│   └── ...
+├── class/
+├── docs/
 ├── README.md
-└── Entry.java
+├── Entry.java
+├── Game.java
+└── compile.sh
 ```
 
 ## Question 1
@@ -273,4 +270,4 @@ many turns it took. You must handle incorrect input (letters when numbers were
 expected). You should submit to blackboard source code for this problem, and
 output from 2 runs of the program. (50 Points)
 
-Please see [Entry.java](./Entry.java);
+Please see [Entry.java](./Entry.java) or use `sh compile.sh` to compile and execute.
