@@ -272,3 +272,5 @@ When the user guesses the correct number, the game should show the user how
 many turns it took. You must handle incorrect input (letters when numbers were
 expected). You should submit to blackboard source code for this problem, and
 output from 2 runs of the program. (50 Points)
+
+Please see [Entry.java](./Entry.java);

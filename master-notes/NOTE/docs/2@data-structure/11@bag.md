@@ -76,7 +76,7 @@ public class ArrayBag {
 
     public int deleteAll(int input) {
         int count = 0;
-        while(deleteOne(input)) {
+        while(this.deleteOne(input)) {
             count++;
         }
 
@@ -99,7 +99,7 @@ public class ArrayBag {
         this.count = 0;
     }
 
-    public void addBag(Bag that) {
+    public void addBag(ArrayBag that) {
         for (int index = 0; index < that.count; index++) {
             this.add(that.arrayOfData[index]);
         }
@@ -118,9 +118,9 @@ public class ArrayBag {
 }
 ```
 
-## Linked-List
+## Singly-Linked List
 
-首先，將 ArrayBag 的 Interface 取出：
+首先，將 ArrayBag 的 Interface 取出。注意 `addBag` 不在內，因爲我們需要對 Linked List 獨有的 `head` 進行操作：
 
 ```java
 interface Bag {
@@ -139,12 +139,10 @@ interface Bag {
     boolean isEmpty();
 
     void clear();
-
-    void addBag(Bag that);
 }
 ```
 
-接著使用 Linked List 來建立 Bag。而我們需要 Node 來建立 Linked List：
+接著使用 Singly-Linked List 來建立 Bag。而我們需要 Node 來建立 Singly-Linked List：
 
 ```java
 public class Node {
@@ -170,13 +168,15 @@ public class Node {
 }
 ```
 
+Bag 本身：
+
 ```java
-public class LinkedListBag implements Bag {
+public class SinglyLinkedListBag implements Bag {
     private Node head;
 
     private int count;
 
-    void add(int input) {
+    public void add(int input) {
         Node node = new Node();
         node.setData(input);
         node.setNext(this.head);
@@ -185,35 +185,282 @@ public class LinkedListBag implements Bag {
         return true;
     }
 
-    void addMany(int ... arrayOfInput)
+    public void addMany(int ... arrayOfInput) {
+        for (int input : arrayOfInput) {
+            this.add(input);
+        }
+    }
 
-    boolean deleteOne(int input) {
+    public boolean deleteOne(int input) {
         Node current = this.head;
         Node previous = null;
 
         while(current != null) {
             if (current.getData() == input) {
-                Node previous = current;
-                previous.setNext(current.getNExt);
-                current = null;
+                if (previous == null) {
+                    this.head = this.head.getNext();
+                    this.count--;
+                    return true;
+                }
+
+                previous.setNext(current.getNext);
+                current--;
 
                 return true;
+            } else {
+                previous = current;
+                current = current.getNext();
             }
         }
 
         return false;
     }
 
-    int deleteAll(int input)
+    public int deleteAll(int input) {
+        int count;
+        while(this.deleteOne(input)) {
+            count++;
+        }
 
-    boolean isExist(int input)
+        return count;
+    }
 
-    boolean isFull()
+    public boolean isExist(int input) {
+        Node cache = this.head;
+        while (cache != null) {
+            if (cache.getData() == input) {
+                return true;
+            }
 
-    boolean isEmpty()
+            cache = cache.getNext();
+        }
 
-    void clear()
+        return false;
+    }
 
-    void addBag(Bag that)
+    /** Depends on memory amount */
+    public boolean isFull() {
+        return false;
+    }
+
+    public boolean isEmpty() {
+        return (this.count == 0);
+    }
+
+    public void clear() {
+        this.count = 0;
+        this.head = null;
+    }
+
+    public void addBag(SinglyLinkedListBag that) {
+        Node cache = that.head;
+        while(cache != null) {
+            add(cache.getData());
+
+            cache = cache.getNext();
+        }
+
+        that.clear();
+    }
+
+    public void addBagTraversal(SinglyLinkedListBag that) {
+        Node cache = this.head;
+        while (cache != null && cache.getNext() != null) {
+            cache = cache.getNext();
+        }
+
+        if (cache != null) {
+            cache.setNext(that.head);
+            this.count += that.count;
+        } else {
+            this.head = that.head;
+            count = that.count;
+        }
+
+        that.head = null;
+        that.count = 0;
+    }
+
+    public String toString(){
+        String message = "";
+        Node cache = this.head;
+        while(cache != null) {
+            message += "-> " + cache.getData() + "\n";
+
+            cache = cache.getNext();
+        }
+
+        return message;
+    }
+}
+```
+
+## Doubly-Linked List
+
+接著使用 Doubly-Linked List 來建立 Bag。而我們需要 Node 來建立 Doubly-Linked List。注意這邊使用 Generic Type：
+
+```java
+public class Node<T> {
+    private T data;
+
+    private Node<T> next;
+
+    private Node<T> previous;
+
+    public void setData(T input) {
+        this.data = input;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setNext(Node<T> input) {
+        this.next = input;
+    }
+
+    public Node<T> getNext() {
+        return this.next;
+    }
+
+    public void setPrevious(Node<T> input) {
+        this.next = input;
+    }
+
+    public Node<T> getPrevious() {
+        return this.next;
+    }
+}
+```
+
+Bag 本身：
+
+```java
+public class DoublyLinkedListBag<T> implements Bag {
+    private Node<T> head;
+
+    private Node<T> tail;
+
+    private int count;
+
+    private Node<T> search(T input) {
+        Node<T> cache = this.head;
+
+        while(cache != null) {
+            if (cache.getData().equals(input)) return cache;
+
+            cache = cache.getNext();
+        }
+
+        return null;
+    }
+
+    void add(T input) {
+        Node<T> node = new Node<T>();
+        node.setData(input);
+
+        if (this.count == 0) {
+            this.head = this.tail = node;
+            return true;
+        }
+
+        node.setNext(this.head);
+        this.head.setPrevious(node);
+        this.head = node;
+        this.count++;
+
+        return true;
+    }
+
+    /** Possibly head pollution */
+    void addMany(T ... arrayOfInput) {
+        for (T input : arrayOfInput) {
+            this.add(input);
+        }
+    }
+
+    boolean deleteOne(T input) {
+        Node<T> cache = this.search(input);
+        if (cache != null) {
+            if (this.count == 1) {
+                this.head = this.tail = null;
+                this.count = 0;
+                return true;
+            }
+
+            /** Compare memory address */
+            if (cache == this.head) {
+                this.head = this.head.getNext();
+                this.head.setPrevious(null);
+                this.count--;
+                return true;
+            }
+
+            /** Compare memory address */
+            if (cache == this.tail) {
+                this.tail = this.getPrevious();
+                this.tail.setNext(null);
+                this.count--;
+                return true;
+            }
+
+            cache.getPrevious().setNext(cache.getNext());
+            cache.getNext().setPrevious(cache.getPrevious());
+            this.count--;
+            return true;
+        }
+
+        return false;
+    }
+
+    int deleteAll(T input) {
+        int count;
+        while(this.deleteOne(input)) {
+            count++;
+        }
+
+        return count;
+    }
+
+    boolean isExist(T input) {
+        return (this.search(input) != null);
+    }
+
+    /** Depends on memory amount */
+    boolean isFull() {
+        return false;
+    }
+
+    boolean isEmpty() {
+        return (this.count == 0);
+    }
+
+    void clear() {
+        this.count = 0;
+        this.head = this.tail = null;
+    }
+
+    void addBag(DoublyLinkedListBag that) {
+        Node<T> cache = that.head;
+        while(cache != null) {
+            add(cache.getData());
+
+            cache = cache.getNext();
+        }
+
+        that.clear();
+    }
+
+    public String toString(){
+        String message = "";
+        Node<T> cache = this.head;
+        while(cache != null) {
+            message += "-> " + cache.getData() + "\n";
+
+            cache = cache.getNext();
+        }
+
+        return message;
+    }
 }
 ```
