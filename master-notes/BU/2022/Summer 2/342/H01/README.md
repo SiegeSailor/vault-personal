@@ -6,12 +6,11 @@ A homework assignment for class **MET CS342** at Boston University, instructed b
 
 ## File Structure
 
-Files within the submitted folder.
+Submitted files.
 
 ```
-├── class/
-├── docs/
 ├── README.md
+├── flow-chart.png
 ├── Entry.java
 ├── Game.java
 └── compile.sh
