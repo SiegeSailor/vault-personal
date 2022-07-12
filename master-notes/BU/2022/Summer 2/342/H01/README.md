@@ -1,9 +1,8 @@
 # Homework Assignment
 
 ![Week 1](https://img.shields.io/badge/Week-1-blue)
-![Test Passed 3](https://img.shields.io/badge/Test%20Passed-3-blue)
 
-A homework assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **July 10, 2022**.
+A homework assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **July 12, 2022**.
 
 ## File Structure
 
@@ -270,4 +269,267 @@ many turns it took. You must handle incorrect input (letters when numbers were
 expected). You should submit to blackboard source code for this problem, and
 output from 2 runs of the program. (50 Points)
 
+### Algorithmic Design
+
+According to the requirement, there are a few things we must achieve. First we need to have the user to input value and catch if it is not a number, second we have to hint the user if the input value is too large or too small. Please see the following pseudo-code:
+
+```
+get a random target value
+ask user to input value
+try-catch input value
+while game is not end
+    read input
+    catch non-numeric value
+    if input == target value
+        print game information
+        end game or start another round
+    if input < target value or input > target value
+        print hint for target value
+```
+
+It is clearer to check the flow chart:
+
+![Flow Chart](./flow-chart.png)
+
+### Java Code
+
 Please see [Entry.java](./Entry.java) or use `sh compile.sh` to compile and execute.
+
+### Runs
+
+Start a game. Guess until get the correct value. Chose not to start another round:
+
+```
+The game I am thinking of a number (1th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+700
+The target value is smaller.
+Please enter an integer within the range 1-700. Input STOP to give up:
+400
+The target value is smaller.
+Please enter an integer within the range 1-400. Input STOP to give up:
+200
+The target value is bigger.
+Please enter an integer within the range 200-400. Input STOP to give up:
+300
+The target value is smaller.
+Please enter an integer within the range 200-300. Input STOP to give up:
+250
+The target value is smaller.
+Please enter an integer within the range 200-250. Input STOP to give up:
+210
+The target value is bigger.
+Please enter an integer within the range 210-250. Input STOP to give up:
+220
+The target value is bigger.
+Please enter an integer within the range 220-250. Input STOP to give up:
+225
+The target value is bigger.
+Please enter an integer within the range 225-250. Input STOP to give up:
+230
+The target value is smaller.
+Please enter an integer within the range 225-230. Input STOP to give up:
+226
+The target value is bigger.
+Please enter an integer within the range 226-230. Input STOP to give up:
+227
+The target value is bigger.
+Please enter an integer within the range 227-230. Input STOP to give up:
+228
+Congratulation! The target value is indeed 228! It took you 12 times to guess.
+The game is over. Would you like to start another round? (Y)
+N
+The game is closed. Thank you for participating in our event. You have played 1 times.
+```
+
+Intend to guess 0, negative numbers, and guess larger/smaller numbers when the range already printed:
+
+```
+The game I am thinking of a number (1th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+0
+The target value is bigger.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+-500
+The target value is bigger.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+500
+The target value is bigger.
+Please enter an integer within the range 500-1000. Input STOP to give up:
+250
+The target value is bigger.
+Please enter an integer within the range 500-1000. Input STOP to give up:
+700
+The target value is smaller.
+Please enter an integer within the range 500-700. Input STOP to give up:
+600
+The target value is smaller.
+Please enter an integer within the range 500-600. Input STOP to give up:
+550
+The target value is smaller.
+Please enter an integer within the range 500-550. Input STOP to give up:
+540
+The target value is smaller.
+Please enter an integer within the range 500-540. Input STOP to give up:
+530
+The target value is smaller.
+Please enter an integer within the range 500-530. Input STOP to give up:
+520
+The target value is smaller.
+Please enter an integer within the range 500-520. Input STOP to give up:
+510
+The target value is smaller.
+Please enter an integer within the range 500-510. Input STOP to give up:
+505
+The target value is smaller.
+Please enter an integer within the range 500-505. Input STOP to give up:
+501
+Congratulation! The target value is indeed 501! It took you 13 times to guess.
+The game is over. Would you like to start another round? (Y)
+Y
+
+The game I am thinking of a number (2th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+700
+The target value is smaller.
+Please enter an integer within the range 1-700. Input STOP to give up:
+900
+The target value is smaller.
+Please enter an integer within the range 1-700. Input STOP to give up:
+300
+The target value is smaller.
+Please enter an integer within the range 1-300. Input STOP to give up:
+500
+The target value is smaller.
+Please enter an integer within the range 1-300. Input STOP to give up:
+222
+The target value is smaller.
+Please enter an integer within the range 1-222. Input STOP to give up:
+111
+The target value is smaller.
+Please enter an integer within the range 1-111. Input STOP to give up:
+55
+The target value is smaller.
+Please enter an integer within the range 1-55. Input STOP to give up:
+22
+The target value is bigger.
+Please enter an integer within the range 22-55. Input STOP to give up:
+24
+The target value is bigger.
+Please enter an integer within the range 24-55. Input STOP to give up:
+34
+The target value is bigger.
+Please enter an integer within the range 34-55. Input STOP to give up:
+44
+The target value is smaller.
+Please enter an integer within the range 34-44. Input STOP to give up:
+40
+The target value is bigger.
+Please enter an integer within the range 40-44. Input STOP to give up:
+42
+The target value is smaller.
+Please enter an integer within the range 40-42. Input STOP to give up:
+41
+Congratulation! The target value is indeed 41! It took you 27 times to guess.
+The game is over. Would you like to start another round? (Y)
+Nope
+The game is closed. Thank you for participating in our event. You have played 2 times.
+```
+
+Input non-numeric values. Play 3 times. Give up at the first time:
+
+```
+The game I am thinking of a number (1th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+500
+The target value is bigger.
+Please enter an integer within the range 500-1000. Input STOP to give up:
+I am handsome
+The entered value is not a integer, please try again. (This guess doesn't count)
+Please enter an integer within the range 500-1000. Input STOP to give up:
+STOP
+You gave up. The target value was 708. You guessed 2 times.
+The game is over. Would you like to start another round? (Y)
+Y
+
+The game I am thinking of a number (2th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+708
+The target value is smaller.
+Please enter an integer within the range 1-708. Input STOP to give up:
+500
+The target value is smaller.
+Please enter an integer within the range 1-500. Input STOP to give up:
+200
+The target value is smaller.
+Please enter an integer within the range 1-200. Input STOP to give up:
+105
+The target value is smaller.
+Please enter an integer within the range 1-105. Input STOP to give up:
+50
+The target value is bigger.
+Please enter an integer within the range 50-105. Input STOP to give up:
+75
+The target value is bigger.
+Please enter an integer within the range 75-105. Input STOP to give up:
+85
+The target value is bigger.
+Please enter an integer within the range 85-105. Input STOP to give up:
+95
+The target value is bigger.
+Please enter an integer within the range 95-105. Input STOP to give up:
+100
+The target value is smaller.
+Please enter an integer within the range 95-100. Input STOP to give up:
+99
+The target value is smaller.
+Please enter an integer within the range 95-99. Input STOP to give up:
+98
+The target value is smaller.
+Please enter an integer within the range 95-98. Input STOP to give up:
+96
+The target value is bigger.
+Please enter an integer within the range 96-98. Input STOP to give up:
+95
+The target value is bigger.
+Please enter an integer within the range 96-98. Input STOP to give up:
+97
+Congratulation! The target value is indeed 97! It took you 16 times to guess.
+The game is over. Would you like to start another round? (Y)
+Y
+
+The game I am thinking of a number (3th round) has begun. The target value is between 1 to 1000.
+Please enter an integer within the range 1-1000. Input STOP to give up:
+2
+The target value is bigger.
+Please enter an integer within the range 2-1000. Input STOP to give up:
+500
+The target value is bigger.
+Please enter an integer within the range 500-1000. Input STOP to give up:
+700
+The target value is smaller.
+Please enter an integer within the range 500-700. Input STOP to give up:
+600
+The target value is bigger.
+Please enter an integer within the range 600-700. Input STOP to give up:
+650
+The target value is smaller.
+Please enter an integer within the range 600-650. Input STOP to give up:
+640
+The target value is bigger.
+Please enter an integer within the range 640-650. Input STOP to give up:
+633
+The target value is bigger.
+Please enter an integer within the range 640-650. Input STOP to give up:
+645
+The target value is smaller.
+Please enter an integer within the range 640-645. Input STOP to give up:
+655
+The target value is smaller.
+Please enter an integer within the range 640-645. Input STOP to give up:
+643
+Congratulation! The target value is indeed 643! It took you 26 times to guess.
+The game is over. Would you like to start another round? (Y)
+
+The game is closed. Thank you for participating in our event. You have played 3 times.
+```
