@@ -10,6 +10,11 @@ public class Node {
         this.increaseCount();
     }
 
+    public Node(String data, int count) {
+        this.data = data;
+        this.addCount(count);
+    }
+
     public Node getNext() {
         return this.next;
     }
@@ -26,8 +31,12 @@ public class Node {
         return this.data.length();
     }
 
+    public void addCount(int input) {
+        this.count += input;
+    }
+
     public void increaseCount() {
-        this.count++;
+        this.addCount(1);
     }
 
     public int getCount() {
@@ -36,7 +45,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "@" + Integer.toHexString(this.hashCode()) + ": " + this.data + " ("
-                + this.getLength() + " characters)";
+        return this.getClass().getName() + "@" + Integer.toHexString(this.hashCode()) + ": " + this.data + " (appear "
+                + this.getCount() + " times, " + this.getLength() + " characters)";
     }
 }

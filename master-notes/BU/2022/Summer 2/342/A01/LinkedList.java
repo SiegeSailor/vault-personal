@@ -10,32 +10,49 @@ public class LinkedList implements Iterable<String> {
 
     private Node head;
 
-    public void append(String data) {
+    public void append(Node node) {
+        /** First time to append */
         if (this.isEmpty()) {
-            this.head = this.longest = this.occurMost = new Node(data);
+            this.head = this.longest = this.occurMost = node;
+            this.numberOfNode++;
             return;
         }
 
+        /** See if there is a duplicated node exist */
         Node cache = this.head;
-        while (cache.getNext() != null) {
-            if (cache.getData().equals(data)) {
-                cache.increaseCount();
+        Node previous = null;
+        while (cache != null) {
+            if (cache.getData().equals(node.getData())) {
+                this.numberOfNode++;
+                cache.addCount(node.getCount());
                 if (cache.getCount() > this.occurMost.getCount())
                     this.occurMost = cache;
                 return;
             }
+            previous = cache;
             cache = cache.getNext();
         }
-        Node node = new Node(data);
+
+        /** Append the data at the end */
         if (node.getLength() > this.longest.getLength())
             this.longest = node;
-        cache.setNext(node);
+        previous.setNext(node);
+        this.numberOfNode++;
+    }
+
+    public void append(String data, int count) {
+        this.append(new Node(data, count));
+    }
+
+    public void append(String data) {
+        this.append(new Node(data));
     }
 
     /**
      * Create a new linked list which contains nodes with corresponding data.
      * 
-     * @param arrayOfData {@code String...} Wanted data.
+     * @param arrayOfData {@code String...} Wanted array of data. Should not have
+     *                    duplicated data.
      * @return A linked list contains corresponding nodes. The linked list could be
      *         empty if there is no matched nodes.
      */
@@ -46,16 +63,13 @@ public class LinkedList implements Iterable<String> {
 
         Node cache = this.head;
         boolean isEveryFound = false;
-        while (cache != null || isEveryFound) {
-            String matched = null;
+        while (cache != null && !isEveryFound) {
             for (String data : arrayOfData) {
-                if (cache.getData() == data) {
-                    matched = data;
+                if (cache.getData().equals(data)) {
+                    linkedList.append(cache.getData(), cache.getCount());
                     break;
                 }
             }
-            if (matched != null)
-                linkedList.append(matched);
 
             isEveryFound = linkedList.getNumberOfNode() == arrayOfData.length;
             cache = cache.getNext();
@@ -113,9 +127,8 @@ public class LinkedList implements Iterable<String> {
         if (isEmpty()) {
             message = "Empty linked list.";
         } else {
-            message += this.getNumberOfNode() + "nodes in this linked list.\n";
+            message += this.getNumberOfNode() + " nodes in this linked list:\n";
             Node cache = this.head;
-            message += (cache + "\n");
             while (cache != null) {
                 message += cache + "\n";
                 cache = cache.getNext();
@@ -148,6 +161,11 @@ public class LinkedList implements Iterable<String> {
             }
         }
 
+    }
+
+    public void clear() {
+        this.numberOfNode = 0;
+        this.head = this.longest = this.occurMost = null;
     }
 
     @Override

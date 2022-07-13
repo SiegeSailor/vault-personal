@@ -22,6 +22,8 @@ import java.util.Scanner;
 public class Entry {
     static final String PATHNAME = "./source.txt";
 
+    static final String YES = "Y";
+
     /** Default constructor. */
     public Entry() {
     }
@@ -32,6 +34,8 @@ public class Entry {
      * @param arguments {@code String[]} Implemented but not used.
      */
     public static void main(String[] arguments) {
+        LinkedList linkedList = new LinkedList();
+
         try {
             File file = new File(System.getProperty("user.dir") + "/../" + PATHNAME);
 
@@ -43,22 +47,36 @@ public class Entry {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                System.out.println(line);
+                /** Parse line and store them into the list */
+                String[] arrayOfWord = line.split(" ");
+                for (String word : arrayOfWord) {
+                    String lowercase = word.toLowerCase();
+                    String value = "";
+                    for (Character character : lowercase.toCharArray()) {
+                        if (Character.isLetterOrDigit(character))
+                            value += character;
+                    }
+
+                    if (value.length() > 0)
+                        linkedList.append(value);
+                }
             }
             scanner.close();
-
         } catch (Exception event) {
             System.out.println(event.getMessage());
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("Do you want to print tack trace? (Y/N)");
+            System.out.println("Do you want to print tack trace? (" + YES + ")");
             String input = keyboard.nextLine();
             keyboard.close();
-            if (input.equals("Y")) {
+            if (input.equals(YES))
                 event.printStackTrace();
-            }
 
             System.out.println("System exists.");
             System.exit(0);
         }
+
+        System.out.println("How many times do the following words appear in the text?");
+        System.out.println(linkedList.search("portrait", "persian", "dorian",
+                "experimental", "magnetic"));
     }
 }
