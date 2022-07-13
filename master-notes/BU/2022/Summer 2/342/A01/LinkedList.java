@@ -51,8 +51,8 @@ public class LinkedList implements Iterable<String> {
     /**
      * Create a new linked list which contains nodes with corresponding data.
      * 
-     * @param arrayOfData {@code String...} Wanted array of data. Should not have
-     *                    duplicated data.
+     * @param arrayOfData {@code String...} Wanted array of data. If there is
+     *                    duplicated data then the search will never stop early.
      * @return A linked list contains corresponding nodes. The linked list could be
      *         empty if there is no matched nodes.
      */
@@ -94,7 +94,7 @@ public class LinkedList implements Iterable<String> {
         Node cache = this.head;
         while (cache != null) {
             if (cache.getCount() > countBase)
-                linkedList.append(cache.getData());
+                linkedList.append(cache.getData(), cache.getCount());
             cache = cache.getNext();
         }
 

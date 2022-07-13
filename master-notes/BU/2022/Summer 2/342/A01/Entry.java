@@ -78,5 +78,17 @@ public class Entry {
         System.out.println("How many times do the following words appear in the text?");
         System.out.println(linkedList.search("portrait", "persian", "dorian",
                 "experimental", "magnetic"));
+
+        System.out.println("How many entries are in the Linked List?");
+        System.out.println(linkedList.getNumberOfNode() + " entries in this linked list.");
+
+        System.out.println("How many words occur more than 20 times?");
+        System.out.println(linkedList.search(20));
+
+        System.out.println("Which word occurs most frequently?");
+        System.out.println(linkedList.getOccurMost());
+
+        System.out.println("Which word is the longest in the book?");
+        System.out.println(linkedList.getLongest());
     }
 }
