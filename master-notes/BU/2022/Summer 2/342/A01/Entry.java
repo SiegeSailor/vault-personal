@@ -1,0 +1,64 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+/*
+ * Text Parser                                                                        *
+ *     You are to write a program that reads in a body of text and inserts the text   *
+ *     into a Linked List class that you write from scratch. You should keep an       *
+ *     instance count for each word in the text. Each time a duplicate word is added  *
+ *     you should  be able to update the instance count for that word inside the Node *
+ *     (this will require you to search the Linked List for each word entered). At    *
+ *     the end of the text insertion you will show statistics for the run.            *
+ *                                                                                    *
+ * - Author:     Zhang, Jin Yu                                                        *
+ * - Email:      siege@bu.edu                                                         *
+ * - Date:       July 13, 2022                                                        *
+ * - Class:      MET CS342                                                            *
+ * - Instructor: Vic Berry                                                            *
+ */
+
+/** Driver. */
+public class Entry {
+    static final String PATHNAME = "./source.txt";
+
+    /** Default constructor. */
+    public Entry() {
+    }
+
+    /**
+     * Actions to demonstrate the programming assignment.
+     * 
+     * @param arguments {@code String[]} Implemented but not used.
+     */
+    public static void main(String[] arguments) {
+        try {
+            File file = new File(System.getProperty("user.dir") + "/../" + PATHNAME);
+
+            Scanner scanner = new Scanner(file);
+            if (!file.exists()) {
+                scanner.close();
+                throw new FileNotFoundException();
+            }
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                System.out.println(line);
+            }
+            scanner.close();
+
+        } catch (Exception event) {
+            System.out.println(event.getMessage());
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Do you want to print tack trace? (Y/N)");
+            String input = keyboard.nextLine();
+            keyboard.close();
+            if (input.equals("Y")) {
+                event.printStackTrace();
+            }
+
+            System.out.println("System exists.");
+            System.exit(0);
+        }
+    }
+}
