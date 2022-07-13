@@ -1,15 +1,30 @@
+/** Node class for linked lists. */
 public class Node {
+    /** Next node. */
     private Node next;
 
+    /** Content inside the node. */
     private String data;
 
+    /** A counter inside the node. Only meaningful for the parent linked list. */
     private int count;
 
+    /**
+     * Construct a node with given data. count will set to 1.
+     * 
+     * @param data {@code String} A string.
+     */
     public Node(String data) {
         this.data = data;
         this.increaseCount();
     }
 
+    /**
+     * Construct a node with given data and count.
+     * 
+     * @param data  {@code String} A string.
+     * @param count {@code int}
+     */
     public Node(String data, int count) {
         this.data = data;
         this.addCount(count);

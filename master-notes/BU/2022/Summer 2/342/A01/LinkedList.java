@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList implements Iterable<String> {
+public class LinkedList implements Iterable<Node> {
     private int numberOfNode;
 
     private Node longest;
@@ -125,20 +125,20 @@ public class LinkedList implements Iterable<String> {
     public String toString() {
         String message = "";
         if (isEmpty()) {
-            message = "Empty linked list.";
+            message = "Empty linked list.\n";
         } else {
             message += this.getNumberOfNode() + " nodes in this linked list:\n";
-            Node cache = this.head;
-            while (cache != null) {
-                message += cache + "\n";
-                cache = cache.getNext();
+
+            Iterator<Node> iterator = this.iterator();
+            while (iterator.hasNext()) {
+                message += iterator.next() + "\n";
             }
         }
 
         return message;
     }
 
-    public class LinkedListIterator implements Iterator<String> {
+    public class LinkedListIterator implements Iterator<Node> {
         private Node iterator;
 
         public LinkedListIterator() {
@@ -151,13 +151,13 @@ public class LinkedList implements Iterable<String> {
         }
 
         @Override
-        public String next() throws NoSuchElementException {
+        public Node next() throws NoSuchElementException {
             if (iterator == null) {
                 throw new NoSuchElementException();
             } else {
-                String data = iterator.getData();
+                Node node = new Node(iterator.getData(), iterator.getCount());
                 iterator = iterator.getNext();
-                return data;
+                return node;
             }
         }
 
@@ -169,7 +169,7 @@ public class LinkedList implements Iterable<String> {
     }
 
     @Override
-    public Iterator<String> iterator() {
+    public Iterator<Node> iterator() {
         return new LinkedListIterator();
     }
 }

@@ -72,3 +72,233 @@ public:
     };
 };
 ```
+
+使用 Java Array 實作：
+
+```java
+public class ArrayStack {
+    private static final int SIZE = 10;
+
+    private Integer[] arrayOfStack;
+
+    private int count;
+
+    public ArrayStack() {
+        this.arrayOfStack = new Integer[SIZE];
+        this.count = 0;
+    }
+
+    public boolean push(Integer input) {
+        /** Don't allow stack overflow */
+        if (this.isFull()) return false;
+
+        this.arrayOfStack[this.count++] = input;
+        return true;
+    }
+
+    public Integer pop() {
+        /** Don't allow stack underflow */
+        if (this.isEmpty()) return null;
+
+        return this.arrayOfStack[--this.count];
+    }
+
+    public int size() {
+        return this.count;
+    }
+
+    public int getCapacity() {
+        return this.arrayOfStack.length;
+    }
+
+    public Integer peak() {
+        return this.arrayOfStack[this.count - 1];
+    }
+
+    public void clear() {
+        this.count = 0;
+
+        /** Not simple but more semantic */
+        while(!this.isEmpty()) {
+            this.pop();
+        }
+    }
+
+    public boolean isEmpty() {
+        return this.count == 0;
+    }
+
+    public boolean isFull() {
+        return this.count == this.arrayOfStack.length;
+    }
+
+    public String toString() {
+        String message = "";
+
+        if (this.count == 0)
+            message += "Empty array stack.\n";
+
+        for (int index = this.count - 1; index >= 0; index--) {
+            if (index == (this.count - 1)) {
+                message += "    Stack top:";
+            } else {
+                message += "    ";
+            }
+            message += (this.arrayOfStack[index] + "\n");
+        }
+
+        return message;
+    }
+}
+```
+
+接著利用 Java Linked List 實作。Interface 與 Array 一樣：
+
+```java
+public class Node<T> {
+    private T data;
+
+    private Node<T> next;
+
+    public void setData(T input) {
+        this.data = input;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setNext(Node<T> input) {
+        this.next = input;
+    }
+
+    public Node<T> getNext() {
+        return this.next;
+    }
+}
+```
+
+```java
+import java.util.Scanner;
+
+public class LinkedListStack<T> {
+    private Node<T> head;
+
+    private int count;
+
+    public boolean push(T input) {
+        Node<T> node = new Node<T>();
+        node.setData(input);
+        node.setNext(this.head);
+        this.head = node;
+        this.count++;
+
+        return true;
+    }
+
+    public T pop() {
+        /** Don't allow stack underflow */
+        if (this.isEmpty()) return null;
+
+        T data = this.head.getData;
+        this.head = this.head.getNext();
+        this.count--;
+
+        return data;
+    }
+
+    public int size() {
+        return this.count;
+    }
+
+    public int getCapacity() {
+        return Integer.MAX_VALUE;
+    }
+
+    public T peak() {
+        return this.head.getData();
+    }
+
+    public void clear() {
+        this.count = 0;
+        this.head = null;
+    }
+
+    public boolean isEmpty() {
+        return (this.count == 0) || (this.head == null);
+    }
+
+    public boolean isFull() {
+        return false;
+    }
+
+    public String toString() {
+        String message = "";
+
+        if (this.count == 0)
+            message += "Empty array stack.\n";
+
+        Node<T> cache = this.head;
+        /** No need to reverse since the incoming node will always be the head */
+        for (int index = 0; index < this.count; index++) {
+            if (index == 0) {
+                message += "    Stack top:";
+            } else {
+                message += "    ";
+            }
+            message += (cache.getData() + "\n");
+            cache = cache.getNext();
+        }
+
+        return message;
+    }
+
+    /** RPN Calculator implantation */
+    static void main(String[] arguments) {
+        LinkedListStack<Double> linkedListStack = new LinkedListStack<Double>();
+
+        boolean isDone = false;
+        Scanner keyboard = new Scanner(System.in);
+        String input, inputMapped;
+        while(!isDone) {
+            System.out.println("Enter command (? for help)\n -> ");
+            input = keyboard.nextLine();
+            inputMapped = input.toUpperCase();
+
+            switch(inputMapped) {
+                case "Q":
+                    isDone = true;
+                    break;
+                case "?":
+                case "H":
+                    System.out.println("Help goes here.");
+                    break;
+                case "+":
+                    break;
+                case "*":
+                    break;
+                case "-":
+                    break;
+                /** Should be single / due to syntax highlighting */
+                case "\\":
+                    break;
+                case "C":
+                    break;
+                case "P":
+                    break;
+                case "D":
+                    break;
+                default:
+                    Double value;
+                    try {
+                        value = Double.parseDouble(input);
+                        linkedListStack.push(value);
+                    } catch (NumberFormatException event) {
+                        System.out.println("Invalid command (" + input + ")");
+                    }
+                    break;
+            }
+        }
+    }
+}
+```

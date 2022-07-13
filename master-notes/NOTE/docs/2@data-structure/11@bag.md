@@ -255,7 +255,7 @@ public class SinglyLinkedListBag implements Bag {
     public void addBag(SinglyLinkedListBag that) {
         Node cache = that.head;
         while(cache != null) {
-            add(cache.getData());
+            this.add(cache.getData());
 
             cache = cache.getNext();
         }

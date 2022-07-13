@@ -6,6 +6,18 @@ sidebar_position: 5
 
 Notes for programming language Java.
 
+## Concept
+
+If two objects both are immutable and have the same content, the compiler will assign and point them to a same memory address. This concept allows the following to be true:
+
+```java
+String x = "Hi";
+String y = "Hi";
+
+/** Print Equal. */
+System.out.println(x == y ?  "Equal" : "Not equal");
+```
+
 ## Keyword
 
 Some preserved keywords Java uses.

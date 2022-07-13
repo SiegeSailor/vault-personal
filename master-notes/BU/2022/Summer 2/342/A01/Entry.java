@@ -63,9 +63,9 @@ public class Entry {
             }
             scanner.close();
         } catch (Exception event) {
-            System.out.println(event.getMessage());
+            System.out.println("Something went wrong while reading the file.");
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("Do you want to print tack trace? (" + YES + ")");
+            System.out.println("Do you want to print stack trace? (" + YES + ")");
             String input = keyboard.nextLine();
             keyboard.close();
             if (input.equals(YES))
@@ -80,15 +80,15 @@ public class Entry {
                 "experimental", "magnetic"));
 
         System.out.println("How many entries are in the Linked List?");
-        System.out.println(linkedList.getNumberOfNode() + " entries in this linked list.");
+        System.out.println(linkedList.getNumberOfNode() + " entries in this linked list.\n");
 
         System.out.println("How many words occur more than 20 times?");
         System.out.println(linkedList.search(20));
 
         System.out.println("Which word occurs most frequently?");
-        System.out.println(linkedList.getOccurMost());
+        System.out.println(linkedList.getOccurMost() + "\n");
 
         System.out.println("Which word is the longest in the book?");
-        System.out.println(linkedList.getLongest());
+        System.out.println(linkedList.getLongest() + "\n");
     }
 }
