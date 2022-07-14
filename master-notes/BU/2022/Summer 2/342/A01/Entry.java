@@ -20,8 +20,10 @@ import java.util.Scanner;
 
 /** Driver. */
 public class Entry {
+    /* Pathname for the source text file. */
     static final String PATHNAME = "./source.txt";
 
+    /* Constant for error catch. */
     static final String YES = "Y";
 
     /** Default constructor. */
@@ -37,9 +39,11 @@ public class Entry {
         LinkedList linkedList = new LinkedList();
 
         try {
+            /* Read the source file within class folder. */
             File file = new File(System.getProperty("user.dir") + "/../" + PATHNAME);
 
             Scanner scanner = new Scanner(file);
+            /* In case if the file is empty. */
             if (!file.exists()) {
                 scanner.close();
                 throw new FileNotFoundException();
@@ -47,9 +51,10 @@ public class Entry {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                /** Parse line and store them into the list */
+                /* Separate the line into words. */
                 String[] arrayOfWord = line.split(" ");
                 for (String word : arrayOfWord) {
+                    /* Remove any non-letter or non-number character. */
                     String lowercase = word.toLowerCase();
                     String value = "";
                     for (Character character : lowercase.toCharArray()) {
@@ -57,6 +62,7 @@ public class Entry {
                             value += character;
                     }
 
+                    /* Append to the main linked list if there is a word after removing step. */
                     if (value.length() > 0)
                         linkedList.append(value);
                 }
@@ -75,15 +81,38 @@ public class Entry {
             System.exit(0);
         }
 
+        /*
+         * Due to magnetic is not in the article and the linked list is designed to only
+         * store known word, we have to loop the required array of words first and show
+         * a dummy message for the missing word.
+         */
         System.out.println("How many times do the following words appear in the text?");
-        System.out.println(linkedList.search("portrait", "persian", "dorian",
-                "experimental", "magnetic"));
+        String[] arrayOfData = { "portrait", "persian", "dorian",
+                "experimental", "magnetic" };
+        LinkedList linkedListOfSearchResult = linkedList.search(arrayOfData);
+        /* Loop the linked list for every data. */
+        for (String data : arrayOfData) {
+            Node cache = linkedListOfSearchResult.getHead();
+            boolean isFound = false;
+            while (!isFound && cache != null) {
+                if (data.equals(cache.getData())) {
+                    System.out.println(cache);
+                    isFound = true;
+                }
+
+                cache = cache.getNext();
+            }
+            /* Print dummy message if there is no such node. */
+            if (!isFound)
+                System.out.println(Node.format(data, 0));
+        }
+        System.out.print("\n");
 
         System.out.println("How many entries are in the Linked List?");
         System.out.println(linkedList.getNumberOfNode() + " entries in this linked list.\n");
 
         System.out.println("How many words occur more than 20 times?");
-        System.out.println(linkedList.search(20));
+        System.out.println(linkedList.search(20) + "\n");
 
         System.out.println("Which word occurs most frequently?");
         System.out.println(linkedList.getOccurMost() + "\n");

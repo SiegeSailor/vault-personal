@@ -269,25 +269,61 @@ public class LinkedListStack<T> {
                 case "Q":
                     isDone = true;
                     break;
+
                 case "?":
                 case "H":
                     System.out.println("Help goes here.");
                     break;
+
                 case "+":
+                    if (linkedListStack.size() < 2)
+                        System.out.println("Insufficient items on stack.");
+                    else
+                        linkedListStack.push(linkedListStack.pop() + linkedListStack.pop());
                     break;
+
+                case "P":
+                case "=":
+                    if (linkedListStack.size() == 0) System.out.println("Empty stack.");
+                    System.out.println(linkedListStack.peek());
+                    break;
+
                 case "*":
+                    if (linkedListStack.size() < 2)
+                        System.out.println("Insufficient items on stack.");
+                    else
+                        linkedListStack.push(linkedListStack.pop() * linkedListStack.pop());
                     break;
+
                 case "-":
+                    if (linkedListStack.size() < 2)
+                        System.out.println("Insufficient items on stack.");
+                    else {
+                        Double x = linkedListStack.pop();
+                        Double y = linkedListStack.pop();
+                        linkedListStack.push(y - x);
+                    }
                     break;
+
                 /** Should be single / due to syntax highlighting */
                 case "\\":
+                    if (linkedListStack.size() < 2)
+                        System.out.println("Insufficient items on stack.");
+                    else {
+                        Double x = linkedListStack.pop();
+                        Double y = linkedListStack.pop();
+                        linkedListStack.push(y / x);
+                    }
                     break;
+
                 case "C":
+                    linkedListStack.clear();
                     break;
-                case "P":
-                    break;
+
                 case "D":
+                    System.out.println(linkedListStack);
                     break;
+
                 default:
                     Double value;
                     try {

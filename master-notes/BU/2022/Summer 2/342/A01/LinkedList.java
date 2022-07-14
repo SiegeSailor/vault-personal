@@ -1,30 +1,49 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/** Iterable linked list class. */
 public class LinkedList implements Iterable<Node> {
+    /** Total number of nodes (entries) in this linked list. */
     private int numberOfNode;
 
+    /** Node with longest length of its data. */
     private Node longest;
 
+    /** Node with highest count. */
     private Node occurMost;
 
+    /** Head node. */
     private Node head;
 
+    /** Default constructor. */
+    public LinkedList() {
+    }
+
+    /**
+     * Append an existing node to this linked list.
+     * 
+     * @param node {@code Node} A node.
+     */
     public void append(Node node) {
-        /** First time to append */
+        /* First time to append */
         if (this.isEmpty()) {
             this.head = this.longest = this.occurMost = node;
             this.numberOfNode++;
             return;
         }
 
-        /** See if there is a duplicated node exist */
         Node cache = this.head;
+        /*
+         * Use previous to store the tail node if we need to append the node at the end.
+         * Remove this and traverse again when we need to append the node at the end
+         * when we have less space but time doesn't matter.
+         */
         Node previous = null;
         while (cache != null) {
+            /* See if there is a duplicated node exist. */
             if (cache.getData().equals(node.getData())) {
-                this.numberOfNode++;
                 cache.addCount(node.getCount());
+                /* Replace occurMost node if the incoming node has higher count. */
                 if (cache.getCount() > this.occurMost.getCount())
                     this.occurMost = cache;
                 return;
@@ -33,17 +52,34 @@ public class LinkedList implements Iterable<Node> {
             cache = cache.getNext();
         }
 
-        /** Append the data at the end */
+        /*
+         * Only update longest node when appending a new node since data inside nodes
+         * don't change.
+         */
         if (node.getLength() > this.longest.getLength())
             this.longest = node;
+        /* Append the node at the end. */
         previous.setNext(node);
         this.numberOfNode++;
     }
 
+    /**
+     * Overloading append. Instead of append a node, create a node with given data
+     * and count then append it.
+     * 
+     * @param data  {@code String} A string.
+     * @param count {@code int} Existing count.
+     */
     public void append(String data, int count) {
         this.append(new Node(data, count));
     }
 
+    /**
+     * Overloading append. Instead of append a node, create a node with given data
+     * then append it.
+     * 
+     * @param data {@code String} A string.
+     */
     public void append(String data) {
         this.append(new Node(data));
     }
@@ -63,14 +99,29 @@ public class LinkedList implements Iterable<Node> {
 
         Node cache = this.head;
         boolean isEveryFound = false;
+        String[] arrayOfCopiedData = arrayOfData.clone();
+        /* Check every node with every element in the given array. */
         while (cache != null && !isEveryFound) {
-            for (String data : arrayOfData) {
-                if (cache.getData().equals(data)) {
+            for (String copiedData : arrayOfCopiedData) {
+                /* Append the node to return linked list if matched. */
+                if (cache.getData().equals(copiedData)) {
                     linkedList.append(cache.getData(), cache.getCount());
+
+                    /* Remove found element from the given array. */
+                    String[] arrayOfCacheData = new String[arrayOfCopiedData.length - 1];
+                    int indexCacheData = 0;
+                    for (String data : arrayOfCopiedData) {
+                        if (!data.equals(copiedData)) {
+                            arrayOfCacheData[indexCacheData] = data;
+                            indexCacheData++;
+                        }
+                    }
+                    arrayOfCopiedData = arrayOfCacheData;
                     break;
                 }
             }
 
+            /* Stop the while-loop early if we already found all elements. */
             isEveryFound = linkedList.getNumberOfNode() == arrayOfData.length;
             cache = cache.getNext();
         }
@@ -93,6 +144,7 @@ public class LinkedList implements Iterable<Node> {
 
         Node cache = this.head;
         while (cache != null) {
+            /* Only append nodes that have count higher than countBase. */
             if (cache.getCount() > countBase)
                 linkedList.append(cache.getData(), cache.getCount());
             cache = cache.getNext();
@@ -101,26 +153,57 @@ public class LinkedList implements Iterable<Node> {
         return linkedList;
     }
 
+    /**
+     * See if the linked list is empty.
+     * 
+     * @return True if the head node is null. The rest of nodes would be collected
+     *         by Java Garbage Collection since the head node is the only place to
+     *         point to the rest.
+     */
     public boolean isEmpty() {
         return (this.head == null);
     }
 
+    /**
+     * Get number of nodes in the list.
+     * 
+     * @return Number of nodes.
+     */
     public int getNumberOfNode() {
         return this.numberOfNode;
     }
 
-    public Node getHead() {
-        return this.head;
-    }
-
+    /**
+     * Get the node with longest data.
+     * 
+     * @return A node with longest data in the list.
+     */
     public Node getLongest() {
         return this.longest;
     }
 
+    /**
+     * Get the head node.
+     * 
+     * @return The head node.
+     */
+    public Node getHead() {
+        return this.head;
+    }
+
+    /**
+     * Get the node with highest count.
+     * 
+     * @return A node with highest count.
+     */
     public Node getOccurMost() {
         return this.occurMost;
     }
 
+    /**
+     * Use iterator to append all node's information by taking advantage their
+     * toString method.
+     */
     @Override
     public String toString() {
         String message = "";
@@ -131,30 +214,36 @@ public class LinkedList implements Iterable<Node> {
 
             Iterator<Node> iterator = this.iterator();
             while (iterator.hasNext()) {
-                message += iterator.next() + "\n";
+                message += iterator.next() + ". ";
             }
         }
 
         return message;
     }
 
+    /** Iterator for linked list. */
     public class LinkedListIterator implements Iterator<Node> {
+        /** Current node. */
         private Node iterator;
 
+        /** Constructor. Point iterator to the head node of the list. */
         public LinkedListIterator() {
             this.iterator = head;
         }
 
+        /** Check if the current node is null. */
         @Override
         public boolean hasNext() {
             return this.iterator != null;
         }
 
+        /** Get a clone (No next node) of the current node. */
         @Override
         public Node next() throws NoSuchElementException {
             if (iterator == null) {
                 throw new NoSuchElementException();
             } else {
+                /* Clone. */
                 Node node = new Node(iterator.getData(), iterator.getCount());
                 iterator = iterator.getNext();
                 return node;
@@ -163,11 +252,16 @@ public class LinkedList implements Iterable<Node> {
 
     }
 
+    /**
+     * Clear the list by removing the head node, which utilize Java Garbage
+     * Collection.
+     */
     public void clear() {
         this.numberOfNode = 0;
         this.head = this.longest = this.occurMost = null;
     }
 
+    /** Get iterator. */
     @Override
     public Iterator<Node> iterator() {
         return new LinkedListIterator();
