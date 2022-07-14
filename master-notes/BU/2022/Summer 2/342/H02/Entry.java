@@ -47,7 +47,7 @@ public class Entry {
         System.out.println("Delete the last element.\n");
         linkedList.delete();
         System.out.println(format(linkedList));
-        System.out.println("Clear the whole linked list.");
+        System.out.println("Clear the whole linked list.\n");
         linkedList.clear();
         System.out.println(format(linkedList));
     }
