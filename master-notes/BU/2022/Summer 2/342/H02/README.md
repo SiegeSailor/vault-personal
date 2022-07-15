@@ -85,6 +85,7 @@ The tail node: Node@330bedb4 (4)
 Empty: false
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
@@ -105,6 +106,7 @@ The tail node: Node@7ea987ac (d)
 Empty: false
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
@@ -128,6 +130,7 @@ The tail node: null
 Empty: true
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
@@ -148,6 +151,7 @@ The tail node: null
 Empty: true
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
@@ -171,6 +175,7 @@ The tail node: Node@330bedb4 (2)
 Empty: false
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
@@ -191,6 +196,7 @@ The tail node: Node@7ea987ac (D)
 Empty: false
 
 Clear the whole linked list.
+
 Loop through the whole linked list: Empty linked list.
 The head node: null
 The tail node: null
