@@ -6,6 +6,9 @@ public class LinkedList implements Iterable<Node> {
     /** Total number of nodes (entries) in this linked list. */
     private int numberOfNode;
 
+    /** Total number of data in this linked list. */
+    private int numberOfData;
+
     /** Node with longest length of its data. */
     private Node longest;
 
@@ -25,6 +28,8 @@ public class LinkedList implements Iterable<Node> {
      * @param node {@code Node} A node.
      */
     public void append(Node node) {
+        this.numberOfData++;
+
         /* First time to append */
         if (this.isEmpty()) {
             this.head = this.longest = this.occurMost = node;
@@ -86,6 +91,7 @@ public class LinkedList implements Iterable<Node> {
 
     /**
      * Create a new linked list which contains nodes with corresponding data.
+     * Missing nodes will be appended to the return linked list with count 0.
      * 
      * @param arrayOfData {@code String...} Wanted array of data. If there is
      *                    duplicated data then the search will never stop early.
@@ -125,6 +131,12 @@ public class LinkedList implements Iterable<Node> {
             isEveryFound = linkedList.getNumberOfNode() == arrayOfData.length;
             cache = cache.getNext();
         }
+
+        /* Append dummy nodes in the return linked list. */
+        if (arrayOfCopiedData.length > 0)
+            for (int i = 0; i < arrayOfCopiedData.length; i++) {
+                linkedList.append(new Node(arrayOfCopiedData[i], 0));
+            }
 
         return linkedList;
     }
@@ -198,6 +210,15 @@ public class LinkedList implements Iterable<Node> {
      */
     public Node getOccurMost() {
         return this.occurMost;
+    }
+
+    /**
+     * Get the total number of data.
+     * 
+     * @return Total number of data.
+     */
+    public int getNumberOfData() {
+        return this.numberOfData;
     }
 
     /**

@@ -76,13 +76,18 @@ The linked list will be solely for `String` rather than being generic since the 
 
 ## Run
 
+First time:
+
 ```
 How many times do the following words appear in the text?
-portrait (count: 52, length: 8)
-persian (count: 3, length: 7)
 dorian (count: 410, length: 6)
+persian (count: 3, length: 7)
+portrait (count: 52, length: 8)
 experimental (count: 1, length: 12)
 magnetic (count: 0, length: 8)
+
+How many words in this list?
+82002
 
 How many entries are in the Linked List?
 7642 entries in this linked list.
@@ -102,11 +107,14 @@ Second time:
 
 ```
 How many times do the following words appear in the text?
-portrait (count: 52, length: 8)
-persian (count: 3, length: 7)
 dorian (count: 410, length: 6)
+persian (count: 3, length: 7)
+portrait (count: 52, length: 8)
 experimental (count: 1, length: 12)
 magnetic (count: 0, length: 8)
+
+How many words in this list?
+82002
 
 How many entries are in the Linked List?
 7642 entries in this linked list.
@@ -126,11 +134,14 @@ Third time:
 
 ```
 How many times do the following words appear in the text?
-portrait (count: 52, length: 8)
-persian (count: 3, length: 7)
 dorian (count: 410, length: 6)
+persian (count: 3, length: 7)
+portrait (count: 52, length: 8)
 experimental (count: 1, length: 12)
 magnetic (count: 0, length: 8)
+
+How many words in this list?
+82002
 
 How many entries are in the Linked List?
 7642 entries in this linked list.

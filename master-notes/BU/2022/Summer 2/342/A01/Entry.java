@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Iterator;
 
 /*
  * Text Parser                                                                        *
@@ -91,22 +92,21 @@ public class Entry {
                 "experimental", "magnetic" };
         LinkedList linkedListOfSearchResult = linkedList.search(arrayOfData);
         /* Loop the linked list for every data. */
-        for (String data : arrayOfData) {
-            Node cache = linkedListOfSearchResult.getHead();
-            boolean isFound = false;
-            while (!isFound && cache != null) {
-                if (data.equals(cache.getData())) {
-                    System.out.println(cache);
-                    isFound = true;
-                }
-
-                cache = cache.getNext();
-            }
-            /* Print dummy message if there is no such node. */
-            if (!isFound)
-                System.out.println(Node.format(data, 0));
+        Iterator<Node> iterator = linkedListOfSearchResult.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
+        /* Release space. */
+        linkedListOfSearchResult.clear();
         System.out.print("\n");
+
+        /*
+         * This print 82002 which is not as same as the answer on blackboard 82003. I
+         * believe that is due to I didn't store "magnetic" into the linked list.
+         * Words not in the article would not appear in the list.
+         */
+        System.out.println("How many words in this list?");
+        System.out.println(linkedList.getNumberOfData() + "\n");
 
         System.out.println("How many entries are in the Linked List?");
         System.out.println(linkedList.getNumberOfNode() + " entries in this linked list.\n");
