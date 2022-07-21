@@ -48,15 +48,15 @@ while the size of is less than 8
 
 Operation flowchart:
 
-[![](https://mermaid.ink/img/pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)](https://mermaid.live/edit#pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)
+[![Flowchart](https://mermaid.ink/img/pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)](https://mermaid.live/edit#pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)
 
 ### Component
 
 There are 4 components based on the design:
 
-- The main operation
-- Display current graph
-- Detect if there is a conflict
-- Input interface
+- Main Operation
+- Current Board Graph
+- Conflict Detecting
+- Input Interface
 
 ## Run
