@@ -31,11 +31,7 @@ Your program should solve the problem by making a sequence of choices, such as r
 
 ## Algorithmic Design
 
-The user has to input 8 times coordinates, and the program will check if the input coordinate is valid by walking through all the choices in the stack. Once 8 non-conflict choices are made, then the problem is solved.
-
-### Pseudo-Code
-
-Operation flow in:
+The user has to input 8 times coordinates, and the program will check if the input coordinate is valid by walking through all the choices in the stack. Once 8 non-conflict choices are made, then the problem is solved. Operation pseudo-code:
 
 ```
 create a stack
@@ -50,13 +46,13 @@ while the size of is less than 8
         push the coordinate onto stack
 ```
 
-Flow chart:
+Operation flowchart:
 
-[![Flow Chart](https://mermaid.ink/img/pako:eNpNkDFrw0AMhf-K0NRAshcPgdpxS5eW4i4ll0H45PjA1pmzjlJs__eek7REk9D73kPShLW3jBmeAw0tfOZGINXT8X3gQOq8QKUU9AS73X6uWv8NRQyBReFldcyQP7zKEBUK74N1Qsqba0a-WqCYDqxcr7o0nat1uarFJfCLx5RwP3nzM5TTI3xEZhlvcPkv5feDi_v5WIo94RZ7Dj05m26ZVsigttyzwSy1lhuKnRo0siQ0DjbtWVqnPmDWUDfyFimqr36kxkxD5D_o4Ci9pr9Ryy98JGH9)](https://mermaid.live/edit#pako:eNpNkDFrw0AMhf-K0NRAshcPgdpxS5eW4i4ll0H45PjA1pmzjlJs__eek7REk9D73kPShLW3jBmeAw0tfOZGINXT8X3gQOq8QKUU9AS73X6uWv8NRQyBReFldcyQP7zKEBUK74N1Qsqba0a-WqCYDqxcr7o0nat1uarFJfCLx5RwP3nzM5TTI3xEZhlvcPkv5feDi_v5WIo94RZ7Dj05m26ZVsigttyzwSy1lhuKnRo0siQ0DjbtWVqnPmDWUDfyFimqr36kxkxD5D_o4Ci9pr9Ryy98JGH9)
+[![](https://mermaid.ink/img/pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)](https://mermaid.live/edit#pako:eNpNkEFLxEAMhf9KyElh9y49CHas4kWRepGdPQyd1A60mZJmEGn7353urrI5hZfvPZLM2ERPWOCXuLGDj9Iy5Ho4vI0kTkNkqNWJHmG_v1_qLn6DSSLECs-bY4Hy5oXHpGBiFB_YKd2eM8rNAmY2kds-NLqeZXNK-qQpW6-V17hANd_BeyLi6QJX_6PyWji5nw4V-yPucCAZXPD5iHmDLGpHA1kscuupdalXi5bXjKbR5wUrHzQKFq3rJ9qhSxrrH26wUEn0Bz0Gl38yXKj1F6eSX4Q)
 
 ### Component
 
-There are four components based on the pseudo-code:
+There are 4 components based on the design:
 
 - The main operation
 - Display current graph
