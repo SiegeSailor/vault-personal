@@ -67,11 +67,13 @@ public class LinkedList<T> implements Iterable<T> {
             return null;
 
         Node<T> cache = this.head;
-        while (cache.getNext() != null) {
+        Node<T> previous = null;
+        while (cache != null) {
+            previous = cache;
             cache = cache.getNext();
         }
 
-        return cache;
+        return previous;
     }
 
     /** Delete the last element. */
