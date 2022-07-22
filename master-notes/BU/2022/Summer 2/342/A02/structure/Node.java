@@ -24,11 +24,11 @@ public class Node<T> {
     /**
      * Set next node.
      * 
-     * @param node {@code Node<T>} A node. Can't assign self.
+     * @param node {@code Node<T>} A node. Can not be self.
      */
     public void setNext(Node<T> node) throws IllegalArgumentException {
         if (node == this)
-            throw new IllegalArgumentException("Can't assign self as next node.");
+            throw new IllegalArgumentException("The next node can not be self.");
         this.next = node;
     }
 
