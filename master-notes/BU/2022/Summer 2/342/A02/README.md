@@ -2,7 +2,7 @@
 
 ![Assignment 2](https://img.shields.io/badge/Assignment-2-orange)
 
-A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **July 20, 2022**.
+A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **July 22, 2022**.
 
 ## File Structure
 
