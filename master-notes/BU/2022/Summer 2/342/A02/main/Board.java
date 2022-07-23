@@ -7,6 +7,18 @@ import structure.Node;
 import structure.Stack;
 import structure.Coordinate;
 
+/**
+ * Main class. This is used to solve an 8 Queens Problem. However, this can also
+ * used for 10 queens or n queens by changes static variable {@code SIZE}.
+ * It is also possible to be applied to 8 Kings Problem or 18 Bishop Problem by
+ * changing method {@code seeConflict} and static variable {@code SYMBOL_CHESS}.
+ * 
+ * The mentioned factors for solving other problems above were not made as
+ * parameters of constructor because this programming assignment is only for 8
+ * Queens Problem.
+ * 
+ * @author Zhang, Jin Yu
+ */
 public class Board {
     private static final int SIZE = 8;
 
