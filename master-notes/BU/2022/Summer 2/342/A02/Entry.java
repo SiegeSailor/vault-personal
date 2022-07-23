@@ -17,6 +17,9 @@ import main.Board;
 
 /** Driver. */
 public class Entry {
+    /** Default constructor. */
+    public Entry() {
+    }
 
     /**
      * Actions to demonstrate the homework.

@@ -10,6 +10,18 @@ import structure.Coordinate;
 public class Board {
     private static final int SIZE = 8;
 
+    private static final char SYMBOL_CHESS = 'Q';
+
+    private static final char SYMBOL_OCCUPIED = 'X';
+
+    private static final char SYMBOL_EMPTY = '-';
+
+    private static final String COMMAND_DRAW = "DRAW";
+
+    private static final String COMMAND_BACK = "BACK";
+
+    private static final String COMMAND_CLEAR = "CLEAR";
+
     private Scanner keyboard;
 
     private Stack<Coordinate> stackOfChoice;
@@ -27,18 +39,21 @@ public class Board {
                     + this.stackOfChoice + ".");
 
         System.out.println(
-                "Please enter a coordinate such as 1,2:");
-        System.out.println("DRAW - Display available slots.\nBACK - Remove the latest choice.\nCLEAR - Start over.\n");
-        String input = this.keyboard.nextLine();
+                "Please enter a coordinate such as 1,2 or use helping commands:");
+        System.out.println(
+                COMMAND_DRAW + "  - Display available slots.\n" +
+                        COMMAND_BACK + "  - Remove the latest choice.\n" +
+                        COMMAND_CLEAR + " - Start over.\n");
+        String input = this.keyboard.nextLine().toUpperCase();
         switch (input) {
-            case "DRAW":
+            case COMMAND_DRAW:
                 this.drawBoard();
                 return this.input();
-            case "BACK":
+            case COMMAND_BACK:
                 Node<Coordinate> node = this.stackOfChoice.pop();
                 System.out.println(node + " has been removed.");
                 return this.input();
-            case "CLEAR":
+            case COMMAND_CLEAR:
                 this.empty();
                 return this.input();
             default:
@@ -71,7 +86,7 @@ public class Board {
             Iterator<Node<Coordinate>> iterator = this.stackOfChoice.iterator();
             while (iterator.hasNext()) {
                 Node<Coordinate> node = iterator.next();
-                if (node.equals(coordinate) || this.seeConflict(node.getData(), coordinate))
+                if (this.seeConflict(node.getData(), coordinate))
                     return node.getData();
             }
 
@@ -80,9 +95,42 @@ public class Board {
     }
 
     private void drawBoard() {
-    }
+        int numberOfEmptySlot = 0;
+        String message = "Row / Column\n";
+        for (int indexOfRow = 0; indexOfRow < SIZE + 1; indexOfRow++) {
+            for (int indexOfColumn = 0; indexOfColumn < SIZE + 1; indexOfColumn++) {
+                if (indexOfRow == 0 && indexOfColumn == 0) {
+                    message += "  ";
+                    continue;
+                }
 
-    private void drawChoice() {
+                if (indexOfRow == 0 && indexOfColumn > 0) {
+                    message += indexOfColumn - 1 + " ";
+                    continue;
+                }
+
+                if (indexOfColumn == 0 && indexOfRow > 0) {
+                    message += indexOfRow - 1 + " ";
+                    continue;
+                }
+
+                Coordinate coordinate = new Coordinate(indexOfRow - 1, indexOfColumn - 1);
+                Coordinate conflict = this.verify(coordinate);
+                if (conflict == null) {
+                    numberOfEmptySlot++;
+                    message += SYMBOL_EMPTY + " ";
+                } else if (conflict.equals(coordinate))
+                    message += SYMBOL_CHESS + " ";
+                else
+                    message += SYMBOL_OCCUPIED + " ";
+            }
+            if (indexOfRow != SIZE)
+                message += "\n";
+        }
+        System.out.println(message);
+        if (numberOfEmptySlot < (SIZE - this.stackOfChoice.getCount()))
+            System.out.println(
+                    "There is no enough slots. You may want to " + COMMAND_BACK + " or " + COMMAND_CLEAR + ".");
     }
 
     public Board() {
@@ -101,7 +149,7 @@ public class Board {
                 this.stackOfChoice.push(new Node<Coordinate>(coordinate));
         }
 
-        drawChoice();
+        this.drawBoard();
         System.out.println("Congratulation! You have placed " + SIZE
                 + " queens on the board without conflict. Would you like to start over? (Y)");
         String input = this.keyboard.nextLine().toUpperCase();

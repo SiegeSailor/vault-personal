@@ -61,20 +61,186 @@ There are 4 components based on the design:
 
 ## Runs
 
-Use many helping commands:
+Use as many commands as possible:
 
 ```
 
 ```
 
-A few conflict:
+One conflict:
 
 ```
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
 
+0,0
+
+You have made 1 choices: (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+6,1
+
+You have made 2 choices: (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+4,2
+
+You have made 3 choices: (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+7,3
+
+You have made 4 choices: (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+1,5
+(1, 5) has a conflict with (4, 2).
+
+You have made 4 choices: (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+1,4
+
+You have made 5 choices: (1, 4) (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+3,5
+
+You have made 6 choices: (3, 5) (1, 4) (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+6,6
+(6, 6) has a conflict with (6, 1).
+
+You have made 6 choices: (3, 5) (1, 4) (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+5,6
+
+You have made 7 choices: (5, 6) (3, 5) (1, 4) (7, 3) (4, 2) (6, 1) (0, 0).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+2,7
+Row / Column
+  0 1 2 3 4 5 6 7
+0 Q X X X X X X X
+1 X X X X Q X X X
+2 X X X X X X X Q
+3 X X X X X Q X X
+4 X X Q X X X X X
+5 X X X X X X Q X
+6 X Q X X X X X X
+7 X X X Q X X X X
+Congratulation! You have placed 8 queens on the board without conflict. Would you like to start over? (Y)
+N
+8 queens game finished.
 ```
 
-Prefect maths. No conflicts:
+No conflicts:
 
 ```
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
 
+2,7
+
+You have made 1 choices: (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+5,6
+
+You have made 2 choices: (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+3,5
+
+You have made 3 choices: (3, 5) (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+1,4
+
+You have made 4 choices: (1, 4) (3, 5) (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+7,3
+
+You have made 5 choices: (7, 3) (1, 4) (3, 5) (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+4,2
+
+You have made 6 choices: (4, 2) (7, 3) (1, 4) (3, 5) (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+6,1
+
+You have made 7 choices: (6, 1) (4, 2) (7, 3) (1, 4) (3, 5) (5, 6) (2, 7).
+Please enter a coordinate such as 1,2 or use helping commands:
+DRAW  - Display available slots.
+BACK  - Remove the latest choice.
+CLEAR - Start over.
+
+0,0
+Row / Column
+  0 1 2 3 4 5 6 7
+0 Q X X X X X X X
+1 X X X X Q X X X
+2 X X X X X X X Q
+3 X X X X X Q X X
+4 X X Q X X X X X
+5 X X X X X X Q X
+6 X Q X X X X X X
+7 X X X Q X X X X
+Congratulation! You have placed 8 queens on the board without conflict. Would you like to start over? (Y)
+No
+8 queens game finished.
 ```
