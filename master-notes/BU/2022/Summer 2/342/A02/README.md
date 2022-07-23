@@ -48,7 +48,7 @@ while the size of is less than 8
 
 Operation flowchart:
 
-[![Flowchart](https://mermaid.ink/img/pako:eNpNkEFrwzAMhf-K0GmF9j5yKCxeVgpjY81p1D2YWGkMiRwcmVGS_Pc5bTeqk3j63kPSiJW3hBmeg-kbeD9ohlQvx8-eghHnGUoxQU6w2WynsvE_oGIIxAK7xTFB_rTnPgoo74N1bIRWt4x8sYAalee6dZXMN1ldk75pSNZH5cNPUIzP8BWJeLjDxf8ofxSu7rdjwfaEa-wodMbZdMS4QBqloY40Zqm1VJvYikbNc0Jjb9OChXXiA2a1aQdao4niywtXmEmI9Ae9OpN-0t2p-RewUl-M)](https://mermaid.live/edit#pako:eNpNkEFrwzAMhf-K0GmF9j5yKCxeVgpjY81p1D2YWGkMiRwcmVGS_Pc5bTeqk3j63kPSiJW3hBmeg-kbeD9ohlQvx8-eghHnGUoxQU6w2WynsvE_oGIIxAK7xTFB_rTnPgoo74N1bIRWt4x8sYAalee6dZXMN1ldk75pSNZH5cNPUIzP8BWJeLjDxf8ofxSu7rdjwfaEa-wodMbZdMS4QBqloY40Zqm1VJvYikbNc0Jjb9OChXXiA2a1aQdao4niywtXmEmI9Ae9OpN-0t2p-RewUl-M)
+[![Flowchart](https://mermaid.ink/img/pako:eNpNkEFPhEAMhf9K05Mmu3fDwURGNF50DV4Mw2HCFJkEOmToxBjgvzu4rNpT8973mrYzNt4SZvgRzNjBW64ZUt1VLyMFI84zlGKC1HA83kJ-qsrOf4KKIRALPG6h-hzJTxuSXz3xGAWU98E6NkLXu_0zQM3Kc9u7RtazrDZ5eadpSQP-S89-gWK-gddIxNNOF7_WBS7-8g9VwbbGAw4UBuNsOmreII3S0UAas9Raak3sRaPmNaFxtGnFwjrxAbPW9BMd0ETx5Rc3mEmIdIHunUk_GnZq_QZH5WMK)](https://mermaid.live/edit#pako:eNpNkEFPhEAMhf9K05Mmu3fDwURGNF50DV4Mw2HCFJkEOmToxBjgvzu4rNpT8973mrYzNt4SZvgRzNjBW64ZUt1VLyMFI84zlGKC1HA83kJ-qsrOf4KKIRALPG6h-hzJTxuSXz3xGAWU98E6NkLXu_0zQM3Kc9u7RtazrDZ5eadpSQP-S89-gWK-gddIxNNOF7_WBS7-8g9VwbbGAw4UBuNsOmreII3S0UAas9Raak3sRaPmNaFxtGnFwjrxAbPW9BMd0ETx5Rc3mEmIdIHunUk_GnZq_QZH5WMK)
 
 ### Component
 
@@ -59,4 +59,22 @@ There are 4 components based on the design:
 - Conflict Detecting
 - Input Interface
 
-## Run
+## Runs
+
+Use many helping commands:
+
+```
+
+```
+
+A few conflict:
+
+```
+
+```
+
+Prefect maths. No conflicts:
+
+```
+
+```

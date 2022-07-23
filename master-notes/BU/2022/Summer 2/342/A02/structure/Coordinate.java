@@ -25,6 +25,24 @@ public class Coordinate {
     }
 
     /**
+     * Get row.
+     * 
+     * @return {@code int} Row number.
+     */
+    public int getRow() {
+        return this.row;
+    }
+
+    /**
+     * Get column.
+     * 
+     * @return {@code int} Column number.
+     */
+    public int getColumn() {
+        return this.column;
+    }
+
+    /**
      * Return the string representation for each node.
      * 
      * @return {@code String} A string representation for each node.

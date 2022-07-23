@@ -137,7 +137,7 @@ public class Stack<T> implements Iterable<Node<T>> {
                 Node<T> node = iterator.next();
                 message += node;
                 if (iterator.hasNext())
-                    message += "\n";
+                    message += " ";
             }
         }
 
