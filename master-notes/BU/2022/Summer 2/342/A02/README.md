@@ -61,7 +61,7 @@ There are 4 components based on the design:
 
 ## Runs
 
-Use as many commands as possible and input invalid command:
+Use as many commands as possible and input invalid command. Also show message when there is no enough empty slots:
 
 ```
 Please enter a coordinate such as 1,2 or use helping commands:
@@ -589,7 +589,7 @@ Row / Column
 7 X X X Q X X X X
 Congratulation! You have placed 8 queens on the board without conflict. Would you like to start over? (Y)
 nope
-8 queens game finished.
+Board closed.
 ```
 
 One conflict:
@@ -687,7 +687,7 @@ Row / Column
 7 X X X Q X X X X
 Congratulation! You have placed 8 queens on the board without conflict. Would you like to start over? (Y)
 N
-8 queens game finished.
+Board closed.
 ```
 
 No conflicts:
@@ -767,5 +767,5 @@ Row / Column
 7 X X X Q X X X X
 Congratulation! You have placed 8 queens on the board without conflict. Would you like to start over? (Y)
 No
-8 queens game finished.
+Board closed.
 ```
