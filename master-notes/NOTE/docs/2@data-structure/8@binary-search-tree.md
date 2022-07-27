@@ -177,8 +177,8 @@ public:
         if (node != nullptr)
         {
             cout << node->data << ", ";
-            printInOrder(node->left);
-            printInOrder(node->right);
+            printPreOrder(node->left);
+            printPreOrder(node->right);
         };
     };
 
@@ -190,8 +190,8 @@ public:
     {
         if (node != nullptr)
         {
-            printInOrder(node->left);
-            printInOrder(node->right);
+            printPostOrder(node->left);
+            printPostOrder(node->right);
             cout << node->data << ", ";
         };
     };
