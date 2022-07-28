@@ -11,6 +11,9 @@ Submitted files within the compressed folder.
 ```
 ├── class/
 ├── docs/
+├── structure/
+├── main/
+├── service/
 ├── README.md
 ├── source.txt
 ├── Entry.java
@@ -25,8 +28,7 @@ You are to write a program that reads in a body of text and inserts the text int
 
 ### Detail
 
-The purpose of this exercise is to give you familiarity with Queues. You should have already built a Text
-Parser from earlier in the course. As you read the text you will map all words to lower case and remove all punctuation characters (Only numbers or letters should remain) removed characters should be eaten, NOT replaced with a space. Once the words are pre-processed you will add them to your Queue. You can use the TextParser.jar I gave you.
+The purpose of this exercise is to give you familiarity with Queues. You should have already built a Text Parser from earlier in the course. As you read the text you will map all words to lower case and remove all punctuation characters (Only numbers or letters should remain) removed characters should be eaten, NOT replaced with a space. Once the words are pre-processed you will add them to your Queue. You can use the TextParser.jar I gave you.
 
 When the Queue is completely loaded, make a copy of it. You will need to implement a copy method in your Queue. Once the Queue is copied you will perform queries to answer the following questions:
 
