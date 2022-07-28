@@ -18,7 +18,8 @@ public class Node<T> {
     /**
      * Get the next node.
      * 
-     * @return Next node. Could be null if there is no node being pointed.
+     * @return {@code Node<T>} Next node. Could be null if there is no node being
+     *         pointed.
      */
     public Node<T> getNext() {
         return this.next;
@@ -36,13 +37,17 @@ public class Node<T> {
     /**
      * Get the data.
      * 
-     * @return Content inside the node.
+     * @return {@code T} Content inside the node.
      */
     public T getData() {
         return this.data;
     }
 
-    /** Return a string of class name, hashcode, and data. */
+    /**
+     * Return a string of class name, hashcode, and data.
+     * 
+     * @return {@code String} A string representation.
+     */
     @Override
     public String toString() {
         return this.getClass().getName() + "@" + Integer.toHexString(this.hashCode()) +

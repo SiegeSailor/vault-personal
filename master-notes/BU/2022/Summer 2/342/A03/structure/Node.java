@@ -1,22 +1,26 @@
-/** Node class for linked lists. */
-public class Node {
-    /** Next node. */
-    private Node next;
+/**
+ * Node class for linked list.
+ * 
+ * @author Zhang, Jin Yu
+ */
+public class Node<T> {
+    /** Content. */
+    private T data;
 
-    /** Content inside the node. */
-    private String data;
+    /** Next linked node. */
+    private Node<T> next;
 
     /** A counter inside the node. Only meaningful for the parent linked list. */
     private int count;
 
     /**
-     * Construct a node with given data. count will set to 1.
+     * Construct a node with initial data.
      * 
-     * @param data {@code String} A string.
+     * @param initialData {@code T} Initial data.
      */
-    public Node(String data) {
-        this.data = data;
-        this.increaseCount();
+    public Node(T initialData) {
+        this.setData(initialData);
+        this.addCount(1);
     }
 
     /**
@@ -25,45 +29,9 @@ public class Node {
      * @param data  {@code String} A string.
      * @param count {@code int} Existing count.
      */
-    public Node(String data, int count) {
+    public Node(T data, int count) {
         this.data = data;
         this.addCount(count);
-    }
-
-    /**
-     * Get the next node.
-     * 
-     * @return Next node. Could be null if there is no node being pointed.
-     */
-    public Node getNext() {
-        return this.next;
-    }
-
-    /**
-     * Set next node.
-     * 
-     * @param node {@code Node} Next node.
-     */
-    public void setNext(Node node) {
-        this.next = node;
-    }
-
-    /**
-     * Get the data.
-     * 
-     * @return A string inside the node.
-     */
-    public String getData() {
-        return this.data;
-    }
-
-    /**
-     * Get the length for the data.
-     * 
-     * @return A integer which indicates how long the data is.
-     */
-    public int getLength() {
-        return this.data.length();
     }
 
     /**
@@ -75,34 +43,63 @@ public class Node {
         this.count += input;
     }
 
-    /** Increase count by 1. */
-    public void increaseCount() {
-        this.addCount(1);
-    }
-
     /**
      * Get count.
      * 
-     * @return Number of count.
+     * @return {@code int} Number of count.
      */
     public int getCount() {
         return this.count;
     }
 
     /**
-     * Return a formatted message with given string.
+     * Set next node.
      * 
-     * @param input {@code String} A string.
-     * @param count {@code int} Existing count.
-     * @return Formatted message.
+     * @param node {@code Node<T>} A node. Can not be self.
      */
-    public static String format(String input, int count) {
-        return input + " (count: " + count + ", length: " + input.length() + ")";
+    public void setNext(Node<T> node)
+            throws IllegalArgumentException {
+        if (node == this)
+            throw new IllegalArgumentException("The next node can not be itself.");
+        this.next = node;
     }
 
-    /** Return a string of class name, hashcode, data, count, and length. */
+    /**
+     * Set content.
+     * 
+     * @param input {@code T} Data.
+     */
+    public void setData(T input) {
+        this.data = input;
+    }
+
+    /**
+     * Get next node. Could return {@code null}.
+     * 
+     * @return {@code Node<T>} Next node.
+     */
+    public Node<T> getNext() {
+        return this.next;
+    }
+
+    /**
+     * Get content.
+     * 
+     * @return {@code T} Data. Could return {@code null}.
+     */
+    public T getData() {
+        return this.data;
+    }
+
+    /**
+     * Return a string of class name, hashcode, data, count, and length.
+     * 
+     * @return {@code String} A string representation for the held data.
+     */
     @Override
     public String toString() {
-        return format(this.getData(), this.getCount());
+        return this.getClass().getName() + '@' + Integer.toHexString(hashCode()) +
+                " - " + this.getData() + "(count: "
+                + this.getCount() + ")";
     }
 }

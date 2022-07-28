@@ -51,7 +51,7 @@ public class LinkedList<T> implements Iterable<T> {
     /**
      * Get the head node.
      * 
-     * @return The head node.
+     * @return {@code Node<T>} The head node.
      */
     public Node<T> getHead() {
         return this.head;
@@ -81,22 +81,25 @@ public class LinkedList<T> implements Iterable<T> {
         if (isEmpty())
             return;
 
+        if (this.getHead().getNext() == null) {
+            this.head = null;
+            return;
+        }
+
         Node<T> cache = this.head;
-        Node<T> previous = null;
-        while (cache.getNext() != null) {
-            previous = cache;
+        while (cache.getNext().getNext() != null) {
             cache = cache.getNext();
         }
 
-        previous.setNext(null);
+        cache.setNext(null);
     }
 
     /**
      * See if the linked list is empty.
      * 
-     * @return True if the head node is null. The rest of nodes would be collected
-     *         by Java Garbage Collection since the head node is the only place to
-     *         point to the rest.
+     * @return {@code boolean} True if the head node is null. The rest of nodes
+     *         would be collected by Java Garbage Collection since the head node is
+     *         the only place to point to the rest.
      */
     public boolean isEmpty() {
         return (this.head == null);
@@ -113,6 +116,8 @@ public class LinkedList<T> implements Iterable<T> {
     /**
      * Use iterator to loop all node's information by taking advantage their
      * toString method.
+     * 
+     * @return {@code String} A string representation.
      */
     @Override
     public String toString() {
@@ -143,13 +148,21 @@ public class LinkedList<T> implements Iterable<T> {
             this.iterator = (Node<I>) head;
         }
 
-        /** Check if the current node is null. */
+        /**
+         * Check if the current node is null.
+         * 
+         * @return {@code boolean} True if the current node is not null.
+         */
         @Override
         public boolean hasNext() {
             return this.iterator != null;
         }
 
-        /** Get the data of the current node. */
+        /**
+         * Get the data of the current node.
+         * 
+         * @return {@code I} Current node data.
+         */
         @Override
         public I next() throws NoSuchElementException {
             if (this.iterator == null) {
@@ -163,7 +176,11 @@ public class LinkedList<T> implements Iterable<T> {
 
     }
 
-    /** Get iterator. */
+    /**
+     * Get iterator.
+     * 
+     * @return {@code Iterator<T>} Iterator.
+     */
     @Override
     public Iterator<T> iterator() {
         return new LinkedListIterator<T>();

@@ -11,11 +11,11 @@ Submitted files within the compressed folder.
 ```
 ├── class/
 ├── docs/
+├── main/
+├── structure/
 ├── README.md
 ├── source.txt
 ├── Entry.java
-├── LinkedList.java
-├── Node.java
 └── compile.sh
 ```
 

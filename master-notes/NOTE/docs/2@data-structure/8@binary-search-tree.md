@@ -8,7 +8,7 @@ sidebar_position: 8
 
 - Left Sub Node 的值 `<` Right Sub Node 且不可相等
 - `insert`、`delete` 和 `search` 的 Time Complexity 皆為 $\Theta(\log n)$
-- 對於 In-Order Storage 非常有效 (裡面的值必須可以用 `<` 來比較)
+- 對於 In-Order Storage 非常有效 (裡面的值必須可以用 `<` 來比較)。In-Order Traversal 的結果會是由小到大
 
 Binary Search Tree 可以用 **Array** (Parent-Children) 或 **Linked List** (Parent-Child-Sibling) 實作，以下使用自造的 Linked List：
 
@@ -235,3 +235,248 @@ public:
 // 3. root 一定是 black
 // 4. 從 root 到最尾端的點，中間的 black node 數必須相同
 // 若不能符合以上幾點，則代表該旋轉了。由以上可知，red-black tree 的目的在於平均接上，以及減少計算 height 和 rotation
+
+## In Java
+
+Node：
+
+```java
+public class Node {
+    private Integer data;
+
+    private Node childLeft;
+
+    private Node childRight;
+
+    public Node(Integer input) {
+        this.data = input;
+    }
+
+    public void setChildLeft(Node input) {
+        this.childLeft = input;
+    }
+
+    public Node getChildLeft() {
+        return this.childLeft;
+    }
+
+    public void setChildRight(Node input) {
+        this.childRight = input;
+    }
+
+    public Node getChildRight() {
+        return this.childRight;
+    }
+
+    public void setData(Integer input) {
+        this.data = input;
+    }
+
+    public Integer getData() {
+        return this.data;
+    }
+}
+```
+
+```java
+public class LinkedTree {
+    private Node root;
+
+    private int count;
+
+    private Node search(Node current, Integer data){
+        if (current == null)
+            return null;
+
+        if (current.getData().equals(data))
+            return current
+
+        if (data < current.getData())
+            return this.search(root.getChildLeft(), data)
+        else
+            return this.search(root.getChildRight(), data)
+    }
+
+    /**
+     * This method assumes that the value is not in the tree.
+     */
+    private boolean addInternal(Node current, Integer data) {
+        // highlight-next-line
+        /* This should never happen. */
+        if (current == null)
+            return false;
+
+        if (data < current.getData()) {
+            if (current.getChildLeft() == null) {
+                current.setChildLeft(new Node(data));
+                this.count++;
+                return true;
+            } else
+                return this.addInternal(current.getChildLeft(), data);
+        } else {
+            if (current.getChildRight() == null) {
+                current.setChildRight(new Node(data));
+                this.count++;
+                return true;
+            } else
+                return this.addInternal(current.getChildRight(), data);
+        }
+    }
+
+    public boolean add(Integer data) {
+        if (this.root == null) {
+            this.root = new Node(data);
+            this.count = 1;
+            return true;
+        }
+
+        if (this.isFound(data))
+            return true;
+
+        this.addInternal(this.root, data);
+    }
+
+    public boolean seeFound(Integer data) {
+        return this.search(this.root, data) != null;
+    }
+
+    private void printPreOrderInternal(Node current, StringBuilder result) {
+        if (current == null)
+            return "";
+
+        result.append(current.getData() + " ");
+        this.printPreOrderInternal(current.getChildLeft(), result);
+        this.printPreOrderInternal(current.getChildRight(), result);
+    }
+
+    public String printPreOrder() {
+        if (this.count == 0)
+            return "<Empty>";
+
+        StringBuilder result = new StringBuilder("");
+        return this.printPreOrderInternal(this.root, result);
+        return result.toString();
+    }
+
+    private void printInOrderInternal(Node current, StringBuilder result) {
+        if (current == null)
+            return "";
+
+        this.printInOrderInternal(current.getChildLeft(), result);
+        result.append(current.getData() + " ");
+        this.printInOrderInternal(current.getChildRight(), result);
+    }
+
+    public String printInOrder() {
+        if (this.count == 0)
+            return "<Empty>";
+
+        StringBuilder result = new StringBuilder("");
+        return this.printInOrderInternal(this.root, result);
+        return result.toString();
+    }
+
+    private void printPostOrderInternal(Node current, StringBuilder result) {
+        if (current == null)
+            return "";
+
+        this.printPostOrderInternal(current.getChildLeft(), result);
+        this.printPostOrderInternal(current.getChildRight(), result);
+        result.append(current.getData() + " ");
+    }
+
+    public String printPostOrder() {
+        if (this.count == 0)
+            return "<Empty>";
+
+        StringBuilder result = new StringBuilder("");
+        return this.printPostOrderInternal(this.root, result);
+        return result.toString();
+    }
+
+    public String toString() {
+        return this.printInOrder();
+    }
+
+    private int getDepthInternal(Node current, int levelCurrent){
+        if (current == null)
+            return levelCurrent - 1;
+
+        int left = this.getDepthInternal(current.getChildLeft, levelCurrent + 1);
+        int right = this.getDepthInternal(current.getChildRight, levelCurrent + 1);
+
+        return left > right ? left : right;
+    }
+
+    public int getDepth() {
+        if (this.root == null)
+            return -1;
+
+        if (this.count == 1)
+            return 0;
+
+        return this.getDepthInternal(this.root, 0);
+    }
+
+    public int getCount() {
+        return this.count;
+    }
+}
+```
+
+## Array Based In Java
+
+```java
+public class ArrayTree {
+    private static final int SIZE = 32;
+
+    private Integer[] array;
+
+    private int count;
+
+    public ArrayTree() {
+        this.array = new Integer[SIZE];
+    }
+
+    private boolean addInternal(int indexCurrent, Integer data) {
+        // highlight-next-line
+        /* This should never happen. */
+        if (this.array[indexCurrent] == null)
+            return false;
+
+        if (data < this.array[indexCurrent]) {
+            if (indexOfCurrent * 2 + 1 >= this.array.length)
+                return false;
+
+            if (this.array[indexOfCurrent * 2 + 1] == null) {
+                this.array[indexOfCurrent * 2 + 1] = data;
+                return true;
+            } else
+                return this.addInternal(indexOfCurrent * 2 + 1, data);
+        } else {
+            if (indexOfCurrent * 2 + 2 >= this.array.length)
+                return false;
+
+            if (this.array[indexOfCurrent * 2 + 2] == null) {
+                this.array[indexOfCurrent * 2 + 2] = data;
+                return true;
+            } else
+                return this.addInternal(indexOfCurrent * 2 + 2, data);
+        }
+    }
+
+    public boolean add(Integer data) {
+        if (this.count == 0) {
+            this.array[0] = data;
+            this.count = 1;
+            return true;
+        }
+
+        return this.addInternal(0, data);
+    }
+
+    public boolean delete(Integer data) {
+
+    }
+}
+```
