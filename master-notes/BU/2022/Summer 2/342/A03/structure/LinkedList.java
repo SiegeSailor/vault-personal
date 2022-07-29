@@ -1,12 +1,9 @@
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 /**
- * Iterable linked list class.
+ * Linked list class.
  * 
  * @author Zhang, Jin Yu
  */
-public class LinkedList<T> implements Iterable<Node<T>> {
+public class LinkedList<T> {
     /** Head node. */
     private Node<T> head;
 
@@ -87,6 +84,14 @@ public class LinkedList<T> implements Iterable<Node<T>> {
     }
 
     /**
+     * Clear the list by removing the head node, which utilizes Java Garbage
+     * Collection.
+     */
+    public void clear() {
+        this.head = null;
+    }
+
+    /**
      * Use iterator to append all node's information by taking advantage their
      * toString method.
      * 
@@ -98,72 +103,13 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         if (this.seeEmpty()) {
             message = "<EMPTY>";
         } else {
-            Iterator<Node<T>> iterator = this.iterator();
-            while (iterator.hasNext()) {
-                message += iterator.next() + "\n";
+            Node<T> cache = this.head;
+            while (cache != null) {
+                message += cache + "\n";
+                cache = cache.getNext();
             }
         }
 
         return message;
-    }
-
-    /**
-     * Iterator class for linked list.
-     * 
-     * @author Zhang, Jin Yu
-     */
-    public class LinkedListIterator implements Iterator<Node<T>> {
-        /** Current node. */
-        private Node<T> iterator;
-
-        /** Constructor. Point iterator to the head node of the list. */
-        public LinkedListIterator() {
-            this.iterator = head;
-        }
-
-        /**
-         * Check if the current node is null.
-         * 
-         * @return {@code boolean} True if the current is not null.
-         */
-        @Override
-        public boolean hasNext() {
-            return this.iterator != null;
-        }
-
-        /**
-         * Get the current node.
-         * 
-         * @return {@coe Node<T>} The current node.
-         */
-        @Override
-        public Node<T> next() throws NoSuchElementException {
-            if (iterator == null) {
-                throw new NoSuchElementException();
-            } else {
-                Node<T> node = iterator;
-                iterator = iterator.getNext();
-                return node;
-            }
-        }
-
-    }
-
-    /**
-     * Clear the list by removing the head node, which utilizes Java Garbage
-     * Collection.
-     */
-    public void clear() {
-        this.head = null;
-    }
-
-    /**
-     * Get iterator.
-     * 
-     * @return {@code Iterator<Node<T>>} A iterator.
-     */
-    @Override
-    public Iterator<Node<T>> iterator() {
-        return new LinkedListIterator();
     }
 }

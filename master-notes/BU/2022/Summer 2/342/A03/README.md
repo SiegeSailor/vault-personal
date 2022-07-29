@@ -17,8 +17,6 @@ Submitted files within the compressed folder.
 ├── README.md
 ├── source.txt
 ├── Entry.java
-├── LinkedList.java
-├── Node.java
 └── compile.sh
 ```
 
@@ -28,7 +26,7 @@ You are to write a program that reads in a body of text and inserts the text int
 
 ### Detail
 
-The purpose of this exercise is to give you familiarity with Queues. You should have already built a Text Parser from earlier in the course. As you read the text you will map all words to lower case and remove all punctuation characters (Only numbers or letters should remain) removed characters should be eaten, NOT replaced with a space. Once the words are pre-processed you will add them to your Queue. You can use the TextParser.jar I gave you.
+The purpose of this exercise is to give you familiarity with Queues. You should have already built a Text Parser from earlier in the course. As you read the text you will map all words to lower case and remove all punctuation characters (Only numbers or letters should remain) removed characters should be eaten, NOT replaced with a space. Once the words are pre-processed you will add them to your Queue.
 
 When the Queue is completely loaded, make a copy of it. You will need to implement a copy method in your Queue. Once the Queue is copied you will perform queries to answer the following questions:
 
@@ -47,6 +45,50 @@ No User Interface is required for this project.
 
 ## Algorithmic Design
 
-### Component
+The core flow is relatively simple. We should read the text file first, then follow the assignment requirements to parse and store it into a queue. After the parsing process is done, we print out the 5 queries listed in [Detail](#detail).
+
+Since the user interface is not required, we will assume that every file is placed as how File Structure represents. No input for filename.
+
+```
+queue = Queue
+parse the source text and store the words into queue
+
+array = array of string for superhuman, chiromancy, unsatisfactory, percutaneous, and discernible
+for loop array
+  clone queue
+  count = int
+  while queue.head is not equal to the current string
+    dequeue and add 1 to count
+  print count
+
+print count in queue
+
+list = LinkedList
+clone queue
+while queue is not empty and count in list is not 1000
+  dequeue the queue
+  store those whose count is mroe than 20 into list
+print list
+
+clone queue
+node = Node
+while queue is not empty
+  dequeue and update node with highest count
+print node
+
+clone queue
+node = Node
+while queue is not empty
+  dequeue and update node with longest cotent
+print node
+```
+
+### UML Diagram
+
+According to the requirements, instead of keeping tracking some properties, we should use a more general way to query nodes, such as what occurs most frequently and the longest one. A doubly-Linked list is implemented here for a more convenient way to manipulate the list.
+
+Return type for methods is `name() : type` rather than `type name()` due to **mermaid.js** generic type syntax issue.
+
+[![UML](https://mermaid.ink/img/pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)](https://mermaid.live/edit#pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)
 
 ## Runs
