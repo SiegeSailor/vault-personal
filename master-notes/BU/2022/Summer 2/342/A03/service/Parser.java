@@ -48,7 +48,7 @@ public class Parser {
                             value += character;
                     }
 
-                    /* Append to the main linked list if there is a word after removing step. */
+                    // Append to the linked list if there is a valid word.
                     if (value.length() > 0)
                         linkedListOfString.append(value);
                 }

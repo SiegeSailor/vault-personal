@@ -1,5 +1,5 @@
 /**
- * Node class for linked list.
+ * Node class for linked list based data structures.
  * 
  * @author Zhang, Jin Yu
  */
