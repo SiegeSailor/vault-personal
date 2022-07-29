@@ -50,37 +50,61 @@ The core flow is relatively simple. We should read the text file first, then fol
 Since the user interface is not required, we will assume that every file is placed as how File Structure represents. No input for filename.
 
 ```
-queue = Queue
-parse the source text and store the words into queue
+MAIN:
+  Create queue;
+  Parse article;
+  WHILE (valid word found)
+    Store word into queue;
+  ENDWHILE;
 
-array = array of string for superhuman, chiromancy, unsatisfactory, percutaneous, and discernible
-for loop array
-  clone queue
-  count = int
-  while queue.head is not equal to the current string
-    dequeue and add 1 to count
-  print count
+  DETAIL 1:
+    Create array of string;
+    FOR (all array elements)
+      Clone queue;
+      Create count;
+      WHILE (queue.head is not equal to current element)
+        Dequeue queue;
+        Add 1 to count;
+      ENDWHILE;
+      Print count;
+    ENDFOR;
 
-print count in queue
+  DETAIL 2:
+    Print queue.count;
 
-list = LinkedList
-clone queue
-while queue is not empty and count in list is not 1000
-  dequeue the queue
-  store those whose count is mroe than 20 into list
-print list
+  DETAIL 3:
+    Create list;
+    Clone queue;
+    WHILE (queue is not empty and
+            queue.count is larger than or equal to 1000)
+      Dequeue queue;
+      IF (queue.head.count is larger than 20)
+        THEN Store queue.head into list;
+      ENDIF;
+    ENDWHILE;
+    Print list;
 
-clone queue
-node = Node
-while queue is not empty
-  dequeue and update node with highest count
-print node
+  DETAIL 4:
+    Clone queue;
+    Create node;
+    WHILE (queue is not empty)
+      Dequeue queue;
+      IF (queue.head.count is higher than node)
+        Update node with queue.head;
+      ENDIF;
+    ENDWHILE;
+    Print node;
 
-clone queue
-node = Node
-while queue is not empty
-  dequeue and update node with longest cotent
-print node
+  DETAIL 5:
+    Clone queue;
+    Create node;
+    WHILE (queue is not empty)
+      Dequeue queue;
+      IF (queue.head.data.length is longer than node)
+        Update node with queue.head;
+      ENDIF;
+    ENDWHILE;
+    Print node;
 ```
 
 ### UML Diagram
