@@ -20,10 +20,10 @@ public class Parser {
      * special characters and spaces.
      * 
      * @param pathname {@code String} Pathname for desired file.
-     * @return {@code LinkedList<String>} A linked list contain all words.
+     * @return {@code Queue<String>} A linked list contain all words.
      */
-    public LinkedList<String> parse(String pathname) {
-        LinkedList<String> linkedListOfString = new LinkedList<String>();
+    public static Queue<String> parse(String pathname) {
+        Queue<String> queueOfWord = new Queue<String>();
         try {
             // Read the source file within class folder.
             File file = new File(System.getProperty("user.dir") + "/../" + pathname);
@@ -50,7 +50,7 @@ public class Parser {
 
                     // Append to the linked list if there is a valid word.
                     if (value.length() > 0)
-                        linkedListOfString.append(value);
+                        queueOfWord.enqueue(value);
                 }
             }
             scanner.close();
@@ -67,6 +67,6 @@ public class Parser {
             System.exit(0);
         }
 
-        return linkedListOfString;
+        return queueOfWord;
     }
 }

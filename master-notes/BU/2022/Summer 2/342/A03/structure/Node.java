@@ -10,7 +10,10 @@ public class Node<T> {
     /** Next linked node. */
     private Node<T> next;
 
-    /** A counter inside the node. Only meaningful for the parent linked list. */
+    /** Previous linked node. */
+    private Node<T> previous;
+
+    /** Counter. */
     private int count;
 
     /**
@@ -35,24 +38,6 @@ public class Node<T> {
     }
 
     /**
-     * Add count with desired input.
-     * 
-     * @param input {@code int} Desired input.
-     */
-    public void addCount(int input) {
-        this.count += input;
-    }
-
-    /**
-     * Get count.
-     * 
-     * @return {@code int} Number of count.
-     */
-    public int getCount() {
-        return this.count;
-    }
-
-    /**
      * Set next node.
      * 
      * @param node {@code Node<T>} A node. Can not be self.
@@ -65,15 +50,6 @@ public class Node<T> {
     }
 
     /**
-     * Set content.
-     * 
-     * @param input {@code T} Data.
-     */
-    public void setData(T input) {
-        this.data = input;
-    }
-
-    /**
      * Get next node. Could return {@code null}.
      * 
      * @return {@code Node<T>} Next node.
@@ -83,12 +59,60 @@ public class Node<T> {
     }
 
     /**
+     * Set previous node.
+     * 
+     * @param node {@code Node<T>} A node. Can not be self.
+     */
+    public void setPrevious(Node<T> node)
+            throws IllegalArgumentException {
+        if (node == this)
+            throw new IllegalArgumentException("The previous node can not be itself.");
+        this.previous = node;
+    }
+
+    /**
+     * Get previous node. Could return {@code null}.
+     * 
+     * @return {@code Node<T>} Previous node.
+     */
+    public Node<T> getPrevious() {
+        return this.previous;
+    }
+
+    /**
+     * Set content.
+     * 
+     * @param input {@code T} Data.
+     */
+    public void setData(T input) {
+        this.data = input;
+    }
+
+    /**
      * Get content.
      * 
      * @return {@code T} Data. Could return {@code null}.
      */
     public T getData() {
         return this.data;
+    }
+
+    /**
+     * Get count.
+     * 
+     * @return {@code int} Counter value.
+     */
+    public int getCount() {
+        return this.count;
+    }
+
+    /**
+     * Add count with desired input.
+     * 
+     * @param input {@code int} Desired input.
+     */
+    public void addCount(int input) {
+        this.count += input;
     }
 
     /**
