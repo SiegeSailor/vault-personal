@@ -1,3 +1,7 @@
+import structure.Queue;
+import structure.Node;
+import service.Parser;
+
 /*
  * Text Parser                                                                        *
  *     You are to write a program that reads in a body of text and inserts the text   *
@@ -14,7 +18,71 @@
 
 /** Driver. */
 public class Entry {
-    public static void main(String[] arguments) {
+    /** Default constructor. */
+    public Entry() {
+    }
 
+    /**
+     * Actions to demonstrate the programming assignment.
+     * 
+     * @param arguments {@code String[]} Implemented but not used.
+     */
+    public static void main(String[] arguments) {
+        Queue<String> queueOfWord = Parser.parse("source.txt");
+
+        // Detail 1
+        System.out.println("DETAIL 1:");
+        String[] arrayOfString = new String[] { "superhuman", "chiromancy", "unsatisfactory", "percutaneous",
+                "discernible" };
+        for (String string : arrayOfString) {
+            int count = 0;
+            Queue<String> queue = queueOfWord.clone();
+            Node<String> cache = queue.getHead();
+            while (cache != null) {
+                if (cache.getData().equals(string))
+                    break;
+
+                cache = cache.getNext();
+                count++;
+            }
+            System.out.println(
+                    "Removed " + count + " times to reach " + string + ".");
+        }
+
+        // Detail 2
+        System.out.println("DETAIL 2:");
+        System.out.println("There are " + queueOfWord.getCount() + " entries in the queue.");
+
+        // Detail 3
+        System.out.println("DETAIL 3:");
+        Queue<String> queue = queueOfWord.clone();
+        int count = 0;
+        while (!queue.seeEmpty()) {
+            if (queue.dequeue().getCount() > 20)
+                count++;
+        }
+        System.out.println("There are " + count + " words appear more than 20 times.");
+
+        // Detail 4
+        System.out.println("DETAIL 4:");
+        Queue<String> queueOfForth = queueOfWord.clone();
+        Node<String> nodeOccurMost = queueOfForth.dequeue();
+        while (!queueOfForth.seeEmpty()) {
+            Node<String> head = queueOfForth.dequeue();
+            if (head.getCount() > nodeOccurMost.getCount())
+                nodeOccurMost = head;
+        }
+        System.out.println(nodeOccurMost);
+
+        // Detail 5
+        System.out.println("DETAIL 5:");
+        Queue<String> queueOfFifth = queueOfWord.clone();
+        Node<String> nodeLongest = queueOfFifth.dequeue();
+        while (!queueOfFifth.seeEmpty()) {
+            Node<String> head = queueOfFifth.dequeue();
+            if (head.getData().length() > nodeLongest.getData().length())
+                nodeLongest = head;
+        }
+        System.out.println(nodeLongest);
     }
 }

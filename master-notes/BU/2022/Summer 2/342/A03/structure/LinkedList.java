@@ -1,3 +1,5 @@
+package structure;
+
 /**
  * Linked list class.
  * 
@@ -14,8 +16,8 @@ public class LinkedList<T> {
     private int count;
 
     /**
-     * Clone the list. All the nodes and list will be different from the original
-     * one.
+     * Clone the list recursively. All the nodes and list will be different from the
+     * original one.
      * 
      * @param current {@code Node<T>} Start node.
      * @param list    {@code LinkedList<T>} List to return.

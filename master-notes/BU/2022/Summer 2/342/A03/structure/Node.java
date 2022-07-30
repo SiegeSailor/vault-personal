@@ -1,3 +1,5 @@
+package structure;
+
 /**
  * Node class for linked list based data structures.
  * 
@@ -123,7 +125,7 @@ public class Node<T> {
     @Override
     public String toString() {
         return this.getClass().getName() + '@' + Integer.toHexString(hashCode()) +
-                " - " + this.getData() + "(count: "
+                " - " + this.getData() + " (count: "
                 + this.getCount() + ")";
     }
 }

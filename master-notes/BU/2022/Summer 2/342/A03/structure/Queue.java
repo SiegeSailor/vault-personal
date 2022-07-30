@@ -1,3 +1,5 @@
+package structure;
+
 /** Linked list version queue. */
 public class Queue<T> {
     private LinkedList<T> list;
@@ -8,21 +10,30 @@ public class Queue<T> {
     }
 
     /**
-     * Add a data to head.
+     * Construct an queue with an existing linked list.
+     * 
+     * @param list {@code LinkedList<T>} Existing linked list.
+     */
+    public Queue(LinkedList<T> list) {
+        this.list = list;
+    }
+
+    /**
+     * Add a data to tail.
      * 
      * @param data {@code T} Data.
      */
     public void enqueue(T data) {
-        this.list.addFirst(data);
+        this.list.addLast(data);
     }
 
     /**
-     * Remove a node from the end of the list.
+     * Remove a node from head.
      * 
-     * @return {@code Node<T>} Current tail node.
+     * @return {@code Node<T>} Current head node.
      */
     public Node<T> dequeue() {
-        return this.list.removeLast();
+        return this.list.removeFirst();
     }
 
     /**
@@ -67,5 +78,15 @@ public class Queue<T> {
      */
     public void clear() {
         this.list.clear();
+    }
+
+    /**
+     * Clone the queue.
+     * 
+     * @return {@code Queue<T>} Queue that different than the original one.
+     */
+    @Override
+    public Queue<T> clone() {
+        return new Queue<T>(this.list.clone());
     }
 }

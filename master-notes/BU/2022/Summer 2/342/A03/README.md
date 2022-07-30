@@ -116,3 +116,62 @@ Return type for methods is `name() : type` rather than `type name()` due to **me
 [![UML](https://mermaid.ink/img/pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)](https://mermaid.live/edit#pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)
 
 ## Runs
+
+Run result.
+
+### 1th
+
+```
+DETAIL 1:
+Removed 2089 times to reach superhuman.
+Removed 1458 times to reach chiromancy.
+Removed 224 times to reach unsatisfactory.
+Removed 2661 times to reach percutaneous.
+Removed 539 times to reach discernible.
+DETAIL 2:
+There are 2661 entries in the queue.
+DETAIL 3:
+There are 57 words appear more than 20 times.
+DETAIL 4:
+structure.Node@2626b418 - the (count: 736)
+DETAIL 5:
+structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+```
+
+### 2th
+
+```
+DETAIL 1:
+Removed 2089 times to reach superhuman.
+Removed 1458 times to reach chiromancy.
+Removed 224 times to reach unsatisfactory.
+Removed 2661 times to reach percutaneous.
+Removed 539 times to reach discernible.
+DETAIL 2:
+There are 2661 entries in the queue.
+DETAIL 3:
+There are 57 words appear more than 20 times.
+DETAIL 4:
+structure.Node@2626b418 - the (count: 736)
+DETAIL 5:
+structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+```
+
+### 3th
+
+```
+DETAIL 1:
+Removed 2089 times to reach superhuman.
+Removed 1458 times to reach chiromancy.
+Removed 224 times to reach unsatisfactory.
+Removed 2661 times to reach percutaneous.
+Removed 539 times to reach discernible.
+DETAIL 2:
+There are 2661 entries in the queue.
+DETAIL 3:
+There are 57 words appear more than 20 times.
+DETAIL 4:
+structure.Node@2626b418 - the (count: 736)
+DETAIL 5:
+structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+```
