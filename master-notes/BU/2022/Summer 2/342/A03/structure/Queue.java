@@ -1,6 +1,10 @@
 package structure;
 
-/** Linked list version queue. */
+/**
+ * Linked list version queue.
+ * 
+ * @author Zhang, Jin Yu
+ */
 public class Queue<T> {
     private LinkedList<T> list;
 

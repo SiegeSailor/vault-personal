@@ -16,7 +16,11 @@ import service.Parser;
  * - Instructor: Vic Berry                                                            *
  */
 
-/** Driver. */
+/**
+ * Driver.
+ * 
+ * @author Zhang, Jin Yu
+ */
 public class Entry {
     /** Default constructor. */
     public Entry() {
