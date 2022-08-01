@@ -1,6 +1,6 @@
-JRE - Json parsing, networking...
-JVM - C++ engine vary in different OS. Load .class files (byte code) to run.
-JDK - Java utility codes
+JRE - Java Runtime Environment - Json parsing, networking...
+JVM - Java Virtual Machine - C++ engine vary in different OS. Load .class files (byte code) to run.
+JDK - Java Development Kits - Java utility codes
 
 code > JRE (optional) > Byte Code > JVM > CPU
 
