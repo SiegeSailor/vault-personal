@@ -9,13 +9,10 @@ A homework assignment for class **MET CS342** at Boston University, instructed b
 Submitted files.
 
 ```
-├── class/
-├── docs/
 ├── README.md
 ├── Entry.java
 ├── LinkedList.java
-├── Node.java
-└── compile.sh
+└── Node.java
 ```
 
 ## Question 1

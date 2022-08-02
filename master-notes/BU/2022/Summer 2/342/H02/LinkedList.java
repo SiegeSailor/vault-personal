@@ -81,6 +81,7 @@ public class LinkedList<T> implements Iterable<T> {
         if (isEmpty())
             return;
 
+        // If there is only one node
         if (this.getHead().getNext() == null) {
             this.head = null;
             return;

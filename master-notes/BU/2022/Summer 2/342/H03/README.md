@@ -9,11 +9,8 @@ A homework assignment for class **MET CS342** at Boston University, instructed b
 Submitted files.
 
 ```
-├── class/
-├── docs/
 ├── README.md
-├── Entry.java
-└── compile.sh
+└── Entry.java
 ```
 
 ## Question 1
