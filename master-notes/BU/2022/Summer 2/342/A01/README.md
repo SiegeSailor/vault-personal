@@ -1,7 +1,5 @@
 # Programming Assignment
 
-![Assignment 1](https://img.shields.io/badge/Assignment-1-orange)
-
 A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **July 13, 2022**.
 
 ## File Structure
@@ -10,6 +8,7 @@ Submitted files.
 
 ```
 ├── README.md
+├── flowchart.png
 ├── source.txt
 ├── Entry.java
 ├── LinkedList.java
@@ -67,7 +66,7 @@ According to the requirements, we should keep tracking of the following in the l
 
 UML made with mermaid class diagram:
 
-[![UML](https://mermaid.ink/img/pako:eNqFVMtu4zAM_BVBpxRt8gFGkMM2C2wBbwJsr74wEm0La1OBJBcbtPn30s84trf1wRCGw9GQlPQuldUoI6kK8H5vIHNQJiT408ahCsaSiP-0SMMRLwEdnAoU7y0qxHZriMEUFO52PfjY8IJ1wnSL1UMbu87UatY3aidrCwQSOfgD_gu9FkdegzOUCRqhdzvEhv6ijo0P873WB65-MPhl8iiJ_QmqyhO6Y1oL3KsVljL04R60SlXut53COYIeCnmzRgs4n5H0qitKQ4BbpSMzHsGpvKdtNhsBzsHlmO6_yai9K1tR-AEeb8TGTYbhFxtazeG4rWkhcuwLG8XqPTh0GLVoPq9g28XizBr1yZTqAQ_IqD93Y2lKm5mcnJim0b6DW23-zRxyYt3NhcQGXhxRV3qMlIV8mmlIOeS2P9cm5_2awl83ajTa9fpjd7uWkXgpzwWWSMEvUHdLFyISz5YCGJpnbPlsNT2KxB7rs4mkLlPWIHSz0sr-38pAWtxAPskSXQlG89vUHIREhpyVEhnxUmMKVRESmdCVqdWZp4A_tWE9GaVQeHySUHHnLqRkFFyFPal74jrW9RMxtJUD)](https://mermaid.live/edit#pako:eNqFVMtu4zAM_BVBpxRt8gFGkMM2C2wBbwJsr74wEm0La1OBJBcbtPn30s84trf1wRCGw9GQlPQuldUoI6kK8H5vIHNQJiT408ahCsaSiP-0SMMRLwEdnAoU7y0qxHZriMEUFO52PfjY8IJ1wnSL1UMbu87UatY3aidrCwQSOfgD_gu9FkdegzOUCRqhdzvEhv6ijo0P873WB65-MPhl8iiJ_QmqyhO6Y1oL3KsVljL04R60SlXut53COYIeCnmzRgs4n5H0qitKQ4BbpSMzHsGpvKdtNhsBzsHlmO6_yai9K1tR-AEeb8TGTYbhFxtazeG4rWkhcuwLG8XqPTh0GLVoPq9g28XizBr1yZTqAQ_IqD93Y2lKm5mcnJim0b6DW23-zRxyYt3NhcQGXhxRV3qMlIV8mmlIOeS2P9cm5_2awl83ajTa9fpjd7uWkXgpzwWWSMEvUHdLFyISz5YCGJpnbPlsNT2KxB7rs4mkLlPWIHSz0sr-38pAWtxAPskSXQlG89vUHIREhpyVEhnxUmMKVRESmdCVqdWZp4A_tWE9GaVQeHySUHHnLqRkFFyFPal74jrW9RMxtJUD)
+![Flowchart](./flowchart.png)
 
 The linked list will be solely for `String` rather than being generic since the purpose is rather clear.
 

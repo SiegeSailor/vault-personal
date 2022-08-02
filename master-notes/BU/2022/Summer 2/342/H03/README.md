@@ -1,7 +1,5 @@
 # Homework Assignment
 
-![Week 3](https://img.shields.io/badge/Week-3-blue)
-
 A homework assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **July 30, 2022**.
 
 ## File Structure

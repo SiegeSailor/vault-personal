@@ -1,12 +1,10 @@
 # Programming Assignment
 
-![Assignment 2](https://img.shields.io/badge/Assignment-2-orange)
-
 A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **July 22, 2022**.
 
 ## File Structure
 
-Submitted files within the compressed folder.
+Submitted files.
 
 ```
 ├── Board.js
@@ -47,7 +45,7 @@ while the size of is less than 8
 
 Operation flowchart:
 
-[![Flowchart](https://mermaid.ink/img/pako:eNpNkEFPhEAMhf9K05Mmu3fDwURGNF50DV4Mw2HCFJkEOmToxBjgvzu4rNpT8973mrYzNt4SZvgRzNjBW64ZUt1VLyMFI84zlGKC1HA83kJ-qsrOf4KKIRALPG6h-hzJTxuSXz3xGAWU98E6NkLXu_0zQM3Kc9u7RtazrDZ5eadpSQP-S89-gWK-gddIxNNOF7_WBS7-8g9VwbbGAw4UBuNsOmreII3S0UAas9Raak3sRaPmNaFxtGnFwjrxAbPW9BMd0ETx5Rc3mEmIdIHunUk_GnZq_QZH5WMK)](https://mermaid.live/edit#pako:eNpNkEFPhEAMhf9K05Mmu3fDwURGNF50DV4Mw2HCFJkEOmToxBjgvzu4rNpT8973mrYzNt4SZvgRzNjBW64ZUt1VLyMFI84zlGKC1HA83kJ-qsrOf4KKIRALPG6h-hzJTxuSXz3xGAWU98E6NkLXu_0zQM3Kc9u7RtazrDZ5eadpSQP-S89-gWK-gddIxNNOF7_WBS7-8g9VwbbGAw4UBuNsOmreII3S0UAas9Raak3sRaPmNaFxtGnFwjrxAbPW9BMd0ETx5Rc3mEmIdIHunUk_GnZq_QZH5WMK)
+[![Flowchart](./flowchart.png)
 
 ### Component
 
