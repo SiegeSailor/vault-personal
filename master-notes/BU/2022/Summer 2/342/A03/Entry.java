@@ -38,15 +38,19 @@ public class Entry {
             int count = 0;
             Queue<String> queue = queueOfWord.clone();
             Node<String> cache = queue.getHead();
+            boolean isFound = false;
             while (cache != null) {
-                if (cache.getData().equals(string))
+                if (cache.getData().equals(string)) {
+                    isFound = true;
                     break;
+                }
 
                 cache = cache.getNext();
                 count++;
             }
             System.out.println(
-                    "Removed " + count + " times to reach " + string + ".");
+                    isFound ? "Removed " + count + " times to reach " + string + "."
+                            : string + " is not in the article.");
         }
 
         // Detail 2
