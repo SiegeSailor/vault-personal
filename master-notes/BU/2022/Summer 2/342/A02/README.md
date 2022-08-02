@@ -9,14 +9,13 @@ A programming assignment for class **MET CS342** at Boston University, instructe
 Submitted files within the compressed folder.
 
 ```
-├── class/
-├── docs/
-├── main/
-├── structure/
+├── Board.js
+├── Coordinate.java
+├── Node.java
+├── Stack.java
 ├── README.md
 ├── source.txt
-├── Entry.java
-└── compile.sh
+└── Entry.java
 ```
 
 ## 8 Queens Problem

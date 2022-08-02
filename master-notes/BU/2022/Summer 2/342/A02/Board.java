@@ -1,11 +1,5 @@
-package main;
-
 import java.util.Iterator;
 import java.util.Scanner;
-
-import structure.Node;
-import structure.Stack;
-import structure.Coordinate;
 
 /**
  * Main class. This is used to solve an 8 Queens Problem. However, this can also

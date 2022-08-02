@@ -13,9 +13,11 @@
  * - Instructor: Vic Berry                                                            *
  */
 
-import main.Board;
-
-/** Driver. */
+/**
+ * Driver.
+ * 
+ * @author Zhang, Jin YU
+ */
 public class Entry {
     /** Default constructor. */
     public Entry() {

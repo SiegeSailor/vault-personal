@@ -1,5 +1,3 @@
-package structure;
-
 /**
  * Data type represents a coordinate.
  * 

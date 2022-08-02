@@ -1,5 +1,3 @@
-package structure;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -144,6 +142,11 @@ public class Stack<T> implements Iterable<Node<T>> {
         return message;
     }
 
+    /**
+     * Stack iterator class.
+     * 
+     * @author Zhang, Jin Yu
+     */
     public class StackIterator<I> implements Iterator<Node<I>> {
         /** Current node. */
         private Node<I> iterator;

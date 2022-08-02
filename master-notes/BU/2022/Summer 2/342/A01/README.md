@@ -1,22 +1,19 @@
 # Programming Assignment
 
-![Assignment 1](https://img.shields.io/badge/Assignment-1-blue)
+![Assignment 1](https://img.shields.io/badge/Assignment-1-orange)
 
 A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **July 13, 2022**.
 
 ## File Structure
 
-Submitted files within the compressed folder.
+Submitted files.
 
 ```
-├── class/
-├── docs/
 ├── README.md
 ├── source.txt
 ├── Entry.java
 ├── LinkedList.java
-├── Node.java
-└── compile.sh
+└── Node.java
 ```
 
 ## Text Parser
