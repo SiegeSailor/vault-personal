@@ -1,5 +1,3 @@
-package structure;
-
 /**
  * Linked list class.
  * 

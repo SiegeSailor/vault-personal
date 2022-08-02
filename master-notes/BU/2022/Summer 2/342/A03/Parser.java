@@ -1,10 +1,6 @@
-package service;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-import structure.Queue;
 
 /**
  * Parser class.

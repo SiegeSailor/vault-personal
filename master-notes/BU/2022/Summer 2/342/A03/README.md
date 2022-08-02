@@ -1,7 +1,5 @@
 # Programming Assignment
 
-![Assignment 3](https://img.shields.io/badge/Assignment-3-orange)
-
 A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **July 29, 2022**.
 
 ## File Structure
@@ -9,15 +7,13 @@ A programming assignment for class **MET CS342** at Boston University, instructe
 Submitted files within the compressed folder.
 
 ```
-├── class/
-├── docs/
-├── structure/
-├── main/
-├── service/
+├── LinkedList.java
+├── Node.java
+├── Parser.java
+├── Queue.java
 ├── README.md
 ├── source.txt
-├── Entry.java
-└── compile.sh
+└── Entry.java
 ```
 
 ## Queues
@@ -113,7 +109,7 @@ According to the requirements, instead of keeping tracking some properties, we s
 
 Return type for methods is `name() : type` rather than `type name()` due to **mermaid.js** generic type syntax issue.
 
-[![UML](https://mermaid.ink/img/pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)](https://mermaid.live/edit#pako:eNqNVMtuwjAQ_BXLJxCUD4gqLgWpB4T6yDEXN16o1cROnTUqQvDtXcd5lQTUXBzNzK53xk5OPDUSeMTTTJTlSom9FXmiGT1SWUhRGc02bwGpNGyj9BfIjSrxEl_YKVCMPSiNLDVOY4tsqbXXfIKQAxCFyhpwtgd8JtFkymq6z8SkHGGElLEpJjGTAsWUHYySfW6t5ThnITcH8KXDnoHzpaOTPHl7RKnO5KwEWOcFHgn-MCYDoVsKzTtapfdEhZfAnBPdz7MJ5DSISMPPMMzCwkEZV7ZEMHn7GPzgW-o0YqmsmXZDWq_SouKXesfxBi17v8mKZqQGcb-0wkbP6EbWdKwB9iaVLhxe1f0v8VcH7m_klFt3rR_jJcto7cgZ6G9fc8cjiSQE0SAm4lK6GHYy7SHjFu9eqKqP0X6HxkLrzy-dBbZYLIMmMH6gCuskfM5zsLlQkr7-KoiE4yfkkPCIXiXshMsw4Yk-k9QVdEqwlgqN5dFOZCXMuXCU91GnPELroBHVP5Fadf4Flz9agg)
+[![UML](./flowchart.png)
 
 ## Runs
 

@@ -1,7 +1,3 @@
-import structure.Queue;
-import structure.Node;
-import service.Parser;
-
 /*
  * Text Parser                                                                        *
  *     You are to write a program that reads in a body of text and inserts the text   *
