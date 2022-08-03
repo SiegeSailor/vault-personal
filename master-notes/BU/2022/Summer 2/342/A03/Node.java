@@ -13,9 +13,6 @@ public class Node<T> {
     /** Previous linked node. */
     private Node<T> previous;
 
-    /** Counter. */
-    private int count;
-
     /**
      * Construct a node with initial data.
      * 
@@ -23,18 +20,6 @@ public class Node<T> {
      */
     public Node(T initialData) {
         this.setData(initialData);
-        this.addCount(1);
-    }
-
-    /**
-     * Construct a node with given data and count.
-     * 
-     * @param data  {@code String} A string.
-     * @param count {@code int} Existing count.
-     */
-    public Node(T data, int count) {
-        this.data = data;
-        this.addCount(count);
     }
 
     /**
@@ -98,32 +83,12 @@ public class Node<T> {
     }
 
     /**
-     * Get count.
-     * 
-     * @return {@code int} Counter value.
-     */
-    public int getCount() {
-        return this.count;
-    }
-
-    /**
-     * Add count with desired input.
-     * 
-     * @param input {@code int} Desired input.
-     */
-    public void addCount(int input) {
-        this.count += input;
-    }
-
-    /**
      * Return a string of class name, hashcode, data, count, and length.
      * 
      * @return {@code String} A string representation for the held data.
      */
     @Override
     public String toString() {
-        return this.getClass().getName() + '@' + Integer.toHexString(hashCode()) +
-                " - " + this.getData() + " (count: "
-                + this.getCount() + ")";
+        return this.getClass().getName() + " (" + this.getData() + ")";
     }
 }

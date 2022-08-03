@@ -26,7 +26,7 @@ public class LinkedList<T> {
         if (current == null)
             return list;
 
-        list.addLast(new Node<T>(current.getData(), current.getCount()));
+        list.addLast(new Node<T>(current.getData()));
         return this.clone(current.getNext(), list);
     }
 
@@ -65,32 +65,11 @@ public class LinkedList<T> {
             return;
         }
 
-        Node<T> cache = this.getHead();
-        while (cache != null) {
-            // See if there is a duplicated node exist.
-            if (cache.getData().equals(node.getData())) {
-                cache.addCount(node.getCount());
-                return;
-            }
-            cache = cache.getNext();
-        }
-
         // Add the node at start.
         this.getHead().setPrevious(node);
         node.setNext(this.getHead());
         this.head = node;
         this.count++;
-    }
-
-    /**
-     * Overloading addFirst. Instead of adding a node, creating a node with given
-     * data and count then add it.
-     * 
-     * @param data  {@code T} Data.
-     * @param count {@code int} Existing count.
-     */
-    public void addFirst(T data, int count) {
-        this.addFirst(new Node<T>(data, count));
     }
 
     /**
@@ -116,32 +95,11 @@ public class LinkedList<T> {
             return;
         }
 
-        Node<T> cache = this.getHead();
-        while (cache != null) {
-            // See if there is a duplicated node exist.
-            if (cache.getData().equals(node.getData())) {
-                cache.addCount(node.getCount());
-                return;
-            }
-            cache = cache.getNext();
-        }
-
         // add the node at the end.
         this.getTail().setNext(node);
         node.setPrevious(this.getTail());
         this.tail = node;
         this.count++;
-    }
-
-    /**
-     * Overloading addLast. Instead of adding a node, creating a node with given
-     * data and count then add it.
-     * 
-     * @param data  {@code T} Data.
-     * @param count {@code int} Existing count.
-     */
-    public void addLast(T data, int count) {
-        this.addLast(new Node<T>(data, count));
     }
 
     /**
@@ -211,9 +169,7 @@ public class LinkedList<T> {
     /**
      * See if the linked list is empty.
      * 
-     * @return {@code boolean} True if the head node is null. The rest of nodes
-     *         would be collected by Java Garbage Collection since the head node is
-     *         the only place to point to the rest.
+     * @return {@code boolean} True if the head node is null.
      */
     public boolean seeEmpty() {
         return this.getCount() == 0;
@@ -259,9 +215,12 @@ public class LinkedList<T> {
         if (this.seeEmpty()) {
             message = "<EMPTY>";
         } else {
+            message += this.getClass().getName() + " ";
             Node<T> cache = this.head;
             while (cache != null) {
-                message += cache + "\n";
+                message += cache;
+                if (cache.getNext() != null)
+                    message += " -> ";
                 cache = cache.getNext();
             }
         }

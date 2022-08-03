@@ -18,27 +18,26 @@
  * @author Zhang, Jin Yu
  */
 public class Entry {
-    /** Default constructor. */
+    /** Queue that contains all words. */
+    private Queue<String> queue;
+
+    /** Construct the main class and parse the source text into the queue. */
     public Entry() {
+        this.queue = Parser.parse("source.txt");
     }
 
-    /**
-     * Actions to demonstrate the programming assignment.
-     * 
-     * @param arguments {@code String[]} Implemented but not used.
-     */
-    public static void main(String[] arguments) {
-        Queue<String> queueOfWord = Parser.parse("source.txt");
-
-        // Detail 1
+    /** Demonstrate requirement for detail 1. */
+    public void printOne() {
         System.out.println("DETAIL 1:");
         String[] arrayOfString = new String[] { "superhuman", "chiromancy", "unsatisfactory", "percutaneous",
                 "discernible" };
         for (String string : arrayOfString) {
             int count = 0;
-            Queue<String> queue = queueOfWord.clone();
+            // Incase of modifying the original queue, creating a new one by cloning it
+            Queue<String> queue = this.queue.clone();
             Node<String> cache = queue.getHead();
             boolean isFound = false;
+            // Remove the head from an unmodified queue
             while (cache != null) {
                 if (cache.getData().equals(string)) {
                     isFound = true;
@@ -52,41 +51,85 @@ public class Entry {
                     isFound ? "Removed " + count + " times to reach " + string + "."
                             : string + " is not in the article.");
         }
+    }
 
-        // Detail 2
+    /** Demonstrate requirement for detail 2. */
+    public void printTwo() {
         System.out.println("DETAIL 2:");
-        System.out.println("There are " + queueOfWord.getCount() + " entries in the queue.");
+        System.out.println("There are " + this.queue.getCount() + " entries in the queue.");
+    }
 
-        // Detail 3
+    /** Demonstrate requirement for detail 3. */
+    public void printThree() {
         System.out.println("DETAIL 3:");
-        Queue<String> queue = queueOfWord.clone();
+        Queue<String> queue = this.queue.clone();
+        HashMap<String> hashMap = new HashMap<String>();
+        // Add the first 1000 entries into the hash map
+        for (int count = 0; count < 1000; count++)
+            hashMap.add(queue.dequeue().getData());
+
+        // The hash map is consists with lists of lists
+        Node<LinkedList<String>> cache = hashMap.getHead();
         int count = 0;
-        while (!queue.seeEmpty()) {
-            if (queue.dequeue().getCount() > 20)
+        while (cache != null) {
+            if (cache.getData().getCount() > 20)
                 count++;
+            cache = cache.getNext();
         }
         System.out.println("There are " + count + " words appear more than 20 times.");
+    }
 
-        // Detail 4
+    /** Demonstrate requirement for detail 4. */
+    public void printFour() {
         System.out.println("DETAIL 4:");
-        Queue<String> queueOfForth = queueOfWord.clone();
-        Node<String> nodeOccurMost = queueOfForth.dequeue();
-        while (!queueOfForth.seeEmpty()) {
-            Node<String> head = queueOfForth.dequeue();
-            if (head.getCount() > nodeOccurMost.getCount())
-                nodeOccurMost = head;
-        }
-        System.out.println(nodeOccurMost);
+        Queue<String> queue = this.queue.clone();
+        HashMap<String> hashMap = new HashMap<String>();
+        // Remove all entries from the queue
+        while (!queue.seeEmpty())
+            hashMap.add(queue.dequeue().getData());
 
-        // Detail 5
-        System.out.println("DETAIL 5:");
-        Queue<String> queueOfFifth = queueOfWord.clone();
-        Node<String> nodeLongest = queueOfFifth.dequeue();
-        while (!queueOfFifth.seeEmpty()) {
-            Node<String> head = queueOfFifth.dequeue();
-            if (head.getData().length() > nodeLongest.getData().length())
-                nodeLongest = head;
+        Node<LinkedList<String>> cache = hashMap.getHead();
+        Node<LinkedList<String>> occurMost = null;
+        while (cache != null) {
+            // Handle first one
+            if (occurMost == null) {
+                occurMost = cache;
+                continue;
+            }
+
+            // Compare two list's count
+            if (cache.getData().getCount() > occurMost.getData().getCount())
+                occurMost = cache;
+            cache = cache.getNext();
         }
-        System.out.println(nodeLongest);
+        System.out.println(occurMost.getData().getHead().getData() + " occurs must frequently.");
+    }
+
+    /** Demonstrate requirement for detail 5. */
+    public void printFive() {
+        System.out.println("DETAIL 5:");
+        Queue<String> queue = this.queue.clone();
+        Node<String> longest = queue.dequeue();
+        // Remove all entries from the queue
+        while (!queue.seeEmpty()) {
+            Node<String> head = queue.dequeue();
+            if (head.getData().length() > longest.getData().length())
+                longest = head;
+        }
+        System.out.println(longest.getData() + " is the longest word.");
+    }
+
+    /**
+     * Actions to demonstrate the programming assignment.
+     * 
+     * @param arguments {@code String[]} Implemented but not used.
+     */
+    public static void main(String[] arguments) {
+        Entry entry = new Entry();
+        entry.printOne();
+        entry.printTwo();
+        entry.printThree();
+        entry.printFour();
+        entry.printFive();
     }
 }

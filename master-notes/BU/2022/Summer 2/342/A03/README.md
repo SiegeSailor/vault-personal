@@ -4,13 +4,15 @@ A programming assignment for class **MET CS342** at Boston University, instructe
 
 ## File Structure
 
-Submitted files within the compressed folder.
+Submitted files:
 
 ```
 ├── LinkedList.java
 ├── Node.java
 ├── Parser.java
 ├── Queue.java
+├── HashMap.java
+├── flowchart.java
 ├── README.md
 ├── source.txt
 └── Entry.java
@@ -119,55 +121,55 @@ Run result.
 
 ```
 DETAIL 1:
-Removed 2089 times to reach superhuman.
-Removed 1458 times to reach chiromancy.
-Removed 224 times to reach unsatisfactory.
-Removed 2661 times to reach percutaneous.
-Removed 539 times to reach discernible.
+Removed 6855 times to reach superhuman.
+Removed 4091 times to reach chiromancy.
+Removed 385 times to reach unsatisfactory.
+percutaneous is not in the article.
+Removed 1130 times to reach discernible.
 DETAIL 2:
-There are 2661 entries in the queue.
+There are 10089 entries in the queue.
 DETAIL 3:
-There are 57 words appear more than 20 times.
+There are 3 words appear more than 20 times.
 DETAIL 4:
-structure.Node@2626b418 - the (count: 736)
+the occurs must frequently.
 DETAIL 5:
-structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+httpswwwgutenbergorg93932 is the longest word.
 ```
 
 ### 2th
 
 ```
 DETAIL 1:
-Removed 2089 times to reach superhuman.
-Removed 1458 times to reach chiromancy.
-Removed 224 times to reach unsatisfactory.
-Removed 2661 times to reach percutaneous.
-Removed 539 times to reach discernible.
+Removed 6855 times to reach superhuman.
+Removed 4091 times to reach chiromancy.
+Removed 385 times to reach unsatisfactory.
+percutaneous is not in the article.
+Removed 1130 times to reach discernible.
 DETAIL 2:
-There are 2661 entries in the queue.
+There are 10089 entries in the queue.
 DETAIL 3:
-There are 57 words appear more than 20 times.
+There are 3 words appear more than 20 times.
 DETAIL 4:
-structure.Node@2626b418 - the (count: 736)
+the occurs must frequently.
 DETAIL 5:
-structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+httpswwwgutenbergorg93932 is the longest word.
 ```
 
 ### 3th
 
 ```
 DETAIL 1:
-Removed 2089 times to reach superhuman.
-Removed 1458 times to reach chiromancy.
-Removed 224 times to reach unsatisfactory.
-Removed 2661 times to reach percutaneous.
-Removed 539 times to reach discernible.
+Removed 6855 times to reach superhuman.
+Removed 4091 times to reach chiromancy.
+Removed 385 times to reach unsatisfactory.
+percutaneous is not in the article.
+Removed 1130 times to reach discernible.
 DETAIL 2:
-There are 2661 entries in the queue.
+There are 10089 entries in the queue.
 DETAIL 3:
-There are 57 words appear more than 20 times.
+There are 3 words appear more than 20 times.
 DETAIL 4:
-structure.Node@2626b418 - the (count: 736)
+the occurs must frequently.
 DETAIL 5:
-structure.Node@28a418fc - httpswwwgutenbergorg93932 (count: 1)
+httpswwwgutenbergorg93932 is the longest word.
 ```
