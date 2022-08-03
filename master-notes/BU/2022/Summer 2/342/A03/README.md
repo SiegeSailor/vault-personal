@@ -111,7 +111,7 @@ According to the requirements, instead of keeping tracking some properties, we s
 
 Return type for methods is `name() : type` rather than `type name()` due to **mermaid.js** generic type syntax issue.
 
-[![UML](./flowchart.png)
+![UML](./flowchart.png)
 
 ## Runs
 
