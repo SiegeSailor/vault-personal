@@ -1,6 +1,6 @@
 ## Programming Assignment
 
-A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **August 3, 2022**.
+A programming assignment for class **MET CS342** at Boston University, instructed by **Vic Berry**. Student [Zhang, Jin Yu](mailto:siege@bu.edu) submitted on **August 4, 2022**.
 
 ## File Structure
 
