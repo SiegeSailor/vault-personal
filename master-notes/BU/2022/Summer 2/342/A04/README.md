@@ -111,11 +111,11 @@ pain  gain
 
 ### Binary Search Tree
 
-It is hard to tell if this will be a **Binary Search Tree**. If we now insert a word `fly`, it will be the right child of _no_ (7) then the left child of _gain_ (-1). When we do `"no".compareTo("fly")` it returns `8` which is greater than `"no".compareTo("gain")`.
+It is hard to tell if this will be a **Binary Search Tree**. If we now insert a word `fly`, it will be the right child of _no(7)_ then the left child of _gain(-1)_. When we do `"no".compareTo("fly")` it returns `8` which is greater than `"no".compareTo("gain")`.
 
 ```
       "no".compareTo("fly") : 8
-  /                             \
+    /                           \
 "pain".compareTo("fly") : 10    "gain".compareTo("fly") : 1
                                    \
                                    "fly".compareTo("fly") : 0
