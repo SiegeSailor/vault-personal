@@ -1,5 +1,5 @@
 /**
- * Class for linked tree data structures.
+ * Class node for linked tree data structures.
  * 
  * @author Zhang, Jin Yu
  */
@@ -116,8 +116,7 @@ public class Node<T> {
      */
     @Override
     public String toString() {
-        return this.getClass().getName() + '@' + Integer.toHexString(hashCode()) +
-                " - " + this.getData() + " (count: "
+        return this.getData() + " (count: "
                 + this.getCount() + ")";
     }
 }
