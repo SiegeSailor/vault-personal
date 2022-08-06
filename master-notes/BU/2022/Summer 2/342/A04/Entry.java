@@ -28,6 +28,7 @@ public class Entry {
         this.tree = Parser.parse("source.txt");
     }
 
+    /** Action for detail 1. */
     public void printOne() {
         System.out.println("DETAIL 1:");
         String[] arrayOfString = new String[] { "transylvania", "harker", "renfield", "vampire",
@@ -41,57 +42,66 @@ public class Entry {
         }
     }
 
+    /** Action for detail 2. */
     public void printTwo() {
         System.out.println("DETAIL 2:");
         System.out.println("The depth of the tree is " + this.tree.inquireDepth() + ".");
     }
 
+    /** Action for detail 3. */
     public void printThree() {
         System.out.println("DETAIL 3:");
         System.out.println("There are " + this.tree.getCount() + " different words in the tree.");
     }
 
+    /** Action for detail 4. */
     public void printFour() {
         System.out.println("DETAIL 4:");
         System.out.println("The root is " + this.tree.getRoot() + ".");
     }
 
+    /** Action for detail 5. */
     public void printFive() {
         System.out.println("DETAIL 5:");
         System.out.println("Node at deepest level is " + this.tree.inquireLeaves() + ".");
     }
 
+    /** Action for detail 6. */
     public void printSix() {
         System.out.println("DETAIL 6:");
         System.out.println("There are " + this.tree.inquireCount() + " total words in the tree.");
     }
 
+    /** Action for detail 7. */
     public void printSeven() {
         System.out.println("DETAIL 7:");
         System.out.println(this.tree.inquireOccurMost() + " occurs most frequently.");
     }
 
+    /** Action for detail 8. */
     public void printEight() {
         System.out.println("DETAIL 8:");
         System.out.println(
                 "First word in pre-order traversal of the tree is "
-                        + this.tree.traversal(Order.PRE_ORDER).split(" ")[0]
+                        + this.tree.traverse(Order.PRE_ORDER).split(" ")[0]
                         + ".");
     }
 
+    /** Action for detail 9. */
     public void printNight() {
         System.out.println("DETAIL 9:");
         System.out.println(
                 "First word in post-order traversal of the tree is "
-                        + this.tree.traversal(Order.POST_ORDER).split(" ")[0]
+                        + this.tree.traverse(Order.POST_ORDER).split(" ")[0]
                         + ".");
     }
 
+    /** Action for detail 10. */
     public void printTen() {
         System.out.println("DETAIL 10:");
         System.out.println(
                 "First word in in-order traversal of the tree is "
-                        + this.tree.traversal(Order.IN_ORDER).split(" ")[0]
+                        + this.tree.traverse(Order.IN_ORDER).split(" ")[0]
                         + ".");
     }
 

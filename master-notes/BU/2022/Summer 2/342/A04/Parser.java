@@ -1,6 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import edu.bu.met.cs342.TextParser;
 
 /**
  * Parser class.
@@ -25,35 +25,17 @@ public class Parser {
     public static BinaryTree<String> parse(String pathname) {
         BinaryTree<String> tree = new BinaryTree<String>();
         try {
-            // Read the source file within class folder.
-            File file = new File(System.getProperty("user.dir") + "/../" + pathname);
+            TextParser parser = new TextParser();
+            parser.openFile(pathname);
 
-            Scanner scanner = new Scanner(file);
-            // In case if the file is empty.
-            if (!file.exists()) {
-                scanner.close();
-                throw new FileNotFoundException();
+            // Read till null.
+            while (true) {
+                String word = parser.getNextWord();
+                if (word != null)
+                    tree.add(word);
+                else
+                    break;
             }
-
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                // Separate the line into words.
-                String[] arrayOfWord = line.split(" ");
-                for (String word : arrayOfWord) {
-                    // Remove any non-letter or non-number character.
-                    String lowercase = word.toLowerCase();
-                    String value = "";
-                    for (Character character : lowercase.toCharArray()) {
-                        if (Character.isLetterOrDigit(character))
-                            value += character;
-                    }
-
-                    // Append to the linked list if there is a valid word.
-                    if (value.length() > 0)
-                        tree.add(value);
-                }
-            }
-            scanner.close();
         } catch (Exception event) {
             System.out.println("Something went wrong while reading the file.");
             Scanner keyboard = new Scanner(System.in);

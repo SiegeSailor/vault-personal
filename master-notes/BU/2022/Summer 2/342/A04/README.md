@@ -134,3 +134,92 @@ Most of the requirements can be simply implemented by a binary tree. Here we use
 ![Diagram](./diagram.png)
 
 ## Runs
+
+Run results.
+
+### 1th
+
+```
+DETAIL 1:
+transylvania appears 16 times.
+harker appears 113 times.
+renfield appears 39 times.
+vampire appears 24 times.
+expostulate appears 1 times.
+DETAIL 2:
+The depth of the tree is 32.
+DETAIL 3:
+There are 10817 different words in the tree.
+DETAIL 4:
+The root is the (count: 8046).
+DETAIL 5:
+Node at deepest level is yed (count: 1) .
+DETAIL 6:
+There are 163683 total words in the tree.
+DETAIL 7:
+the (count: 8046) occurs most frequently.
+DETAIL 8:
+First word in pre-order traversal of the tree is the.
+DETAIL 9:
+First word in post-order traversal of the tree is zoöphagy.
+DETAIL 10:
+First word in in-order traversal of the tree is zoöphagy.
+```
+
+### 2th
+
+```
+DETAIL 1:
+transylvania appears 16 times.
+harker appears 113 times.
+renfield appears 39 times.
+vampire appears 24 times.
+expostulate appears 1 times.
+DETAIL 2:
+The depth of the tree is 32.
+DETAIL 3:
+There are 10817 different words in the tree.
+DETAIL 4:
+The root is the (count: 8046).
+DETAIL 5:
+Node at deepest level is yed (count: 1) .
+DETAIL 6:
+There are 163683 total words in the tree.
+DETAIL 7:
+the (count: 8046) occurs most frequently.
+DETAIL 8:
+First word in pre-order traversal of the tree is the.
+DETAIL 9:
+First word in post-order traversal of the tree is zoöphagy.
+DETAIL 10:
+First word in in-order traversal of the tree is zoöphagy.
+```
+
+### 3th
+
+```
+DETAIL 1:
+transylvania appears 16 times.
+harker appears 113 times.
+renfield appears 39 times.
+vampire appears 24 times.
+expostulate appears 1 times.
+DETAIL 2:
+The depth of the tree is 32.
+DETAIL 3:
+There are 10817 different words in the tree.
+DETAIL 4:
+The root is the (count: 8046).
+DETAIL 5:
+Node at deepest level is yed (count: 1) .
+DETAIL 6:
+There are 163683 total words in the tree.
+DETAIL 7:
+the (count: 8046) occurs most frequently.
+DETAIL 8:
+First word in pre-order traversal of the tree is the.
+DETAIL 9:
+First word in post-order traversal of the tree is zoöphagy.
+DETAIL 10:
+First word in in-order traversal of the tree is zoöphagy.
+```
