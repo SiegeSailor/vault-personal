@@ -26,7 +26,9 @@ public class Parser {
         BinaryTree<String> tree = new BinaryTree<String>();
         try {
             TextParser parser = new TextParser();
-            parser.openFile(pathname);
+            boolean isSuccessful = parser.openFile(pathname);
+            if (!isSuccessful)
+                throw new Exception("Open file failed.");
 
             // Read till null.
             while (true) {

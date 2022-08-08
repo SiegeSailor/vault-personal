@@ -17,7 +17,7 @@ public class BinaryTree<T extends Comparable<T>> {
      * @param data    {@code T} Data to add.
      */
     private void add(Node<T> current, T data) {
-        if (current.getData().compareTo(data) < 0)
+        if (current.getData().compareTo(data) > 0)
             if (current.getLeft() == null) {
                 this.count++;
                 current.setLeft(new Node<T>(data));
@@ -49,7 +49,7 @@ public class BinaryTree<T extends Comparable<T>> {
         int difference = current.getData().compareTo(data);
         if (difference == 0)
             return current;
-        else if (difference < 0)
+        else if (difference > 0)
             return this.get(current.getLeft(), data);
         else
             return this.get(current.getRight(), data);

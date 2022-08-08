@@ -161,9 +161,9 @@ the (count: 8046) occurs most frequently.
 DETAIL 8:
 First word in pre-order traversal of the tree is the.
 DETAIL 9:
-First word in post-order traversal of the tree is zoöphagy.
+First word in post-order traversal of the tree is 1030.
 DETAIL 10:
-First word in in-order traversal of the tree is zoöphagy.
+First word in in-order traversal of the tree is 1.
 ```
 
 ### 2th
@@ -190,9 +190,9 @@ the (count: 8046) occurs most frequently.
 DETAIL 8:
 First word in pre-order traversal of the tree is the.
 DETAIL 9:
-First word in post-order traversal of the tree is zoöphagy.
+First word in post-order traversal of the tree is 1030.
 DETAIL 10:
-First word in in-order traversal of the tree is zoöphagy.
+First word in in-order traversal of the tree is 1.
 ```
 
 ### 3th
@@ -219,7 +219,7 @@ the (count: 8046) occurs most frequently.
 DETAIL 8:
 First word in pre-order traversal of the tree is the.
 DETAIL 9:
-First word in post-order traversal of the tree is zoöphagy.
+First word in post-order traversal of the tree is 1030.
 DETAIL 10:
-First word in in-order traversal of the tree is zoöphagy.
+First word in in-order traversal of the tree is 1.
 ```
