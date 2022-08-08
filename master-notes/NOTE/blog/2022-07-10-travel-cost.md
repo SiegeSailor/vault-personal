@@ -15,7 +15,7 @@ tags: [travel]
 | Aug 17 - Aug 19 | Car Rent | OGG       |            |                          |
 | Aug 19          | Flight   | OGG - LAX | USD 457.00 | American Airlines        |
 | Aug 20 - Aug 23 | Hotel    | LAX       | USD 552.99 |                          |
-| Aug 21          | Ticket   | LAX       |            | Disneyland               |
+| Aug 21          | Ticket   | LAX       | USD 268.00 | Disneyland               |
 | Aug 23          | Flight   | LAX - MEX | USD 283.30 | Trip.com                 |
 | Aug 23 - Aug 26 | Hotel    | MEX       | USD 294.30 |                          |
 | Aug 26          | Flight   | MEX - CUN |            |                          |
