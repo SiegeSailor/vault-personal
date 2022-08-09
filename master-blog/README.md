@@ -1,27 +1,56 @@
 # README
 
-This repository is a Hybrid WEB application for career resume and personal notes. The flow would be:
+This repository is a Hybrid WEB application for career resume and personal notes. The components in the application would be **Brief**, **Resume**, **Contact**, **Project**, **Blog**, and **Note**. There should be a mechanism to easily organize contents, and the very first sight of view has to attract employer's eyes rather than letting them think here is another documentation website.
 
-```mermaid
-flowchart LR
-Entry[\Entry/] --> Brief
-subgraph Brief
-direction LR
-Status -.-> Resume
-Status -.-> Project
-Status -.-> Contact
+Monorepo structure:
 
-end
-Brief --> Blog/Note
+```
+├── client/
+├── server/
+├── model/
+├── .gitignore
+└── README.md
 ```
 
-Server Side services are not included in this graph and should be done after Client Side.
-
-The URL for this application should be available on **LinkedIn**, **GitHub**, and **Handshake**. Information from Brief section should also be synchronized through the all media.
+Server Side services are not included in this graph and should be done after Client Side. The URL for this application should be available on _LinkedIn_, _GitHub_, and _Handshake_. Information from Brief section should also be synchronized through the all media.
 
 ## Client Side
 
 Including Brief, Blog, Project, and Note sections, basically all content. This is due to the desire of extending the limit from only text and images to a whole customized view. However, there will still be common components or style for consistency reasons. Most of them are **Static Generation**.
+
+General file structure:
+
+```
+├── constants/
+│   ├── credential.ts
+│   ├── format.ts
+│   └── ...
+├── modules/
+│   ├── common/
+│   │   └── ...
+│   ├── [module]/
+│   │   ├── request/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   |── utils/
+│   │   └── ...
+├── pages/
+│   ├── brief/
+│   │   └── index.tsx
+│   └── index.tsx
+├── public/
+│   ├── files/
+│   ├── static/
+│   │   ├── fonts/
+│   │   └── images/
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── manifest.json
+├── next-env.d.ts
+├── package-lock.json
+├── package.json
+└── tsconfig.json
+```
 
 ## Server Side
 

@@ -9,6 +9,7 @@ coverage/
 # Production
 build/
 .firebase/
+.next/
 
 # Generated files
 .docusaurus
