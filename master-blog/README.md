@@ -25,11 +25,15 @@ General file structure:
 │   ├── credential.ts
 │   ├── format.ts
 │   ├── ...
+├── common/
+│   ├── requests/
+│   ├── components/
+│   ├── hooks/
+│   |── utils/
+│   ├── ...
 ├── modules/
-│   ├── common/
-│   │   ├── ...
 │   ├── [module]/
-│   │   ├── request/
+│   │   ├── requests/
 │   │   ├── components/
 │   │   ├── hooks/
 │   │   |── utils/
@@ -48,9 +52,6 @@ General file structure:
 │   ├── robots.txt
 │   ├── manifest.json
 ├── next-env.d.ts
-├── global.css
-├── postcss.config.ts
-├── tailwind.config.js
 ├── package-lock.json
 ├── package.json
 ├── tsconfig.json
