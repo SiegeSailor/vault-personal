@@ -1,6 +1,6 @@
 # README
 
-This repository is a Hybrid WEB application for career resume and personal notes. The components in the application would be **Brief**, **Resume**, **Contact**, **Project**, **Blog**, and **Note**. There should be a mechanism to easily organize contents, and the very first sight of view has to attract employer's eyes rather than letting them think here is another documentation website.
+This repository is a Hybrid WEB application for career resume and personal notes. The components in the application would be **Brief**, **Resume**, **Contact**, **Project**, **Blog**, and **Note**. There should be a mechanism to easily organize contents, and perform an attractive view.
 
 Monorepo structure:
 
@@ -26,23 +26,18 @@ General file structure:
 │   ├── format.ts
 │   ├── ...
 ├── common/
-│   ├── requests/
 │   ├── components/
 │   ├── hooks/
+│   ├── queries/
 │   |── utils/
-│   ├── ...
 ├── modules/
 │   ├── [module]/
-│   │   ├── requests/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   |── utils/
-│   │   ├── ...
 ├── pages/
 │   ├── _app.tsx
 │   ├── index.tsx
 │   ├── brief/
 │   │   ├── index.tsx
+├── theme/
 ├── public/
 │   ├── files/
 │   ├── static/
