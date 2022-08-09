@@ -8,7 +8,6 @@ Monorepo structure:
 ├── client/
 ├── server/
 ├── model/
-├── documents/
 ├── .gitignore
 └── README.md
 ```
@@ -50,7 +49,7 @@ General file structure:
 │   ├── manifest.json
 ├── next-env.d.ts
 ├── global.css
-├── postcss.config.js
+├── postcss.config.ts
 ├── tailwind.config.js
 ├── package-lock.json
 ├── package.json
