@@ -22,3 +22,10 @@ shortest path algorithm
 State machine <<= related
 
 Ragged array -> Generate Matrix (2 dimensional array)
+
+### Final exam
+
+Recursive sorts have better performance that the iterative sorts: true
+Any iterative algorithm can be implemented recursively: false
+The return type of a constructor is **undefined**
+Trees can have only 2 children per node: false
