@@ -1,7 +1,7 @@
-@@@
+---
 date: 2022-08-29
 tags: [java]
-@@@
+---
 
 # Coordinate in 2 Dimension
 

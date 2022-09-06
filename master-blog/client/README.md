@@ -53,7 +53,7 @@ General file structure:
 There are a few features must be implemented for **Blog** and **Note**:
 
 - Markdown parsing
-- Mermaid chart
-- Customized block
-- Customized information section and tag
+- Mermaid charts
+- Customized blocks
+- Customized information section and fields
 - Latex support
