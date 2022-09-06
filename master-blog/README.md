@@ -25,13 +25,16 @@ General file structure:
 │   ├── credential.ts
 │   ├── format.ts
 │   ├── ...
-├── common/
-│   ├── components/
-│   ├── hooks/
-│   ├── queries/
-│   |── utils/
+├── components/
+├── hooks/
+├── queries/
+|── utils/
 ├── modules/
 │   ├── [module]/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── queries/
+│   │   |── utils/
 ├── pages/
 │   ├── _app.tsx
 │   ├── index.tsx
@@ -51,6 +54,18 @@ General file structure:
 ├── package.json
 ├── tsconfig.json
 └── ...
+```
+
+### Document Flow
+
+Due to the need for static files, deploying every time after updating a document is necessary.
+
+### Document Format
+
+**Blog** and **Note** are the crucial part since this application is also a personal clip. To easily organize them, there should be a format them. The following is an example of a document:
+
+```markdown
+# Label
 ```
 
 ## Server

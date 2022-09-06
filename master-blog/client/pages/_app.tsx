@@ -3,20 +3,30 @@ import styled from "styled-components";
 
 import CSSReset from "theme/CSSReset";
 
-const Layout = styled.main`
-  border: 1px solid gray;
-  padding: 12px;
-  margin: 0.5rem;
+const Layout = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+
+  aside {
+    width: 30%;
+    border-right: 1px solid #e4e4e4;
+  }
+
+  main {
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+    word-break: break-all;
+  }
 `;
 
-export default function Page({ Component, pageProps }: AppProps) {
+export default function Page({ Component, ...props }: AppProps) {
   return (
     <Layout>
       <CSSReset />
-      <Component {...pageProps} />
+      <aside></aside>
+      <main>
+        <Component {...props.pageProps} />
+      </main>
     </Layout>
   );
 }
