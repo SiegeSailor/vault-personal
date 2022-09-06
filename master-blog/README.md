@@ -37,12 +37,19 @@ General file structure:
 │   │   |── utils/
 ├── pages/
 │   ├── _app.tsx
+│   ├── _document.tsx
 │   ├── index.tsx
 │   ├── brief/
 │   │   ├── index.tsx
+│   ├── [route]/
+│   │   ├── index.tsx
+│   │   ├── [identity].tsx
 ├── theme/
 ├── public/
 │   ├── files/
+│   │   ├── [category]/
+│   │   │   ├── entry.json
+│   │   │   ├── [article].md
 │   ├── static/
 │   │   ├── fonts/
 │   │   ├── images/

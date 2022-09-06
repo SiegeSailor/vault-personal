@@ -25,7 +25,7 @@ For example, we pick a location at `(1, 4)` on a `5 x 5` grid and encode it:
 1 * 5 + 4 = 9
 ```
 
-Then we decode code `9` to retrive its original coordinate:
+Then we decode code `9` to retrieve its original coordinate:
 
 ```cmd
 9 / 5 = 1
@@ -35,7 +35,9 @@ Then we decode code `9` to retrive its original coordinate:
 9 % 5 = 4
 ```
 
-> This is fast and we can use `Integer` for any other data structure we may use. However, it is quite hard to read when we need to go top or right. For instance, we need to decode the code from `9` to get `(1, 4)` in order to go to `(1, 5)`.
+:::info
+This is fast and we can use `Integer` for any other data structure we may use. However, it is quite hard to read when we need to go top or right. For instance, we need to decode the code from `9` to get `(1, 4)` in order to go to `(1, 5)`.
+:::
 
 ## Array
 
@@ -55,21 +57,23 @@ else
     System.out.println("Arrays are not comparable.");
 ```
 
-> Fast and even more semantic than using pure math. The only drawback is that arrays are not comparable. It is useful when there is no need to compare with two coordinates.
+:::info
+Fast and even more semantic than using pure math. The only drawback is that arrays are not comparable. It is useful when there is no need to compare with two coordinates.
+:::
 
-## Coustom Class
+## Custom Class
 
 ```java
 public class Coordinate {
     private int x;
-        
+
     private int y;
-        
+
     public Coordinate(int initialX, int initialY) {
         this.x = initialX;
         this.y = initialY;
     }
-        
+
     @Override
 	public int hashCode() {
         final int prime = 37;
@@ -78,7 +82,7 @@ public class Coordinate {
         result = prime * result + this.y;
         return result;
 	}
-        
+
     @Override
     public boolean equals(Object input) {
         if (this == input)
@@ -106,4 +110,6 @@ public class Coordinate {
 }
 ```
 
-> Comparable and semantic. It is just too time-consuming when you have to write a whole class for every graph question.
+:::info
+Comparable and semantic. It is just too time-consuming when you have to write a whole class for every graph question.
+:::

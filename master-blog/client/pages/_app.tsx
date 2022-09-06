@@ -1,7 +1,8 @@
 import type { AppProps } from "next/app";
+import "@nextcss/reset";
 import styled from "styled-components";
 
-import CSSReset from "theme/CSSReset";
+import GlobalStyle from "theme/GlobalStyle";
 
 const Layout = styled.div`
   display: flex;
@@ -9,6 +10,11 @@ const Layout = styled.div`
   aside {
     width: 30%;
     border-right: 1px solid #e4e4e4;
+
+    div {
+      border-bottom: 1px solid #e4e4e4;
+      padding: 12px;
+    }
   }
 
   main {
@@ -19,11 +25,29 @@ const Layout = styled.div`
   }
 `;
 
-export default function Page({ Component, ...props }: AppProps) {
+export default function ({ Component, ...props }: AppProps) {
   return (
     <Layout>
-      <CSSReset />
-      <aside></aside>
+      <GlobalStyle />
+
+      <aside>
+        <div>
+          <h1>
+            <a href="/">SiegeSailor</a>
+          </h1>
+        </div>
+        <div>
+          <ol>
+            <li>
+              <a href="/brief">Brief</a>
+            </li>
+            <li>
+              <a href="/blog">Blog</a>
+            </li>
+          </ol>
+        </div>
+      </aside>
+
       <main>
         <Component {...props.pageProps} />
       </main>
