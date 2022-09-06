@@ -1,35 +1,12 @@
 import type { AppProps } from "next/app";
 import "@nextcss/reset";
-import styled from "styled-components";
 
-import GlobalStyle from "theme/GlobalStyle";
-
-const Layout = styled.div`
-  display: flex;
-
-  aside {
-    width: 30%;
-    border-right: 1px solid #e4e4e4;
-
-    div {
-      border-bottom: 1px solid #e4e4e4;
-      padding: 12px;
-    }
-  }
-
-  main {
-    flex: 1;
-    overflow: auto;
-    padding: 12px;
-    word-break: break-all;
-  }
-`;
+import "theme/global.css";
+import "theme/app.css";
 
 export default function ({ Component, ...props }: AppProps) {
   return (
-    <Layout>
-      <GlobalStyle />
-
+    <div className="app">
       <aside>
         <div>
           <h1>
@@ -51,6 +28,6 @@ export default function ({ Component, ...props }: AppProps) {
       <main>
         <Component {...props.pageProps} />
       </main>
-    </Layout>
+    </div>
   );
 }

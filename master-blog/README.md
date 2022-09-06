@@ -45,6 +45,7 @@ General file structure:
 │   │   ├── index.tsx
 │   │   ├── [identity].tsx
 ├── theme/
+│   ├── [page].css
 ├── public/
 │   ├── files/
 │   │   ├── [category]/
@@ -63,17 +64,15 @@ General file structure:
 └── ...
 ```
 
-### Document Flow
-
-Due to the need for static files, deploying every time after updating a document is necessary.
-
 ### Document Format
 
-**Blog** and **Note** are the crucial part since this application is also a personal clip. To easily organize them, there should be a format them. The following is an example of a document:
+There are a few features must be implemented for **Blog** and **Note**:
 
-```markdown
-# Label
-```
+- Markdown parsing
+- Mermaid chart
+- Customized block
+- Customized information section and tag
+- Latex support
 
 ## Server
 
