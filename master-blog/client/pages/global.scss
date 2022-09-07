@@ -1,0 +1,37 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-main: 0, 0, 0;
+  --color-secondary: 255, 255, 255;
+  --color-accent: 232, 232, 232;
+}
+
+a {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  width: 1.15rem;
+  height: 1.15rem;
+
+  svg {
+    font-size: 1.15rem;
+    transition: 0.15s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:active {
+    svg {
+      font-size: 0.75rem;
+    }
+  }
+}

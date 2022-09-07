@@ -20,20 +20,21 @@ General file structure:
 │   │   ├── queries/
 │   │   |── utils/
 ├── pages/
+│   ├── _app.scss
 │   ├── _app.tsx
 │   ├── _document.tsx
+│   ├── global.scss
 │   ├── index.tsx
 │   ├── brief/
 │   │   ├── index.tsx
 │   ├── [route]/
 │   │   ├── index.tsx
+│   │   ├── index.scss
 │   │   ├── [identity].tsx
-├── theme/
-│   ├── [page].css
 ├── public/
 │   ├── files/
+│   │   ├── entry.json
 │   │   ├── [category]/
-│   │   │   ├── entry.json
 │   │   │   ├── [article].md
 │   ├── static/
 │   │   ├── fonts/
