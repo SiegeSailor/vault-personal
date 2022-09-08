@@ -2,24 +2,26 @@
   display: flex;
   flex-direction: column;
 
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    a {
+      color: rgb(var(--color-main));
+      display: inline;
+    }
+  }
+
   menu {
     border-bottom: 1px solid rgb(var(--color-accent));
     padding: 12px;
     box-shadow: rgba(var(--color-main), 0.05) 0px 2px 2px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 
     > *:not(:last-child) {
-      margin-bottom: 4px;
-    }
-
-    h1 {
-      font-size: 1.25rem;
-      font-weight: 500;
-
-      a {
-        color: rgb(var(--color-main));
-      }
+      margin-right: 8px;
     }
   }
 
@@ -34,8 +36,13 @@
     box-shadow: rgba(var(--color-main), 0.05) 2px 0px 2px;
     transition: ease-in-out 0.25s;
 
-    div {
+    > div {
       position: relative;
+      padding-top: 4px;
+
+      h1 {
+        margin: 8px;
+      }
 
       &:not(:last-child) {
         border-bottom: 0.5px solid rgb(var(--color-accent));
@@ -52,12 +59,37 @@
         }
       }
 
-      h4 {
+      > div {
         display: flex;
         align-items: center;
 
+        h3 {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+
         button {
           margin: 8px 4px 8px 8px;
+        }
+      }
+
+      .extend {
+        div {
+          div {
+            display: flex;
+            align-items: center;
+
+            h4 {
+              font-size: 1rem;
+              font-weight: 500;
+            }
+          }
+
+          ol {
+            li {
+              padding-left: 32px;
+            }
+          }
         }
       }
 
@@ -69,7 +101,7 @@
         color: rgb(var(--color-main));
         position: relative;
 
-        &.extend {
+        &.small {
           font-size: 0.85rem;
           font-weight: 300;
         }

@@ -33,15 +33,18 @@ General file structure:
 │   │   ├── [identity].tsx
 ├── public/
 │   ├── files/
-│   │   ├── entry.json
-│   │   ├── [category]/
-│   │   │   ├── [article].md
-│   ├── static/
-│   │   ├── fonts/
-│   │   ├── images/
+│   ├── fonts/
+│   ├── images/
 │   ├── favicon.ico
 │   ├── robots.txt
 │   ├── manifest.json
+│   ├── articles/
+│   │   ├── [blog]/
+│   │   │   ├── entry.json
+│   │   │   ├── [article].md
+│   │   ├── [note]/
+│   │   │   ├── entry.json
+│   │   │   ├── [article].md
 ├── next-env.d.ts
 ├── package-lock.json
 ├── package.json

@@ -23,6 +23,6 @@
     "target": "ES5",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./../model/*.d.ts"],
   "exclude": ["node_modules"]
 }
