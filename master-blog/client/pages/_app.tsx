@@ -7,6 +7,7 @@ import {
   BiMinus,
   BiPlus,
 } from "react-icons/bi";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import "@nextcss/reset";
@@ -104,62 +105,71 @@ export default function ({ Component, ...props }: AppProps) {
   }, []);
 
   return (
-    <div className="app">
-      <menu>
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <BiAlignLeft />
-        </button>
-        <h1>
-          <a href="/" onClick={() => setIsMenuOpen(false)}>
-            SiegeSailor
-          </a>
-        </h1>
-      </menu>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+      </Head>
 
-      <aside
-        style={{
-          transform: `translateX(${isMenuOpen ? 0 : "-35vw"})`,
-          opacity: isMenuOpen ? 1 : 0,
-        }}
-      >
-        <div>
+      <div className="app">
+        <menu>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <BiAlignLeft />
+          </button>
           <h1>
             <a href="/" onClick={() => setIsMenuOpen(false)}>
               SiegeSailor
             </a>
           </h1>
-        </div>
+        </menu>
 
-        <div>
-          <ol>
-            {["/brief", "/project", "/resume", "/contact"].map((pathname) => {
-              return (
-                <Section
-                  key={pathname}
-                  pathname={pathname}
-                  a={{ onClick: () => setIsMenuOpen(false) }}
-                />
-              );
-            })}
-          </ol>
-        </div>
+        <aside
+          style={{
+            transform: `translateX(${isMenuOpen ? 0 : "-35vw"})`,
+            opacity: isMenuOpen ? 1 : 0,
+          }}
+        >
+          <div>
+            <h1>
+              <a href="/" onClick={() => setIsMenuOpen(false)}>
+                SiegeSailor
+              </a>
+            </h1>
+          </div>
 
-        <Extend
-          name="/note"
-          note={note}
-          a={{ onClick: () => setIsMenuOpen(false) }}
-        />
+          <div>
+            <ol>
+              {["/brief", "/project", "/resume", "/contact"].map((pathname) => {
+                return (
+                  <Section
+                    key={pathname}
+                    pathname={pathname}
+                    a={{ onClick: () => setIsMenuOpen(false) }}
+                  />
+                );
+              })}
+            </ol>
+          </div>
 
-        <div className="action">
-          <button onClick={() => setIsMenuOpen(false)}>
-            <BiLeftArrow />
-          </button>
-        </div>
-      </aside>
+          <Extend
+            name="/note"
+            note={note}
+            a={{ onClick: () => setIsMenuOpen(false) }}
+          />
 
-      <main>
-        <Component {...props.pageProps} />
-      </main>
-    </div>
+          <div className="action">
+            <button onClick={() => setIsMenuOpen(false)}>
+              <BiLeftArrow />
+            </button>
+          </div>
+        </aside>
+
+        <main>
+          <Component {...props.pageProps} />
+        </main>
+      </div>
+    </>
   );
 }

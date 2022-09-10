@@ -1,0 +1,11 @@
+{
+  "name": "SiegeSailor personal profile",
+  "short_name": "SiegeSailor",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "splash_pages": null
+}
