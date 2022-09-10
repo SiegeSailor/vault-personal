@@ -1,4 +1,6 @@
-# Coordinate in 2 Dimension
+---
+tags: ["java"]
+---
 
 The idea came from [LeetCode 200. Number of Islands](https://leetcode.com/problems/number-of-islands/). When solving graph questions, we need an queue to keep track of a location for BFS either a stack for DFS. How do we put the locations into our data structure?
 

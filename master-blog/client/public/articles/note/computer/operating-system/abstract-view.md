@@ -1,4 +1,4 @@
-# Computer Abstract View
+Operating System 與其他階層的關係如下。可以看見，這 4 個 Layer 是 Insulated 絕緣的，User 不可直接與 Operating System 互動，正如 Applications 不可使用 Hardware：
 
 ```mermaid
 flowchart TB
