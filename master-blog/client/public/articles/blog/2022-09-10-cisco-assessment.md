@@ -43,7 +43,7 @@ public class Main {
 
         int target = 5;
 
-        System.out.println("The number of pair of digits below " + upper + " sum up to " + target                            + " is " + new Main().determine(array, target));
+        System.out.println("The number of pair of digits below " + upper + " sum up to " + target + " is " + new Main().determine(array, target));
     }
 }
 ```
