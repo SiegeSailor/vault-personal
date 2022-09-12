@@ -1,4 +1,4 @@
-## HDD
+# HDD
 
 Hard Disk Drive.
 
@@ -11,11 +11,11 @@ Hard Disk Drive.
 - Size is usually measured in **Terabytes**
 - Accessing first the innermost radius then the outermost radius takes significantly longer than two adjacent radii
 
-## NVM
+# NVM
 
 Non-Volatile Memory. Non-volatile comes from the difference of main memory, which is volatile.
 
-### SSD
+## SSD
 
 Solid State Disks。
 
@@ -23,3 +23,10 @@ Solid State Disks。
 - Data is stored, electrically, in these chips
 - All data can be access in the **Same Amount Of Time**
 - Due to cost, these drives are smaller than HDDs but perform much faster
+
+# Unit
+
+The basic unit of computer storage is the bit. A bit can contain one of two
+values, 0 and 1. All other storage in a computer is based on collections of bits.
+
+A less common term is **word**, which is a given computer architecture’s native unit of data. A word is made up of one or more bytes.

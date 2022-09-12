@@ -5,6 +5,7 @@ This repository is a Hybrid WEB application for career resume and personal notes
 Monorepo structure:
 
 ```
+├── artifact/
 ├── client/
 ├── server/
 ├── model/
