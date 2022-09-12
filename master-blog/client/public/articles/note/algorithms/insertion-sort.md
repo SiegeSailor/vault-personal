@@ -1,5 +1,5 @@
 ---
-tags: ["cpp", "python", "sort"]
+tags: ["sort"]
 ---
 
 為 In Place Recursion Algorithm。核心是從 1 開始、在每個元素位置進行比對，直到尾端。比對時，每當發現前一位比當下所指的元素更大、就會將該值移到後一位。會 **直接** 更改輸入的陣列：
