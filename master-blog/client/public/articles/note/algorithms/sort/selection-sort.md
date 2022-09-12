@@ -1,7 +1,3 @@
----
-tags: ["sort"]
----
-
 為 In Place Recursion Algorithm。核心是從頭開始，每次都在剩餘元素中找到最小值、並將位置交換。會 **直接** 更改輸入的陣列：
 
 - **Worst Case Time Complexity**: $\mathcal{O}(n^2)$

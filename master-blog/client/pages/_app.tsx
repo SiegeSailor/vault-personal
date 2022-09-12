@@ -16,6 +16,12 @@ import "./global.scss";
 import "./_app.scss";
 import setup from "constants/setup";
 
+// TODO
+// 1. Extract layout
+// or find a way to keep state: https://nextjs.org/docs/advanced-features/custom-app
+// 2. PWA setup: https://github.com/vercel/next.js/blob/canary/examples/progressive-web-app/pages/_app.tsx
+//               https://github.com/shadowwalker/next-pwa
+
 function Section(props: { pathname: string; a: { onClick: () => void } }) {
   const router = useRouter();
 
