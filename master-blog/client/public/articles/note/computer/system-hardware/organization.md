@@ -11,6 +11,7 @@ flowchart LR
 - **Secondary Storage**: 硬碟。唯一電腦中可永久儲存的地方
 - **Tertiary Storage**: Offline 硬碟，像是 USB、Flash Drive、Tape Drive，通常不需馬上存取
 - **GPU**: Video Card，圖形計算
+- **PCI**: 匯流排，用來插入網路卡、音效卡等，現正逐漸被 PCI Express 取代
 
 :::info 提醒
 Main Storage 等同 Main Memory。
