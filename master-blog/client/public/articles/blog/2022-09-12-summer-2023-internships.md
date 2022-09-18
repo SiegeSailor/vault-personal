@@ -25,7 +25,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | IBM               | 09/15/2022 |                  |         |
 | American Express  | 09/15/2022 |                  |         |
 | Workday           | 09/15/2022 |                  |         |
-| McKinsey          | 09/15/2022 |                  |         |
+| McKinsey          | 09/15/2022 | Yes              |         |
 | Slack             | 09/15/2022 |                  |         |
 | Intel             | 09/16/2022 |                  |         |
 | Dropbox           | 09/16/2022 |                  |         |
