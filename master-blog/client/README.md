@@ -40,10 +40,8 @@ General file structure:
 │   ├── manifest.json
 │   ├── articles/
 │   │   ├── [blog]/
-│   │   │   ├── entry.json
 │   │   │   ├── [article].md
-│   │   ├── [note]/
-│   │   │   ├── entry.json
+│   │   ├── [notes]/
 │   │   │   ├── [article].md
 ├── next-env.d.ts
 ├── package-lock.json
