@@ -1,6 +1,6 @@
 # Assignment
 
-An assignment for class **MET CS 566** at Boston University, instructed by **Ming Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **September 18, 2022**.
+An assignment for class **MET CS 566** at Boston University, instructed by **Ming Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **September 19, 2022**.
 
 ## Question 1
 
@@ -37,23 +37,31 @@ for x in [5, 15, 50]:
     generate_plot(x)
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Plot with X-Axis Limited to 5
 
 We can see that $f_1(n)$ increase mostly since it adds $2^{10}$, which is $1024$ and can dramatically impact the performance with small input. $f_2(n)$ and $f_3(n)$ increase slower since they have smaller or negative lower-order numbers:
 
-![Size X 5](./Size%20X%205.png)
+![Plot with x-axis 5](./Plot%20with%20x-axis%205.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Plot with X-Axis Limited to 15
 
 $f_3(n)$ is now has worst performance and it is mainly due to the function has $100 \times n^{2.1}$ coefficient. $f_1(n)$ and $f_2(n)$ apparently have better performance with input `15`:
 
-![Size X 15](./Size%20X%2015.png)
+![Plot with x-axis 15](./Plot%20with%20x-axis%2015.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Plot with X-Axis Limited to 50
 
 The input is large enough to see the impact of the highest-order term. $f_2(n)$ is the worst due to $n^{3.5}$. The second worst is $f_3(n)$ because it has $n^{2.1}$, which is more than **quadratic**. $f_1(n)$ has best performance for large input since it is **linear**:
 
-![Size X 50](./Size%20X%2050.png)
+![Plot with x-axis 50](./Plot%20with%20x-axis%2050.png)
+
+<div style="page-break-after: always;"></div>
 
 ## Question 2
 
@@ -135,6 +143,8 @@ $$
 
 Therefore, $3^{2 \times n} \ne \mathcal{O}(3^n)$.
 
+<div style="page-break-after: always;"></div>
+
 ## Question 3
 
 For each function $f(n)$ and $g(n)$, check if $(fn) = \theta(g(n))$.
@@ -168,6 +178,8 @@ $$
 $$
 f(n) = 2^{log(n)} \ne g(n) = n^{1024}
 $$
+
+<div style="page-break-after: always;"></div>
 
 ## Question 4
 
@@ -239,6 +251,8 @@ n_0 = 1
 $$
 
 Other choices of $n_0, c_1, c_2$ are possible. Since $a, b, c$ are not determined (the cost of the algorithm line) the proof seems redundant and we could just simply throw away all lower-order terms and ignore the leading coefficient to find $\theta(n^2)$.
+
+<div style="page-break-after: always;"></div>
 
 ## Question 5
 
