@@ -1,43 +1,28 @@
-from typing import List
 import numpy as number
 import matplotlib.pyplot as plot
+import matplotlib.colors as colors
 
-def function_1(input: int) -> int:
-    return (pow(2, 10) * input) + pow(2, 10)
+def generate_plot(size_x: int) -> None:
+    scale_x = number.arange(0, size_x, 0.1)
+    list_plot = [
+        {
+            'scale_y': (pow(2, 10) * scale_x) + pow(2, 10),
+            'color': colors.BASE_COLORS['r']
+        },
+        {
+            'scale_y': pow(scale_x, 3.5) - 1000,
+            'color': colors.BASE_COLORS['b']
+        },
+        {
+            'scale_y': (100 * pow(scale_x, 2.1)) + 50,
+            'color': colors.BASE_COLORS['g']
+        }
+    ]
+    for item in list_plot:
+        plot.plot(scale_x, item['scale_y'], color=item['color'])
 
-def function_2(input: int) -> float:
-    return pow(input, 3.5) - 1000
+    plot.title(f'Size X: {size_x}')
+    plot.show();
 
-def function_3(input: int) -> float:
-    return (100 * pow(input, 2.1)) + 50
-
-def create_x_axis(limit: int) -> List[int]:
-    return number.linspace(-limit, limit, num=1000)
-
-list_setup = [
-    {
-        'function': function_1,
-        'x': 5,
-        'color': 'red',
-        'label': 'f1(n)'
-    },
-    {
-        'function': function_2,
-        'x': 15,
-        'color': 'blue',
-        'label': 'f2(n)'
-    },
-    {
-        'function': function_3,
-        'x': 50,
-        'color': 'green',
-        'label': 'f3(n)'
-    }
-]
-for setup in list_setup:
-    plot.plot(create_x_axis(setup['x']), setup['function'](create_x_axis(setup['x'])), \
-        color=setup['color'], label=setup['label'])
-
-plot.xlabel('x')
-plot.ylabel('y')
-plot.show()
+for x in [5, 15, 50]:
+    generate_plot(x)
