@@ -2,6 +2,33 @@
 
 An assignment for class **MET CS 566** at Boston University, instructed by **Ming Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **September 19, 2022**.
 
+## Correction
+
+Score: `16/20`
+
+### Question 4
+
+The answer is $\theta(n \times log n)$. Given the fact that as the for loop iterates from $1$ to $n$, we see the number of iterations for the while loop to follow a pattern of $n, \frac{n}{2}, \frac{n}{3}, ...$ which would give us a summation equal to $n *\times(1 + \frac{1}{2} + \frac{1}{3} + ... )$ which can be re-written as $n \times log n$.
+
+### Question 5
+
+$\mathcal{O}(n^3)$. The outer **for** loop run n times, the inner for loop runs from $0,n, 2n, … ,n^2$ times. If the inner loop always use the largest value $n^2$. The total running time should be $O(n \times n^2) = \mathcal{O}(n^3)$.
+
+### Review
+
+I need to figure out question 4. For question 5, I already knew it was $\mathcal{O}(n^3)$, but the process of formal calculation drove me to a wrong direction.
+
+Overall grading percentages:
+
+| Item               | Percentage |
+| ------------------ | ---------- |
+| 5 Assignments      | 40         |
+| Midterm Assignment | 20         |
+| Term Presentation  | 10         |
+| Final Exam         | 30         |
+
+Assume my other items all will get prefect score, all my rest of the 5 assignments mush receive at least 90% of the score for getting an **A**.
+
 ## Question 1
 
 Python implementation:
