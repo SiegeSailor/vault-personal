@@ -37,6 +37,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Pinterest         | 09/21/2022 |                  |                              |
 | Epic Games        | 09/21/2022 |                  |                              |
 | Capital One       | 09/21/2022 |                  | Refused right after applying |
+| Duolingo          | 09/21/2022 |                  |                              |
 
 ### To Be Confirmed
 
