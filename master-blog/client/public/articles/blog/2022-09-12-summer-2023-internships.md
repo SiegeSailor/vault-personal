@@ -30,14 +30,14 @@ I personally submit my resume to any companies that just come to my mind, though
 | Intel             | 09/16/2022 |                  | Refused on 09/19/2022        |
 | Dropbox           | 09/16/2022 |                  |                              |
 | Microsoft         | 09/16/2022 |                  |                              |
-| JPMorgan          | 09/20/2022 |                  |                              |
+| JPMorgan          | 09/20/2022 |                  | Refused on 09/21/2022        |
 | Electronic Arts   | 09/20/2022 |                  |                              |
 | Mastercard        | 09/21/2022 |                  |                              |
 | TSMC              | 09/21/2022 |                  |                              |
 | Pinterest         | 09/21/2022 |                  |                              |
 | Epic Games        | 09/21/2022 |                  |                              |
 | Capital One       | 09/21/2022 |                  | Refused right after applying |
-| Duolingo          | 09/21/2022 |                  |                              |
+| Duolingo          | 09/21/2022 |                  | Refused on 09/24/2022        |
 
 ### To Be Confirmed
 
