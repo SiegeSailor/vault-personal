@@ -1,4 +1,4 @@
-.layout {
+.layoutSite {
   display: flex;
   flex-direction: column;
 
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     > *:not(:last-child) {
       margin-right: 8px;
@@ -26,7 +27,7 @@
   }
 
   aside {
-    width: 35vw;
+    width: 350px;
     height: 100vh;
     left: 0;
     top: 0;
@@ -73,7 +74,7 @@
         }
       }
 
-      .extend {
+      div {
         div {
           div {
             display: flex;
@@ -109,17 +110,6 @@
         &:hover {
           background-color: rgba(var(--color-accent), 0.2);
         }
-
-        &.selected::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 4px;
-          background-color: rgb(var(--color-main));
-          z-index: 1;
-        }
       }
     }
   }
@@ -129,5 +119,28 @@
     overflow: auto;
     padding: 12px;
     word-break: break-all;
+  }
+}
+
+.selected {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: rgb(var(--color-main));
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(var(--color-accent), 0.2);
   }
 }

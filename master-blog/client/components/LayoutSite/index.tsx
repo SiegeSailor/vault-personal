@@ -1,33 +1,15 @@
 import { ReactNode } from "react";
-import {
-  BiAlignLeft,
-  BiLeftArrow,
-  BiCaretDown,
-  BiCaretRight,
-  BiMinus,
-  BiPlus,
-} from "react-icons/bi";
-import Link from "next/link";
 
-function Menu() {
-  return (
-    <menu>
-      <button>
-        <BiAlignLeft />
-      </button>
-      <h1>
-        <Link href="/">
-          <a>SiegeSailor</a>
-        </Link>
-      </h1>
-    </menu>
-  );
-}
+import Menu from "./Menu";
+import Aside from "./Aside";
+import style from "./index.module.scss";
 
 function SiteLayout(props: { children: ReactNode }) {
   return (
-    <div>
+    <div className={style.layoutSite}>
       <Menu />
+      <Aside />
+
       <main>{props.children}</main>
     </div>
   );
