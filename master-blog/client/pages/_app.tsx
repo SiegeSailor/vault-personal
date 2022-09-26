@@ -1,13 +1,15 @@
-import type { AppProps } from "next/app";
+import App from "next/app";
 import "@nextcss/reset";
 
+import SiteLayout from "components/LayoutSite";
 import "./global.scss";
-import Layout from "components/Layout";
 
-export default function ({ Component, ...props }: AppProps) {
-  return (
-    <Layout>
-      <Component {...props.pageProps} />
-    </Layout>
-  );
+export default class extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    const wrap = Component.wrap || ((page) => <SiteLayout>{page}</SiteLayout>);
+
+    return wrap(<Component {...pageProps} />);
+  }
 }

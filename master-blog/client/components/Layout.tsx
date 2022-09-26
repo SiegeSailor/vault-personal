@@ -143,22 +143,18 @@ export default function (props: { children: ReactNode }) {
                   <Section
                     key={pathname}
                     pathname={pathname}
-                    a={{ onClick: () => setIsMenuOpen(false) }}
+                    a={{ onClick: () => {} }}
                   />
                 );
               })}
             </ol>
           </div>
 
-          <Extend
-            name="/note"
-            note={note}
-            a={{ onClick: () => setIsMenuOpen(false) }}
-          />
+          <Extend name="/note" note={note} a={{ onClick: () => {} }} />
 
           <div>
             <div>
-              <button onClick={() => setIsMenuOpen(false)}>
+              <button onClick={() => {}}>
                 <BiLeftArrow />
               </button>
             </div>
