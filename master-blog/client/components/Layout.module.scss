@@ -1,4 +1,4 @@
-.app {
+.layout {
   display: flex;
   flex-direction: column;
 
@@ -14,7 +14,7 @@
 
   menu {
     border-bottom: 1px solid rgb(var(--color-accent));
-    padding: 12px;
+    padding: 12px 12px 8px 12px;
     box-shadow: rgba(var(--color-main), 0.05) 0px 2px 2px;
     display: flex;
     flex-direction: row;
@@ -40,23 +40,23 @@
       position: relative;
       padding-top: 4px;
 
+      &:last-child {
+        height: calc(24px + 1rem);
+
+        div {
+          position: absolute;
+          right: 12px;
+          bottom: 50%;
+          transform: translateY(50%);
+        }
+      }
+
       h1 {
         margin: 8px;
       }
 
       &:not(:last-child) {
         border-bottom: 0.5px solid rgb(var(--color-accent));
-      }
-
-      &.action {
-        height: calc(24px + 1rem);
-
-        button {
-          position: absolute;
-          right: 12px;
-          bottom: 50%;
-          transform: translateY(50%);
-        }
       }
 
       > div {
