@@ -9,11 +9,11 @@ import {
 } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
-import entryOfArticle from "public/articles/entry.json";
-import setup from "constants/setup";
 import style from "./index.module.scss";
+import entry from "public/articles/entry.json";
+import setup from "constants/setup";
+import { useWidth } from "hooks";
 
 function ItemPage(props: { pathname: string }) {
   const router = useRouter();
@@ -30,7 +30,7 @@ function ItemPage(props: { pathname: string }) {
   );
 }
 
-function ItemBlog(props: { name: string; listOfArticle: string[] }) {
+function ItemBlog() {
   const [isOpen, setIsOpen] = useState(true);
 
   const router = useRouter();
@@ -41,30 +41,22 @@ function ItemBlog(props: { name: string; listOfArticle: string[] }) {
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
-        <h3>{props.name}</h3>
+        <h3>/blog</h3>
       </div>
 
       <div style={{ display: isOpen ? "block" : "none" }}>
         <ol>
-          {props.listOfArticle.map((article) => {
-            const path = article.replace("articles/", "/");
-
+          {Object.entries(entry.blog).map(([filename, path]) => {
+            const fullPath = `/${path}`;
             return (
               <li
-                key={article}
+                key={filename}
                 className={`${style.small} ${
-                  router.asPath === path ? style.selected : ""
+                  router.asPath === fullPath ? style.selected : ""
                 }`}
               >
-                <Link href={path}>
-                  <a>
-                    {article
-                      .split("/")
-                      .slice(-1)[0]
-                      .split("-")
-                      .slice(3)
-                      .join("-")}
-                  </a>
+                <Link href={fullPath}>
+                  <a>{filename}</a>
                 </Link>
               </li>
             );
@@ -75,7 +67,7 @@ function ItemBlog(props: { name: string; listOfArticle: string[] }) {
   );
 }
 
-function ItemNote(props: { name: string; listOfArticle: string[] }) {
+function ItemNotes() {
   const [isOpen, setIsOpen] = useState(true);
   const [category, setCategory] = useState("");
 
@@ -87,7 +79,7 @@ function ItemNote(props: { name: string; listOfArticle: string[] }) {
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
-        <h3>{props.name}</h3>
+        <h3>/notes</h3>
       </div>
 
       <div style={{ display: isOpen ? "block" : "none" }}></div>
@@ -96,12 +88,6 @@ function ItemNote(props: { name: string; listOfArticle: string[] }) {
 
   //   return (
   //     <div>
-  //       <div>
-  //         <button onClick={() => setIsListOpen(!isListOpen)}>
-  //           {isListOpen ? <BiCaretDown /> : <BiCaretRight />}
-  //         </button>
-  //         <h3>{props.name}</h3>
-  //       </div>
   //       <div style={{ display: isListOpen ? "block" : "none" }}>
   //         {listOfArticle.map((item) => {
   //           const isOpen = category === item[0];
@@ -143,22 +129,13 @@ function ItemNote(props: { name: string; listOfArticle: string[] }) {
 export default function () {
   const [isOpen, setIsOpen] = useState(true);
 
+  const [ref, width] = useWidth<HTMLDivElement>({ isOnce: true });
+
   return (
-    <motion.aside>
-      <motion.div
-        animate={isOpen ? "open" : "closed"}
-        variants={{
-          open: {
-            width: "auto",
-            opacity: 1,
-            pointerEvents: "all",
-          },
-          closed: {
-            width: "0",
-            opacity: 0,
-            pointerEvents: "none",
-          },
-        }}
+    <aside>
+      <div
+        ref={ref}
+        style={{ display: isOpen ? "block" : "none", minWidth: width + 18 }}
       >
         <div>
           <h1>
@@ -177,17 +154,17 @@ export default function () {
         </div>
 
         <div>
-          <ItemBlog name="/blog" listOfArticle={entryOfArticle.blog} />
+          <ItemBlog />
         </div>
 
         <div>
-          <ItemNote name="/notes" listOfArticle={entryOfArticle.notes} />
+          <ItemNotes />
         </div>
-      </motion.div>
+      </div>
 
       <div onClick={() => setIsOpen(!isOpen)}>
         <button>{isOpen ? <BiLeftArrow /> : <BiRightArrow />}</button>
       </div>
-    </motion.aside>
+    </aside>
   );
 }
