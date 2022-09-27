@@ -28,14 +28,14 @@
 
   section {
     display: flex;
-    flex: row;
   }
 
   main {
-    flex: 1;
+    flex-grow: 1;
     overflow: auto;
     padding: 12px;
     word-break: break-all;
+    white-space: wrap;
   }
 
   aside {
@@ -65,34 +65,28 @@
         }
 
         > div {
-          display: flex;
-          align-items: center;
+          width: 100%;
 
-          h3 {
-            font-size: 1rem;
-            font-weight: 500;
-          }
+          > div {
+            display: flex;
+            align-items: center;
 
-          button {
-            margin: 8px 4px 8px 8px;
-          }
-        }
-
-        div {
-          div {
-            div {
-              display: flex;
-              align-items: center;
-
-              h4 {
+            &:first-child {
+              h3 {
                 font-size: 1rem;
                 font-weight: 500;
               }
+
+              button {
+                margin: 8px 4px 8px 8px;
+              }
             }
 
-            ol {
-              li {
-                padding-left: 32px;
+            &:not(:first-child) {
+              ol {
+                li {
+                  padding-left: 32px;
+                }
               }
             }
           }
@@ -105,11 +99,8 @@
           cursor: pointer;
           color: rgb(var(--color-main));
           position: relative;
-
-          &.small {
-            font-size: 0.85rem;
-            font-weight: 300;
-          }
+          word-break: keep-all;
+          white-space: nowrap;
 
           &:hover {
             background-color: rgba(var(--color-accent), 0.2);
@@ -124,9 +115,19 @@
         justify-content: center;
         align-items: center;
         border-left: 0.5px solid rgb(var(--color-accent));
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(var(--color-accent), 0.2);
+        }
       }
     }
   }
+}
+
+.small {
+  font-size: 0.85rem !important;
+  font-weight: 300 !important;
 }
 
 .selected {
