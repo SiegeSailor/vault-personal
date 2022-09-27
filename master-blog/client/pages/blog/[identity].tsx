@@ -1,7 +1,7 @@
-import setup from "constants/setup";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import entry from "public/articles/entry.json";
+import entry from "articles/entry.json";
+import { Setup } from "configuration";
 
 export default function (props: { response }) {
   console.log(props.response);
@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const response = await fetch(
-    `${setup.HOST}/articles/blog/${context.params?.identity}`
+    `${Setup.HOST}/articles/blog/${context.params?.identity}`
   );
 
   return {

@@ -34,4 +34,4 @@ async function buildEntryOfArticle(prefix: string, path: string) {
   console.log(`Successfully create entry.json for files within ${path}.`);
 }
 
-buildEntryOfArticle("./public/articles/", "");
+buildEntryOfArticle("./articles/", "");

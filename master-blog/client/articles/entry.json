@@ -5,6 +5,28 @@
     "2022-09-12-summer-2023-internships.md": "blog/2022-09-12-summer-2023-internships.md"
   },
   "notes": {
+    "algorithms": {
+      "design.md": "notes/algorithms/design.md",
+      "factors.md": "notes/algorithms/factors.md",
+      "focus.md": "notes/algorithms/focus.md",
+      "loop-invariant.md": "notes/algorithms/loop-invariant.md",
+      "np-complete-problems.md": "notes/algorithms/np-complete-problems.md",
+      "p-np-np-complete.md": "notes/algorithms/p-np-np-complete.md",
+      "model": {
+        "pointer-machine.md": "notes/algorithms/model/pointer-machine.md",
+        "random-access-machine.md": "notes/algorithms/model/random-access-machine.md"
+      },
+      "search": {
+        "binary-search.md": "notes/algorithms/search/binary-search.md"
+      },
+      "sort": {
+        "insertion-sort.md": "notes/algorithms/sort/insertion-sort.md",
+        "merge-sort.md": "notes/algorithms/sort/merge-sort.md",
+        "selection-sort.md": "notes/algorithms/sort/selection-sort.md"
+      }
+    },
+    "practice": { "add-binary.md": "notes/practice/add-binary.md" },
+    "network": { "cdn-setup.md": "notes/network/cdn-setup.md" },
     "computer": {
       "cloud-computing.md": "notes/computer/cloud-computing.md",
       "clustered-system.md": "notes/computer/clustered-system.md",
@@ -14,14 +36,14 @@
         "hardware-abstract-level.md": "notes/computer/system-hardware/hardware-abstract-level.md",
         "organization.md": "notes/computer/system-hardware/organization.md",
         "von-meumann-architecture.md": "notes/computer/system-hardware/von-meumann-architecture.md",
-        "memory": {
-          "memory-hierarchy.md": "notes/computer/system-hardware/memory/memory-hierarchy.md",
-          "storage-structure.md": "notes/computer/system-hardware/memory/storage-structure.md"
-        },
         "cpu": {
           "concept.md": "notes/computer/system-hardware/cpu/concept.md",
           "fetch-decode-execute-cycle.md": "notes/computer/system-hardware/cpu/fetch-decode-execute-cycle.md",
           "multi-processor.md": "notes/computer/system-hardware/cpu/multi-processor.md"
+        },
+        "memory": {
+          "memory-hierarchy.md": "notes/computer/system-hardware/memory/memory-hierarchy.md",
+          "storage-structure.md": "notes/computer/system-hardware/memory/storage-structure.md"
         }
       },
       "operating-system": {
@@ -40,15 +62,15 @@
         "thread.md": "notes/computer/operating-system/thread.md",
         "timer.md": "notes/computer/operating-system/timer.md",
         "virtualization.md": "notes/computer/operating-system/virtualization.md",
+        "memory-management": {
+          "concept.md": "notes/computer/operating-system/memory-management/concept.md",
+          "virtual-memory.md": "notes/computer/operating-system/memory-management/virtual-memory.md"
+        },
         "multi-programming": {
           "concept.md": "notes/computer/operating-system/multi-programming/concept.md"
         },
         "multi-tasking": {
           "concept.md": "notes/computer/operating-system/multi-tasking/concept.md"
-        },
-        "memory-management": {
-          "concept.md": "notes/computer/operating-system/memory-management/concept.md",
-          "virtual-memory.md": "notes/computer/operating-system/memory-management/virtual-memory.md"
         }
       },
       "layer": {
@@ -58,34 +80,12 @@
         }
       }
     },
-    "algorithms": {
-      "design.md": "notes/algorithms/design.md",
-      "factors.md": "notes/algorithms/factors.md",
-      "focus.md": "notes/algorithms/focus.md",
-      "loop-invariant.md": "notes/algorithms/loop-invariant.md",
-      "np-complete-problems.md": "notes/algorithms/np-complete-problems.md",
-      "p-np-np-complete.md": "notes/algorithms/p-np-np-complete.md",
-      "search": {
-        "binary-search.md": "notes/algorithms/search/binary-search.md"
-      },
-      "model": {
-        "pointer-machine.md": "notes/algorithms/model/pointer-machine.md",
-        "random-access-machine.md": "notes/algorithms/model/random-access-machine.md"
-      },
-      "sort": {
-        "insertion-sort.md": "notes/algorithms/sort/insertion-sort.md",
-        "merge-sort.md": "notes/algorithms/sort/merge-sort.md",
-        "selection-sort.md": "notes/algorithms/sort/selection-sort.md"
-      }
-    },
-    "network": { "cdn-setup.md": "notes/network/cdn-setup.md" },
     "solution": {
       "coordinate-in-2-dimension.md": "notes/solution/coordinate-in-2-dimension.md"
     },
     "software-engineering": {
       "process.md": "notes/software-engineering/process.md"
     },
-    "practice": { "add-binary.md": "notes/practice/add-binary.md" },
     "tips": { "bit-wise.md": "notes/tips/bit-wise.md" }
   }
 }

@@ -1,7 +1,7 @@
-import setup from "constants/setup";
+import { Setup } from "configuration";
 
 export async function getStaticPaths() {
-  const request = await fetch(`${setup.HOST}/articles/note/entry.json`);
+  const request = await fetch(`${Setup.HOST}/articles/note/entry.json`);
   const data: Article.INote = await request.json();
 
   const paths: { params: { slug: string[] } }[] = [];

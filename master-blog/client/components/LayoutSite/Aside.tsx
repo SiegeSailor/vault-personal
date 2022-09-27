@@ -11,8 +11,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import style from "./index.module.scss";
-import entry from "public/articles/entry.json";
-import setup from "constants/setup";
+import entry from "articles/entry.json";
+import { Setup } from "configuration";
 import { useWidth } from "hooks";
 
 function ItemPage(props: { pathname: string }) {
@@ -135,12 +135,15 @@ export default function () {
     <aside>
       <div
         ref={ref}
-        style={{ display: isOpen ? "block" : "none", minWidth: width + 18 }}
+        style={{
+          display: isOpen ? "block" : "none",
+          minWidth: width + 18,
+        }}
       >
         <div>
           <h1>
             <Link href="/">
-              <a>{setup.SITE_NAME}</a>
+              <a>{Setup.SITE_NAME}</a>
             </Link>
           </h1>
         </div>

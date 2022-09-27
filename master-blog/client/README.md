@@ -5,9 +5,16 @@ Including Brief, Blog, Project, and Note sections, basically all content. This i
 General file structure:
 
 ```
-├── constants/
+├── articles/
+│   ├── blog/
+│   │   ├── [article].md
+│   ├── notes/
+│   │   ├── [category]/
+│   │   │   ├── [article].md
+├── configuration/
 │   ├── credential.ts
 │   ├── format.ts
+│   ├── setup.ts
 │   ├── ...
 ├── components/
 ├── hooks/
@@ -38,11 +45,6 @@ General file structure:
 │   ├── favicon.ico
 │   ├── robots.txt
 │   ├── manifest.json
-│   ├── articles/
-│   │   ├── [blog]/
-│   │   │   ├── [article].md
-│   │   ├── [notes]/
-│   │   │   ├── [article].md
 ├── next-env.d.ts
 ├── package-lock.json
 ├── package.json
