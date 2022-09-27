@@ -8,9 +8,11 @@ function SiteLayout(props: { children: ReactNode }) {
   return (
     <div className={style.layoutSite}>
       <Menu />
-      <Aside />
+      <section>
+        <Aside />
 
-      <main>{props.children}</main>
+        <main>{props.children}</main>
+      </section>
     </div>
   );
 }

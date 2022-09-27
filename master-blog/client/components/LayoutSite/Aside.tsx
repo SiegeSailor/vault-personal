@@ -10,8 +10,10 @@ import {
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import entryOfArticle from "public/articles/entry.json";
 import setup from "constants/setup";
 import style from "./index.module.scss";
+import { useWidth } from "hooks";
 
 function Section(props: { pathname: string }) {
   const router = useRouter();
@@ -82,32 +84,41 @@ function Extend(props: { name: string; note: Article.INote }) {
 
 export default function () {
   const [isOpen, setIsOpen] = useState(true);
+
+  const [refAside, widthAside] = useWidth();
+  const [refArrow, widthArrow] = useWidth<HTMLDivElement>();
+
   return (
-    <aside style={{ transform: `translateX(${isOpen ? 0 : "-300px"})` }}>
-      <div>
-        <h1>
-          <Link href="/">
-            <a>{setup.SITE_NAME}</a>
-          </Link>
-        </h1>
-      </div>
-
-      <div>
-        <ol>
-          {["/brief", "/project", "/resume", "/contact"].map((pathname) => {
-            return <Section key={pathname} pathname={pathname} />;
-          })}
-        </ol>
-      </div>
-
-      {/* <Extend name="/note" note={{}} /> */}
-
+    <aside
+      ref={refAside}
+      style={{
+        transform: `translateX(${
+          isOpen ? "0px" : `calc(-${widthAside}px + ${widthArrow}px)`
+        })`,
+      }}
+    >
       <div>
         <div>
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <BiLeftArrow /> : <BiRightArrow />}
-          </button>
+          <h1>
+            <Link href="/">
+              <a>{setup.SITE_NAME}</a>
+            </Link>
+          </h1>
         </div>
+
+        <div>
+          <ol>
+            {["/brief", "/project", "/resume", "/contact"].map((pathname) => {
+              return <Section key={pathname} pathname={pathname} />;
+            })}
+          </ol>
+        </div>
+      </div>
+
+      <div ref={refArrow}>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <BiLeftArrow /> : <BiRightArrow />}
+        </button>
       </div>
     </aside>
   );

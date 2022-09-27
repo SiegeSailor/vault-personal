@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "moduleTypes": {
+      "./prepare.ts": "cjs"
+    }
+  },
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -23,6 +28,12 @@
     "target": "ES5",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./../model/*.d.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "./../model/*.d.ts",
+    "./prepare.ts"
+  ],
   "exclude": ["node_modules"]
 }
