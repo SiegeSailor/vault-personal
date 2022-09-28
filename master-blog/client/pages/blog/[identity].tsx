@@ -1,26 +1,44 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { readFile } from "fs";
+import { join } from "path";
 
 import entry from "articles/entry.json";
-import { Setup } from "configuration";
+import { parseMarkdown } from "utlis";
+import Markdown from "components/Markdown";
+import { wrap } from "components/LayoutSite";
 
-export default function (props: { response }) {
-  console.log(props.response);
-  return <>{props.response}</>;
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
+export function getStaticPaths() {
   return {
     paths: Object.values(entry.blog).map((path) => `/${path}`),
     fallback: false,
   };
-};
+}
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await fetch(
-    `${Setup.HOST}/articles/blog/${context.params?.identity}`
+export async function getStaticProps(context: {
+  params: { identity: string };
+}): Promise<{ props: { content: string } }> {
+  return new Promise((resolve, reject) => {
+    readFile(
+      join(process.cwd(), "articles/blog", context.params.identity),
+      async (error, data) => {
+        if (error) reject(error);
+        const content = await parseMarkdown(data.toString());
+
+        resolve({
+          props: { content },
+        });
+      }
+    );
+  });
+}
+
+function Blog(props: { content: string }) {
+  return (
+    <div>
+      <Markdown content={props.content} />
+    </div>
   );
+}
 
-  return {
-    props: { response: "From response" },
-  };
-};
+Blog.wrap = wrap;
+
+export default Blog;
