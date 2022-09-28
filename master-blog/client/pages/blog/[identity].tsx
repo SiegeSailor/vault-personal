@@ -1,14 +1,16 @@
-import { readFile } from "fs";
-import { join } from "path";
-
-import entry from "articles/entry.json";
-import { parseMarkdown } from "utlis";
+import { parseMarkdown, readArticle, readDirectory } from "utlis";
 import Markdown from "components/Markdown";
 import { wrap } from "components/LayoutSite";
 
 export function getStaticPaths() {
   return {
-    paths: Object.values(entry.blog).map((path) => `/${path}`),
+    paths: readDirectory.blog().map((item) => {
+      return {
+        params: {
+          identity: item,
+        },
+      };
+    }),
     fallback: false,
   };
 }
@@ -16,19 +18,11 @@ export function getStaticPaths() {
 export async function getStaticProps(context: {
   params: { identity: string };
 }): Promise<{ props: { content: string } }> {
-  return new Promise((resolve, reject) => {
-    readFile(
-      join(process.cwd(), "articles/blog", context.params.identity),
-      async (error, data) => {
-        if (error) reject(error);
-        const content = await parseMarkdown(data.toString());
-
-        resolve({
-          props: { content },
-        });
-      }
-    );
-  });
+  const article = readArticle.blog(context.params.identity);
+  const content = await parseMarkdown(article);
+  return {
+    props: { content },
+  };
 }
 
 function Blog(props: { content: string }) {
