@@ -45,7 +45,7 @@ function Notes(props: StaticProps) {
   return (
     <article>
       <Head>
-        <title>{format.title(props.identity)}</title>
+        <title>{format.notes.title(props.identity)}</title>
       </Head>
 
       <Markdown content={props.content} />

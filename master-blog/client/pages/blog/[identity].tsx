@@ -46,7 +46,7 @@ function Blog(props: StaticProps) {
   return (
     <article>
       <Head>
-        <title>{format.title(props.identity)}</title>
+        <title>{format.blog.title(props.identity)}</title>
       </Head>
 
       <Markdown content={props.content} />
