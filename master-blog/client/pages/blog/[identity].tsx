@@ -44,13 +44,13 @@ export async function getStaticProps(context: {
 
 function Blog(props: StaticProps) {
   return (
-    <article>
+    <div>
       <Head>
         <title>{format.blog.title(props.identity)}</title>
       </Head>
 
       <Markdown content={props.content} />
-    </article>
+    </div>
   );
 }
 

@@ -1,11 +1,25 @@
-import { remark } from "remark";
+import { unified } from "unified";
+import parse from "remark-parse";
+import gfm from "remark-gfm";
 import html from "remark-html";
+import math from "remark-math";
+import hype from "remark-rehype";
+import katex from "rehype-katex";
+import stringify from "rehype-stringify";
 
 import { Setup } from "configuration";
 
 export async function parseMarkdown(markdown: string) {
-  const result = await remark().use(html).process(markdown);
-  return result.toString();
+  const result = await unified()
+    .use(parse)
+    .use(gfm)
+    .use(html)
+    .use(math)
+    .use(hype)
+    .use(katex)
+    .use(stringify)
+    .process(markdown);
+  return String(result);
 }
 
 export const format = {

@@ -43,13 +43,13 @@ export async function getStaticProps(context: {
 
 function Notes(props: StaticProps) {
   return (
-    <article>
+    <div>
       <Head>
         <title>{format.notes.title(props.identity)}</title>
       </Head>
 
       <Markdown content={props.content} />
-    </article>
+    </div>
   );
 }
 
