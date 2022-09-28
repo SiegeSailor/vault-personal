@@ -73,17 +73,14 @@ function ListNotes(props: {
   listOfFile: string[];
   [key: string]: any;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const router = useRouter();
 
   return (
-    <div
-      className={style.list}
-      style={{ paddingLeft: props.listOfPath.length === 1 ? 8 : 0 }}
-    >
+    <div className={style.list}>
       <div onClick={() => setIsOpen(!isOpen)}>
-        {Character.WHITE_SPACE.repeat((props.listOfPath.length - 1) * 1)}
+        {Character.WHITE_SPACE.repeat(props.listOfPath.length * 1)}
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
         <h4>/{props.name}</h4>
       </div>
