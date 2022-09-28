@@ -6,3 +6,7 @@ export const Setup = {
   DIRECTORY_BLOG: join(process.cwd(), "articles/blog"),
   DIRECTORY_NOTES: join(process.cwd(), "articles/notes"),
 };
+
+export const Character = {
+  WHITE_SPACE: "　",
+};

@@ -12,7 +12,7 @@ import Link from "next/link";
 
 import style from "./index.module.scss";
 import entry from "articles/entry.json";
-import { Setup } from "configuration";
+import { Setup, Character } from "configuration";
 import { useWidth } from "hooks";
 
 function ItemPage(props: { pathname: string }) {
@@ -30,7 +30,7 @@ function ItemPage(props: { pathname: string }) {
   );
 }
 
-function ItemBlog() {
+function SectionBlog() {
   const [isOpen, setIsOpen] = useState(true);
 
   const router = useRouter();
@@ -46,8 +46,8 @@ function ItemBlog() {
 
       <div style={{ display: isOpen ? "block" : "none" }}>
         <ol>
-          {Object.entries(entry.blog).map(([filename, path]) => {
-            const fullPath = `/${path}`;
+          {entry.blog.listOfFile.map((filename) => {
+            const fullPath = `/blog/${filename}`;
             return (
               <li
                 key={filename}
@@ -67,11 +67,68 @@ function ItemBlog() {
   );
 }
 
-function ItemNotes() {
-  const [isOpen, setIsOpen] = useState(true);
-  const [category, setCategory] = useState("");
+function ListNotes(props: {
+  name: string;
+  listOfPath: string[];
+  listOfFile: string[];
+  [key: string]: any;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
+
+  return (
+    <div
+      className={style.list}
+      style={{ paddingLeft: props.listOfPath.length === 1 ? 8 : 0 }}
+    >
+      <div onClick={() => setIsOpen(!isOpen)}>
+        {Character.WHITE_SPACE.repeat((props.listOfPath.length - 1) * 1)}
+        <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
+        <h4>/{props.name}</h4>
+      </div>
+
+      <ol style={{ display: isOpen ? "block" : "none" }}>
+        {Object.entries(props)
+          .filter(([name]) => {
+            return !["listOfFile", "name", "listOfPath"].includes(name);
+          })
+          .map(([name, data]) => {
+            return (
+              <ListNotes
+                key={name}
+                name={name}
+                listOfPath={props.listOfPath.concat(name)}
+                {...data}
+              />
+            );
+          })}
+
+        {props.listOfFile.map((filename) => {
+          const fullPath = `/notes/${props.listOfPath.join("/")}/${filename}`;
+          return (
+            <li
+              key={filename}
+              className={`${style.small} ${
+                router.asPath === fullPath ? style.selected : ""
+              }`}
+            >
+              <Link href={fullPath}>
+                <a>
+                  {Character.WHITE_SPACE.repeat(props.listOfPath.length * 1)}
+                  {filename}
+                </a>
+              </Link>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
+function SectionNotes() {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div>
@@ -82,48 +139,25 @@ function ItemNotes() {
         <h3>/notes</h3>
       </div>
 
-      <div style={{ display: isOpen ? "block" : "none" }}></div>
+      <div style={{ display: isOpen ? "block" : "none" }}>
+        {Object.entries(entry.notes)
+          .filter(([name]) => {
+            return name !== "listOfFile";
+          })
+          .map(([name, data]) => {
+            return (
+              <ListNotes
+                key={name}
+                name={name}
+                listOfPath={[name]}
+                listOfFile={data["listOfFile"]}
+                {...data}
+              />
+            );
+          })}
+      </div>
     </div>
   );
-
-  //   return (
-  //     <div>
-  //       <div style={{ display: isListOpen ? "block" : "none" }}>
-  //         {listOfArticle.map((item) => {
-  //           const isOpen = category === item[0];
-
-  //           return (
-  //             <div key={item[0]}>
-  //               <div>
-  //                 <button onClick={() => setCategory(isOpen ? "" : item[0])}>
-  //                   {isOpen ? <BiMinus /> : <BiPlus />}
-  //                 </button>
-  //                 <h4>{item[0]}</h4>
-  //               </div>
-  //               <ol style={{ display: isOpen ? "block" : "none" }}>
-  //                 {item[1].map((article) => {
-  //                   const path = `${props.name}/${item[0]}/${article.name}`;
-
-  //                   return (
-  //                     <li
-  //                       key={article.name}
-  //                       className={`small ${
-  //                         path === router.asPath ? style.selected : ""
-  //                       }`}
-  //                     >
-  //                       <Link href={path}>
-  //                         <a>{article.name}</a>
-  //                       </Link>
-  //                     </li>
-  //                   );
-  //                 })}
-  //               </ol>
-  //             </div>
-  //           );
-  //         })}
-  //       </div>
-  //     </div>
-  //   );
 }
 
 export default function () {
@@ -157,11 +191,11 @@ export default function () {
         </div>
 
         <div>
-          <ItemBlog />
+          <SectionBlog />
         </div>
 
         <div>
-          <ItemNotes />
+          <SectionNotes />
         </div>
       </div>
 

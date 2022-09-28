@@ -1,6 +1,10 @@
-import { parseMarkdown, readArticle, readDirectory } from "utils";
+import Head from "next/head";
+
+import { readArticle, readDirectory } from "queries";
+import { parseMarkdown } from "utils";
 import Markdown from "components/Markdown";
 import { wrap } from "components/LayoutSite";
+import { format } from "utils";
 
 interface StaticParams {
   identity: string;
@@ -40,9 +44,13 @@ export async function getStaticProps(context: {
 
 function Blog(props: StaticProps) {
   return (
-    <div>
+    <article>
+      <Head>
+        <title>{format.title(props.identity)}</title>
+      </Head>
+
       <Markdown content={props.content} />
-    </div>
+    </article>
   );
 }
 

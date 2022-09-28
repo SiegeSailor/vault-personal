@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "fs";
+import { join } from "path";
 
 import { Setup } from "configuration";
-import { join } from "path";
 
 export const readDirectory = {
   blog: function () {

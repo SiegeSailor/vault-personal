@@ -5,12 +5,13 @@ function build() {
   const read = (listOfPath: string[], entry: any) => {
     readdirSync(join(process.cwd(), ...listOfPath)).forEach((item) => {
       const isDirectory = item.indexOf(".") == -1;
+      if (!entry.listOfFile && listOfPath.length > 1) entry.listOfFile = [];
+
       if (isDirectory) {
         if (!entry[item]) entry[item] = {};
         read(listOfPath.concat(item), entry[item]);
       } else {
         if (item.includes(".json")) return;
-        if (!entry.listOfFile) entry.listOfFile = [];
         entry.listOfFile.push(item);
       }
     });
