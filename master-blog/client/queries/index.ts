@@ -5,47 +5,34 @@ import { Setup } from "configuration";
 
 export const readDirectory = {
   blog: function () {
-    return readdirSync(join(process.cwd(), Setup.DIRECTORY_BLOG));
+    return readdirSync(Setup.DIRECTORY_BLOG);
   },
   notes: function () {
-    const read = (
-      listOfPrefix: string[],
-      listOfPath: string[],
-      listOfAllPath: string[][]
-    ) => {
-      readdirSync(
-        join(process.cwd(), ...listOfPrefix.concat(listOfPath))
-      ).forEach((item) => {
+    const read = (listOfCurrentPath: string[], listOfPath: string[][]) => {
+      readdirSync(join(process.cwd(), ...listOfCurrentPath)).forEach((item) => {
         const isDirectory = item.indexOf(".") == -1;
         if (isDirectory) {
-          read(listOfPrefix, listOfPath.concat(item), listOfAllPath);
+          read(listOfCurrentPath.concat(item), listOfPath);
         } else {
-          listOfAllPath.push(listOfPath.concat(item));
+          listOfPath.push(listOfCurrentPath.concat(item).slice(2));
         }
       });
     };
 
-    const listOfPrefix = ["articles", "notes"];
-    const listOfAllPath: string[][] = [];
-    readdirSync(join(process.cwd(), ...listOfPrefix)).forEach((directory) => {
-      read(listOfPrefix, [directory], listOfAllPath);
+    const listOfPath: string[][] = [];
+    readdirSync(Setup.DIRECTORY_NOTES).forEach((directory) => {
+      read(["articles", "notes", directory], listOfPath);
     });
 
-    return listOfAllPath;
+    return listOfPath;
   },
 };
 
 export const readArticle = {
   blog: function (filename: string) {
-    return readFileSync(
-      join(process.cwd(), Setup.DIRECTORY_BLOG, filename),
-      "utf-8"
-    );
+    return readFileSync(join(Setup.DIRECTORY_BLOG, filename), "utf-8");
   },
   notes: function (listOfPath: string[]) {
-    return readFileSync(
-      join(process.cwd(), Setup.DIRECTORY_NOTES, ...listOfPath),
-      "utf-8"
-    );
+    return readFileSync(join(Setup.DIRECTORY_NOTES, ...listOfPath), "utf-8");
   },
 };
