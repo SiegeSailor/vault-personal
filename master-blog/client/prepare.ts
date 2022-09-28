@@ -1,37 +1,25 @@
-import { writeFileSync } from "fs";
-import { readdir } from "fs/promises";
+import { readdirSync, writeFileSync } from "fs";
+import { join } from "path";
 
-async function buildEntryOfArticle(prefix: string, path: string) {
-  async function read(filepath: string, listOfFile: string[]) {
-    const listOfItem = await readdir(`${prefix}${filepath}`);
+function build() {
+  const read = (listOfPath: string[], entry: any) => {
+    readdirSync(join(process.cwd(), ...listOfPath)).forEach((item) => {
+      const isDirectory = item.indexOf(".") == -1;
+      if (isDirectory) {
+        if (!entry[item]) entry[item] = {};
+        read(listOfPath.concat(item), entry[item]);
+      } else {
+        if (item.includes(".json")) return;
+        if (!entry.listOfFile) entry.listOfFile = [];
+        entry.listOfFile.push(item);
+      }
+    });
+  };
 
-    await Promise.allSettled(
-      listOfItem.map(async (item) => {
-        if (item.includes(".md")) listOfFile.push(`${filepath}${item}`);
-        else await read(`${filepath}${item}/`, listOfFile);
-      })
-    );
-  }
-
-  function nest(file: string, original: string, entry: any) {
-    const listOfPath = file.split("/");
-    if (listOfPath.length == 1) {
-      entry[listOfPath[0]] = original;
-      return;
-    }
-
-    if (!entry[listOfPath[0]]) entry[listOfPath[0]] = {};
-    nest(listOfPath.slice(1).join("/"), original, entry[listOfPath[0]]);
-  }
-
-  const listOfFile: string[] = [];
-  await read(path, listOfFile);
   const entry = {};
-  listOfFile.forEach((file) => {
-    nest(file, file, entry);
-  });
-  writeFileSync(`${prefix}${path}/entry.json`, JSON.stringify(entry));
-  console.log(`Successfully create entry.json for files within ${path}.`);
+  read(["articles"], entry);
+  writeFileSync("articles/entry.json", JSON.stringify(entry));
+  console.info("Successfully create entry.json for articles.");
 }
 
-buildEntryOfArticle("./articles/", "");
+build();
