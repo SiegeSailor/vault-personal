@@ -73,9 +73,14 @@ function ListNotes(props: {
   listOfFile: string[];
   [key: string]: any;
 }) {
-  const [isOpen, setIsOpen] = useState(true);
-
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(
+    router.asPath
+      .split("/")
+      .slice(2)
+      .some((path) => path === props.name)
+  );
 
   return (
     <div className={style.list}>
