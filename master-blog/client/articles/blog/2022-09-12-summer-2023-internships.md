@@ -24,7 +24,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Boston University | 09/11/2022 |                  |                              |
 | IBM               | 09/15/2022 |                  |                              |
 | American Express  | 09/15/2022 |                  |                              |
-| Workday           | 09/15/2022 |                  |                              |
+| Workday           | 09/15/2022 |                  | Refused on 09/29/2022        |
 | McKinsey          | 09/15/2022 | Yes              |                              |
 | Slack             | 09/15/2022 |                  |                              |
 | Intel             | 09/16/2022 |                  | Refused on 09/19/2022        |
