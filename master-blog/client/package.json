@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/SiegeSailor/Profile#readme",
   "dependencies": {
+    "@fontsource/ubuntu": "^4.5.11",
     "@nextcss/reset": "0.2.2-beta",
     "github-markdown-css": "5.1.0",
     "katex": "0.16.2",

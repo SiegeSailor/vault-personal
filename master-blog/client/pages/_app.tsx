@@ -1,5 +1,6 @@
 import App from "next/app";
 import "@nextcss/reset";
+import "@fontsource/ubuntu";
 
 import SiteLayout from "components/LayoutSite";
 import "./global.scss";

@@ -1,11 +1,15 @@
-* {
-  font-family: "Roboto", sans-serif;
-}
-
 :root {
   --color-main: 0, 0, 0;
   --color-secondary: 255, 255, 255;
   --color-accent: 232, 232, 232;
+}
+
+* {
+  font-family: "Ubuntu";
+}
+
+body {
+  overflow: hidden;
 }
 
 a {

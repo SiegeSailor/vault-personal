@@ -24,29 +24,29 @@ export async function parseMarkdown(markdown: string) {
 
 export const format = {
   blog: {
-    filename: function (input: string) {
-      return input
+    name: function (filename: string) {
+      return filename
         .slice(11)
         .replace(".md", "")
         .split("-")
         .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`)
         .join(" ");
     },
-    title: function (input: string) {
-      return `${format.blog.filename(input)} at ${Setup.SITE_NAME}`;
+    title: function (filename: string) {
+      return `${format.blog.name(filename)} at ${Setup.SITE_NAME}`;
     },
   },
   notes: {
-    filename: function (input: string) {
-      const listOfSplit = input.split("/");
+    name: function (filename: string) {
+      const listOfSplit = filename.split("/");
       return listOfSplit[listOfSplit.length - 1]
         .replace(".md", "")
         .split("-")
         .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`)
         .join(" ");
     },
-    title: function (input: string) {
-      return `${format.notes.filename(input)} at ${Setup.SITE_NAME}`;
+    title: function (filename: string) {
+      return `${format.notes.name(filename)} at ${Setup.SITE_NAME}`;
     },
   },
 };

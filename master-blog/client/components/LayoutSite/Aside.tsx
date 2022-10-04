@@ -12,7 +12,7 @@ import Link from "next/link";
 
 import style from "./index.module.scss";
 import entry from "articles/entry.json";
-import { Setup, Character } from "configuration";
+import { Character, Setup } from "configuration";
 import { useWidth } from "hooks";
 
 function ItemPage(props: { pathname: string }) {
@@ -38,7 +38,7 @@ function SectionBlog() {
   return (
     <div>
       <div>
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button className={style.collapse} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
         <h3>/blog</h3>
@@ -82,9 +82,12 @@ function ListNotes(props: {
       .some((path) => path === props.name)
   );
 
+  const space = Character.WHITE_SPACE.repeat(props.listOfPath.length - 1);
+
   return (
     <div className={style.list}>
       <div onClick={() => setIsOpen(!isOpen)}>
+        {space}
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
         <h4>/{props.name}</h4>
       </div>
@@ -115,7 +118,10 @@ function ListNotes(props: {
               }`}
             >
               <Link href={fullPath}>
-                <a>{filename}</a>
+                <a>
+                  {space}
+                  {filename}
+                </a>
               </Link>
             </li>
           );
@@ -131,7 +137,7 @@ function SectionNotes() {
   return (
     <div>
       <div>
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button className={style.collapse} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
         <h3>/notes</h3>

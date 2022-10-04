@@ -1,10 +1,12 @@
 .layoutSite {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
 
   h1 {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 700;
 
     a {
       color: rgb(var(--color-main));
@@ -36,8 +38,6 @@
     overflow: auto;
     padding: 12px;
     word-break: break-all;
-    white-space: wrap;
-    overflow: auto;
   }
 
   aside {
@@ -49,8 +49,8 @@
     display: flex;
 
     > div {
-      flex-grow: 1;
       height: 100%;
+      flex-grow: 1;
       overflow: auto;
 
       &::-webkit-scrollbar {
@@ -82,11 +82,7 @@
             &:first-child {
               h3 {
                 font-size: 1rem;
-                font-weight: 500;
-              }
-
-              button {
-                margin: 8px 4px 8px 8px;
+                font-weight: 700;
               }
             }
           }
@@ -94,7 +90,7 @@
 
         ol li {
           font-size: 1rem;
-          font-weight: 500;
+          font-weight: 700;
           cursor: pointer;
           color: rgb(var(--color-main));
           position: relative;
@@ -130,23 +126,28 @@
 
 .list {
   > div {
-    padding: 8px 12px;
+    padding: 8px 12px 8px 0px;
     display: flex;
+    align-items: center;
     cursor: pointer;
+
+    button {
+      margin-left: 8px;
+      margin-right: 4px;
+    }
 
     h4 {
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 700;
     }
-  }
-
-  > ol {
-    padding-left: 24px;
   }
 }
 
+.collapse {
+  margin: 8px 4px 8px 8px;
+}
+
 .light {
-  font-size: 0.9rem !important;
   font-weight: 300 !important;
 }
 
