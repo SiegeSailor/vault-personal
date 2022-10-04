@@ -89,14 +89,6 @@
                 margin: 8px 4px 8px 8px;
               }
             }
-
-            &:not(:first-child) {
-              ol {
-                li {
-                  padding-left: 28px;
-                }
-              }
-            }
           }
         }
 
@@ -121,7 +113,7 @@
 
       &:last-child {
         flex-grow: 0;
-        width: 28px;
+        width: 32px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -138,19 +130,23 @@
 
 .list {
   > div {
-    padding: 8px 12px 8px 28px;
+    padding: 8px 12px;
     display: flex;
     cursor: pointer;
 
     h4 {
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 500;
     }
   }
+
+  > ol {
+    padding-left: 24px;
+  }
 }
 
-.small {
-  font-size: 0.85rem !important;
+.light {
+  font-size: 0.9rem !important;
   font-weight: 300 !important;
 }
 

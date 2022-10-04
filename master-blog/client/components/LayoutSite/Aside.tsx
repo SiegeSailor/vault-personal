@@ -51,7 +51,7 @@ function SectionBlog() {
             return (
               <li
                 key={filename}
-                className={`${style.small} ${
+                className={`${style.light} ${
                   router.asPath === fullPath ? style.selected : ""
                 }`}
               >
@@ -85,7 +85,6 @@ function ListNotes(props: {
   return (
     <div className={style.list}>
       <div onClick={() => setIsOpen(!isOpen)}>
-        {Character.WHITE_SPACE.repeat(props.listOfPath.length * 1)}
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
         <h4>/{props.name}</h4>
       </div>
@@ -111,15 +110,12 @@ function ListNotes(props: {
           return (
             <li
               key={filename}
-              className={`${style.small} ${
+              className={`${style.light} ${
                 router.asPath === fullPath ? style.selected : ""
               }`}
             >
               <Link href={fullPath}>
-                <a>
-                  {Character.WHITE_SPACE.repeat(props.listOfPath.length * 1)}
-                  {filename}
-                </a>
+                <a>{filename}</a>
               </Link>
             </li>
           );
