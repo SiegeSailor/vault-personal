@@ -35,7 +35,7 @@ export async function getStaticProps(context: {
 }): Promise<{ props: StaticProps }> {
   const { identity } = context.params;
   const article = readArticle.notes(identity);
-  const content = await parseMarkdown(article);
+  const content = await parseMarkdown(`# ${identity.slice(-1)}\n` + article);
   return {
     props: { content, identity: identity.join("/") },
   };

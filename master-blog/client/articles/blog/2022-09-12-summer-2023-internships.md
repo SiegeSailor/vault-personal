@@ -1,5 +1,3 @@
-# Summer 2023 Internships
-
 I personally submit my resume to any companies that just come to my mind, though there are some helpful resources:
 
 - [Summer 2023 Tech Internships](https://github.com/pittcsc/Summer2023-Internships): A repository list intern positions with application links. Maintained by **Pitt CSC**

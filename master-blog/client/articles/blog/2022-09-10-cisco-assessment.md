@@ -1,5 +1,3 @@
-Cisco assessment:
-
 1. 將一個 MxN 的 matrix 右轉 90 度，如：
    [1,2],[3,4] = [4,1],[2,3]
 

@@ -36,7 +36,8 @@ export async function getStaticProps(context: {
 }): Promise<{ props: StaticProps }> {
   const { identity } = context.params;
   const article = readArticle.blog(identity);
-  const content = await parseMarkdown(article);
+  console.log(article);
+  const content = await parseMarkdown(`# ${identity}\n` + article);
   return {
     props: { content, identity },
   };
@@ -48,7 +49,6 @@ function Blog(props: StaticProps) {
       <Head>
         <title>{format.blog.title(props.identity)}</title>
       </Head>
-
       <Markdown content={props.content} />
     </div>
   );
