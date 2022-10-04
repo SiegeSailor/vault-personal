@@ -169,7 +169,7 @@ export default function () {
         ref={ref}
         style={{
           display: isOpen ? "block" : "none",
-          minWidth: width + 18,
+          minWidth: width,
         }}
       >
         <div>
