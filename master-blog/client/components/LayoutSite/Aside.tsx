@@ -14,6 +14,7 @@ import style from "./index.module.scss";
 import entry from "articles/entry.json";
 import { Character, Setup } from "configuration";
 import { useWidth } from "hooks";
+import { format } from "utils";
 
 function ItemPage(props: { pathname: string }) {
   const router = useRouter();
@@ -37,11 +38,13 @@ function SectionBlog() {
 
   return (
     <div>
-      <div>
-        <button className={style.collapse} onClick={() => setIsOpen(!isOpen)}>
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <button className={style.collapse}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
-        <h3>/blog</h3>
+        <h3>
+          <a>blog</a>
+        </h3>
       </div>
 
       <div style={{ display: isOpen ? "block" : "none" }}>
@@ -56,7 +59,7 @@ function SectionBlog() {
                 }`}
               >
                 <Link href={fullPath}>
-                  <a>{filename}</a>
+                  <a>{format.blog.name(filename)}</a>
                 </Link>
               </li>
             );
@@ -89,7 +92,9 @@ function ListNotes(props: {
       <div onClick={() => setIsOpen(!isOpen)}>
         {space}
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
-        <h4>/{props.name}</h4>
+        <h4>
+          <a>{props.name.replace("-", " ")}</a>
+        </h4>
       </div>
 
       <ol style={{ display: isOpen ? "block" : "none" }}>
@@ -120,7 +125,7 @@ function ListNotes(props: {
               <Link href={fullPath}>
                 <a>
                   {space}
-                  {filename}
+                  {format.notes.name(filename)}
                 </a>
               </Link>
             </li>
@@ -136,11 +141,13 @@ function SectionNotes() {
 
   return (
     <div>
-      <div>
-        <button className={style.collapse} onClick={() => setIsOpen(!isOpen)}>
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <button className={style.collapse}>
           {isOpen ? <BiCaretDown /> : <BiCaretRight />}
         </button>
-        <h3>/notes</h3>
+        <h3>
+          <a>notes</a>
+        </h3>
       </div>
 
       <div style={{ display: isOpen ? "block" : "none" }}>
@@ -179,11 +186,11 @@ export default function () {
         }}
       >
         <div>
-          <h1>
-            <Link href="/">
-              <a>{Setup.SITE_NAME}</a>
-            </Link>
-          </h1>
+          <div>
+            <div>
+              <input placeholder="Search..." />
+            </div>
+          </div>
         </div>
 
         <div>
