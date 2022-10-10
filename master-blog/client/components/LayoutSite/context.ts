@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import style from "./index.module.scss";
 
 interface IAction {
-  type: "UPDATE_SEARCH" | "COLLAPSE_ASIDE" | "UPDATE_WIDTH_ASIDE";
+  type: "UPDATE_SEARCH" | "COLLAPSE_ASIDE";
   value: string;
 }
 

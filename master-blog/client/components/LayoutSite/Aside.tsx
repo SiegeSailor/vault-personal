@@ -13,11 +13,13 @@ import Link from "next/link";
 import { useMatch, useSearch, Context } from "./context";
 import style from "./index.module.scss";
 import entry from "articles/entry.json";
-import { useWidth } from "hooks";
 import { format } from "utils";
+import { useWindowSize } from "hooks";
 
 function ItemPage(props: { pathname: string }) {
   const name = props.pathname.split("/")[1];
+
+  const context = useContext(Context);
 
   return (
     <li
@@ -25,7 +27,13 @@ function ItemPage(props: { pathname: string }) {
       className={`${useMatch(props.pathname)} ${useSearch(name)}`}
     >
       <Link href={props.pathname}>
-        <a>{name}</a>
+        <a
+          onClick={() =>
+            context.dispatch({ type: "COLLAPSE_ASIDE", value: "" })
+          }
+        >
+          {name}
+        </a>
       </Link>
     </li>
   );
@@ -33,6 +41,8 @@ function ItemPage(props: { pathname: string }) {
 
 function SectionBlog() {
   const [isOpen, setIsOpen] = useState(true);
+
+  const context = useContext(Context);
 
   return (
     <div>
@@ -59,7 +69,13 @@ function SectionBlog() {
                 )}`}
               >
                 <Link href={fullPath}>
-                  <a>{name}</a>
+                  <a
+                    onClick={() =>
+                      context.dispatch({ type: "COLLAPSE_ASIDE", value: "" })
+                    }
+                  >
+                    {name}
+                  </a>
                 </Link>
               </li>
             );
@@ -84,6 +100,8 @@ function ListNotes(props: {
       .slice(2)
       .some((path) => path === props.name)
   );
+
+  const context = useContext(Context);
 
   return (
     <div className={style.list}>
@@ -129,6 +147,9 @@ function ListNotes(props: {
                   style={{
                     transform: `translateX(${props.listOfPath.length * 16}px)`,
                   }}
+                  onClick={() =>
+                    context.dispatch({ type: "COLLAPSE_ASIDE", value: "" })
+                  }
                 >
                   {name}
                 </a>
@@ -177,13 +198,17 @@ function SectionNotes() {
 }
 
 export default function () {
-  const [ref, width] = useWidth<HTMLDivElement>({ isOnce: true });
-
   const context = useContext(Context);
+
+  const { width = 0 } = useWindowSize();
 
   return (
     <aside>
-      <div ref={ref} style={{ minWidth: width }}>
+      <div
+        style={{
+          display: context.isAsideOpen || width >= 768 ? "block" : "none",
+        }}
+      >
         <div>
           <div>
             <div>
