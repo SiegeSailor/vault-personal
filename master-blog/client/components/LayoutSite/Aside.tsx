@@ -85,12 +85,12 @@ function ListNotes(props: {
       .some((path) => path === props.name)
   );
 
-  const space = Character.WHITE_SPACE.repeat(props.listOfPath.length - 1);
-
   return (
     <div className={style.list}>
-      <div onClick={() => setIsOpen(!isOpen)}>
-        {space}
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ transform: `translateX(${props.listOfPath.length * 16}px)` }}
+      >
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
         <h4>
           <a>{props.name.replace("-", " ")}</a>
@@ -123,8 +123,11 @@ function ListNotes(props: {
               }`}
             >
               <Link href={fullPath}>
-                <a>
-                  {space}
+                <a
+                  style={{
+                    transform: `translateX(${props.listOfPath.length * 16}px)`,
+                  }}
+                >
                   {format.notes.name(filename)}
                 </a>
               </Link>
