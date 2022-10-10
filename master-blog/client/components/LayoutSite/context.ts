@@ -4,16 +4,18 @@ import { useRouter } from "next/router";
 import style from "./index.module.scss";
 
 interface IAction {
-  type: "UPDATE_SEARCH";
+  type: "UPDATE_SEARCH" | "COLLAPSE_ASIDE" | "UPDATE_WIDTH_ASIDE";
   value: string;
 }
 
 interface IState {
   search: string;
+  isAsideOpen: boolean;
 }
 
 const initialContext: IState & { dispatch: (action: IAction) => void } = {
   search: "",
+  isAsideOpen: true,
   dispatch: () => {},
 };
 
@@ -24,6 +26,8 @@ export function useWrappedReducer() {
     switch (action.type) {
       case "UPDATE_SEARCH":
         return { ...state, search: action.value.toLowerCase() };
+      case "COLLAPSE_ASIDE":
+        return { ...state, isAsideOpen: Boolean(action.value) };
       default:
         throw new Error();
     }

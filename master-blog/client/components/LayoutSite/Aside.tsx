@@ -177,21 +177,13 @@ function SectionNotes() {
 }
 
 export default function () {
-  const [isOpen, setIsOpen] = useState(true);
-
   const [ref, width] = useWidth<HTMLDivElement>({ isOnce: true });
 
   const context = useContext(Context);
 
   return (
     <aside>
-      <div
-        ref={ref}
-        style={{
-          display: isOpen ? "block" : "none",
-          minWidth: width,
-        }}
-      >
+      <div ref={ref} style={{ minWidth: width }}>
         <div>
           <div>
             <div>
@@ -225,8 +217,17 @@ export default function () {
         </div>
       </div>
 
-      <div onClick={() => setIsOpen(!isOpen)}>
-        <button>{isOpen ? <BiLeftArrow /> : <BiRightArrow />}</button>
+      <div
+        onClick={() =>
+          context.dispatch({
+            type: "COLLAPSE_ASIDE",
+            value: context.isAsideOpen ? "" : "1",
+          })
+        }
+      >
+        <button>
+          {context.isAsideOpen ? <BiLeftArrow /> : <BiRightArrow />}
+        </button>
       </div>
     </aside>
   );

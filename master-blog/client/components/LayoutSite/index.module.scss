@@ -67,6 +67,10 @@
           height: 2.5rem;
         }
 
+        &:not(:first-child) {
+          margin-bottom: 8px;
+        }
+
         &:not(:last-child) {
           border-bottom: 0.5px solid rgb(var(--color-accent));
         }
