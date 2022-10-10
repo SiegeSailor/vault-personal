@@ -46,6 +46,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Analog             | 10/07/2022 |                  |                              |
 | iRobot             | 10/07/2022 |                  |                              |
 | AMD                | 10/07/2022 |                  |                              |
+| Amazon Robotics    | 10/09/2022 |                  |                              |
 
 ### To Be Confirmed
 
