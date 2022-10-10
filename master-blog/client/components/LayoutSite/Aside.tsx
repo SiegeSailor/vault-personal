@@ -108,6 +108,13 @@ function ListNotes(props: {
       <div
         onClick={() => setIsOpen(!isOpen)}
         style={{ transform: `translateX(${props.listOfPath.length * 16}px)` }}
+        className={
+          props.listOfPath.some(
+            (pathname) => !pathname.replace("-", " ").includes(context.search)
+          )
+            ? style.faded
+            : ""
+        }
       >
         <button>{isOpen ? <BiMinus /> : <BiPlus />}</button>
         <h4>
