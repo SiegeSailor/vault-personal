@@ -1,19 +1,24 @@
 import { ReactNode } from "react";
 
+import { Context, useWrappedReducer } from "./context";
 import Menu from "./Menu";
 import Aside from "./Aside";
 import style from "./index.module.scss";
 
 function SiteLayout(props: { children: ReactNode }) {
-  return (
-    <div className={style.layoutSite}>
-      <Menu />
-      <section>
-        <Aside />
+  const [state, dispatch] = useWrappedReducer();
 
-        <main>{props.children}</main>
-      </section>
-    </div>
+  return (
+    <Context.Provider value={{ ...state, dispatch }}>
+      <div className={style.layoutSite}>
+        <Menu />
+        <section>
+          <Aside />
+
+          <main>{props.children}</main>
+        </section>
+      </div>
+    </Context.Provider>
   );
 }
 

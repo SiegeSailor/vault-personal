@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   BiLeftArrow,
   BiCaretDown,
@@ -10,22 +10,22 @@ import {
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { useMatch, useSearch, Context } from "./context";
 import style from "./index.module.scss";
 import entry from "articles/entry.json";
-import { Character, Setup } from "configuration";
 import { useWidth } from "hooks";
 import { format } from "utils";
 
 function ItemPage(props: { pathname: string }) {
-  const router = useRouter();
+  const name = props.pathname.split("/")[1];
 
   return (
     <li
       key={props.pathname}
-      className={router.route === props.pathname ? style.selected : ""}
+      className={`${useMatch(props.pathname)} ${useSearch(name)}`}
     >
       <Link href={props.pathname}>
-        <a>{props.pathname.split("/")[1]}</a>
+        <a>{name}</a>
       </Link>
     </li>
   );
@@ -33,8 +33,6 @@ function ItemPage(props: { pathname: string }) {
 
 function SectionBlog() {
   const [isOpen, setIsOpen] = useState(true);
-
-  const router = useRouter();
 
   return (
     <div>
@@ -51,15 +49,17 @@ function SectionBlog() {
         <ol>
           {entry.blog.listOfFile.map((filename) => {
             const fullPath = `/blog/${filename}`;
+            const name = format.blog.name(filename);
+
             return (
               <li
                 key={filename}
-                className={`${style.light} ${
-                  router.asPath === fullPath ? style.selected : ""
-                }`}
+                className={`${style.light} ${useMatch(fullPath)} ${useSearch(
+                  name
+                )}`}
               >
                 <Link href={fullPath}>
-                  <a>{format.blog.name(filename)}</a>
+                  <a>{name}</a>
                 </Link>
               </li>
             );
@@ -115,12 +115,14 @@ function ListNotes(props: {
 
         {props.listOfFile.map((filename) => {
           const fullPath = `/notes/${props.listOfPath.join("/")}/${filename}`;
+          const name = format.notes.name(filename);
+
           return (
             <li
               key={filename}
-              className={`${style.light} ${
-                router.asPath === fullPath ? style.selected : ""
-              }`}
+              className={`${style.light} ${useMatch(fullPath)} ${useSearch(
+                name
+              )}`}
             >
               <Link href={fullPath}>
                 <a
@@ -128,7 +130,7 @@ function ListNotes(props: {
                     transform: `translateX(${props.listOfPath.length * 16}px)`,
                   }}
                 >
-                  {format.notes.name(filename)}
+                  {name}
                 </a>
               </Link>
             </li>
@@ -179,6 +181,8 @@ export default function () {
 
   const [ref, width] = useWidth<HTMLDivElement>({ isOnce: true });
 
+  const context = useContext(Context);
+
   return (
     <aside>
       <div
@@ -191,7 +195,15 @@ export default function () {
         <div>
           <div>
             <div>
-              <input placeholder="Search..." />
+              <input
+                placeholder="Search..."
+                onInput={(event) =>
+                  context.dispatch({
+                    type: "UPDATE_SEARCH",
+                    value: event.target["value"],
+                  })
+                }
+              />
             </div>
           </div>
         </div>

@@ -65,7 +65,6 @@
           width: 100%;
           font-size: 1rem;
           height: 2.5rem;
-          color: rgba(var(--color-main), 0.5);
         }
 
         &:not(:last-child) {
@@ -147,6 +146,10 @@
 
 .light {
   font-weight: 300 !important;
+}
+
+.faded {
+  opacity: 0.25;
 }
 
 .selected {
