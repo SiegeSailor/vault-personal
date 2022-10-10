@@ -24,7 +24,7 @@ function ItemPage(props: { pathname: string }) {
       className={router.route === props.pathname ? style.selected : ""}
     >
       <Link href={props.pathname}>
-        <a>{props.pathname}</a>
+        <a>{props.pathname.split("/")[1]}</a>
       </Link>
     </li>
   );

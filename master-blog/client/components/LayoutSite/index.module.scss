@@ -102,7 +102,7 @@
           }
 
           a {
-            padding: 8px 12px;
+            padding: 8px 28px;
           }
         }
       }
@@ -152,6 +152,8 @@
 }
 
 .selected {
+  outline: 1px solid rgb(var(--color-main));
+
   &::before {
     content: "";
     position: absolute;
@@ -166,10 +168,11 @@
   &::after {
     content: "";
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     height: 100%;
-    width: 100%;
-    background-color: rgba(var(--color-accent), 0.2);
+    width: 4px;
+    background-color: rgb(var(--color-main));
+    z-index: 1;
   }
 }
