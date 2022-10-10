@@ -216,7 +216,7 @@ export default function () {
           display: context.isAsideOpen || width >= 768 ? "block" : "none",
         }}
       >
-        <div>
+        <div className={style.sticky}>
           <div>
             <div>
               <input
