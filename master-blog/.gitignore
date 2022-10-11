@@ -9,3 +9,6 @@
 .env.production.local
 .vscode
 .idea
+
+# Java
+class/
