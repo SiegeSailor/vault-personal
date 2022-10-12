@@ -1,4 +1,8 @@
-# Review
+# Assignment
+
+An assignment for class **MET CS 575** at Boston University, instructed by **Dr. Nourai**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **September 19, 2022**.
+
+## Review
 
 I use MacBook Pro with M1 chip. I am able to install and run Ubuntu 22.04.1 Desktop on my machine, however, there are frequent error reports, and everything is extremely laggy. For example, I have to wait almost 10 seconds to run Files, and I often fail to run applications (Nothing pops out after clicking and lagging).
 
@@ -9,7 +13,7 @@ I decided to use Ubuntu 22.04.1 Server instead. The followings are the packages 
 - `spice-webdavd`
 - `davfs2`
 
-## FLow
+## Flow
 
 First of all, install Ubuntu 22.04.1 Server with all default options by running the VM. After installation, select reboot and reject ISO image, then restart the VM. After rebooting:
 
