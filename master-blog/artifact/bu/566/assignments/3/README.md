@@ -40,7 +40,7 @@ Run the Heap-Sort Algorithm on the above array and count up the total number of 
 - Write down the total number of key exchanges in the Heap-Sort algorithm.
 - No need to illustrate all your steps.
 
-> Number of exchanges is the number of times that you swap the position of two keys (values of the array) until it is a sorted array.
+Number of exchanges is the number of times that you swap the position of two keys (values of the array) until it is a sorted array.
 
 ### Step 0
 
@@ -126,7 +126,7 @@ DO
 END FOR
 ```
 
-There are **13** times key exchanging (only the max value at index `0` and the last position). There are **35** times if the exchanges happened in `heapify_max` also counted.
+There are **13** times key exchanging (only between the max value at index `0` and the last position). There are **35** times if the exchanges happened in `heapify_max` also counted.
 
 The following are the modified array after each step/key exchanging, I include the change after `heapify_max` in order to understand the flow more precisely:
 
@@ -358,32 +358,62 @@ Write pseudo-code to extract the Median of an array using a heap structure. Name
 - You can use similar pseudo-code syntax similar to the CLRS book or lecture slides.
 - Discuss what is the running time of your best algorithm
 
-> The efficient algorithm to extract median using heap needs to build two heaps: Max-heap to hold smaller half part of the values; Min-heap to save bigger half part of the values. The size difference between two heaps should be within `1`. The key algorithm in `Extract-Median` is `Median-Heapify` (you may refer Max-Heapify algorithm in the lecture).
+The efficient algorithm to extract median using heap needs to build two heaps: Max-heap to hold smaller half part of the values; Min-heap to save bigger half part of the values. The size difference between two heaps should be within `1`. The key algorithm in `Extract-Median` is `Median-Heapify` (you may refer Max-Heapify algorithm in the lecture).
 
 ### Solution
 
 We should assume that the `A` parameter for `Extract-Median` is already a heap. Otherwise, we will have to contract heaps and modify the input array every time we use `Extract-Median`. `Median-Heapify` is also useless since the property of the heap is not reused (because we construct new heaps every time).
 
-The hint is about using 2 heaps to find the median by their difference. However, we only have 1 parameter to use as the question requires. The following is the pseudo-code to construct the heap we need for `Extract-Median`:
-
-Build-Max-Heap
-Parameters: A
-
-for index = floor(A.length / 2) down to 1
-do
-Max-Heapify(A, index)
-end for
+The hint is about using `2` heaps to find the median by their difference. However, we only have `1` parameter to use as `Extract-Median` requires. The following is the pseudo-code to construct the heap we need for `Extract-Median`:
 
 ```
 Build-Median-Heap
 Parameters: A
 
+find index_median from A
 
+create heap_max from every element in A less than or equal to A[index_median]
+create heap_min from every element in A larger than A[index_median]
+
+create B as an empty array with length 2
+B[1] = heap_max
+B[2] = heap_min
+
+reference A from A to B
 ```
+
+Now we have the heap we need for `Extract−Median` from `Build-Median-Heap`, which is a 2-dimension array:
 
 ```
 Extract−Median
 Parameters: A
 
+IF A[1].length < 1 && A[2].length < 1
+    throw Error "Heap Underflow"
+END IF
+
+IF A[1].length > A[2].length
+    return Extract-Max(A[1])
+ELSE IF A[2].length > A[1].length
+    return Extract-Min(A[2])
+ELSE
+    return Extract-Max(A[1])
 
 ```
+
+The pseudo-code for `Extract-Min` and `Extract-Max` are as same as the lecture and therefore not necessary list here. `Median-Heapify` is not a must when we use 2-dimension array for 2 heaps here because we already handle the extraction in `Extract-Min` and `Extract-Max`.
+
+### Running Time
+
+`Median-Heapify` is not implemented and therefore not discussed here:
+
+- **Build-Median-Heap**: $\theta(n)$
+  - Find `index_median` algorithm is $\theta(n)$
+  - Build `heap_max` is $\theta(n)$
+  - Build `heap_min` is $\theta(n)$
+  - $\theta(3 \times n)$ = $\theta(n)$
+- **Extract−Median**: $\theta(\log(n))$
+  - Extracting median from `heap_max` requires `Extract-Max`, then `Max-Heapify` is used. `Max-Heapify` is $\theta(\log(n))$
+  - Extracting median from `heap_min` requires `Extract-Min`, then `Min-Heapify` is used. `Min-Heapify` is $\theta(\log(n))$
+
+## Question 4
