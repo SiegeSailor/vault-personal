@@ -32,7 +32,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Electronic Arts    | 09/20/2022 |                  |                              |
 | Mastercard         | 09/21/2022 |                  |                              |
 | TSMC               | 09/21/2022 |                  |                              |
-| Pinterest          | 09/21/2022 |                  |                              |
+| Pinterest          | 09/21/2022 |                  | Refused on 10/17/2022        |
 | Epic Games         | 09/21/2022 |                  |                              |
 | Capital One        | 09/21/2022 |                  | Refused right after applying |
 | Duolingo           | 09/21/2022 |                  | Refused on 09/24/2022        |
