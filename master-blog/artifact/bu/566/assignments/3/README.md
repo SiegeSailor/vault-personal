@@ -417,3 +417,74 @@ The pseudo-code for `Extract-Min` and `Extract-Max` are as same as the lecture a
   - Extracting median from `heap_min` requires `Extract-Min`, then `Min-Heapify` is used. `Min-Heapify` is $\theta(\log(n))$
 
 ## Question 4
+
+Demonstrate what happens when we insert the keys `(6, 8, 10, 9, 7, 5, 4, 13, 23, 1, 5, 7, 12, 4)` into a hash table with collisions resolved by chaining. Let the table have `9` slots, and let the hash function be $h(k) = k \mod 9$.
+
+- Count the number of collisions
+- How many collisions would the hash table have if you use $h(k) = k \mod 7$?
+
+Hash table indexes start from zero.
+
+### Solution
+
+Hash table after inserting all the elements using $h(k) = k \mod 9$. There are `6` collisions.:
+
+```
+0: 9
+1: 10 1
+2:
+3: 12
+4: 4 13 4
+5: 5 23 5
+6: 6
+7: 7 7
+8: 8
+```
+
+What happens when we inserts the keys:
+
+1. Insert 6 at position (6 % 9 = 6).
+2. Insert 8 at position (8 % 9 = 8).
+3. Insert 10 at position (10 % 9 = 1).
+4. Insert 9 at position (9 % 9 = 0).
+5. Insert 7 at position (7 % 9 = 7).
+6. Insert 5 at position (5 % 9 = 5).
+7. Insert 4 at position (4 % 9 = 4).
+8. Insert 13 at position (13 % 9 = 4). Collision happens.
+9. Insert 23 at position (23 % 9 = 5). Collision happens.
+10. Insert 1 at position (1 % 9 = 1). Collision happens.
+11. Insert 5 at position (5 % 9 = 5). Collision happens.
+12. Insert 7 at position (7 % 9 = 7). Collision happens.
+13. Insert 12 at position (12 % 9 = 3).
+14. Insert 4 at position (4 % 9 = 4). Collision happens.
+
+Hash table after inserting all the elements using $h(k) = k \mod 7$. There are `7` collisions.:
+
+```
+0: 7 7
+1: 8 1
+2: 9 23
+3: 10
+4: 4 4
+5: 5 5 12
+6: 6 13
+7:
+8:
+```
+
+## Question 5
+
+Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using open addressing with the hash function
+
+$$
+h(k, i) = (h'(k) + i) \mod m \\
+h'(k) = k \mod 7
+$$
+
+- Illustrate the result of inserting these keys using linear probing and provide insertion table index
+  results
+- Count the number of collisions
+
+```
+
+```
