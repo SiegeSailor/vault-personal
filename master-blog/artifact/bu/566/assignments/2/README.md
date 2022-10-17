@@ -12,7 +12,7 @@ You need to un-pad back to a $3 \times 3$ matrix after calculation.
 
 ### Question 5
 
-The question for 5.3 is actually $T(n) = 2T(\frac{n}{4}) + n^2$, hence, a=2, b=4, d=2. We should use master theorem case 2, which is $\theta(n^2)$.
+The question for 5.3 is actually $T(n) = 2T(\frac{n}{4}) + n^2$, hence, a is 2, b is 4, and d is 2. We should use master theorem case 2, which is $\theta(n^2)$.
 
 ## Question 1
 

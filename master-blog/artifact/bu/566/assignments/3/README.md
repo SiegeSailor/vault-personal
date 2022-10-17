@@ -31,6 +31,8 @@ Indices start from `1`. `Max-Heapify(A, 3)` means to start maintaining the max-h
 
 The largest value among the left and right children is `5`. `5` is not larger than `10`, there are no swap operations and further `Max-Heapify` calls.
 
+<div style="page-break-after: always;"></div>
+
 ## Question 2
 
 Run the Heap-Sort Algorithm on the above array and count up the total number of exchanges (you can assume the array has already been built as a heap):
@@ -77,6 +79,8 @@ graph LR
     N --> O[4/14]
 ```
 
+<div style="page-break-after: always;"></div>
+
 I implemented the algorithm in Python to help me to construct the array:
 
 ```Python
@@ -109,6 +113,8 @@ build_heap_max(list_integer)
 
 print(list_integer)
 ```
+
+<div style="page-break-after: always;"></div>
 
 ### Step 1
 
@@ -351,6 +357,8 @@ The following are the modified array after each step/key exchanging, I include t
 ]
 ```
 
+<div style="page-break-after: always;"></div>
+
 ## Question 3
 
 Write pseudo-code to extract the Median of an array using a heap structure. Name it `Extract−Median(A)` where `A` is an array. Develop an algorithm with the best running time.
@@ -381,6 +389,8 @@ B[2] = heap_min
 
 reference A from A to B
 ```
+
+<div style="page-break-after: always;"></div>
 
 Now we have the heap we need for `Extract−Median` from `Build-Median-Heap`, which is a 2-dimension array:
 
@@ -416,6 +426,8 @@ The pseudo-code for `Extract-Min` and `Extract-Max` are as same as the lecture a
   - Extracting median from `heap_max` requires `Extract-Max`, then `Max-Heapify` is used. `Max-Heapify` is $\theta(\log(n))$
   - Extracting median from `heap_min` requires `Extract-Min`, then `Min-Heapify` is used. `Min-Heapify` is $\theta(\log(n))$
 
+<div style="page-break-after: always;"></div>
+
 ## Question 4
 
 Demonstrate what happens when we insert the keys `(6, 8, 10, 9, 7, 5, 4, 13, 23, 1, 5, 7, 12, 4)` into a hash table with collisions resolved by chaining. Let the table have `9` slots, and let the hash function be $h(k) = k \mod 9$.
@@ -443,20 +455,22 @@ Hash table after inserting all the elements using $h(k) = k \mod 9$. There are `
 
 What happens when we inserts the keys:
 
-1. Insert 6 at position (6 % 9 = 6).
-2. Insert 8 at position (8 % 9 = 8).
-3. Insert 10 at position (10 % 9 = 1).
-4. Insert 9 at position (9 % 9 = 0).
-5. Insert 7 at position (7 % 9 = 7).
-6. Insert 5 at position (5 % 9 = 5).
-7. Insert 4 at position (4 % 9 = 4).
-8. Insert 13 at position (13 % 9 = 4). Collision happens.
-9. Insert 23 at position (23 % 9 = 5). Collision happens.
-10. Insert 1 at position (1 % 9 = 1). Collision happens.
-11. Insert 5 at position (5 % 9 = 5). Collision happens.
-12. Insert 7 at position (7 % 9 = 7). Collision happens.
-13. Insert 12 at position (12 % 9 = 3).
-14. Insert 4 at position (4 % 9 = 4). Collision happens.
+1. Insert `6` at position 6 % 9 = 6
+2. Insert `8` at position 8 % 9 = 8
+3. Insert `10` at position 10 % 9 = 1
+4. Insert `9` at position 9 % 9 = 0
+5. Insert `7` at position 7 % 9 = 7
+6. Insert `5` at position 5 % 9 = 5
+7. Insert `4` at position 4 % 9 = 4
+8. Insert `13` at position 13 % 9 = 4. Collision happened
+9. Insert `23` at position 23 % 9 = 5. Collision happened
+10. Insert `1` at position 1 % 9 = 1. Collision happened
+11. Insert `5` at position 5 % 9 = 5. Collision happened
+12. Insert `7` at position 7 % 9 = 7. Collision happened
+13. Insert `12` at position 12 % 9 = 3
+14. Insert `4` at position 4 % 9 = 4. Collision happened
+
+<div style="page-break-after: always;"></div>
 
 Hash table after inserting all the elements using $h(k) = k \mod 7$. There are `7` collisions.:
 
@@ -472,9 +486,11 @@ Hash table after inserting all the elements using $h(k) = k \mod 7$. There are `
 8:
 ```
 
+<div style="page-break-after: always;"></div>
+
 ## Question 5
 
-Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using open addressing with the hash function
+Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using open addressing with the hash function:
 
 $$
 h(k, i) = (h'(k) + i) \mod m
@@ -488,6 +504,72 @@ $$
   results
 - Count the number of collisions
 
-```
+`-1` means the slot has never been used.
 
 ```
+0: 25
+1: -1
+2: -1
+3: 31
+4: 11
+5: 5
+6: 17
+```
+
+1. Insert `31` at position (((31 % 7) + 0) % 7) = 3
+2. Insert `11` at position (((11 % 7) + 0) % 7) = 4
+3. Insert `5` at position (((5 % 7) + 0) % 7) = 5
+4. Insert `17` at position (((17 % 7) + 0) % 7) = 3
+5. Insert `17` at position (((17 % 7) + 1) % 7) = 4
+6. Insert `17` at position (((17 % 7) + 2) % 7) = 5
+7. Insert `17` at position (((17 % 7) + 3) % 7) = 6
+8. Insert `25` at position (((25 % 7) + 0) % 7) = 4
+9. Insert `25` at position (((25 % 7) + 1) % 7) = 5
+10. Insert `25` at position (((25 % 7) + 2) % 7) = 6
+11. Insert `25` at position (((25 % 7) + 3) % 7) = 0
+
+There are `6` collisions.
+
+<div style="page-break-after: always;"></div>
+
+## Question 6
+
+Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using open addressing with double Hashing:
+
+$$
+h(k, i) = (h_1(k) + i \times h_2(k)) \mod m
+$$
+
+$$
+h_1(k) = k \mod 7
+$$
+
+$$
+h_2(k) = 1 + (k \mod 3)
+$$
+
+- Illustrate the result of inserting these keys using Double Hashing, and provide your
+  resulting hash table.
+
+`-1` means the slot has never been used.
+
+```
+0: -1
+1: 25
+2: -1
+3: 31
+4: 11
+5: 5
+6: 17
+```
+
+1. Insert `31` at position ((31 % 7) + (0 \* (1 + (31 % 3))) % 7) = 3
+2. Insert `11` at position ((11 % 7) + (0 \* (1 + (11 % 3))) % 7) = 4
+3. Insert `5` at position ((5 % 7) + (0 \* (1 + (5 % 3))) % 7) = 5
+4. Insert `17` at position ((17 % 7) + (0 \* (1 + (17 % 3))) % 7) = 3
+5. Insert `17` at position ((17 % 7) + (1 \* (1 + (17 % 3))) % 7) = 6
+6. Insert `25` at position ((25 % 7) + (0 \* (1 + (25 % 3))) % 7) = 4
+7. Insert `25` at position ((25 % 7) + (1 \* (1 + (25 % 3))) % 7) = 6
+8. Insert `25` at position ((25 % 7) + (2 \* (1 + (25 % 3))) % 7) = 1
+
+There are `3` collisions.
