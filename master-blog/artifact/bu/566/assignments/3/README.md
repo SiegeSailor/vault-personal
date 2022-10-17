@@ -477,7 +477,10 @@ Hash table after inserting all the elements using $h(k) = k \mod 7$. There are `
 Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using open addressing with the hash function
 
 $$
-h(k, i) = (h'(k) + i) \mod m \\
+h(k, i) = (h'(k) + i) \mod m
+$$
+
+$$
 h'(k) = k \mod 7
 $$
 

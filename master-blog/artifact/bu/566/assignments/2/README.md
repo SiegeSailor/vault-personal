@@ -2,6 +2,18 @@
 
 An assignment for class **MET CS 566** at Boston University, instructed by **Ming Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **October 2, 2022**.
 
+## Correction
+
+Score: `19/20`
+
+### Question 3
+
+You need to un-pad back to a $3 \times 3$ matrix after calculation.
+
+### Question 5
+
+The question for 5.3 is actually $T(n) = 2T(\frac{n}{4}) + n^2$, hence, a=2, b=4, d=2. We should use master theorem case 2, which is $\theta(n^2)$.
+
 ## Question 1
 
 Use Strassen’s algorithm to compute the following matrix product. Show your work in different computation steps:
