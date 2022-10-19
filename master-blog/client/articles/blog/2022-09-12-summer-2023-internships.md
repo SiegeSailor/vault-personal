@@ -37,7 +37,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Capital One        | 09/21/2022 |                  | Refused right after applying |
 | Duolingo           | 09/21/2022 |                  | Refused on 09/24/2022        |
 | Veeva              | 10/07/2022 |                  |                              |
-| Moderna            | 10/07/2022 |                  |                              |
+| Moderna            | 10/07/2022 |                  | Refused on 10/13/2022        |
 | Infineon           | 10/07/2022 |                  |                              |
 | IDEXX              | 10/07/2022 |                  |                              |
 | Texas Instruments  | 10/07/2022 |                  |                              |
