@@ -225,7 +225,7 @@ flowchart TB
 
 ### Solution
 
-**Minimizing the chance that similar variants hash to the same slot**. For example, when we are hashing closely related symbols such as _pt_ and _pts_, the result value for them through division method with their ASCII code may both bo `112`, which would lead to collisions. A good hash function should distribute these 2 to different slots, or at least minimize the chance that hashing them to the same slot.
+**Minimizing the chance that similar variants hash to the same slot**. For example, when we are hashing closely related symbols such as _pt_ and _pts_, the result value for them through division method with their first character's ASCII code `112` may be the same, which would lead to collisions. A good hash function should distribute these 2 to different slots, or at least minimize the chance that hashing them to the same slot.
 
 **Should be very fast compute**. We generally want hash functions fast, just as we want other functions to be fast. However, there are some exceptions. Applications generating passwords or encryption keys must be more secure against a brute-force attack. It is better to have slow hash functions to increase the time and space for the attacker to test each possible key.
 
@@ -237,7 +237,9 @@ flowchart TB
 
 ### Solution
 
-**Yes**. Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using double Hashing. $k$ is the input value, and $i$ is the number of collisions:
+**Yes**. The main reason is that we go different slot with different value. Assume there are values $A$ and $B$, $A$ occupies position `0` and $B$ is inserted later, $B$ may need to go to position `2` instead. If $B$ occupies position `0` first, then $A$ may need to go to position `3` where $C$ will go after, which leads additional collisions.
+
+Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using double Hashing. $k$ is the input value, and $i$ is the number of collisions:
 
 $$
 h(k, i) = (h_1(k) + i \times h_2(k)) \mod m
