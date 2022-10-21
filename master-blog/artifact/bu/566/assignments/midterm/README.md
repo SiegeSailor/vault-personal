@@ -100,6 +100,14 @@ $$
 
 Line 4 is some constant cost.
 
+### Solution
+
+Apparently, `y` is not really involved in developing the running time since it only takes a constant time and not a factor for any loops. $\mathcal{O}$ is derived from the fact that the while-loop would execute when $j^2 \leq n$, and `j = j + 1` after every loop:
+
+$$
+\mathcal{O}(f(n)) = \sqrt{n}
+$$
+
 <div style="page-break-after: always;"></div>
 
 ## Question 4
@@ -119,9 +127,9 @@ Line 4 is some constant cost.
 
 ### Solution
 
-We can first assume that `a` is not a factor to the running time since `a` is not used as an index or length of execution.
+We can first assume that `a` is not a impact to the running time since `a` is not used as an index or length of execution.
 
-The time complexity for the while-loop at line 3 is $\log(n^2)$ because we run `k = k / 2` every loop, and `k` starts at `n * n`. The time complexity for the for-loop at line 4 is $n^2$ since `j` only exists in the for-loop scope and starts from `0` to `n * n` every time.
+The time complexity for the while-loop at line 3 is $\log(n^2)$ because we run `k = k / 2` every loop, and `k` starts at `n * n`. The time complexity for the for-loop at line 4 is $n^2$ since `j` only exists in the for-loop scope and starts from `0` to `n * n` every time:
 
 $$
 \mathcal{O}(f(n)) = \log(n^2) \times n^2 = 2 \times \log(n) \times n^2 = \log(n) \times n^2
@@ -176,7 +184,7 @@ flowchart TB
     13 --> 7
 ```
 
-Once we execute `HEAP-EXTRACT-MAX`, we swap the max value at the first index with the element at the last index, and then reduce the heap size by `1`:
+Once we execute `HEAP-EXTRACT-MAX`, we swap the max value `23` at the first index with the element at the last index `7`, and then reduce the heap size by `1`:
 
 ```mermaid
 flowchart TB
@@ -184,7 +192,29 @@ flowchart TB
     7 --> 12
     13 --> 9
     13 --> |heap end| 23
-    style 23 fill:#e8e8e8
+    style 23 fill:#e8e8e8, stroke:#e8e8e8
+```
+
+As we can see, `7` is the smallest value in the heap. When we run `MAX-HEAPIFY` we will have to run from head to bottom. `7` and `13` are exchanged:
+
+```mermaid
+flowchart TB
+    13 --> _7[7]
+    13 --> 12
+    _7 --> 9
+    _7 --> |heap end| 23
+    style 23 fill:#e8e8e8, stroke:#e8e8e8
+```
+
+Then `7` and `9` are changed:
+
+```mermaid
+flowchart TB
+    13 --> _9[9]
+    13 --> 12
+    _9 --> 7
+    _9 --> |heap end| 23
+    style 23 fill:#e8e8e8, stroke:#e8e8e8
 ```
 
 <div style="page-break-after: always;"></div>
@@ -193,8 +223,51 @@ flowchart TB
 
 **Hash function**. Name two properties a good hash function should have. Describe your answer (if possible, with an example).
 
+### Solution
+
+**Minimizing the chance that similar variants hash to the same slot**. For example, when we are hashing closely related symbols such as _pt_ and _pts_, the result value for them through division method with their ASCII code may both bo `112`, which would lead to collisions. A good hash function should distribute these 2 to different slots, or at least minimize the chance that hashing them to the same slot.
+
+**Should be very fast compute**. We generally want hash functions fast, just as we want other functions to be fast. However, there are some exceptions. Applications generating passwords or encryption keys must be more secure against a brute-force attack. It is better to have slow hash functions to increase the time and space for the attacker to test each possible key.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 8
 
 **Double hashing**. When you use double hashing in a hash table, does the number of potential collisions depend on the sequence of key insertions into the table? In other words, if you change the sequence of insertions, would the number of collisions change? Support your answer using an example.
+
+### Solution
+
+**Yes**. Consider inserting the keys `{31, 11, 5, 17, 25}` into a hash table of length $m = 7$ using double Hashing. $k$ is the input value, and $i$ is the number of collisions:
+
+$$
+h(k, i) = (h_1(k) + i \times h_2(k)) \mod m
+$$
+
+$$
+h_1(k) = k \mod 7
+$$
+
+$$
+h_2(k) = 1 + (k \mod 3)
+$$
+
+There are `3` collisions:
+
+1. Insert `31` at position ((31 % 7) + (0 \* (1 + (31 % 3))) % 7) = 3
+2. Insert `11` at position ((11 % 7) + (0 \* (1 + (11 % 3))) % 7) = 4
+3. Insert `5` at position ((5 % 7) + (0 \* (1 + (5 % 3))) % 7) = 5
+4. Insert `17` at position ((17 % 7) + (0 \* (1 + (17 % 3))) % 7) = 3
+5. Insert `17` at position ((17 % 7) + (1 \* (1 + (17 % 3))) % 7) = 6
+6. Insert `25` at position ((25 % 7) + (0 \* (1 + (25 % 3))) % 7) = 4
+7. Insert `25` at position ((25 % 7) + (1 \* (1 + (25 % 3))) % 7) = 6
+8. Insert `25` at position ((25 % 7) + (2 \* (1 + (25 % 3))) % 7) = 1
+
+Let's change the insertion sequence to `{25, 31, 17, 5, 11}`. There are only `2` collisions:
+
+1. Insert `25` at position ((25 % 7) + (0 \* (1 + (25 % 3))) % 7) = 4
+2. Insert `31` at position ((31 % 7) + (0 \* (1 + (31 % 3))) % 7) = 3
+3. Insert `17` at position ((17 % 7) + (0 \* (1 + (17 % 3))) % 7) = 3
+4. Insert `17` at position ((17 % 7) + (1 \* (1 + (17 % 3))) % 7) = 6
+5. Insert `5` at position ((5 % 7) + (0 \* (1 + (5 % 3))) % 7) = 5
+6. Insert `11` at position ((11 % 7) + (0 \* (1 + (11 % 3))) % 7) = 4
+7. Insert `11` at position ((11 % 7) + (1 \* (1 + (11 % 3))) % 7) = 0
