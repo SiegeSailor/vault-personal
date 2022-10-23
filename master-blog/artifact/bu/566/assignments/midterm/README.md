@@ -93,12 +93,25 @@ You do not need to provide a formal proof. Describe your justifications in text 
 We first change the form:
 
 $$
-f(n) = 128^{\frac{n}{4}} = \sqrt[2^2]{128}^n = \sqrt[2^2]{2^7}^n = 2^{\frac{7 \times n}{4}}
+f(n) = 128^{\frac{n}{4}} = \sqrt[2^2]{128}^n = \sqrt[2^2]{2^7}^n = 2^{\frac{7 \times n}{4}} = 2^{1.75 \times n}
 $$
 
 $$
-g(n) = 512^{\frac{n}{8}} = \sqrt[2^3]{512}^n = \sqrt[2^3]{2^9}^n = 2^{\frac{9 \times n}{8}}
+g(n) = 512^{\frac{n}{8}} = \sqrt[2^3]{512}^n = \sqrt[2^3]{2^9}^n = 2^{\frac{9 \times n}{8}} = 2^{1.125 \times n}
 $$
+
+$$
+f(n) = 2^{1.75 \times n} \ vs.\ g(n) = 2^{1.125 \times n}
+$$
+
+##### $f(n) = \Theta(g(n))$
+
+**Yes**. Simply ignore lower-order terms, then $f(n) = g(n) = \Theta(2^n)$.
+
+1. $f(n) = \mathcal{O}(g(n))$
+2. $f(n) = \Omega(g(n))$
+3. $f(n) = o(g(n))$
+4. $f(n) = \omega(g(n))$
 
 <div style="page-break-after: always;"></div>
 
