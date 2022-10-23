@@ -104,14 +104,70 @@ $$
 f(n) = 2^{1.75 \times n} \ vs.\ g(n) = 2^{1.125 \times n}
 $$
 
-##### $f(n) = \Theta(g(n))$
+- $f(n) = \Theta(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) = g(n)$ is false.
+- $f(n) = \mathcal{O}(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) \leq g(n)$ is false.
+- $f(n) = \Omega(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) \geq g(n)$ is true.
+- $f(n) = o(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) < g(n)$ is false.
+- $f(n) = \omega(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) > g(n)$ is true.
 
-**Yes**. Simply ignore lower-order terms, then $f(n) = g(n) = \Theta(2^n)$.
+#### $f(n) = n^{64} \times 2^n \ vs.\ g(n) = \log(n) \times 2^n+ 4^n + n^{32}$
 
-1. $f(n) = \mathcal{O}(g(n))$
-2. $f(n) = \Omega(g(n))$
-3. $f(n) = o(g(n))$
-4. $f(n) = \omega(g(n))$
+We first change the form:
+
+$$
+f(n) = 2^n
+$$
+
+$$
+g(n) = 4^n
+$$
+
+$$
+f(n) = 2^n \ vs.\ g(n) = 4^n
+$$
+
+- $f(n) = \Theta(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) = g(n)$ is false.
+- $f(n) = \mathcal{O}(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) \leq g(n)$ is true.
+- $f(n) = \Omega(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) \geq g(n)$ is false.
+- $f(n) = o(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) < g(n)$ is true.
+- $f(n) = \omega(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) > g(n)$ is false.
+
+#### $f(n) = n^{1024} \ vs. \ g(n) = 2^{\log(n) \times \log(n)}$
+
+We first change the form:
+
+$$
+f(n) = n^{1024}
+$$
+
+$$
+g(n) = 2^{\log(n) \times \log(n)} = 2^{log(n^{log(n)})} = n^{log(2^{log(n)})} = n^{log(n)}
+$$
+
+$$
+f(n) = n^{1024} \ vs.\ g(n) = n^{log(n)}
+$$
+
+- $f(n) = \Theta(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) = g(n)$ is false.
+- $f(n) = \mathcal{O}(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) \leq g(n)$ is true.
+- $f(n) = \Omega(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) \geq g(n)$ is false.
+- $f(n) = o(g(n))$
+  - **Yes**. Ignore lower-order terms, then $f(n) < g(n)$ is true.
+- $f(n) = \omega(g(n))$
+  - **No**. Ignore lower-order terms, then $f(n) > g(n)$ is false.
 
 <div style="page-break-after: always;"></div>
 
