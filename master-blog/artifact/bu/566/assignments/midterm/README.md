@@ -8,7 +8,7 @@ An assignment for class **MET CS 566** at Boston University, instructed by **Min
 
 1. $g_1 = \log(\log(n))$
 2. $g_2 = 2^{\log(n)}$
-3. $g_3 = 2^{\sqrt{2 \times \log(n)}}$
+3. $g_3 = 2^{\sqrt{2 \times \log(n)}} = 2^{\sqrt{\log(n^2)}} = 2^{\log(n^2)^{\frac{1}{2}}} = n^{\log(2^2)^{\frac{1}{2}}} = n^{1.414}$
 4. $g_4 = n^{8.2} + \log(n)$
 5. $g_5 = n^{8.2} + n!$
 6. $g_6 = n^{2024} + n^{512} + n \times \log(n)$
@@ -22,32 +22,49 @@ Work in stepwise format. Find the fastest growing function first, and then the n
 Refine some functions to get rid of lower-order terms in order to compare them precisely:
 
 1. $g_1 = \log(\log(n))$
-2. $g_2 = 2^{\log(n)}$
-3. $g_3 = 2^{\sqrt{2 \times \log(n)}}$
+2. $g_2 = 2^{\log(n)} = n$
+3. $g_3 = n^{1.414}$
 4. $g_4 = n^{8.2} + \log(n) = n^{8.2}$
 5. $g_5 = n^{8.2} + n! = n!$
 6. $g_6 = n^{2024} + n^{512} + n \times \log(n) = n^{2024}$
-7. $g_7 = e^n + e^{ln(n)} = e^n$
+7. $g_7 = e^n + e^{ln(n)} = e^n + e^{\log_{e}^{n}} = e^n + n = e^n$
 8. $g_8 = \sqrt{\log(n)}$
 
-Here is the list. Fastest goes first:
+First of all, we compare $g_1$ and $g_8$ since they have a similar form. $g_1 = \log(n)$ and $g_8 = \sqrt{\log(n)}$. Assume $\log(n)$ is $v$, then $g_1 = \log(v) < g_8 = \sqrt{v}$. Now we have:
 
-$g_1$
-$g_8$
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
 
-$g_3$
-$g_2$
+Then we put $g_2 = n$ in the list. $g_2$ is obviously slower than $g_2$ and $g_3$ according to **Order of Growth of Functions** mentioned in lectures:
 
-$g_4$
-$g_6$
-$g_7$
-$g_5$
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
+3. $g_2 = n$
 
-$e^{\log_{e}^{n}}$
+$g_4 = n^{8.2}$ and $g_6 = n^{2024}$ are quite similar to $g_2 = n$ and can be compared easily:
 
-What does `stepwise format` mean?
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
+3. $g_2 = n$
+4. $g_4 = n^{8.2}$
+5. $g_6 = n^{2024}$
 
-What is $e^n + e^{ln(n)}$?
+Use the definition of **Order of Growth of Functions** again for the rest of functions. Factorial rates are slower than exponential rates, and exponential rates are slower than polynomial rates:
+
+1. $g_3 = n^{1.414}$
+2. $g_7 = e^n$
+3. $g_5 = n!$
+
+Put them into the ordering list:
+
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
+3. $g_2 = n$
+4. $g_3 = n^{1.414}$
+5. $g_4 = n^{8.2}$
+6. $g_6 = n^{2024}$
+7. $g_7 = e^n$
+8. $g_5 = n!$
 
 <div style="page-break-after: always;"></div>
 
