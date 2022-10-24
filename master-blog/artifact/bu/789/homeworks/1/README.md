@@ -9,18 +9,17 @@ A programming practice for class **MET CS 789** at Boston University, instructed
   - An example of hash function
   - $f: n \implies r$
     - ap $Z$ to the set $\{ 0, 1, 2,..., m - 1 \}$
-    - $n \ \% \ m$
     - $n \mod m$
-  - $n = km$, then $(x \ \% \ n) \ \% \ m = x \ \% \ m$
+  - $n = km$, then $(x \mod n) \mod m = x \mod m$
 - $n$ is prime if $n$ is not divisible by any integer from the range $(1, \sqrt(n)$
 - $m$ and $n$ are relatively prime if and only if $gcd(m, n) = 1$
 - Smallest positiver integer $x_0 \times m + y_0 \times n$ is a divisor of $m$ and $n$
-  - $m \ \% \ (x_0 \times m + y_0 \times n) = 0$
-  - $n \ \% \ (x_0 \times m + y_0 \times n) = 0$
+  - $m \mod (x_0 \times m + y_0 \times n) = 0$
+  - $n \mod (x_0 \times m + y_0 \times n) = 0$
   - Every divisor $d$ of $m$ and $n$ is a divisor of $x_0 \times m + y_0 \times n$
-    - $m \ \% \ d = 0$
-    - $n \ \% \ d = 0$
-    - $(x_0 \times m + y_0 \times n) \ \% \ d = 0$
+    - $m \mod d = 0$
+    - $n \mod d = 0$
+    - $(x_0 \times m + y_0 \times n) \mod d = 0$
     - $x_0 \times m + y_0 \times n$ is the greatest common divisor of $m$ and $n$
 
 ## Question 1
