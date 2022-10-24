@@ -8,7 +8,7 @@ An assignment for class **MET CS 566** at Boston University, instructed by **Min
 
 1. $g_1 = \log(\log(n))$
 2. $g_2 = 2^{\log(n)}$
-3. $g_3 = 2^{\sqrt{2 \times \log(n)}} = 2^{\sqrt{\log(n^2)}} = 2^{\log(n^2)^{\frac{1}{2}}} = n^{\log(2^2)^{\frac{1}{2}}} = n^{1.414}$
+3. $g_3 = 2^{\sqrt{2 \times \log(n)}}$
 4. $g_4 = n^{8.2} + \log(n)$
 5. $g_5 = n^{8.2} + n!$
 6. $g_6 = n^{2024} + n^{512} + n \times \log(n)$
@@ -19,11 +19,22 @@ Work in stepwise format. Find the fastest growing function first, and then the n
 
 ### Solution
 
+The final result. Please see stepwise solution below:
+
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
+3. $g_3 = 2^{\sqrt{2} \times \sqrt{\log(n)}}$
+4. $g_2 = n$
+5. $g_4 = n^{8.2}$
+6. $g_6 = n^{2024}$
+7. $g_7 = e^n$
+8. $g_5 = n!$
+
 Refine some functions to get rid of lower-order terms in order to compare them precisely:
 
 1. $g_1 = \log(\log(n))$
 2. $g_2 = 2^{\log(n)} = n$
-3. $g_3 = n^{1.414}$
+3. $g_3 = 2^{\sqrt{2 \times \log(n)}} = 2^{\sqrt{2} \times \sqrt{\log(n)}}$
 4. $g_4 = n^{8.2} + \log(n) = n^{8.2}$
 5. $g_5 = n^{8.2} + n! = n!$
 6. $g_6 = n^{2024} + n^{512} + n \times \log(n) = n^{2024}$
@@ -35,7 +46,7 @@ First of all, we compare $g_1$ and $g_8$ since they have a similar form. $g_1 = 
 1. $g_1 = \log(\log(n))$
 2. $g_8 = \sqrt{\log(n)}$
 
-Then we put $g_2 = n$ in the list. $g_2$ is obviously slower than $g_2$ and $g_3$ according to **Order of Growth of Functions** mentioned in lectures:
+Then we put $g_2 = n$ in the list. $g_2$ is obviously slower than $g_1$ and $g_8$ according to **Order of Growth of Functions** mentioned in lectures:
 
 1. $g_1 = \log(\log(n))$
 2. $g_8 = \sqrt{\log(n)}$
@@ -49,18 +60,33 @@ $g_4 = n^{8.2}$ and $g_6 = n^{2024}$ are quite similar to $g_2 = n$ and can be c
 4. $g_4 = n^{8.2}$
 5. $g_6 = n^{2024}$
 
-Use the definition of **Order of Growth of Functions** again for the rest of functions. Factorial rates are slower than exponential rates, and exponential rates are slower than polynomial rates:
+Use the definition of **Order of Growth of Functions** again for $g_7$ and $g_5$. Factorial rates are slower than exponential rates, and exponential rates are slower than polynomial rates:
 
-1. $g_3 = n^{1.414}$
-2. $g_7 = e^n$
-3. $g_5 = n!$
+1. $g_7 = e^n$
+2. $g_5 = n!$
 
-Put them into the ordering list:
+Put them into the list:
 
 1. $g_1 = \log(\log(n))$
 2. $g_8 = \sqrt{\log(n)}$
 3. $g_2 = n$
-4. $g_3 = n^{1.414}$
+4. $g_4 = n^{8.2}$
+5. $g_6 = n^{2024}$
+6. $g_7 = e^n$
+7. $g_5 = n!$
+
+It seems that there is no function has the same base with $g_3 = 2^{\sqrt{2} \times \sqrt{\log(n)}}$. We have to simplify it and find a common base in order to compare:
+
+$$
+g_3 = 2^{\sqrt{2} \times \sqrt{\log(n)}} = 2^{\sqrt{\log(n)} \times \sqrt{2}} = 2^{\sqrt{\log(n)}^{\sqrt{2}}} = n^{\frac{\sqrt{2}}{2}}. \log(n) \leq g_3 \leq n
+$$
+
+Therefore, the list will be:
+
+1. $g_1 = \log(\log(n))$
+2. $g_8 = \sqrt{\log(n)}$
+3. $g_3 = 2^{\sqrt{2} \times \sqrt{\log(n)}}$
+4. $g_2 = n$
 5. $g_4 = n^{8.2}$
 6. $g_6 = n^{2024}$
 7. $g_7 = e^n$
@@ -107,13 +133,13 @@ $$
 - $f(n) = \Theta(g(n))$
   - **No**. Ignore lower-order terms, then $f(n) = g(n)$ is false.
 - $f(n) = \mathcal{O}(g(n))$
-  - **No**. Ignore lower-order terms, then $f(n) \leq g(n)$ is false.
+  - **No**. Ignore lower-order terms, then $0 \leq f(n) \leq c \times g(n)$ is false.
 - $f(n) = \Omega(g(n))$
-  - **Yes**. Ignore lower-order terms, then $f(n) \geq g(n)$ is true.
+  - **Yes**. Ignore lower-order terms, then $0 \leq c \times g(n) \leq f(n)$ is true.
 - $f(n) = o(g(n))$
-  - **No**. Ignore lower-order terms, then $f(n) < g(n)$ is false.
+  - **No**. Ignore lower-order terms, then $0 \leq f(n) < g(n)$ is false.
 - $f(n) = \omega(g(n))$
-  - **Yes**. Ignore lower-order terms, then $f(n) > g(n)$ is true.
+  - **Yes**. Ignore lower-order terms, then $0 \leq c \times g(n) < f(n)$ is true.
 
 #### $f(n) = n^{64} \times 2^n \ vs.\ g(n) = \log(n) \times 2^n+ 4^n + n^{32}$
 
@@ -147,15 +173,15 @@ $$
 We first change the form:
 
 $$
-f(n) = n^{1024}
+f(n) = n^{1024} = n^{2^{10}}
 $$
 
 $$
-g(n) = 2^{\log(n) \times \log(n)} = 2^{log(n^{log(n)})} = n^{log(2^{log(n)})} = n^{log(n)}
+g(n) = 2^{\log(n) \times \log(n)} = (2^{\log(n)})^{\log(n)} = (n^{\log(2)})^{\log(n)} = n^{\log(n)}
 $$
 
 $$
-f(n) = n^{1024} \ vs.\ g(n) = n^{log(n)}
+f(n) = n^{2^{10}} \ vs.\ g(n) = n^{\log(n)}
 $$
 
 - $f(n) = \Theta(g(n))$
