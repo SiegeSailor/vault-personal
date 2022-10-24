@@ -17,6 +17,8 @@ An assignment for class **MET CS 566** at Boston University, instructed by **Min
 
 Work in stepwise format. Find the fastest growing function first, and then the next fast one.
 
+<div style="page-break-after: always;"></div>
+
 ### Solution
 
 The final result. Please see stepwise solution below:
@@ -59,6 +61,8 @@ $g_4 = n^{8.2}$ and $g_6 = n^{2024}$ are quite similar to $g_2 = n$ and can be c
 3. $g_2 = n$
 4. $g_4 = n^{8.2}$
 5. $g_6 = n^{2024}$
+
+<div style="page-break-after: always;"></div>
 
 Use the definition of **Order of Growth of Functions** again for $g_7$ and $g_5$. Factorial rates are slower than exponential rates, and exponential rates are slower than polynomial rates:
 
@@ -111,6 +115,8 @@ Functions $f(n)$ and $g(n)$ are:
 3. $f(n) = n^{1024} \ vs. \ g(n) = 2^{\log(n) \times \log(n)}$
 
 You do not need to provide a formal proof. Describe your justifications in text form.
+
+<div style="page-break-after: always;"></div>
 
 ### Solution
 
@@ -167,6 +173,8 @@ $$
   - **Yes**. Ignore lower-order terms, then $f(n) < g(n)$ is true.
 - $f(n) = \omega(g(n))$
   - **No**. Ignore lower-order terms, then $f(n) > g(n)$ is false.
+
+<div style="page-break-after: always;"></div>
 
 #### $f(n) = n^{1024} \ vs. \ g(n) = 2^{\log(n) \times \log(n)}$
 
