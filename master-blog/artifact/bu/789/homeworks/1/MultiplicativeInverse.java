@@ -1,4 +1,4 @@
-class ModularMultiplicativeInverse {
+class MultiplicativeInverse {
     static int function(int x, int m) {
 
         for (int i = 1; i < m; i++)
