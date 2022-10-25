@@ -13,8 +13,8 @@ public class ExpandedEuclidean {
     }
 
     public static void main(String[] arrayOfArgument) {
-        int a = 614;
-        int b = 513;
+        int a = 106;
+        int b = 112;
         int arrayOfResult[] = recursion(a, b);
         System.out.println("\nGCD(" + a + ", " + b + ") = " + arrayOfResult[1] + " * " + a + " + "
                 + arrayOfResult[2] + " * " + b + " = " + arrayOfResult[0]);

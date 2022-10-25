@@ -36,7 +36,7 @@ public class PrimitiveRootSearch {
     }
 
     public static void main(String arrayOfArgument[]) {
-        int prime = 13;
+        int prime = 131;
         int phi = prime - 1;
 
         System.out.println("m = " + prime + ". phi(m) is " + phi);

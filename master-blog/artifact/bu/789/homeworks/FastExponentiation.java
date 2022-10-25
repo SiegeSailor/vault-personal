@@ -20,7 +20,7 @@ public class FastExponentiation {
     }
 
     public static void main(String[] arrayOfArgument) {
-        int base = 3, exponent = 15, modular = 17;
+        int base = 50, exponent = 70, modular = 71;
         System.out.println(base + "^" + exponent + " % " + modular + " " + (char) ASCII_CODE_CONGRUENT_SYMBOL + " "
                 + function(base, exponent, modular, true));
     }
