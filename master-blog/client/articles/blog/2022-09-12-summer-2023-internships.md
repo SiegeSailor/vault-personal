@@ -47,8 +47,9 @@ I personally submit my resume to any companies that just come to my mind, though
 | iRobot             | 10/07/2022 |                  |                              |
 | AMD                | 10/07/2022 |                  |                              |
 | ASML               | 10/09/2022 |                  |                              |
-| Amazon Robotics    | 10/09/2022 |                  |
 | Toast              | 10/20/2022 |                  | Refused on 10/23/2022        |
+| Tesla              | 10/26/2022 |                  |                              |
+| Amazon Robotics    | 10/26/2022 |                  |                              |
 
 ### To Be Confirmed
 
