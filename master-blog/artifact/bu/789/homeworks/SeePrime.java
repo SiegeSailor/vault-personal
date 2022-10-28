@@ -8,7 +8,7 @@ public class SeePrime {
     }
 
     public static void main(String[] arrayOfArgument) {
-        int input = 4;
+        int input = 513;
         System.out.println(input + " is " + (function(input) ? "" : "not ") + "prime");
     }
 }
