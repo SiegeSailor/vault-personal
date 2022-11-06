@@ -10,7 +10,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Oracle             | 08/27/2022 |                  |                              |
 | Apple              | 08/29/2022 |                  |                              |
 | Salesforce         | 08/29/2022 |                  |                              |
-| Cisco              | 08/30/2022 | Yes              |                              |
+| Cisco              | 08/30/2022 | Yes              | Refused on 11/03/2022        |
 | NASA               | 08/30/2022 |                  |                              |
 | PayPal             | 08/31/2022 |                  |                              |
 | Dell               | 08/31/2022 |                  |                              |
@@ -23,7 +23,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | IBM                | 09/15/2022 |                  |                              |
 | American Express   | 09/15/2022 |                  |                              |
 | Workday            | 09/15/2022 |                  | Refused on 09/29/2022        |
-| McKinsey           | 09/15/2022 | Yes              |                              |
+| McKinsey           | 09/15/2022 | Yes              | Refused on 11/02/2022        |
 | Slack              | 09/15/2022 |                  |                              |
 | Intel              | 09/16/2022 |                  | Refused on 09/19/2022        |
 | Dropbox            | 09/16/2022 |                  |                              |
@@ -45,8 +45,9 @@ I personally submit my resume to any companies that just come to my mind, though
 | Vicarious Surgical | 10/07/2022 |                  | Refused on 10/11/2022        |
 | Analog             | 10/07/2022 |                  |                              |
 | iRobot             | 10/07/2022 |                  |                              |
-| AMD                | 10/07/2022 |                  |                              |
+| AMD                | 10/07/2022 |                  | Refused on 11/03/2022        |
 | ASML               | 10/09/2022 |                  |                              |
+| Demiurge Studios   | 10/15/2022 |                  | Refused on 11/04/2022        |
 | Toast              | 10/20/2022 |                  | Refused on 10/23/2022        |
 | Tesla              | 10/26/2022 |                  |                              |
 | Amazon Robotics    | 10/26/2022 |                  |                              |

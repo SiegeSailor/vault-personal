@@ -1,7 +1,7 @@
 import { readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 
-function build() {
+function build(folder: string, filename: string) {
   const read = (listOfPath: string[], entry: any) => {
     readdirSync(join(process.cwd(), ...listOfPath)).forEach((item) => {
       const isDirectory = item.indexOf(".") == -1;
@@ -18,9 +18,9 @@ function build() {
   };
 
   const entry = {};
-  read(["articles"], entry);
-  writeFileSync("articles/entry.json", JSON.stringify(entry));
-  console.info("Successfully create entry.json for articles.");
+  read([folder], entry);
+  writeFileSync(`${folder}/${filename}`, JSON.stringify(entry));
+  console.info(`Successfully create ${filename} for ${folder}.`);
 }
 
-build();
+build("articles", "entry.json");
