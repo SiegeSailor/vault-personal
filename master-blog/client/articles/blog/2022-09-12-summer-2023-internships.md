@@ -52,6 +52,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Tesla              | 10/26/2022 |                  |                              |
 | Amazon Robotics    | 10/26/2022 |                  |                              |
 | WayFair            | 10/27/2022 |                  |                              |
+| Google             | 11/14/2022 |                  |                              |
 
 ### To Be Confirmed
 
