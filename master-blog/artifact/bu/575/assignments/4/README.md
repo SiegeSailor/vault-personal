@@ -2,13 +2,27 @@
 
 An assignment for class **MET CS 575** at Boston University, instructed by **Dr. Nourai**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **November 15, 2022**.
 
+## Screenshots
+
+Compile and run the modified shell program:
+
+![Compile and Run](./Compile%20and%20Run.png)
+
+Run the following internal commands in your new shell: `printwd`, `cd`, `help`:
+
+![Internal Commands](./Internal%20Commands.png)
+
+Run the external commands in your new shell: `ls`, `id`:
+
+![External Commands](./External%20Commands.png)
+
 ## Notes
 
 Notes for the assignment.
 
 ### Shell Flow
 
-A flowchart to understand how `shell.c` works:
+I made a flowchart to understand how `shell.c` works:
 
 ```mermaid
 flowchart TB
