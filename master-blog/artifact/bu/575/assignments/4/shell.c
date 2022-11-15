@@ -23,6 +23,7 @@
 int lsh_cd(char **args);
 int lsh_help(char **args);
 int lsh_exit(char **args);
+int printwd(char **args);
 
 /*
   List of builtin commands, followed by their corresponding functions.
@@ -30,12 +31,14 @@ int lsh_exit(char **args);
 char *builtin_str[] = {
     "cd",
     "help",
-    "exit"};
+    "exit",
+    "printwd"};
 
 int (*builtin_func[])(char **) = {
     &lsh_cd,
     &lsh_help,
-    &lsh_exit};
+    &lsh_exit,
+    printwd};
 
 int lsh_num_builtins()
 {
@@ -96,6 +99,30 @@ int lsh_help(char **args)
 int lsh_exit(char **args)
 {
     return 0;
+}
+
+#define PRINT_WORKING_DIRECTORY_BUFFER_SIZE 1024
+/**
+ * @brief Builtin command: print the current working directory.
+   @param args List of args.  Not examined.
+   @return Always returns 1, to continue executing.
+ */
+int printwd(char **args)
+{
+    int buffer_size = PRINT_WORKING_DIRECTORY_BUFFER_SIZE;
+    char *buffer = malloc(sizeof(char) * buffer_size);
+
+    if (!buffer)
+    {
+        fprintf(stderr, "memory allocation error\n");
+        exit(EXIT_FAILURE);
+    }
+
+    long size = pathconf(".", _PC_PATH_MAX);
+    getcwd(buffer, (size_t)size);
+    printf("%s\n", buffer);
+
+    return 1;
 }
 
 /**
