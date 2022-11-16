@@ -53,6 +53,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Amazon Robotics    | 10/26/2022 |                  |                              |
 | WayFair            | 10/27/2022 |                  |                              |
 | Google             | 11/14/2022 |                  |                              |
+| Blizzard           | 11/16/2022 |                  |                              |
 
 ### To Be Confirmed
 
@@ -60,7 +61,6 @@ Firms internship opportunities needed to be confirmed.
 
 - Spotify: Middle of November
 - Walmart: Not found
-- Blizzard: Start of October
 - Toyota: November
 - Festo: March
 - Cleo: 1.5 month before my start of internship
