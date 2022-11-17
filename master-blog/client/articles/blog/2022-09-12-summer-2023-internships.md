@@ -54,6 +54,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | WayFair            | 10/27/2022 |                  |                              |
 | Google             | 11/14/2022 |                  |                              |
 | Blizzard           | 11/16/2022 |                  |                              |
+| Flexport           | 11/17/2022 |                  |                              |
 
 ### To Be Confirmed
 
