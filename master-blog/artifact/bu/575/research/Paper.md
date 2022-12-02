@@ -6,19 +6,28 @@ Research project paper for class **MET CS 575** at Boston University, instructed
 
 ## Introduction
 
-When we execute multiple instruction sequences simultaneously, which means concurrency, an Operating System Deadlock happens if we meet such situations:
+When we execute multiple instruction sequences simultaneously, which means concurrency, an Operating System Deadlock happens if we have two or more processes are waiting for each other to release the recourse they hold, or more than two processes are waiting for recourses in a circular chain.
 
-- Two or more processes are waiting for each other to release the recourse they hold
-- More than two processes are waiting for recourses in a circular chain
+### Four Conditions
 
-Also, four conditions have to be satisfied:
+Also, four conditions have to be satisfied to invoke a Deadlock:
 
 - **Mutual Exclusion**: Only one process is allowed in a specific critical section at the same time
 - **Hold and Wait**: Processes can hold recourses while waiting for resources
 - **No Preemption**: No operating system or superior monitor program to control and distribute resources
 - **Circular Wait**: A series of processes hold a recourse each other needs, such as C waits for B, B waits for A, and A waits for C
 
-Currently, there are no practical solutions for Operating Systems Deadlocks. However, ideally we have three possible solutions:
+```mermaid
+flowchart LR
+C --> BR[/Recourse/]
+BR --> B
+B --> AR[/Resource/]
+AR --> A
+A --> CR[Resource]
+CR --> C
+```
+
+Currently, there are no practical solutions for Operating Systems Deadlocks. However, ideally, we have three possible solutions:
 
 - **Prevention**: Prevent one of the four conditions (Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait) from happening
 - **Avoidance**: Inspect the processes' status whenever we allocate resources to them. Cancel or insert back to the queue if the allocation would cause a Deadlock
@@ -45,7 +54,8 @@ Acknowledge that Deadlocks happen and periodically run the Detection algorithm t
 - **Abort All**: Abort all the deadlocked processes
 - **Abort One**: Abort one of the processes and inspect if any Deadlock is still happening. Repeat until there is no Deadlock
 - **Preemption Distribution**: Distribute resources in a preemption way until there is no Deadlock
-  All methods could damage or pollute the data except for Rollback.
+
+All methods could damage or pollute the data except for Rollback.
 
 Since there is no efficient solution for OS deadlocks and the existing ones (Prevention, Avoidance, Detection) are not really implemented in modern Operating Systems, I want to discuses some attempts to solve Operating Systems deadlocks in some **restricted** situation with **reasonable** costs.
 
