@@ -34,7 +34,7 @@ Prevent one of the four conditions from happening:
 
 #### Avoidance
 
-Notify the operating system that a process is requesting resources before completing the request, which is hard to achieve. Once the operating system gets notified, it runs the Banker's algorithm to detect if the resource allocation would cause any Deadlock. If it is the case, the allocation would be canceled or inserted back into the queue.
+Notify the operating system that a process is requesting resources before completing the request, which is hard to achieve. Once the operating system gets notified, it runs **the Banker's algorithm** to detect if the resource allocation would cause any Deadlock. If it is the case, the allocation would be canceled or inserted back into the queue.
 
 #### Detection
 
@@ -50,6 +50,37 @@ All methods could damage or pollute the data except for **Rollback**.
 Since there is no efficient solution for OS deadlocks and the existing ones (Prevention, Avoidance, Detection) are not really implemented in modern Operating Systems, I want to discuses some attempts to solve Operating Systems deadlocks in some **restricted** situation with **reasonable** costs.
 
 ## Main Contents
+
+Deadlock is a situation that one or more processes are unable to meet the requirement for obtaining the recourses they need, and it will not be automatically fixed over time unless some superior actions are taken by the operator, some monitor programs, or the operating system.
+
+Here is a simple possible scenario that will trigger Deadlocks:
+
+```mermaid
+flowchart TB
+A[Process 1]
+B[Process 2]
+C[Process 3]
+subgraph D [Resource 1]
+1[*]
+end
+subgraph E [Resource 2]
+2[*]
+3[*]
+end
+subgraph F [Resource 3]
+4[*]
+end
+
+A -->|request| D
+1 -->|held| B
+B -->|request| 4
+4 -->|held| C
+C -->|request| E
+2 -->|held| B
+3 -->|held| A
+```
+
+### Scenario
 
 ## Conclusion
 
