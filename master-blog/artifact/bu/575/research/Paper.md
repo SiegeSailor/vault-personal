@@ -47,16 +47,16 @@ Acknowledge that Deadlocks happen and periodically run the Detection algorithm t
 
 All methods could damage or pollute the data except for **Rollback**.
 
-Since there is no efficient solution for OS deadlocks and the existing ones (Prevention, Avoidance, Detection) are not really implemented in modern Operating Systems, I want to discuses some attempts to solve Operating Systems deadlocks in some **restricted** situation with **reasonable** costs.
+Since there is no efficient solution for OS deadlocks and the existing ones (Prevention, Avoidance, Detection) are not really implemented in modern Operating Systems, I want to discuss an attempt to solve Operating Systems deadlocks in a **restricted** situation with **reasonable** costs.
 
 ## Main Contents
 
 Deadlock is a situation that one or more processes are unable to meet the requirement for obtaining the recourses they need, and it will not be automatically fixed over time unless some superior actions are taken by the operator, some monitor programs, or the operating system.
 
-Here is a simple possible scenario that will trigger Deadlocks:
+Here is a possible scenario that will trigger Deadlocks:
 
 ```mermaid
-flowchart TB
+flowchart LR
 A[Process 1]
 B[Process 2]
 C[Process 3]
@@ -80,8 +80,42 @@ C -->|request| E
 3 -->|held| A
 ```
 
-### Scenario
+### Situation
+
+As what we have mentioned in [Introduction](#introduction), what we mainly discuss here is to offer a solution that really solves Deadlocks rather ignore them in a **restricted** situation with **reasonable** costs. To begin, below is a simple scenario without Deadlocks:
+
+```mermaid
+flowchart LR
+A[Process 1] -->|request| B[/Resource 1/]
+B -->|held| C[Process 2]
+C -->|request| D[/Resource 2/]
+```
+
+As we can see, Process 2 is holding Resource 1 and requesting Resource 2. Meanwhile, Process 1 is requesting Resource 1. There is no preemption here. Process 1 will eventually obtain the resource it needs as long as Process 2 obtain the resource it needs from Resource 2 and then release Resource 1. However, this scenario will not be Deadlock-free scenario once Process 1 holds Resource 2 while requesting resources:
+
+```mermaid
+flowchart LR
+A[Process 1] -->|request| B[/Resource 1/]
+B -->|held| C[Process 2]
+C -->|request| D[/Resource 2/]
+D -->|held| A
+```
+
+Let's verify if it is Deadlocked with the four conditions:
+
+- **Mutual Exclusion**: Yes. Only one process is using one resource in the same time
+- **Hold and Wait**: Yes. Process 1 and Process 2 are holding and requesting resources
+- **No Preemption**: Yes. There is no preemption here
+- **Circular Wait**: Yes. Process 1 and Process 2 hold recourses each other needs
+
+Although there are only two processes and two resources, it is Deadlocked.
+
+### Solution
 
 ## Conclusion
 
 ## References
+
+The citation style includes follows [IEEE Editorial Style Manual](http://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Editorial-Style-Manual-for-Authors.pdf).
+
+1. RICHARD C. HOLT, "Some Deadlock Properties of Computer Systems", University of Toronto, Toronto, Ontario, Canada, 1972
