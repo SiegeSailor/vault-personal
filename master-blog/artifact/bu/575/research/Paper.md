@@ -1,6 +1,6 @@
 # Operating System Deadlock
 
-Research project paper for class **MET CS 575** at Boston University, instructed by **Dr. Nourai**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **December 5, 2022**.
+Research project paper for class **MET CS 575** at Boston University, instructed by **Dr. Nourai**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **December 5, 2022**. All the graphs in this paper were created with **Mermaid.JS**.
 
 ## Abstract
 
@@ -111,6 +111,35 @@ Let's verify if it is Deadlocked with the four conditions:
 Although there are only two processes and two resources, it is Deadlocked.
 
 ### Solution
+
+Assume the machine or hardware we use for our software is capable to perform two times better than our expectation. In other words, we will never use more than half of the machine's capability:
+
+```mermaid
+pie title Machine Capability Used
+    "Used" : 50
+    "Unused" : 50
+```
+
+The solution is pretty simple. We have always duplicate a resource whenever a process holds it. For example, we have two processes and one resource. Once a process request and hold the resource, we will duplicate it, which means copy all the current status and data the resource have, and then create a new one:
+
+```mermaid
+flowchart LR
+A[Process 1] -->|request| B[/Resource 1/]
+B --> D{Duplicate}
+D --> E[/Resource 1/]
+D -.-> F[/Resource 2/]
+C[Process 2]
+```
+
+In this case, Process 2 no longer needs to wait for Process 1 to release Resource 1. Process 2 can use Resource 2 freely, which is identical with Resource 1:
+
+```mermaid
+flowchart LR
+A[Process 1] -->|request| B[/Resource 1/]
+C[Process 2] -->|request| D[/Resource 2/]
+```
+
+Here we have a new problem: How do we sync the data originally in the critical section in Resource 1? We would like to keep Mutual Exclusion working here since we don't want processes pollute the data each other is using.
 
 ## Conclusion
 
