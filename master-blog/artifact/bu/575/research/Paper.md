@@ -4,8 +4,7 @@ Research project paper for class **MET CS 575** at Boston University, instructed
 
 #### Table of Contents
 
-- [Operating Systems Deadlocks Properties and Solutions](#operating-systems-deadlocks-properties-and-solutions)
-      - [Table of Contents](#table-of-contents)
+- [Operating Systems Deadlocks Properties and Solutions](#operating-systems-deadlocks-properties-and-solutions) - [Table of Contents](#table-of-contents)
   - [Abstract](#abstract)
   - [Introduction](#introduction)
     - [Four Conditions](#four-conditions)
@@ -21,6 +20,8 @@ Research project paper for class **MET CS 575** at Boston University, instructed
 ## Abstract
 
 Deadlocks are an unsolved problem for multitask operating systems. While we have identified the root cause and conditions for it, the current theoretical solutions are not really practical to use. The scope of the topic cover the brief introduction of operating systems Deadlocks, and a possible simple solution.
+
+<div style="page-break-after: always;"></div>
 
 ## Introduction
 
@@ -68,6 +69,8 @@ Currently, there are no practical solutions for Operating Systems Deadlocks. How
 - **Avoidance**: Inspect the processes' status whenever we allocate resources to them. Cancel or insert back to the queue if the allocation would cause a Deadlock
 - **Detection**: Detect the appearance of Deadlocks and solve them in advance
 
+<div style="page-break-after: always;"></div>
+
 #### Prevention
 
 Prevent one of the four conditions from happening [[2](#references)]:
@@ -93,6 +96,8 @@ Acknowledge that Deadlocks happen and periodically run the Detection algorithm t
 All methods could damage or pollute the data except for **Rollback**.
 
 Since there is no efficient solution for OS deadlocks and the existing ones (Prevention, Avoidance, Detection) are not really implemented in modern Operating Systems [[5](#references)], I want to discuss an attempt to solve Operating Systems deadlocks in a **restricted** situation with **reasonable** costs.
+
+<div style="page-break-after: always;"></div>
 
 ## Main Contents
 
@@ -128,6 +133,8 @@ Let's verify if it is Deadlocked with the four conditions:
 
 Although there are only two processes and two resources, it is Deadlocked.
 
+<div style="page-break-after: always;"></div>
+
 ### Solution
 
 Assume the machine or hardware we use for our software is capable to perform two times better than our expectation. In other words, we will never use more than half of the machine's capability:
@@ -148,6 +155,8 @@ D --> E[/Resource 1/]
 D -.-> F[/Resource 2/]
 C[Process 2] --x|request| B
 ```
+
+<div style="page-break-after: always;"></div>
 
 In this case, Process 2 no longer needs to wait for Process 1 to release Resource 1. Process 2 can use Resource 2 freely, which is identical with Resource 1:
 
@@ -176,6 +185,8 @@ sequenceDiagram
     Queue->>R: Reflect changes from Process 1
     Queue->>R: Reflect changes from Process 2
 ```
+
+<div style="page-break-after: always;"></div>
 
 ## Conclusion
 
