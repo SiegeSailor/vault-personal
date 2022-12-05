@@ -4,7 +4,8 @@ Research project paper for class **MET CS 575** at Boston University, instructed
 
 #### Table of Contents
 
-- [Operating Systems Deadlocks Properties and Solutions](#operating-systems-deadlocks-properties-and-solutions) - [Table of Contents](#table-of-contents)
+- [Operating Systems Deadlocks Properties and Solutions](#operating-systems-deadlocks-properties-and-solutions)
+      - [Table of Contents](#table-of-contents)
   - [Abstract](#abstract)
   - [Introduction](#introduction)
     - [Four Conditions](#four-conditions)
