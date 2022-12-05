@@ -2,6 +2,22 @@
 
 Research project paper for class **MET CS 575** at Boston University, instructed by **Dr. Nourai**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **December 5, 2022**.
 
+#### Table of Contents
+
+- [Operating Systems Deadlocks Properties and Solutions](#operating-systems-deadlocks-properties-and-solutions)
+      - [Table of Contents](#table-of-contents)
+  - [Abstract](#abstract)
+  - [Introduction](#introduction)
+    - [Four Conditions](#four-conditions)
+      - [Prevention](#prevention)
+      - [Avoidance](#avoidance)
+      - [Detection](#detection)
+  - [Main Contents](#main-contents)
+    - [Situation](#situation)
+    - [Solution](#solution)
+  - [Conclusion](#conclusion)
+  - [References](#references)
+
 ## Abstract
 
 Deadlocks are an unsolved problem for multitask operating systems. While we have identified the root cause and conditions for it, the current theoretical solutions are not really practical to use. The scope of the topic cover the brief introduction of operating systems Deadlocks, and a possible simple solution.
