@@ -29,7 +29,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Dropbox            | 09/16/2022 |                  |                              |
 | Microsoft          | 09/16/2022 |                  |                              |
 | JPMorgan           | 09/20/2022 |                  | Refused on 09/21/2022        |
-| Electronic Arts    | 09/20/2022 |                  |                              |
+| Electronic Arts    | 09/20/2022 |                  | Refused on 12/07/2022        |
 | Mastercard         | 09/21/2022 |                  |                              |
 | TSMC               | 09/21/2022 |                  |                              |
 | Pinterest          | 09/21/2022 |                  | Refused on 10/17/2022        |
