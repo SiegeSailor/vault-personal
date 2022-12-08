@@ -2,6 +2,18 @@
 
 An assignment for class **MET CS 566** at Boston University, instructed by **Ming Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **November 7, 2022**.
 
+## Correction
+
+Score: `17.5/20`
+
+### Question 2
+
+There are three cross edges, $(d,e), (d,c), (c,e)$.
+
+### Question 3
+
+In the undirected graph, we get only back edges. In an undirected graph, the instance between $u$ and $v$ are the same as $v$ and $u$. If a vertex $v$ is discovered by the search from the edge $(u,v)$ then the edge $(v,u)$ is identified as a back edge. The reason why forward edges and cross edges cannot exist in undirected graphs is that in the case $(v,u)$ would have been traversed during the DFS process before reaching $u$ and try to visit $v$.
+
 ## Question 1
 
 Dijkstra’s Algorithm:
