@@ -38,4 +38,9 @@ public class BlumBlumShubPseudorandomNumberGenerator {
             x++;
         }
     }
+
+    public static void main(String[] args) {
+        BlumBlumShubPseudorandomNumberGenerator b = new BlumBlumShubPseudorandomNumberGenerator();
+        System.out.println(b.flip());
+    }
 }
