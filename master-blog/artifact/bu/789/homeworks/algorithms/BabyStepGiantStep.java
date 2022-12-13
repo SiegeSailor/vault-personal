@@ -49,7 +49,7 @@ public class BabyStepGiantStep {
     }
 
     public static void main(String arrayOfArgument[]) {
-        int base = 2, congruent = 7, modular = 53;
+        int base = 394948, congruent = 615192, modular = 1093427;
         int result = function(base, congruent, modular);
         System.out.println("\n" + base + "^x " + (char) ASCII_CODE_CONGRUENT_SYMBOL + " " + congruent + " % " + modular
                 + ". x = " + result);

@@ -12,7 +12,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Salesforce         | 08/29/2022 |                  |                              |
 | Cisco              | 08/30/2022 | Yes              | Refused on 11/03/2022        |
 | NASA               | 08/30/2022 |                  |                              |
-| PayPal             | 08/31/2022 |                  |                              |
+| PayPal             | 08/31/2022 | Yes              | Refused on 12/12/2022        |
 | Dell               | 08/31/2022 |                  |                              |
 | LinkedIn           | 09/01/2022 |                  |                              |
 | Tanium             | 09/01/2022 |                  | Refused on 09/02/2022        |
@@ -30,10 +30,10 @@ I personally submit my resume to any companies that just come to my mind, though
 | Microsoft          | 09/16/2022 |                  |                              |
 | JPMorgan           | 09/20/2022 |                  | Refused on 09/21/2022        |
 | Electronic Arts    | 09/20/2022 |                  | Refused on 12/07/2022        |
-| Mastercard         | 09/21/2022 |                  |                              |
+| Mastercard         | 09/21/2022 |                  | Refused on 12/10/2022        |
 | TSMC               | 09/21/2022 |                  |                              |
 | Pinterest          | 09/21/2022 |                  | Refused on 10/17/2022        |
-| Epic Games         | 09/21/2022 |                  |                              |
+| Epic Games         | 09/21/2022 |                  | Refused on 12/09/2022        |
 | Capital One        | 09/21/2022 |                  | Refused right after applying |
 | Duolingo           | 09/21/2022 |                  | Refused on 09/24/2022        |
 | Veeva              | 10/07/2022 |                  |                              |
@@ -56,6 +56,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Blizzard           | 11/16/2022 |                  |                              |
 | Flexport           | 11/17/2022 |                  |                              |
 | guptamedia         | 11/20/2022 |                  |                              |
+| Synopsys           | 12/13/2022 |                  |                              |
 
 ### To Be Confirmed
 
