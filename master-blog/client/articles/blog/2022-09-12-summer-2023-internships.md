@@ -57,6 +57,7 @@ I personally submit my resume to any companies that just come to my mind, though
 | Flexport           | 11/17/2022 |                  |                              |
 | guptamedia         | 11/20/2022 |                  |                              |
 | Synopsys           | 12/13/2022 |                  |                              |
+| ZipRecruiter       | 12/13/2022 |                  |                              |
 
 ### To Be Confirmed
 
