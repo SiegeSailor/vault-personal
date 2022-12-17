@@ -8,7 +8,7 @@ class MultiplicativeInverse {
     }
 
     public static void main(String arrayOfArgument[]) {
-        int x = 87, m = 131;
+        int x = 221, m = 192;
 
         System.out
                 .println("y is the multiplicative inverse of " + x + " % " + m
