@@ -1,0 +1,9 @@
+- Bootstrap program – simple code to initialize the system, load the kernel
+- Kernel loads
+- Starts system daemons (services provided outside of the kernel)
+- Kernel interrupt driven (hardware and software)
+  - Hardware interrupt by one of the devices
+  - Software interrupt (exception or trap):
+    - Software error (e.g., division by zero)
+    - Request for operating system service – system call
+    - Other process problems include infinite loop, processes modifying each other
