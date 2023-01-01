@@ -10,7 +10,7 @@ build-cache
 coverage/
 
 # Production
-# build/
+build/
 .docusaurus/
 
 # Debug
