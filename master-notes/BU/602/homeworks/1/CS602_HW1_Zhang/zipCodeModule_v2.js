@@ -19,8 +19,9 @@ module.exports.lookupByCityState = (city, state) => {
 };
 
 module.exports.getPopulationByState = (state) => {
-  return data.reduce((accumulator, item) => {
+  const total = data.reduce((accumulator, item) => {
     if (item.state === state) accumulator += item.pop;
     return accumulator;
   }, 0);
+  return { state, pop: total };
 };

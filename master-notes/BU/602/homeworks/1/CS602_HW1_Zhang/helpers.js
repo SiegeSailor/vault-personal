@@ -1,3 +1,5 @@
+require("colors");
+
 module.exports.callQueries = function (queries) {
   const questions = [
     [queries.lookupByZipCode, "Lookup by zip code", "02215"],
@@ -5,17 +7,17 @@ module.exports.callQueries = function (queries) {
     [queries.lookupByCityState, "Lookup by city", "BOSTON", "MA"],
     [queries.lookupByCityState, "Lookup by city", "BOSTON", "TX"],
     [queries.lookupByCityState, "Lookup by city", "BOSTON", "AK"],
-    [queries.getPopulationByState, "Get population by state", "MA"],
-    [queries.getPopulationByState, "Get population by state", "TX"],
-    [queries.getPopulationByState, "Get population by state", "AA"],
+    [queries.getPopulationByState, "Get Population by State", "MA"],
+    [queries.getPopulationByState, "Get Population by State", "TX"],
+    [queries.getPopulationByState, "Get Population by State", "AA"],
   ];
   for (let index = 0; index < questions.length; index++) {
-    const [query, description, ...condition] = questions[index];
+    const [query, description, ...conditions] = questions[index];
     console.log(
       description.bold.bgBlue,
-      `(${condition})`.bold.blue,
+      `(${conditions.join(", ")})`.bold.blue,
       "\n",
-      query(...condition),
+      query(...conditions),
       "\n"
     );
   }
