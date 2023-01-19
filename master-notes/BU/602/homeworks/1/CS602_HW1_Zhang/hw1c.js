@@ -20,7 +20,9 @@ zipCodeEmitter.on("lookupByCityState", (output) => {
 
 zipCodeEmitter.on("lookupByCityState", (output) => {
   console.log("Event lookupByCityState raised! (Handler2)".blue);
-  console.log(output);
+  console.log(`City: ${output.city}, State: ${output.state}`);
+  for (const item of output.data)
+    console.log(`  ${item.zip} has population of ${item.pop}`);
 });
 
 zipCodeEmitter.on("getPopulationByState", (output) => {

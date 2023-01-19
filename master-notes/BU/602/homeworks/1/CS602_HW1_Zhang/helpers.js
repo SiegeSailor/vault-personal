@@ -14,6 +14,7 @@ module.exports.callQueries = function (queries) {
   for (let index = 0; index < questions.length; index++) {
     const [query, description, ...conditions] = questions[index];
     console.log(
+      `${index + 1}.`,
       description.bold.bgBlue,
       `(${conditions.join(", ")})`.bold.blue,
       "\n",
