@@ -12,6 +12,7 @@ The `.dmg` files sources:
 
 - **MySQL**: [8.0.32 macOS-arm64](https://dev.mysql.com/downloads/file/?id=516827)
 - **MySQL Workbench**: [8.0.31 macOS-x86](https://downloads.mysql.com/archives/workbench/)
+  > (`8.0.32` crashed every time I quired)
 
 After the installation finished, I found out that `mysql` wasn't added automatically. My terminal complained `zsh: command not found` when I tried to use `mysql`, and I also couldn't find MySQL in my OS's application list.
 
