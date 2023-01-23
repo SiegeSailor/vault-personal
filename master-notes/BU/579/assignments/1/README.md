@@ -11,9 +11,9 @@ I finished the installation of MySQL on my MacBook laptop with M1 chip. Here is 
 The `.dmg` files sources:
 
 - **MySQL**: [8.0.32 macOS-arm64](https://dev.mysql.com/downloads/file/?id=516827)
-- **MySQL Workbench**: [8.0.32 macOS-x86](https://dev.mysql.com/downloads/workbench/)
+- **MySQL Workbench**: [8.0.31 macOS-x86](https://downloads.mysql.com/archives/workbench/)
 
-After the installation finished, I found out that `mysql` wasn't added properly. My terminal complained `zsh: command not found` when I tried to use `mysql`, and I also couldn't find MySQL in my OS's application list.
+After the installation finished, I found out that `mysql` wasn't added automatically. My terminal complained `zsh: command not found` when I tried to use `mysql`, and I also couldn't find MySQL in my OS's application list.
 
 > The root password was set up during the installation process
 
@@ -30,7 +30,7 @@ export PATH=/usr/local/mysql/bin:$PATH
 Then ran the following command to activate the script:
 
 ```bash
-% source ~/.zshrc
+source ~/.zshrc
 ```
 
 ## Users
@@ -38,6 +38,17 @@ Then ran the following command to activate the script:
 I then used `mysql --user root --password` to login, creating users with the following SQL. Passwords are not hidden since I only allow the users to connect from `localhost`:
 
 ```sql
-mysql> CREATE USER 'company'@'localhost' IDENTIFIED WITH caching_sha2_password BY '0000';
-mysql> CREATE USER 'zhang'@'localhost' IDENTIFIED WITH caching_sha2_password BY '0000';
+CREATE USER 'company'@'localhost' IDENTIFIED WITH caching_sha2_password BY '0000';
 ```
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'company'@'localhost' WITH GRANT OPTION;
+```
+
+## Query
+
+After populating data to the local database with `company_tables.sql` and `company_tuples.sql`, I could successfully use `SELECT` to query:
+
+![MySQL Workbench GUI](./MySQL%20Workbench%20GUI.png)
+
+![MySQL Workbench CLI](./MySQL%20Workbench%20CLI.png)
