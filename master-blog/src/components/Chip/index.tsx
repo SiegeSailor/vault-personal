@@ -3,7 +3,7 @@ import React from "react";
 
 import styles from "./styles.module.css";
 
-export default function Chip({
+export default function ({
     content,
     color,
 }: {
