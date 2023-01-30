@@ -1,4 +1,11 @@
-<b>Zip Code </b> ...
-
-<p></p>
-
+<b>Zip Code: {{zip}} </b>
+{{#if result}}
+  <p>City:
+    {{result.city}}, State:
+    {{result.state}}, Population:
+    {{result.pop}}</p>
+  <p><a href="/">Check here for all Zip Codes for
+      {{result.city}},{{result.state}}</a></p>
+{{else}}
+  <p>No result found. <a href="/zip">Go Back</a>.</p>
+{{/if}}
