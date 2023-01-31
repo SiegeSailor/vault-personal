@@ -1,6 +1,10 @@
 const data = require("./zips.json");
 
 module.exports.lookupByZipCode = (zip) => {
+  /**
+   * I see the data in Postman screen shoots contains _locals,
+   * but I don't see it in zips.json. So I simply ignore it.
+   */
   return data.find((item) => item._id === zip);
 };
 

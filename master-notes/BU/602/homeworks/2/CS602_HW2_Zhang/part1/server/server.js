@@ -15,10 +15,37 @@ const server = net.createServer((socket) => {
     console.log(colors.blue("...Received %s"), input);
 
     try {
+      /**
+       * I didn't handle invalid input such as lowercase or numeric input for
+       * city/state, or non-numeric input for zip since here we only command-line
+       * tool here, and this part of assignment is mainly about the mechanism of
+       * the communication of servers and clients.
+       */
       const [command, ...condition] = input.split(",");
       const result = query[command](...condition);
-      /** There is no example for undefined output in the PDF file. */
-      socket.write(result ? JSON.stringify(result) : "Not found");
+      /** There is no example for not found output in the PDF file. */
+      switch (command) {
+        case "lookupByZipCode":
+          socket.write(
+            JSON.stringify(!!result ? result : { message: "Not found" })
+          );
+          break;
+        case "lookupByCityState":
+          if (condition.length !== 2) throw new Error();
+          socket.write(
+            JSON.stringify(
+              !!result.data.length ? result : { message: "Not found" }
+            )
+          );
+          break;
+        case "getPopulationByState":
+          socket.write(
+            JSON.stringify(!!result.pop ? result : { message: "Not found" })
+          );
+          break;
+        default:
+          throw new Error();
+      }
     } catch {
       socket.write("Invalid request");
     }
