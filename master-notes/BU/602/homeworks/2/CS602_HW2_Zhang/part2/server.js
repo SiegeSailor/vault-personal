@@ -27,13 +27,18 @@ app.get("/zip", (_, response) => {
 app.post("/zip", (request, response) => {
   try {
     const zip = request.body.id;
+    if (!zip.match(/^[0-9]+$/))
+      throw new Error("Zip code contains non-numeric characters.");
     const result = query.lookupByZipCode(zip);
     response.render("lookupByZipView", {
       zip,
       result,
     });
-  } catch {
-    response.render("invalidView");
+  } catch (event) {
+    response.status(400);
+    response.render("invalidView", {
+      message: event.message,
+    });
   }
 });
 
