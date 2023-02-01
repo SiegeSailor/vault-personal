@@ -31,7 +31,7 @@ A database is said to be in a _valid state_ when it meets certain conditions or 
 
 ## Problem 4
 
-**Consider the ER schema diagram of the AIRLINE database in Figure 3.21 (page 98).**
+**Consider the ER schema diagram of the AIRLINE database in Figure 3.21 (page 98):**
 
 ![Figure 3.21](./Figure%203.21.png)
 
@@ -65,3 +65,76 @@ None.
 ## Problem 5
 
 **In the following ER diagrams, represent the constraints on the relationship types using the (min, max) notations.**
+
+**(a)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(1, N)"| R{R}
+    R -->|"(0, 1)"| E2
+```
+
+**(b)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(1, M)"| R{R}
+    R -->|"(1, N)"| E2
+```
+
+**(c)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(0, n)"| R{R}
+    R -->|"(1, 1)"| E2
+```
+
+**(d)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(0, 1)"| R{R}
+    R -->|"(1, 1)"| E2
+```
+
+**(e)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(0, M)"| R{R}
+    R -->|"(1, N)"| E2
+```
+
+**(f)**
+
+```mermaid
+flowchart LR
+    E1 -->|"(0, 1)"| R{R}
+    R -->|"(0, 1)"| E2
+```
+
+## Problem 6
+
+**Consider the following ER diagram:**
+
+![Problem 6](./Problem%206.png)
+
+**Determine the (min, max) constraints on all relationship types in this model based on the following assumption:**
+
+- **Each department can have anywhere between one and thirty employees**
+- **Each phone belongs to one, and only one, department**
+- **Each phone is assigned to at least two and may be assigned to up to four employees**
+- **Each employee is assigned at least one but no more than two phones**
+- **An employee may work for up to three departments or may not be assigned to any department**
+- **A department must have at least one and at most ten phones**
+
+```mermaid
+flowchart TB
+EMPLOYEE ---|"(0, 3)"| WORKS_IN{WORKS_IN}
+WORKS_IN ---|"(1, 30)"| DEPARTMENT
+EMPLOYEE ---|"(1, 2)"| HAS_PHONE{HAS_PHONE}
+DEPARTMENT ---|"(1, 10)"| CONTAINS{CONTAINS}
+HAS_PHONE ---|"(2, 4)"| PHONE
+PHONE ---|"(1, 1)"| CONTAINS
+```
