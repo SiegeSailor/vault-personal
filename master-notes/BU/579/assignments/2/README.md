@@ -25,18 +25,43 @@ In short, the database schema defines what the database is, while the database i
 
 ## Problem 3
 
-**What does “a database is in a valid state” mean?**
+**What does _a database is in a valid state_ mean?**
 
-A database is said to be in a "valid state" when it meets certain conditions or constraints that have been defined for the data stored in it. This may or may not include conditions such as the data being complete and accurate, meeting specific business rules and regulations, and being properly formatted and organized. A valid state is important because it helps to ensure that the data stored in the database can be trusted and used for accurate decision making. When a database is in a valid state, it provides confidence to its users that the data is correct, consistent and can be relied upon for critical business operations. See the following paragraphs from slide 2-9: A state that satisfies the structure and constraints of the database.
+A database is said to be in a _valid state_ when it meets certain conditions or constraints that have been defined for the data stored in it. This may or may not include conditions such as the data being complete and accurate, meeting specific business rules and regulations, and being properly formatted and organized. A valid state is important because it helps to ensure that the data stored in the database can be trusted and used for accurate decision making. When a database is in a valid state, it provides confidence to its users that the data is correct, consistent and can be relied upon for critical business operations. See the following paragraphs from slide 2-9: A state that satisfies the structure and constraints of the database.
 
 ## Problem 4
 
 **Consider the ER schema diagram of the AIRLINE database in Figure 3.21 (page 98).**
 
+![Figure 3.21](./Figure%203.21.png)
+
 **(1). List all multi-valued attributes. If there is none, then write "none".**
+
+None.
 
 **(2). List all composite attributes. If there is none, then write "none".**
 
+None.
+
 **(3). List all derived attributes. If there is none, then write "none".**
 
+None.
+
 **(4). List all weak entity types. For each weak entity type, show the owner entity type and the identifying relationship type.**
+
+- **LEG_INSTANCE**
+  - Owner entity type: FLIGHT_LEG
+  - Identifying relationship type: INSTANCE_OF
+- **FLIGHT_LEG**
+  - Owner entity type: FLIGHT
+  - Identifying relationship type: LEGS
+- **FARE**
+  - Owner entity type: FLIGHT
+  - Identifying relationship type: FARES
+- **SEAT**
+  - Owner entity type: LEG_INSTANCE
+  - Identifying relationship type: RESERVATION
+
+## Problem 5
+
+**In the following ER diagrams, represent the constraints on the relationship types using the (min, max) notations.**
