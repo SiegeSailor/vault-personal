@@ -168,3 +168,12 @@ chmod <value> <file>
 | -     | none    | 0     |
 
 For example, change a file's permission to `-rwxrwxrwx` would be `chmod 777 file`.
+
+## Network
+
+Show network interface configs:
+
+```bash
+ifconfig # Mac and Kali
+ip a # Ubuntu and CentOS
+```
