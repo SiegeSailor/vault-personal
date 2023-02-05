@@ -47,11 +47,3 @@ The project provides a collection of cryptography-related functions for software
 I would be the only developer in for this project, and the organization would have only one person, me, signed.
 
 It is unlikely for me to choose Microsoft since the main tools/frameworks are not Microsoft based (although there is still a simplified version of the guideline for non-Microsoft based product). In addition, the project has been ongoing for awhile, so I am not going to choose the Seven Touch-Points since I will have to do some extra work for earlier stages. OWASP SAMM seems to be the best choice for me because it can adapt to a wild range of organization and softwares.
-
-## Feedback
-
-- How long did you take to complete this homework? Is it too hard, too easy or OK?
-  - 3.5 hours. It was OK but problem 2 did consume lots of time to compare the three frameworks (extra reading).
-- Were lectures clearly present on this topic? Did this homework help you learn this topic? How well do you understand this topic?
-  - I hope we can introduce a real-world example with one of the framework, and see how we implement it.
-- Do you have any other feedback?
