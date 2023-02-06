@@ -10,6 +10,11 @@ const server = net.createServer((socket) => {
     console.log("Client disconnected...".red);
   });
 
+  // Otherwise closing client's terminal will take the server down
+  socket.on("error", () => {
+    console.log("Client closed...".red);
+  });
+
   socket.on("data", (data) => {
     let input = data.toString();
     console.log(colors.blue("...Received %s"), input);
