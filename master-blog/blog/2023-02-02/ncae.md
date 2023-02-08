@@ -178,6 +178,14 @@ ifconfig # Mac and Kali
 ip a # Ubuntu and CentOS
 ```
 
+Test if a network is reachable:
+
+```bash
+ping <address>
+```
+
+> There are differences between an unreachable network and a down/sleep network but reachable
+
 #### IP Address
 
 Let's say we have an IP address `172.20.66.100/16`, `172.20.66.100` is the address, and `16` is the netmask. `16` means from left to right, there are 16 sequential 1 bits out of 32 bits. `11111111111111110000000000000000` in 2-bit format, `11111111.11111111.00000000.00000000` in 8-bit format, and `255.255.0.0` in 10-bit format. 10-bit format is what we fill in the network interfaces.

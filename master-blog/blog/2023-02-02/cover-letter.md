@@ -8,6 +8,12 @@ tags: [interview]
 
 I am a candidate who has a Full-Stack software engineering background and multiple project experiences for DevSecOps. Besides all the industrial knowledge, I also take courses such as Cryptograph, Secure Application Development, and Software Engineering, which reinforce my understanding of Software Development and Cyber Security.
 
+---
+
+I got red-green color vision deficiency, which means it is hard for me to tell the differences between reds, oranges, yellows, browns, and greens. It isn't a factor in the interview process, but I list it here in case any test requires color identification.
+
+---
+
 Hi Shue-Jane,
 
 This is Jacqueline. As mentioned this morning during the tea break @IBM University, I would like to recommend my boyfriend who is now studying his Master's degree in computer science with security concentration. He will be graduated in the end of 2023, and would like to seek for an intern job this summer or a full-time job after graduation.
