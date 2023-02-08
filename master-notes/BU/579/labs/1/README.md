@@ -1,6 +1,6 @@
 # Lab 1
 
-An assignment for class **MET CS579** Database Management at Boston University due on **February 9, 2023**, instructed by **Jae Lee**. Students [Jin Yu Zhang](siege@bu.edu) and [Wang]() submitted on **February 8, 2023**.
+An assignment for class **MET CS579** Database Management at Boston University due on **February 9, 2023**, instructed by **Jae Lee**. Students [Jin Yu Zhang](siege@bu.edu) and [Wei Wang](wwwemna820@gmail.com) submitted on **February 8, 2023**.
 
 ## Assumptions
 
@@ -9,9 +9,16 @@ Description for things not included in the requirements:
 - Customer is not an entity since it doesn't have any attribute, and we assume that each customer has only one headquarter by the definition of a headquarter. Therefore, customer and `HEADQUARTER` are equivalent here
 - Each customer has one or more branch stores. We assume that there is no limit for the number of `Branch_Store` for a `HEADQUARTER`
 - According to the requirements, we should keep the information about the retail store who issued the order for an order. However, since there is already a relationship between `ORDER` and `HEADQUARTER`, we will not put this as an attribute in `ORDER`
-- According to the requirements, we should keep the information about the employee(s) of the Boston Shoes who handle the order for an order. However, since there is already a relationship between `ORDER` and `EMPLOYEE`, we will not put this as an attribute in `ORDER`
+- According to the requirements, we should keep the information about the employee(s) of the Boston Shoes who handle the order for an order. However, since there is already a relationship between `ORDER` and `EMPLOYEE`, we will not put this as an attribute in `ORDER`. Also the requirement says an employee handles at most four order, we assume an employee is allowed to handle no orders
 - There are not limits for how much suborders a `BRANCH_STORE` can be shipped to, and how many suborders can a `SHOES_TYPE` hold. There are hence form with `N` (many) constraint in this assignment
-- We assume an `EMPLOYEE` come with one classification
+- We assume an `EMPLOYEE` come with only one classification
+
+## Questions
+
+Known issues:
+
+- Is sequence number a derived value? If it is, how do we define the partial key for `SUBORDER` and `BRANCH_STORE`?
+- 5-2, 5-4, and 6-2. Should we store them as attributes or relationship types are enough?
 
 <style>
     caption {
@@ -381,3 +388,5 @@ Description for things not included in the requirements:
 </table>
 
 <div style="page-break-after: always;"></div>
+
+![ER Diagram](./MET%20CS579.drawio.png)

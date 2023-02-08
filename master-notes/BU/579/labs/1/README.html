@@ -79,16 +79,22 @@
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <h1 id="lab-1">Lab 1</h1>
-<p>An assignment for class <strong>MET CS579</strong> Database Management at Boston University due on <strong>February 9, 2023</strong>, instructed by <strong>Jae Lee</strong>. Students <a href="siege@bu.edu">Jin Yu Zhang</a> and <a href="">Wang</a> submitted on <strong>February 8, 2023</strong>.</p>
+<p>An assignment for class <strong>MET CS579</strong> Database Management at Boston University due on <strong>February 9, 2023</strong>, instructed by <strong>Jae Lee</strong>. Students <a href="siege@bu.edu">Jin Yu Zhang</a> and <a href="wwwemna820@gmail.com">Wei Wang</a> submitted on <strong>February 8, 2023</strong>.</p>
 <h2 id="assumptions">Assumptions</h2>
 <p>Description for things not included in the requirements:</p>
 <ul>
 <li>Customer is not an entity since it doesn't have any attribute, and we assume that each customer has only one headquarter by the definition of a headquarter. Therefore, customer and <code>HEADQUARTER</code> are equivalent here</li>
 <li>Each customer has one or more branch stores. We assume that there is no limit for the number of <code>Branch_Store</code> for a <code>HEADQUARTER</code></li>
 <li>According to the requirements, we should keep the information about the retail store who issued the order for an order. However, since there is already a relationship between <code>ORDER</code> and <code>HEADQUARTER</code>, we will not put this as an attribute in <code>ORDER</code></li>
-<li>According to the requirements, we should keep the information about the employee(s) of the Boston Shoes who handle the order for an order. However, since there is already a relationship between <code>ORDER</code> and <code>EMPLOYEE</code>, we will not put this as an attribute in <code>ORDER</code></li>
+<li>According to the requirements, we should keep the information about the employee(s) of the Boston Shoes who handle the order for an order. However, since there is already a relationship between <code>ORDER</code> and <code>EMPLOYEE</code>, we will not put this as an attribute in <code>ORDER</code>. Also the requirement says an employee handles at most four order, we assume an employee is allowed to handle no orders</li>
 <li>There are not limits for how much suborders a <code>BRANCH_STORE</code> can be shipped to, and how many suborders can a <code>SHOES_TYPE</code> hold. There are hence form with <code>N</code> (many) constraint in this assignment</li>
-<li>We assume an <code>EMPLOYEE</code> come with one classification</li>
+<li>We assume an <code>EMPLOYEE</code> come with only one classification</li>
+</ul>
+<h2 id="questions">Questions</h2>
+<p>Known issues:</p>
+<ul>
+<li>Is sequence number a derived value? If it is, how do we define the partial key for <code>SUBORDER</code> and <code>BRANCH_STORE</code>?</li>
+<li>5-2, 5-4, and 6-2. Should we store them as attributes or relationship types are enough?</li>
 </ul>
 <style>
     caption {
@@ -453,8 +459,7 @@
   </tr>
 </table>
 <div style="page-break-after: always;"></div>
-<pre style="all:unset;"><div class="mermaid">flowchart TB
-  A --&gt; B</div></pre>
+<p><img src="file:////Users/lookswalidy/Documents/GitHub/siegesailor/Personal.Vault/BU/579/labs/1/MET%20CS579.drawio.png" alt="ER Diagram"></p>
 
         
         <script async type="text/javascript">
