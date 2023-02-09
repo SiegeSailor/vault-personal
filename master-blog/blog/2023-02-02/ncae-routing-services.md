@@ -6,7 +6,7 @@ authors: maintainer
 tags: [routing, service]
 ---
 
-Check running services. `<service_name>` can be `apache2`, `httpd`, `nginx`, or any service-name-like folder located in `/etc`:
+Check running services. `<service_name>` can be `apache2`, `httpd`, `nginx`, `sshd`, or any service-name-like folder located in `/etc`:
 
 ```bash
 systemctl status <service_name>
@@ -128,4 +128,79 @@ Change an interface to a desired zone with `firewall-cmd` command:
 
 ```bash
 sudo firewall-cmd --change-interface=<interface_name> --zone=<target_zone_name>
+```
+
+## SSH
+
+TO log in a server with SSH:
+
+```bash
+ssh <username>@<#.#.#.#>
+exit # Leave
+```
+
+:::info
+Logging in over SSH requires the user's password. You can give out your public key instead of your user password.
+:::
+
+:::info
+A public key fingerprint is a short sequence of bytes used to identify a longer public key.
+:::
+
+Places storing SSH files:
+
+-   Kali: `~/.ssh`
+-   Ubuntu: `/etc/ssh`
+
+Generate new keys:
+
+```bash
+sudo ssh-keygen -t <encryption_type> -f <generated_keys_location>
+```
+
+:::info
+The permission for private keys should be `600` and `644` for public keys.
+:::
+
+### No Password Authentication
+
+Login over SSH without user password.
+
+#### Host Server
+
+First of all, create a pair of key for a user. You may want to create a user specifically for this:
+
+```bash
+sudo ssh-keygen -t <encryption_type> -f <generated_keys_location>
+```
+
+:::info
+After creating key pairs, you can use the simple command `sudo ssh-copy-id <private_key> <username>@<#.#.#.#>` to install the public key as `authorized_key` in `/home/<username>/.ssh` without any permission setup. The following commands can be ignored if you use it.
+:::
+
+Then copy the public key to the user's `.ssh` folder as a file `authorized_keys`. You may need to create the folder if there isn't any:
+
+```bash
+sudo cp <public_key> /home/<username>/.ssh/authorized_keys
+```
+
+We have to take care of the `.ssh` and `authorized_keys` folder's permission. Note that the owner and the group the folder belongs to should be as same as the user:
+
+```bash
+sudo chmod 700 /home/<username>/.ssh
+sudo chmod 644 /home/<username>/.ssh/authorized_keys
+```
+
+#### Guest Server
+
+Transfer the private key on the guest server using `scp` to send it from the host server:
+
+```bash
+scp <host_server_username>@<#.#.#.#>:<file> <target_location>
+```
+
+Then log in without password:
+
+```bash
+ssh -i <private_key> <host_server_username>@<#.#.#.#>
 ```

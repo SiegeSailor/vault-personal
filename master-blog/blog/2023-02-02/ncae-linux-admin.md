@@ -104,6 +104,12 @@ Exit from the current user to the previous one. Terminal will close if the curre
 exit
 ```
 
+Change a file or folder's owner and owner group:
+
+```bash
+sudo chown <owner_name>:<owner_group> <folder_or_file>
+```
+
 ### Information
 
 `/etc/passwd` stores user account information, the format is as following:
