@@ -204,3 +204,7 @@ Then log in without password:
 ```bash
 ssh -i <private_key> <host_server_username>@<#.#.#.#>
 ```
+
+:::info
+If the host server still asks for password, check for the permissions of the private key on guest server and `authorized_key` on host server.
+:::
