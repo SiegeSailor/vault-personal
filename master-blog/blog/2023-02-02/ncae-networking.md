@@ -3,7 +3,7 @@ title: NCAE Cyber Games Networking
 description: Knowledge learned during the preparation of NCAE Cyber Games.
 slug: ncae-cyber-games
 authors: maintainer
-tags: [network]
+tags: [networking]
 ---
 
 Test if a network is reachable:
