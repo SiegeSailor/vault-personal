@@ -35,6 +35,9 @@ List and execute commands from the current path:
 
 ```bash
 history
+# or
+history | head -10 # List the first 10 items
+
 !<number_of_command>
 ```
 
