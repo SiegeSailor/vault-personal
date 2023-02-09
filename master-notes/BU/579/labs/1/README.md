@@ -70,7 +70,7 @@ Known issues:
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Multi-Values</th>
+    <th>Multivalued</th>
     <th>Derived</th>
   </tr>
   <tr>
@@ -80,6 +80,9 @@ Known issues:
       <ol>
         <li>Id {K}</li>
         <li>Name</li>
+        <li style="padding-left:12px;">Fname</li>
+        <li style="padding-left:12px;">Minit</li>
+        <li style="padding-left:12px;">Lname</li>
         <li>Salary</li>
         <li>Address</li>
         <li>Classification</li>
@@ -90,6 +93,9 @@ Known issues:
       <ol>
         <li>N</li>
         <li>N</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
         <li>N</li>
         <li>N</li>
         <li>N</li>
@@ -99,6 +105,9 @@ Known issues:
       <ol>
         <li>N</li>
         <li>N</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
         <li>N</li>
         <li>N</li>
         <li>N</li>
@@ -172,7 +181,7 @@ Known issues:
     </td>
     <td>
       <ol>
-        <li>Number is a sequence number starting with 1 and is only unique among a certain <code>ORDER</code>.</li>
+        <li>Number is a sequence number starting with 1 and is only unique among those that belong to a particular order.</li>
         <li></li>
         <li></li>
       </ol>
@@ -232,7 +241,7 @@ Known issues:
     </td>
     <td>
       <ol>
-        <li>Number is a sequence number starting with 1 and is only unique among a certain <code>BRANCH_STORE</code>.</li>
+        <li>Number is a sequence number starting with 1 and is only unique among those that belong to the same retail store.</li>
         <li></li>
         <li></li>
       </ol>

@@ -15,41 +15,6 @@
 	display: none;
 }
 
-/* From extension ms-toolsai.jupyter */
-/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
-
-.alert {
-    width: auto;
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.alert > *:last-child {
-    margin-bottom: 0;
-}
-#preview > .alert:last-child {
-    /* Prevent this being set to zero by the default notebook stylesheet */
-    padding-bottom: 1em;
-}
-
-.alert-success {
-    /* Note there is no suitable color available, so we just copy "info" */
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-info {
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-warning {
-    background-color: var(--theme-warning-background);
-    color: var(--theme-warning-foreground);
-}
-.alert-danger {
-    background-color: var(--theme-error-background);
-    color: var(--theme-error-foreground);
-}
-
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -79,7 +44,7 @@
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <h1 id="lab-1">Lab 1</h1>
-<p>An assignment for class <strong>MET CS579</strong> Database Management at Boston University due on <strong>February 9, 2023</strong>, instructed by <strong>Jae Lee</strong>. Students <a href="siege@bu.edu">Jin Yu Zhang</a> and <a href="wwwemna820@gmail.com">Wei Wang</a> submitted on <strong>February 8, 2023</strong>.</p>
+<p>An assignment for class <strong>MET CS579</strong> Database Management at Boston University due on <strong>February 9, 2023</strong>, instructed by <strong>Jae Lee</strong>. Students <a href="siege@bu.edu">Jin Yu Zhang</a> and <a href="wwwemma820@gmail.com">Wei Wang</a> submitted on <strong>February 8, 2023</strong>.</p>
 <h2 id="assumptions">Assumptions</h2>
 <p>Description for things not included in the requirements:</p>
 <ul>
@@ -144,7 +109,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Multi-Values</th>
+    <th>Multivalued</th>
     <th>Derived</th>
   </tr>
   <tr>
@@ -154,6 +119,9 @@
       <ol>
         <li>Id {K}</li>
         <li>Name</li>
+        <li style="padding-left:12px;">Fname</li>
+        <li style="padding-left:12px;">Minit</li>
+        <li style="padding-left:12px;">Lname</li>
         <li>Salary</li>
         <li>Address</li>
         <li>Classification</li>
@@ -164,6 +132,9 @@
       <ol>
         <li>N</li>
         <li>N</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
         <li>N</li>
         <li>N</li>
         <li>N</li>
@@ -173,6 +144,9 @@
       <ol>
         <li>N</li>
         <li>N</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
         <li>N</li>
         <li>N</li>
         <li>N</li>
@@ -246,7 +220,7 @@
     </td>
     <td>
       <ol>
-        <li>Number is a sequence number starting with 1 and is only unique among a certain <code>ORDER</code>.</li>
+        <li>Number is a sequence number starting with 1 and is only unique among those that belong to a particular order.</li>
         <li></li>
         <li></li>
       </ol>
@@ -306,7 +280,7 @@
     </td>
     <td>
       <ol>
-        <li>Number is a sequence number starting with 1 and is only unique among a certain <code>BRANCH_STORE</code>.</li>
+        <li>Number is a sequence number starting with 1 and is only unique among those that belong to the same retail store.</li>
         <li></li>
         <li></li>
       </ol>
