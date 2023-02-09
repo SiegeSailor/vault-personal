@@ -36,6 +36,12 @@ curl http://<#.#.#.#> > <file> # Download
 wget http://<#.#.#.#>
 ```
 
+Check ports:
+
+```bash
+netstat
+```
+
 ## Apache
 
 `/etc/apache2` is where to store the configuration files, and `etc/apache2/apache2.conf` is the entry point. `/etc/apache2/sites-enabled` are currently running site configuration.
@@ -58,13 +64,13 @@ sudo firewall-cmd --list-all --zone=<zone_name>
 Setting `masquerade` to `yes` allows the machine works as a route to let outside traffic to reach outer addresses.
 :::
 
-To run any command permanently. Usually it doesn't affect immediately, and therefore require `--reload` to restart:
+Running command with `--permanent` can affect permanently, but it usually doesn't affect immediately, and therefore require `--reload` to restart:
 
 ```bash
 sudo firewall-cmd --<command>=<argument> --permanent
 ```
 
-Restart after any command:
+Restart the firewall:
 
 ```bash
 sudo firewall-cmd --reload
@@ -74,6 +80,8 @@ Forward coming traffic in a zone from a port to another address. This allow the 
 
 ```bash
 sudo firewall-cmd --zone=<zone_name> --add-forward-port=port=<prot_number>:proto=<tcp/udp>:toport=<prot_number>:toaddr=<#.#.#.#>
+sudo firewall-cmd --zone=external --add-forward-port=80:proto=tcp:toport=80:toaddr=192.168.66.2 # HTTP example
+sudo firewall-cmd --zone=external --add-forward-port=22:proto=tcp:toport=22:toaddr=192.168.66.2 # SSH example
 ```
 
 :::info
@@ -106,6 +114,13 @@ iface <interface_name> inet <method>
 
 :::
 
+Allow or disallow certain service through certain zone:
+
+```bash
+sudo firewall-cmd --zone=<zone_name> --permanent --remove-service=ssh
+sudo firewall-cmd --zone=<zone_name> --permanent --add-service=ssh
+```
+
 ### Interface and Zone
 
 Add zone to a specific network interface:
@@ -132,7 +147,7 @@ sudo firewall-cmd --change-interface=<interface_name> --zone=<target_zone_name>
 
 ## SSH
 
-TO log in a server with SSH:
+To log in a server with SSH:
 
 ```bash
 ssh <username>@<#.#.#.#>
@@ -151,6 +166,7 @@ Places storing SSH files:
 
 -   Kali: `~/.ssh`
 -   Ubuntu: `/etc/ssh`
+-   CentOS: `/etc/ssh`
 
 Generate new keys:
 
@@ -159,7 +175,7 @@ sudo ssh-keygen -t <encryption_type> -f <generated_keys_location>
 ```
 
 :::info
-The permission for private keys should be `600` and `644` for public keys.
+The permission is `600` for private, and `644` for public keys.
 :::
 
 ### No Password Authentication
