@@ -1,6 +1,6 @@
 # Lab 1
 
-An assignment for class **MET CS579** Database Management at Boston University due on **February 9, 2023**, instructed by **Jae Lee**. Students [Jin Yu Zhang](siege@bu.edu) and [Wei Wang](wwwemna820@gmail.com) submitted on **February 8, 2023**.
+An assignment for class **MET CS579** Database Management at Boston University due on **February 9, 2023**, instructed by **Jae Lee**. Students [Jin Yu Zhang](siege@bu.edu) and [Wei Wang](wwwemma820@gmail.com) submitted on **February 8, 2023**.
 
 ## Assumptions
 
