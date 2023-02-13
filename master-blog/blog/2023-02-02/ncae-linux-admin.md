@@ -47,6 +47,7 @@ Use the following to highlight/find lines with the desired keyword:
 
 ```bash
 grep <keyword> <file>
+grep <keyword> <file> | wc -l # Display number of lines
 ```
 
 It is common to receive piped data:
@@ -68,6 +69,7 @@ Create a new user:
 
 ```bash
 sudo adduser <new_username>
+sudo passwd <new_username> # New user doesn't have a password
 ```
 
 Switch the current terminal session to another user:
