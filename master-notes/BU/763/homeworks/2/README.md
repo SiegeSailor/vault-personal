@@ -1,6 +1,6 @@
 # Homework
 
-A homework for class **MET CS 763** at Boston University, instructed by **Yuting Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **February 14, 2023**.
+A homework for class **MET CS 763** at Boston University, instructed by **Yuting Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **February 15, 2023**.
 
 ## Problem 1
 
