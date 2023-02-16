@@ -32,14 +32,14 @@ Suppose each of the following operations is applied directly to the database of 
 
 ### Solution
 
-- **(a)**: Reference Integrity. The referenced tuple with department number `3` doesn't exist
+- **(a)**: Referential Integrity. The referenced tuple with department number `3` doesn't exist
 - **(b)**: Key Integrity. There is a tuple already exist with department number `4`
 - **(c)**: None
-- **(d)**: Reference Integrity. The referenced tuple with department number `6` doesn't exist
+- **(d)**: Referential Integrity. The referenced tuple with department number `6` doesn't exist
 - **(e)**: None
 - **(f)**: None
-- **(g)**: Reference Integrity. The referenced tuple with SSN `234234234` doesn't exist
-- **(h)**: None (Unless the referential option set as Restrict)
+- **(g)**: Referential Integrity. The referenced tuple with SSN `234234234` doesn't exist
+- **(h)**: Referential Integrity. `888665555` has been referenced by other tuples
 
 ## Problem 4
 
