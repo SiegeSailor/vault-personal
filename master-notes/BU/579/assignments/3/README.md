@@ -10,8 +10,10 @@ Describe the difference between a key, a super key, a candidate key, and a prima
 
 - **Key**: A key is a minimal set of one or more attributes (columns) that can uniquely identify a record or tuple within a table. There may be more than one key for a table, but one of the keys is designated as the primary key. A key is a super key (minimal) but not vice versa
 - **Super Key**: A super key is a set of one or more attributes that, taken collectively, allow us to identify uniquely a tuple or record within a table. A super key may contain extraneous attributes, which are not necessary for uniquely identifying a tuple or record
-- **Candidate Key**: A candidate key is a minimal super key that uniquely identifies each tuple or record within a table. In other words, it is a super key with no extraneous attributes. A table may have more than one candidate key
+- **Candidate Key**: A candidate key is a minimal super key (key) that uniquely identifies each tuple or record within a table. In other words, it is a super key with no extraneous attributes. A table may have more than one candidate key
 - **Primary Key**: A primary key is one of the candidate keys that is chosen to uniquely identify tuples or records within a table. It is a special type of candidate key that is used to enforce data integrity and ensure that there are no duplicate records in the table. The primary key must be unique and cannot contain null values. A table can have only one primary key, but it may have multiple candidate keys
+
+Overall, a table can only have a primary key, and a primary key is chosen from the candidate keys from the table. Candidate keys are keys, and a key is a minimal super key.
 
 ## Problem 2
 
@@ -20,11 +22,8 @@ When a delete operation violates a referential integrity constraint, there are f
 ### Solution
 
 - **Restrict**: This option prevents the deletion of a parent record if there are any child records associated with it. The DBMS will throw an error and prevent the deletion from occurring. For example, suppose we have a database with two tables, "Customers" and "Orders". The "Orders" table has a foreign key constraint that references the "CustomerID" column in the "Customers" table. If we try to delete a customer record that has associated orders, the DBMS will not allow the deletion and will throw an error
-
-- **Cascade**: This option automatically deletes all the child records associated with the parent record being deleted. For example, using the same database as above, if we delete a customer record that has associated orders, the DBMS will automatically delete all the associated orders
-
+- **Cascade**: To attempt to propagate the deletion by deleting tuples that reference the tuple that is being deleted. This option automatically deletes all the child records associated with the parent record being deleted. For example, using the same database as above, if we delete a customer record that has associated orders, the DBMS will automatically delete all the associated orders
 - **Set Null**: This option sets the foreign key value in the child records to null if the parent record is deleted. For example, suppose we have a database with two tables, "Departments" and "Employees". The "Employees" table has a foreign key constraint that references the "DepartmentID" column in the "Departments" table. If we delete a department record that has associated employees, the DBMS will set the "DepartmentID" value in the employee records to null
-
 - **Set Default**: This option sets the foreign key value in the child records to a default value if the parent record is deleted. For example, suppose we have a database with two tables, "Authors" and "Books". The "Books" table has a foreign key constraint that references the "AuthorID" column in the "Authors" table. If we delete an author record that has associated books, the DBMS will set the "AuthorID" value in the book records to a default value (e.g., 0 or -1)
 
 ## Problem 3
@@ -73,7 +72,7 @@ Dno in EMPLOYEE references Dnumber in DEPARTMENT
 Department in STUDENT references Dept_name in DEPARTMENT
 Department in COURSE references Dept_name in DEPARTMENT
 Course_no in TEXTBOOK references Course_no in COURSE
-ISBN in BOOK references ISBN in TEXTBOOK
+ISBN in TEXTBOOK references ISBN in BOOK
 ```
 
 ## Problem 5
