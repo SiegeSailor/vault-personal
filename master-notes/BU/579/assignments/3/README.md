@@ -1,6 +1,6 @@
 # Assignment
 
-An assignment for class **MET CS 579** at Boston University, instructed by **Jae Lee**. Student [Jin Yu Zhang](siege@bu.edu) submitted on **February 15, 2023**.
+An assignment for class **MET CS 579** at Boston University, instructed by **Jae Lee**. Student [Jin Yu Zhang](siege@bu.edu) submitted on **February 16, 2023**.
 
 ## Problem 1
 
@@ -36,7 +36,7 @@ Suppose each of the following operations is applied directly to the database of 
 - **(b)**: Key Integrity. There is a tuple already exist with department number `4`
 - **(c)**: None
 - **(d)**: Referential Integrity. The referenced tuple with department number `6` doesn't exist
-- **(e)**: None
+- **(e)**: Key Integrity. There is a tuple already exist with ESSN `453453453` and project number `2`
 - **(f)**: None
 - **(g)**: Referential Integrity. The referenced tuple with SSN `234234234` doesn't exist
 - **(h)**: Referential Integrity. `888665555` has been referenced by other tuples
