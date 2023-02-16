@@ -84,6 +84,12 @@ sudo firewall-cmd --zone=external --add-forward-port=80:proto=tcp:toport=80:toad
 sudo firewall-cmd --zone=external --add-forward-port=22:proto=tcp:toport=22:toaddr=192.168.66.2 # SSH example
 ```
 
+Remove a record:
+
+```bash
+sudo firewall-cmd --zone=<zone_name> --remove-forward-port=port=<prot_number>:proto=<tcp/udp>:toport=<prot_number>:toaddr=<#.#.#.#>
+```
+
 :::info
 You have to set up gateways to allow the desired server's traffic to pass through the router's address first. The following is the configuration file on Ubuntu `/etc/netplan/<interface_name>`:
 
@@ -223,4 +229,110 @@ ssh -i <private_key> <host_server_username>@<#.#.#.#>
 
 :::info
 If the host server still asks for password, check for the permissions of the private key on guest server and `authorized_key` on host server.
+:::
+
+## DNS
+
+`/etc/bind/named.conf*` is where to lookup. We can use the following command to check if it is running:
+
+```bash
+systemctl status named
+```
+
+`/etc/bind/named.conf.default-zones` will be the main file to define DNS. Refer to the format:
+
+```bash
+# Domain Lookup
+zone "<domain.name.org>" IN {
+  type master;
+  file "/etc/bind/zones/forward.<domain.name.org>";
+  allow-update { none; };
+};
+
+# IP Address Lookup
+# You may need to add more than one zone if you need multiple reverse lookup for different IPs
+zone "8.168.192.in-addr.arpa" IN { # 8.168.192 is a reverse from 192.168.8
+  type master;
+  file "/etc/bind/zones/reverse.<domain.name.org>";
+  allow-update { none; };
+};
+```
+
+:::info
+`/zones/` are not default created. You have to create it manually. You will also want to set its permission to `644` in environments such as CentOS.
+:::
+
+:::caution
+For IP addresses defined for zone, we need to see the line and the configuration in the file as one. If zone already takes care of the first three part, then the file only need to take care of the last part at `@`.
+:::
+
+Then, do `sudo cp /etc/bind/db.empty /etc/bind/zones/forward.<domain.name.org>` and modify it:
+
+```bash
+$TTL 86400
+@       IN        SOA       <domain.name.org> <username.name:root> (
+                                    1       ; Serial # Update this by one every time modifying the file
+                                  ...       ; ...
+                                  ... )     ; ...
+;
+@       IN        NS        <computer_name:sandbox-Ubuntu>
+<subdomain>       IN A      <address> # Find <subdomain.domain.name.org> will find <address>. <address> is #.#.#.#
+<subdomain>       IN A      <address> # Could be as same as the above
+```
+
+Then, do `sudo cp /etc/bind/db.empty /etc/bind/zones/reverse.<domain.name.org>` and modify it:
+
+```bash
+$TTL 86400
+@       IN        SOA       <domain.name.org>. <username.name:root>. (
+                                    1       ; Serial # Update this by one every time modifying the file
+                                  ...       ; ...
+                                  ... )     ; ...
+;
+@       IN        NS        <computer_name:sandbox-Ubuntu>.
+<address>         IN PTR    <subdomain>. # <address> here only the first part of the reversed one. For example here will be 2 for 192.168.8.2
+<address>         IN PTR    <subdomain>. # <address> Must be the same
+```
+
+:::info
+`www` is one of the most common subdomain.
+:::
+
+Finally, run:
+
+```bash
+sudo systemctl restart named
+```
+
+### Setup
+
+Configure `/etc/netplan/` to tell the computer where the DNS server is, each file in the folder is a network paln.
+
+```
+network:
+  version: #
+  renderer: NetworkManager
+  ethernets:
+    ens18:
+      addresses:
+        - #.#.#.#/#
+```
+
+Or configure `/etc/resolv.conf`:
+
+```
+nameserver <address>
+nameserver 127.0.0.53
+```
+
+:::info
+`<address>` doesn't need to be as same as the current machine. A machine can include DNS servers on other IP addresses as long as they are in the same network topology.
+:::
+
+:::info
+You can use `nslookup <domain_name> | <address>` to check DNS directing instead of using browsers.
+:::
+
+:::caution
+If there is a router between the DNS server and your machine, the router must configure forward with port `53` and proto `udp` in oder to connect.
 :::

@@ -177,3 +177,23 @@ chmod <value> <file>
 | -     | none    | 0     |
 
 For example, change a file's permission to `-rwxrwxrwx` would be `chmod 777 file`.
+
+## Transmission
+
+```bash
+rsync # You may want to use -av --delete. See document for more arguments
+```
+
+## Schedule
+
+Check if the service is running:
+
+```bash
+systemctl status cron # Or crond
+```
+
+Start with the following:
+
+```bash
+crontab -e
+```
