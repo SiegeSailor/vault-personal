@@ -184,6 +184,14 @@ For example, change a file's permission to `-rwxrwxrwx` would be `chmod 777 file
 rsync # You may want to use -av --delete. See document for more arguments
 ```
 
+Use `-e` option to specify the remote shell to use such as SSH and FTP:
+
+```bash
+rsync -av -e ssh <file> <username>@<address>:<destination>
+# Or
+rsync -av -e "ssh -i <private_key>" <file> <username>@<address>:<destination>
+```
+
 ## Schedule
 
 Check if the service is running:
@@ -197,3 +205,9 @@ Start with the following:
 ```bash
 crontab -e
 ```
+
+`/var/spool/cron/crontabs/<username>` is where store user-specific cron jobs for specific users. `/etc/crontab` is for system-wide task , it also stores jobs and you are able to assign user privilege execute with in the file.
+
+:::info
+If you find some process return alive right after killing it, you can check if it is in one of the cron job files.
+:::
