@@ -316,6 +316,9 @@ network:
     ens18:
       addresses:
         - #.#.#.#/#
+      namesserver:
+        search: [mydomain, otherdomain]
+        addresses [#.#.#.#/#]
 ```
 
 Or configure `/etc/resolv.conf`:
