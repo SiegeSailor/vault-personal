@@ -129,7 +129,7 @@ sudo firewall-cmd --zone=<zone_name> --permanent --add-service=ssh
 
 ### Interface and Zone
 
-Add zone to a specific network interface:
+Add zone to a specific network interface under `/etc/sysconfig/network-scripts/`:
 
 ```
 BOOTPROTO=<method>
