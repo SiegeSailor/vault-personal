@@ -3,7 +3,7 @@ require_once('database.php');
 require('constants.php');
 
 $courseID = filter_input(INPUT_POST, FORM_COURSE_ID);
-$studentID = filter_input(INPUT_POST, FORM_STUDENT_ID);
+$studentID = filter_input(INPUT_POST, FORM_STUDENT_ID, FILTER_VALIDATE_INT);
 if (empty($courseID) || empty($studentID)) {
     $error = 'Invalid student deletion form data.';
     include('error.php');
