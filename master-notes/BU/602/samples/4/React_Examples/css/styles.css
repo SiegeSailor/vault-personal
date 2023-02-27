@@ -1,0 +1,8 @@
+.greet{
+        border:1px solid #eee;
+        width:400px;
+        box-shadow:0 2px 2px #ccc;
+        padding: 5px;
+        display:inline-block;
+        margin:10px;
+}

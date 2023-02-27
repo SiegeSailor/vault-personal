@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+
+  <body>
+
+    <div id="root"></div>
+
+    
+    <script type="text/babel">
+
+      class Greet extends React.Component {
+        
+        constructor(props) {
+          super(props);
+
+          if (props && props.count)
+            this.state = {count: +props.count}
+          else
+            this.state = {count:0}
+
+          // binding required for 'this' to work in callback
+          this.increment = this.increment.bind(this);
+          this.decrement = this.decrement.bind(this);
+        }
+
+        increment() {
+          this.setState({count: ++this.state.count});
+        }
+
+        decrement() {
+          this.setState({count: this.state.count-1});
+        }
+
+        
+        render() {
+          return(
+            <div className="greet">
+              <input type = "button" value = '+'
+               onClick = {this.increment} />
+              
+              <h4>Counter value = {this.state.count}</h4>
+            </div>
+          );
+        }
+
+      }
+
+      
+    	ReactDOM.render(
+
+        <div>
+          <Greet name="Suresh" tech="React" company="Facebook" count="12"/>
+          <Greet name="Alice" tech="Angular" company="Google"/>
+          <Greet name="Bob" tech="Express" company="NodeJS"/>
+        </div>,
+
+  			document.querySelector('#root')
+			);
+
+		
+
+    </script>
+  </body>
+</html>

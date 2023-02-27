@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+
+  <body>
+
+    <div id="root"></div>
+
+    
+    <script type="text/babel">
+
+      class Greet extends React.Component {
+        
+        render() {
+          return(
+            <div className="greet">
+              <h4>Hello {this.props.name}, Welcome to {this.props.tech} 
+                      - from {this.props.company}!</h4>
+            </div>
+          );
+        }
+
+      }
+
+      class Greetings extends React.Component {
+
+          constructor(props) {
+            super(props);
+            this.userData = this.props.users;
+            this.companyMap = this.props.cmap;
+          }
+
+          render() {
+            const rows = [];
+            this.userData.forEach((user) => {
+              rows.push(
+                <Greet name={user.userName} 
+                        tech={user.interest} 
+                        company={this.companyMap[user.interest]}
+                        key={user.userName} />
+              );
+
+            });
+            return(
+              <div>{rows}</div>
+            );
+
+          }
+      }
+
+      const USERS = [
+        {userName: 'Suresh', 'interest': 'React'},
+        {userName: 'Alice' , 'interest': 'Angular'},
+        {userName: 'Bob'   , 'interest': 'Express'},
+        {userName: 'Claire', 'interest': 'React'},
+        {userName: 'Diane' , 'interest': 'Angular'}
+      ];
+
+      const COMPANY_MAP = {
+        'React': 'Facebook', 
+        'Angular': 'Google',
+        'Express': 'Node'
+      };
+
+      
+    	ReactDOM.render(
+
+        <Greetings users={USERS} cmap={COMPANY_MAP} />,
+
+  			document.querySelector('#root')
+			);
+
+		
+
+    </script>
+  </body>
+</html>
