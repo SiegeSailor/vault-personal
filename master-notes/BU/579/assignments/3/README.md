@@ -33,7 +33,7 @@ Suppose each of the following operations is applied directly to the database of 
 ### Solution
 
 - **(a)**: Referential Integrity. The referenced tuple with department number `3` doesn't exist
-- **(b)**: Key Integrity. There is a tuple already exist with department number `4`
+- **(b)**: Key Integrity. There is a tuple already exist with department number `4`. Referential integrity constraint (786786786 is not in the employee table)
 - **(c)**: None
 - **(d)**: Referential Integrity. The referenced tuple with department number `6` doesn't exist
 - **(e)**: Key Integrity. There is a tuple already exist with ESSN `453453453` and project number `2`
