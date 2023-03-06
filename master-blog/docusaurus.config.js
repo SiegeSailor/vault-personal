@@ -14,6 +14,8 @@ const config = {
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
 
+    plugins: ["docusaurus-plugin-sass"],
+
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: "SiegeSailor", // Usually your GitHub org/user name.
@@ -36,16 +38,16 @@ const config = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
-                    editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+                    // editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
                 },
                 blog: {
                     showReadingTime: true,
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
-                    editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+                    // editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
+                    customCss: require.resolve("./src/css/custom.scss"),
                 },
             }),
         ],
@@ -55,9 +57,9 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "My Site",
+                title: "SiegeSailor",
                 logo: {
-                    alt: "My Site Logo",
+                    alt: "SiegeSailor Logo",
                     src: "img/logo.svg",
                 },
                 items: [
