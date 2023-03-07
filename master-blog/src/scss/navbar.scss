@@ -1,6 +1,23 @@
 .navbar {
-    // &__items {
-    //     justify-content: center;
-    //     align-items: center;
-    // }
+    a {
+        font-size: var(--ifm-code-font-size);
+    }
+
+    &__inner {
+        @media screen and (min-width: 997px) {
+            justify-content: center;
+        }
+    }
+
+    &__items {
+        flex: none;
+
+        @media screen and (min-width: 997px) {
+            &--right {
+                padding: 0 var(--ifm-navbar-item-padding-horizontal);
+            }
+
+            justify-content: center;
+        }
+    }
 }

@@ -39,6 +39,9 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            colorMode: {
+                disableSwitch: false,
+            },
             navbar: {
                 title: "SiegeSailor",
                 items: [
