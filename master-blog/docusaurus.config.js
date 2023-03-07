@@ -3,11 +3,12 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const packageJSON = require("./package.json");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "SiegeSailor",
-    tagline: `© SiegeSailor ${new Date().getFullYear()}`,
+    title: packageJSON.author.name,
+    tagline: packageJSON.description,
     url: "https://your-docusaurus-test-site.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
@@ -16,39 +17,19 @@ const config = {
 
     plugins: ["docusaurus-plugin-sass"],
 
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: "SiegeSailor", // Usually your GitHub org/user name.
-    projectName: "Profile", // Usually your repo name.
+    organizationName: packageJSON.author.name,
+    projectName: packageJSON.name,
 
-    // Even if you don't use internalization, you can use this field to set useful
-    // metadata like html lang. For example, if your site is Chinese, you may want
-    // to replace "en" with "zh-Hans".
-    i18n: {
-        defaultLocale: "en",
-        locales: ["en"],
-    },
+    i18n: { defaultLocale: "en", locales: ["en"] },
 
     presets: [
         [
             "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
-                docs: {
-                    sidebarPath: require.resolve("./sidebars.js"),
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    // editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-                },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    // editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-                },
-                theme: {
-                    customCss: require.resolve("./src/css/custom.scss"),
-                },
+                docs: { path: "documents", sidebarPath: require.resolve("./sidebars.js") },
+                blog: { showReadingTime: true },
+                theme: { customCss: require.resolve("./src/scss/index.scss") },
             }),
         ],
     ],
@@ -58,27 +39,15 @@ const config = {
         ({
             navbar: {
                 title: "SiegeSailor",
-                logo: {
-                    alt: "SiegeSailor Logo",
-                    src: "img/logo.svg",
-                },
                 items: [
-                    {
-                        type: "doc",
-                        docId: "intro",
-                        position: "left",
-                        label: "Tutorial",
-                    },
-                    { to: "/blog", label: "Blog", position: "left" },
-                    {
-                        href: "https://github.com/facebook/docusaurus",
-                        label: "GitHub",
-                        position: "right",
-                    },
+                    { to: "/summary", label: "Summary" },
+                    { type: "docSidebar", sidebarId: "projects", label: "Projects" },
+                    { type: "docSidebar", sidebarId: "notes", label: "Notes" },
+                    { to: "/blog", label: "Blog" },
                 ],
             },
             footer: {
-                style: "dark",
+                style: "light",
                 links: [
                     {
                         title: "Docs",
@@ -90,42 +59,17 @@ const config = {
                         ],
                     },
                     {
-                        title: "Community",
+                        title: "Contact",
                         items: [
-                            {
-                                label: "Stack Overflow",
-                                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-                            },
-                            {
-                                label: "Discord",
-                                href: "https://discordapp.com/invite/docusaurus",
-                            },
-                            {
-                                label: "Twitter",
-                                href: "https://twitter.com/docusaurus",
-                            },
-                        ],
-                    },
-                    {
-                        title: "More",
-                        items: [
-                            {
-                                label: "Blog",
-                                to: "/blog",
-                            },
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/facebook/docusaurus",
-                            },
+                            { label: "Email", href: "mailto:siegesailor@gmail.com" },
+                            { label: "GitHub", href: "https://github.com/SiegeSailor" },
+                            { label: "LinkedIn", href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/" },
                         ],
                     },
                 ],
                 copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
             },
-            prism: {
-                theme: lightCodeTheme,
-                darkTheme: darkCodeTheme,
-            },
+            prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
         }),
 };
 
