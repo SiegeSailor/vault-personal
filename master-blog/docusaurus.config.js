@@ -1,8 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const packageJSON = require("./package.json");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -14,14 +12,18 @@ const config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
-
     plugins: ["docusaurus-plugin-sass"],
-
-    organizationName: packageJSON.author.name,
-    projectName: packageJSON.name,
-
-    i18n: { defaultLocale: "en", locales: ["en"] },
-
+    stylesheets: [
+        {
+            href: "https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css",
+            integrity: "sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC",
+            crossorigin: "anonymous",
+        },
+    ],
+    i18n: {
+        defaultLocale: "en",
+        locales: ["en"],
+    },
     presets: [
         [
             "classic",
@@ -33,44 +35,63 @@ const config = {
             }),
         ],
     ],
-
+    themes: ["@docusaurus/theme-live-codeblock"],
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
                 title: "SiegeSailor",
                 items: [
-                    { to: "/summary", label: "Summary" },
-                    { type: "docSidebar", sidebarId: "projects", label: "Projects" },
-                    { type: "docSidebar", sidebarId: "notes", label: "Notes" },
-                    { to: "/blog", label: "Blog" },
+                    {
+                        to: "/summary",
+                        label: "Summary",
+                    },
+                    {
+                        label: "Projects",
+                        type: "docSidebar",
+                        sidebarId: "projects",
+                    },
+                    {
+                        label: "Notes",
+                        type: "docSidebar",
+                        sidebarId: "notes",
+                    },
+                    {
+                        to: "/blog",
+                        label: "Blog",
+                    },
                 ],
             },
             footer: {
                 style: "light",
                 links: [
                     {
-                        title: "Docs",
                         items: [
                             {
-                                label: "Tutorial",
-                                to: "/docs/intro",
+                                label: "Email",
+                                href: "mailto:siegesailor@gmail.com",
+                            },
+                            {
+                                label: "GitHub",
+                                href: "https://github.com/SiegeSailor",
+                            },
+                            {
+                                label: "LinkedIn",
+                                href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
                             },
                         ],
                     },
-                    {
-                        title: "Contact",
-                        items: [
-                            { label: "Email", href: "mailto:siegesailor@gmail.com" },
-                            { label: "GitHub", href: "https://github.com/SiegeSailor" },
-                            { label: "LinkedIn", href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/" },
-                        ],
-                    },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
             },
-            prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
+            prism: {
+                theme: require("prism-react-renderer/themes/github"),
+                darkTheme: require("prism-react-renderer/themes/dracula"),
+                additionalLanguages: ["powershell", "java"],
+            },
         }),
+    organizationName: packageJSON.author.name,
+    projectName: packageJSON.name,
+    deploymentBranch: "main",
 };
 
 module.exports = config;
