@@ -1,0 +1,8 @@
+.footer {
+    padding: var(--ifm-navbar-padding-vertical) var(--ifm-navbar-padding-horizontal);
+    font-size: var(--ifm-code-font-size);
+
+    &__links {
+        margin-bottom: 0;
+    }
+}

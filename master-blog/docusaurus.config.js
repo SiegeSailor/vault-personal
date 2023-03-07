@@ -66,20 +66,16 @@ const config = {
                 style: "light",
                 links: [
                     {
-                        items: [
-                            {
-                                label: "Email",
-                                href: "mailto:siegesailor@gmail.com",
-                            },
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/SiegeSailor",
-                            },
-                            {
-                                label: "LinkedIn",
-                                href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
-                            },
-                        ],
+                        label: "Email",
+                        href: "mailto:siegesailor@gmail.com",
+                    },
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/SiegeSailor",
+                    },
+                    {
+                        label: "LinkedIn",
+                        href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
                     },
                 ],
             },
