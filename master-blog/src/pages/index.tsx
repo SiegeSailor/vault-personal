@@ -6,8 +6,6 @@ import Layout from "@theme/Layout";
 
 import styles from "./index.module.css";
 
-function Table() {}
-
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
     return (

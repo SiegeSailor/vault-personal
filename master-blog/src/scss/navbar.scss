@@ -9,6 +9,14 @@
         }
     }
 
+    &__link {
+        border-radius: 0.25rem;
+
+        &--active {
+            background-color: var(--ifm-menu-color-background-active);
+        }
+    }
+
     &__items {
         flex: none;
 
