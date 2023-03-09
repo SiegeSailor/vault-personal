@@ -17,15 +17,18 @@
         }
     }
 
+    &__item {
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
     &__items {
         flex: none;
 
-        @media screen and (min-width: 997px) {
-            &--right {
-                padding: 0 var(--ifm-navbar-item-padding-horizontal);
-            }
-
-            justify-content: center;
+        &--right {
+            position: absolute;
+            right: var(--ifm-navbar-item-padding-horizontal);
         }
     }
 }
