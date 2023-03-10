@@ -17,12 +17,6 @@
         }
     }
 
-    &__item {
-        &:last-child {
-            padding-right: 0;
-        }
-    }
-
     &__items {
         flex: none;
 
