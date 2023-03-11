@@ -42,6 +42,7 @@ const config = {
             colorMode: {
                 disableSwitch: false,
             },
+            metadata: [{ name: "keywords", content: "software, engineer, developer" }],
             navbar: {
                 title: "SiegeSailor",
                 items: [
@@ -68,10 +69,6 @@ const config = {
             footer: {
                 style: "light",
                 links: [
-                    {
-                        label: "Email",
-                        href: "mailto:siegesailor@gmail.com",
-                    },
                     {
                         label: "GitHub",
                         href: "https://github.com/SiegeSailor",

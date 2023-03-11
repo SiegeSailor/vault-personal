@@ -5,6 +5,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import styles from "./index.module.scss";
+import Section from "../components/Section";
 
 function Header() {
     return (
@@ -40,13 +41,48 @@ function Header() {
     );
 }
 
+function SectionList() {
+    return (
+        <Section title="What I Do">
+            <ul className={styles.list}>
+                {[
+                    {
+                        name: "DevOps",
+                        content:
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum eos mollitia fuga libero assumenda obcaecati dignissimos veritatis magnam saepe? Vero facere quae nam perspiciatis dolorem accusantium esse! Vel, sunt!",
+                    },
+                    {
+                        name: "System Design",
+                        content:
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, repellendus expedita. Iure ducimus consectetur necessitatibus perferendis officiis aut illum non optio esse. Accusamus aspernatur nostrum porro quia labore temporibus inventore.",
+                    },
+                    {
+                        name: "Security",
+                        content:
+                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eius quas aliquid perferendis, aliquam omnis voluptate voluptas consectetur, nihil harum, error itaque ipsum explicabo nobis facilis totam? Doloribus, iste ea?",
+                    },
+                ].map(({ name, content }) => {
+                    return (
+                        <li key={name}>
+                            <h3>{name}</h3>
+                            <p>{content}</p>
+                        </li>
+                    );
+                })}
+            </ul>
+        </Section>
+    );
+}
+
 export default function () {
     const { siteConfig } = useDocusaurusContext();
 
     return (
-        <Layout title={siteConfig.title} description="Description will go into a meta tag in <head />">
+        <Layout title={siteConfig.title} description={siteConfig.tagline}>
             <Header />
-            <main></main>
+            <main>
+                <SectionList />
+            </main>
         </Layout>
     );
 }

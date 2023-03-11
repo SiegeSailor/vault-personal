@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16rem 12rem;
+    padding: 8rem;
 
     .position {
         display: flex;
@@ -16,7 +16,7 @@
             img {
                 width: 100%;
                 background-color: var(--ifm-color-primary-lightest);
-                border: 1px solid white;
+                border: 1px solid var(--ifm-color-gray-300);
                 border-radius: 108rem;
             }
         }
@@ -35,9 +35,17 @@
     }
 }
 
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0;
+    gap: 1rem;
+}
+
 @media screen and (max-width: 996px) {
     .header {
-        padding: 4rem 2rem;
+        padding: 2rem;
         flex-wrap: wrap;
 
         .position {

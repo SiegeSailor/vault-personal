@@ -1,0 +1,34 @@
+.section {
+    padding: 2rem 8rem;
+
+    h2 {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+        margin-bottom: calc(var(--ifm-heading-margin-bottom) + 0.5rem);
+
+        &::before {
+            content: "";
+            display: block;
+            border-bottom: 0.2rem solid var(--ifm-color-gray-300);
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-bottom: 0.2rem solid var(--ifm-color-primary-darkest);
+            width: 2rem;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    @media screen and (max-width: 996px) {
+        & {
+            padding: 2rem;
+        }
+    }
+}
