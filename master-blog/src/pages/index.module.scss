@@ -35,14 +35,6 @@
     }
 }
 
-.list {
-    display: flex;
-    justify-content: space-evenly;
-    list-style-type: none;
-    padding: 0;
-    gap: 1rem;
-}
-
 @media screen and (max-width: 996px) {
     .header {
         padding: 2rem;
