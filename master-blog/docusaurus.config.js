@@ -47,8 +47,8 @@ const config = {
                 title: "SiegeSailor",
                 items: [
                     {
-                        to: "/summary",
-                        label: "Summary",
+                        to: "/resume",
+                        label: "Resume",
                     },
                     {
                         label: "Projects",
@@ -64,11 +64,19 @@ const config = {
                         to: "/blog",
                         label: "Blog",
                     },
+                    {
+                        to: "/contact",
+                        label: "Contact",
+                    },
                 ],
             },
             footer: {
                 style: "light",
                 links: [
+                    {
+                        label: "Email",
+                        href: "mailto:siegesailor@gmail.com",
+                    },
                     {
                         label: "GitHub",
                         href: "https://github.com/SiegeSailor",

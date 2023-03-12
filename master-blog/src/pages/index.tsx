@@ -28,12 +28,13 @@ function Header() {
                 <div className={styles.buttons}>
                     <Link
                         className="button button--primary"
-                        to="https://drive.google.com/file/d/16XXXR84YxD0O4oj6RQpP8aOGqLkWuks8/view?usp=share_link"
+                        // to="https://drive.google.com/file/d/16XXXR84YxD0O4oj6RQpP8aOGqLkWuks8/view?usp=share_link"
+                        to="/resume"
                     >
-                        Resume PDF
+                        Resume
                     </Link>
-                    <Link className="button button--secondary" to="mailto:siegesailor@gmail.com">
-                        Email
+                    <Link className="button button--secondary" to="/contact">
+                        Contact
                     </Link>
                 </div>
             </div>

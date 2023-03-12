@@ -1,6 +1,6 @@
 import React from "react";
 
-import Section from "../_Section";
+import Section from "@site/src/components/_Section";
 import styles from "./index.module.scss";
 
 export default function (props: { title: string; listOfContent: { name: string; content: string }[] }) {
