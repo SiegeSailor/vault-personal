@@ -29,7 +29,7 @@ const config = {
             "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
-                docs: { path: "documents", sidebarPath: require.resolve("./sidebars.js") },
+                docs: { path: "docs", sidebarPath: require.resolve("./sidebars.js") },
                 blog: { showReadingTime: true },
                 theme: { customCss: require.resolve("./src/scss/index.scss") },
             }),
