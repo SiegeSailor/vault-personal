@@ -1,0 +1,16 @@
+.resume {
+    max-width: 1080px;
+    margin: 0 auto;
+
+    .button {
+        margin: 2rem 8rem;
+        width: calc(100% - 16rem);
+
+        @media screen and (max-width: 996px) {
+            & {
+                margin: 2rem;
+                width: calc(100% - 4rem);
+            }
+        }
+    }
+}
