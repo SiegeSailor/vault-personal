@@ -1,0 +1,10 @@
+<b>Student Info for {{id}} ({{name}})</b>
+<p>
+  <table border="1">
+    <tr><th>Course</th><th>Name</th><th>Grades</th></tr>
+    {{#each courses}}
+      <tr><td>{{this.courseId}}</td><td>{{this.courseName}}</td><td
+        >{{this.grades}}</td></tr>
+    {{/each}}
+  </table>
+</p>
