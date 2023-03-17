@@ -12,7 +12,7 @@ const config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
-    plugins: ["docusaurus-plugin-sass"],
+    plugins: ["docusaurus-plugin-sass", "docusaurus2-dotenv"],
     stylesheets: [
         {
             href: "https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css",
