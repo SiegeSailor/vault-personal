@@ -6,11 +6,14 @@
     - [Task 1](#task-1)
     - [Task 2](#task-2)
     - [Task 3](#task-3)
+    - [Task 4](#task-4)
+    - [Task 5](#task-5)
+    - [Task 6](#task-6)
   - [Summary](#summary)
 
 # Lab
 
-A lab for class **MET CS 763** at Boston University, instructed by **Yuting Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **March 16, 2023**.
+A lab for class **MET CS 763** at Boston University, instructed by **Yuting Zhang**. Student [Zhang, Jin Yu](siege@bu.edu) submitted on **March 22, 2023**.
 
 ## Installation
 
@@ -139,7 +142,7 @@ Followed the instructions to compile `stack`:
 
 ### Task 3
 
-Followed the instructions to lunch `gdb`:
+`touch badfile`, and followed the instructions to lunch `gdb`:
 
 ![Lunch GDB](./Lunch%20GDB.png)
 
@@ -150,6 +153,8 @@ Followed the instructions to lunch `gdb`:
 - **bof**: `0x121e`
 - **ebp**: `0xffffcfa8`
 - **buffer**: `0xffffcf3c`
+
+> Use `info f` for frame details, and `x` for content of certain address.
 
 The following is the shellcode from `call_shellcode.c` in [Task 1](#task-1):
 
@@ -168,18 +173,103 @@ Original `exploit.py` file:
 
 ![exploit original](./exploit%20original.png)
 
-Modified `exploit.py` file:
+We started on `start` first. The position of `start` would affect where we put our shell code in `content`, and we knew that `content` has length `517`, we then used the following code to calculate the length of the 32-bit shell code, which is `27`:
 
-Values in `exploit.py`:
+```c
+#include <stdio.h>
+#include <string.h>
 
-- Start:
-- Ret:
-- Offset:
+int main()
+{
+    printf(
+      "%zu\n", strlen("\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\x31\xc0\xb0\x0b\xcd\x80"));
+
+    return 0;
+}
+```
+
+I would like to put the shell code at the end of `content`, so I chose `490` for `start`. It is worth to mention that everything before `490` would be filled up with `0x90`, which is the NOP instruction. We then took a look at `stack.c`:
+
+![stack.c](./stack.png)
+
+As we could see on the top of the file: `#define BUF_SIZE 100`. The buffer size for `buffer` in `bof` function to copy strings from input was `100`, and the purpose of `offset` in `exploit` was to cause the buffer overflow problem, so `offset` must be higher than `100`, we picked `112` here. For `ret` we simply picked the address from `ebp`, which we obtained from `gdb`. We added `256` because `gdb` loads environment variables for debugging and occupied more memory space than normal mode. Applied the above numbers to `exploit.py` file:
+
+![exploit modified](./exploit%20modified.png)
+
+Used `python3 exploit.py` to generate `badfile`:
+
+![badfile](./badfile.png)
+
+Executed `./stack-L1`, the shell was taken:
+
+![exploited](./exploited.png)
+
+### Task 4
+
+There were two things we knew:
+
+1. The buffer size is from `100` to `200` bytes
+2. Frame pointer is always multiple of `4` for 32-bit programs due to memory alignment
+
+As the given hint in the video, the approach here was to put the return address in every `4` slots in `content` through `100` to `200`:
+
+![exploit for-loop](./exploit%20for-loop.png)
+
+Closer look at the added code:
+
+```python
+offset_start, offset_end = 100, 200
+for index in range(offset_start, offset_end, L):
+    content[index:index + L] = (ret).to_bytes(L, byteorder='little')
+```
+
+Executed `./stack-L1`, the shell was taken:
+
+![Task 4](./Task%204.png)
+
+### Task 5
+
+First of all, followed instructions from Task 3 with 64-bit flags:
+
+![5 Debug 1](./5%20Debug%201.png)
+
+![5 Debug 2](./5%20Debug%202.png)
+
+![5 Debug 3](./5%20Debug%203.png)
+
+- **rbp**: `0x7fffffffde50`
+- **buffer**: `0x7fffffffdd80`
+
+Followed the same logic from Task 3 to modify `exploit.py`:
+
+![Task 5](./Task%205.png)
+
+The challenges from the instruction remain unsolved.
+
+### Task 6
+
+Used the same instruction from Task 2 to find `ebp`:
+
+![4 Debug 1](./4%20Debug%201.png)
+
+![4 Debug 2](./4%20Debug%202.png)
+
+![4 Debug 3](./4%20Debug%203.png)
+
+- **ebp**: `0xffffde50`
+- **buffer**: `0x7fffffffde46`
+
+I found out that Task 6 also asked for 64-bit program pointers. The challenges from the instruction remain unsolved.
 
 ## Summary
 
 - What is the purpose of the lab in your own words?
+  - To learn the Buffer Overflow attacks, also the difference between 32-bit programs and 64 bit-programs.
 - What did you learn? Did you achieve the objectives?
+  - Some basic understand of C, and the memory layouts. I didn't get the extra tasks done, but I gave it a shoot.
 - Was this lab hard or easy? Are the lab instructions clear?
+  - I doubt I could finish this task without the video or hints.
 - What do you think about the tools used? What worked? What didn’t? Are there other better alternatives?
+  - The lab requires us to use C programs, linux tools, and python scripts. These are quite famous stuff we would use as an engineer. I didn't use GUI for this lab, but it was totally fine since this lab didn't require any visual works.
 - Any other feedback?
+  - This lab is tough but worthy.
