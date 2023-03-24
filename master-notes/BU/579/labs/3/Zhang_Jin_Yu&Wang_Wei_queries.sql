@@ -5,8 +5,8 @@ USE lab;
 
 -- a)
 SELECT number, date, amount
-FROM shoe_order
-WHERE customer_identifier = 'CUST001';
+FROM shoe_order, customer
+WHERE customer.identifier = shoe_order.customer_identifier AND customer.name = 'John Doe';
 
 -- b)
 SELECT identifier, name, COUNT(shoe_order.number) AS count
@@ -16,9 +16,9 @@ GROUP BY identifier, name
 HAVING count >= 2;
 
 -- c)
-SELECT number, address, phone
-FROM branch
-WHERE customer_identifier = 'CUST002';
+SELECT branch.number, branch.address, branch.phone
+FROM branch, customer
+WHERE customer.identifier = branch.customer_identifier AND customer.name = 'Jane Smith';
 
 -- d)
 SELECT shoe_order_number, suborder.number, request_ship_date, actual_ship_date, customer.name, branch_number, employee.name
