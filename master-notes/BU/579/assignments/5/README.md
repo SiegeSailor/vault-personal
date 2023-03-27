@@ -1,8 +1,18 @@
-# Assignment
+- [Homework](#homework)
+  - [Problem 1](#problem-1)
+    - [1](#1)
+    - [2](#2)
+    - [3](#3)
+    - [4](#4)
+    - [5](#5)
 
-An assignment for class **MET CS 579** at Boston University, instructed by **Jae Lee**. Student [Jin Yu Zhang](siege@bu.edu) submitted on **March 28, 2023**.
+# Homework
+
+A homework for class **MET CS 579** at Boston University, instructed by **Jae Lee**. Student [Jin Yu Zhang](siege@bu.edu) submitted on **March 28, 2023**.
 
 ## Problem 1
+
+### 1
 
 Show the department number and the department name of every department that controls a
 project that is not located in Houston:
@@ -14,6 +24,10 @@ SELECT department.dname, department.dnumber
 FROM department, project
 WHERE department.dnumber = project.dnum AND plocation != 'Houston';
 ```
+
+![1](./1.png)
+
+### 2
 
 Show the first name and the last name of every employee who is a not manager and has a
 dependent:
@@ -32,6 +46,10 @@ EXISTS (
     WHERE dependent.essn = employee.ssn
 );
 ```
+
+![2](./2.png)
+
+### 3
 
 Show the first name and the last name of every employee who works for the Research
 department and works on the ProductX project:
@@ -56,6 +74,12 @@ UNION
     WHERE employee.ssn = works_on.essn AND works_on.pno = project.pnumber AND project.pname = 'ProductX'
 );
 ```
+
+![3-1](./3%20-%201.png)
+
+![3-2](./3%20-%202.png)
+
+### 4
 
 Show the first name and last name of every employee who works on only one project:
 
@@ -87,6 +111,12 @@ WHERE employee.ssn IN (
 );
 ```
 
+![4-1](./4%20-%201.png)
+
+![4-2](./4%20-%202.png)
+
+### 5
+
 Show the first name and the last name of every employee. If an employee is the manager of a
 department, then show the name of the department the employee manages too. The result must
 be in a single relation:
@@ -97,3 +127,5 @@ USE company;
 SELECt employee.fname, employee.lname, department.dname
 FROM employee LEFT JOIN department ON employee.ssn = department.mgrssn;
 ```
+
+![5](./5.png)
