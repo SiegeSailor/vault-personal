@@ -18,6 +18,10 @@ See [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/descripti
 
 Remember the order. For example, `left` must be smaller than `node`, and `right` is bigger than `node`, so the current one will always be smaller than the next one in in-order traversal.
 
+## Stack & Queue
+
+In the loops, we can use indices to slice, or variables to keep value from previous.
+
 ## Pointers
 
 It is not necessary to update the value of pointers in every iteration. See [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/?envType=study-plan&id=level-1), the **One Pass** solution doesn't update `profit_max` whenever the smaller `price_min` is found:
