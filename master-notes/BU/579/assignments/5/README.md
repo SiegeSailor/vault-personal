@@ -20,9 +20,13 @@ project that is not located in Houston:
 ```sql
 USE company;
 
-SELECT department.dname, department.dnumber
-FROM department, project
-WHERE department.dnumber = project.dnum AND plocation != 'Houston';
+SELECT DISTINCT department.dnumber, department.dname
+FROM department
+WHERE department.dnumber NOT IN (
+	SELECT project.dnum
+    FROM project
+    WHERE project.plocation = 'Houston'
+);
 ```
 
 ![1](./1.png)
@@ -58,26 +62,25 @@ department and works on the ProductX project:
 USE company;
 
 SELECT employee.fname, employee.lname
-FROM employee, department, project
-WHERE employee.dno = department.dnumber AND department.dname = 'Research'
-    AND project.dnum = department.dnumber AND project.pname = 'ProductX';
--- or (I feel using UNION is more readable, but the first one seems to be faster)
-(
-    SELECT employee.fname, employee.lname
-    FROM employee, department
-    WHERE employee.dno = department.dnumber AND department.dname = 'Research'
+FROM employee
+WHERE employee.dno IN (
+	SELECT department.dnumber
+    FROM department
+    WHERE
+		department.dname = 'Research' AND
+        department.dnumber = employee.dno
 )
-UNION
-(
-    SELECT employee.fname, employee.lname
-    FROM employee, works_on, project
-    WHERE employee.ssn = works_on.essn AND works_on.pno = project.pnumber AND project.pname = 'ProductX'
+AND employee.dno IN (
+	SELECT project.dnum
+    FROM works_on, project
+    WHERE
+		works_on.essn = employee.ssn AND
+        works_on.pno = project.pnumber AND
+        project.pname = 'ProductX'
 );
 ```
 
-![3-1](./3%20-%201.png)
-
-![3-2](./3%20-%202.png)
+![3](./3.png)
 
 ### 4
 

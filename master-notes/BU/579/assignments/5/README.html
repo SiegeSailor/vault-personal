@@ -66,9 +66,13 @@
 project that is not located in Houston:</p>
 <pre><code class="language-sql">USE company;
 
-<span class="hljs-keyword">SELECT</span> department.dname, department.dnumber
-<span class="hljs-keyword">FROM</span> department, project
-<span class="hljs-keyword">WHERE</span> department.dnumber <span class="hljs-operator">=</span> project.dnum <span class="hljs-keyword">AND</span> plocation <span class="hljs-operator">!=</span> <span class="hljs-string">&#x27;Houston&#x27;</span>;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> department.dnumber, department.dname
+<span class="hljs-keyword">FROM</span> department
+<span class="hljs-keyword">WHERE</span> department.dnumber <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (
+	<span class="hljs-keyword">SELECT</span> project.dnum
+    <span class="hljs-keyword">FROM</span> project
+    <span class="hljs-keyword">WHERE</span> project.plocation <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Houston&#x27;</span>
+);
 </code></pre>
 <p><img src="file:////Users/lookswalidy/Documents/GitHub/siegesailor/Personal.Vault/BU/579/assignments/5/1.png" alt="1"></p>
 <h3 id="2">2</h3>
@@ -94,24 +98,24 @@ department and works on the ProductX project:</p>
 <pre><code class="language-sql">USE company;
 
 <span class="hljs-keyword">SELECT</span> employee.fname, employee.lname
-<span class="hljs-keyword">FROM</span> employee, department, project
-<span class="hljs-keyword">WHERE</span> employee.dno <span class="hljs-operator">=</span> department.dnumber <span class="hljs-keyword">AND</span> department.dname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Research&#x27;</span>
-    <span class="hljs-keyword">AND</span> project.dnum <span class="hljs-operator">=</span> department.dnumber <span class="hljs-keyword">AND</span> project.pname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;ProductX&#x27;</span>;
-<span class="hljs-comment">-- or (I feel using UNION is more readable, but the first one seems to be faster)</span>
-(
-    <span class="hljs-keyword">SELECT</span> employee.fname, employee.lname
-    <span class="hljs-keyword">FROM</span> employee, department
-    <span class="hljs-keyword">WHERE</span> employee.dno <span class="hljs-operator">=</span> department.dnumber <span class="hljs-keyword">AND</span> department.dname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Research&#x27;</span>
+<span class="hljs-keyword">FROM</span> employee
+<span class="hljs-keyword">WHERE</span> employee.dno <span class="hljs-keyword">IN</span> (
+	<span class="hljs-keyword">SELECT</span> department.dnumber
+    <span class="hljs-keyword">FROM</span> department
+    <span class="hljs-keyword">WHERE</span>
+		department.dname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Research&#x27;</span> <span class="hljs-keyword">AND</span>
+        department.dnumber <span class="hljs-operator">=</span> employee.dno
 )
-<span class="hljs-keyword">UNION</span>
-(
-    <span class="hljs-keyword">SELECT</span> employee.fname, employee.lname
-    <span class="hljs-keyword">FROM</span> employee, works_on, project
-    <span class="hljs-keyword">WHERE</span> employee.ssn <span class="hljs-operator">=</span> works_on.essn <span class="hljs-keyword">AND</span> works_on.pno <span class="hljs-operator">=</span> project.pnumber <span class="hljs-keyword">AND</span> project.pname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;ProductX&#x27;</span>
+<span class="hljs-keyword">AND</span> employee.dno <span class="hljs-keyword">IN</span> (
+	<span class="hljs-keyword">SELECT</span> project.dnum
+    <span class="hljs-keyword">FROM</span> works_on, project
+    <span class="hljs-keyword">WHERE</span>
+		works_on.essn <span class="hljs-operator">=</span> employee.ssn <span class="hljs-keyword">AND</span>
+        works_on.pno <span class="hljs-operator">=</span> project.pnumber <span class="hljs-keyword">AND</span>
+        project.pname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;ProductX&#x27;</span>
 );
 </code></pre>
-<p><img src="file:////Users/lookswalidy/Documents/GitHub/siegesailor/Personal.Vault/BU/579/assignments/5/3%20-%201.png" alt="3-1"></p>
-<p><img src="file:////Users/lookswalidy/Documents/GitHub/siegesailor/Personal.Vault/BU/579/assignments/5/3%20-%202.png" alt="3-2"></p>
+<p><img src="file:////Users/lookswalidy/Documents/GitHub/siegesailor/Personal.Vault/BU/579/assignments/5/3.png" alt="3"></p>
 <h3 id="4">4</h3>
 <p>Show the first name and last name of every employee who works on only one project:</p>
 <pre><code class="language-sql">USE company;
