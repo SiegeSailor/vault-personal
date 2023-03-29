@@ -10,6 +10,10 @@ tags: [interview]
 
 Always print out the inputs, the data structure may be very different from the statement.
 
+# Hash Map
+
+See [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/description/). With hash map, we need to pay attention for `if` in a `for-loop` since all stream fall into the first `if` will execute first, so the value changing for the hash map should take it account.
+
 ## Binary Search Tree
 
 Remember the order. For example, `left` must be smaller than `node`, and `right` is bigger than `node`, so the current one will always be smaller than the next one in in-order traversal.
