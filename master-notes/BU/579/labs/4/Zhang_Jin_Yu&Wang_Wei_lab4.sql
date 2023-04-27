@@ -118,23 +118,23 @@ BEGIN
 END //
 DELIMITER ;
 
--- Problem 4 Manual Review
-SELECT
-	order_item.suborder_shoe_order_number AS 'Suborder Shoe Order Number',
-	order_item.suborder_number AS 'Suborder Number',
-    shoe_type.identifier
-FROM
-    order_item,
-    shoe_type
-WHERE
-	order_item.shoe_type_identifier = shoe_type.identifier
-GROUP BY
-	order_item.suborder_shoe_order_number,
-    order_item.suborder_number,
-    shoe_type.identifier
-ORDER BY
-	order_item.suborder_shoe_order_number,
-    order_item.suborder_number;
+-- For Problem 4 Manual Review
+-- SELECT
+-- 	order_item.suborder_shoe_order_number AS 'Suborder Shoe Order Number',
+-- 	order_item.suborder_number AS 'Suborder Number',
+--     shoe_type.identifier
+-- FROM
+--     order_item,
+--     shoe_type
+-- WHERE
+-- 	order_item.shoe_type_identifier = shoe_type.identifier
+-- GROUP BY
+-- 	order_item.suborder_shoe_order_number,
+--     order_item.suborder_number,
+--     shoe_type.identifier
+-- ORDER BY
+-- 	order_item.suborder_shoe_order_number,
+--     order_item.suborder_number;
 
 INSERT INTO order_item (suborder_shoe_order_number, suborder_number, shoe_type_identifier, quantity)
 	VALUES (8, 1, 'SHOE001', 100); -- No violation
