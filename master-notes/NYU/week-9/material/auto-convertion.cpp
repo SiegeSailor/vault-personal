@@ -31,5 +31,6 @@ int main()
     // 像 25 先是被自動用 Money 建起來，接著 first 再用 operator+ 與 Money(25) 合併，於是 second 變成 Money(35)
     // second = ;
     cout << (first + 25).obtainBalance() << endl;
+    cout << (second).obtainBalance() << endl;
     return 0;
 }

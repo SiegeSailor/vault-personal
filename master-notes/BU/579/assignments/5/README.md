@@ -22,10 +22,10 @@ USE company;
 
 SELECT DISTINCT department.dnumber, department.dname
 FROM department
-WHERE department.dnumber NOT IN (
+WHERE department.dnumber IN (
 	SELECT project.dnum
     FROM project
-    WHERE project.plocation = 'Houston'
+    WHERE project.plocation != 'Houston'
 );
 ```
 
