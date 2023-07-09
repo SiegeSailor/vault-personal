@@ -4,12 +4,10 @@ from math import floor
 def heapify_max(list_integer,  index):
     index_left_child = (index * 2) + 1
     index_right_child = index_left_child + 1
-    index_largest = -1
+    index_largest = index
 
     if index_left_child <= len(list_integer) - 1 and list_integer[index_left_child] > list_integer[index]:
         index_largest = index_left_child
-    else:
-        index_largest = index
 
     if index_right_child <= len(list_integer) - 1 and list_integer[index_right_child] > list_integer[index_largest]:
         index_largest = index_right_child
