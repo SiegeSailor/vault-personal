@@ -6,6 +6,7 @@ const config: JestConfigWithTsJest = {
     "!**/node_modules/**",
     "!<rootDir>/coverage/**",
     "!<rootDir>/.next/**",
+    "!<rootDir>/artifacts/**",
   ],
   coverageReporters: ["html", "text", "text-summary", "cobertura"],
   maxWorkers: 1,
@@ -26,7 +27,11 @@ const config: JestConfigWithTsJest = {
     "^.+\\.module\\.(css|sass|scss)$",
   ],
   testMatch: ["**/*.test.{ts,tsx}"],
-  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/.next/",
+    "<rootDir>/artifacts/",
+  ],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
