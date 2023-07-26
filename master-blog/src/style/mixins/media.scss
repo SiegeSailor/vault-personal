@@ -1,0 +1,17 @@
+@mixin break-point-desktop {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin break-point-tablet {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin break-point-phone {
+  @media screen and (max-width: 479px) {
+    @content;
+  }
+}

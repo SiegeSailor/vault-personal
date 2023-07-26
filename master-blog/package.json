@@ -1,0 +1,54 @@
+{
+  "author": "siegesailor",
+  "bugs": {
+    "url": "https://github.com/SiegeSailor/Personal.Content/issues"
+  },
+  "dependencies": {
+    "@fontsource/ubuntu": "5.0.3",
+    "@sentry/browser": "7.57.0",
+    "framer-motion": "10.13.0",
+    "next": "13.4.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.9.0"
+  },
+  "description": "Static generated website with career resume, side projects, personal notes, and blog.",
+  "devDependencies": {
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.5",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "prettier": "2.8.8",
+    "sass": "1.63.4",
+    "ts-node": "10.9.1",
+    "tsc-alias": "1.8.6",
+    "typescript": "5.1.3"
+  },
+  "engines": {
+    "node": ">= 18.0.0",
+    "npm": ">= 8.0.0"
+  },
+  "files": [
+    "./.next/**/*"
+  ],
+  "homepage": "https://github.com/SiegeSailor/Personal.Content",
+  "license": "",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "name": "personal.content",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiegeSailor/Personal.Content.git"
+  },
+  "scripts": {
+    "build": "next build",
+    "prepare": "husky install",
+    "prettify": "prettier --write .",
+    "start": "next start",
+    "test": "tsc --noEmit --noUnusedLocals --noUnusedParameters",
+    "watch": "next dev"
+  },
+  "version": "1.0.0"
+}

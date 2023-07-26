@@ -1,0 +1,30 @@
+# Misc
+.DS_Store
+.env
+.vscode
+.idea
+.fleet
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Cache
+build-cache
+__pycache__/
+
+# Production
+.next/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log
+
+# Optional eslint cache
+.eslintcache
+
+# Framework
+next-env.d.ts

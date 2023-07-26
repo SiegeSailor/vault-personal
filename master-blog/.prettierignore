@@ -1,0 +1,5 @@
+.next/
+.gitignore
+artifacts/
+node_modules/
+public/
