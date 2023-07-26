@@ -53,7 +53,7 @@
     "prepare": "husky install",
     "prettify": "prettier --write .",
     "start": "next start",
-    "test": "tsc --noEmit --noUnusedLocals --noUnusedParameters",
+    "test": "tsc --noEmit --noUnusedLocals --noUnusedParameters && jest --coverage --bail --passWithNoTests",
     "watch": "next dev"
   },
   "version": "1.0.0"
