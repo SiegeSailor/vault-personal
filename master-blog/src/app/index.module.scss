@@ -1,4 +1,13 @@
 .index {
   height: 100vh;
   width: 100vw;
+  body {
+    main {
+      display: flex;
+      flex-direction: column;
+      > * {
+        padding: $--font-size-s;
+      }
+    }
+  }
 }
