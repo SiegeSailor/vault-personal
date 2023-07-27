@@ -170,9 +170,9 @@ A public key fingerprint is a short sequence of bytes used to identify a longer 
 
 Places storing SSH files:
 
--   Kali: `~/.ssh`
--   Ubuntu: `/etc/ssh`
--   CentOS: `/etc/ssh`
+- Kali: `~/.ssh`
+- Ubuntu: `/etc/ssh`
+- CentOS: `/etc/ssh`
 
 Generate new keys:
 

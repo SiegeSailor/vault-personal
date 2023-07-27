@@ -18,28 +18,28 @@ I would say I am a Software Developer who knows how to implement DevOps and Secu
 
 ## Academic Background
 
--   Software Engineering
--   Cryptography
--   Secure Application Development
+- Software Engineering
+- Cryptography
+- Secure Application Development
 
 ## Project Experience
 
--   StageSource:
-    -   DevOps Engineer
-    -   GitHub / GitHub Actions / AWS / Docker
-    -   PostgreSQL / Nginx / Python / Django / Bootstrap
-    -   Difficulty: Cloud cost.
-        1. ECR / ECS
-        2. S3 / EC2 (A deploy script on the remote server)
-        3. EC2 (with linux commands such as `tar` for compressing, `scp` for transiting files, and `gettext` for environment variables)
--   TheShrimp
-    -   Software Engineer
-    -   GitLab / GitLab CICD / GCP / Firebase / Docker
-    -   TypeScript / React / Jest / PhaserJS / ThreeJS / Socket.io / Ant Design / Flask
-    -   Difficulty (STAR method): Pull self-hosted packages through VPN from other countries to build our product. It is not allowed to do it in our CICD environment, and it was pretty near to our release day
-        1. Request the security team to add our GitLab to the white list, we got rejected due to code freeze
-        2. Pull-down packages to our codebase, but it only worked when we only need a few
-        3. Labeled our product in the security team's entry application, and requested them to do a minor release, and it formed a rule for teams world-wide
+- StageSource:
+  - DevOps Engineer
+  - GitHub / GitHub Actions / AWS / Docker
+  - PostgreSQL / Nginx / Python / Django / Bootstrap
+  - Difficulty: Cloud cost.
+    1. ECR / ECS
+    2. S3 / EC2 (A deploy script on the remote server)
+    3. EC2 (with linux commands such as `tar` for compressing, `scp` for transiting files, and `gettext` for environment variables)
+- TheShrimp
+  - Software Engineer
+  - GitLab / GitLab CICD / GCP / Firebase / Docker
+  - TypeScript / React / Jest / PhaserJS / ThreeJS / Socket.io / Ant Design / Flask
+  - Difficulty (STAR method): Pull self-hosted packages through VPN from other countries to build our product. It is not allowed to do it in our CICD environment, and it was pretty near to our release day
+    1. Request the security team to add our GitLab to the white list, we got rejected due to code freeze
+    2. Pull-down packages to our codebase, but it only worked when we only need a few
+    3. Labeled our product in the security team's entry application, and requested them to do a minor release, and it formed a rule for teams world-wide
 
 ## Questions
 
@@ -51,21 +51,21 @@ First of all, I developed an online mobile web game within a shopping app, which
 
 #### Technical Skills
 
--   Experience on GCP and AWS
--   Also have experience on Building CICD flow and other codebase functions on GitHub and GitLab
--   Understanding of Software Development, especially Web
+- Experience on GCP and AWS
+- Also have experience on Building CICD flow and other codebase functions on GitHub and GitLab
+- Understanding of Software Development, especially Web
 
 #### Personality Wise
 
--   Easy to communicate
--   Willing to help others
--   Always deliver alternative solutions as backups
+- Easy to communicate
+- Willing to help others
+- Always deliver alternative solutions as backups
 
 ### How Would Your Teammates Describe You
 
--   Easy to communicate
--   Willing to help others
--   Always deliver alternative solutions as backups
+- Easy to communicate
+- Willing to help others
+- Always deliver alternative solutions as backups
 
 ### What Can You Bring to Our Company During Your Internship
 
@@ -84,19 +84,19 @@ After my internship, I will see what I can apply to this company from my previou
 1. How do you see yourself in the next 5 years
 2. If you already have experience in working, why would you want to have internship in our company
 3. What made you to study for Master's degree after you have 3 years of working experience
-    - I didn't study in computer science in my undergraduate, and I found out that I lack of many fundamental knowledge, which is a impact to my job
+   - I didn't study in computer science in my undergraduate, and I found out that I lack of many fundamental knowledge, which is a impact to my job
 4. If your project can't deliver on time, what would you do
-    - I will get my first-line manager understand the situation, and I will always deliver alternative solutions as backup, it is not neccessury a MVP, but at least enough for me to explain with powerpoint
+   - I will get my first-line manager understand the situation, and I will always deliver alternative solutions as backup, it is not neccessury a MVP, but at least enough for me to explain with powerpoint
 5. Tell us a time you had set yourself a goal, how did you check your progress and how did you achieve it
-    - I will set milestones and divide them into small tasks
+   - I will set milestones and divide them into small tasks
 6. Tell me a time you had to convince a group that your idea was better than someone elses
-    - SWAT - Cache - Game
+   - SWAT - Cache - Game
 7. Tell me a time when you had to overcome a challenge, what steps had you take to maximize the outcome
-    - Nonprofit team - Docker - Get everything setup and dev server online
+   - Nonprofit team - Docker - Get everything setup and dev server online
 8. Explain a time you managed to network with a senior executive of a company. This can be a client or an executive in your office
-    - Depends his background, if he is a engineering background
+   - Depends his background, if he is a engineering background
 9. Tell me about a time when you and a customer didn’t see eye-to-eye and you had to resolve a conflict, how did you handle it and what was the final result
-    - Depends on
+   - Depends on
 
 ## Ask Back
 

@@ -63,8 +63,8 @@ Permanently configure on various OS.
 
 `/etc/network/interfaces` is where to configure network interfaces:
 
--   `<interface_name>`: Must be an existing interface, for example, `ens18` for Ubuntu and `eth0` for Kali
--   `<method>` can be `loopback` to direct back to the machine or `static` to use determined address, or `dhcp` for automatically being assigned if you have a DHCP server available
+- `<interface_name>`: Must be an existing interface, for example, `ens18` for Ubuntu and `eth0` for Kali
+- `<method>` can be `loopback` to direct back to the machine or `static` to use determined address, or `dhcp` for automatically being assigned if you have a DHCP server available
 
 ```
 auto <interface_name>

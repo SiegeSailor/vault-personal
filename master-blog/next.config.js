@@ -26,7 +26,7 @@ const config = {
           require("path").join(__dirname, "src/style/mixins")
         );
         return mixins
-          .map((item) => `@use "./mixins/${item}" as ${item};`)
+          .map((item) => `@use "./mixins/${item}" as ${item.split(".")[0]};`)
           .join(" ");
       } catch (error) {
         console.error(error);
