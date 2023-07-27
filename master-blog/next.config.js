@@ -19,8 +19,9 @@ const config = {
     ];
   },
   sassOptions: {
-    includePaths: ["./src/style/mixins"],
-    prependData: '@use "./media.scss" as *;',
+    includePaths: ["./src/style"],
+    prependData:
+      '@use "./mixins/breakpoints.scss" as breakpoints; @import "./variables.scss";',
   },
 };
 

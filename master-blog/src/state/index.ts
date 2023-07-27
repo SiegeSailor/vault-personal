@@ -9,6 +9,7 @@ const _useSelector: TypedUseSelectorHook<
 > = useSelector;
 
 export default {
+  store: content.store,
   useDispatch: _useDispatch,
   useSelector: _useSelector,
 };
