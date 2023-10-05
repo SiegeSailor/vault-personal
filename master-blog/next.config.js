@@ -24,9 +24,7 @@ const config = {
       const mixins = require("fs").readdirSync(
         require("path").join(__dirname, "src/style/mixins")
       );
-      return mixins
-        .map((item) => `@use "./mixins/${item}" as ${item.split(".")[0]};`)
-        .join(" ");
+      return mixins.map((item) => `@use "./mixins/${item}" as *;`).join(" ");
     })()} @import "./variables.scss";`,
   },
 };

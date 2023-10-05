@@ -1,16 +1,6 @@
 @import "./reset.scss";
 
-body {
-  &[data-theme="light"] {
-    --color-main: #{$--color-light-main};
-    --color-secondary: #{$--color-light-secondary};
-    --color-accent: #{$--color-light-accent};
-    --color-system: #{$--color-light-system};
-  }
-  &[data-theme="dark"] {
-    --color-main: #{$--color-dark-main};
-    --color-secondary: #{$--color-dark-secondary};
-    --color-accent: #{$--color-dark-accent};
-    --color-system: #{$--color-dark-system};
-  }
+svg {
+  display: inline;
+  font-size: $--font-size-m;
 }

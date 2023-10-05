@@ -1,35 +1,29 @@
 "use client";
 
-// import { usePathname } from "next/navigation";
+import { ComponentProps } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-// import style from "./index.module.scss";
-import { CSSProperties } from "react";
+import style from "./index.module.scss";
 
 export default function ({
-  href,
-  name,
   icon,
-  isFull = true,
-  inlineStyle,
+  name,
+  ...props
 }: {
-  href: string;
-  name: string;
+  name?: string;
   icon?: React.ReactNode;
-  isFull?: boolean;
-  inlineStyle?: CSSProperties;
-}) {
-  // const pathname = usePathname();
-
-  // const isActive = pathname.endsWith(href);
+} & ComponentProps<typeof Link>) {
+  const pathname = usePathname();
+  const isActive = pathname.endsWith(props.href.toString());
 
   return (
     <Link
-      // className={clsx(style.index, isActive ? style.active : style.inactive)}
-      href={href}
-      style={inlineStyle}
+      {...props}
+      className={`${style.index} ${isActive ? style.active : style.inactive}`}
     >
-      {icon} {isFull && name}
+      {icon}
+      {name && <span>{name}</span>}
     </Link>
   );
 }

@@ -1,9 +1,9 @@
 .index {
   display: inline-block;
   width: 100%;
-  font-size: var(--font-size-system);
-  svg {
-    margin-right: 16px;
+  font-size: $--font-size-m;
+  span {
+    margin-left: $--font-size-m;
   }
 }
 

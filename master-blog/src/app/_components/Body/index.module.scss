@@ -1,9 +1,35 @@
 .index {
+  &[data-theme="light"] {
+    --color-main: #{$--color-light-main};
+    --color-secondary: #{$--color-light-secondary};
+    --color-accent: #{$--color-light-accent};
+    --color-system: #{$--color-light-system};
+  }
+  &[data-theme="dark"] {
+    --color-main: #{$--color-dark-main};
+    --color-secondary: #{$--color-dark-secondary};
+    --color-accent: #{$--color-dark-accent};
+    --color-system: #{$--color-dark-system};
+  }
+
+  font-size: $--font-size-m;
+  @include breakpoint-desktop {
+    font-size: $--font-size-m;
+  }
+  @include breakpoint-tablet {
+    font-size: $--font-size-m;
+  }
+  @include breakpoint-phone {
+    font-size: $--font-size-m;
+  }
+
+  font-family: "Times New Roman", serif;
   width: 100%;
   height: 100%;
   background: rgb(var(--color-secondary));
   display: flex;
   flex-direction: column;
+
   main {
     width: 100%;
     height: 100%;
