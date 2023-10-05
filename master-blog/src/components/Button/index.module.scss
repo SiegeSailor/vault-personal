@@ -1,0 +1,28 @@
+.index {
+  border: $--border-width solid rgb(var(--color-accent));
+  width: 100%;
+  background-color: rgb(var(--color-main));
+  color: rgb(var(--color-secondary));
+  height: $--font-size-xl;
+  display: grid;
+  align-items: center;
+
+  span {
+    padding: 0 $--font-size-xxs;
+    font-size: $--font-size-m;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active,
+  &:disabled {
+    background-color: rgb(var(--color-accent));
+    color: rgb(var(--color-system));
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}

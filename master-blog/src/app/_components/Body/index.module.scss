@@ -12,18 +12,6 @@
     --color-system: #{$--color-dark-system};
   }
 
-  font-size: $--font-size-m;
-  @include breakpoint-desktop {
-    font-size: $--font-size-m;
-  }
-  @include breakpoint-tablet {
-    font-size: $--font-size-m;
-  }
-  @include breakpoint-phone {
-    font-size: $--font-size-m;
-  }
-
-  font-family: "Times New Roman", serif;
   width: 100%;
   height: 100%;
   background: rgb(var(--color-secondary));

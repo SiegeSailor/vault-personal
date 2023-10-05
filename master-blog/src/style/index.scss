@@ -1,5 +1,20 @@
 @import "./reset.scss";
 
+* {
+  font-size: 20px;
+  @include breakpoint-desktop {
+    font-size: 20px;
+  }
+  @include breakpoint-tablet {
+    font-size: 22px;
+  }
+  @include breakpoint-phone {
+    font-size: 24px;
+  }
+
+  font-family: "Times New Roman", serif;
+}
+
 svg {
   display: inline;
   font-size: $--font-size-m;

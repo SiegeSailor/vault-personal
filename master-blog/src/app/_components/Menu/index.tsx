@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import style from "./index.module.scss";
 import config from "@/config";
 import WrappedLink from "@/components/WrappedLink";
+import Button from "@/components/Button";
 
 const ITEMS: ComponentProps<typeof WrappedLink>[] = [
   {
@@ -30,6 +31,7 @@ export default function () {
         {ITEMS.map((item) => (
           <WrappedLink {...item} />
         ))}
+        <Button label="Contact" />
       </div>
     </menu>
   );

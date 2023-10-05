@@ -7,6 +7,10 @@
   justify-content: space-between;
   padding: $--font-size-m;
 
+  --font-size-m: #{$--font-size-m};
+  --font-size-xl: #{$--font-size-xl};
+  --padding-top-layout: calc((var(--font-size-xl) - var(--font-size-m)) / 2);
+
   > div {
     display: flex;
     flex-direction: row;
@@ -14,12 +18,13 @@
 
     h1 {
       font-size: $--font-size-l;
+      padding-top: calc(var(--padding-top-layout) / 2);
     }
 
     &:last-child {
-      --font-size-m: #{$--font-size-m};
-      --font-size-l: #{$--font-size-l};
-      padding-top: calc((var(--font-size-l) - var(--font-size-m)) / 2);
+      a {
+        padding-top: var(--padding-top-layout);
+      }
     }
   }
 }
