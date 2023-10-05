@@ -1,5 +1,3 @@
-"use client";
-
 import { ComponentProps } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -7,6 +5,7 @@ import style from "./index.module.scss";
 import config from "@/config";
 import WrappedLink from "@/components/WrappedLink";
 import Button from "@/components/Button";
+import Chevron from "./Chevron";
 
 const ITEMS: ComponentProps<typeof WrappedLink>[] = [
   {
@@ -32,6 +31,7 @@ export default function () {
           <WrappedLink {...item} />
         ))}
         <Button label="Contact" />
+        <Chevron />
       </div>
     </menu>
   );

@@ -1,0 +1,7 @@
+.index {
+  &:hover {
+    transition: 0.25s;
+    scale: 1.25;
+    cursor: pointer;
+  }
+}

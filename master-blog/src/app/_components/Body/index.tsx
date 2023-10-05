@@ -2,7 +2,7 @@
 
 import style from "./index.module.scss";
 import state from "@/state";
-import Menu from "../Menu";
+import Menu from "./Menu";
 
 export default function ({ children }: { children: React.ReactNode }) {
   const theme = state.useSelector((state) => state.theme);
