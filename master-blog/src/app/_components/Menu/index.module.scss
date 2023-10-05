@@ -6,10 +6,13 @@
   flex-direction: row;
   justify-content: space-between;
   padding: $--font-size-m;
+  box-shadow: $--box-shadow-m;
 
-  --font-size-m: #{$--font-size-m};
-  --font-size-xl: #{$--font-size-xl};
-  --padding-top-layout: calc((var(--font-size-xl) - var(--font-size-m)) / 2);
+  --font-size-m-cache: #{$--font-size-m};
+  --font-size-xl-cache: #{$--font-size-xl};
+  --padding-top-layout: calc(
+    (var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2
+  );
 
   > div {
     display: flex;
@@ -22,6 +25,10 @@
     }
 
     &:last-child {
+      button {
+        margin: 0 $--font-size-s;
+      }
+
       a {
         padding-top: var(--padding-top-layout);
       }

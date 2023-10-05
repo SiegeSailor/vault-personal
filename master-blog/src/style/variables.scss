@@ -8,7 +8,7 @@ $--color-dark-secondary: 35, 44, 49;
 $--color-dark-accent: 60, 77, 84;
 $--color-dark-system: 31, 39, 42;
 
-$--border-width: 0.015rem;
+$--border-width-m: 0.015rem;
 
 $--font-size-xxs: 0.6rem;
 $--font-size-xs: 0.75rem;
@@ -17,3 +17,6 @@ $--font-size-m: 1.25rem;
 $--font-size-l: 1.6rem;
 $--font-size-xl: 2.2rem;
 $--font-size-xxl: 3rem;
+
+$--box-shadow-m: rgba(var(--color-system), 0.05) $--font-size-xxs
+  $--font-size-xxs $--font-size-xxs;
