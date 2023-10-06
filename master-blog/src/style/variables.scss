@@ -1,7 +1,7 @@
-$--color-light-main: 31, 122, 153;
-$--color-light-secondary: 179, 226, 231;
+$--color-light-main: 0, 0, 0;
+$--color-light-secondary: 255, 255, 255;
 $--color-light-accent: 232, 232, 232;
-$--color-light-system: 17, 67, 84;
+$--color-light-system: 212, 212, 212;
 
 $--color-dark-main: 255, 255, 255;
 $--color-dark-secondary: 35, 44, 49;
@@ -19,5 +19,5 @@ $--font-size-l: 1.75rem;
 $--font-size-xl: 2.2rem;
 $--font-size-xxl: 3rem;
 
-$--box-shadow-m: rgba(var(--color-system), 0.05) $--font-size-xxs
-  $--font-size-xxs $--font-size-xxs;
+$--box-shadow-m: rgba(var(--color-main), 0.03) $--font-size-xxs $--font-size-xxs
+  $--font-size-xxs;

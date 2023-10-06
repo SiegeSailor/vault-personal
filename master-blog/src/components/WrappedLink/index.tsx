@@ -22,6 +22,9 @@ export default function ({
       {...props}
       aria-label={props["aria-label"] ?? label}
       className={`${style.index} ${isActive ? style.active : style.inactive}`}
+      data-target={
+        props.href.toString().startsWith("http") ? "external" : "internal"
+      }
     >
       {icon}
       {label && (

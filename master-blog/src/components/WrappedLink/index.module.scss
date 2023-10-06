@@ -2,6 +2,10 @@
   display: inline-block;
   font-size: $--font-size-m;
 
+  &[data-target="external"] {
+    color: rgb(var(--color-main));
+  }
+
   span {
     &[data-form="both"] {
       margin-left: $--font-size-m;
@@ -11,7 +15,6 @@
 
 .active {
   font-weight: bold;
-  background-color: rgb(var(--color-accent), 0.5);
   color: rgb(var(--color-main));
 }
 
