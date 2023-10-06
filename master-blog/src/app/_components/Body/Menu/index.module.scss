@@ -6,9 +6,11 @@
   flex-direction: row;
   justify-content: space-between;
   padding: $--font-size-m $--font-size-xl;
+
   @include breakpoint-phone {
-    padding: $--font-size-m;
+    padding: $--font-size-xs $--font-size-m;
   }
+
   box-shadow: $--box-shadow-m;
   z-index: 1;
   background-color: rgb(var(--color-secondary));
@@ -26,8 +28,8 @@
 
     &:first-child {
       h1 {
-        font-size: $--font-size-l;
         padding-top: calc(var(--padding-top-layout) / 2);
+        font-size: $--font-size-l;
       }
 
       > div {
@@ -42,7 +44,11 @@
 
       > a {
         padding-top: var(--padding-top-layout);
+
         @include breakpoint-phone {
+          display: none;
+        }
+        @include breakpoint-tablet {
           display: none;
         }
       }

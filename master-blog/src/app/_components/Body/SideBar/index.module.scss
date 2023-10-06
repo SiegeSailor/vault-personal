@@ -1,9 +1,9 @@
 .index {
   @include breakpoint-phone {
     width: 100%;
-    --font-size-m-cache: #{$--font-size-m};
+    --font-size-xs-cache: #{$--font-size-xs};
     --font-size-xl-cache: #{$--font-size-xl};
-    top: calc((var(--font-size-m-cache) * 2) + var(--font-size-xl-cache));
+    top: calc((var(--font-size-xs-cache) * 2) + var(--font-size-xl-cache));
     left: 0;
     position: fixed;
     height: 100%;
@@ -17,6 +17,6 @@
   gap: $--font-size-s;
 
   a {
-    font-size: $--font-size-ml;
+    font-size: $--font-size-m;
   }
 }

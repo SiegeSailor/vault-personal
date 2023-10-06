@@ -8,15 +8,15 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   @include breakpoint-desktop {
-    font-size: 18px;
+    font-size: 16px;
   }
   @include breakpoint-tablet {
-    font-size: 20px;
+    font-size: 17px;
   }
   @include breakpoint-phone {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 

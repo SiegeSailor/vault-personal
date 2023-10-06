@@ -32,7 +32,7 @@
       flex-grow: 1;
       padding: 0 $--font-size-xl;
       @include breakpoint-phone {
-        padding: $--font-size-m;
+        padding: 0 $--font-size-m;
       }
     }
   }

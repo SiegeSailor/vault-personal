@@ -7,19 +7,19 @@ import WrappedLink from "@/components/WrappedLink";
 const ITEMS: ComponentProps<typeof WrappedLink>[] = [
   {
     label: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     label: "Experience",
-    href: "/experience",
+    href: "#experience",
   },
   {
     label: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     label: "Blog",
-    href: "/blog",
+    href: "#blog",
   },
 ];
 
