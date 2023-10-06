@@ -3,6 +3,6 @@ export default {
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT || "development",
   },
   constants: {
-    TITLE: "Jin Yu, Zhang",
+    TITLE: "Jin-Yu Zhang",
   },
 };

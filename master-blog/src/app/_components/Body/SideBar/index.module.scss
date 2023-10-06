@@ -1,5 +1,11 @@
 .index {
+  display: flex;
+  flex-direction: column;
+  gap: $--font-size-s;
+  text-align: right;
+
   @include breakpoint-phone {
+    text-align: left;
     width: 100%;
     --font-size-xs-cache: #{$--font-size-xs};
     --font-size-xl-cache: #{$--font-size-xl};
@@ -11,8 +17,4 @@
     background-color: rgb(var(--color-secondary));
     transition: 0.15s;
   }
-
-  display: flex;
-  flex-direction: column;
-  gap: $--font-size-s;
 }
