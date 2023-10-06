@@ -21,7 +21,9 @@
   > div {
     display: flex;
     flex-direction: row;
-    padding: $--font-size-xl $--font-size-xxl;
+    --font-size-xxl-cache: #{$--font-size-xxl};
+    padding: $--font-size-xl 15vw;
+
     @include breakpoint-phone {
       padding: $--font-size-m;
     }
@@ -30,12 +32,8 @@
       width: 100%;
       height: 100%;
       flex-grow: 1;
-      --font-size-xxl-cache: #{$--font-size-xxl};
-      padding-left: calc(var(--font-size-xxl-cache) * 4.2);
+      padding-left: 10vw;
 
-      @include breakpoint-tablet {
-        padding-left: calc(var(--font-size-xxl-cache) * 1.8);
-      }
       @include breakpoint-phone {
         padding-left: 0;
       }

@@ -5,7 +5,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: $--font-size-m $--font-size-xxl;
+  --font-size-xxl-cache: #{$--font-size-xxl};
+  padding: $--font-size-m 15vw;
 
   @include breakpoint-phone {
     padding: $--font-size-xs $--font-size-m;

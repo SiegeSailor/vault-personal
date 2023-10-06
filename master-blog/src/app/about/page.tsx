@@ -1,9 +1,19 @@
 import style from "./index.module.scss";
 import Hint from "@/components/Hint";
+import Chip from "@/components/Chip";
+import profile from "./Anne.jpg";
+import config from "@/config";
+import WrappedImage from "@/components/WrappedImage";
+
+const TECHNOLOGIES: string[][] = [
+  ["Python", "JavaScript (TypeScript)", "NextJS", "MySQL", "Redis"],
+  ["GitHub Actions", "Amazon Web Services", "Terraform"],
+];
 
 export default function () {
   return (
     <section id="about" className={style.index}>
+      <WrappedImage src={profile} alt={config.constants.TITLE} />
       <p>
         In 2017, I embarked on my software engineering journey with a primary
         focus on <Hint>web application development</Hint>. Over the years, I've
@@ -30,6 +40,18 @@ export default function () {
         protecting applications from potential threats is paramount, and I'm
         dedicated to implementing robust security practices.
       </p>
+      <p>Here are a few technologies I’ve been working with recently:</p>
+      <ul>
+        {TECHNOLOGIES.map((items, index) => (
+          <ul key={index}>
+            {items.map((item, index) => (
+              <li key={index}>
+                <Chip>{item}</Chip>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </ul>
     </section>
   );
 }

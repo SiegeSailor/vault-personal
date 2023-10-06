@@ -1,0 +1,7 @@
+.index {
+  border-radius: $--font-size-xxl;
+  border: $--border-width-l solid rgb(var(--color-main));
+  --font-size-xxs-cache: #{$--font-size-xxs};
+  padding: calc(var(--font-size-xxs-cache) * 0.5) $--font-size-xs;
+  font-size: $--font-size-s;
+}
