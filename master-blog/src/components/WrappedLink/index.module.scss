@@ -1,5 +1,6 @@
 .index {
   display: inline-block;
+  font-size: $--font-size-m;
 
   span {
     &[data-form="both"] {
