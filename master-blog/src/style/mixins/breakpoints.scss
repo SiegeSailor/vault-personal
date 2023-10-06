@@ -1,11 +1,11 @@
 @mixin breakpoint-desktop {
-  @media screen and (max-width: 991px) {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }
 
 @mixin breakpoint-tablet {
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 767px) {
     @content;
   }
 }

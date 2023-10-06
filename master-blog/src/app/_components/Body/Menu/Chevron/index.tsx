@@ -1,5 +1,3 @@
-"use client";
-
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
 import style from "./index.module.scss";
@@ -13,7 +11,7 @@ export default function () {
       className={style.index}
       onClick={() => dispatch((actions) => actions.isSideMenuOpen.toggle())}
     >
-      {isSideMenuOpen ? <VscChevronRight /> : <VscChevronLeft />}
+      {isSideMenuOpen ? <VscChevronLeft /> : <VscChevronRight />}
     </div>
   );
 }

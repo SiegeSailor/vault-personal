@@ -5,8 +5,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: $--font-size-m;
+  padding: $--font-size-m $--font-size-xl;
+  @include breakpoint-phone {
+    padding: $--font-size-m;
+  }
   box-shadow: $--box-shadow-m;
+  z-index: 1;
+  background-color: rgb(var(--color-secondary));
 
   --font-size-m-cache: #{$--font-size-m};
   --font-size-xl-cache: #{$--font-size-xl};
@@ -17,21 +22,29 @@
   > div {
     display: flex;
     flex-direction: row;
-    gap: $--font-size-xs;
+    gap: $--font-size-xxs;
 
-    h1 {
-      font-size: $--font-size-l;
-      padding-top: calc(var(--padding-top-layout) / 2);
+    &:first-child {
+      h1 {
+        font-size: $--font-size-l;
+        padding-top: calc(var(--padding-top-layout) / 2);
+      }
+
+      > div {
+        padding-top: var(--padding-top-layout);
+      }
     }
 
     &:last-child {
       button {
-        margin: 0 $--font-size-s;
+        margin-left: $--font-size-xxs;
       }
 
-      a,
-      > div {
+      a {
         padding-top: var(--padding-top-layout);
+        @include breakpoint-phone {
+          display: none;
+        }
       }
     }
   }

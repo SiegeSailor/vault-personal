@@ -8,10 +8,10 @@ import style from "./index.module.scss";
 
 export default function ({
   icon,
-  name,
+  label,
   ...props
 }: {
-  name?: string;
+  label?: string;
   icon?: React.ReactNode;
 } & ComponentProps<typeof Link>) {
   const pathname = usePathname();
@@ -20,10 +20,13 @@ export default function ({
   return (
     <Link
       {...props}
+      aria-label={props["aria-label"] ?? label}
       className={`${style.index} ${isActive ? style.active : style.inactive}`}
     >
       {icon}
-      {name && <span>{name}</span>}
+      {label && (
+        <span data-form={icon && label ? "both" : "single"}>{label}</span>
+      )}
     </Link>
   );
 }

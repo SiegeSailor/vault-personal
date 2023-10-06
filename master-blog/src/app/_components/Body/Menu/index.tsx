@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithubSquare, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 
 import style from "./index.module.scss";
 import config from "@/config";
@@ -10,7 +10,7 @@ import Chevron from "./Chevron";
 const ITEMS: ComponentProps<typeof WrappedLink>[] = [
   {
     "aria-label": "GitHub",
-    icon: <FaGithub />,
+    icon: <FaGithubSquare />,
     href: "https://github.com/SiegeSailor",
   },
   {
@@ -18,20 +18,25 @@ const ITEMS: ComponentProps<typeof WrappedLink>[] = [
     icon: <FaLinkedin />,
     href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
   },
+  {
+    "aria-label": "Facebook",
+    icon: <FaFacebookSquare />,
+    href: "https://www.facebook.com/lookswalidy",
+  },
 ];
 
 export default function () {
   return (
     <menu className={style.index}>
       <div>
+        <Chevron />
         <h1>{config.constants.TITLE}</h1>
       </div>
       <div>
         {ITEMS.map((item) => (
-          <WrappedLink {...item} />
+          <WrappedLink key={item.href.toString()} {...item} />
         ))}
         <Button label="Contact" />
-        <Chevron />
       </div>
     </menu>
   );

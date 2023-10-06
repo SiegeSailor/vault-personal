@@ -1,7 +1,10 @@
 .index {
   display: inline-block;
+
   span {
-    margin-left: $--font-size-m;
+    &[data-form="both"] {
+      margin-left: $--font-size-m;
+    }
   }
 }
 

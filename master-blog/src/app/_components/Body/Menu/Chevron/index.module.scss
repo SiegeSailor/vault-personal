@@ -1,4 +1,10 @@
 .index {
+  @include breakpoint-desktop {
+    display: none;
+  }
+  @include breakpoint-tablet {
+    display: none;
+  }
   &:hover {
     transition: 0.25s;
     scale: 1.25;
