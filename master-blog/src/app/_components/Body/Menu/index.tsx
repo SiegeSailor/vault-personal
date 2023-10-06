@@ -33,7 +33,9 @@ export default function () {
     <menu className={style.index}>
       <div>
         <Chevron />
-        <h1>{config.constants.TITLE}</h1>
+        <h1>
+          <WrappedLink href="/" label={config.constants.TITLE} />
+        </h1>
       </div>
       <div>
         {ITEMS.map((item) => (

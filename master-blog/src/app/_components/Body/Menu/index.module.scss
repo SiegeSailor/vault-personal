@@ -28,8 +28,12 @@
 
     &:first-child {
       h1 {
-        padding-top: calc(var(--padding-top-layout) / 2);
-        font-size: $--font-size-l;
+        a {
+          padding-top: calc(var(--padding-top-layout) / 2);
+          font-size: $--font-size-l;
+          font-weight: normal;
+          color: rgb(var(--color-main));
+        }
       }
 
       > div {
