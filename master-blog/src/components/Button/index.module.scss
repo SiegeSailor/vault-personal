@@ -9,6 +9,12 @@
   span {
     padding: 0 $--font-size-xxs;
     font-size: $--font-size-m;
+    color: rgb(var(--color-secondary));
+
+    &:active,
+    &:disabled {
+      color: rgb(var(--color-system));
+    }
   }
 
   &:hover {
@@ -18,7 +24,6 @@
   &:active,
   &:disabled {
     background-color: rgb(var(--color-accent));
-    color: rgb(var(--color-system));
   }
 
   &:disabled {

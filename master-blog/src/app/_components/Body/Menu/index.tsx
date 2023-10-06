@@ -36,7 +36,15 @@ export default function () {
         {ITEMS.map((item) => (
           <WrappedLink key={item.href.toString()} {...item} />
         ))}
-        <Button label="Contact" />
+        <Button
+          label={
+            <WrappedLink
+              href="mailto:siege@bu.edu"
+              target="_blank"
+              label="Contact"
+            />
+          }
+        />
       </div>
     </menu>
   );
