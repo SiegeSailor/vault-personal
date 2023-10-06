@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import "@fontsource/ubuntu";
 
 import "@/style/index.scss";
 import style from "./index.module.scss";

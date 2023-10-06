@@ -1,27 +1,7 @@
-import { ComponentProps } from "react";
-
 import style from "./index.module.scss";
 import state from "@/state";
 import WrappedLink from "@/components/WrappedLink";
-
-const ITEMS: ComponentProps<typeof WrappedLink>[] = [
-  {
-    label: "About",
-    href: "/about",
-  },
-  {
-    label: "Experience",
-    href: "/experience",
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-  },
-  {
-    label: "Blog",
-    href: "/blog",
-  },
-];
+import config from "@/config";
 
 export default function () {
   const isSideMenuOpen = state.useSelector((state) => state.isSideMenuOpen);
@@ -33,7 +13,7 @@ export default function () {
         opacity: isSideMenuOpen ? 1 : 0,
       }}
     >
-      {ITEMS.map((item) => (
+      {config.constants.SECTION_ITEMS.map((item) => (
         <WrappedLink key={item.href.toString()} {...item} />
       ))}
     </div>

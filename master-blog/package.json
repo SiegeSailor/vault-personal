@@ -4,7 +4,6 @@
     "url": "https://github.com/SiegeSailor/Personal.Content/issues"
   },
   "dependencies": {
-    "@fontsource/ubuntu": "5.0.3",
     "@reduxjs/toolkit": "1.9.5",
     "@sentry/browser": "7.57.0",
     "framer-motion": "10.13.0",
