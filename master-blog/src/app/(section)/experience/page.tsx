@@ -31,6 +31,48 @@ const ITEMS = [
       "Led 5 developers using Agile with Scrum on Jira",
     ],
   },
+  {
+    employer: "Shopee",
+    location: "Taipei, Taiwan",
+    title: "Software Engineer",
+    period: "Jan 2020 - Feb 2022",
+    skills: ["Phaser", "React", "Google Cloud Platform", "Firebase", "ThreeJS"],
+    achievements: [
+      "Developed multiple mobile SPAs for high-volume tolerance multi-player real-time games with over 200,000 traffic daily and the highest RPS of 10,000 using Three.JS, Phaser, Ant Design, Redux with a self-hosted socket using Socket.IO, Express, and Redis",
+      "Embedded region services within the global data warehouse using Flask, Firestore, and GCP",
+      "Established CICD pipelines for testing and deploying using GitLab and GCP for backstages and games",
+      "Constructed team-level packages and hosted on private NPM, bootstrapping documentation with TypeScript, Postman, and Docusaurus",
+      "Introduced Test-Driven Development using Jest for games and private packages, conducting scheduled load testing using Locust for back-end services and getaways",
+    ],
+  },
+  {
+    employer: "Edallianz",
+    location: "Taipei, Taiwan",
+    title: "Software Engineer",
+    period: "Jan 2019 - Nov 2019",
+    skills: ["Django", "Bootstrap", "Amazon Web Services", "Apache", "Nginx"],
+    achievements: [
+      "Created a RWD UI framework using SCSS and Webpack, integrating it with Material UI and jQuery",
+      "Constructed web systems with Django, MySQL, RTDB, and Apache as parts of the microservices with Tornado proxying, which were containerized with Docker and deployed on AWS",
+    ],
+  },
+  {
+    employer: "Servicetech",
+    locationL: "Taichung, Taiwan",
+    title: "Software Engineer",
+    period: "Jun 2017 - Oct 2018",
+    skills: [
+      "React",
+      "Ionic",
+      "Google Cloud Platform",
+      "Firebase",
+      "Google API",
+    ],
+    achievements: [
+      "Built a configurable website that hits 500% more customers using React, Bootstrap, and Firebase",
+      "Developed a cross-platform PWA using Ionic to fully transform a company from paper-based to digital-driven by integrating the workflow between departments",
+    ],
+  },
 ];
 
 export default function () {
