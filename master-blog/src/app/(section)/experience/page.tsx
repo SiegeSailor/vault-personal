@@ -3,7 +3,9 @@ import style from "./index.module.scss";
 import promises from "@/promises";
 
 export default async function () {
-  const [resume] = await Promise.all([promises.readJSON("./resume.json")]);
+  const [resume] = await Promise.all([
+    promises.readLocalJSON<Schema.IResume>("./resume.json"),
+  ]);
 
   return (
     <section id="experience" className={style.index}>
