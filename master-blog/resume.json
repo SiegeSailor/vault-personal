@@ -93,5 +93,19 @@
         "Developed a cross-platform PWA using Ionic to fully transform a company from paper-based to digital-driven by integrating the workflow between departments"
       ]
     }
+  ],
+  "project": [
+    {
+      "title": "AccountHub",
+      "description": "Constructs endpoints for a sophisticated account database system within the OWASP SAMM framework.",
+      "link": "https://github.com/SiegeSailor/OpenSource.AccountHub",
+      "technologies": ["TypeScript", "MySQL", "Redis", "Express"]
+    },
+    {
+      "title": "Formulas",
+      "description": "Provides a collection of cryptography functions and a command line tool with interactive prompts to demonstrate key encryption flows and algorithms.",
+      "link": "https://github.com/SiegeSailor/OpenSource.Formulas",
+      "technologies": ["TypeScript", "Jest", "Inquirer"]
+    }
   ]
 }

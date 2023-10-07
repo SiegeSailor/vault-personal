@@ -10,5 +10,11 @@ declare module Schema {
       skills: string[];
       achievements: string[];
     }[];
+    project: {
+      title: string;
+      description: string;
+      link: string;
+      technologies: string[];
+    }[];
   }
 }

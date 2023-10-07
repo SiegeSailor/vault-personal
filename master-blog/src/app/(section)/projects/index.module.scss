@@ -1,2 +1,31 @@
 .index {
+  display: flex;
+  flex-direction: column;
+  gap: $--font-size-xxl;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: $--font-size-xs;
+    > div {
+      &:nth-child(1) {
+      }
+
+      &:nth-child(2) {
+        p {
+          line-height: 1.2;
+          font-size: $--font-size-s;
+        }
+      }
+
+      &:nth-child(3) {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          gap: $--font-size-xxs;
+        }
+      }
+    }
+  }
 }
