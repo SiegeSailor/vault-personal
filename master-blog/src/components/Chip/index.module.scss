@@ -1,4 +1,5 @@
 .index {
+  display: inline-block;
   border-radius: $--font-size-xxl;
   border: $--border-width-l solid rgb(var(--color-main));
   --font-size-xxs-cache: #{$--font-size-xxs};

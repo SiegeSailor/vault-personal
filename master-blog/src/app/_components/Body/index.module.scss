@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: row;
     --font-size-xxl-cache: #{$--font-size-xxl};
-    padding: $--font-size-xl 15vw;
+    padding: $--font-size-xl 10vw;
     overflow: hidden;
 
     @include breakpoint-phone {
