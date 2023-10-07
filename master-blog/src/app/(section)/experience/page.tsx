@@ -1,6 +1,8 @@
 import Chip from "@/components/Chip";
 import style from "./index.module.scss";
 import promises from "@/promises";
+import WrappedLinkExternal from "@/components/WrappedLinkExternal";
+import config from "@/config";
 
 export default async function () {
   const [resume] = await Promise.all([
@@ -39,6 +41,12 @@ export default async function () {
           </div>
         </div>
       ))}
+
+      <WrappedLinkExternal
+        href={config.constants.LINK_RESUME_PDF}
+        label="View Full Resume"
+        target="_blank"
+      />
     </section>
   );
 }

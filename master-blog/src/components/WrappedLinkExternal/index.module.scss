@@ -1,0 +1,20 @@
+.index {
+  display: flex;
+  --font-size-xxs-cache: #{$--font-size-xxs};
+  gap: calc(var(--font-size-xxs-cache) * 0.5);
+
+  > a,
+  > svg {
+    transition: 0.15s;
+  }
+
+  &:hover {
+    > a {
+      text-decoration: underline;
+    }
+
+    > svg {
+      transform: translateX($--font-size-xxs);
+    }
+  }
+}

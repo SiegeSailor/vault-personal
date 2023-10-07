@@ -13,7 +13,7 @@
       --font-size-xxs-cache: #{$--font-size-xxs};
 
       &:first-child {
-        flex: 0 0 30%;
+        flex: 0 0 17.5%;
         white-space: nowrap;
         font-size: $--font-size-s;
         padding-top: calc(var(--font-size-xxs-cache) * 0.5);
@@ -21,7 +21,7 @@
       }
 
       &:last-child {
-        flex: 0 0 65%;
+        flex: 0 0 77.5%;
         display: flex;
         flex-direction: column;
         gap: $--font-size-xxs;
