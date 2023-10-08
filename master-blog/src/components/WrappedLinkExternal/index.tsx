@@ -1,14 +1,24 @@
 import { IoArrowForward } from "react-icons/io5";
 import { ComponentProps } from "react";
+import Link from "next/link";
 
-import WrappedLink from "../WrappedLink";
 import style from "./index.module.scss";
 
-export default function ({ ...props }: ComponentProps<typeof WrappedLink>) {
+export default function ({
+  label,
+  ...props
+}: { label: string } & ComponentProps<typeof Link>) {
   return (
-    <h6 className={style.index}>
-      <WrappedLink {...props} className={style.index} />
+    <Link
+      {...props}
+      aria-label={label}
+      className={style.index}
+      data-target={
+        props.href.toString().startsWith("http") ? "external" : "internal"
+      }
+    >
+      <span>{label}</span>
       <IoArrowForward />
-    </h6>
+    </Link>
   );
 }
