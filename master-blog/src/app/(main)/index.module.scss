@@ -125,6 +125,10 @@
     gap: $--font-size-xs;
     > div {
       &:nth-child(1) {
+        h3 {
+          font-size: $--font-size-ml;
+          line-height: 1.05;
+        }
       }
 
       &:nth-child(2) {

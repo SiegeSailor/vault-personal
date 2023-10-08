@@ -67,17 +67,17 @@ export default async function () {
         />
       </section>
 
-      <section id="projects" className={style.project}>
+      <section id="project" className={style.project}>
         {resume.project.map((item) => (
           <div key={item.link}>
             <div>
-              <h4>
+              <h3>
                 <WrappedLinkExternal
                   label={item.title}
                   href={item.link}
                   target="_blank"
                 />
-              </h4>
+              </h3>
             </div>
             <div>
               <p>{item.description}</p>
