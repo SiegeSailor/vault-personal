@@ -13,6 +13,7 @@
   background-color: rgb(var(--color-secondary));
   transition: 0.15s;
   text-transform: uppercase;
+  z-index: 1;
 
   > a {
     font-size: $--font-size-s;

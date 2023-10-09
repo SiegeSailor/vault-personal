@@ -11,6 +11,23 @@
     border-top: $--border-width-ml solid rgb(var(--color-main));
     border-bottom: $--border-width-ml solid rgb(var(--color-main));
     padding: $--font-size-xxs 0;
+    background-color: rgb(var(--color-secondary));
+    position: sticky;
+    --font-size-xs-cache: #{$--font-size-xs};
+    --font-size-m-cache: #{$--font-size-m};
+    --font-size-l-cache: #{$--font-size-l};
+    --font-size-xl-cache: #{$--font-size-xl};
+    top: calc(
+      (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache) +
+        ((var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2) - 0.5px
+    );
+
+    @include breakpoint-phone {
+      top: calc(
+        (var(--font-size-xs-cache)) + var(--font-size-l-cache) +
+          var(--font-size-m-cache) - 1px
+      );
+    }
   }
 
   h3,
