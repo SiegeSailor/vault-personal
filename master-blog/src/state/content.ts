@@ -17,7 +17,7 @@ const theme = createSlice({
 
 const isSideBarOpen = createSlice({
   name: "isSideBarOpen",
-  initialState: true,
+  initialState: false,
   reducers: {
     toggle: (state) => {
       return !state;

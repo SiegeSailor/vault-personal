@@ -22,9 +22,5 @@ export default {
       LINKEDIN: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
       FACEBOOK: "https://www.facebook.com/lookswalidy",
     },
-    ELEMENT_IDENTIFIERS: {
-      CONTAINER: "container",
-      CONTENT: "content",
-    },
   },
 };
