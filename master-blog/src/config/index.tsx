@@ -17,7 +17,7 @@ const SECTION_ITEMS = [
   { href: "/#project" },
 ].map<ComponentProps<typeof WrappedLink> & { label: string }>((item) => {
   const label = item.href.split("#")[1];
-  return { ...item, label: `${label[0].toUpperCase()}${label.slice(1)}` };
+  return { ...item, label };
 });
 
 const EXTERNAL_ITEMS = [

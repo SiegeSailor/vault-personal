@@ -13,7 +13,7 @@ export default function () {
       style={{
         transform: `translateX(${isSideBarOpen ? 0 : "-100%"})`,
         opacity: isSideBarOpen ? 1 : 0,
-        display: isSideBarOpen ? "flex" : "none",
+        pointerEvents: isSideBarOpen ? "auto" : "none",
       }}
     >
       {config.constants.SECTION_ITEMS.map((item) => (

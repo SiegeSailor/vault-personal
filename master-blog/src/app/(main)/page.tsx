@@ -1,8 +1,10 @@
 import Chip from "@/components/Chip";
 import style from "./index.module.scss";
 import promises from "@/promises";
-import WrappedLinkExternal from "@/components/WrappedLinkExternal";
 import config from "@/config";
+import WrappedImage from "@/components/WrappedImage";
+import WrappedLinkExternal from "@/components/WrappedLinkExternal";
+import imageProfile from "./profile.png";
 
 export default async function () {
   const [resume] = await Promise.all([
@@ -12,9 +14,28 @@ export default async function () {
   return (
     <div className={style.index}>
       <section id="about" className={style.about}>
-        {resume.introduction.map((item, index) => (
-          <p key={index} dangerouslySetInnerHTML={{ __html: item }} />
-        ))}
+        <h2>about</h2>
+        <div>
+          <div>
+            <div>
+              <h3>{resume.title}</h3>
+              <p>{resume.brief}</p>
+            </div>
+            <WrappedImage src={imageProfile} alt={config.constants.TITLE} />
+          </div>
+          <div>
+            {resume.introduction
+              .slice(0, resume.introduction.length - 1)
+              .map((item, index) => (
+                <p key={index} dangerouslySetInnerHTML={{ __html: item }} />
+              ))}
+          </div>
+        </div>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: resume.introduction[resume.introduction.length - 1],
+          }}
+        />
         <ul>
           {resume.technology.map((items, index) => (
             <ul key={index}>
@@ -29,6 +50,8 @@ export default async function () {
       </section>
 
       <section id="experience" className={style.experience}>
+        <h2>experience</h2>
+
         {resume.experience.map((item) => (
           <div key={item.period}>
             <div>{item.period}</div>
@@ -70,6 +93,8 @@ export default async function () {
       </section>
 
       <section id="project" className={style.project}>
+        <h2>project</h2>
+
         {resume.project.map((item) => (
           <div key={item.link}>
             <div>

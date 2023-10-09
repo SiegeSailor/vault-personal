@@ -1,5 +1,7 @@
 declare module Schema {
   interface IResume {
+    title: string;
+    brief: string;
     introduction: string[];
     technology: string[][];
     experience: {

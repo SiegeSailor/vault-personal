@@ -4,10 +4,24 @@
   --font-size-xxl-cache: #{$--font-size-xxl};
   gap: calc(var(--font-size-xxl-cache) * 2.5);
 
+  h2 {
+    color: rgb(var(--color-main));
+    font-size: $--font-size-s;
+    text-transform: uppercase;
+    border-top: $--border-width-ml solid rgb(var(--color-main));
+    border-bottom: $--border-width-ml solid rgb(var(--color-main));
+    padding: $--font-size-xxs 0;
+  }
+
   h3,
   h3 a {
     font-size: $--font-size-ml;
     line-height: 1.05;
+  }
+
+  > section {
+    border-bottom: $--border-width-ml solid rgb(var(--color-system));
+    padding-bottom: $--font-size-l;
   }
 }
 
@@ -15,6 +29,64 @@
   display: flex;
   flex-direction: column;
   gap: $--font-size-l;
+
+  > div {
+    display: flex;
+    gap: $--font-size-l;
+    justify-content: space-around;
+    border-bottom: $--border-width-ml solid rgb(var(--color-system));
+    padding-bottom: $--font-size-l;
+
+    @include breakpoint-tablet {
+      flex-wrap: wrap;
+    }
+    @include breakpoint-phone {
+      flex-wrap: wrap;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: $--font-size-xxs;
+      flex-basis: 47.5%;
+
+      @include breakpoint-tablet {
+        flex-basis: 100%;
+      }
+      @include breakpoint-phone {
+        flex-basis: 100%;
+      }
+
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: $--font-size-xxs;
+        }
+
+        @include breakpoint-desktop {
+          border-right: $--border-width-ml solid rgb(var(--color-system));
+          padding-right: $--font-size-l;
+        }
+        @include breakpoint-tablet {
+          border-bottom: $--border-width-ml solid rgb(var(--color-system));
+          padding-bottom: $--font-size-l;
+        }
+        @include breakpoint-phone {
+          border-bottom: $--border-width-ml solid rgb(var(--color-system));
+          padding-bottom: $--font-size-l;
+        }
+      }
+
+      &:last-child {
+        flex-grow: 1;
+      }
+    }
+  }
 
   > ul {
     display: flex;

@@ -9,16 +9,21 @@
   left: 0;
   position: fixed;
   height: 100%;
-  padding: $--font-size-m;
+  padding: $--font-size-m 10vw;
   background-color: rgb(var(--color-secondary));
   transition: 0.15s;
+  text-transform: uppercase;
+
+  > a {
+    font-size: $--font-size-s;
+  }
 
   > div {
     display: flex;
     flex-direction: row;
     gap: $--font-size-s;
     padding-top: $--font-size-s;
-    margin-top: $--font-size-xl;
+    margin-top: $--font-size-l;
     border-top: $--border-width-ml solid rgb(var(--color-system));
   }
 }
