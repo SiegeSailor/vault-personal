@@ -15,8 +15,8 @@ const theme = createSlice({
   },
 });
 
-const isSideMenuOpen = createSlice({
-  name: "isSideMenuOpen",
+const isSideBarOpen = createSlice({
+  name: "isSideBarOpen",
   initialState: true,
   reducers: {
     toggle: (state) => {
@@ -28,7 +28,7 @@ const isSideMenuOpen = createSlice({
 const store = configureStore({
   reducer: combineReducers({
     theme: theme.reducer,
-    isSideMenuOpen: isSideMenuOpen.reducer,
+    isSideBarOpen: isSideBarOpen.reducer,
   }),
 });
 
@@ -36,6 +36,6 @@ export default {
   store,
   actions: {
     theme: theme.actions,
-    isSideMenuOpen: isSideMenuOpen.actions,
+    isSideBarOpen: isSideBarOpen.actions,
   },
 };

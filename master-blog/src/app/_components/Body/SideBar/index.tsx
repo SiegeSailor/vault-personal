@@ -4,15 +4,15 @@ import WrappedLink from "@/components/WrappedLink";
 import config from "@/config";
 
 export default function () {
-  const isSideMenuOpen = state.useSelector((state) => state.isSideMenuOpen);
+  const isSideBarOpen = state.useSelector((state) => state.isSideBarOpen);
   const dispatch = state.useDispatch();
 
   return (
     <div
       className={style.index}
       style={{
-        transform: `translateX(${isSideMenuOpen ? 0 : "-100%"})`,
-        opacity: isSideMenuOpen ? 1 : 0,
+        transform: `translateX(${isSideBarOpen ? 0 : "-100%"})`,
+        opacity: isSideBarOpen ? 1 : 0,
       }}
     >
       {config.constants.SECTION_ITEMS.map((item) => (
@@ -41,8 +41,8 @@ export default function () {
               });
             }
 
-            if (isSideMenuOpen)
-              dispatch((actions) => actions.isSideMenuOpen.toggle());
+            if (isSideBarOpen)
+              dispatch((actions) => actions.isSideBarOpen.toggle());
           }}
           {...item}
         />

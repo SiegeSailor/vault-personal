@@ -4,14 +4,14 @@ import style from "./index.module.scss";
 import state from "@/state";
 
 export default function () {
-  const isSideMenuOpen = state.useSelector((state) => state.isSideMenuOpen);
+  const isSideBarOpen = state.useSelector((state) => state.isSideBarOpen);
   const dispatch = state.useDispatch();
   return (
     <div
       className={style.index}
-      onClick={() => dispatch((actions) => actions.isSideMenuOpen.toggle())}
+      onClick={() => dispatch((actions) => actions.isSideBarOpen.toggle())}
     >
-      {isSideMenuOpen ? <VscChevronLeft /> : <VscChevronRight />}
+      {isSideBarOpen ? <VscChevronLeft /> : <VscChevronRight />}
     </div>
   );
 }

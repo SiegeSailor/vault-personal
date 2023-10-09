@@ -8,7 +8,6 @@ export default {
       { href: "#about" },
       { href: "#experience" },
       { href: "#project" },
-      { href: "#blog" },
     ].map((item) => {
       const label = item.href.split("#")[1];
       return { ...item, label: `${label[0].toUpperCase()}${label.slice(1)}` };
