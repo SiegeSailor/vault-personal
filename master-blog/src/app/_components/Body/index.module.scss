@@ -26,7 +26,7 @@
     --font-size-l-cache: #{$--font-size-l};
     --font-size-xl-cache: #{$--font-size-xl};
     padding-top: calc(
-      (var(--font-size-m-cache) * 2) + var(--font-size-l-cache) +
+      (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache) +
         var(--font-size-xl-cache) +
         ((var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2)
     );
