@@ -6,6 +6,7 @@ import WrappedLink from "@/components/WrappedLink";
 const LINKS = {
   RESUME_PDF:
     "https://drive.google.com/file/d/1iWgEmjzBHQV_3KDRS0zwj6qf5NlHDiCy/view?usp=drive_link",
+  REPOSITORIES: "https://github.com/SiegeSailor?tab=repositories",
   GITHUB: "https://github.com/SiegeSailor",
   LINKEDIN: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
   FACEBOOK: "https://www.facebook.com/lookswalidy",

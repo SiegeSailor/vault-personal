@@ -8,7 +8,8 @@
     "Here are a few technologies I’ve been working with recently:"
   ],
   "technology": [
-    ["Python", "JavaScript (TypeScript)", "NextJS", "MySQL", "Redis"],
+    ["Python", "MySQL", "Redis"],
+    ["JavaScript (TypeScript)", "React", "NextJS"],
     ["GitHub Actions", "Amazon Web Services", "Terraform"]
   ],
   "experience": [

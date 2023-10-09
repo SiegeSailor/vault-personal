@@ -120,6 +120,12 @@ export default async function () {
             </div>
           </div>
         ))}
+
+        <WrappedLinkExternal
+          href={config.constants.LINKS.REPOSITORIES}
+          label="View Full Repositories"
+          target="_blank"
+        />
       </section>
     </div>
   );
