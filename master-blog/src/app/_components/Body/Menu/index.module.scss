@@ -52,7 +52,7 @@
           position: absolute;
           right: 0;
           top: 50%;
-          height: 50%;
+          height: $--font-size-m;
           background-color: rgb(var(--color-system));
           width: $--border-width-ml;
           transform: translateY(-50%);
