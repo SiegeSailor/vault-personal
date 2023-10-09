@@ -12,13 +12,16 @@ const LINKS = {
   FACEBOOK: "https://www.facebook.com/lookswalidy",
 };
 
-const SECTION_ITEMS = [
-  { href: "/#about" },
-  { href: "/#experience" },
-  { href: "/#project" },
-].map<ComponentProps<typeof WrappedLink> & { label: string }>((item) => {
-  const label = item.href.split("#")[1];
-  return { ...item, label };
+const SECTION_NAMES = {
+  ABOUT: "about",
+  EXPERIENCE: "experience",
+  PROJECT: "project",
+};
+
+const SECTION_ITEMS = Object.values(SECTION_NAMES).map<
+  ComponentProps<typeof WrappedLink> & { label: string }
+>((item) => {
+  return { label: item, href: `/#${item}` };
 });
 
 const EXTERNAL_ITEMS = [
@@ -49,6 +52,7 @@ export default {
   constants: {
     TITLE: "Jin-Yu Zhang",
     LINKS,
+    SECTION_NAMES,
     SECTION_ITEMS,
     EXTERNAL_ITEMS,
     MILLISECONDS: {

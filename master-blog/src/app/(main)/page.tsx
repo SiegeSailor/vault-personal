@@ -5,6 +5,16 @@ import config from "@/config";
 import WrappedImage from "@/components/WrappedImage";
 import WrappedLinkExternal from "@/components/WrappedLinkExternal";
 import imageProfile from "./profile.png";
+import { ReactNode } from "react";
+
+function _Section({ name, children }: { name: string; children: ReactNode }) {
+  return (
+    <section id={name} className={style[name]}>
+      <h2>{name}</h2>
+      {children}
+    </section>
+  );
+}
 
 export default async function () {
   const [resume] = await Promise.all([
@@ -13,8 +23,7 @@ export default async function () {
 
   return (
     <div className={style.index}>
-      <section id="about" className={style.about}>
-        <h2>about</h2>
+      <_Section name={config.constants.SECTION_NAMES.ABOUT}>
         <div>
           <div>
             <div>
@@ -47,11 +56,9 @@ export default async function () {
             </ul>
           ))}
         </ul>
-      </section>
+      </_Section>
 
-      <section id="experience" className={style.experience}>
-        <h2>experience</h2>
-
+      <_Section name={config.constants.SECTION_NAMES.EXPERIENCE}>
         {resume.experience.map((item) => (
           <div key={item.period}>
             <div>{item.period}</div>
@@ -90,11 +97,9 @@ export default async function () {
           label="View Full Resume"
           target="_blank"
         />
-      </section>
+      </_Section>
 
-      <section id="project" className={style.project}>
-        <h2>project</h2>
-
+      <_Section name={config.constants.SECTION_NAMES.PROJECT}>
         {resume.project.map((item) => (
           <div key={item.link}>
             <div>
@@ -120,13 +125,12 @@ export default async function () {
             </div>
           </div>
         ))}
-
         <WrappedLinkExternal
           href={config.constants.LINKS.REPOSITORIES}
           label="View All Repositories"
           target="_blank"
         />
-      </section>
+      </_Section>
     </div>
   );
 }
