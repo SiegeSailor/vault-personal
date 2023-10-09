@@ -10,7 +10,10 @@ export default async function () {
   ]);
 
   return (
-    <div className={style.index}>
+    <div
+      id={config.constants.ELEMENT_IDENTIFIERS.CONTENT}
+      className={style.index}
+    >
       <section id="about" className={style.about}>
         {resume.introduction.map((item, index) => (
           <p key={index} dangerouslySetInnerHTML={{ __html: item }} />
@@ -43,7 +46,9 @@ export default async function () {
               <div>
                 <ul>
                   {item.achievements.map((achievement) => (
-                    <li key={achievement}>{achievement}</li>
+                    <li key={achievement}>
+                      <p>{achievement}</p>
+                    </li>
                   ))}
                 </ul>
               </div>

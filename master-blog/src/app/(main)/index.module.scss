@@ -4,6 +4,12 @@
   --font-size-xxl-cache: #{$--font-size-xxl};
   gap: calc(var(--font-size-xxl-cache) * 2.5);
   overflow: auto;
+
+  h3,
+  h3 a {
+    font-size: $--font-size-ml;
+    line-height: 1.05;
+  }
 }
 
 .about {
@@ -60,13 +66,6 @@
         gap: $--font-size-xxs;
 
         > div {
-          &:nth-child(1) {
-            h3 {
-              font-size: $--font-size-ml;
-              line-height: 1.05;
-            }
-          }
-
           &:nth-child(2) {
             span {
               font-size: $--font-size-s;
@@ -89,12 +88,11 @@
               gap: $--font-size-xxs;
 
               li {
-                line-height: 1.2;
-                font-size: $--font-size-s;
-
-                &::before {
-                  content: "▪";
-                  padding-right: $--font-size-xxs;
+                p {
+                  &::before {
+                    content: "▪";
+                    padding-right: $--font-size-xxs;
+                  }
                 }
               }
             }
@@ -124,20 +122,6 @@
     flex-direction: column;
     gap: $--font-size-xs;
     > div {
-      &:nth-child(1) {
-        h3 {
-          font-size: $--font-size-ml;
-          line-height: 1.05;
-        }
-      }
-
-      &:nth-child(2) {
-        p {
-          line-height: 1.2;
-          font-size: $--font-size-s;
-        }
-      }
-
       &:nth-child(3) {
         ul {
           display: flex;

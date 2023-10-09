@@ -2,7 +2,9 @@ import { ComponentProps } from "react";
 
 import WrappedLink from "@/components/WrappedLink";
 
-const SECTION_ITEMS: ComponentProps<typeof WrappedLink>[] = [
+const SECTION_ITEMS: (ComponentProps<typeof WrappedLink> & {
+  label: string;
+})[] = [
   { href: "#about" },
   { href: "#experience" },
   { href: "#project" },
@@ -11,6 +13,11 @@ const SECTION_ITEMS: ComponentProps<typeof WrappedLink>[] = [
   const label = item.href.split("#")[1];
   return { ...item, label: `${label[0].toUpperCase()}${label.slice(1)}` };
 });
+
+const ELEMENT_IDENTIFIERS = {
+  CONTAINER: "container",
+  CONTENT: "content",
+};
 
 export default {
   envs: {
@@ -22,5 +29,6 @@ export default {
     MILLISECONDS_SECOND: 1000,
     LINK_RESUME_PDF:
       "https://drive.google.com/file/d/1iWgEmjzBHQV_3KDRS0zwj6qf5NlHDiCy/view?usp=drive_link",
+    ELEMENT_IDENTIFIERS,
   },
 };
