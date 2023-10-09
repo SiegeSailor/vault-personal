@@ -38,6 +38,11 @@ export default function () {
         </h1>
       </div>
       <div>
+        <div>
+          {config.constants.SECTION_ITEMS.map((item) => (
+            <WrappedLink key={item.href.toString()} {...item} />
+          ))}
+        </div>
         {ITEMS.map((item) => (
           <WrappedLink key={item.href.toString()} {...item} />
         ))}

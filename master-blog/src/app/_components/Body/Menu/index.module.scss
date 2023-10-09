@@ -43,6 +43,34 @@
     }
 
     &:last-child {
+      > div {
+        position: relative;
+        padding-right: $--font-size-xxs;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          height: 50%;
+          background-color: rgb(var(--color-system));
+          width: $--border-width-ml;
+          transform: translateY(-50%);
+        }
+
+        > a {
+          padding-top: var(--padding-top-layout);
+          margin-left: $--font-size-s;
+        }
+
+        @include breakpoint-phone {
+          display: none;
+        }
+        @include breakpoint-tablet {
+          display: none;
+        }
+      }
+
       button {
         margin-left: $--font-size-xxs;
       }
