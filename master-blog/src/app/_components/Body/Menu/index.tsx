@@ -11,19 +11,19 @@ const ITEMS: ComponentProps<typeof WrappedLink>[] = [
   {
     "aria-label": "GitHub",
     icon: <FaGithubSquare />,
-    href: "https://github.com/SiegeSailor",
+    href: config.constants.LINKS.GITHUB,
     target: "_blank",
   },
   {
     "aria-label": "LinkedIn",
     icon: <FaLinkedin />,
-    href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/",
+    href: config.constants.LINKS.LINKEDIN,
     target: "_blank",
   },
   {
     "aria-label": "Facebook",
     icon: <FaFacebookSquare />,
-    href: "https://www.facebook.com/lookswalidy",
+    href: config.constants.LINKS.FACEBOOK,
     target: "_blank",
   },
 ];

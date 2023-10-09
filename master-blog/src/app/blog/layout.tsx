@@ -8,7 +8,7 @@ import config from "@/config";
 import WrappedLink from "@/components/WrappedLink";
 import { useEffect, useState } from "react";
 
-const COUNTDOWN_GAP = config.constants.MILLISECONDS_SECOND / 50;
+const COUNTDOWN_GAP = config.constants.MILLISECONDS.SECOND / 50;
 const COUNTDOWN = 100 + COUNTDOWN_GAP;
 const SCROLL_BUFFER = 5;
 

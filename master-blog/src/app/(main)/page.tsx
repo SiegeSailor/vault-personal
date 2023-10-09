@@ -66,7 +66,7 @@ export default async function () {
         ))}
 
         <WrappedLinkExternal
-          href={config.constants.LINK_RESUME_PDF}
+          href={config.constants.LINKS.RESUME_PDF}
           label="View Full Resume"
           target="_blank"
         />
