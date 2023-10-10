@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import Chip from "@/components/Chip";
 import style from "./index.module.scss";
 import promises from "@/promises";
@@ -5,7 +7,6 @@ import config from "@/config";
 import WrappedImage from "@/components/WrappedImage";
 import WrappedLinkExternal from "@/components/WrappedLinkExternal";
 import imageProfile from "./profile.png";
-import { ReactNode } from "react";
 
 function _Section({ name, children }: { name: string; children: ReactNode }) {
   return (
@@ -20,6 +21,10 @@ export default async function () {
   const [resume] = await Promise.all([
     promises.readLocalJSON<Schema.IResume>("./resume.json"),
   ]);
+
+  // useEffect(() => {
+  //   utilities.scrollSection(window.location.hash);
+  // }, []);
 
   return (
     <div className={style.index}>

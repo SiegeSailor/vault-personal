@@ -9,19 +9,24 @@ import style from "./index.module.scss";
 export default function ({
   icon,
   label,
+  isActive,
   ...props
 }: {
   label?: string;
   icon?: React.ReactNode;
+  isActive?: boolean;
 } & ComponentProps<typeof Link>) {
   const pathname = usePathname();
-  const isActive = pathname.endsWith(props.href.toString());
 
   return (
     <Link
       {...props}
       aria-label={props["aria-label"] ?? label}
-      className={`${style.index} ${isActive ? style.active : style.inactive}`}
+      className={`${style.index} ${
+        isActive || pathname.endsWith(props.href.toString())
+          ? style.active
+          : style.inactive
+      }`}
       data-target={
         props.href.toString().startsWith("http") ? "external" : "internal"
       }
@@ -33,3 +38,6 @@ export default function ({
     </Link>
   );
 }
+
+// 重新整理後的跳轉 sticky header 會擋住第一行字：把 padding 移到 header
+// Anchor 要發黑

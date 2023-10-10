@@ -2,6 +2,7 @@ import style from "./index.module.scss";
 import state from "@/state";
 import WrappedLink from "@/components/WrappedLink";
 import config from "@/config";
+import Anchor from "../Anchor";
 
 export default function () {
   const isSideBarOpen = state.useSelector((state) => state.isSideBarOpen);
@@ -16,13 +17,9 @@ export default function () {
         pointerEvents: isSideBarOpen ? "auto" : "none",
       }}
     >
-      {config.constants.SECTION_ITEMS.map((item) => (
-        <WrappedLink
-          key={item.href.toString()}
-          onClick={() => dispatch((actions) => actions.isSideBarOpen.toggle())}
-          {...item}
-        />
-      ))}
+      <Anchor
+        onClick={() => dispatch((actions) => actions.isSideBarOpen.toggle())}
+      />
       <div>
         {config.constants.EXTERNAL_ITEMS.map((item) => (
           <WrappedLink key={item.href.toString()} {...item} />

@@ -3,6 +3,7 @@ import config from "@/config";
 import WrappedLink from "@/components/WrappedLink";
 import Button from "@/components/Button";
 import Chevron from "./Chevron";
+import Anchor from "../Anchor";
 
 export default function () {
   return (
@@ -15,9 +16,7 @@ export default function () {
       </div>
       <div>
         <div>
-          {config.constants.SECTION_ITEMS.map((item) => (
-            <WrappedLink key={item.href.toString()} {...item} />
-          ))}
+          <Anchor />
         </div>
         {config.constants.EXTERNAL_ITEMS.map((item) => (
           <WrappedLink key={item.href.toString()} {...item} />

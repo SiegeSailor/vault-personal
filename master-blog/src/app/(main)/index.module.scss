@@ -28,6 +28,10 @@
           var(--font-size-m-cache) - 1px
       );
     }
+
+    &:stuck {
+      color: red;
+    }
   }
 
   h3,
