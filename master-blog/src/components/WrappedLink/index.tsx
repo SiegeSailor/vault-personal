@@ -1,5 +1,3 @@
-"use client";
-
 import { ComponentProps } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -38,6 +36,3 @@ export default function ({
     </Link>
   );
 }
-
-// 重新整理後的跳轉 sticky header 會擋住第一行字：把 padding 移到 header
-// Anchor 要發黑

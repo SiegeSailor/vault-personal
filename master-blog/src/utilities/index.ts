@@ -1,13 +1,10 @@
 function scrollSection(identifier: string) {
   const element = document.getElementById(identifier);
-  const section = document.getElementsByTagName("section")[0];
-  const title = section.getElementsByTagName("h2")[0];
-
-  if (element && section && title) {
-    console.log("FUCK");
+  if (element) {
+    const title = element.getElementsByTagName("h2")[0];
     const offset =
       parseInt(
-        window.getComputedStyle(section, null).getPropertyValue("gap"),
+        window.getComputedStyle(element, null).getPropertyValue("gap"),
         10
       ) *
         0.5 +

@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 import Chip from "@/components/Chip";
 import style from "./index.module.scss";
 import promises from "@/promises";
@@ -7,28 +5,16 @@ import config from "@/config";
 import WrappedImage from "@/components/WrappedImage";
 import WrappedLinkExternal from "@/components/WrappedLinkExternal";
 import imageProfile from "./profile.png";
-
-function _Section({ name, children }: { name: string; children: ReactNode }) {
-  return (
-    <section id={name} className={style[name]}>
-      <h2>{name}</h2>
-      {children}
-    </section>
-  );
-}
+import Section from "./_components/Section";
 
 export default async function () {
   const [resume] = await Promise.all([
     promises.readLocalJSON<Schema.IResume>("./resume.json"),
   ]);
 
-  // useEffect(() => {
-  //   utilities.scrollSection(window.location.hash);
-  // }, []);
-
   return (
     <div className={style.index}>
-      <_Section name={config.constants.SECTION_NAMES.ABOUT}>
+      <Section name={config.constants.SECTION_NAMES.ABOUT}>
         <div>
           <div>
             <div>
@@ -61,9 +47,9 @@ export default async function () {
             </ul>
           ))}
         </ul>
-      </_Section>
+      </Section>
 
-      <_Section name={config.constants.SECTION_NAMES.EXPERIENCE}>
+      <Section name={config.constants.SECTION_NAMES.EXPERIENCE}>
         {resume.experience.map((item) => (
           <div key={item.period}>
             <div>{item.period}</div>
@@ -102,9 +88,9 @@ export default async function () {
           label="View Full Resume"
           target="_blank"
         />
-      </_Section>
+      </Section>
 
-      <_Section name={config.constants.SECTION_NAMES.PROJECT}>
+      <Section name={config.constants.SECTION_NAMES.PROJECT}>
         {resume.project.map((item) => (
           <div key={item.link}>
             <div>
@@ -135,7 +121,7 @@ export default async function () {
           label="View All Repositories"
           target="_blank"
         />
-      </_Section>
+      </Section>
     </div>
   );
 }
