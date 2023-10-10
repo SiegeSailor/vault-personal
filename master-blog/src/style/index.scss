@@ -1,6 +1,7 @@
 @import "./reset.scss";
 
 * {
+  scroll-behavior: smooth !important;
   font-family: "Times New Roman", serif;
   &::-webkit-scrollbar {
     display: none;

@@ -7,12 +7,10 @@ import style from "./index.module.scss";
 export default function ({
   icon,
   label,
-  isActive,
   ...props
 }: {
   label?: string;
   icon?: React.ReactNode;
-  isActive?: boolean;
 } & ComponentProps<typeof Link>) {
   const pathname = usePathname();
 
@@ -21,9 +19,7 @@ export default function ({
       {...props}
       aria-label={props["aria-label"] ?? label}
       className={`${style.index} ${
-        isActive || pathname.endsWith(props.href.toString())
-          ? style.active
-          : style.inactive
+        pathname.endsWith(props.href.toString()) ? style.active : style.inactive
       }`}
       data-target={
         props.href.toString().startsWith("http") ? "external" : "internal"

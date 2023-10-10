@@ -3,7 +3,7 @@
 import { ReactNode, useEffect } from "react";
 
 import style from "./index.module.scss";
-import utilities from "@/utilities";
+import state from "@/state";
 
 export default function ({
   name,
@@ -12,13 +12,25 @@ export default function ({
   name: string;
   children: ReactNode;
 }) {
+  const dispatch = state.useDispatch();
+
   useEffect(() => {
     const hash = window.location.hash.substring(1);
-    if (hash === name) utilities.scrollSection(window.location.hash);
+    if (hash === name) {
+      dispatch((actions) => actions.sections.view(name));
+    }
+  }, []);
+
+  useEffect(() => {
+    dispatch((actions) => actions.sections.mount(name));
   }, []);
 
   return (
-    <section id={name} className={style[name]}>
+    <section
+      id={name}
+      className={style[name]}
+      onMouseEnter={() => dispatch((actions) => actions.sections.view(name))}
+    >
       <h2>{name}</h2>
       {children}
     </section>

@@ -25,19 +25,12 @@
     --font-size-m-cache: #{$--font-size-m};
     --font-size-l-cache: #{$--font-size-l};
     --font-size-xl-cache: #{$--font-size-xl};
-    padding-top: calc(
-      (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache) +
-        var(--font-size-xl-cache) +
-        ((var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2)
-    );
+    --height-menu: (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache);
+    padding-top: calc(var(--height-menu) + var(--font-size-xl-cache));
 
     @include breakpoint-phone {
       padding: $--font-size-m;
-      padding-top: calc(
-        (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache) +
-          var(--font-size-xl-cache) +
-          ((var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2)
-      );
+      padding-top: calc(var(--height-menu) + var(--font-size-m-cache));
     }
 
     main {

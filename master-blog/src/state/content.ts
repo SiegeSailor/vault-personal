@@ -1,4 +1,11 @@
-import { configureStore, createSlice, combineReducers } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createSlice,
+  combineReducers,
+  PayloadAction,
+} from "@reduxjs/toolkit";
+
+import config from "@/config";
 
 const theme = createSlice({
   name: "theme",
@@ -25,10 +32,43 @@ const isSideBarOpen = createSlice({
   },
 });
 
+const sectionsInitialState = Object.keys(config.constants.SECTION_NAMES).reduce<
+  Record<string, { mount: boolean; isVisible: boolean }>
+>((result, key) => {
+  result[key.toLowerCase()] = { mount: false, isVisible: false };
+  return result;
+}, {});
+const sections = createSlice({
+  name: "sections",
+  initialState: sectionsInitialState,
+  reducers: {
+    mount: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        [action.payload]: { ...state[action.payload], mount: true },
+      };
+    },
+    view: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        ...Object.keys(state).reduce<typeof sectionsInitialState>(
+          (result, key) => {
+            result[key] = { mount: state[key].mount, isVisible: false };
+            return result;
+          },
+          {}
+        ),
+        [action.payload]: { ...state[action.payload], isVisible: true },
+      };
+    },
+  },
+});
+
 const store = configureStore({
   reducer: combineReducers({
     theme: theme.reducer,
     isSideBarOpen: isSideBarOpen.reducer,
+    sections: sections.reducer,
   }),
 });
 
@@ -37,5 +77,6 @@ export default {
   actions: {
     theme: theme.actions,
     isSideBarOpen: isSideBarOpen.actions,
+    sections: sections.actions,
   },
 };
