@@ -2,7 +2,7 @@ import style from "./index.module.scss";
 import config from "@/config";
 import WrappedLink from "@/components/WrappedLink";
 import Button from "@/components/Button";
-import Chevron from "./Chevron";
+import Chevron from "../Chevron";
 import Anchor from "../Anchor";
 
 export default function () {
