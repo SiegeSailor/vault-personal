@@ -29,7 +29,7 @@ export default function ({
     <section
       id={name}
       className={style[name]}
-      onMouseEnter={() => dispatch((actions) => actions.sections.view(name))}
+      onMouseOver={() => dispatch((actions) => actions.sections.view(name))}
     >
       <h2>{name}</h2>
       {children}

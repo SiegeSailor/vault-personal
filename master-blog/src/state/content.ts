@@ -32,15 +32,21 @@ const isSideBarOpen = createSlice({
   },
 });
 
-const sectionsInitialState = Object.keys(config.constants.SECTION_NAMES).reduce<
-  Record<string, { mount: boolean; isVisible: boolean }>
->((result, key) => {
-  result[key.toLowerCase()] = { mount: false, isVisible: false };
-  return result;
-}, {});
+interface ISectionsState {
+  [key: string]: {
+    mount: boolean;
+    isVisible: boolean;
+  };
+}
+
 const sections = createSlice({
   name: "sections",
-  initialState: sectionsInitialState,
+  initialState: Object.keys(
+    config.constants.SECTION_NAMES
+  ).reduce<ISectionsState>((result, key) => {
+    result[key.toLowerCase()] = { mount: false, isVisible: false };
+    return result;
+  }, {}),
   reducers: {
     mount: (state, action: PayloadAction<string>) => {
       return {
@@ -51,13 +57,10 @@ const sections = createSlice({
     view: (state, action: PayloadAction<string>) => {
       return {
         ...state,
-        ...Object.keys(state).reduce<typeof sectionsInitialState>(
-          (result, key) => {
-            result[key] = { mount: state[key].mount, isVisible: false };
-            return result;
-          },
-          {}
-        ),
+        ...Object.keys(state).reduce<ISectionsState>((result, key) => {
+          result[key] = { mount: state[key].mount, isVisible: false };
+          return result;
+        }, {}),
         [action.payload]: { ...state[action.payload], isVisible: true },
       };
     },

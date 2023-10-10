@@ -13,7 +13,7 @@ export default async function () {
   ]);
 
   return (
-    <div className={style.index}>
+    <div id={config.constants.IDENTIFIERS.MAIN_PAGE} className={style.index}>
       <Section name={config.constants.SECTION_NAMES.ABOUT}>
         <div>
           <div>

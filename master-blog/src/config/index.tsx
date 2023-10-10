@@ -45,6 +45,10 @@ const EXTERNAL_ITEMS = [
   target: "_blank",
 }));
 
+const IDENTIFIERS = {
+  MAIN_PAGE: "main_page",
+};
+
 export default {
   envs: {
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT || "development",
@@ -58,5 +62,6 @@ export default {
     MILLISECONDS: {
       SECOND: 1000,
     },
+    IDENTIFIERS,
   },
 };

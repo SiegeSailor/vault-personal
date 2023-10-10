@@ -49,9 +49,17 @@
     display: flex;
     flex-direction: column;
     gap: $--font-size-l;
-    border-bottom: $--border-width-ml solid rgb(var(--color-system));
-    padding-bottom: $--font-size-l;
-    padding-top: var(--top-layout);
+    position: relative;
+    padding: var(--top-layout) 10vw $--font-size-l 10vw;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 80vw;
+      height: $--border-width-ml;
+      background-color: rgb(var(--color-system));
+    }
 
     @include breakpoint-phone {
       padding-top: var(--top-layout-mobile);
