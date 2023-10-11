@@ -32,37 +32,12 @@ const isSideBarOpen = createSlice({
   },
 });
 
-interface ISectionsState {
-  [key: string]: {
-    mount: boolean;
-    isVisible: boolean;
-  };
-}
-
-const sections = createSlice({
-  name: "sections",
-  initialState: Object.keys(
-    config.constants.SECTION_NAMES
-  ).reduce<ISectionsState>((result, key) => {
-    result[key.toLowerCase()] = { mount: false, isVisible: false };
-    return result;
-  }, {}),
+const section = createSlice({
+  name: "section",
+  initialState: config.constants.SECTION_NAMES.ABOUT,
   reducers: {
-    mount: (state, action: PayloadAction<string>) => {
-      return {
-        ...state,
-        [action.payload]: { ...state[action.payload], mount: true },
-      };
-    },
-    view: (state, action: PayloadAction<string>) => {
-      return {
-        ...state,
-        ...Object.keys(state).reduce<ISectionsState>((result, key) => {
-          result[key] = { mount: state[key].mount, isVisible: false };
-          return result;
-        }, {}),
-        [action.payload]: { ...state[action.payload], isVisible: true },
-      };
+    set: (_, action: PayloadAction<string>) => {
+      return action.payload;
     },
   },
 });
@@ -71,7 +46,7 @@ const store = configureStore({
   reducer: combineReducers({
     theme: theme.reducer,
     isSideBarOpen: isSideBarOpen.reducer,
-    sections: sections.reducer,
+    section: section.reducer,
   }),
 });
 
@@ -80,6 +55,6 @@ export default {
   actions: {
     theme: theme.actions,
     isSideBarOpen: isSideBarOpen.actions,
-    sections: sections.actions,
+    section: section.actions,
   },
 };

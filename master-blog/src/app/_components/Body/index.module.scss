@@ -19,16 +19,16 @@
   flex-direction: column;
 
   > div {
+    padding: $--font-size-xl 10vw;
+
     --font-size-xs-cache: #{$--font-size-xs};
     --font-size-m-cache: #{$--font-size-m};
     --font-size-l-cache: #{$--font-size-l};
     --font-size-xl-cache: #{$--font-size-xl};
     --height-menu: (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache);
-    padding-bottom: $--font-size-xl;
     padding-top: calc(var(--height-menu) + var(--font-size-xl-cache));
 
     @include breakpoint-phone {
-      padding-bottom: $--font-size-m;
       padding-top: calc(var(--height-menu) + var(--font-size-m-cache));
     }
 

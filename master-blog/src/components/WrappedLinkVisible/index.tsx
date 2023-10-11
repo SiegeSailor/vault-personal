@@ -12,14 +12,14 @@ export default function ({
   label: string;
   icon?: React.ReactNode;
 } & ComponentProps<typeof Link>) {
-  const sections = state.useSelector((state) => state.sections);
+  const section = state.useSelector((state) => state.section);
 
   return (
     <Link
       {...props}
       aria-label={props["aria-label"] ?? label}
       className={`${style.index} ${
-        sections[label].isVisible ? style.active : style.inactive
+        section === label ? style.active : style.inactive
       }`}
     >
       {icon}

@@ -17,20 +17,12 @@ export default function ({
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     if (hash === name) {
-      dispatch((actions) => actions.sections.view(name));
+      dispatch((actions) => actions.section.set(name));
     }
   }, []);
 
-  useEffect(() => {
-    dispatch((actions) => actions.sections.mount(name));
-  }, []);
-
   return (
-    <section
-      id={name}
-      className={style[name]}
-      onMouseOver={() => dispatch((actions) => actions.sections.view(name))}
-    >
+    <section id={name} className={style[name]}>
       <h2>{name}</h2>
       {children}
     </section>

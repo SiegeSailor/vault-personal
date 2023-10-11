@@ -1,11 +1,11 @@
 import Chip from "@/components/Chip";
-import style from "./index.module.scss";
 import promises from "@/promises";
 import config from "@/config";
 import WrappedImage from "@/components/WrappedImage";
 import WrappedLinkExternal from "@/components/WrappedLinkExternal";
 import imageProfile from "./profile.png";
 import Section from "./_components/Section";
+import style from "./index.module.scss";
 
 export default async function () {
   const [resume] = await Promise.all([
@@ -13,7 +13,7 @@ export default async function () {
   ]);
 
   return (
-    <div id={config.constants.IDENTIFIERS.MAIN_PAGE} className={style.index}>
+    <div className={style.index}>
       <Section name={config.constants.SECTION_NAMES.ABOUT}>
         <div>
           <div>

@@ -50,7 +50,7 @@
     flex-direction: column;
     gap: $--font-size-l;
     position: relative;
-    padding: var(--top-layout) 10vw $--font-size-l 10vw;
+    padding: var(--top-layout) 0 $--font-size-l 0;
 
     &::after {
       content: "";
