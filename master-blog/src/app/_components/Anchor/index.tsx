@@ -1,13 +1,13 @@
 import { ComponentProps } from "react";
 
 import config from "@/config";
-import WrappedLinkVisible from "@/components/WrappedLinkVisible";
+import WrappedLink from "@/components/WrappedLink";
 
 export default function ({
   ...props
-}: Omit<ComponentProps<typeof WrappedLinkVisible>, "href" | "label">) {
+}: Omit<ComponentProps<typeof WrappedLink>, "href" | "label">) {
   return config.constants.SECTION_ITEMS.map((item) => (
-    <WrappedLinkVisible
+    <WrappedLink
       key={item.label}
       {...item}
       {...props}

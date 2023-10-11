@@ -1,11 +1,4 @@
-import {
-  configureStore,
-  createSlice,
-  combineReducers,
-  PayloadAction,
-} from "@reduxjs/toolkit";
-
-import config from "@/config";
+import { configureStore, createSlice, combineReducers } from "@reduxjs/toolkit";
 
 const theme = createSlice({
   name: "theme",
@@ -32,21 +25,10 @@ const isSideBarOpen = createSlice({
   },
 });
 
-const section = createSlice({
-  name: "section",
-  initialState: config.constants.SECTION_NAMES.ABOUT,
-  reducers: {
-    set: (_, action: PayloadAction<string>) => {
-      return action.payload;
-    },
-  },
-});
-
 const store = configureStore({
   reducer: combineReducers({
     theme: theme.reducer,
     isSideBarOpen: isSideBarOpen.reducer,
-    section: section.reducer,
   }),
 });
 
@@ -55,6 +37,5 @@ export default {
   actions: {
     theme: theme.actions,
     isSideBarOpen: isSideBarOpen.actions,
-    section: section.actions,
   },
 };
