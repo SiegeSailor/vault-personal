@@ -9,16 +9,17 @@ export default function ({
   ...props
 }: { label: string } & ComponentProps<typeof Link>) {
   return (
-    <Link
-      {...props}
-      aria-label={label}
-      className={style.index}
-      data-target={
-        props.href.toString().startsWith("http") ? "external" : "internal"
-      }
-    >
-      <span>{label}</span>
-      <IoArrowForward />
-    </Link>
+    <span className={style.index}>
+      <Link
+        {...props}
+        aria-label={label}
+        data-target={
+          props.href.toString().startsWith("http") ? "external" : "internal"
+        }
+      >
+        <span>{label}</span>
+        <IoArrowForward />
+      </Link>
+    </span>
   );
 }

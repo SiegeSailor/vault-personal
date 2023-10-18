@@ -58,6 +58,10 @@
     padding-bottom: $--font-size-l;
     border-bottom: $--border-width-ml solid rgb(var(--color-system));
   }
+
+  > span {
+    width: fit-content;
+  }
 }
 
 .about {
@@ -198,6 +202,10 @@
         &:nth-child(odd) {
           padding-right: $--font-size-l;
           border-right: $--border-width-ml solid rgb(var(--color-system));
+        }
+
+        @include breakpoint-desktop {
+          height: calc(var(--font-size-l-cache) * 8.5);
         }
 
         @include breakpoint-tablet {
