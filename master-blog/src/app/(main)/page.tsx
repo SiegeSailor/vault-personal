@@ -47,29 +47,33 @@ export default async function () {
             </ul>
           ))}
         </ul>
+
+        <WrappedLinkExternal
+          href={config.constants.LINKS.RESUME_PDF}
+          label="View Full Resume"
+          target="_blank"
+        />
       </Section>
 
       <Section name={config.constants.SECTION_NAMES.EDUCATION}>
         {resume.education.map((item) => (
           <div key={item.period}>
-            <div>{item.period}</div>
             <div>
-              <div>
-                <h3>{item.institute}</h3>
-              </div>
-              <div>
-                <span>{item.department}</span>
-                <span>{item.degree}</span>
-              </div>
-              <div>
-                <ul>
-                  {item.achievements.map((achievement) => (
-                    <li key={achievement}>
-                      <p dangerouslySetInnerHTML={{ __html: achievement }} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <h3>{item.institute}</h3>
+            </div>
+            <div>
+              <span>{item.department}</span>
+              <span>{item.degree}</span>
+              <span>{item.period}</span>
+            </div>
+            <div>
+              <ul>
+                {item.achievements.map((achievement) => (
+                  <li key={achievement}>
+                    <p dangerouslySetInnerHTML={{ __html: achievement }} />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
@@ -109,12 +113,6 @@ export default async function () {
           </div>
         ))}
       </Section>
-
-      <WrappedLinkExternal
-        href={config.constants.LINKS.RESUME_PDF}
-        label="View Full Resume"
-        target="_blank"
-      />
 
       <Section name={config.constants.SECTION_NAMES.PROJECT}>
         {resume.project.map((item) => (
