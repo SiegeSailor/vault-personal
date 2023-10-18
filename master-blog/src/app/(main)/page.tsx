@@ -56,32 +56,56 @@ export default async function () {
       </Section>
 
       <Section name={config.constants.SECTION_NAMES.EDUCATION}>
-        {resume.education.map((item) => (
-          <div key={item.period}>
-            <div>
-              <h3>{item.institute}</h3>
-            </div>
-            <div>
-              <span>{item.department}</span>
-              <span>{item.degree}</span>
-              <span>{item.period}</span>
-            </div>
-            <div>
-              <ul>
-                {item.achievements.map((achievement) => (
-                  <li key={achievement}>
-                    <p dangerouslySetInnerHTML={{ __html: achievement }} />
-                  </li>
+        <div>
+          {resume.education
+            .reduce<(typeof resume.education)[]>(
+              (accumulator, current, index) => {
+                if (index % 2 == 0) {
+                  accumulator[0].push(current);
+                } else {
+                  accumulator[1].push(current);
+                }
+                return accumulator;
+              },
+              [[], []]
+            )
+            .map((items, index) => (
+              <div key={index}>
+                {items.map((item) => (
+                  <div key={item.institute}>
+                    <div>{item.period}</div>
+                    <div>
+                      <h3>{item.institute}</h3>
+                    </div>
+                    <div>
+                      <span>{item.department}</span>
+                      <span>{item.degree}</span>
+                    </div>
+                    {Boolean(item.achievements.length) && (
+                      <div>
+                        <ul>
+                          {item.achievements.map((achievement) => (
+                            <li key={achievement}>
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html: achievement,
+                                }}
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+              </div>
+            ))}
+        </div>
       </Section>
 
       <Section name={config.constants.SECTION_NAMES.EXPERIENCE}>
         {resume.experience.map((item) => (
-          <div key={item.period}>
+          <div key={item.employer}>
             <div>{item.period}</div>
             <div>
               <div>

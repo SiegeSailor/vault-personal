@@ -140,57 +140,122 @@
 }
 
 .education {
+  @include breakpoint-tablet {
+    padding-bottom: 0;
+    gap: 0;
+  }
+
+  @include breakpoint-phone {
+    padding-bottom: 0;
+    gap: 0;
+  }
+
   > div {
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    --font-size-xxs-cache: #{$--font-size-xxs};
-
     display: flex;
     flex-direction: column;
-    gap: $--font-size-xxs;
+    border-bottom: none;
+    padding-bottom: 0;
 
     > div {
-      &:nth-child(2) {
-        span {
-          font-size: $--font-size-s;
-          line-height: 1.05;
+      --font-size-xxs-cache: #{$--font-size-xxs};
 
-          &:not(&:last-child) {
-            &::after {
-              content: ", ";
-            }
-          }
-        }
+      display: flex;
+      flex-direction: row;
+      gap: $--font-size-l;
+
+      border-bottom: $--border-width-ml solid rgb(var(--color-system));
+      padding: $--font-size-l 0;
+
+      &:first-child {
+        padding-top: 0;
       }
 
-      &:nth-child(3) {
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: $--font-size-xxs;
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
 
-          li {
-            p {
-              &::before {
-                content: "▪";
-                padding-right: calc(var(--font-size-xxs-cache) * 0.5);
+      @include breakpoint-tablet {
+        flex-direction: column;
+        border: 0;
+        padding: 0;
+        gap: 0;
+      }
+
+      @include breakpoint-phone {
+        flex-direction: column;
+        border: 0;
+        padding: 0;
+        gap: 0;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: $--font-size-xs;
+        flex-basis: 100%;
+
+        &:nth-child(odd) {
+          padding-right: $--font-size-l;
+          border-right: $--border-width-ml solid rgb(var(--color-system));
+        }
+
+        @include breakpoint-tablet {
+          border-bottom: $--border-width-ml solid rgb(var(--color-system));
+          padding: $--font-size-l 0;
+
+          &:nth-child(odd) {
+            padding-right: 0;
+            border-right: 0;
+          }
+        }
+
+        @include breakpoint-phone {
+          border-bottom: $--border-width-ml solid rgb(var(--color-system));
+          padding: $--font-size-l 0;
+
+          &:nth-child(odd) {
+            padding-right: 0;
+            border-right: 0;
+          }
+        }
+
+        > div {
+          &:nth-child(1) {
+            font-size: $--font-size-s;
+            color: rgba(var(--color-main), 0.5);
+          }
+
+          &:nth-child(3) {
+            span {
+              font-size: $--font-size-s;
+              line-height: 1.05;
+
+              &:not(&:last-child) {
+                &::after {
+                  content: "/";
+                  padding: 0 calc(var(--font-size-xxs-cache) * 0.5);
+                }
               }
             }
           }
-        }
-      }
 
-      &:nth-child(4) {
-        margin-top: $--font-size-ml;
+          &:nth-child(4) {
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: $--font-size-xxs;
 
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row;
-          gap: $--font-size-xxs;
+              li {
+                p {
+                  &::before {
+                    content: "▪";
+                    padding-right: calc(var(--font-size-xxs-cache) * 0.5);
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -232,9 +297,10 @@
               font-size: $--font-size-s;
               line-height: 1.05;
 
-              &:first-child {
+              &:not(&:last-child) {
                 &::after {
-                  content: ", ";
+                  content: "/";
+                  padding: 0 calc(var(--font-size-xxs-cache) * 0.5);
                 }
               }
             }
