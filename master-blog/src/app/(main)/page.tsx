@@ -49,6 +49,32 @@ export default async function () {
         </ul>
       </Section>
 
+      <Section name={config.constants.SECTION_NAMES.EDUCATION}>
+        {resume.education.map((item) => (
+          <div key={item.period}>
+            <div>{item.period}</div>
+            <div>
+              <div>
+                <h3>{item.institute}</h3>
+              </div>
+              <div>
+                <span>{item.department}</span>
+                <span>{item.degree}</span>
+              </div>
+              <div>
+                <ul>
+                  {item.achievements.map((achievement) => (
+                    <li key={achievement}>
+                      <p dangerouslySetInnerHTML={{ __html: achievement }} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Section>
+
       <Section name={config.constants.SECTION_NAMES.EXPERIENCE}>
         {resume.experience.map((item) => (
           <div key={item.period}>
@@ -82,13 +108,13 @@ export default async function () {
             </div>
           </div>
         ))}
-
-        <WrappedLinkExternal
-          href={config.constants.LINKS.RESUME_PDF}
-          label="View Full Resume"
-          target="_blank"
-        />
       </Section>
+
+      <WrappedLinkExternal
+        href={config.constants.LINKS.RESUME_PDF}
+        label="View Full Resume"
+        target="_blank"
+      />
 
       <Section name={config.constants.SECTION_NAMES.PROJECT}>
         {resume.project.map((item) => (

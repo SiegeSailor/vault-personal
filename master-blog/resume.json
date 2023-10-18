@@ -12,6 +12,41 @@
     ["JavaScript (TypeScript)", "React", "NextJS"],
     ["GitHub Actions", "Amazon Web Services", "Terraform"]
   ],
+  "education": [
+    {
+      "institute": "Massachusetts Institute of Technology",
+      "department": "Data Science & Machine Learning",
+      "degree": "Certificate",
+      "period": "Aug 2023 - Nov 2023",
+      "achievements": []
+    },
+    {
+      "institute": "Boston University",
+      "department": "Computer Science",
+      "degree": "Master",
+      "period": "May 2022 - Jan 2024",
+      "achievements": [
+        "Ranked 3rd in infrastructure services configuration and defense at <a href='https://www.ncaecybergames.org/' target='_blank'>NCAE-C 2023</a> North East Division",
+        "Thesis on Developing a Quantitative Model for Security Risk Assessment in DevSecOps for Web Microservices"
+      ]
+    },
+    {
+      "institute": "New York University",
+      "department": "Computer Science",
+      "degree": "Bridge",
+      "period": "Jan 2022 - May 2022",
+      "achievements": []
+    },
+    {
+      "institute": "National Formosa University",
+      "department": "Multimedia Design",
+      "degree": "Bachelor",
+      "period": "Sep 2013 - Jan 2017",
+      "achievements": [
+        "Independent study on Web Application Development Using Angular."
+      ]
+    }
+  ],
   "experience": [
     {
       "employer": "CooperSurgical",
@@ -94,6 +129,16 @@
       "achievements": [
         "Built a configurable website that hits 500% more customers using React, Bootstrap, and Firebase",
         "Developed a cross-platform PWA using Ionic to fully transform a company from paper-based to digital-driven by integrating the workflow between departments"
+      ]
+    },
+    {
+      "employer": "DyGame",
+      "location": "Yun-Lin, Taiwan",
+      "title": "Game Designing Intern",
+      "period": "Jun 2014 - Aug 2014",
+      "skills": ["Angular", "Unity", "ZBrush", "Maya", "3ds Max"],
+      "achievements": [
+        "Designed mobile motion-sensing games in a research-based role with game engines and 3D technology."
       ]
     }
   ],

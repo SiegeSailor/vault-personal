@@ -14,6 +14,7 @@ const LINKS = {
 
 const SECTION_NAMES = {
   ABOUT: "about",
+  EDUCATION: "education",
   EXPERIENCE: "experience",
   PROJECT: "project",
 };

@@ -10,7 +10,7 @@ export default function ({
   children: ReactNode;
 }) {
   return (
-    <section id={name} className={style[name]}>
+    <section id={name} className={`${style.index} ${style[name]}`}>
       <h2>{name}</h2>
       {children}
     </section>

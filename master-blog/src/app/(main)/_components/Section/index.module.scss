@@ -1,10 +1,70 @@
+.index {
+  --font-size-xs-cache: #{$--font-size-xs};
+  --font-size-m-cache: #{$--font-size-m};
+  --font-size-l-cache: #{$--font-size-l};
+  --font-size-xl-cache: #{$--font-size-xl};
+  --height-menu: (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache);
+  --top-layout: calc(
+    var(--height-menu) +
+      ((var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2) - 0.5px
+  );
+  --top-layout-mobile: calc(
+    (var(--font-size-xs-cache)) + var(--font-size-l-cache) +
+      var(--font-size-m-cache) - 1px
+  );
+
+  h2 {
+    color: rgb(var(--color-main));
+    font-size: $--font-size-s;
+    text-transform: uppercase;
+    border-top: $--border-width-ml solid rgb(var(--color-main));
+    border-bottom: $--border-width-ml solid rgb(var(--color-main));
+    padding: $--font-size-xxs 0;
+    background-color: rgb(var(--color-secondary));
+    position: sticky;
+    top: var(--top-layout);
+
+    @include breakpoint-phone {
+      top: var(--top-layout-mobile);
+    }
+  }
+
+  h3,
+  h3 a {
+    font-size: $--font-size-ml;
+    line-height: 1.05;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: $--font-size-l;
+  position: relative;
+  padding: var(--top-layout) 0 $--font-size-l 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 80vw;
+    height: $--border-width-ml;
+    background-color: rgb(var(--color-system));
+  }
+
+  @include breakpoint-phone {
+    padding-top: var(--top-layout-mobile);
+  }
+
+  > div {
+    padding-bottom: $--font-size-l;
+    border-bottom: $--border-width-ml solid rgb(var(--color-system));
+  }
+}
+
 .about {
   > div {
     display: flex;
     gap: $--font-size-l;
     justify-content: space-around;
-    border-bottom: $--border-width-ml solid rgb(var(--color-system));
-    padding-bottom: $--font-size-l;
 
     @include breakpoint-tablet {
       flex-wrap: wrap;
@@ -77,14 +137,18 @@
   }
 }
 
-.experience {
+.experience,
+.education {
   > div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: $--font-size-xs;
-    border-bottom: $--border-width-ml solid rgb(var(--color-system));
-    padding-bottom: $--font-size-l;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
     > div {
       --font-size-xxs-cache: #{$--font-size-xxs};
@@ -155,8 +219,6 @@
     display: flex;
     flex-direction: column;
     gap: $--font-size-xs;
-    border-bottom: $--border-width-ml solid rgb(var(--color-system));
-    padding-bottom: $--font-size-l;
 
     > div {
       &:nth-child(3) {
