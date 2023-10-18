@@ -29,6 +29,18 @@ svg {
 p {
   font-size: $--font-size-s;
   line-height: 1.25;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+a {
+  transition: 0.15s;
+
+  &:hover {
+    background-color: rgba(var(--color-accent), 0.25);
+  }
 }
 
 code {
