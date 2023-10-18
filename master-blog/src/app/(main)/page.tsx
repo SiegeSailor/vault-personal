@@ -3,7 +3,7 @@ import promises from "@/promises";
 import config from "@/config";
 import WrappedImage from "@/components/WrappedImage";
 import WrappedLinkExternal from "@/components/WrappedLinkExternal";
-import imageProfile from "./profile.png";
+import Profile from "@/images/Profile.png";
 import Section from "./_components/Section";
 import style from "./index.module.scss";
 
@@ -21,7 +21,7 @@ export default async function () {
               <h3>{resume.title}</h3>
               <p>{resume.brief}</p>
             </div>
-            <WrappedImage src={imageProfile} alt={config.constants.TITLE} />
+            <WrappedImage src={Profile} alt={config.constants.TITLE} />
           </div>
           <div>
             {resume.introduction
