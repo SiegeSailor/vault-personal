@@ -5,6 +5,7 @@
   height: $--font-size-xl;
   display: grid;
   align-items: center;
+  transition: 0.15s;
 
   span {
     --font-size-xxs-cache: #{$--font-size-xxs};
@@ -20,6 +21,12 @@
 
   &:hover {
     cursor: pointer;
+    background-color: rgba(var(--color-accent), 0.25);
+    border: $--border-width-m solid rgb(var(--color-main));
+
+    span {
+      color: rgb(var(--color-main));
+    }
   }
 
   &:active,

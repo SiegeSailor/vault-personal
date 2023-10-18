@@ -4,7 +4,6 @@
   a {
     display: flex;
     --font-size-xxs-cache: #{$--font-size-xxs};
-    gap: calc(var(--font-size-xxs-cache) * 0.5);
     font-size: $--font-size-m;
     flex-basis: 0;
 
