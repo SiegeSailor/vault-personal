@@ -49,9 +49,6 @@
         position: relative;
         padding-right: $--font-size-xxs;
         text-align: right;
-        overflow: auto;
-        width: 35vw;
-        white-space: nowrap;
 
         &::after {
           content: "";
@@ -64,30 +61,36 @@
           transform: translateY(-50%);
         }
 
-        > a {
-          margin: calc(var(--top-layout) * 0.8) 0;
-          padding: calc((var(--top-layout) * 0.8) - 1px)
-            calc(var(--font-size-xxs-cache) * 0.6);
-          text-transform: uppercase;
-          font-size: $--font-size-xs;
-          color: rgb(var(--color-main));
-          white-space: nowrap;
-          transition: 0.15s;
-
-          &:not(&:first-child) {
-            margin-left: calc(var(--font-size-xxs-cache) * 0.4);
-          }
-
-          &:hover {
-            background-color: rgba(var(--color-accent), 0.25);
-          }
-        }
-
         @include breakpoint-phone {
           display: none;
         }
         @include breakpoint-tablet {
           display: none;
+        }
+
+        > div {
+          white-space: nowrap;
+          width: 30vw;
+          overflow: auto;
+
+          > a {
+            margin: calc(var(--top-layout) * 0.8) 0;
+            padding: calc((var(--top-layout) * 0.8) - 1px)
+              calc(var(--font-size-xxs-cache) * 0.4);
+            text-transform: uppercase;
+            font-size: $--font-size-xs;
+            color: rgb(var(--color-main));
+            white-space: nowrap;
+            transition: 0.15s;
+
+            &:not(&:first-child) {
+              margin-left: calc(var(--font-size-xxs-cache) * 0.4);
+            }
+
+            &:hover {
+              background-color: rgba(var(--color-accent), 0.25);
+            }
+          }
         }
       }
 

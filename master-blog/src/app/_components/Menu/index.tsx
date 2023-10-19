@@ -16,7 +16,9 @@ export default function () {
       </div>
       <div>
         <div>
-          <Anchor />
+          <div>
+            <Anchor />
+          </div>
         </div>
         {config.constants.EXTERNAL_ITEMS.map((item) => (
           <WrappedLink key={item.href.toString()} {...item} />
