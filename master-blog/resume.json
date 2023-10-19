@@ -8,7 +8,7 @@
     "Here are a few technologies I’ve been working with recently:"
   ],
   "technology": [
-    ["Python", "MySQL", "Redis"],
+    ["Python", "MySQL", "Redis", "Machine Learning"],
     ["JavaScript (TypeScript)", "React", "NextJS"],
     ["GitHub Actions", "Amazon Web Services", "Terraform"]
   ],
@@ -18,7 +18,7 @@
       "department": "Data Science & Machine Learning",
       "degree": "Certificate",
       "period": "Aug 2023 - Nov 2023",
-      "achievements": ["Ranked 15 out of 109 learners."]
+      "achievements": ["Ranked 15th out of 109 learners."]
     },
     {
       "institute": "Boston University",
@@ -86,7 +86,7 @@
         "Phaser",
         "React",
         "Google Cloud Platform",
-        "Firebase",
+        "GitLab",
         "ThreeJS"
       ],
       "achievements": [
