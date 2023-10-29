@@ -2,7 +2,7 @@
   "title": "DevSecOps Engineer",
   "brief": "Accepted the offer from CooperSurgical. Start working in January 2024.",
   "introduction": [
-    "Hey there, I kicked off my software journey back in 2017 and quickly found my groove in crafting <code>high-volume tolerance systems</code> and <code>real-time applications</code>. It's all about keeping things running smoothly, even when the going gets tough.",
+    "Hey there, I kicked off my software journey back in 2016 and quickly found my groove in crafting <code>high-volume tolerance systems</code> and <code>real-time applications</code>. It's all about keeping things running smoothly, even when the going gets tough.",
     "I'm your go-to person for all things <code>DevSecOps</code> – making sure your projects stay secure is my jam. Plus, I've got some experience leading teams and teaming up with folks from around the globe. Communication and teamwork are my secret sauce.",
     "When I'm not knee-deep in code, I'm all about exploring the latest tech trends and sharing knowledge. Feel free to reach out, and we can discuss anything about technology, security, and software.",
     "Here are a few technologies I’ve been working with recently:"
@@ -15,10 +15,10 @@
   "education": [
     {
       "institute": "Massachusetts Institute of Technology",
-      "department": "Data Science & Machine Learning",
+      "department": "Data Science and Machine Learning",
       "degree": "Certificate",
       "period": "Aug 2023 - Nov 2023",
-      "achievements": ["Ranked 14th out of 146 learners."]
+      "achievements": ["Ranked 23th out of 146 learners."]
     },
     {
       "institute": "Boston University",
@@ -129,16 +129,6 @@
       "achievements": [
         "Built a configurable website that hits 500% more customers using React, Bootstrap, and Firebase",
         "Developed a cross-platform PWA using Ionic to fully transform a company from paper-based to digital-driven by integrating the workflow between departments"
-      ]
-    },
-    {
-      "employer": "DyGame",
-      "location": "Yun-Lin, Taiwan",
-      "title": "Game Designing Intern",
-      "period": "Jun 2014 - Aug 2014",
-      "skills": ["Angular", "Unity", "ZBrush", "Maya", "3ds Max"],
-      "achievements": [
-        "Designed mobile motion-sensing games in a research-based role with game engines and 3D technology."
       ]
     }
   ],
