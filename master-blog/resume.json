@@ -18,16 +18,14 @@
       "department": "Data Science and Machine Learning",
       "degree": "Certificate",
       "period": "Aug 2023 - Nov 2023",
-      "achievements": ["Ranked 23th out of 146 learners."],
+      "achievements": [],
       "courses": [
         "Deep Learning",
         "Predictive Analytics",
         "Networking and Graphical Models",
         "Recommendation Systems",
         "Classification and Hypothesis Testing",
-        "Regression and Prediction",
-        "Foundations of Data Science",
-        "Making Sense of Unstructured Data"
+        "Regression and Prediction"
       ]
     },
     {
