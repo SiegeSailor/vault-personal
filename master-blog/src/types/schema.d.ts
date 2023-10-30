@@ -10,6 +10,7 @@ declare module Schema {
       degree: string;
       period: string;
       achievements: string[];
+      courses: string[];
     }[];
     experience: {
       employer: string;
