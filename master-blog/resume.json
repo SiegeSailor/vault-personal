@@ -18,7 +18,15 @@
       "department": "Data Science and Machine Learning",
       "degree": "Certificate",
       "period": "Aug 2023 - Nov 2023",
-      "achievements": ["Ranked 23th out of 146 learners."]
+      "achievements": [],
+      "courses": [
+        "Deep Learning",
+        "Predictive Analytics",
+        "Networking and Graphical Models",
+        "Recommendation Systems",
+        "Classification and Hypothesis Testing",
+        "Regression and Prediction"
+      ]
     },
     {
       "institute": "Boston University",
@@ -28,6 +36,19 @@
       "achievements": [
         "Ranked 3rd in infrastructure services configuration and defense at <a href='https://www.ncaecybergames.org/' target='_blank'>NCAE-C 2023</a> North East Division",
         "Thesis on <em>Developing a Quantitative Model for Security Risk Assessment in DevSecOps for Web Microservices</em>"
+      ],
+      "courses": [
+        "Cryptography",
+        "Secure Software Development",
+        "Analysis of Algorithms",
+        "Computer Language Theory",
+        "Software Engineering",
+        "Data Structure with Java",
+        "Server-Side Web Development",
+        "Database Management",
+        "Operating Systems",
+        "Programming with Java",
+        "Discrete Mathematics"
       ]
     },
     {
@@ -35,7 +56,15 @@
       "department": "Computer Science",
       "degree": "Bridge",
       "period": "Jan 2022 - May 2022",
-      "achievements": []
+      "achievements": [],
+      "courses": [
+        "Programming in C++",
+        "Discrete Mathematics",
+        "Object-Oriented Design",
+        "Data Structures and Algorithms",
+        "Computer Networks",
+        "Principles of Operating Systems"
+      ]
     },
     {
       "institute": "National Formosa University",
@@ -44,6 +73,17 @@
       "period": "Sep 2013 - Jan 2017",
       "achievements": [
         "Independent Study on <em>Web Application Development Using Angular</em>."
+      ],
+      "courses": [
+        "Computer Programming",
+        "Computer Graphic and Image Processing",
+        "Database Design",
+        "Electronic Commerce Web Design",
+        "Multimedia Programming",
+        "Virtual Reality Design",
+        "HTML Web Design",
+        "Information Software Application",
+        "Art Website Design"
       ]
     }
   ],

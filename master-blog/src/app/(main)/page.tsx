@@ -81,21 +81,22 @@ export default async function () {
                       <span>{item.department}</span>
                       <span>{item.degree}</span>
                     </div>
-                    {Boolean(item.achievements.length) && (
-                      <div>
-                        <ul>
-                          {item.achievements.map((achievement) => (
-                            <li key={achievement}>
-                              <p
-                                dangerouslySetInnerHTML={{
-                                  __html: achievement,
-                                }}
-                              />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    <div>
+                      <ul>
+                        {item.achievements.map((achievement) => (
+                          <li key={achievement}>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: achievement,
+                              }}
+                            />
+                          </li>
+                        ))}
+                        <li>
+                          <p>Courses included {item.courses.join(", ")}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 ))}
               </div>
