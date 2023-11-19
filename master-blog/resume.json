@@ -18,7 +18,9 @@
       "department": "Data Science and Machine Learning",
       "degree": "Certificate",
       "period": "Aug 2023 - Nov 2023",
-      "achievements": [],
+      "achievements": [
+        "Ranked 15th out of 146 learners with 579.5/600 (96.58%) marks."
+      ],
       "courses": [
         "Deep Learning",
         "Predictive Analytics",
