@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"JarType"},{"p":"<Unnamed>","l":"LabeledJar"},{"p":"<Unnamed>","l":"MyException"},{"p":"<Unnamed>","l":"MyProg"}];updateSearchResults();

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+
+  <body>
+
+    <div id="suresh"></div>
+
+		<div id="alice"></div>
+
+    <div id="bob"></div>
+
+
+    <script type="text/babel">
+
+      function Greet(props) {
+        return(
+          <div className="greet">
+            <h4>Hello {props.name}, Welcome to {props.tech} 
+                    - from {props.company}!</h4>
+          </div>
+        );
+      }
+
+      
+    	ReactDOM.render(<Greet name="Suresh" tech="React" company="Facebook"/>,
+  			document.querySelector('#suresh')
+			);
+
+			ReactDOM.render(<Greet name="Alice" tech="Angular" company="Google"/>,
+        document.querySelector('#alice')
+      );
+
+      ReactDOM.render(<Greet name="Bob" tech="Express" company="NodeJS"/>,
+        document.querySelector('#bob')
+      );
+
+    </script>
+  </body>
+</html>

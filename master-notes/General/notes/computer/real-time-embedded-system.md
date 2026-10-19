@@ -1,0 +1,8 @@
+- Real-time embedded systems most prevalent form of computers
+  - Vary considerable, special purpose, limited purpose OS, **real-time OS**
+  - Use expanding
+- Many other special computing environments as well
+  - Some have OSes, some perform tasks without an OS
+- Real-time OS has well-defined fixed time constraints
+  - Processing **must** be done within constraint
+  - Correct operation only if constraints met

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+
+    <div id = "root"></div>
+
+
+
+    <script type="text/babel">
+
+        class GetNumbers extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {myData:[{name: "Alice", age: 20}, {name: "Bob", age: 25}, {name: "Charlie", age: 30}]};
+
+                this.removePerson = this.removePerson.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+
+            removePerson(event) {
+                console.log("remove", event.target.id);
+                var temp = this.state.myData;
+                console.log(temp);
+                //temp = temp.filter(item => item.name != event.target.id);
+               temp.splice(event.target.id, 1);
+               console.log(temp);
+               this.setState({myData:temp});
+            }
+
+            handleSubmit(e) {
+              e.preventDefault();
+              const form = event.target;
+              
+              const data = new FormData(form);
+
+              var temp = this.state.myData;
+              temp.push({name: data.get('pname'), age: data.get('page')});
+
+              this.setState({myData:temp});
+
+              
+            }
+
+            render() {
+                const listItems = this.state.myData.map((person, index) => 
+                    <li key = {person.name}>{person.name} is {person.age} years old 
+                    <button onClick = {this.removePerson} id = {index}>X</button>
+                    </li>);
+
+                return (
+                   <div>
+
+                    <ul>{listItems}</ul>
+
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Name</label>
+                        <input name="pname" type="text" />
+
+                        <label>Age</label>
+                        <input name="page" type="number" />
+
+
+                        <button>Add</button>
+                    </form>
+
+                  </div>
+                );
+            }
+        }
+    
+
+	    	ReactDOM.render(
+	  				<div>
+                      <GetNumbers/>
+                    </div>,
+	  			document.getElementById('root')
+				);
+
+				
+
+    </script>
+
+  </body>
+</html>

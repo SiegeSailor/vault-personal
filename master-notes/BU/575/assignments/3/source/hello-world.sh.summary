@@ -1,0 +1,35 @@
+python3: can't open file '/home/siege/Desktop/assignment-3/source/bash': [Errno 2] No such file or directory
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 32.54    0.007470          35       212        27 newfstatat
+ 14.05    0.003226          48        66           rt_sigaction
+  9.68    0.002223          35        62           read
+  9.50    0.002180          36        60         2 lseek
+  7.91    0.001816          37        48         4 openat
+  6.92    0.001589          33        47           close
+  5.81    0.001334          38        35        31 ioctl
+  3.77    0.000866          54        16           getdents64
+  2.40    0.000551          55        10           brk
+  1.42    0.000327          13        24           mmap
+  1.28    0.000293          29        10           mprotect
+  0.56    0.000129          32         4         3 readlinkat
+  0.53    0.000122          61         2           getrandom
+  0.49    0.000112          56         2           getcwd
+  0.48    0.000111          37         3           dup
+  0.45    0.000103         103         1           fcntl
+  0.44    0.000102          11         9           munmap
+  0.35    0.000080          80         1           prlimit64
+  0.30    0.000069          69         1           write
+  0.30    0.000068          68         1           futex
+  0.18    0.000041          41         1           sysinfo
+  0.14    0.000033          33         1           getuid
+  0.14    0.000033          33         1           getgid
+  0.14    0.000031          31         1           rseq
+  0.13    0.000029          29         1           geteuid
+  0.09    0.000020          20         1           getegid
+  0.00    0.000000           0         1         1 faccessat
+  0.00    0.000000           0         1           set_tid_address
+  0.00    0.000000           0         1           set_robust_list
+  0.00    0.000000           0         1           execve
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.022958          36       624        68 total

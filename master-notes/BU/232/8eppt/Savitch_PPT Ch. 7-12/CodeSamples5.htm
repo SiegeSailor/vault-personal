@@ -1,0 +1,2425 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Java</title>
+</head>
+
+<body bgcolor="#CCFFFF">
+
+<div v:shape="_x0000_s1026" class="O" style="mso-char-wrap:1;mso-kinsoku-overflow:
+1">
+  <p align="center"><span style="font-size:12pt"><i>JAVA: An Introduction to
+  Problem Solving &amp; Programming, 8</i></span><span style="font-size:8pt;position:relative;
+top:-.45em;mso-text-raise:30%">th</span><span style="font-size:12pt"><span style="mso-spacerun:yes">&nbsp;</span>Ed.
+  By Walter Savitch.<br>
+      ISBN 01334462033 </span><span style="mso-bidi-font-family:
+Arial;font-size:12pt">© 2018 Pearson Education, Inc., Hoboken, NJ.
+  All Rights Reserved</span>
+</div>
+
+<div align="center">
+  <center>
+  <table border="1" width="40%">
+    <tr>
+      <td width="50%">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 9.1">Listing 9.1</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.2">Listing 9.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.3">Listing 9.3</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.4">Listing 9.4</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.5">Listing 9.5</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.6">Listing 9.6</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.7">Listing 9.7</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.8">Listing 9.8</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.9">Listing 9.9</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.10">Listing 9.10</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.11">Listing 9.11</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.12">Listing 9.12</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.13">Listing 9.13</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.14">Listing 9.14</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.15">Listing 9.15</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.16">Listing 9.16</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.17">Listing 9.17</a></font></li>
+          <li><font face="Arial"><a href="#Listing 9.18">Listing 9.18</a></font></li>
+        </ul>
+      </td>
+      <td width="50%">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 10.1">Listing 10.1</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.2">Listing 10.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.3">Listing 10.3</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.4">Listing 10.4</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.5">Listing 10.5</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.6">Listing 10.6</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.7">Listing 10.7</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.8">Listing 10.8</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.9">Listing 10.9</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.10">Listing 10.10</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.11">Listing 10.11</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.12">Listing 10.12</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.13">Listing 10.13</a></font></li>
+          <li><font face="Arial"><a href="#Listing 10.14">Listing 10.14<br>
+            </a><br>
+            <br>
+            <br>
+            </font></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.1">Listing 9.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class GotMilk
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter number of donuts:&quot;);
+        int donutCount = keyboard.nextInt ();
+        System.out.println (&quot;Enter number of glasses of milk:&quot;);
+        int milkCount = keyboard.nextInt ();
+        //Dealing with an unusual event without Javas exception
+        //handling features:
+        <span style="background-color: #FFFF00">if (milkCount &lt; 1)                                          </span>
+        <span style="background-color: #FFFF00">{                                                           </span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;No milk!&quot;);                        </span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;Go buy some milk.&quot;);               </span>
+        <span style="background-color: #FFFF00">}                                                           </span>
+        <span style="background-color: #FFFF00">else                                                        </span>
+        <span style="background-color: #FFFF00">{
+</span>        <span style="background-color: #FFFF00">    double donutsPerGlass = donutCount / (double) milkCount;</span>
+        <span style="background-color: #FFFF00">    System.out.println (donutCount + &quot; donuts.&quot;);           </span>
+        <span style="background-color: #FFFF00">    System.out.println (milkCount + &quot; glasses of milk.&quot;);   </span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;You have &quot; + donutsPerGlass +      </span>
+        <span style="background-color: #FFFF00">            &quot; donuts for each glass of milk.&quot;);             </span>
+        <span style="background-color: #FFFF00">}                                                           </span>
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.2">Listing
+        9.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class ExceptionDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        <span style="background-color: #FFFF00">try</span>
+        {
+            System.out.println (&quot;Enter number of donuts:&quot;);
+            int donutCount = keyboard.nextInt ();
+            System.out.println (&quot;Enter number of glasses of milk:&quot;);
+            int milkCount = keyboard.nextInt ();
+            if (milkCount &lt; 1)
+                <span style="background-color: #FFFF00">throw new Exception (&quot;Exception: No milk!&quot;);</span>
+            double donutsPerGlass = donutCount / (double) milkCount;
+            System.out.println (donutCount + &quot; donuts.&quot;);
+            System.out.println (milkCount + &quot; glasses of milk.&quot;);
+            System.out.println (&quot;You have &quot; + donutsPerGlass +
+                    &quot; donuts for each glass of milk.&quot;);
+        }
+        <span style="background-color: #FFFF00">catch (Exception e)</span>
+        {
+            System.out.println (e.getMessage ());
+            System.out.println (&quot;Go buy some milk.&quot;);
+        }
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.3">Listing
+        9.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class ExceptionDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        try
+        {
+            System.out.println (&quot;Enter number of donuts:&quot;);
+            int donutCount = keyboard.nextInt ();
+            System.out.println (&quot;Enter number of glasses of milk:&quot;);
+            int milkCount = keyboard.nextInt ();
+		</font><font size="4" color="#33CC33">// assume user enters positive number of glasses of milk</font><font size="4" color="#00FF00">
+</font><font color="#0000FF" size="4">
+            if (milkCount &lt; 1)
+                throw new Exception (&quot;Exception: No milk!&quot;);
+		</font><font size="4" color="#33CC33">// milkCount is positive so exception NOT thrown here</font><font color="#0000FF" size="4">
+
+		</font><font size="4" color="#33CC33">// flow of control continues to here</font><font color="#0000FF" size="4">
+            double donutsPerGlass = donutCount / (double) milkCount;
+            System.out.println (donutCount + &quot; donuts.&quot;);
+            System.out.println (milkCount + &quot; glasses of milk.&quot;);
+            System.out.println (&quot;You have &quot; + donutsPerGlass
+                    + &quot; donuts for each glass of milk.&quot;);
+        }</font><font size="4" color="#33CC33">// flow of control leaves here</font><font color="#0000FF" size="4">
+
+	 </font><font size="4" color="#33CC33"> // catch is NOT excecuted</font><font color="#0000FF" size="4">
+        catch (Exception e)
+        {
+            System.out.println (e.getMessage ());
+            System.out.println (&quot;Go buy some milk.&quot;);
+        }
+
+	  </font><font size="4" color="#33CC33">// flow of control comes to here</font><font color="#0000FF" size="4">
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.4">Listing
+        9.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class ExceptionDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        try
+        {
+            System.out.println (&quot;Enter number of donuts:&quot;);
+            int donutCount = keyboard.nextInt ();
+            System.out.println (&quot;Enter number of glasses of milk:&quot;);
+            int milkCount = keyboard.nextInt ();</font><font size="4" color="#FF00FF">
+</font><font color="#0000FF" size="4">		</font><font size="4" color="#FF00FF">// assume user enters 0 for number of glasses of milk</font><font size="4" color="#00FF00">
+</font><font color="#0000FF" size="4">
+            if (milkCount &lt; 1)
+                throw new Exception (&quot;Exception: No milk!&quot;);
+		</font><font size="4" color="#FF00FF">// milkCount is negative so exception IS thrown here
+             // flow of control jumps to catch block
+		</font><font color="#0000FF" size="4">
+		</font><font size="4" color="#FF00FF">// flow of control skips past these lines</font><font color="#0000FF" size="4">
+            double donutsPerGlass = donutCount / (double) milkCount;
+            System.out.println (donutCount + &quot; donuts.&quot;);
+            System.out.println (milkCount + &quot; glasses of milk.&quot;);
+            System.out.println (&quot;You have &quot; + donutsPerGlass
+                    + &quot; donuts for each glass of milk.&quot;);
+        }
+
+	 </font><font size="4" color="#33CC33"> </font><font size="4" color="#FF00FF">// catch is IS excecuted</font><font color="#0000FF" size="4">
+        catch (Exception e)
+        {
+            System.out.println (e.getMessage ());
+            System.out.println (&quot;Go buy some milk.&quot;);
+        }
+
+	 </font><font size="4" color="#FF00FF"> // flow of control comes to here after catch block</font><font color="#0000FF" size="4">
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%" height="51">
+    <tr>
+      <td width="100%" height="23">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.5">Listing
+        9.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" height="16">
+        <pre><b><font color="#0000FF" size="4">public class DivideByZeroException extends Exception
+{
+    public DivideByZeroException ()
+    {
+        super (&quot;Dividing by Zero!&quot;);
+    }
+
+
+    public DivideByZeroException (String message)
+    {
+        super (message);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.6">Listing
+        9.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class DivideByZeroDemo
+{
+    private int numerator;
+    private int denominator;
+    private double quotient;
+    public static void main (String [] args)
+    {
+        DivideByZeroDemo oneTime = new DivideByZeroDemo ();
+        oneTime.doIt ();
+    }
+
+
+    public void doIt ()
+    {
+        <span style="background-color: #FFFF00">try</span>
+        {
+            System.out.println (&quot;Enter numerator:&quot;);
+            Scanner keyboard = new Scanner (System.in);
+            numerator = keyboard.nextInt ();
+            System.out.println (&quot;Enter denominator:&quot;);
+            denominator = keyboard.nextInt ();
+            <span style="background-color: #FFFF00">if (denominator == 0)</span>
+            <span style="background-color: #FFFF00">    throw new DivideByZeroException ();</span>
+            quotient = numerator / (double) denominator;
+            System.out.println (numerator + &quot;/&quot; + denominator +
+                    &quot; = &quot; + quotient);
+        }
+        <span style="background-color: #FFFF00">catch (DivideByZeroException e)</span>
+        {
+            System.out.println (e.getMessage ());
+            giveSecondChance ();
+        }<span style="background-color: #FFFF00">
+</span>        System.out.println (&quot;End of program.&quot;);
+    }
+
+
+    public void giveSecondChance ()
+    {
+        System.out.println (&quot;Try again:&quot;);
+        System.out.println (&quot;Enter numerator:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        numerator = keyboard.nextInt ();
+        System.out.println (&quot;Enter denominator:&quot;);
+        System.out.println (&quot;Be sure the denominator is not zero.&quot;);
+        denominator = keyboard.nextInt ();
+        <span style="background-color: #FFFF00">if (denominator == 0)                                       </span>
+        <span style="background-color: #FFFF00">{                                                           </span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;I cannot do division by zero.&quot;);   </span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;Since I cannot do what you want,&quot;);</span>
+        <span style="background-color: #FFFF00">    System.out.println (&quot;the program will now end.&quot;);       </span>
+        <span style="background-color: #FFFF00">    System.exit (0);                                        </span>
+        <span style="background-color: #FFFF00">}                                                           </span>
+        quotient = ((double) numerator) / denominator;
+        System.out.println (numerator + &quot;/&quot; + denominator +
+                &quot; = &quot; + quotient);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.7">Listing
+        9.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class DoDivision
+{
+    private int numerator;
+    private int denominator;
+    private double quotient;
+    public static void main (String [] args)
+    {
+        DoDivision doIt = new DoDivision ();
+        <span style="background-color: #FFFF00">try</span>
+        {
+            <span style="background-color: #FFFF00">doIt.doNormalCase ();</span>
+        }
+        <span style="background-color: #FFFF00">catch (DivideByZeroException e)</span>
+        {
+            System.out.println (e.getMessage ());
+            doIt.giveSecondChance ();
+        }
+        System.out.println (&quot;End of program.&quot;);
+    }
+
+
+    public void <span style="background-color: #FFFF00">doNormalCase () throws DivideByZeroException</span>
+    {
+        System.out.println (&quot;Enter numerator:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        numerator = keyboard.nextInt ();
+        System.out.println (&quot;Enter denominator:&quot;);
+        denominator = keyboard.nextInt ();
+        if (denominator == 0)
+            <span style="background-color: #FFFF00">throw new DivideByZeroException ();</span>
+        quotient = numerator / (double) denominator;
+        System.out.println (numerator + &quot;/&quot; + denominator +
+                &quot; = &quot; + quotient);
+    }
+
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.8">Listing
+        9.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+public class TwoCatchesDemo
+{
+    public static void main (String [] args)
+    {
+        <span style="background-color: #FFFF00">try</span>
+        {
+            System.out.println (&quot;Enter number of widgets produced:&quot;);
+            Scanner keyboard = new Scanner (System.in);
+            int widgets = keyboard.nextInt ();
+            if (widgets &lt; 0)
+                <span style="background-color: #FFFF00">throw new NegativeNumberException (&quot;widgets&quot;);</span>
+            System.out.println (&quot;How many were defective?&quot;);
+            int defective = keyboard.nextInt ();
+            if (defective &lt; 0)
+               <span style="background-color: #FFFF00"> throw new NegativeNumberException (&quot;defective widgets&quot;);</span>
+            double ratio = exceptionalDivision (widgets, defective);
+            System.out.println (&quot;One in every &quot; + ratio +
+                    &quot; widgets is defective.&quot;);
+        }
+        <span style="background-color: #FFFF00">catch (DivideByZeroException e)</span>
+        {
+            System.out.println (&quot;Congratulations! A perfect record!&quot;);
+        }
+        <span style="background-color: #FFFF00">catch (NegativeNumberException e)</span>
+        {
+            System.out.println (&quot;Cannot have a negative number of &quot; +
+                    e.getMessage ());
+        }
+        System.out.println (&quot;End of program.&quot;);
+    }
+
+
+    public static double exceptionalDivision (double numerator,
+            double denominator) <span style="background-color: #FFFF00">throws DivideByZeroException</span>
+    {
+        if (denominator == 0)
+            <span style="background-color: #FFFF00">throw new DivideByZeroException ();</span>
+        return numerator / denominator;
+    }<span style="background-color: #FFFF00">
+</span>}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.9">Listing
+        9.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">public class NegativeNumberException extends Exception
+{
+    public NegativeNumberException ()
+    {
+        super (&quot;Negative Number Exception!&quot;);
+    }
+
+
+    public NegativeNumberException (String message)
+    {
+        super (message);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.10">Listing
+        9.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">public class UnknownOpException extends Exception
+{
+    public UnknownOpException ()
+    {
+        super (&quot;UnknownOpException&quot;);
+    }
+
+
+    public UnknownOpException (char op)
+    {
+        super (op + &quot; is an unknown operator.&quot;);
+    }
+
+
+    public UnknownOpException (String message)
+    {
+        super (message);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.11">Listing
+        9.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+/**
+PRELIMINARY VERSION without exception handling.
+Simple line-oriented calculator program. The class
+can also be used to create other calculator programs.
+*/
+public class PrelimCalculator
+{
+    private double result;
+    private double precision = 0.0001;
+    //Numbers this close to zero are treated as if equal to zero.
+    public static void main (String [] args)
+        <span style="background-color: #FFFF00">throws DivideByZeroException,</span>
+               <span style="background-color: #FFFF00">UnknownOpException
+</span>    {
+        PrelimCalculator clerk = new PrelimCalculator ();
+        System.out.println (&quot;Calculator is on.&quot;);
+        System.out.print (&quot;Format of each line: &quot;);
+        System.out.println (&quot;operator space number&quot;);
+        System.out.println (&quot;For example: + 3&quot;);
+        System.out.println (&quot;To end, enter the letter e.&quot;);
+        <span style="background-color: #FFFF00">clerk.doCalculation ()</span>;
+        System.out.println (&quot;The final result is &quot; +
+                clerk.resultValue ());
+        System.out.println (&quot;Calculator program ending.&quot;);
+    }
+
+
+    public PrelimCalculator ()<span style="background-color: #FFFF00">
+</span>    {
+        result = 0;
+    }
+
+
+    public void reset ()
+    {
+        result = 0;
+    }
+
+
+    public void setResult (double newResult)
+    {
+        result = newResult;
+    }
+
+
+    public double getResult ()
+    {
+        return result;
+    }
+
+
+    /**
+    Returns n1 op n2, provided op is one of '+', '', '*',or '/'.
+    Any other value of op throws UnknownOpException.
+    */
+    public double evaluate (char op, double n1, double n2)
+        <span style="background-color: #FFFF00">throws DivideByZeroException, UnknownOpException</span>
+    {
+        double answer;
+        switch (op)
+        {
+            case '+':
+                answer = n1 + n2;
+                break;
+            case '-':
+                answer = n1 - n2;
+                break;
+            case '*':
+                answer = n1 * n2;
+                break;
+            case '/':
+                if ((-precision &lt; n2) &amp;&amp; (n2 &lt; precision))
+                    <span style="background-color: #FFFF00">throw new DivideByZeroException ();</span>
+                answer = n1 / n2;
+                break;
+            default:
+                t<span style="background-color: #FFFF00">hrow new UnknownOpException (op);</span>
+        }
+        return answer;
+    }
+<span style="background-color: #FFFF00">
+</span>
+    public void setResult (double newResult)
+    {
+        result = newResult;
+    }
+
+
+    public double getResult ()
+    {
+        return result;
+    }
+
+
+    /**
+    Returns n1 op n2, provided op is one of '+', '', '*',or '/'.
+    Any other value of op throws UnknownOpException.
+    */
+    public double evaluate (char op, double n1, double n2)
+        <span style="background-color: #FFFF00">throws DivideByZeroException, UnknownOpException</span>
+    {
+        double answer;
+        switch (op)
+        {
+            case '+':
+                answer = n1 + n2;
+                break;
+            case '-':
+                answer = n1 - n2;
+                break;
+            case '*':
+                answer = n1 * n2;
+                break;
+            case '/':
+                if ((-precision &lt; n2) &amp;&amp; (n2 &lt; precision))
+                    <span style="background-color: #FFFF00">throw new DivideByZeroException ();</span>
+                answer = n1 / n2;
+                break;
+            default:
+                <span style="background-color: #FFFF00">throw new UnknownOpException (op);
+</span>        }
+        return answer;
+    }
+
+
+    public void doCalculation () <span style="background-color: #FFFF00">throws DivideByZeroException</span>,
+                                        <span style="background-color: #FFFF00">UnknownOpException</span>
+    {<span style="background-color: #FFFF00">
+</span>        Scanner keyboard = new Scanner (System.in);
+        boolean done = false;
+        result = 0;
+        System.out.println (&quot;result = &quot; + result);
+        while (!done)
+        {
+            <span style="background-color: #FFFF00">char nextOp = (keyboard.next ()).charAt (0);</span>
+            if ((nextOp == 'e') || (nextOp == 'E'))
+                done = true;
+            else
+            {
+               <span style="background-color: #FFFF00"> double nextNumber = keyboard.nextDouble ();</span>
+               <span style="background-color: #FFFF00"> result = evaluate (nextOp, result, nextNumber)</span>;
+                System.out.println (&quot;result &quot; + nextOp + &quot; &quot; +
+                        nextNumber + &quot; = &quot; + result);
+                System.out.println (&quot;updated result = &quot; + result);
+            }
+        }
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.12">Listing
+        9.12</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+/**
+Simple line-oriented calculator program. The class
+can also be used to create other calculator programs.
+*/
+public class Calculator
+{
+    private double result;
+    private double precision = 0.0001;
+    //Numbers this close to zero are treated as if equal to zero.
+    public static void main (String [] args)
+    {
+        Calculator clerk = new Calculator ();
+        <span style="background-color: #FFFF00">try</span>
+        {
+            System.out.println (&quot;Calculator is on.&quot;);
+            System.out.print (&quot;Format of each line: &quot;);
+            System.out.println (&quot;operator space number&quot;);
+            System.out.println (&quot;For example: + 3&quot;);
+            System.out.println (&quot;To end, enter the letter e.&quot;);
+            <span style="background-color: #FFFF00">clerk.doCalculation ();</span>
+        }
+        <span style="background-color: #FFFF00">catch (UnknownOpException e)</span>
+        <span style="background-color: #FFFF00">{</span>
+        <span style="background-color: #FFFF00">    clerk.handleUnknownOpException (e);</span>
+        <span style="background-color: #FFFF00">}</span>
+        <span style="background-color: #FFFF00">catch (DivideByZeroException e)</span>
+        <span style="background-color: #FFFF00">{</span>
+        <span style="background-color: #FFFF00">    clerk.handleDivideByZeroException (e);</span>
+        <span style="background-color: #FFFF00">}</span>
+        System.out.println (&quot;The final result is &quot; +
+                clerk.resultValue ());
+        System.out.println (&quot;Calculator program ending.&quot;);
+    }
+
+
+    public Calculator ()
+    {
+        result = 0;
+    }
+
+
+    public void
+        <span style="background-color: #FFFF00">handleDivideByZeroException (DivideByZeroException e)</span>
+    {
+        System.out.println (&quot;Dividing by zero.&quot;);
+        System.out.println (&quot;Program aborted&quot;);
+        System.exit (0);
+    }
+
+
+    public void <span style="background-color: #FFFF00">handleUnknownOpException (UnknownOpException e)</span>
+    {
+        System.out.println (e.getMessage ());
+        System.out.println (&quot;Try again from the beginning:&quot;);
+        <span style="background-color: #FFFF00">try</span>
+        {
+            System.out.print (&quot;Format of each line: &quot;);
+            System.out.println (&quot;operator number&quot;);
+            System.out.println (&quot;For example: + 3&quot;);
+            System.out.println (&quot;To end, enter the letter e.&quot;);
+            <span style="background-color: #FFFF00">doCalculation ();</span>
+        }
+        <span style="background-color: #FFFF00">catch (UnknownOpException e2)</span>
+        {
+            System.out.println (e2.getMessage ());
+            System.out.println (&quot;Try again at some other time.&quot;);
+            System.out.println (&quot;Program ending.&quot;);
+            System.exit (0);
+        }
+        catch (DivideByZeroException e3)
+        {<span style="background-color: #FFFF00">
+</span>            handleDivideByZeroException (e3);
+        }
+    }
+
+    //The methods reset, setResult, getResult, evaluate, and doCalculation
+    //are the same as in Listing 9.11.
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.13">Listing
+        9.13</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.ChoiceBox;
+import javafx.collections.FXCollections;
+import javafx.scene.control.Label;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
+/**
+Simple demonstration of some additional JavaFX
+UI controls.
+*/
+public class AdditionalControlsDemo extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	VBox root = new VBox();
+
+	// Demonstrate radio buttons
+	root.getChildren().add(new Label("Select pizza crust"));
+	ToggleGroup toggleCrust = new ToggleGroup();
+	RadioButton rbHand = new RadioButton("Hand tossed");
+	rbHand.setToggleGroup(toggleCrust);
+	rbHand.setSelected(true);
+	RadioButton rbDeepDish = new RadioButton("Deep dish");
+	rbDeepDish.setToggleGroup(toggleCrust);
+	root.getChildren().add(rbHand);
+	root.getChildren().add(rbDeepDish);
+
+	// Demonstrate checkboxes
+	root.getChildren().add(new Label("Select pizza toppings"));
+	CheckBox cbCheese = new CheckBox("Extra cheese");
+	CheckBox cbPepperoni = new CheckBox("Pepperoni");
+	CheckBox cbMushrooms = new CheckBox("Mushrooms");
+	root.getChildren().add(cbCheese);
+	root.getChildren().add(cbPepperoni);
+	root.getChildren().add(cbMushrooms);
+
+	// Demonstrate Spinner with integer values from 1-10
+	root.getChildren().add(new Label("Select quantity"));
+	Spinner&lt;Integer&gt; spinnerQuantity = new Spinner<Integer>();
+	final int defaultValue = 1;
+	// Value factory.
+	SpinnerValueFactory&lt;Integer&gt; quantityFactory =
+         new SpinnerValueFactory.IntegerSpinnerValueFactory
+                 (1, 10, defaultValue);
+	spinnerQuantity.setValueFactory(quantityFactory);
+	root.getChildren().add(spinnerQuantity);
+
+	// Demonstrate ChoiceBox with delivery options
+	root.getChildren().add(new Label("Select delivery mode"));
+	ChoiceBox&lt;String&gt; cbModes = new ChoiceBox&lt;String&gt;(
+	   FXCollections.observableArrayList("Delivery",
+                                   "Dine-In", "Carryout"));
+      root.getChildren().add(cbModes);
+
+      // Button to display selections
+	Button btnSelections = new Button("Get Selections");
+	// Set the event handler when the button is clicked
+	btnSelections.setOnAction(new EventHandler&lt;ActionEvent&gt;()
+	{
+	 	@Override
+	   	public void handle(ActionEvent event)
+	   	{
+	   		System.out.println("Hand tossed: " + rbHand.isSelected());
+	   		System.out.println("Deep dish: " +
+                       rbDeepDish.isSelected());
+	   		System.out.println("Cheese: " + cbCheese.isSelected());
+			System.out.println("Pepperoni: " +
+                       cbPepperoni.isSelected());
+			System.out.println("Mushrooms: " +
+                       cbMushrooms.isSelected());
+			System.out.println("Quantity: " +
+                       spinnerQuantity.getValue());
+			System.out.println("Mode: " + cbModes.getValue());
+	   	}
+	   }
+	);
+	root.getChildren().add(btnSelections);
+
+	Scene scene = new Scene(root, 350, 300);
+	primaryStage.setTitle("Additional Controls Demo");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.14">Listing
+        9.14</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color;
+
+/**
+Demonstration of some shapes and an image
+within a VBox layout.
+*/
+public class ImageShapeDemo extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	VBox root = new VBox();
+	ImageView imv = new ImageView();
+	// Java looks for "java.jpg" in the default folder
+	Image img = new Image("java.jpg");
+	imv.setImage(img);
+
+	Circle c = new Circle();
+	c.setRadius(25);
+	c.setFill(Color.PINK);
+
+	Rectangle r = new Rectangle();
+	r.setWidth(100);
+	r.setHeight(50);
+	r.setFill(Color.BLUE);
+
+	root.getChildren().add(imv);
+	root.getChildren().add(c);
+	root.getChildren().add(r);
+
+
+	Scene scene = new Scene(root, 300, 200);
+	primaryStage.setTitle("Image and Shape Demo");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.15">Listing
+        9.15</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
+import java.util.Random;
+
+/**
+This program draws a circle of random color
+at the location of the mouse whenever the mouse
+moves.
+*/
+public class MousePaint extends Application
+{
+   private Random rnd = new Random();
+
+   public static void main(String[] args)
+   {
+      Application.launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Group root = new Group();
+	Canvas canvas = new Canvas(650, 600);
+	GraphicsContext gc = canvas.getGraphicsContext2D();
+
+	// When the mouse is pressed erase the
+	// screen by drawing a white rectangle on the
+	// entire canvas
+	canvas.setOnMousePressed(new EventHandler&lt;MouseEvent&gt;()
+	{
+        @Override
+        public void handle(MouseEvent event)
+        {
+      	gc.setFill(Color.WHITE);
+          	gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
+        }
+	});
+
+	// When the mouse is moved get a random color
+	// and draw a circle at the mouse's coordinates
+	canvas.setOnMouseMoved(new EventHandler&lt;MouseEvent&gt;()
+	{
+         @Override
+		public void handle(MouseEvent event)
+         {
+	     // Get a random color
+           gc.setFill(Color.rgb(rnd.nextInt(255),
+                rnd.nextInt(255),
+                rnd.nextInt(255)));
+           gc.fillOval(event.getX(),event.getY(),100,100);
+         }
+	});
+
+	root.getChildren().add(canvas);
+	primaryStage.setScene(new Scene(root));
+	primaryStage.setTitle("Mouse Paint");
+	primaryStage.show();
+   }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.16">Listing
+        9.16</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
+import javafx.scene.shape.Circle;
+
+/**
+This program sets the X/Y coordinates of a Circle to the
+location of the mouse.
+*/
+public class MouseCircle extends Application
+{
+   public static void main(String[] args)
+   {
+      Application.launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Pane root = new Pane();
+	root.setPrefSize(400,400);
+
+	Circle circle = new Circle();
+	circle.setRadius(30);
+	circle.setFill(Color.RED);
+
+	root.setOnMouseMoved(new EventHandler&lt;MouseEvent&gt;()
+	{
+       	@Override
+       	public void handle(MouseEvent event)
+       	{
+        		circle.setCenterX(event.getX());
+        		circle.setCenterY(event.getY());
+      	}
+	});
+
+	root.getChildren().add(circle);
+	primaryStage.setScene(new Scene(root));
+	primaryStage.setTitle("Mouse Circle");
+	primaryStage.show();
+   }
+} </font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.17">Listing
+        9.17</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
+import java.util.Random;
+
+public class Ball extends Circle
+{
+  private static final int RADIUS = 30;
+  private int x,y;
+  private int xVel, yVel;
+
+  public Ball()
+  {
+	Random rnd = new Random();
+
+      setRadius(RADIUS);
+      setFill(Color.RED);
+      x = 50;
+      y = 50;
+      xVel = rnd.nextInt(20) + 5;
+      yVel = rnd.nextInt(20) + 5;
+  }
+
+  public void updateLocation()
+  {
+	  x += xVel;
+	  y += yVel;
+	  setCenterX(x);
+	  setCenterY(y);
+  }
+
+  public int getX()
+  {
+	  return x;
+  }
+
+  public int getY()
+  {
+	  return y;
+  }
+
+  public void reverseX()
+  {
+	  xVel *= -1;
+  }
+
+  public void reverseY()
+  {
+	  yVel *= -1;
+  }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 9.18">Listing
+        9.18</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.event.EventHandler;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import javafx.event.ActionEvent;
+
+/**
+This program animates a red ball within
+The window.
+*/
+public class BounceBall extends Application
+{
+   public static void main(String[] args)
+   {
+      Application.launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Pane root = new Pane();
+	root.setPrefSize(400,400);
+
+	Ball ball = new Ball();
+
+	// Timeline to call the event handler every 10ms
+	// to update a bouncing ball
+	Timeline timeline = new Timeline(
+        new KeyFrame(Duration.millis(10),
+               new EventHandler<ActionEvent>()
+			   {
+			   	@Override
+			   	public void handle(ActionEvent event)
+			   	{
+			   		ball.updateLocation();
+			   		if ((ball.getX() < 0) ||
+			   		    (ball.getX() > root.getWidth()))
+			   			ball.reverseX();
+			   		if ((ball.getY() < 0) ||
+			   		    (ball.getY() > root.getHeight()))
+			   			ball.reverseY();
+			   	}
+			   }
+        )
+	);
+	timeline.setCycleCount(Timeline.INDEFINITE);
+	timeline.setAutoReverse(true);
+	timeline.play();
+
+	root.getChildren().add(ball);
+	primaryStage.setScene(new Scene(root));
+	primaryStage.setTitle("Bouncing Ball");
+	primaryStage.show();
+   }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.1">Listing
+        10.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4"><span style="background-color: #FFFF00">import java.io.PrintWriter;
+import java.io.FileNotFoundException;</span>
+import java.util.Scanner;
+public class TextFileOutputDemo
+{
+    public static void main (String [] args)
+    {
+        String fileName = &quot;out.txt&quot;; //The name could be read from
+        //the keyboard.
+        PrintWriter outputStream = null;
+        try
+        {
+            outputStream = new PrintWriter (fileName);
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Error opening the file &quot; +
+                    fileName);
+            System.exit (0);
+        }
+        System.out.println (&quot;Enter three lines of text:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        for (int count = 1 ; count &lt;= 3 ; count++)
+        {
+            String line = keyboard.nextLine ();
+            <span style="background-color: #FFFF00">outputStream.println (count + &quot; &quot; + line);</span>
+        }
+        <span style="background-color: #FFFF00">outputStream.close ();</span>
+        System.out.println (&quot;Those lines were written to &quot; +
+                fileName);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.2">Listing
+        10.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+public class TextFileInputDemo
+{
+    public static void main (String [] args)
+    {
+        String fileName = &quot;out.txt&quot;;
+        Scanner inputStream = null;
+        System.out.println (&quot;The file &quot; + fileName +
+                &quot;\ncontains the following lines:\n&quot;);
+        try
+        {
+            inputStream = <span style="background-color: #FFFF00">new Scanner (new File (fileName));</span>
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Error opening the file &quot; +
+                    fileName);
+            System.exit (0);
+        }
+        while (<span style="background-color: #FFFF00">inputStream.hasNextLine ()</span>)
+        {
+            String line = inputStream.nextLine ();
+            System.out.println (line);
+        }
+        <span style="background-color: #FFFF00">inputStream.close ();</span>
+    }
+}
+</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.3">Listing
+        10.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+public class TextFileInputDemo2
+{
+    public static void main (String [] args)
+    {
+        <span style="background-color: #FFFF00">System.out.print (&quot;Enter file name: &quot;);    </span>
+        <span style="background-color: #FFFF00">Scanner keyboard = new Scanner (System.in);</span>
+        <span style="background-color: #FFFF00">String fileName = keyboard.next ();        </span>
+        Scanner inputStream = null;
+        System.out.println (&quot;The file &quot; + fileName + &quot;\n&quot; +
+                &quot;contains the following lines:\n&quot;);
+        try
+        {
+            inputStream = <span style="background-color: #FFFF00">new Scanner (new File (fileName));</span>
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Error opening the file &quot; +
+                    fileName &quot;);
+                    System.exit (0);
+        }
+        while (inputStream.hasNextLine ())
+        {
+            String line = inputStream.nextLine ();
+            System.out.println (line);
+        }
+        inputStream.close ();
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.4">Listing
+        10.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">
+File: Transactions.txt
+SKU,Quantity,Price,Description
+4039,50,0.99,SODA
+9100,5,9.50,T-SHIRT
+1949,30,110.00,JAVA PROGRAMMING TEXTBOOK
+5199,25,1.50,COOKIE
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
+
+public class TransactionReader
+{
+    public static void main(String[] args)
+    {
+        String fileName = "Transactions.txt";
+        try
+        {
+            Scanner inputStream = new Scanner(new File(fileName));
+            // Read the header line
+            String line = inputStream.nextLine();
+			// Total sales
+            double total = 0;
+            // Read the rest of the file line by line
+            while (inputStream.hasNextLine())
+            {
+				// Contains SKU,Quantity,Price,Description
+				line = inputStream.nextLine();
+				// Turn the string into an array of strings
+				String[] ary = line.split(",");
+				// Extract each item
+				String SKU = ary[0];
+				int quantity = Integer.parseInt(ary[1]);
+				double price = Double.parseDouble(ary[2]);
+				String description = ary[3];
+				// Output item
+				System.out.printf("Sold %d of %s (SKU: %s) at $%1.2f each.\n",
+					quantity, description, SKU, price);
+				// Compute total
+				total += quantity * price;
+			}
+			System.out.printf("Total sales: $%1.2f\n",total);
+            inputStream.close( );
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("Cannot find file " + fileName);
+        }
+        catch(IOException e)
+        {
+            System.out.println("Problem with input from file " + fileName);
+        }
+    }
+}
+        </font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.5">Listing
+        10.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+public class BinaryOutputDemo
+{
+    public static void main (String [] args)
+    {
+        String fileName = &quot;numbers.dat&quot;;
+        try
+        {
+            <span style="background-color: #FFFF00">ObjectOutputStream outputStream =</span>
+                <span style="background-color: #FFFF00">new ObjectOutputStream (new FileOutputStream (fileName));</span>
+            Scanner keyboard = new Scanner (System.in);
+            System.out.println (&quot;Enter nonnegative integers.&quot;);
+            System.out.println (&quot;Place a negative number at the end.&quot;);
+            <a name="int anInteger;">int anInteger;</a>
+            do
+            {
+                anInteger = keyboard.nextInt ();
+                <span style="background-color: #FFFF00">outputStream.writeInt (anInteger);</span>
+            }
+            while (anInteger &gt;= 0);
+            System.out.println (&quot;Numbers and sentinel value&quot;);
+            System.out.println (&quot;written to the file &quot; + fileName);
+            <span style="background-color: #FFFF00">outputStream.close ();</span>
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Problem opening the file &quot; + fileName);
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Problem with output to file &quot; + fileName);
+        }
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.6">Listing
+        10.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+public class BinaryInputDemo
+{
+    public static void main (String [] args)
+    {
+        String fileName = &quot;numbers.dat&quot;;
+        try
+        {
+            <span style="background-color: #FFFF00">ObjectInputStream inputStream =</span>
+                <span style="background-color: #FFFF00">new ObjectInputStream (new FileInputStream (fileName));</span>
+            System.out.println (&quot;Reading the nonnegative integers&quot;);
+            System.out.println (&quot;in the file &quot; + fileName);
+            int anInteger = <span style="background-color: #FFFF00">inputStream.readInt ();</span>
+            while (anInteger &gt;= 0)
+            {
+                System.out.println (anInteger);
+                anInteger = <span style="background-color: #FFFF00">inputStream.readInt ();</span>
+            }
+            System.out.println (&quot;End of reading from file.&quot;);
+            <span style="background-color: #FFFF00">inputStream.close ();</span>
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Problem opening the file &quot; + fileName);
+        }
+        catch (EOFException e)
+        {
+            System.out.println (&quot;Problem reading the file &quot; + fileName);
+            System.out.println (&quot;Reached end of the file.&quot;);
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Problem eading the file &quot; + fileName);
+        }
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.7">Listing
+        10.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+public class EOFExceptionDemo
+{
+    public static void main (String [] args)
+    {
+        String fileName = &quot;numbers.dat&quot;;
+        try
+        {
+            ObjectInputStream inputStream =
+                new ObjectInputStream (new FileInputStream (fileName));
+            System.out.println (&quot;Reading ALL the integers&quot;);
+            System.out.println (&quot;in the file &quot; + fileName);
+            <span style="background-color: #FFFF00">try</span>
+            {
+                <span style="background-color: #FFFF00">while (true)
+</span>                {
+                    int anInteger = inputStream.readInt ();
+                    System.out.println (anInteger);
+                }
+            }
+            <span style="background-color: #FFFF00">catch (EOFException e)</span>
+            {
+                System.out.println (&quot;End of reading from file.&quot;);
+            }
+            inputStream.close ();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;Cannot find file &quot; + fileName);
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Problem with input from file &quot; + fileName);
+        }
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.8">Listing
+        10.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+public class Doubler
+{
+    <span style="background-color: #FFFF00">private ObjectInputStream inputStream = null;
+</span>    <span style="background-color: #FFFF00">private ObjectOutputStream outputStream = null;</span>
+    /**
+    Doubles the integers in one file and puts them in another file.
+    */
+    public static void main (String [] args)
+    {
+        Doubler twoTimer = new Doubler ();
+        twoTimer.connectToInputFile ();
+        twoTimer.connectToOutputFile ();
+        twoTimer.timesTwo ();
+        twoTimer.closeFiles ();
+        System.out.println (&quot;Numbers from input file&quot;);
+        System.out.println (&quot;doubled and copied to output file.&quot;);
+    }
+
+
+    public void connectToInputFile ()
+    {
+        String inputFileName =
+            getFileName (&quot;Enter name of input file:&quot;);
+        try
+        {
+            inputStream = new ObjectInputStream (
+                    new FileInputStream (inputFileName));
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println (&quot;File &quot; + inputFileName +
+                    &quot; not found.&quot;);
+            System.exit (0);
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error opening input file &quot; +
+                    inputFileName);
+            System.exit (0);
+        }
+    }
+
+
+    private String getFileName (String prompt)
+    {
+        String fileName = null;
+        System.out.println (prompt);
+        Scanner keyboard = new Scanner (System.in);
+        fileName = keyboard.next ();
+        return fileName;
+    }
+
+
+    public void connectToOutputFile ()
+    {
+        String outputFileName =
+            getFileName (&quot;Enter name of output file:&quot;);
+        try
+        {
+            outputStream = new ObjectOutputStream (
+                    new FileOutputStream (outputFileName));
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error opening output file &quot; +
+                    outputFileName);
+            System.out.println (e.getMessage ());
+            System.exit (0);
+        }
+    }
+
+
+    public void timesTwo ()
+    {
+        try
+        {
+            <span style="background-color: #FFFF00">while (true)</span>
+            {
+                int next = i<span style="background-color: #FFFF00">nputStream.readInt ();</span>
+                outputStream.writeInt (2 * next);
+            }
+        }
+        <span style="background-color: #FFFF00">catch (EOFException e)                    </span>
+        <span style="background-color: #FFFF00">{                                         </span>
+        <span style="background-color: #FFFF00">    //Do nothing. This just ends the loop.</span>
+        <span style="background-color: #FFFF00">}                                         </span>
+        catch (IOException e)
+        {
+            System.out.println (
+                    &quot;Error: reading or writing files.&quot;);
+            System.out.println (e.getMessage ());
+            System.exit (0);
+        }
+    }
+
+
+    public void closeFiles ()
+    {
+        try
+        {
+            inputStream.close ();
+            outputStream.close ();
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error closing files &quot; +
+                    e.getMessage ());
+            System.exit (0);
+        }
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.9">Listing
+        10.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4"><span style="background-color: #FFFF00">import java.io.Serializable;</span>
+import java.util.Scanner;
+/**
+Serialized class for data on endangered species.
+*/
+public class Species <span style="background-color: #FFFF00">implements Serializable</span>
+{
+    private String name;
+    private int population;
+    private double growthRate;
+    public Species ()
+    {
+        name = null;
+        population = 0;
+        growthRate = 0;
+    }
+
+
+    public Species (String initialName, int initialPopulation,
+            double initialGrowthRate)
+    {
+        name = initialName;
+        if (initialPopulation &gt;= 0)
+            population = initialPopulation;
+        else
+        {
+            System.out.println (&quot;ERROR: Negative population.&quot;);
+            System.exit (0);
+        }
+        growthRate = initialGrowthRate;
+    }
+
+
+    public String toString ()
+    {
+        return (&quot;Name = &quot; + name + &quot;\n&quot; +
+                &quot;Population = &quot; + population + &quot;\n&quot; +
+                &quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    //Other methods are the same as those in Listing 5.17 of Chapter 5,
+    //but they are not needed for the discussion in this chapter.
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.10">Listing
+        10.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+public class ClassObjectIODemo
+{
+    public static void main (String [] args)
+    {
+        ObjectOutputStream outputStream = null;
+        <span style="background-color: #FFFF00">String fileName = &quot;species.records&quot;;</span>
+        try
+        {
+            outputStream = new ObjectOutputStream (
+                    new FileOutputStream (fileName));
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error opening output file &quot; +
+                    fileName + &quot;.&quot;);
+            System.exit (0);
+        }
+        Species califCondor =
+            new Species (&quot;Calif. Condor&quot;, 27, 0.02);
+        Species blackRhino =
+            new Species (&quot;Black Rhino&quot;, 100, 1.0);
+        try
+        {
+            <span style="background-color: #FFFF00">outputStream.writeObject (califCondor);</span>
+            <span style="background-color: #FFFF00">outputStream.writeObject (blackRhino); </span>
+            <span style="background-color: #FFFF00">outputStream.close ();
+</span>        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error writing to file &quot; +
+                    fileName + &quot;.&quot;);
+            System.exit (0);
+        }
+        System.out.println (&quot;Records sent to file &quot; +
+                fileName + &quot;.&quot;);
+        System.out.println (
+                &quot;Now let's reopen the file and echo the records.&quot;);
+        <span style="background-color: #FFFF00">ObjectInputStream inputStream = null;</span>
+        try
+        {
+            inputStream = new ObjectInputStream (
+                    new FileInputStream (&quot;species.records&quot;));
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error opening input file &quot; +
+                    fileName + &quot;.&quot;);
+            System.exit (0);
+        }
+        Species readOne = null, readTwo = null;
+        try
+        {
+            <span style="background-color: #FFFF00">readOne = (Species) inputStream.readObject ();</span>
+            <span style="background-color: #FFFF00">readTwo = (Species) inputStream.readObject ();</span>
+            <span style="background-color: #FFFF00">inputStream.close ();
+</span>        }
+        catch (Exception e)
+        {
+            System.out.println (&quot;Error reading from file &quot; +
+                    fileName + &quot;.&quot;);
+            System.exit (0);
+        }
+        System.out.println (&quot;The following were read\n&quot; +
+                &quot;from the file &quot; + fileName + &quot;.&quot;);
+        System.out.println (readOne);
+        System.out.println ();
+        System.out.println (readTwo);
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.11">Listing
+        10.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+public class ArrayIODemo
+{
+    public static void main (String [] args)
+    {
+        <span style="background-color: #FFFF00">Species [] oneArray = new Species [2];</span>
+        oneArray [0] = new Species (&quot;Calif. Condor&quot;, 27, 0.02);
+        oneArray [1] = new Species (&quot;Black Rhino&quot;, 100, 1.0);
+        String fileName = &quot;array.dat&quot;;
+        try
+        {
+            ObjectOutputStream outputStream =
+                new ObjectOutputStream (
+                    new FileOutputStream (fileName));
+            <span style="background-color: #FFFF00">outputStream.writeObject (oneArray);</span>
+            outputStream.close ();
+        }
+        catch (IOException e)
+        {
+            System.out.println (&quot;Error writing to file &quot; +
+                    fileName + &quot;.&quot;);
+            System.exit (0);
+        }
+        System.out.println (&quot;Array written to file &quot; +
+                fileName + &quot; and file is closed.&quot;);
+        System.out.println (&quot;Open the file for input and &quot; +
+                &quot;echo the array.&quot;);
+        <span style="background-color: #FFFF00">Species [] anotherArray = null;</span>
+        try
+        {
+            ObjectInputStream inputStream =
+                new ObjectInputStream (
+                    new FileInputStream (fileName));
+            <span style="background-color: #FFFF00">anotherArray = (Species []) inputStream.readObject ();</span>
+            inputStream.close ();
+        }
+        catch (Exception e)
+        {
+            System.out.println (&quot;Error reading file &quot; +
+                    fileName + . );
+            System.exit (0);
+        }
+        System.out.println (&quot;The following were read from &quot; +
+                &quot;the file &quot; + fileName + &quot;:&quot;);
+        for (int i = 0 ; i &lt; anotherArray.length ; i++)
+        {
+            System.out.println (anotherArray [i]);
+            System.out.println ();
+        }
+        System.out.println (&quot;End of program.&quot;);
+    }
+}</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.12">Listing
+        10.12</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.DataOutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.ServerSocket;
+
+public class SocketServer
+{
+ public static void main(String[] args)
+ {
+  String s;
+  Scanner inputStream = null;
+  PrintWriter outputStream = null;
+  ServerSocket serverSocket = null;
+  try
+  {
+	 // Wait for connection on port 6789
+	 System.out.println("Waiting for a connection.");
+	 serverSocket = new ServerSocket(6789);
+	 Socket socket = serverSocket.accept();
+	 // Connection made, set up streams
+	 inputStream = new Scanner(new InputStreamReader(socket.getInputStream()));
+     outputStream = new PrintWriter(new DataOutputStream(socket.getOutputStream()));
+
+     // Read a line from the client
+	 s = inputStream.nextLine();
+
+	 // Output text to the client
+     outputStream.println("Well, ");
+	 outputStream.println(s + " is a fine programming language!");
+     outputStream.flush();
+	 System.out.println("Closing connection from " + s);
+	 inputStream.close();
+	 outputStream.close();
+  }
+  catch (Exception e)
+  {
+     // If any exception occurs, display it
+     System.out.println("Error " + e);
+  }
+ }
+}
+</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.13">Listing
+        10.13</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.DataOutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class SocketClient
+{
+ public static void main(String[] args)
+ {
+  String s;
+  Scanner inputStream = null;
+  PrintWriter outputStream = null;
+  try
+  {
+   // Connect to server on same machine, port 6789
+   Socket clientSocket = new Socket("localhost",6789);
+   // Set up streams to send/receive data
+   inputStream = new Scanner(new InputStreamReader(clientSocket.getInputStream()));
+   outputStream = new PrintWriter(new DataOutputStream(clientSocket.getOutputStream()));
+
+   // Send "Java" to the server
+   outputStream.println("Java");
+   outputStream.flush(); // Sends data to the stream
+
+   // Read everything from the server until no more lines
+   // and output it to the screen
+   while (inputStream.hasNextLine())
+   {
+     s = inputStream.nextLine();
+     System.out.println(s);
+   }
+   inputStream.close();
+   outputStream.close();
+  }
+  catch (Exception e)
+  {
+   // If any exception occurs, display it
+   System.out.println("Error " + e);
+  }
+ }
+}
+</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 10.14">Listing
+        10.14</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><b><font color="#0000FF" size="4">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class FileOrganizer extends Application
+{
+   private TextField fileNameField;
+   private TextField firstLineField;
+
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+        final int WIDTH = 400;
+        final int HEIGHT = 300;
+        final int NUMBER_OF_PIXELS = 300;
+
+	  FlowPane root = new FlowPane();
+
+	  Button showButton = new Button("Show first line");
+	  root.getChildren().add(showButton);
+	  showButton.setOnAction(new EventHandler&lt;ActionEvent&gt;()
+	   {
+	   	@Override
+	   	public void handle(ActionEvent event)
+	   	{
+	   		showFirstLine();
+	   	}
+	   }
+	  );
+
+	  Button removeButton = new Button("Remove file");
+	  root.getChildren().add(removeButton);
+	  removeButton.setOnAction(new EventHandler&lt;ActionEvent&gt;()
+	   {
+	   	@Override
+	   	public void handle(ActionEvent event)
+	   	{
+	   		removeFile();
+	   	}
+	   }
+	  );
+
+	  Button resetButton = new Button("Reset");
+	  root.getChildren().add(resetButton);
+	  resetButton.setOnAction(new EventHandler&lt;ActionEvent&gt;()
+	   {
+	   	@Override
+	   	public void handle(ActionEvent event)
+	   	{
+	   		resetFields();
+	   	}
+	   }
+	  );
+
+	  fileNameField = new TextField("Enter file name here.");
+	  fileNameField.setPrefWidth(NUMBER_OF_PIXELS);
+	  root.getChildren().add(fileNameField);
+
+	  firstLineField = new TextField();
+	  firstLineField.setPrefWidth(NUMBER_OF_PIXELS);
+	  root.getChildren().add(firstLineField);
+
+   	  Scene scene = new Scene(root, WIDTH, HEIGHT);
+        primaryStage.setTitle("File Organizer");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+   }
+
+    private void showFirstLine( )
+    {
+        Scanner fileInput = null;
+        String fileName = fileNameField.getText( );
+        File fileObject = new File(fileName);
+
+        if (!fileObject.exists( ))
+            firstLineField.setText("No such file");
+        else if (!fileObject.canRead( ))
+            firstLineField.setText("That file is not readable.");
+        else
+        {
+            try
+            {
+                fileInput = new Scanner(fileObject);
+            }
+            catch(FileNotFoundException e)
+            {
+                firstLineField.setText("Error opening the file " +
+                                        fileName);
+            }
+            String firstLine = fileInput.nextLine( );
+            firstLineField.setText(firstLine);
+            fileInput.close( );
+        }
+    }
+
+    private void resetFields()
+    {
+        fileNameField.setText("Enter file name here.");
+        firstLineField.setText("");
+    }
+
+    private void removeFile( )
+    {
+        Scanner fileInput = null;
+        String firstLine;
+        String fileName = fileNameField.getText( );
+        File fileObject = new File(fileName);
+
+        if (!fileObject.exists( ))
+            firstLineField.setText("No such file");
+        else if (!fileObject.canWrite( ))
+            firstLineField.setText("Permission denied.");
+        else
+        {
+            if (fileObject.delete( ))
+                firstLineField.setText("File deleted.");
+            else
+                firstLineField.setText("Could not delete file.");
+        }
+    }
+}
+</font></b></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<b>Results for {{result.city}},{{result.state}}</b>
+{{#if result.data.length}}
+  <br></br>
+  <table>
+    <tr><th>ZipCode</th><th>Population</th></tr>
+    {{#each result.data}}
+      <tr><th><a href="/zip/{{this.zip}}">{{this.zip}}</a></th><th
+        >{{this.pop}}</th></tr>
+    {{/each}}
+  </table>
+{{else}}
+  <p>No result found. <a href="/city">Go Back</a>.</p>
+{{/if}}

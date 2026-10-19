@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+
+  <body>
+
+    <div id="suresh"></div>
+
+		<div id="alice"></div>
+
+    <script type="text/babel">
+
+      function GreetReact() {
+        return(
+          <div className="greet">
+            <h4>Hello Suresh, Welcome to React - from Facebook!</h4>
+          </div>
+        );
+      }
+
+      function GreetAngular() {
+        return(
+          <div className="greet">
+            <h4>Hello Alice, Welcome to Angular - from Google!</h4>
+          </div>
+        );
+      }
+
+    	ReactDOM.render(<GreetReact/>,
+  			document.querySelector('#suresh')
+			);
+
+			ReactDOM.render(<GreetAngular/>,
+        document.querySelector('#alice')
+      );
+
+    </script>
+  </body>
+</html>

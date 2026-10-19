@@ -1,0 +1,98 @@
+Name: Zhang, Jin Yu
+ 
+Email: jz5420@nyu.edu
+
+
+
+1) (3pts) Multiple Choice: b
+2) (3pts) Multiple Choice: d
+3) (3pts) Multiple Choice: c
+4) (3pts) Fill in the blank: ACK
+5) (3pts) Fill in the blank: MX
+
+
+6) (15 pts) Short answer: 
+
+Since HTTPS adds four more packets, it will have to go through two more RTTs comparing with HTTP. The total RTT will be four.
+
+
+7) (10 pts) Short answer:
+
+Threads work in async way but share the same memory.
+Since socket is a door, and we need a connection to access the information behind it (No direct access),
+it is not as convinent as accessing shared memory in a thread group (State is unclear).
+
+I would create a queue and put the requests from threads in it,
+sending a request if and only if a response for the previous request is back (if any).
+This way I can ensure that the response is fresh and expect the state of the destination.
+
+
+8) (15 pts) Short answer:
+
+First of all, there is a queue for the process in READY state, so there is already an execution order.
+What we need next is a way to suspend the current RUNNING state process in order to switch the running process.
+
+We can give each process a priority to determine which process should be `suspend`. For example, there is a lowest priority,
+and process waiting for an I/O, and process executing in a long term.
+The algorithm means to find the most `valuable` (Get more space, Waiting events, ...etc) process at present time to suspend.
+
+The suspended process will then enter READY state again (queueing for exectuing).
+
+
+9) (10 pts) Short answer:
+
+(1712)
+0 -> 1712
+8 -> 1720
+3 -> 1715
+52 -> 1764
+71 -> 1783
+18 -> 1800
+
+There may be some offset to be added.
+
+10) (15 pts) Short answer:
+
+Inside processes, there is a flag bit  (0 and 1), system can know which mode the process is.
+
+There is no extra effor for switching from Kernel to User.
+However, for switching from User to Kernel, we have to `upgrade` it by adding values (bits), verifyin, and testing.
+
+
+11) (20 pts) Write the code:
+
+/** I will use some text to describe how I reach the solution since I have forgotten some syntax */
+#include <iostream>
+#include <ifstream>
+#include <string>
+#include <vector>
+
+ifstream read(ifstream stream)
+{
+    do {
+        string filename;
+        cout << "Please enter the filename:" << endl;
+        cin >> filename;
+        /** Use stream to load and check if there is an error */
+    } while (/** Check if the file is loaded */);
+
+};
+
+struct DataGPA {
+    double score;
+    string name;
+};
+
+int main()
+{
+    ifstream stream;
+    read(stream);
+    vector<DataGPA> listOfDataGPA;
+    /** 
+    A loop here to load the file into listOfDataGPA.
+    Use >> operator to put data into the fields of a DataGPA.
+    Use method from string to read line until meet `\t`
+    */
+    cout << "The median is: " << listOfDataGPA[listOfDataGPA.length()].name << endl;
+    return 0;
+};

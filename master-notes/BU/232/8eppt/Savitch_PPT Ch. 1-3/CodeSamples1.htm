@@ -1,0 +1,1001 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Java: An Introduction to Programming and Problem Solving</title>
+</head>
+
+<body bgcolor="#CCFFFF">
+
+<p:colorscheme
+ colors="#FFFFFF,#000000,#808080,#000000,#BBE0E3,#333399,#009999,#99CC00"/>
+<div v:shape="_x0000_s1026" class="O" style="mso-char-wrap:1;mso-kinsoku-overflow:
+1">
+  <p align="center"><span style="font-size:12pt"><i>JAVA: An Introduction to
+  Problem Solving &amp; Programming, 8</i></span><span style="font-size:8pt;position:relative;
+top:-.45em;mso-text-raise:30%">th</span><span style="font-size:12pt"><span style="mso-spacerun:yes">&nbsp;</span>Ed.
+  By Walter Savitch.<br>
+      ISBN 01334462033 </span><span style="mso-bidi-font-family:
+Arial;font-size:12pt">© 2018 Pearson Education, Inc., Hoboken, NJ.
+  All Rights Reserved</span>
+</div>
+<p align="center">&nbsp; </p>
+<div align="center">
+	<table border="1" width="176">
+		<tr>
+			<td width="166">
+			<ul>
+				<li>
+				<a href="#Listing 1.1"><font face="Arial">Listing 1.1</font></a></li>
+				<li>
+				<font face="Arial"><a href="#Listing 1.2">Listing 1.2</a><br>
+&nbsp;</font></li>
+				<br/>
+                <li><a href="#Listing 2.1"><font face="Arial">Listing 2.1</font></a></li>
+				<li><a href="#Listing 2.2"><font face="Arial">Listing 2.2</font></a></li>
+				<li><a href="#Listing 2.3"><font face="Arial">Listing 2.3</font></a></li>
+				<li><a href="#Listing 2.4"><font face="Arial">Listing 2.4</font></a></li>
+				<li><a href="#Listing 2.5"><font face="Arial">Listing 2.5</font></a></li>
+				<li><a href="#Listing 2.6"><font face="Arial">Listing 2.6</font></a></li>
+				<li><a href="#Listing 2.7"><font face="Arial">Listing 2.7</font></a></li>
+				<li><a href="#Listing 2.8"><font face="Arial">Listing 2.8</font></a></li>
+				<li><a href="#Listing 2.9"><font face="Arial">Listing 2.9</font></a></li>
+				<li><a href="#Listing 2.10"><font face="Arial">Listing 2.10</font></a></li>
+				<li><a href="#Listing 2.11"><font face="Arial">Listing 2.11</font></a><br></li>
+                <br />
+                <li><a href="#Listing 3.1"><font face="Arial">Listing 3.1</font></a></li>
+				<li><a href="#Listing 3.2"><font face="Arial">Listing 3.2</font></a></li>
+				<li><a href="#Listing 3.3"><font face="Arial">Listing 3.3</font></a></li>
+                <li><a href="#Listing 3.4"><font face="Arial">Listing 3.4</font></a></li>
+				<li><a href="#Listing 3.5"><font face="Arial">Listing 3.5</font></a></li>
+				<li><a href="#Listing 3.6"><font face="Arial">Listing 3.6</font></a></li>
+			</ul>
+			</td>
+		</tr>
+	</table>
+</div>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 1.1">Listing 1.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class FirstProgram
+{
+    public static void main (String [] args)
+    {
+        System.out.println (&quot;Hello out there.&quot;);
+        System.out.println (&quot;I will add two numbers for you.&quot;);
+        System.out.println (&quot;Enter two whole numbers on a line:&quot;);
+        int n1, n2;
+        Scanner keyboard = new Scanner (System.in);
+        n1 = keyboard.nextInt ();
+        n2 = keyboard.nextInt ();
+        System.out.println (&quot;The sum of those two numbers is&quot;);
+        System.out.println (n1 + n2);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 1.2">Listing
+        1.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+
+public class HappyFace extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Group root = new Group();
+	Scene scene = new Scene(root);
+
+	Canvas canvas = new Canvas(400, 300);
+	GraphicsContext gc = canvas.getGraphicsContext2D();
+	gc.strokeOval(100, 50, 200, 200);
+	gc.fillOval(155, 100, 10, 20);
+	gc.fillOval(230, 100, 10, 20);
+	gc.strokeArc(150, 160, 100, 50, 180, 180, ArcType.OPEN);
+
+	root.getChildren().add(canvas);
+	primaryStage.setTitle("HappyFace in JavaFX");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.1">Listing
+        2.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class EggBasket
+{
+    public static void main (String [] args)
+    {
+        int numberOfBaskets, eggsPerBasket, totalEggs;
+        numberOfBaskets = 10;
+        eggsPerBasket = 6;
+        totalEggs = numberOfBaskets * eggsPerBasket;
+        System.out.println (&quot;If you have&quot;);
+        System.out.println (eggsPerBasket + &quot; eggs per basket and&quot;);
+        System.out.println (numberOfBaskets + &quot; baskets, then&quot;);
+        System.out.println (&quot;the total number of eggs is &quot; + totalEggs);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.2">Listing
+        2.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class EggBasket2
+{
+    public static void main (String [] args)
+    {
+        int numberOfBaskets, eggsPerBasket, totalEggs;
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter the number of eggs in each basket:&quot;);
+        eggsPerBasket = keyboard.nextInt ();
+        System.out.println (&quot;Enter the number of baskets:&quot;);
+        numberOfBaskets = keyboard.nextInt ();
+        totalEggs = numberOfBaskets * eggsPerBasket;
+        System.out.println (&quot;If you have&quot;);
+        System.out.println (eggsPerBasket + &quot; eggs per basket and&quot;);
+        System.out.println (numberOfBaskets + &quot; baskets, then&quot;);
+        System.out.println (&quot;the total number of eggs is &quot; + totalEggs);
+        System.out.println (&quot;Now we take two eggs out of each basket.&quot;);
+        eggsPerBasket = eggsPerBasket - 2;
+        totalEggs = numberOfBaskets * eggsPerBasket;
+        System.out.println (&quot;You now have&quot;);
+        System.out.println (eggsPerBasket + &quot; eggs per basket and&quot;);
+        System.out.println (numberOfBaskets + &quot; baskets.&quot;);
+        System.out.println (&quot;The new total number of eggs is &quot; + totalEggs);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.3">Listing
+        2.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class ChangeMaker
+{
+    public static void main (String [] args)
+    {
+        int amount, originalAmount,
+            quarters, dimes, nickels, pennies;
+        System.out.println (&quot;Enter a whole number from 1 to 99.&quot;);
+        System.out.println (&quot;I will find a combination of coins&quot;);
+        System.out.println (&quot;that equals that amount of change.&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        amount = keyboard.nextInt ();
+        originalAmount = amount;
+        quarters = amount / 25;
+        amount = amount % 25;
+        dimes = amount / 10;
+        amount = amount % 10;
+        nickels = amount / 5;
+        amount = amount % 5;
+        pennies = amount;
+        System.out.println (originalAmount +
+                &quot; cents in coins can be given as:&quot;);
+        System.out.println (quarters + &quot; quarters&quot;);
+        System.out.println (dimes + &quot; dimes&quot;);
+        System.out.println (nickels + &quot; nickels and&quot;);
+        System.out.println (pennies + &quot; pennies&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.4">Listing
+        2.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class StringDemo
+{
+    public static void main (String [] args)
+    {
+        String sentence = &quot;Text processing is hard!&quot;;
+        int position = sentence.indexOf (&quot;hard&quot;);
+        System.out.println (sentence);
+        System.out.println (&quot;012345678901234567890123&quot;);
+        System.out.println (&quot;The word \&quot;hard\&quot; starts at index &quot;
+                + position);
+        sentence = sentence.substring (0, position) + &quot;easy!&quot;;
+        sentence = sentence.toUpperCase ();
+        System.out.println (&quot;The changed string is:&quot;);
+        System.out.println (sentence);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.5">Listing
+        2.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class ScannerDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter two whole numbers&quot;);
+        System.out.println (&quot;separated by one or more spaces:&quot;);
+        int n1, n2;
+        n1 = keyboard.nextInt ();
+        n2 = keyboard.nextInt ();
+        System.out.println (&quot;You entered &quot; + n1 + &quot; and &quot; + n2);
+        System.out.println (&quot;Next enter two numbers.&quot;);
+        System.out.println (&quot;A decimal point is OK.&quot;);
+        double d1, d2;
+        d1 = keyboard.nextDouble ();
+        d2 = keyboard.nextDouble ();
+        System.out.println (&quot;You entered &quot; + d1 + &quot; and &quot; + d2);
+        System.out.println (&quot;Next enter two words:&quot;);
+        String s1, s2;
+        s1 = keyboard.next ();
+        s2 = keyboard.next ();
+        System.out.println (&quot;You entered \&quot;&quot; +
+                s1 + &quot;\&quot; and \&quot;&quot; + s2 + &quot;\&quot;&quot;);
+        s1 = keyboard.nextLine (); //To get rid of '\n'
+        System.out.println (&quot;Next enter a line of text:&quot;);
+        s1 = keyboard.nextLine ();
+        System.out.println (&quot;You entered: \&quot;&quot; + s1 + &quot;\&quot;&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.6">Listing
+        2.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class DelimitersDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard1 = new Scanner (System.in);
+        Scanner keyboard2 = new Scanner (System.in);
+        keyboard2.useDelimiter (&quot;##&quot;);
+        //The delimiters for keyboard1 are the whitespace characters.
+        //The only delimiter for keyboard2 is ##.
+        String s1, s2;
+        System.out.println (&quot;Enter a line of text with two words:&quot;);
+        s1 = keyboard1.next ();
+        s2 = keyboard1.next ();
+        System.out.println (&quot;the two words are \&quot;&quot; + s1 +
+                &quot;\&quot; and \&quot;&quot; + s2 + &quot;\&quot;&quot;);
+        System.out.println (&quot;Enter a line of text with two words&quot;);
+        System.out.println (&quot;delimited by ##:&quot;);
+        s1 = keyboard2.next ();
+        s2 = keyboard2.next ();
+        System.out.println (&quot;the two words are \&quot;&quot; + s1 +
+                &quot;\&quot; and \&quot;&quot; + s2 + &quot;\&quot;&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.7">Listing
+        2.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+
+/**
+Program to compute area of a circle.
+Author: Jane Q. Programmer.
+E-mail Address: janeq@somemachine.etc.etc.
+Programming Assignment 2.
+Last Changed: October 7, 2008.
+*/
+
+public class CircleCalculation
+{
+    public static void main (String [] args)
+    {
+        double radius; //in inches
+        double area; //in square inches
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter the radius of a circle in inches:&quot;);
+        radius = keyboard.nextDouble ();
+        area = 3.14159 * radius * radius;
+        System.out.println (&quot;A circle of radius &quot; + radius + &quot; inches&quot;);
+        System.out.println (&quot;has an area of &quot; + area + &quot; square inches.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.8">Listing
+        2.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Program to compute area of a circle.
+Author: Jane Q. Programmer.
+E-mail Address: janeq@somemachine.etc.etc.
+Programming Assignment 2.
+Last Changed: October 7, 2008.
+*/
+public class CircleCalculation2
+{
+    public static final double PI = 3.14159;
+    public static void main (String [] args)
+    {
+        double radius; //in inches
+        double area; //in square inches
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter the radius of a circle in inches:&quot;);
+        radius = keyboard.nextDouble ();
+        area = PI * radius * radius;
+        System.out.println (&quot;A circle of radius &quot; + radius + &quot; inches&quot;);
+        System.out.println (&quot;has an area of &quot; + area + &quot; square inches.&quot;);
+    }
+}&nbsp;</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.9">Listing
+        2.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+/**
+ JavaFX Application that displays a happy face.
+ Author: Jane Q. Programmer
+ Revision of Listing 1.2.
+*/
+
+public class HappyFace extends Application
+{
+   public static final int WINDOW_WIDTH = 400;
+   public static final int WINDOW_HEIGHT = 300;
+
+   public static final int FACE_DIAMETER = 200;
+   public static final int X_FACE = 100;
+   public static final int Y_FACE = 50;
+
+   public static final int EYE_WIDTH = 10;
+   public static final int EYE_HEIGHT = 20;
+   public static final int X_RIGHT_EYE = 155;
+   public static final int Y_RIGHT_EYE = 100;
+   public static final int X_LEFT_EYE = 230;
+   public static final int Y_LEFT_EYE = Y_RIGHT_EYE;
+
+   public static final int MOUTH_WIDTH = 100;
+   public static final int MOUTH_HEIGHT = 50;
+   public static final int X_MOUTH = 150;
+   public static final int Y_MOUTH = 160;
+   public static final int MOUTH_START_ANGLE = 180;
+   public static final int MOUTH_DEGREES_SHOWN = 180;
+
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	  Group root = new Group();
+   	  Scene scene = new Scene(root);
+
+      Canvas canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+      GraphicsContext gc = canvas.getGraphicsContext2D();
+      // Draw face outline
+      gc.strokeOval(X_FACE, Y_FACE, FACE_DIAMETER, FACE_DIAMETER);
+      // Draw eyes
+	  gc.fillOval(X_RIGHT_EYE, Y_RIGHT_EYE, EYE_WIDTH, EYE_HEIGHT);
+	  gc.fillOval(X_LEFT_EYE, Y_LEFT_EYE, EYE_WIDTH, EYE_HEIGHT);
+	  // Draw mouth
+	  gc.strokeArc(X_MOUTH, Y_MOUTH, MOUTH_WIDTH, MOUTH_HEIGHT,
+	               MOUTH_START_ANGLE, MOUTH_DEGREES_SHOWN, ArcType.OPEN);
+
+      root.getChildren().add(canvas);
+      primaryStage.setTitle("HappyFace in JavaFX");
+      primaryStage.setScene(scene);
+      primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.10">Listing
+        2.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javax.swing.JOptionPane;
+public class JOptionPaneDemo
+{
+    public static void main (String [] args)
+    {
+        String appleString =
+            JOptionPane.showInputDialog (&quot;Enter number of apples:&quot;);
+        int appleCount = Integer.parseInt (appleString);
+        String orangeString =
+            JOptionPane.showInputDialog (&quot;Enter number of oranges:&quot;);
+        int orangeCount = Integer.parseInt (orangeString);
+        int totalFruitCount = appleCount + orangeCount;
+        JOptionPane.showMessageDialog (null,
+                &quot;The total number of fruits = &quot; + totalFruitCount);
+        System.exit (0);
+    }
+}&nbsp;</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 2.11">Listing
+        2.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javax.swing.JOptionPane;
+public class ChangeMakerWindow
+{
+    public static void main (String [] args)
+    {
+        String amountString = JOptionPane.showInputDialog (
+                &quot;Enter a whole number from 1 to 99.\n&quot; +
+                &quot;I will output a combination of coins\n&quot; +
+                &quot;that equals that amount of change.&quot;);
+        int amount, originalAmount,
+            quarters, dimes, nickels, pennies;
+        amount = Integer.parseInt (amountString);
+        originalAmount = amount;
+        quarters = amount / 25;
+        amount = amount % 25;
+        dimes = amount / 10;
+        amount = amount % 10;
+        nickels = amount / 5;
+        amount = amount % 5;
+        pennies = amount;
+        JOptionPane.showMessageDialog (null, originalAmount +
+                &quot; cents in coins can be given as:\n&quot; +
+                quarters + &quot; quarters\n&quot; +
+                dimes + &quot; dimes\n&quot; +
+                nickels + &quot; nickels and\n&quot; +
+                pennies + &quot; pennies&quot;);
+        System.exit (0);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.1">Listing
+        3.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class BankBalance
+{
+    public static final double OVERDRAWN_PENALTY = 8.00;
+    public static final double INTEREST_RATE = 0.02; //2% annually
+    public static void main (String [] args)
+    {
+        double balance;
+        System.out.print (&quot;Enter your checking account balance: $&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        balance = keyboard.nextDouble ();
+        System.out.println (&quot;Original balance $&quot; + balance);
+        if (balance &gt;= 0)
+            balance = balance + (INTEREST_RATE * balance) / 12;
+        else
+            balance = balance - OVERDRAWN_PENALTY;
+        System.out.print (&quot;After adjusting for one month &quot;);
+        System.out.println (&quot;of interest and penalties,&quot;);
+        System.out.println (&quot;your new balance is $&quot; + balance);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.2">Listing
+        3.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class StringEqualityDemo
+{
+    public static void main (String [] args)
+    {
+        String s1, s2;
+        System.out.println (&quot;Enter two lines of text:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        s1 = keyboard.nextLine ();
+        s2 = keyboard.nextLine ();
+        if (s1.equals (s2))
+            System.out.println (&quot;The two lines are equal.&quot;);
+        else
+            System.out.println (&quot;The two lines are not equal.&quot;);
+        if (s2.equals (s1))
+            System.out.println (&quot;The two lines are equal.&quot;);
+        else
+            System.out.println (&quot;The two lines are not equal.&quot;);
+        if (s1.equalsIgnoreCase (s2))
+            System.out.println (
+                    &quot;But the lines are equal, ignoring case.&quot;);
+        else
+            System.out.println (
+                    &quot;Lines are not equal, even ignoring case.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.3">Listing
+        3.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class Grader
+{
+    public static void main (String [] args)
+    {
+        int score;
+        char grade;
+        System.out.println (&quot;Enter your score: &quot;);
+        Scanner keyboard = new Scanner (System.in);
+        score = keyboard.nextInt ();
+        if (score &gt;= 90)
+            grade = 'A';
+        else if (score &gt;= 80)
+            grade = 'B';
+        else if (score &gt;= 70)
+            grade = 'C';
+        else if (score &gt;= 60)
+            grade = 'D';
+        else
+            grade = 'F';
+        System.out.println (&quot;Score = &quot; + score);
+        System.out.println (&quot;Grade = &quot; + grade);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.4">Listing
+        3.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>
+import java.util.Scanner;
+
+public class BMI
+{
+	public static void main(String[] args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		int pounds, feet, inches;
+		double heightMeters, mass, BMI;
+
+		System.out.println("Enter your weight in pounds.");
+		pounds = keyboard.nextInt();
+		System.out.println("Enter your height in feet " +
+				"followed by a space then additional inches.");
+		feet = keyboard.nextInt();
+		inches = keyboard.nextInt();
+
+		// Convert to meters and kilograms
+		heightMeters = ((feet * 12) + inches) * 0.0254;
+		mass = (pounds / 2.2);
+
+		// Compute BMI and output health category
+		BMI = mass / (heightMeters * heightMeters);
+		System.out.println("Your BMI is " + BMI);
+		System.out.print("Your risk category is " );
+		if (BMI < 18.5)
+			System.out.println("Underweight.");
+		else if (BMI < 25)
+			System.out.println("Normal weight.");
+		else if (BMI < 30)
+			System.out.println("Overweight.");
+		else
+			System.out.println("Obese.");
+	}
+}
+</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.5">Listing
+        3.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class MultipleBirths
+{
+    public static void main (String [] args)
+    {
+        int numberOfBabies;
+        System.out.print (&quot;Enter number of babies: &quot;);
+        Scanner keyboard = new Scanner (System.in);
+        numberOfBabies = keyboard.nextInt ();
+        switch (numberOfBabies)
+        {
+            case 1:
+                System.out.println (&quot;Congratulations.&quot;);
+                break;
+            case 2:
+                System.out.println (&quot;Wow. Twins.&quot;);
+                break;
+            case 3:
+                System.out.println (&quot;Wow. Triplets.&quot;);
+                break;
+            case 4:
+            case 5:
+                System.out.print (&quot;Unbelieveable; &quot;);
+                System.out.println (numberOfBabies + &quot; babies.&quot;);
+                break;
+            default:
+                System.out.println (&quot;I don't believe you.&quot;);
+                break;
+        }
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 3.6">Listing
+        3.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+import javafx.scene.paint.Color;
+
+public class YellowFace extends Application
+{
+   public static final int WINDOW_WIDTH = 400;
+   public static final int WINDOW_HEIGHT = 300;
+
+   public static final int FACE_DIAMETER = 200;
+   public static final int X_FACE = 100;
+   public static final int Y_FACE = 50;
+
+   public static final int EYE_WIDTH = 10;
+   public static final int EYE_HEIGHT = 20;
+   public static final int X_RIGHT_EYE = 155;
+   public static final int Y_RIGHT_EYE = 100;
+   public static final int X_LEFT_EYE = 230;
+   public static final int Y_LEFT_EYE = Y_RIGHT_EYE;
+
+   public static final int NOSE_DIAMETER = 10;
+   public static final int X_NOSE = 195; // Center of nose at 200
+   public static final int Y_NOSE = 135;
+
+   public static final int MOUTH_WIDTH = 100;
+   public static final int MOUTH_HEIGHT = 50;
+   public static final int X_MOUTH = 150;
+   public static final int Y_MOUTH = 160;
+   public static final int MOUTH_START_ANGLE = 180;
+   public static final int MOUTH_DEGREES_SHOWN = 180;
+
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Group root = new Group();
+	Scene scene = new Scene(root);
+
+	Canvas canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+	GraphicsContext gc = canvas.getGraphicsContext2D();
+	// Draw face interior in yellow and outline in black
+	gc.setFill(Color.YELLOW);
+	gc.fillOval(X_FACE, Y_FACE, FACE_DIAMETER, FACE_DIAMETER);
+	gc.setFill(Color.BLACK);
+	gc.strokeOval(X_FACE, Y_FACE, FACE_DIAMETER, FACE_DIAMETER);
+	// Draw eyes
+	gc.setFill(Color.BLUE);
+	gc.fillOval(X_RIGHT_EYE, Y_RIGHT_EYE, EYE_WIDTH, EYE_HEIGHT);
+	gc.fillOval(X_LEFT_EYE, Y_LEFT_EYE, EYE_WIDTH, EYE_HEIGHT);
+	// Draw nose
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_NOSE, Y_NOSE, NOSE_DIAMETER, NOSE_DIAMETER);
+
+	// Draw mouth
+	gc.setFill(Color.RED);
+	gc.strokeArc(X_MOUTH, Y_MOUTH, MOUTH_WIDTH, MOUTH_HEIGHT,
+	             MOUTH_START_ANGLE, MOUTH_DEGREES_SHOWN, ArcType.OPEN);
+
+	root.getChildren().add(canvas);
+	primaryStage.setTitle("HappyFace in JavaFX");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

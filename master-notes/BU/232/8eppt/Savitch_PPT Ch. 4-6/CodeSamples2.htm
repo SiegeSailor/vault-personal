@@ -1,0 +1,2418 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>JAVA</title>
+</head>
+
+<body bgcolor="#CCFFFF">
+
+<div v:shape="_x0000_s1026" class="O" style="mso-char-wrap:1;mso-kinsoku-overflow:
+1">
+  <p align="center"><span style="font-size:12pt"><i>JAVA: An Introduction to
+  Problem Solving &amp; Programming, 8</i></span><span style="font-size:8pt;position:relative;
+top:-.45em;mso-text-raise:30%">th</span><span style="font-size:12pt"><span style="mso-spacerun:yes">&nbsp;</span>Ed.
+  By Walter Savitch.<br>
+      ISBN 01334462033 </span><span style="mso-bidi-font-family:
+Arial;font-size:12pt">© 2018 Pearson Education, Inc., Hoboken, NJ.
+  All Rights Reserved</span>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="407">
+    <tr>
+      <td width="185" valign="top">&nbsp;
+        <ul>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.1">Listing
+            4.1</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.2">Listing
+            4.2</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Algorithm for Roach Population Program">Algorithm
+            for Roach Population Program</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.3">Listing
+            4.3</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.4">Listing
+            4.4</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.5">Listing
+            4.5</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.6">Listing
+            4.6</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Spending Spree Algorithm">Spending
+            Spree Algorithm</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.7">Listing
+            4.7</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 4.9">Listing
+            4.9</a></font></li>
+        </ul>
+        <p>&nbsp;</td>
+      <td width="206">
+        <ul>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.1">Listing
+            5.1</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.2">Listing
+            5.2</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.3">Listing
+            5.3</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.4">Listing
+            5.4</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.5A">Listing
+            5.5A</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.5B">Listing
+            5.5B</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.6">Listing
+            5.6</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.7">Listing
+            5.7</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.8">Listing
+            5.8</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.9">Listing
+            5.9</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.10">Listing
+            5.10</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.11">Listing
+            5.11</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.12">Listing
+            5.12</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.13">Listing
+            5.13</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.14">Listing
+            5.14</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.15">Listing
+            5.15</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.16">Listing
+            5.16</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.17">Listing
+            5.17</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.18">Listing
+            5.18</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.19">Listing
+            5.19</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.20">Listing
+            5.20</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.21">Listing
+            5.21</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.22">Listing
+            5.22</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.23">Listing
+            5.23</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.24">Listing
+            5.24</a></font></li>
+          <li>
+            <p align="left"><font face="Arial"><a href="#Listing 5.25">Listing
+            5.25</a></font></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;
+</p>
+
+<p align="center">&nbsp;
+</p>
+
+<p align="center">&nbsp;
+&nbsp;
+</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.1">Listing 4.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class WhileDemo
+{
+    public static void main (String [] args)
+    {
+        int count, number;
+        System.out.println (&quot;Enter a number&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        number = keyboard.nextInt ();
+        count = 1;
+        while (count &lt;= number)
+        {
+            System.out.print (count + &quot;, &quot;);
+            count++;
+        }
+        System.out.println ();
+        System.out.println (&quot;Buckle my shoe.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.2">Listing
+        4.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class DoWhileDemo
+{
+    public static void main (String [] args)
+    {
+        int count, number;
+        System.out.println (&quot;Enter a number&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        number = keyboard.nextInt ();
+        count = 1;
+        do
+        {
+            System.out.print (count + &quot;, &quot;);
+            count++;
+        }
+        while (count &lt;= number);
+        System.out.println ();
+        System.out.println (&quot;Buckle my shoe.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Algorithm for Roach Population Program">Algorithm
+        for Roach Population Program</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>Algorithm for roach population program
+1. Read houseVolume
+2. Read startPopulation
+3. population = startPopulation
+4. totalBugVolume = population * ONE_BUG_VOLUME
+5. countWeeks = 0
+6. while (totalBugVolume &lt; houseVolume)
+{
+	newBugs = population * GROWTH_RATE
+	newBugVolume = newBugs * ONE_BUG_VOLUME
+	population = population + newBugs
+	totalBugVolume = totalBugVolume + newBugVolume
+	countWeeks = countWeeks + 1
+}
+7. Display startPopulation, houseVolume, countWeeks, population, and
+totalBugVolume</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.3">Listing
+        4.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Program to calculate how long it will take a population of
+roaches to completely fill a house from floor to ceiling.
+*/
+public class BugTrouble
+{
+    public static final double GROWTH_RATE = 0.95; //95% per week
+    public static final double ONE_BUG_VOLUME = 0.002; //cubic feet
+    public static void main (String [] args)
+    {
+        System.out.println (&quot;Enter the total volume of your house&quot;);
+        System.out.print (&quot;in cubic feet: &quot;);
+        Scanner keyboard = new Scanner (System.in);
+        double houseVolume = keyboard.nextDouble ();
+        System.out.println (&quot;Enter the estimated number of&quot;);
+        System.out.print (&quot;roaches in your house: &quot;);
+        int startPopulation = keyboard.nextInt ();
+        int countWeeks = 0;
+        double population = startPopulation;
+        double totalBugVolume = population * ONE_BUG_VOLUME;
+        double newBugs, newBugVolume;
+        while (totalBugVolume &lt; houseVolume)
+        {
+            newBugs = population * GROWTH_RATE;
+            newBugVolume = newBugs * ONE_BUG_VOLUME;
+            population = population + newBugs;
+            totalBugVolume = totalBugVolume + newBugVolume;
+            countWeeks++;
+        }
+        System.out.println (&quot;Starting with a roach population of &quot; +
+                startPopulation);
+        System.out.println (&quot;and a house with a volume of &quot; + houseVolume +
+                &quot; cubic feet,&quot;);
+        System.out.println (&quot;after &quot; + countWeeks + &quot; weeks,&quot;);
+        System.out.println (&quot;the house will be filled with &quot; +
+                (int) population + &quot; roaches.&quot;);
+        System.out.println (&quot;They will fill a volume of &quot; +
+                (int) totalBugVolume + &quot; cubic feet.&quot;);
+        System.out.println (&quot;Better call Debugging Experts Inc.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.4">Listing
+        4.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Computes the average of a list of (nonnegative) exam scores.
+Repeats computation for more exams until the user says to stop.
+*/
+public class ExamAverager
+{
+    public static void main (String [] args)
+    {
+        System.out.println (&quot;This program computes the average of&quot;);
+        System.out.println (&quot;a list of (nonnegative) exam scores.&quot;);
+        double sum;
+        int numberOfStudents;
+        double next;
+        String answer;
+        Scanner keyboard = new Scanner (System.in);
+        do
+        {
+            System.out.println ();
+            System.out.println (&quot;Enter all the scores to be averaged.&quot;);
+            System.out.println (&quot;Enter a negative number after&quot;);
+            System.out.println (&quot;you have entered all the scores.&quot;);
+            sum = 0;
+            numberOfStudents = 0;
+            next = keyboard.nextDouble ();
+            while (next &gt;= 0)
+            {
+                sum = sum + next;
+                numberOfStudents++;
+                next = keyboard.nextDouble ();
+            }
+            if (numberOfStudents &gt; 0)
+                System.out.println (&quot;The average is &quot; +
+                        (sum / numberOfStudents));
+            else
+                System.out.println (&quot;No scores to average.&quot;);
+            System.out.println (&quot;Want to average another exam?&quot;);
+            System.out.println (&quot;Enter yes or no.&quot;);
+            answer = keyboard.next ();
+        }
+        while (answer.equalsIgnoreCase (&quot;yes&quot;));
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%" height="52">
+    <tr>
+      <td width="100%" height="24">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.5">Listing
+        4.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" height="16">
+        <pre><font size="4" color="#0000FF"><b>public class ForDemo
+{
+    public static void main (String [] args)
+    {
+        int countDown;
+        for (countDown = 3 ; countDown &gt;= 0 ; countDown--)
+        {
+            System.out.println (countDown);
+            System.out.println (&quot;and counting.&quot;);
+        }
+        System.out.println (&quot;Blast off!&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.6">Listing
+        4.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Illustrates the use of a boolean variable to end loop iteration.
+*/
+public class BooleanDemo
+{
+    public static void main (String [] args)
+    {
+        System.out.println (&quot;Enter nonnegative numbers.&quot;);
+        System.out.println (&quot;Place a negative number at the end&quot;);
+        System.out.println (&quot;to serve as an end marker.&quot;);
+        int sum = 0;
+        boolean areMore = true;
+        Scanner keyboard = new Scanner (System.in);
+        while (areMore)
+        {
+            int next = keyboard.nextInt ();
+            if (next &lt; 0)
+                areMore = false;
+            else
+                sum = sum + next;
+        }
+        System.out.println (&quot;The sum of the numbers is &quot; + sum);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Spending Spree Algorithm">Spending
+        Spree Algorithm</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>    1. amountRemaining = amount of gift certificate
+    2. totalSpent = 0
+    3. itemNumber = 1
+    4. while (we have money left to spend and (itemNumber &lt;= max number of items))
+    {
+    Display amount of money left and number of items that can be bought.
+        Read cost of proposed purchase.
+        if (we can afford the purchase)
+        {
+            Display a message.
+            totalSpent = totalSpent + cost of item
+            Update amountRemaining
+            if (amountRemaining &gt; 0)
+            {
+                Display amount of money left.
+                itemNumber++
+            }
+            else
+            {
+                Display a message (no more money).
+                Make this the last loop iteration.
+            }
+        }
+
+        else
+        Display a message (item is too expensive).
+        }
+
+        Display amount of money spent and farewell message.</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.7">Listing
+        4.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class SpendingSpree
+{
+    public static final int SPENDING_MONEY = 100;
+    public static final int MAX_ITEMS = 3;
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        boolean haveMoney = true;
+        int leftToSpend = SPENDING_MONEY;
+        int totalSpent = 0;
+        int itemNumber = 1;
+        while (haveMoney &amp;&amp; (itemNumber &lt;= MAX_ITEMS))
+        {
+            System.out.println (&quot;You may buy up to &quot; +
+                    (MAX_ITEMS - itemNumber + 1) +
+                    &quot; items&quot;);
+            System.out.println (&quot;costing no more than $&quot; +
+                    leftToSpend + &quot;.&quot;);
+            System.out.print (&quot;Enter cost of item #&quot; +
+                    itemNumber + &quot;: $&quot;);
+            int itemCost = keyboard.nextInt ();
+            if (itemCost &lt;= leftToSpend)
+            {
+                System.out.println (&quot;You may buy this item. &quot;);
+                totalSpent = totalSpent + itemCost;
+                System.out.println (&quot;You spent $ + totalSpent +
+                        so far. &quot;);
+                        leftToSpend = SPENDING_MONEY - totalSpent;
+                if (leftToSpend &gt; 0)
+                    itemNumber++;
+                else
+                {
+                    System.out.println (&quot;You are out of money.);
+                            haveMoney = false;
+                }
+            }
+            else
+                System.out.println (&quot;You cannot buy that item.&quot;);
+        }
+        System.out.println (&quot;You spent $&quot; + totalSpent +
+                &quot;, and are done shopping.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 4.9">Listing
+        4.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
+public class MultipleFaces extends Application
+{
+    public static final int WINDOW_WIDTH = 450;
+    public static final int WINDOW_HEIGHT = 300;
+
+    public static final int FACE_DIAMETER = 50;
+    public static final int X_FACE0 = 10;
+    public static final int Y_FACE0 = 5;
+
+    public static final int EYE_WIDTH = 5;
+    public static final int EYE_HEIGHT = 10;
+    public static final int X_RIGHT_EYE0 = 20;
+    public static final int Y_RIGHT_EYE0 = 15;
+    public static final int X_LEFT_EYE0 = 45;
+    public static final int Y_LEFT_EYE0 = Y_RIGHT_EYE0;
+
+    public static final int NOSE_DIAMETER = 5;
+    public static final int X_NOSE0 = 32;
+    public static final int Y_NOSE0 = 25;
+
+    public static final int MOUTH_WIDTH = 30;
+    public static final int MOUTH_HEIGHT0 = 0;
+    public static final int X_MOUTH0 = 20;
+    public static final int Y_MOUTH0 = 35;
+    public static final int MOUTH_START_ANGLE = 180;
+    public static final int MOUTH_EXTENT_ANGLE = 180;
+
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Group root = new Group();
+	Scene scene = new Scene(root);
+
+	Canvas canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+	GraphicsContext gc = canvas.getGraphicsContext2D();
+
+	int i, xOffset, yOffset; //Want i to exist after the loop ends
+
+	for (i = 0; i <= 4; i++)
+	{//Draw one face:
+		  xOffset = 50 * i;
+		  yOffset = 30 * i;
+
+		  //Draw face circle:
+		  if (i % 2 == 0)//if i is even
+		  {//Make face light gray
+		  	gc.setFill(Color.LIGHTGRAY);
+			gc.fillOval(X_FACE0 + xOffset, Y_FACE0 + 30 * i,
+					FACE_DIAMETER, FACE_DIAMETER);
+		  }
+		  gc.setFill(Color.BLACK);
+		  gc.strokeOval(X_FACE0 + xOffset, Y_FACE0 + yOffset,
+					FACE_DIAMETER, FACE_DIAMETER);
+		  //Draw eyes:
+		  gc.setFill(Color.BLACK);
+		  gc.fillOval(X_RIGHT_EYE0 + xOffset, Y_RIGHT_EYE0 + yOffset,
+				   EYE_WIDTH, EYE_HEIGHT);
+		  gc.fillOval(X_LEFT_EYE0 + xOffset, Y_LEFT_EYE0 + yOffset,
+				   EYE_WIDTH, EYE_HEIGHT);
+		  //Draw nose:
+		  gc.setFill(Color.BLACK);
+		  gc.fillOval(X_NOSE0 + xOffset, Y_NOSE0 + yOffset,
+				   NOSE_DIAMETER, NOSE_DIAMETER);
+		  //Draw mouth:
+		  gc.setFill(Color.BLACK);
+		  gc.strokeArc(X_MOUTH0 + xOffset, Y_MOUTH0 + yOffset,
+				   MOUTH_WIDTH, MOUTH_HEIGHT0 + 3 * i + 1,
+				   MOUTH_START_ANGLE, MOUTH_EXTENT_ANGLE,
+				   ArcType.OPEN);
+	}
+	//i is 5 when the previous loop ends
+	xOffset = 50 * i;
+	yOffset = 30 * i;
+
+	//Draw kissing face:
+	//Draw face circle:
+	gc.setFill(Color.BLACK);
+	gc.strokeOval(X_FACE0 + xOffset, Y_FACE0 + yOffset,
+				FACE_DIAMETER, FACE_DIAMETER);
+	//Draw eyes:
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_RIGHT_EYE0 + xOffset, Y_RIGHT_EYE0 + yOffset,
+				EYE_WIDTH, EYE_HEIGHT);
+	gc.fillOval(X_LEFT_EYE0 + xOffset, Y_LEFT_EYE0 + yOffset,
+	  			EYE_WIDTH, EYE_HEIGHT);
+	//Draw nose:
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_NOSE0 + xOffset, Y_NOSE0 + yOffset,
+				NOSE_DIAMETER, NOSE_DIAMETER);
+	//Draw mouth in shape of a kiss:
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_MOUTH0 + xOffset + 10, Y_MOUTH0 + yOffset,
+				MOUTH_WIDTH - 20, MOUTH_WIDTH - 20);
+	//Add text in Times New Roman, 12 point:
+	gc.setFont(Font.font("Times New Roman", 12));
+	gc.fillText("Kiss, Kiss.",
+			X_FACE0 + xOffset + FACE_DIAMETER, Y_FACE0 + yOffset);
+
+
+	//Draw blushing face:
+	i++;
+	xOffset = 50 * i;
+	yOffset = 30 * i;
+
+	//Draw face circle:
+	gc.setFill(Color.GRAY);
+	gc.fillOval(X_FACE0 + xOffset, Y_FACE0 + yOffset,
+	  			FACE_DIAMETER, FACE_DIAMETER);
+	gc.setFill(Color.BLACK);
+	gc.strokeOval(X_FACE0 + xOffset, Y_FACE0 + yOffset,
+				FACE_DIAMETER, FACE_DIAMETER);
+	//Draw eyes:
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_RIGHT_EYE0 + xOffset, Y_RIGHT_EYE0 + yOffset,
+				EYE_WIDTH, EYE_HEIGHT);
+	gc.fillOval(X_LEFT_EYE0 + xOffset, Y_LEFT_EYE0 + yOffset,
+	  			EYE_WIDTH, EYE_HEIGHT);
+	//Draw nose:
+	gc.setFill(Color.BLACK);
+	gc.fillOval(X_NOSE0 + xOffset, Y_NOSE0 + yOffset,
+	 			NOSE_DIAMETER, NOSE_DIAMETER);
+	//Draw mouth:
+	gc.setFill(Color.BLACK);
+	gc.strokeArc(X_MOUTH0 + xOffset, Y_MOUTH0 + yOffset, MOUTH_WIDTH,
+			   MOUTH_HEIGHT0 + 3 * (i - 2),
+			   MOUTH_START_ANGLE, MOUTH_EXTENT_ANGLE, ArcType.OPEN);
+	//Add text in Courier New Font, 16 point:
+	gc.setFont(Font.font("Courier New ", 16));
+	gc.fillText("Tee Hee.",
+			  X_FACE0 + xOffset + FACE_DIAMETER, Y_FACE0 + yOffset);
+
+	root.getChildren().add(canvas);
+	primaryStage.setTitle("MultipleFaces in JavaFX");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.1">Listing
+        5.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>
+public class Dog
+{
+	public String name;
+	public String breed;
+	public int age;
+
+	public void writeOutput()
+	{
+		System.out.println("Name: " + name);
+		System.out.println("Breed: " + breed);
+		System.out.println("Age in calendar years: " + age);
+		System.out.println("Age in human years: " + getAgeInHumanYears());
+		System.out.println();
+	}
+
+	public int getAgeInHumanYears()
+	{
+		int humanYears = 0;
+		if (age <= 2)
+		{
+			humanYears = age * 11;
+		}
+		else
+		{
+			humanYears = 22 + ((age-2) * 5);
+		}
+		return humanYears;
+	}
+}
+        </b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.2">Listing
+        5.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>
+public class DogDemo
+{
+	public static void main(String[] args)
+	{
+		Dog balto = new Dog();
+		balto.name = "Balto";
+		balto.age = 8;
+		balto.breed = "Siberian Husky";
+		balto.writeOutput();
+
+		Dog scooby = new Dog();
+		scooby.name = "Scooby";
+		scooby.age = 42;
+		scooby.breed = "Great Dane";
+		System.out.println(scooby.name + " is a " + scooby.breed + ".");
+		System.out.print("He is " + scooby.age + " years old, or ");
+		int humanYears = scooby.getAgeInHumanYears();
+		System.out.println(humanYears + " in human years.");
+	}
+}
+
+        </b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.3">Listing
+        5.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class SpeciesFirstTry
+{
+    public String name;
+    public int population;
+    public double growthRate;
+    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (&quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        System.out.println (&quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+<span style="background-color: #FFFF99">    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+</span>
+
+    public int getPopulationIn10 ()
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = 10;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = populationAmount +
+                (growthRate / 100) * populationAmount;
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.4">Listing
+        5.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class SpeciesFirstTryDemo
+{
+    public static void main (String [] args)
+    {
+        SpeciesFirstTry speciesOfTheMonth = new SpeciesFirstTry ();
+        System.out.println (&quot;Enter data on the Species of the Month:&quot;);
+        speciesOfTheMonth.readInput ();
+        speciesOfTheMonth.writeOutput ();
+        int futurePopulation = speciesOfTheMonth.getPopulationIn10 ();
+        System.out.println (&quot;In ten years the population will be &quot; +
+                futurePopulation);
+        //Change the species to show how to change
+        //the values of instance variables:
+        speciesOfTheMonth.name = &quot;Klingon ox&quot;;
+        speciesOfTheMonth.population = 10;
+        speciesOfTheMonth.growthRate = 15;
+        System.out.println (&quot;The new Species of the Month:&quot;);
+        speciesOfTheMonth.writeOutput ();
+        System.out.println (&quot;In ten years the population will be &quot; +
+                speciesOfTheMonth.getPopulationIn10 ());
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.5A">Listing
+        5.5A</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+This class is used in the program LocalVariablesDemoProgram.
+*/
+public class BankAccount
+{
+    public double amount;
+    public double rate;
+    public void showNewBalance ()
+    {
+        <span style="background-color: #FFFF00">double newAmount</span> = amount + (rate / 100.0) * amount;
+        System.out.println (&quot;With interest added, the new amount is $&quot; +
+                newAmount);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.5B">Listing
+        5.5B</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+A toy program to illustrate how local variables behave.
+*/
+public class LocalVariablesDemoProgram
+{
+    public static void main (String [] args)
+    {
+        BankAccount myAccount = new BankAccount ();
+        myAccount.amount = 100.00;
+        myAccount.rate = 5;
+        <span style="background-color: #FFFF00">double newAmount</span> = 800.00;
+        myAccount.showNewBalance ();
+        System.out.println (&quot;I wish my new amount were $&quot; + newAmount);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.6">Listing
+        5.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class SpeciesSecondTry
+{
+    public String name;
+    public int population;
+    public double growthRate;
+
+    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (&quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        System.out.println (&quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    <span style="background-color: #FFFF00">public int predictPopulation (int years)</span>
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.7">Listing
+        5.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Demonstrates the use of a parameter
+with the method predictPopulation.
+*/
+public class SpeciesSecondTryDemo
+{
+    public static void main (String [] args)
+    {
+        SpeciesSecondTry speciesOfTheMonth = new SpeciesSecondTry ();
+        System.out.println (&quot;Enter data on the Species of the Month:&quot;);
+        speciesOfTheMonth.readInput ();
+        speciesOfTheMonth.writeOutput ();
+        int futurePopulation = <span style="background-color: #FFFF00">speciesOfTheMonth.predictPopulation (10)</span>;
+        System.out.println (&quot;In ten years the population will be &quot; +
+                futurePopulation);
+        //Change the species to show how to change
+        //the values of instance variables:
+        speciesOfTheMonth.name = &quot;Klingon ox&quot;;
+        speciesOfTheMonth.population = 10;
+        speciesOfTheMonth.growthRate = 15;
+        System.out.println (&quot;The new Species of the Month:&quot;);
+        speciesOfTheMonth.writeOutput ();
+        System.out.println (&quot;In ten years the population will be &quot; +
+                <span style="background-color: #FFFF00">speciesOfTheMonth.predictPopulation (10));</span>
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.8">Listing 5.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class SpeciesThirdTry
+{
+<span style="background-color: #FFFF00">    private String name;
+    private int population;
+    private double growthRate; </span></b></font></pre>
+        <pre><font size="4" color="#0000FF"><b>
+   public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (&quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        System.out.println (&quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    public int predictPopulation (int years)
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.9">Listing 5.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Class that represents a rectangle.
+*/
+public class Rectangle
+{
+    private int width;
+    private int height;
+    private int area;
+    public void setDimensions (int newWidth, int newHeight)
+    {
+        width = newWidth;
+        height = newHeight;
+        area = width * height;
+    }
+
+
+    public int getArea ()
+    {
+        return area;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.10">Listing 5.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Another class that represents a rectangle.
+*/
+public class Rectangle2
+{
+    private int width;
+    private int height;
+
+<span style="background-color: #FFFF00">    public void setDimensions (int newWidth, int newHeight)
+    {
+        width = newWidth;
+        height = newHeight;
+    }                                                       </span>
+
+
+    public int getArea ()
+    {
+        return width * height;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.11">Listing 5.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class SpeciesFourthTry
+{
+    private String name;
+    private int population;
+    private double growthRate;</b></font></pre>
+        <pre><font size="4" color="#0000FF"><b>    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (&quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        System.out.println (&quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    public int predictPopulation (int years)
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+</b></font></pre>
+        <pre><font size="4" color="#0000FF"><b>
+<span style="background-color: #FFFF00">    public void setSpecies (String newName, int newPopulation,
+            double newGrowthRate)</span>
+    {
+        name = newName;
+        if (newPopulation &gt;= 0)
+            population = newPopulation;
+        else
+        {
+            System.out.println (
+                    &quot;ERROR: using a negative population.&quot;);
+            System.exit (0);
+        }
+        growthRate = newGrowthRate;
+    }
+
+
+    <span style="background-color: #FFFF00">public String getName ()</span>
+    {
+        return name;
+    }
+
+
+    <span style="background-color: #FFFF00">public int getPopulation ()</span>
+    {
+        return population;
+    }
+
+
+    <span style="background-color: #FFFF00">public double getGrowthRate ()</span>
+    {
+        return growthRate;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.12">Listing</font><font color="#FF0000">5.12</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Demonstrates the use of the mutator method setSpecies.
+*/
+public class SpeciesFourthTryDemo
+{
+    public static void main (String [] args)
+    {
+        SpeciesFourthTry speciesOfTheMonth =
+            new SpeciesFourthTry ();
+        System.out.println (&quot;Enter number of years to project:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        int numberOfYears = keyboard.nextInt ();
+        System.out.println (
+                &quot;Enter data on the Species of the Month:&quot;);
+        speciesOfTheMonth.readInput ();
+        speciesOfTheMonth.writeOutput ();
+        int futurePopulation =
+            speciesOfTheMonth.predictPopulation (numberOfYears);
+        System.out.println (&quot;In &quot; + numberOfYears +
+                &quot; years the population will be &quot; +
+                futurePopulation);
+        //Change the species to show how to change
+        //the values of instance variables:
+        speciesOfTheMonth.setSpecies (&quot;Klingon ox&quot;, 10, 15);
+        System.out.println (&quot;The new Species of the Month:&quot;);
+        speciesOfTheMonth.writeOutput ();
+        futurePopulation =
+            speciesOfTheMonth.predictPopulation (numberOfYears);
+        System.out.println (&quot;In &quot; + numberOfYears +
+                &quot; years the population will be &quot; +
+                futurePopulation);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.13">Listing 5.13</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Class for the purchase of one kind of item, such as 3 oranges.
+Prices are set supermarket style, such as 5 for $1.25.
+*/
+public class Purchase
+{
+    private String name;
+    private int groupCount; //Part of a price, like the 2 in 2 for $1.99.
+    private double groupPrice; //Part of a price, like the $1.99
+    // in 2 for $1.99.
+    private int numberBought; //Number of items bought.
+
+    public void setName (String newName)
+    {
+        name = newName;
+    }
+
+
+    /**
+    Sets price to count pieces for $costForCount.
+    For example, 2 for $1.99.
+    */
+    public void setPrice (int count, double costForCount)
+    {
+        if ((count &lt;= 0) || (costForCount &lt;= 0))
+        {
+            System.out.println (&quot;Error: Bad parameter in setPrice.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            groupCount = count;
+            groupPrice = costForCount;
+        }
+    }
+
+
+    public void setNumberBought (int number)
+    {
+        if (number &lt;= 0)
+        {
+            System.out.println (&quot;Error: Bad parameter in setNumberBought.&quot;);
+            System.exit (0);
+        }
+        else
+            numberBought = number;
+    }
+
+
+    /**
+    Reads from keyboard the price and number of a purchase.
+    */
+    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter name of item you are purchasing:&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (&quot;Enter price of item as two numbers.&quot;);
+        System.out.println (&quot;For example, 3 for $2.99 is entered as&quot;);
+        System.out.println (&quot;3 2.99&quot;);
+        System.out.println (&quot;Enter price of item as two numbers, now:&quot;);
+        groupCount = keyboard.nextInt ();
+        groupPrice = keyboard.nextDouble ();
+        while ((groupCount &lt;= 0) || (groupPrice &lt;= 0))
+        { //Try again:
+            System.out.println (
+                    &quot;Both numbers must be positive. Try again.&quot;);
+            System.out.println (&quot;Enter price of item as two numbers.&quot;);
+            System.out.println (&quot;For example, 3 for $2.99 is entered as&quot;);
+            System.out.println (&quot;3 2.99&quot;);
+            System.out.println (
+                    &quot;Enter price of item as two numbers, now:&quot;);
+            groupCount = keyboard.nextInt ();
+            groupPrice = keyboard.nextDouble ();
+        }
+        System.out.println (&quot;Enter number of items purchased:&quot;);
+        numberBought = keyboard.nextInt ();
+        while (numberBought &lt;= 0)
+        { //Try again:
+            System.out.println (&quot;Number must be positive. Try again.&quot;);
+            System.out.println (&quot;Enter number of items purchased:&quot;);
+            numberBought = keyboard.nextInt ();
+        }
+    }
+
+
+    /**
+    Displays price and number being purchased.
+    */
+    public void writeOutput ()
+    {
+        System.out.println (numberBought + &quot; &quot; + name);
+        System.out.println (&quot;at &quot; + groupCount +
+                &quot; for $&quot; + groupPrice);
+    }
+
+
+    public String getName ()
+    {
+        return name;
+    }
+
+
+    public double getTotalCost ()
+    {
+        return (groupPrice / groupCount) * numberBought;
+    }
+
+
+    public double getUnitCost ()
+    {
+        return groupPrice / groupCount;
+    }
+
+
+    public int getNumberBought ()
+    {
+        return numberBought;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.14">Listing 5.14</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class PurchaseDemo
+{
+    public static void main (String [] args)
+    {
+        Purchase oneSale = new Purchase ();
+        oneSale.readInput ();
+        oneSale.writeOutput ();
+        System.out.println (&quot;Cost each $&quot; + oneSale.getUnitCost ());
+        System.out.println (&quot;Total cost $&quot; + oneSale.getTotalCost ());
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.15">Listing</font><font color="#FF0000">5.15</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class Oracle
+{
+    private String oldAnswer = &quot;The answer is in your heart.&quot;;
+    private String newAnswer;
+    private String question;
+
+    public void chat ()
+    {
+        System.out.print (&quot;I am the oracle. &quot;);
+        System.out.println (&quot;I will answer any one-line question.&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        String response;
+        do
+        {
+            answer ();
+            System.out.println (&quot;Do you wish to ask another question?&quot;);
+            response = keyboard.next ();
+        }
+        while (response.equalsIgnoreCase (&quot;yes&quot;));
+        System.out.println (&quot;The oracle will now rest.&quot;);
+    }
+
+
+    private void answer ()
+    {
+        System.out.println (&quot;What is your question?&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        question = keyboard.nextLine ();
+        seekAdvice ();
+        System.out.println (&quot;You asked the question:&quot;);
+        System.out.println (&quot; &quot; + question);
+        System.out.println (&quot;Now, here is my answer:&quot;);
+        System.out.println (&quot; &quot; + oldAnswer);
+        update ();
+    }
+
+
+    private void seekAdvice ()
+    {
+        System.out.println (&quot;Hmm, I need some help on that.&quot;);
+        System.out.println (&quot;Please give me one line of advice.&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        newAnswer = keyboard.nextLine ();
+        System.out.println (&quot;Thank you. That helped a lot.&quot;);
+    }
+
+
+    private void update ()
+    {
+        oldAnswer = newAnswer;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.16">Listing</font><font color="#FF0000">
+            5.16</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class OracleDemo
+{
+    public static void main (String [] args)
+    {
+        Oracle delphi = new Oracle ();
+        delphi.chat ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.17">Listing
+        5.17</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class Species
+{
+    private String name;
+    private int population;
+    private double growthRate;
+
+    /*The definition of the methods readInput, writeOutput, and predictPopulation
+        go here.They are the same as in Listing 5.3 and Listing 5.6 . &gt;
+        &lt; The definition of the methods setSpecies, getName, getPopulation,
+        and getGrowthRate go here.They are the same as in Listing 5.11 . &gt;  */
+
+    public boolean equals (Species otherObject)
+    {
+        return (this.name.equalsIgnoreCase (otherObject.name)) &amp;&amp;
+            (this.population == otherObject.population) &amp;&amp;
+            (this.growthRate == otherObject.growthRate);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.18">Listing 5.18</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class SpeciesEqualsDemo
+{
+    public static void main (String [] args)
+    {
+        Species s1 = new Species (), s2 = new Species ();
+        s1.setSpecies (&quot;Klingon ox&quot;, 10, 15);
+        s2.setSpecies (&quot;Klingon ox&quot;, 10, 15);
+        if (<span style="background-color: #FFFF00">s1 == s2</span>)
+            System.out.println (&quot;Match with ==.&quot;);
+        else
+            System.out.println (&quot;Do Not match with ==.&quot;);
+        if (<span style="background-color: #FFFF00">s1.equals (s2)</span>)
+            System.out.println (&quot;Match with the method equals.&quot;);
+        else
+            System.out.println (&quot;Do Not match with the method equals.&quot;);
+        System.out.println (&quot;Now change one Klingon ox.&quot;);
+        s2.setSpecies (&quot;klingon ox&quot;, 10, 15); //Use lowercase
+        if (s1.equals (s2))
+            System.out.println (&quot;Match with the method equals.&quot;);
+        else
+            System.out.println (&quot;Do Not match with the method equals.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.19">Listing
+        5.19</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Class for data on endangered species.
+*/
+public class Species
+{
+    private String name;
+    private int population;
+    private double growthRate;
+
+    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (
+                &quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        while (population &lt; 0)
+        {
+            System.out.println (&quot;Population cannot be negative.&quot;);
+            System.out.println (&quot;Reenter population:&quot;);
+            population = keyboard.nextInt ();
+        }
+        System.out.println (
+                &quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    /**
+    Precondition: years is a nonnegative number.
+    Returns the projected population of the receiving object
+    after the specified number of years.
+    */
+    public int predictPopulation (int years)
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+
+
+    public void setSpecies (String newName, int newPopulation,
+            double newGrowthRate)
+    {
+        name = newName;
+        if (newPopulation &gt;= 0)
+            population = newPopulation;
+        else
+        {
+            System.out.println (&quot;ERROR: using a negative population.&quot;);
+            System.exit (0);
+        }
+        growthRate = newGrowthRate;
+    }
+
+
+    public String getName ()
+    {
+        return name;
+    }
+
+
+    public int getPopulation ()
+    {
+        return population;
+    }
+
+
+    public double getGrowthRate ()
+    {
+        return growthRate;
+    }
+
+
+    public boolean equals (Species otherObject)
+    {
+        return (name.equalsIgnoreCase (otherObject.name)) &amp;&amp;
+            (population == otherObject.population) &amp;&amp;
+            (growthRate == otherObject.growthRate);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.20">Listing
+        5.20</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>
+public class SpeciesTest
+{
+	public static void main(String[] args)
+	{
+		Species testSpecies = new Species();
+
+		// Test the setSpecies method
+		testSpecies.setSpecies("Tribbles", 100, 50);
+		if (testSpecies.getName().equals("Tribbles") &&
+		    (testSpecies.getPopulation() == 100) &&
+		    (testSpecies.getGrowthRate() >= 49.99) &&
+		    (testSpecies.getGrowthRate() <= 50.01))
+		{
+			System.out.println("Pass: setSpecies test.");
+		}
+		else
+		{
+			System.out.println("FAIL: setSpecies test.");
+		}
+
+
+		// Test the predictPopulation method
+		if ((testSpecies.predictPopulation(-1) == 100) &&
+		    (testSpecies.predictPopulation(1) == 150) &&
+		    (testSpecies.predictPopulation(5) == 759))
+
+		{
+			System.out.println("Pass: predictPopulation test.");
+		}
+		else
+		{
+			System.out.println("FAIL: predictPopulation test.");
+		}
+	}
+}
+        </b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.21">Listing
+        5.21</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+This version of the class Species is only a toy example designed
+to demonstrate the difference between parameters of a class type
+and parameters of a primitive type.
+*/
+public class DemoSpecies
+{
+    private String name;
+    private int population;
+    private double growthRate;
+
+<span style="background-color: #FFFF00">    /**
+    Tries to set intVariable equal to the population of this object.
+    But arguments of a primitive type cannot be changed.
+    */
+    public void tryToChange (int intVariable)
+    {
+        intVariable = this.population;
+    }
+</span>
+
+<span style="background-color: #FF99CC">    /**
+    Tries to make otherObject reference this object.
+    But arguments of a class type cannot be replaced.
+    */
+    public void tryToReplace (DemoSpecies otherObject)
+    {
+        otherObject = this;
+    }
+</span>
+
+<span style="background-color: #FFFF99">    /**
+    Changes the data in otherObject to the data in this object,
+    which is unchanged.
+    */
+    public void change (DemoSpecies otherObject)
+    {
+        otherObject.name = this.name;
+        otherObject.population = this.population;
+        otherObject.growthRate = this.growthRate;
+    }
+</span>
+    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (
+                &quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        while (population &lt; 0)
+        {
+            System.out.println (&quot;Population cannot be negative.&quot;);
+            System.out.println (&quot;Reenter population:&quot;);
+            population = keyboard.nextInt ();
+        }
+        System.out.println (
+                &quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    /**
+    Precondition: years is a nonnegative number.
+    Returns the projected population of the receiving object
+    after the specified number of years.
+    */
+    public int predictPopulation (int years)
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+
+
+    public void setSpecies (String newName, int newPopulation,
+            double newGrowthRate)
+    {
+        name = newName;
+        if (newPopulation &gt;= 0)
+            population = newPopulation;
+        else
+        {
+            System.out.println (&quot;ERROR: using a negative population.&quot;);
+            System.exit (0);
+        }
+        growthRate = newGrowthRate;
+    }
+
+
+    public String getName ()
+    {
+        return name;
+    }
+
+
+    public int getPopulation ()
+    {
+        return population;
+    }
+
+
+    public double getGrowthRate ()
+    {
+        return growthRate;
+    }
+
+
+    public boolean equals (Species otherObject)
+    {
+        return (name.equalsIgnoreCase (otherObject.name)) &amp;&amp;
+            (population == otherObject.population) &amp;&amp;
+            (growthRate == otherObject.growthRate);
+    }
+
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.22">Listing
+        5.22</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class ParametersDemo
+{
+    public static void main (String [] args)
+    {
+        DemoSpecies s1 = new DemoSpecies (),
+            s2 = new DemoSpecies ();
+        s1.setSpecies (&quot;Klingon ox&quot;, 10, 15);
+        int aPopulation = 42;
+        System.out.println (&quot;aPopulation BEFORE calling tryToChange: &quot;
+                + aPopulation);
+        s1.tryToChange (aPopulation);
+        System.out.println (&quot;aPopulation AFTER calling tryToChange: &quot;
+                + aPopulation);
+        s2.setSpecies (&quot;Ferengie Fur Ball&quot;, 90, 56);
+        System.out.println (&quot;s2 BEFORE calling tryToReplace: &quot;);
+        s2.writeOutput ();
+        s1.tryToReplace (s2);
+        System.out.println (&quot;s2 AFTER calling tryToReplace: &quot;);
+        s2.writeOutput ();
+        s1.change (s2);
+        System.out.println (&quot;s2 AFTER calling change: &quot;);
+        s2.writeOutput ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.23">Listing
+        5.23</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.effect.Reflection;
+
+public class ImageExample extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	Group root = new Group();
+	Scene scene = new Scene(root);
+
+	// Java looks for "java.jpg" in the default folder
+	Image img = new Image("java.jpg");
+	Canvas canvas = new Canvas(400, 400);
+	GraphicsContext gc = canvas.getGraphicsContext2D();
+	// Draw image in normal scaling at (1,1)
+	gc.drawImage(img, 1, 1);
+	// Draw image twice as large to the right of
+	// previous image
+	gc.drawImage(img, img.getWidth() + 10, 1,
+      		 img.getWidth() * 2, img.getHeight() * 2);
+	// Draw image below the first with a reflection effect
+	gc.setEffect(new Reflection());
+	gc.drawImage(img, 1, img.getHeight() *2);
+
+	root.getChildren().add(canvas);
+	primaryStage.setTitle("Drawing Images in JavaFX");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.24">Listing
+        5.24</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.ArcType;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
+public class MultipleFaces extends Application
+{
+   public static final int WINDOW_WIDTH = 450;
+   public static final int WINDOW_HEIGHT = 300;
+
+   public static final int FACE_DIAMETER = 50;
+   public static final int X_FACE0 = 10;
+   public static final int Y_FACE0 = 5;
+
+   public static final int EYE_WIDTH = 5;
+   public static final int EYE_HEIGHT = 10;
+   public static final int X_RIGHT_EYE0 = 20;
+   public static final int Y_RIGHT_EYE0 = 15;
+   public static final int X_LEFT_EYE0 = 45;
+   public static final int Y_LEFT_EYE0 = Y_RIGHT_EYE0;
+
+   public static final int NOSE_DIAMETER = 5;
+   public static final int X_NOSE0 = 32;
+   public static final int Y_NOSE0 = 25;
+
+   public static final int MOUTH_WIDTH = 30;
+   public static final int MOUTH_HEIGHT0 = 0;
+   public static final int X_MOUTH0 = 20;
+   public static final int Y_MOUTH0 = 35;
+   public static final int MOUTH_START_ANGLE = 180;
+   public static final int MOUTH_EXTENT_ANGLE = 180;
+
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   /**
+   gc is the drawing area. pos indicates the position of the
+   face. As pos increases, the face is drawn lower and further
+   to the right.
+   */
+   private void drawFaceSansMouth(GraphicsContext gc, int pos)
+   {
+	   // Draw face oval
+	   gc.setFill(Color.BLACK);
+	   gc.strokeOval(X_FACE0 + 50 * pos, Y_FACE0 + 30 * pos,
+	   		 	 FACE_DIAMETER, FACE_DIAMETER);
+	   // Draw eyes
+	   gc.setFill(Color.BLUE);
+	   gc.fillOval(X_RIGHT_EYE0 + 50 * pos, Y_RIGHT_EYE0 + 30 * pos,
+				   EYE_WIDTH, EYE_HEIGHT);
+	   gc.fillOval(X_LEFT_EYE0 + 50 * pos, Y_LEFT_EYE0 + 30 * pos,
+			   EYE_WIDTH, EYE_HEIGHT);
+	   //Draw nose
+	   gc.setFill(Color.BLACK);
+	   gc.fillOval(X_NOSE0 + 50 * pos, Y_NOSE0 + 30 * pos,
+			   NOSE_DIAMETER, NOSE_DIAMETER);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	  Group root = new Group();
+   	  Scene scene = new Scene(root);
+
+        Canvas canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+	  int i;   //Want i to exist after the loop ends
+
+	  for (i = 0; i <= 4; i++)
+  	  {//Draw one face:
+		  if (i % 2 == 0)//if i is even
+		  {//Make face yellow
+		  	gc.setFill(Color.YELLOW);
+			gc.fillOval(X_FACE0 + 50 * i, Y_FACE0 + 30 * i,
+							FACE_DIAMETER, FACE_DIAMETER);
+		  }
+		  drawFaceSansMouth(gc, i);
+		  //Draw mouth:
+		  gc.setFill(Color.RED);
+		  gc.strokeArc(X_MOUTH0 + 50 * i, Y_MOUTH0 + 30 * i,
+					   MOUTH_WIDTH, MOUTH_HEIGHT0 + 3 * i + 1,
+					   MOUTH_START_ANGLE, MOUTH_EXTENT_ANGLE,
+					   ArcType.OPEN);
+	  }
+	  //i is 5 when the previous loop ends
+
+	  //Draw kissing face:
+	  drawFaceSansMouth(gc, i);
+	  //Draw mouth in shape of a kiss:
+	  gc.setFill(Color.RED);
+	  gc.fillOval(X_MOUTH0 + 50 * i + 10, Y_MOUTH0 + 30 * i,
+					MOUTH_WIDTH - 20, MOUTH_WIDTH - 20);
+	  //Add text in Times New Roman, 12 point:
+	  gc.setFont(Font.font("Times New Roman", 12));
+	  gc.setFill(Color.BLACK);
+	  gc.fillText("Kiss, Kiss.",
+			X_FACE0 + 50 * i + FACE_DIAMETER, Y_FACE0 + 30 * i);
+
+	  //Draw blushing face:
+	  i++;
+	  //Draw face circle:
+	  gc.setFill(Color.PINK);
+	  gc.fillOval(X_FACE0 + 50*i, Y_FACE0 + 30*i,
+	  			FACE_DIAMETER, FACE_DIAMETER);
+	  drawFaceSansMouth(gc, i);
+	  gc.setFill(Color.RED);
+	  //Draw mouth:
+	  gc.setFill(Color.BLACK);
+	  gc.strokeArc(X_MOUTH0 + 50*i, Y_MOUTH0 + 30*i, MOUTH_WIDTH,
+			   MOUTH_HEIGHT0 + 3 * (i - 2),
+			   MOUTH_START_ANGLE, MOUTH_EXTENT_ANGLE, ArcType.OPEN);
+	  //Add text in Courier New Font, 16 point:
+	  gc.setFont(Font.font("Courier New ", 16));
+	  gc.fillText("Tee Hee.",
+			  X_FACE0 + 50*i + FACE_DIAMETER, Y_FACE0 + 30*i);
+
+      root.getChildren().add(canvas);
+      primaryStage.setTitle("MultipleFaces in JavaFX");
+      primaryStage.setScene(scene);
+      primaryStage.show();
+   }
+}
+</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 5.25">Listing
+        5.25</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.text.Font;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+
+public class LabelDemo extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	VBox root = new VBox();
+	Label label1, label2;
+	label1 = new Label("Hello");
+	label1.setFont(Font.font("Times New Roman", 24));
+	label2 = new Label("Out there!");
+	label2.setFont(Font.font("Courier New", 36));
+	root.getChildren().add(label1);
+	root.getChildren().add(label2);
+
+	Scene scene = new Scene(root, 300, 100);
+	primaryStage.setTitle("Label Demo");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+</body>
+
+</html>

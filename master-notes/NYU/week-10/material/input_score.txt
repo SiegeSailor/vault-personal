@@ -1,0 +1,5 @@
+1    100	Ken Zhang
+2    55 	John
+3    60 	Joy H. Junior
+4    0  	A. Mily Senior
+5    78 	Jacqueline

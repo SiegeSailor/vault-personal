@@ -1,0 +1,32 @@
+In XAMPP control panel, 
+  select Manage Servers
+  select MySQL Database
+  click Configure
+  click Open Conf File
+  (click Yes to continue if warned)
+  Now, in the my.cnf file, add the following
+
+general-log=0
+slow-query-log=0
+log-queries-not-using-indexes=0
+long-query-time=1
+general_log_file=suresh.log
+
+
+
+
+MySQL
+
+
+In PHYMYADMIN SQL Tab, execute the following:
+
+SET GLOBAL general_log = 'ON';
+SET GLOBAL slow_query_log = 'ON';
+
+
+Restart the MySQL server
+
+You can follow what is hapenning in the log file as follows:
+
+tail -f /Applications/XAMPP/xamppfiles/var/mysql/suresh.log
+

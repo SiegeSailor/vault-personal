@@ -1,0 +1,91 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+  --doc-sidebar-width: 275px !important;
+}
+
+table th {
+  white-space: nowrap;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+img:not([title='Diagram generated via mermaid']) {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2.5px;
+  padding: 16px;
+}
+img:not([title='Diagram generated via mermaid']).avatar__photo {
+  padding: 0px;
+}
+
+img[title='Diagram generated via mermaid'] {
+  display: block;
+  margin: auto;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+img.image_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostAuthor-styles-module {
+  padding: 0;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module:first-of-type {
+  background: var(--ifm-color-emphasis-200) !important;
+  color: var(--ifm-color-content) !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  font-size: 15.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module {
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  font-size: 15.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.playgroundPreview_node_modules-\@docusaurus-theme-live-codeblock-lib-theme-Playground-styles-module div pre {
+  margin: 0 !important;
+}
+
+.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-CodeBlock-styles-module {
+  border-bottom: none !important;
+}
+
+.tabs .markdown li + li {
+  margin-top: 0;
+}
+
+.language-cli {
+  background: rgb(24, 23, 29) !important;
+}
+
+.language-cli code span {
+  color: rgba(255, 255, 255, 0.76) !important;
+}

@@ -1,0 +1,1592 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Java</title>
+</head>
+
+<body bgcolor="#CCFFFF">
+
+<div v:shape="_x0000_s1026" class="O" style="mso-char-wrap:1;mso-kinsoku-overflow:
+1">
+  <p align="center"><span style="font-size:12pt"><i>JAVA: An Introduction to
+  Problem Solving &amp; Programming, 8</i></span><span style="font-size:8pt;position:relative;
+top:-.45em;mso-text-raise:30%">th</span><span style="font-size:12pt"><span style="mso-spacerun:yes">&nbsp;</span>Ed.
+  By Walter Savitch.<br>
+      ISBN 01334462033 </span><span style="mso-bidi-font-family:
+Arial;font-size:12pt">© 2018 Pearson Education, Inc., Hoboken, NJ.
+  All Rights Reserved</span>
+</div>
+
+<div align="center">
+  <center>
+  <table border="1" width="49%">
+    <tr>
+      <td width="50%">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 6.1">Listing 6.1</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.2">Listing 6.2</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.3">Listing 6.3</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.4">Listing 6.4</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.5">Listing 6.5</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.6">Listing 6.6</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.7">Listing 6.7</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.8">Listing 6.8</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.9">Listing 6.9</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.10">Listing 6.10</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.11">Listing 6.11</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.12">Listing 6.12</a></font></li>
+        </ul>
+      </td>
+      <td width="50%">
+        <ul>
+          <li><font face="Arial"><a href="#Listing 6.13">Listing 6.13</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.14">Listing 6.14</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.15">Listing 6.15</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.16">Listing 6.16</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.17">Listing 6.17</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.18">Listing 6.18</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.19">Listing 6.19</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.20">Listing 6.20</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.21">Listing 6.21</a></font></li>
+          <li><font face="Arial"><a href="#Listing 6.22">Listing 6.22</a></font></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.1">Listing 6.1</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Class for basic pet data: name, age, and weight.
+*/
+public class Pet
+{
+    private String name;
+    private int age; //in years
+    private double weight; //in pounds
+
+<span style="background-color: #FFFF00">    public Pet ()   // default constructor</span>
+    {
+        name = &quot;No name yet.&quot;;
+        age = 0;
+        weight = 0;
+    }
+
+
+<span style="background-color: #CCCCFF">    <a name="public Pet (String initialName,">public Pet (String initialName,</a> int initialAge,
+            double initialWeight)                  </span>
+    {
+        name = initialName;
+        if ((initialAge &lt; 0) || (initialWeight &lt; 0))
+        {
+            System.out.println (&quot;Error: Negative age or weight.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            age = initialAge;
+            weight = initialWeight;
+        }
+    }
+
+
+    public void setPet (String newName, int newAge,
+            double newWeight)
+    {
+        name = newName;
+        if ((newAge &lt; 0) || (newWeight &lt; 0))
+        {
+            System.out.println (&quot;Error: Negative age or weight.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            age = newAge;
+            weight = newWeight;
+        }
+    }
+
+
+<span style="background-color: #99FF99">    <a name="public Pet (String initialName)">public Pet (String initialName)</a></span>
+    {
+        name = initialName;
+        age = 0;
+        weight = 0;
+    }
+
+
+    public void setName (String newName)
+    {
+        name = newName; //age and weight are unchanged.
+    }
+
+
+   <a name="public Pet (int initialAge)"> public Pet (int initialAge)</a>
+    {
+        name = &quot;No name yet.&quot;;
+        weight = 0;
+        if (initialAge &lt; 0)
+        {
+            System.out.println (&quot;Error: Negative age.&quot;);
+            System.exit (0);
+        }
+        else
+            age = initialAge;
+    }
+
+
+    public void setAge (int newAge)
+    {
+        if (newAge &lt; 0)
+        {
+            System.out.println (&quot;Error: Negative age.&quot;);
+            System.exit (0);
+        }
+        else
+            age = newAge;
+        //name and weight are unchanged.
+    }
+
+
+<span style="background-color: #FFFF99">    <a name="public Pet (double initialWeight)">public Pet (double initialWeight)</a></span>
+    {
+        name = &quot;No name yet&quot;;
+        age = 0;
+        if (initialWeight &lt; 0)
+        {
+            System.out.println (&quot;Error: Negative weight.&quot;);
+            System.exit (0);
+        }
+        else
+            weight = initialWeight;
+    }
+
+
+    public void setWeight (double newWeight)
+    {
+        if (newWeight &lt; 0)
+        {
+            System.out.println (&quot;Error: Negative weight.&quot;);
+            System.exit (0);
+        }
+        else
+            weight = newWeight; //name and age are unchanged.
+    }
+
+
+    public String getName ()
+    {
+        return name;
+    }
+
+
+    public int getAge ()
+    {
+        return age;
+    }
+
+
+    public double getWeight ()
+    {
+        return weight;
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name: &quot; + name);
+        System.out.println (&quot;Age: &quot; + age + &quot; years&quot;);
+        System.out.println (&quot;Weight: &quot; + weight + &quot; pounds&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.2">Listing
+        6.2</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class PetDemo
+{
+    public static void main (String [] args)
+    {
+        Pet yourPet = new Pet (&quot;Jane Doe&quot;);
+        System.out.println (&quot;My records on your pet are inaccurate.&quot;);
+        System.out.println (&quot;Here is what they currently say:&quot;);
+        yourPet.writeOutput ();
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Please enter the correct pet name:&quot;);
+        String correctName = keyboard.nextLine ();
+        yourPet.setName (correctName);
+        System.out.println (&quot;Please enter the correct pet age:&quot;);
+        int correctAge = keyboard.nextInt ();
+        yourPet.setAge (correctAge);
+        System.out.println (&quot;Please enter the correct pet weight:&quot;);
+        double correctWeight = keyboard.nextDouble ();
+        yourPet.setWeight (correctWeight);
+        System.out.println (&quot;My updated records now say:&quot;);
+        yourPet.writeOutput ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.3">Listing
+        6.3</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Revised class for basic pet data: name, age, and weight.
+*/
+public class Pet2
+{
+    private String name;
+    private int age; //in years
+    private double weight; //in pounds
+
+    public Pet2 (String initialName, int initialAge,
+            double initialWeight)
+    {
+        set (initialName, initialAge, initialWeight);
+    }
+
+
+    public Pet2 (String initialName)
+    {
+        set (initialName, 0, 0);
+    }
+
+
+    public Pet2 (int initialAge)
+    {
+        set (&quot;No name yet.&quot;, initialAge, 0);
+    }
+
+
+    public Pet2 (double initialWeight)
+    {
+        set (&quot;No name yet.&quot;, 0, initialWeight);
+    }
+
+
+    public Pet2 ()
+    {
+        set (&quot;No name yet.&quot;, 0, 0);
+    }
+
+
+    public void setPet (String newName, int newAge,
+            double newWeight)
+    {
+        set (newName, newAge, newWeight);
+    }
+
+
+    public void setName (String newName)
+    {
+        set (newName, age, weight); //age and weight unchanged
+    }
+
+
+    public void setAge (int newAge)
+    {
+        set (name, newAge, weight); //name and weight unchanged
+    }
+
+
+    public void setWeight (double newWeight)
+    {
+        set (name, age, newWeight); //name and age unchanged
+    }
+
+
+<span style="background-color: #FFFF00">    <a name="private void set (String newName, int newAge,">private void set (String newName, int newAge,</a>
+            double newWeight)
+</span>    {
+        name = newName;
+        if ((newAge &lt; 0) || (newWeight &lt; 0))
+        {
+            System.out.println (&quot;Error: Negative age or weight.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            age = newAge;
+            weight = newWeight;
+        }
+    }
+
+
+    /*   The methods getName, getAge, getWeight, and writeOutput are
+         the same as in Listing 6.1. &gt;  */
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.4">Listing
+        6.4</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Revised class for basic pet data: name, age, and weight.
+*/
+public class Pet3
+{
+    private String name;
+    private int age; //in years
+    private double weight; //in pounds
+
+    public Pet3 (String initialName, int initialAge,
+            double initialWeight)
+    {
+        set (initialName, initialAge, initialWeight);
+    }
+
+
+    public Pet3 (String initialName)
+    {
+        <span style="background-color: #FFFF00">this (initialName, 0, 0);</span>
+    }
+
+
+    public Pet3 (int initialAge)
+    {
+        this (&quot;No name yet.&quot;, initialAge, 0);
+    }
+
+
+    public Pet3 (double initialWeight)
+    {
+        <span style="background-color: #FFFF00">this (&quot;No name yet.&quot;, 0, initialWeight);</span>
+    }
+
+
+    public Pet3 ()
+    {
+        <span style="background-color: #FFFF00">this (&quot;No name yet.&quot;, 0, 0);</span>
+    }
+
+
+    /*  The rest of the class is like Pet2 in Listing 6.3.  */
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.5">Listing
+        6.5</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Class of static methods to perform dimension conversions.
+*/
+public class DimensionConverter
+{
+    public <span style="background-color: #FFFF00">static</span> final int INCHES_PER_FOOT = 12;
+
+    public <span style="background-color: #FFFF00">static</span> double convertFeetToInches (double feet)
+    {
+        return feet * INCHES_PER_FOOT;
+    }
+
+
+    public <span style="background-color: #FFFF00">static</span> double convertInchesToFeet (double inches)
+    {
+        return inches / INCHES_PER_FOOT;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.6">Listing
+        6.6</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Demonstration of using the class DimensionConverter.
+*/
+public class DimensionConverterDemo
+{
+    public static void main (String [] args)
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;Enter a measurement in inches: &quot;);
+        double inches = keyboard.nextDouble ();
+        double feet =
+            <span style="background-color: #FFFF00">DimensionConverter.convertInchesToFeet (inches);</span>
+        System.out.println (inches + &quot; inches = &quot; +
+                feet + &quot; feet.&quot;);
+        System.out.print (&quot;Enter a measurement in feet: &quot;);
+        feet = keyboard.nextDouble ();
+        <span style="background-color: #FFFF00">inches = DimensionConverter.convertFeetToInches (feet);</span>
+        System.out.println (feet + &quot; feet = &quot; +
+                inches + &quot; inches.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.7">Listing
+        6.7</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Class with static and nonstatic members.
+*/
+public class SavingsAccount
+{
+    private double balance;
+    public <span style="background-color: #FFFF00">static</span> double interestRate = 0;
+    public <span style="background-color: #FFFF00">static</span> int numberOfAccounts = 0;
+
+    public SavingsAccount ()
+    {
+        balance = 0;
+        numberOfAccounts++;
+    }
+
+
+    public <span style="background-color: #FFFF00">static</span> void setInterestRate (double newRate)
+    {
+        interestRate = newRate;
+    }
+
+
+    public <span style="background-color: #FFFF00">static</span> double getInterestRate ()
+    {
+        return interestRate;
+    }
+
+
+    public <span style="background-color: #FFFF00">static</span> double getNumberOfAccounts ()
+    {
+        return numberOfAccounts;
+    }
+
+
+    public void deposit (double amount)
+    {
+        balance = balance + amount;
+    }
+
+
+    public double withdraw (double amount)
+    {
+        if (balance &gt;= amount)
+            balance = balance - amount;
+        else
+            amount = 0;
+        return amount;
+    }
+
+
+    public void addInterest ()
+    {
+        double interest = balance * interestRate;
+        // you can replace interestRate with getInterestRate()
+        balance = balance + interest;
+    }
+
+
+    public double getBalance ()
+    {
+        return balance;
+    }
+
+
+    public <span style="background-color: #FFFF00">static</span> void showBalance (SavingsAccount account)
+    {
+        System.out.print (account.getBalance ());
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.8">Listing
+        6.8</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class SavingsAccountDemo
+{
+    public static void main (String [] args)
+    {
+        <span style="background-color: #FFFF00">SavingsAccount.setInterestRate (0.01);</span>
+        SavingsAccount mySavings = new SavingsAccount ();
+        SavingsAccount yourSavings = new SavingsAccount ();
+        System.out.println (&quot;I deposited $10.75.&quot;);
+        mySavings.deposit (10.75);
+        System.out.println (&quot;You deposited $75.&quot;);
+        yourSavings.deposit (75.00);
+        System.out.println (&quot;You deposited $55.&quot;);
+        yourSavings.deposit (55.00);
+        double cash = yourSavings.withdraw (15.00);
+        System.out.println (&quot;You withdrew $&quot; + cash + &quot;.&quot;);
+        if (yourSavings.getBalance () &gt; 100.00)
+        {
+            System.out.println (&quot;You received interest.&quot;);
+            yourSavings.addInterest ();
+        }
+        System.out.println (&quot;Your savings is $&quot; +
+                yourSavings.getBalance ());
+        System.out.print (&quot;My savings is $&quot;);
+        <span style="background-color: #FFFF00">SavingsAccount.showBalance (mySavings);</span>
+        System.out.println ();
+        int count =<span style="background-color: #FFFF00"> SavingsAccount.getNumberOfAccounts ()</span>;
+        System.out.println (&quot;We opened &quot; + count
+                &quot; savings accounts today.&quot;);
+    }
+}
+</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.9">Listing
+        6.9</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class SpeciesEqualsDemo
+{
+    public static void main (String [] args)
+    {
+        Species s1 = new Species (), s2 = new Species ();
+        s1.setSpecies (&quot;Klingon Ox&quot;, 10, 15);
+        s2.setSpecies (&quot;Klingon Ox&quot;, 10, 15);
+        System.out.println (&quot;Now change one Klingon Ox.&quot;);
+        s2.setSpecies (&quot;klingon ox&quot;, 10, 15); //Use lowercase
+    }
+
+    if (s1 == s2)
+        System.out.println (&quot;Match with ==.&quot;);
+    else
+        System.out.println (&quot;Do Not match with ==.&quot;);
+
+<span style="background-color: #FFFF00">    if (s1.equals (s2))
+        System.out.println (&quot;Match with the method equals.&quot;);
+    else
+        System.out.println (&quot;Do Not match with the method equals.&quot;);</span>
+
+    System.out.println (&quot;Now change one Klingon Ox.&quot;);
+    s2.setSpecies (&quot;klingon ox&quot;, 10, 15); //Use lowercase
+
+</b></font><font size="4" color="#0000FF"><b><span style="background-color: #FFFF00">    if (s1.equals (s2))
+        System.out.println (&quot;Match with the method equals.&quot;);
+    else
+        System.out.println (&quot;Do Not match with the method equals.&quot;);</span>
+
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.10">Listing
+        6.10</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class SpeciesEqualsDemo
+{
+    public static void main (String [] args)
+    {
+        Species s1 = new Species (), s2 = new Species ();
+        s1.setSpecies (&quot;Klingon Ox&quot;, 10, 15);
+        s2.setSpecies (&quot;Klingon Ox&quot;, 10, 15);
+        <span style="background-color: #FFFF00">testEqualsOperator (s1, s2);</span>
+        <span style="background-color: #FFFF00">testEqualsMethod (s1, s2);  </span>
+        System.out.println (&quot;Now change one Klingon Ox.&quot;);
+        s2.setSpecies (&quot;klingon ox&quot;, 10, 15); //Use lowercase
+        testEqualsMethod (s1, s2);
+    }
+
+
+    <span style="background-color: #FFFF00">private static void testEqualsOperator (Species s1, Species s2)</span>
+    {
+        if (s1 == s2)
+            System.out.println (&quot;Match with ==.&quot;);
+        else
+            System.out.println (&quot;Do Not match with ==.&quot;);
+    }
+
+
+    <span style="background-color: #FFFF00">private static void testEqualsMethod (Species s1, Species s2)</span>
+    {
+        if (s1.equals (s2))
+            System.out.println (&quot;Match with the method equals.&quot;);
+        else
+            System.out.println (&quot;Do Not match with the method equals.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.11">Listing
+        6.11</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class Species
+{
+    private String name;
+    private int population;
+    private double growthRate;
+
+</b></font><font size="4" color="#0000FF"><b>    public void readInput ()
+    {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (&quot;What is the species' name?&quot;);
+        name = keyboard.nextLine ();
+        System.out.println (
+                &quot;What is the population of the species?&quot;);
+        population = keyboard.nextInt ();
+        while (population &lt; 0)
+        {
+            System.out.println (&quot;Population cannot be negative.&quot;);
+            System.out.println (&quot;Reenter population:&quot;);
+            population = keyboard.nextInt ();
+        }
+        System.out.println (
+                &quot;Enter growth rate (% increase per year):&quot;);
+        growthRate = keyboard.nextDouble ();
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;Name = &quot; + name);
+        System.out.println (&quot;Population = &quot; + population);
+        System.out.println (&quot;Growth rate = &quot; + growthRate + &quot;%&quot;);
+    }
+
+
+    /**
+    Precondition: years is a nonnegative number.
+    Returns the projected population of the receiving object
+    after the specified number of years.
+    */
+    public int predictPopulation (int years)
+    {
+        int result = 0;
+        double populationAmount = population;
+        int count = years;
+        while ((count &gt; 0) &amp;&amp; (populationAmount &gt; 0))
+        {
+            populationAmount = (populationAmount +
+                    (growthRate / 100) * populationAmount);
+            count - - ;
+        }
+        if (populationAmount &gt; 0)
+            result = (int) populationAmount;
+        return result;
+    }
+
+
+    public void setSpecies (String newName, int newPopulation,
+            double newGrowthRate)
+    {
+        name = newName;
+        if (newPopulation &gt;= 0)
+            population = newPopulation;
+        else
+        {
+            System.out.println (&quot;ERROR: using a negative population.&quot;);
+            System.exit (0);
+        }
+        growthRate = newGrowthRate;
+    }
+
+
+    public String getName ()
+    {
+        return name;
+    }
+
+
+    public int getPopulation ()
+    {
+        return population;
+    }
+
+
+    public double getGrowthRate ()
+    {
+        <a name="return growthRate;">return growthRate;</a>
+    }
+
+
+    public boolean equals (Species otherObject)
+    {
+        return (name.equalsIgnoreCase (otherObject.name)) &amp;&amp;
+            (population == otherObject.population) &amp;&amp;
+            (growthRate == otherObject.growthRate);
+    }
+</b></font><font size="4" color="#0000FF"><b>
+   <span style="background-color: #FFFF00"> public static void main (String [] args)</span>
+    {
+        Species speciesToday = new Species ();
+        System.out.println (&quot;Enter data on today's species:&quot;);
+        speciesToday.readInput ();
+        speciesToday.writeOutput ();
+        System.out.println (&quot;Enter number of years to project:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        int numberOfYears = keyboard.nextInt ();
+        int futurePopulation =
+            speciesToday.predictPopulation (numberOfYears);
+        System.out.println (&quot;In &quot; + numberOfYears +
+                &quot; years the population will be &quot; +
+                futurePopulation);
+        speciesToday.setSpecies (&quot;Klingon ox&quot;, 10, 15);
+        System.out.println (&quot;The new species is:&quot;);
+        speciesToday.writeOutput ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.12">Listing
+        6.12</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class DollarFormatFirstTry
+{
+    /**
+    Displays amount in dollars and cents notation.
+    Rounds after two decimal places.
+    Does not advance to the next line after output.
+    */
+    public static void write (double amount)
+    {
+        <span style="background-color: #FFFF00">int allCents = (int) (Math.round (amount * 100));</span>
+        <span style="background-color: #FFFF00">int dollars = allCents / 100;                    </span>
+        <span style="background-color: #FFFF00">int cents = allCents % 100;                      </span>
+        System.out.print ('$');
+        System.out.print (dollars);
+        System.out.print ('.');
+        <span style="background-color: #FFFF00">if (cents &lt; 10)              </span>
+        <span style="background-color: #FFFF00">{                            </span>
+        <span style="background-color: #FFFF00">    System.out.print ('0');  </span>
+        <span style="background-color: #FFFF00">    System.out.print (cents);</span>
+        <span style="background-color: #FFFF00">}                            </span>
+        <span style="background-color: #FFFF00">else                         </span>
+        <span style="background-color: #FFFF00">    System.out.print (cents);</span>
+    }
+
+
+    /**
+    Displays amount in dollars and cents notation.
+    Rounds after two decimal places.
+    Advances to the next line after output.
+    */
+    public static void writeln (double amount)
+    {
+        write (amount);
+        System.out.println ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.13">Listing
+        6.13</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+public class DollarFormatFirstTryDriver
+{
+    public static void main (String [] args)
+    {
+        double amount;
+        String response;
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println (
+                &quot;Testing DollarFormatFirstTry.write:&quot;);
+        do
+        {
+            System.out.println (&quot;Enter a value of type double:&quot;)
+                amount = keyboard.nextDouble ();
+            <span style="background-color: #FFFF00">DollarFormatFirstTry.write (amount);</span>
+            System.out.println ();
+            System.out.println (&quot;Test again?&quot;);
+            response = keyboard.next ();
+        }
+        while (response.equalsIgnoreCase (&quot;yes&quot;));
+        System.out.println (&quot;End of test.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.14">Listing
+        6.14</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class DollarFormat
+{
+    /**
+    Displays amount in dollars and cents notation.
+    Rounds after two decimal places.
+    Does not advance to the next line after output.
+    */
+    public static void write (double amount)
+    {
+        if (amount &gt;= 0)
+        {
+            System.out.print ('$');
+            writePositive (amount);
+        }
+        else
+        {
+            double positiveAmount = -amount;
+            System.out.print ('$');
+            System.out.print ('-');
+            writePositive (positiveAmount);
+        }
+    }
+
+    //Precondition: amount &gt;= 0;
+    //Displays amount in dollars and cents notation. Rounds
+    //after two decimal places. Omits the dollar sign.
+    private static void writePositive (double amount)
+    {
+        int allCents = (int) (Math.round (amount * 100));
+        int dollars = allCents / 100;
+        int cents = allCents % 100;
+        System.out.print (dollars);
+        System.out.print ('.');
+    }
+
+    if (cents &lt; 10)
+        System.out.print ('0');
+    System.out.print (cents)
+        /**
+        Displays amount in dollars and cents notation.
+        Rounds after two decimal places.
+        Advances to the next line after output.
+        */
+        public static void writeln (double amount)
+    {
+        write (amount);
+        System.out.println ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.15">Listing
+        6.15</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+This class illustrates overloading.
+*/
+public class Overload
+{
+    public static void main (String [] args)
+    {
+        double average1 = Overload.getAverage (40.0, 50.0);
+        double average2 = Overload.getAverage (1.0, 2.0, 3.0);
+        char average3 = Overload.getAverage ('a', 'c');
+        System.out.println (&quot;average1 = &quot; + average1);
+        System.out.println (&quot;average2 = &quot; + average2);
+        System.out.println (&quot;average3 = &quot; + average3);
+    }
+
+
+    public static double getAverage (double first, double second)
+    {
+        return (first + second) / 2.0;
+    }
+
+
+    public static double getAverage (double first, double second,
+            double third)
+    {
+        return (first + second + third) / 3.0;
+    }
+
+
+    public static char getAverage (char first, char second)
+    {
+        return (char) (((int) first + (int) second) / 2);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.16">Listing
+        6.16</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import java.util.Scanner;
+/**
+Class representing nonnegative amounts of money,
+such as $100, $41.99, $0.05.
+*/
+public class Money
+{
+    private long dollars;
+    private long cents;
+    public void set (long newDollars)
+    {
+        if (newDollars &lt; 0)
+        {
+            System.out.println (
+                    &quot;Error: Negative amounts of money are not allowed.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            dollars = newDollars;
+            cents = 0;
+        }
+    }
+
+
+    public void set (double newAmount)
+    {
+        if (newAmount &lt; 0)
+        {
+            System.out.println (
+                    &quot;Error: Negative amounts of money are not allowed.&quot;);
+            System.exit (0);
+        }
+        else
+        {
+            long allCents = Math.round (newAmount * 100);
+            dollars = allCents / 100;
+            cents = allCents % 100;
+        }
+    }
+
+
+    public void set (Money moneyObject)
+    {
+        this.dollars = moneyObject.dollars;
+        this.cents = moneyObject.cents;
+    }
+
+
+    /**
+    Precondition: The argument is an ordinary representation
+    of an amount of money, with or without a dollar sign.
+    Fractions of a cent are not allowed.
+    */
+    public void set (String amountString)
+    {
+        String dollarsString;
+        String centsString;
+        //Delete '$' if any:
+        if (amountString.charAt (0) == '$')
+            amountString = amountString.substring (1);
+        amountString = amountString.trim ();
+        //Locate decimal point:
+        int pointLocation = amountString.indexOf (&quot;.&quot;);
+        if (pointLocation &lt; 0) //If no decimal point
+        {
+            cents = 0;
+            dollars = Long.parseLong (amountString);
+        }
+        else //String has a decimal point.
+        {
+            dollarsString =
+                amountString.substring (0, pointLocation);
+            centsString =
+                amountString.substring (pointLocation + 1);
+            //one digit in cents means tenths of a dollar
+            if (centsString.length () &lt;= 1)
+                centsString = centsString + &quot;0&quot;;
+            // convert to numeric
+            dollars = Long.parseLong (dollarsString);
+            cents = Long.parseLong (centsString);
+            if ((dollars &lt; 0) || (cents &lt; 0) || (cents &gt; 99))
+            {
+                System.out.println (
+                        &quot;Error: Illegal representation of money.&quot;);
+                System.exit (0);
+            }
+        }
+    }
+
+
+    public void readInput ()
+    {
+        System.out.println (&quot;Enter amount on a line by itself:&quot;);
+        Scanner keyboard = new Scanner (System.in);
+        String amount = keyboard.nextLine ();
+        set (amount.trim ());
+    }
+
+
+    /**
+    Does not go to the next line after displaying money.
+    */
+    public void writeOutput ()
+    {
+        System.out.print (&quot;$&quot; + dollars);
+        if (cents &lt; 10)
+            System.out.print (&quot;.0&quot; + cents);
+        else
+            System.out.print (&quot;.&quot; + cents);
+    }
+
+
+    /**
+    Returns n times the calling object.
+    */
+    public Money times (int n)
+    {
+        Money product = new Money ();
+        product.cents = n * cents;
+        long carryDollars = product.cents / 100;
+        product.cents = product.cents % 100;
+        product.dollars = n * dollars + carryDollars;
+        return product;
+    }
+
+
+    /**
+    Returns the sum of the calling object and the argument.
+    */
+    public Money add (Money otherAmount)
+    {
+        Money sum = new Money ();
+        sum.cents = this.cents + otherAmount.cents;
+        long carryDollars = sum.cents / 100;
+        sum.cents = sum.cents % 100;
+        sum.dollars = this.dollars
+            + otherAmount.dollars + carryDollars;
+        return sum;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.17">Listing
+        6.17</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>public class MoneyDemo
+{
+    public static void main (String [] args)
+    {
+        Money start = new Money ();
+        Money goal = new Money ();
+        System.out.println (&quot;Enter your current savings:&quot;);
+        start.readInput ();
+        goal = start.times (2);
+        System.out.print (
+                &quot;If you double that, you will have &quot;);
+        goal.writeOutput ();
+        System.out.println (&quot;, or better yet:&quot;);
+        goal = start.add (goal);
+        System.out.println (
+                &quot;If you triple that original amount, you will have:&quot;);
+        goal.writeOutput ();
+        System.out.println ();
+        System.out.println (&quot;Remember: A penny saved&quot;);
+        System.out.println (&quot;is a penny earned.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.18">Listing
+        6.18</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Class whose privacy can be breached.
+*/
+public class PetPair
+{
+    <span style="background-color: #FFFF00">private Pet first, second;</span>
+
+    public PetPair (Pet firstPet, Pet secondPet)
+    {
+        first = firstPet;
+        second = secondPet;
+    }
+
+
+<span style="background-color: #FFFF00">    public Pet getFirst ()
+    {
+        return first;
+    }                     </span>
+
+
+    public Pet getSecond ()
+    {
+        return second;
+    }
+
+
+    public void writeOutput ()
+    {
+        System.out.println (&quot;First pet in the pair:&quot;);
+        first.writeOutput ();
+        System.out.println (&quot;\nSecond pet in the pair:&quot;);
+        second.writeOutput ();
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.19">Listing
+        6.19</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/**
+Toy program to demonstrate how a programmer can access and
+change private data in an object of the class PetPair.
+*/
+public class Hacker
+{
+    public static void main (String [] args)
+    {
+        Pet goodDog = new Pet (&quot;Faithful Guard Dog&quot;, 5, 75.0);
+        Pet buddy = new Pet (&quot;Loyal Companion&quot;, 4, 60.5);
+        PetPair pair = new PetPair (goodDog, buddy);
+        System.out.println (&quot;Our pair:&quot;);
+        pair.writeOutput ();
+        <span style="background-color: #FFFF00">Pet badGuy = pair.getFirst ();</span>
+        <span style="background-color: #FFFF00">badGuy.setPet (&quot;Dominion Spy&quot;, 1200, 500);</span>
+        System.out.println (&quot;\nOur pair now:&quot;);
+        pair.writeOutput ();
+        System.out.println (&quot;The pet wasn't so private!&quot;);
+        System.out.println (&quot;Looks like a security breach.&quot;);
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.20">Listing
+        6.20</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>/** An enumeration of card suits. */
+enum Suit
+{
+    CLUBS (&quot;black&quot;), DIAMONDS (&quot;red&quot;), HEARTS (&quot;red&quot;),
+        SPADES (&quot;black&quot;);
+
+    private final String color;
+
+    private Suit (String suitColor)
+    {
+        color = suitColor;
+    }
+
+
+    public String getColor ()
+    {
+        return color;
+    }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.21">Listing
+        6.21</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.text.Font;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+
+/**
+Simple demonstration of adding buttons to a JavaFX application.
+These buttons do not do anything. That comes in a later version.
+*/
+public class PreliminaryButtonDemo extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	VBox root = new VBox();
+	Button btnSunny;
+	Button btnCloudy;
+	btnSunny = new Button("Sunny");
+	btnCloudy = new Button("Cloudy");
+	root.getChildren().add(btnSunny);
+	root.getChildren().add(btnCloudy);
+
+	Scene scene = new Scene(root, 300, 100);
+	primaryStage.setTitle("Button Demo");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp; </p>
+<div align="center">
+  <center>
+  <table border="1" width="79%">
+    <tr>
+      <td width="100%">
+        <h2 align="center"><font color="#FF0000"><a name="Listing 6.22">Listing
+        6.22</a></font></h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <pre><font size="4" color="#0000FF"><b>import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.text.Font;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+/**
+Simple demonstration of adding buttons to a JavaFX application.
+This version displays an icon for the Sunny Button.
+Nothing happens when the buttons are clicked.
+*/
+public class ButtonImageDemo extends Application
+{
+   public static void main(String[] args)
+   {
+      launch(args);
+   }
+
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+	VBox root = new VBox();
+        Button btnSunny;
+        Button btnCloudy;
+	btnSunny = new Button("Sunny");
+	btnCloudy = new Button("Cloudy");
+
+	Image imgSmiley = new Image("smiley.gif");
+	btnSunny.setGraphic(new ImageView(imgSmiley));
+
+	root.getChildren().add(btnSunny);
+	root.getChildren().add(btnCloudy);
+
+	Scene scene = new Scene(root, 300, 100);
+	primaryStage.setTitle("Button Demo");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+   }
+}</b></font></pre>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>
