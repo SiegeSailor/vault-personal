@@ -1,0 +1,6 @@
+# Python
+
+## Initial
+
+magic function
+
