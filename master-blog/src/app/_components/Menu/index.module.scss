@@ -1,0 +1,109 @@
+.index {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  --font-size-xxl-cache: #{$--font-size-xxl};
+  padding: $--font-size-xs 10vw;
+
+  @include breakpoint-phone {
+    padding: $--font-size-xs $--font-size-m;
+  }
+
+  box-shadow: $--box-shadow-m;
+  z-index: 1;
+  background-color: rgb(var(--color-secondary));
+
+  --font-size-xxs-cache: #{$--font-size-xxs};
+  --font-size-m-cache: #{$--font-size-m};
+  --font-size-xl-cache: #{$--font-size-xl};
+  --top-layout: calc(
+    (var(--font-size-xl-cache) - var(--font-size-m-cache)) / 2
+  );
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    gap: $--font-size-xxs;
+
+    &:first-child {
+      h1 {
+        a {
+          padding-top: calc(var(--top-layout) / 2);
+          font-size: $--font-size-l;
+          font-weight: normal;
+          color: rgb(var(--color-main));
+          white-space: nowrap;
+        }
+      }
+
+      > div {
+        padding-top: var(--top-layout);
+      }
+    }
+
+    &:last-child {
+      > div {
+        position: relative;
+        padding-right: $--font-size-xxs;
+        text-align: right;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          height: $--font-size-m;
+          background-color: rgb(var(--color-system));
+          width: $--border-width-ml;
+          transform: translateY(-50%);
+        }
+
+        @include breakpoint-phone {
+          display: none;
+        }
+        @include breakpoint-tablet {
+          display: none;
+        }
+
+        > div {
+          white-space: nowrap;
+          width: 30vw;
+          overflow: auto;
+
+          > a {
+            margin: calc(var(--top-layout) * 0.8) 0;
+            padding: calc((var(--top-layout) * 0.8) - 1px)
+              calc(var(--font-size-xxs-cache) * 0.4);
+            text-transform: uppercase;
+            font-size: $--font-size-xs;
+            color: rgb(var(--color-main));
+            white-space: nowrap;
+            transition: 0.15s;
+
+            &:not(&:first-child) {
+              margin-left: calc(var(--font-size-xxs-cache) * 0.4);
+            }
+
+            &:hover {
+              background-color: rgba(var(--color-accent), 0.25);
+            }
+          }
+        }
+      }
+
+      > a {
+        padding-top: var(--top-layout);
+
+        @include breakpoint-phone {
+          display: none;
+        }
+        @include breakpoint-tablet {
+          display: none;
+        }
+      }
+    }
+  }
+}

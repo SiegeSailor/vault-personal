@@ -1,0 +1,54 @@
+@import "./reset.scss";
+
+* {
+  scroll-behavior: smooth !important;
+  font-family: "Times New Roman", serif;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  font-size: 18px;
+  @include breakpoint-desktop {
+    font-size: 18px;
+  }
+  @include breakpoint-tablet {
+    font-size: 18px;
+  }
+  @include breakpoint-phone {
+    font-size: 18px;
+  }
+}
+
+svg {
+  display: inline;
+  font-size: $--font-size-m;
+}
+
+p {
+  font-size: $--font-size-s;
+  line-height: 1.25;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  transition: 0.15s;
+
+  &:hover {
+    background-color: rgba(var(--color-accent), 0.25);
+  }
+}
+
+code {
+  background-color: rgb(var(--color-accent));
+  color: rgb(var(--color-main));
+  padding: 0 $--font-size-xxs;
+}

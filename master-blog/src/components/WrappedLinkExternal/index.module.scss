@@ -1,0 +1,29 @@
+.index {
+  display: inline-block;
+
+  a {
+    display: flex;
+    --font-size-xxs-cache: #{$--font-size-xxs};
+    font-size: $--font-size-m;
+    flex-basis: 0;
+
+    > span,
+    > svg {
+      transition: 0.15s;
+    }
+
+    span {
+      margin-right: $--font-size-xxs;
+    }
+
+    &:hover {
+      > span {
+        text-decoration: underline;
+      }
+
+      > svg {
+        transform: translateX($--font-size-xxs);
+      }
+    }
+  }
+}

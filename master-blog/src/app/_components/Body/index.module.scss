@@ -1,0 +1,45 @@
+.index {
+  &[data-theme="light"] {
+    --color-main: #{$--color-light-main};
+    --color-secondary: #{$--color-light-secondary};
+    --color-accent: #{$--color-light-accent};
+    --color-system: #{$--color-light-system};
+  }
+  &[data-theme="dark"] {
+    --color-main: #{$--color-dark-main};
+    --color-secondary: #{$--color-dark-secondary};
+    --color-accent: #{$--color-dark-accent};
+    --color-system: #{$--color-dark-system};
+  }
+
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--color-secondary));
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    padding: $--font-size-xl 10vw;
+
+    --font-size-xs-cache: #{$--font-size-xs};
+    --font-size-m-cache: #{$--font-size-m};
+    --font-size-l-cache: #{$--font-size-l};
+    --font-size-xl-cache: #{$--font-size-xl};
+    --height-menu: (var(--font-size-xs-cache) * 2) + var(--font-size-l-cache);
+    padding-top: calc(var(--height-menu) + var(--font-size-xl-cache));
+
+    @include breakpoint-phone {
+      padding-top: calc(var(--height-menu) + var(--font-size-m-cache));
+    }
+
+    main {
+      width: 100%;
+      height: 100%;
+
+      > div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

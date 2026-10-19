@@ -1,0 +1,41 @@
+.index {
+  overflow: auto;
+
+  > div {
+    &:last-child {
+      width: 100%;
+      margin-top: $--font-size-xxl;
+
+      span {
+        display: block;
+      }
+
+      > div {
+        &:first-child {
+          display: flex;
+          justify-content: space-between;
+
+          > div {
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+
+        &:last-child {
+          width: 100%;
+          height: $--font-size-xxs;
+          background-color: rgba(var(--color-accent), 0.5);
+          margin-top: $--font-size-s;
+
+          > span {
+            width: 0%;
+            height: 100%;
+            background-color: rgb(var(--color-main));
+            transition: 0.15s;
+          }
+        }
+      }
+    }
+  }
+}

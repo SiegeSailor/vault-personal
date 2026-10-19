@@ -1,0 +1,191 @@
+{
+  "title": "DevSecOps Engineer",
+  "brief": "Accepted the offer from CooperSurgical. Start working in January 2024.",
+  "introduction": [
+    "Hey there, I kicked off my software journey back in 2016 and quickly found my groove in crafting <code>high-volume tolerance systems</code> and <code>real-time applications</code>. It's all about keeping things running smoothly, even when the going gets tough.",
+    "I'm your go-to person for all things <code>DevSecOps</code> – making sure your projects stay secure is my jam. Plus, I've got some experience leading teams and teaming up with folks from around the globe. Communication and teamwork are my secret sauce.",
+    "When I'm not knee-deep in code, I'm all about exploring the latest tech trends and sharing knowledge. Feel free to reach out, and we can discuss anything about technology, security, and software.",
+    "Here are a few technologies I’ve been working with recently:"
+  ],
+  "technology": [
+    ["Python", "MySQL", "Redis", "Machine Learning"],
+    ["JavaScript (TypeScript)", "React", "NextJS"],
+    ["GitHub Actions", "Amazon Web Services", "Terraform"]
+  ],
+  "education": [
+    {
+      "institute": "Massachusetts Institute of Technology",
+      "department": "Data Science and Machine Learning",
+      "degree": "Certificate",
+      "period": "Aug 2023 - Nov 2023",
+      "achievements": [
+        "Ranked 15th out of 146 learners with 579.5/600 (96.58%) marks."
+      ],
+      "courses": [
+        "Deep Learning",
+        "Predictive Analytics",
+        "Networking and Graphical Models",
+        "Recommendation Systems",
+        "Classification and Hypothesis Testing",
+        "Regression and Prediction"
+      ]
+    },
+    {
+      "institute": "Boston University",
+      "department": "Computer Science",
+      "degree": "Master",
+      "period": "May 2022 - Jan 2024",
+      "achievements": [
+        "Ranked 3rd in infrastructure services configuration and defense at <a href='https://www.ncaecybergames.org/' target='_blank'>NCAE-C 2023</a> North East Division",
+        "Thesis on <em>Developing a Quantitative Model for Security Risk Assessment in DevSecOps for Web Microservices</em>"
+      ],
+      "courses": [
+        "Cryptography",
+        "Secure Software Development",
+        "Analysis of Algorithms",
+        "Computer Language Theory",
+        "Software Engineering",
+        "Data Structure with Java",
+        "Server-Side Web Development",
+        "Database Management",
+        "Operating Systems",
+        "Programming with Java",
+        "Discrete Mathematics"
+      ]
+    },
+    {
+      "institute": "New York University",
+      "department": "Computer Science",
+      "degree": "Bridge",
+      "period": "Jan 2022 - May 2022",
+      "achievements": [],
+      "courses": [
+        "Programming in C++",
+        "Discrete Mathematics",
+        "Object-Oriented Design",
+        "Data Structures and Algorithms",
+        "Computer Networks",
+        "Principles of Operating Systems"
+      ]
+    },
+    {
+      "institute": "National Formosa University",
+      "department": "Multimedia Design",
+      "degree": "Bachelor",
+      "period": "Sep 2013 - Jan 2017",
+      "achievements": [
+        "Independent Study on <em>Web Application Development Using Angular</em>."
+      ],
+      "courses": [
+        "Computer Programming",
+        "Computer Graphic and Image Processing",
+        "Database Design",
+        "Electronic Commerce Web Design",
+        "Multimedia Programming",
+        "Virtual Reality Design",
+        "HTML Web Design",
+        "Information Software Application",
+        "Art Website Design"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "employer": "CooperSurgical",
+      "location": "Trumbull, CT, USA",
+      "title": "Software Engineering Intern",
+      "period": "May 2023 - Aug 2023",
+      "skills": ["NextJS", "GitLab", "Electron", "React", "Docker"],
+      "achievements": [
+        "Designed and implemented a secured medical software architecture, including a third-party ecosystem and security assessment, from the on-premise with RFID Readers to the cloud on AWS",
+        "Developed a kiosk-wise application for demonstrating the new product design using gRPC, Electron, NextJS, MongoDB, Redis, Docker, and Framer Motion, gaining positive feedback in first-line user-facing workshops",
+        "Mentored 1 intern to be involved in container strategy in Linux and back-end development using Flask"
+      ]
+    },
+    {
+      "employer": "StageSource",
+      "location": "Boston, MA, USA (Remote)",
+      "title": "DevOps Engineer",
+      "period": "Sep 2022 - Dec 2022",
+      "skills": [
+        "Django",
+        "GitHub Actions",
+        "PostgreSQL",
+        "Amazon Web Services",
+        "Docker"
+      ],
+      "achievements": [
+        "Designed and implemented a team workflow for an artist-recruiter-matching web application from the local environment using Docker, Django, uWSGI, Nginx, and PostgreSQL through GitHub Actions to deploy and monitor Ubuntu instances on AWS",
+        "Led 5 developers using Agile with Scrum on Jira"
+      ]
+    },
+    {
+      "employer": "Shopee",
+      "location": "Taipei, Taiwan",
+      "title": "Software Engineer",
+      "period": "Jan 2020 - Feb 2022",
+      "skills": [
+        "Phaser",
+        "React",
+        "Google Cloud Platform",
+        "GitLab",
+        "ThreeJS"
+      ],
+      "achievements": [
+        "Developed multiple mobile SPAs for high-volume tolerance multi-player real-time games with over 200,000 traffic daily and the highest RPS of 10,000 using Three.JS, Phaser, Ant Design, Redux with a self-hosted socket using Socket.IO, Express, and Redis",
+        "Embedded region services within the global data warehouse using Flask, Firestore, and GCP",
+        "Established CICD pipelines for testing and deploying using GitLab and GCP for backstages and games",
+        "Constructed team-level packages and hosted on private NPM, bootstrapping documentation with TypeScript, Postman, and Docusaurus",
+        "Introduced Test-Driven Development using Jest for games and private packages, conducting scheduled load testing using Locust for back-end services and getaways"
+      ]
+    },
+    {
+      "employer": "Edallianz",
+      "location": "Taipei, Taiwan",
+      "title": "Software Engineer",
+      "period": "Jan 2019 - Nov 2019",
+      "skills": [
+        "Django",
+        "Bootstrap",
+        "Amazon Web Services",
+        "Apache",
+        "Nginx"
+      ],
+      "achievements": [
+        "Created a RWD UI framework using SCSS and Webpack, integrating it with Material UI and jQuery",
+        "Constructed web systems with Django, MySQL, RTDB, and Apache as parts of the microservices with Tornado proxying, which were containerized with Docker and deployed on AWS"
+      ]
+    },
+    {
+      "employer": "Servicetech",
+      "location": "Taichung, Taiwan",
+      "title": "Software Engineer",
+      "period": "Jun 2017 - Oct 2018",
+      "skills": [
+        "React",
+        "Ionic",
+        "Google Cloud Platform",
+        "Firebase",
+        "Google API"
+      ],
+      "achievements": [
+        "Built a configurable website that hits 500% more customers using React, Bootstrap, and Firebase",
+        "Developed a cross-platform PWA using Ionic to fully transform a company from paper-based to digital-driven by integrating the workflow between departments"
+      ]
+    }
+  ],
+  "project": [
+    {
+      "title": "AccountHub",
+      "description": "Constructs endpoints for a sophisticated account database system within the OWASP SAMM framework.",
+      "link": "https://github.com/SiegeSailor/OpenSource.AccountHub",
+      "technologies": ["TypeScript", "MySQL", "Redis", "Express"]
+    },
+    {
+      "title": "Formulas",
+      "description": "Provides a collection of cryptography functions and a command line tool with interactive prompts to demonstrate key encryption flows and algorithms.",
+      "link": "https://github.com/SiegeSailor/OpenSource.Formulas",
+      "technologies": ["TypeScript", "Jest", "Inquirer"]
+    }
+  ]
+}

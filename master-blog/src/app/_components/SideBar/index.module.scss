@@ -1,0 +1,31 @@
+.index {
+  display: flex;
+  flex-direction: column;
+  gap: $--font-size-s;
+  width: 100%;
+  --font-size-xs-cache: #{$--font-size-xs};
+  --font-size-xl-cache: #{$--font-size-xl};
+  top: calc((var(--font-size-xs-cache) * 2) + var(--font-size-xl-cache));
+  left: 0;
+  position: fixed;
+  height: 100%;
+  padding: $--font-size-m 10vw;
+  background-color: rgb(var(--color-secondary));
+  transition: 0.15s;
+  text-transform: uppercase;
+  z-index: 1;
+
+  > a {
+    font-size: $--font-size-s;
+    color: rgb(var(--color-main));
+  }
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    gap: $--font-size-s;
+    padding-top: $--font-size-s;
+    margin-top: $--font-size-l;
+    border-top: $--border-width-ml solid rgb(var(--color-system));
+  }
+}

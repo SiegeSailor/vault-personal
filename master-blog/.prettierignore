@@ -1,0 +1,6 @@
+.next/
+.gitignore
+artifacts/
+coverage/
+node_modules/
+public/

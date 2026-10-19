@@ -1,0 +1,40 @@
+.index {
+  border: $--border-width-m solid rgb(var(--color-accent));
+  background-color: rgb(var(--color-main));
+  color: rgb(var(--color-secondary));
+  height: $--font-size-xl;
+  display: grid;
+  align-items: center;
+  transition: 0.15s;
+
+  span {
+    --font-size-xxs-cache: #{$--font-size-xxs};
+    padding: 0 calc(var(--font-size-xxs-cache) * 0.25);
+    font-size: $--font-size-m;
+    color: rgb(var(--color-secondary));
+
+    &:active,
+    &:disabled {
+      color: rgb(var(--color-system));
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(var(--color-accent), 0.25);
+    border: $--border-width-m solid rgb(var(--color-main));
+
+    span {
+      color: rgb(var(--color-main));
+    }
+  }
+
+  &:active,
+  &:disabled {
+    background-color: rgb(var(--color-accent));
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
