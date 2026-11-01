@@ -1,0 +1,1400 @@
+//
+// Page
+//
+
+html,
+*,
+body {
+    font-family: Arial, Helvetica, sans-serif, 微軟正黑體, Microsoft JhengHei;
+    box-sizing: border-box;
+}
+
+.wrap {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    transition: 0.25s;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.filter-accent {
+    width: 100%;
+    height: 100%;
+    background: rgba(108, 121, 146, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.filter-blue {
+    width: 100%;
+    height: 100%;
+    background: rgba(168, 218, 245, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.filter-black {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.filter-darkgray {
+    width: 100%;
+    height: 100%;
+    background: rgba($secondary-darkgray, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+i {
+    padding-right: 12px;
+}
+
+// Nav Bar
+.navbar {
+    background-color: rgba($color: $secondary-black, $alpha: 0.5);
+    position: fixed;
+    z-index: 1200;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    top: 0;
+    box-shadow: 0px 1px 2px 0.5px $secondary-darkgray;
+    font-size: $font-size-small;
+
+    .navbar-active {
+        color: $accent-blue;
+
+        &::after {
+            width: 100% !important;
+        }
+    }
+
+    ul {
+        li {
+            display: inline-block;
+            padding: 4px 10px;
+
+            a {
+                display: block;
+                padding: 12px 16px;
+                text-decoration: none;
+                color: $accent-white;
+
+                &:hover {
+                    color: $accent-blue;
+                }
+
+                position: relative;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 1.25px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 3px;
+                    background: $accent-blue;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+
+
+            }
+        }
+
+        @include ipad {
+            display: none;
+        }
+    }
+
+
+    #navbar-showmenu,
+    #navbar-showmenu-back {
+        display: none;
+        color: #ffffff;
+        font-size: $font-size-large;
+        line-height: 46px;
+        padding-left: 16px;
+        float: left;
+        transition: 0.3s;
+        text-decoration: none;
+
+        &:hover {
+            color: $accent-blue;
+        }
+    }
+
+    #navbar-showmenu-back {
+        color: $accent-blue;
+        display: none;
+    }
+
+    #navbar-showmenu {
+        @include ipad {
+            display: block;
+        }
+    }
+
+
+    @include ipad {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 800;
+        height: 46px;
+    }
+
+}
+
+.navbar-mobile {
+    display: none;
+    background-color: rgba($color: $secondary-black, $alpha: 0.5);
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    top: 0;
+    box-shadow: 0px 1px 2px 0.5px $secondary-darkgray;
+    font-size: $font-size-small;
+    top: 46px;
+    transition: 0.25s !important;
+
+    ul {
+        -webkit-transform: translateX(-500px);
+        transform: translateX(-500px);
+        transition: 0.25s ease;
+
+        li {
+            display: block;
+            text-align: left;
+            padding: 4px 12px;
+
+            a {
+                display: block;
+                padding: 12px 16px;
+                text-decoration: none;
+                color: $accent-white;
+            }
+        }
+
+
+    }
+
+    &.navbar-mobile-active {
+        display: block !important;
+
+
+        ul {
+            -webkit-transform: translateX(0px) !important;
+            transform: translateX(0px) !important;
+        }
+    }
+
+}
+
+
+
+// Header
+.header {
+    width: 100%;
+    background-color: $accent;
+    margin: auto;
+    position: relative;
+
+    .banner {
+        width: 100%;
+        height: 100%;
+        background-image: url("../image/Code-ChristopherGower-Unsplash@3882x2584.jpg");
+        position: absolute;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .alert {
+        background-color: rgba($secondary-black, 0.5);
+        color: $accent-blue;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        box-shadow: 0px 1px 1px 0.5px $secondary-darkgray;
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: $font-size-medium;
+        z-index: 5000;
+
+        @include iphone6 {
+            padding:8px;
+        }
+
+        i:hover {
+            cursor: pointer;
+        }
+
+        a {
+            font-size: $font-size-small;
+            text-decoration: none;
+            color: $accent-white;
+            display: inline-block;
+            border: 1.25px solid $secondary-black;
+            border-radius: 2.5px;
+            background-color: $accent;
+            padding: 6px 12px;
+            margin: 8px 0px;
+            margin-left: 12px;
+
+            @include iphone6 {
+                margin-bottom:0px;
+            }
+
+            &:hover {
+                border: 1.25px solid $accent-blue;
+                background-color: $accent-blue;
+                color: $accent;
+            }
+        }
+    }
+
+
+    .header-title {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+
+        h1 {
+            font-size: $font-size-xxl;
+            color: $accent-white;
+            font-weight: bold;
+            padding-bottom: 21px;
+
+            span {
+                white-space: nowrap;
+            }
+        }
+
+        p {
+            font-size: 21px;
+            color: $accent-gray;
+        }
+
+    }
+
+    ul {
+        position: absolute;
+        top: 75%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: $font-size-medium;
+
+        li {
+            display: inline-block;
+            border: 1.25px solid $accent-white;
+            margin-right: 12px;
+            border-radius: 2.5px;
+            color: $accent-white;
+
+            &:hover {
+                border: 1.25px solid $accent-blue;
+                background-color: $accent-blue;
+            }
+
+            a {
+                display: block;
+                padding: 14px;
+                text-decoration: none;
+                color: $accent-white;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+    }
+
+    .scroll-down {
+        text-decoration: none;
+        width: 36px;
+        text-align: center;
+        height: 36px;
+        font-size: $font-size-large;
+        position: absolute;
+        top: 90%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        a {
+            color: $accent-white;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation-name: pulse;
+    animation-duration: 3s;
+}
+
+// About Me
+// Digital Marketing
+.secondary {
+    width: 100%;
+    background-color: $secondary;
+    padding: 108px 10%;
+    box-sizing: border-box;
+
+    @include ipad {
+        padding: 108px 5%;
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+        padding-bottom: 2px;
+        font-weight: bold;
+        float: left;
+    }
+
+    .title-line {
+        border-top: 1.25px solid $secondary-darkgray;
+        width: 100%;
+        padding-bottom: 18px;
+    }
+
+    span {
+        float: right;
+        padding-top: 16px;
+        line-height: $font-size-xl;
+        font-size: $font-size-medium;
+
+        @include iphone6p {
+            float: left;
+            padding-top: 0px;
+        }
+    }
+
+    h3 {
+        font-size: $font-size-large;
+        padding-bottom: 24px;
+    }
+
+    h4 {
+        padding-bottom: 8px;
+        font-size: $font-size-lm;
+    }
+
+    ul {
+        li {
+            padding: 16px 0px;
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+
+            @include iphone6p {
+                width: 100%;
+            }
+
+            p {
+                font-size: $font-size-medium;
+                line-height: 21px;
+                padding-bottom: 21px;
+            }
+        }
+
+        a {
+            font-size: $font-size-small;
+            text-decoration: none;
+            color: $accent-white;
+            display: inline-block;
+            border: 1.25px solid $secondary-black;
+            border-radius: 2.5px;
+            background-color: $accent;
+            padding: 10px 14px;
+            margin: 16px 6px;
+            margin-left: 0px;
+
+            @include iphone6p {
+                margin: 8px 6px;
+                margin-left: 0px;
+            }
+
+            &:hover {
+                border: 1.25px solid $accent-blue;
+                background-color: $accent-blue;
+                color: $accent;
+            }
+        }
+    }
+
+    .achievement {
+        width: 100%;
+
+        p {
+            background-color: rgba($secondary-lightgray, 0.1);
+            padding: 12px 24px;
+            margin-bottom: 24px;
+            border: 1.25px solid $secondary-black;
+        }
+
+        .mb-0 {
+            margin-bottom: 0px;
+        }
+    }
+
+    .headshot {
+        margin-left: 10%;
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+
+        @include iphone6p {
+            margin-left: 0%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            display: block;
+            border: 1.25px solid $secondary-black;
+            border-radius: 2.5px;
+            background-color: $accent;
+            padding: 0px 0px;
+            margin: 0px 0px;
+            margin-left: 0px;
+
+            &:hover {
+                border: 1.25px solid $accent-blue;
+                background-color: $accent;
+            }
+        }
+    }
+
+    .digital-marketing-headshot {
+        margin-right: 10%;
+        margin-left: 0%;
+
+        @include iphone6p {
+            margin-right:0%;
+        }
+    }
+
+    p {
+        font-size: $font-size-medium;
+        color: $secondary-darkgray;
+    }
+
+
+    // Education Section
+    .education {
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+
+        table {
+            width: 100%;
+
+            td {
+                padding: 4px 0px;
+                line-height: 18px;
+                font-size: $font-size-medium;
+                color: $secondary-darkgray;
+
+                a {
+                    margin: 0px;
+                    padding: 10px 14px;
+                    display: block;
+                    margin-bottom: 28px;
+                }
+
+                .mb-0 {
+                    margin-bottom: 0px;
+                }
+            }
+
+            .education-school {
+                font-size: $font-size-lm;
+                padding-top: 12px;
+                color: $secondary-black;
+            }
+
+            .education-time {
+                color: $secondary-black;
+                padding: 4px 0px;
+                font-size: $font-size-small;
+                font-weight: bold;
+                border-bottom: 1.25px solid $secondary-lightgray;
+            }
+        }
+    }
+
+    // Insight Section
+    .insight {
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+        margin-left: 0px;
+
+        table {
+            width: 100%;
+
+            .insight-caption {
+                padding-bottom: 28px;
+            }
+
+            td {
+                padding: 4px 0px;
+                line-height: 18px;
+                font-size: $font-size-medium;
+                color: $secondary-darkgray;
+
+                a {
+                    margin: 0px;
+                    padding: 10px 14px;
+                    display: block;
+                    margin-bottom: 28px;
+                }
+            }
+
+            .insight-number {
+                font-size: $font-size-large;
+                padding: 21px 0px;
+                color: $secondary-black;
+            }
+
+            .insight-title {
+                color: $secondary-black;
+                padding: 4px 0px;
+                font-size: $font-size-small;
+                font-weight: bold;
+                border-bottom: 1.25px solid $secondary-lightgray;
+            }
+        }
+    }
+
+
+    // Experience Progress Bar
+    .progress-board {
+        padding-left: 10%;
+
+        @include iphone6p {
+            padding-left: 0%;
+        }
+
+        .progress {
+            height: 21px;
+            overflow: hidden;
+            background-color: rgba($secondary-lightgray, 0.1);
+            border-radius: 2.5px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            font-size: $font-size-small;
+            line-height: 18px;
+            color: $accent-white;
+            text-align: center;
+            background-color: $accent;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+            transition: width 3s ease;
+            border: 1.25px solid $secondary-black;
+        }
+    }
+
+    // Digital Marketing Skill Tages
+    .digital-marketing-skills {
+        width: 100%;
+        margin: 0px 0px;
+        margin-bottom: 36px;
+        float: left;
+        text-align: left;
+
+        li {
+            width: 100%;
+            float: none;
+            margin: 0% 0%;
+            padding: 0px;
+            font-size: $font-size-lm;
+
+            a {
+                display: inline-block;
+                font-size: $font-size-small;
+                padding: 10px 14px;
+                margin: 16px 6px;
+                margin-left: 0px;
+                color: $secondary-black;
+                border: 1.25px solid $accent;
+                background-color: $secondary;
+                border-radius: 2.5px;
+                text-decoration: none;
+
+                @include iphone6p {
+                    margin: 8px 6px;
+                    margin-left: 0px;
+                }
+
+                &:hover {
+                    background-color: $accent;
+                    color: $accent-white;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+// Aims
+.aims {
+    margin: 0 auto;
+    background: $secondary-darkgray;
+    position: relative;
+    transition: 0.25s;
+    color: $accent-white;
+
+
+    .aims-banner {
+        width: 100%;
+        height: 100%;
+        background-image: url("../image/Code-ChristopherGower-Unsplash@3882x2584.jpg");
+        position: absolute;
+        background-attachment: fixed;
+        background-size: cover;
+        top: 0;
+    }
+
+    .aims-content {
+        padding: 81px 15%;
+        z-index: 100;
+
+        @include ipad {
+            padding: 81px 5%;
+        }
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+        text-align: center;
+        padding-bottom: 48px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    ul {
+        li {
+            width: 31.3333%;
+            margin: 0px 1%;
+            padding: 0px;
+            box-sizing: border-box;
+            float: left;
+            height: auto;
+            position: relative;
+
+            ul {
+                li {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include ipad {
+            float: none;
+            width: 100%;
+
+            li {
+                float: none;
+                width: 100%;
+                margin-bottom: 42px;
+            }
+        }
+    }
+
+    .aims-avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .avatar-adjust {
+        @include ipad {
+            left: -6.75px;
+        }
+    }
+
+    .aims-comment {
+        margin-left: 100px;
+        padding-right: 100px;
+
+        h4 {
+            font-size: 24px;
+            padding-bottom: 24px;
+
+            @include ipad {
+                padding-bottom: 16px;
+            }
+        }
+
+        p {
+            font-size: $font-size-medium;
+            text-align: left;
+            line-height: 21px;
+            color: $accent-extra;
+        }
+    }
+}
+
+// Front-End
+.secondary-front-end {
+    background: $secondary;
+    width: 100%;
+    padding: 108px 10%;
+    box-sizing: border-box;
+
+    @include ipad {
+        padding: 108px 5%;
+    }
+
+    .title-line {
+        border-bottom: 1.25px solid $secondary-darkgray;
+        margin-bottom: 18px;
+        width: 100%;
+    }
+
+    p {
+        font-size: $font-size-medium;
+        color: $secondary-darkgray;
+        line-height: 21px;
+        padding-bottom: 21px;
+    }
+
+    .front-end-courses {
+        width: 50%;
+        float: right;
+
+        @include ipad {
+            width: 100%;
+        }
+
+        .swiper-container {
+            float: right;
+            width: 450px;
+            margin: 0px;
+
+            @include ipad {
+                float: left;
+                width: 100%;
+                margin-bottom: 24px;
+            }
+
+            .certificate {
+                border: 1.25px solid $secondary-black;
+                padding: 16px;
+
+                @include iphone6p {
+                    padding: 8px;
+                    border-right: 2.25px solid $secondary-black;
+
+                }
+
+                img {
+                    max-width: 100%;
+                    margin-bottom: -3px;
+                }
+
+            }
+
+            h4 {
+                padding: 16px 0px;
+                font-size: $font-size-lm;
+                color: $secondary-black;
+                font-weight: bold;
+            }
+
+            .swiper-button-next {
+                background: url("../image/Swiper-ArrowRight@16x16.png") no-repeat;
+                background-size: 18px;
+            }
+
+            .swiper-button-prev {
+                background: url("../image/Swiper-ArrowLeft@16x16.png") no-repeat;
+                background-size: 18px;
+                left: 18px;
+            }
+
+            .swiper-pagination-progressbar-fill {
+                background-color: $accent;
+            }
+
+            .swiper-pagination-progressbar {
+                background-color: $accent;
+            }
+        }
+    }
+
+    // Skill Tags
+    .front-end-skills {
+        width: 50%;
+        margin: 0px 0px;
+        margin-bottom: 36px;
+        float: left;
+        text-align: left;
+
+        @include iphone6p {
+            width: 100%;
+        }
+
+        li {
+            width: 100%;
+            float: none;
+            margin: 0% 0%;
+            font-size: $font-size-lm;
+
+            a {
+                display: inline-block;
+                font-size: $font-size-small;
+                padding: 10px 14px;
+                margin: 16px 6px;
+                margin-left: 0px;
+                color: $secondary-black;
+                border: 1.25px solid $accent;
+                border-radius: 2.5px;
+                text-decoration: none;
+
+                @include iphone6p {
+                    margin: 8px 6px;
+                    margin-left: 0px;
+                }
+
+                &:hover {
+                    background-color: $accent;
+                    color: $accent-white;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+        padding-bottom: 2px;
+        font-weight: bold;
+        float: left;
+    }
+
+    span {
+        float: right;
+        padding-top: 16px;
+        line-height: $font-size-xl;
+        font-size: $font-size-medium;
+
+        @include iphone6p {
+            float: left;
+            padding: 0px;
+        }
+    }
+
+
+    h3 {
+        font-size: $font-size-large;
+        padding-bottom: 24px;
+    }
+
+
+    // Projects and Practices
+    .front-end-sections {
+        background-color: rgba($secondary-lightgray, 0.1);
+        padding: 24px;
+
+        .thumbnail {
+            border: 1.25px solid $secondary-lightgray;
+            border-radius: 2.5px;
+            max-width: 100%;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transition: .3s ease-in-out;
+                transition: 0.25s ease-in-out;
+                margin-bottom: -3px;
+            }
+
+            &:hover img {
+                -webkit-transform: scale(0.5);
+                transform: scale(1.5);
+            }
+        }
+
+        a {
+            text-decoration: none;
+
+            h4 {
+                padding: 16px 0px;
+                font-size: $font-size-lm;
+                color: $accent;
+                font-weight: bold;
+            }
+        }
+
+
+        .mb-24 {
+            margin-bottom: 24px;
+
+            @include iphone6p {
+                margin-bottom: 0px;
+            }
+
+
+        }
+
+
+
+        ul {
+            margin: 0px -1%;
+            margin-bottom: 0px;
+        }
+
+        li {
+            width: 23%;
+            float: left;
+            margin: 0px 1%;
+            font-size: $font-size-lm;
+            margin-bottom: 24px;
+            height: 325px;
+
+            @include ipad {
+                width: 31.333%;
+                height: 260px;
+            }
+
+            @include iphone6p {
+                width: 100%;
+                height: auto;
+                margin-bottom: 0px;
+            }
+
+            p {
+                line-height: 21px;
+                font-size: $font-size-medium;
+                color: $secondary-darkgray;
+            }
+        }
+    }
+}
+
+.pt-12 {
+    @include ipad {
+        padding-top: 0px !important;
+    }
+}
+
+// Graphic Design
+.accent {
+    width: 100%;
+    box-sizing: border-box;
+    color: $accent-white;
+    background-image: url("../image/Code-ChristopherGower-Unsplash@3882x2584.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+
+
+    .graphic-design-content {
+        padding: 108px 10%;
+        position: relative;
+
+        @include ipad {
+            padding: 108px 5%;
+        }
+    }
+
+    .title-line {
+        border-bottom: 1.25px solid $accent-white;
+        margin-bottom: 18px;
+        width: 100%;
+    }
+
+    ul {
+        margin: 0px -1%;
+        margin-bottom: 36px;
+    }
+
+    li {
+        width: 31.33323%;
+        float: left;
+        margin: 0px 1%;
+        font-size: $font-size-lm;
+
+        p {
+            line-height: 21px;
+            font-size: $font-size-medium;
+            color: $accent-gray;
+            height: 84px;
+        }
+    }
+
+    // Skill Tags
+    .graphic-design-skills {
+        width: 50%;
+        margin: 0px 0px;
+        margin-bottom: 36px;
+        float: left;
+        text-align: left;
+
+        @include iphone6p {
+            width: 100%;
+        }
+
+        li {
+            width: 100%;
+            float: none;
+            margin: 0% 0%;
+            font-size: $font-size-lm;
+
+            a {
+                display: inline-block;
+                font-size: $font-size-small;
+                padding: 10px 14px;
+                margin: 16px 6px;
+                margin-right: 0px;
+                color: $accent-white;
+                border: 1.25px solid $accent-white;
+                border-radius: 2.5px;
+                text-decoration: none;
+
+                @include iphone6p {
+                    margin: 8px 6px;
+                    margin-left: 0px;
+                }
+
+                &:hover {
+                    background-color: $accent-blue;
+                    color: $accent;
+                    border: 1.25px solid $accent-blue;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+        padding-bottom: 2px;
+        font-weight: bold;
+        float: left;
+    }
+
+    span {
+        float: right;
+        padding-top: 16px;
+        line-height: $font-size-xl;
+        font-size: $font-size-medium;
+    }
+
+    h3 {
+        font-size: $font-size-large;
+        padding-bottom: 24px;
+    }
+
+
+    a {
+        text-decoration: none;
+
+        h4 {
+            padding: 8px 0px;
+            font-size: $font-size-lm;
+            color: $accent;
+            font-weight: bold;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Projects
+    // Projects / Grid
+    .grid {
+        max-width: 100%;
+
+        // Project / Projects
+        .projects-title {
+            width: 100%;
+            padding: 16px;
+            line-height: $font-size-lm;
+            font-size: $font-size-lm;
+            color: $secondary-black;
+            border: 1.25px solid $accent-extra;
+            background-color: $accent-extra;
+        }
+
+        .caption {
+            line-height: 21px;
+            font-size: $font-size-medium;
+            color: $accent-gray;
+            padding: 16px;
+            border: 1.25px solid $accent-extra;
+            background-color: $accent;
+        }
+
+        .filter-blue {
+            opacity: 0;
+            transition: 0.25s;
+            z-index: 50;
+            top: 0;
+            left: 0;
+            background: rgba($secondary-black, 0.5);
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before {
+                position: absolute;
+                content: "Click To Link";
+                top: 50%;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin: auto;
+                display: block;
+                font-size: $font-size-lm;
+                color: $accent-blue;
+                font-weight: bold;
+            }
+        }
+
+        .artwork {
+            border: 1.25px solid $accent-extra;
+        }
+
+        img {
+            max-width: 100%;
+            margin-bottom: -3px;
+
+        }
+    }
+
+    // Projects / Clearfix
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    // Projects / Grid-Item
+    .grid-sizer,
+    .grid-item {
+        width: 23%;
+        position: relative;
+        margin: 12px 1%;
+
+        @include ipad {
+            width: 31.333%;
+        }
+
+        @include iphone6p {
+            width:100%;
+        }
+    }
+
+    .grid-item {
+        float: left;
+    }
+
+    .grid-item--width2 {
+        width: 48%;
+    }
+
+    // .grid-item--gigante {
+    //     width: 100%;
+    //     height: 480px;
+    // }
+
+    .grid-item:hover {
+        cursor: pointer;
+    }
+}
+
+.footer {
+
+    // Contact
+    .contact {
+        margin: 0 auto;
+        background: $secondary-darkgray;
+        position: relative;
+        transition: 0.25s;
+        color: $accent-white;
+
+
+        .contact-banner {
+            width: 100%;
+            height: 100%;
+            background-image: url("../image/Code-ChristopherGower-Unsplash@3882x2584.jpg");
+            position: absolute;
+            background-attachment: fixed;
+            background-size: cover;
+            top: 0;
+        }
+
+        .contact-content {
+            padding: 81px 15%;
+            z-index: 100;
+        }
+
+        h2 {
+            font-size: $font-size-xl;
+            text-align: center;
+            padding-bottom: 48px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        ul {
+            position: relative;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: $font-size-medium;
+
+            li {
+                display: inline-block;
+                border: 1.25px solid $accent-white;
+                margin-right: 12px;
+                border-radius: 2.5px;
+                color: $accent-white;
+
+                @include iphone6 {
+                    margin-bottom: 16px;
+                }
+
+                &:hover {
+                    border: 1.25px solid $accent-blue;
+                    background-color: $accent-blue;
+                }
+
+                a {
+                    display: block;
+                    padding: 14px;
+                    text-decoration: none;
+                    color: $accent-white;
+
+                    &:hover {
+                        color: $accent;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// PopUp Windows
+.mail {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    font-size: $font-size-lm;
+
+    .text {
+        position: absolute;
+        padding: 0px 16px;
+        background: $accent;
+        color: $accent-white;
+        width: 60%;
+        height: 42px;
+        line-height: 42px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 1.25px solid $secondary-black;
+
+        i {
+            cursor: pointer;
+        }
+    }
+}
+
+// Scroll Top Button
+.scroll-top {
+    position: fixed;
+    bottom: 48px;
+    right: 2.5%;
+    padding: 0px 12px;
+    font-size: $font-size-large;
+    line-height: $font-size-large;
+    z-index: 1000;
+    border: 1.25px solid $secondary-black;
+    display: block;
+    background: $secondary;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    i {
+        padding: 0px;
+
+
+    }
+
+    &:hover {
+        background: $accent;
+    }
+}
